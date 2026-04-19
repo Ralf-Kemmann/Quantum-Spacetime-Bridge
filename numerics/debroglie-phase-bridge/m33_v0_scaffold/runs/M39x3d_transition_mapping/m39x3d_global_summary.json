@@ -1,0 +1,15 @@
+{
+  "run_id": "M39x3d_transition_mapping",
+  "n_families_total": 6,
+  "n_families_implemented": 6,
+  "n_prediction_supported": 12,
+  "n_prediction_partially_supported": 13,
+  "n_prediction_open": 0,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "global_prediction_status": "internal_type_B_regimes_supported",
+  "multiple_fsw_window": true,
+  "ao_jump_mapped": true,
+  "ao_prejump_present": true,
+  "knee_or_break_detected": true
+}

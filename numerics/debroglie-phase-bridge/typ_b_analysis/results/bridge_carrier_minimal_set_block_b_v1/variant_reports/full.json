@@ -1,0 +1,19 @@
+{
+  "variant": "full",
+  "feature_count": 4,
+  "overall_pass": true,
+  "result_label": "supported",
+  "separation_margin_mean": 0.12074074074074076,
+  "assignment_score": 0.6333333333333333,
+  "original_stability_score": 0.945,
+  "original_vs_control_margin_delta": 0.12074074074074076,
+  "type_B_like_pattern_detected": true,
+  "positive_bootstrap_fraction": 0.945,
+  "n_active_features": 4,
+  "active_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ]
+}

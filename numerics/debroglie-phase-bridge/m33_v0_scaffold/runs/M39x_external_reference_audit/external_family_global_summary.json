@@ -1,0 +1,17 @@
+{
+  "n_families_total": 3,
+  "n_families_passed": 2,
+  "family_pass_fraction": 0.6666666666666666,
+  "delta_p2_dominant_count": 2,
+  "external_main_test_ids": [
+    "ER2_CAVITY"
+  ],
+  "external_control_ids": [
+    "ER1_RING"
+  ],
+  "external_hard_bias_test_ids": [
+    "ER3_MEMBRANE"
+  ],
+  "global_pass_flag": 1,
+  "notes": "M.3.9x evaluates delta_p2 outside the internal family construction space under fixed logic."
+}

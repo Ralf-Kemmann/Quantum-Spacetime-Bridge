@@ -1,0 +1,83 @@
+{
+  "run_id": "debroglie_matter_signature_isotope_carbon_run_b",
+  "created_utc": "2026-04-13T07:35:58.175165+00:00",
+  "conditions": {
+    "temperature_C": 20.0,
+    "pressure_mbar": 1013.0,
+    "volume_m3": 1.0,
+    "temperature_K": 293.15,
+    "pressure_Pa": 101300.0
+  },
+  "model_assumptions": {
+    "species_mode": "isotope_series",
+    "gas_model": "ideal_gas",
+    "velocity_model": "rms",
+    "frequency_mode": "none",
+    "density_mode": "ideal_gas_number_density",
+    "isotope_mode": "wave_plus_valence"
+  },
+  "comparisons": {
+    "mass_only_ordering": [
+      "13c",
+      "12c"
+    ],
+    "wave_signature_ordering": [
+      "12c",
+      "13c"
+    ],
+    "combined_signature_ordering": [
+      "12c",
+      "13c"
+    ],
+    "matter_sensitive_delta_wave": {
+      "13c": 1.0,
+      "12c": -1.0
+    },
+    "matter_sensitive_delta_isotope_carbon": {
+      "13c": 1.0,
+      "12c": -1.0
+    },
+    "structure_invariance_check": {
+      "valence_constant": true,
+      "closure_constant": true,
+      "electron_count_constant": true
+    },
+    "carbon_generalization_flag": true
+  },
+  "isotope_results": [
+    {
+      "isotope": "12c",
+      "label": "12C",
+      "element_symbol": "C",
+      "mass_u": 12.0,
+      "lambda_db": 4.2598434570621364e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 4,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 1.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.6666666666666666,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.5833333333333333
+    },
+    {
+      "isotope": "13c",
+      "label": "13C",
+      "element_symbol": "C",
+      "mass_u": 13.00335483507,
+      "lambda_db": 4.0921972188551905e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 4,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.3333333333333333,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.41666666666666663
+    }
+  ]
+}

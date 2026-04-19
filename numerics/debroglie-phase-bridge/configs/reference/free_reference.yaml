@@ -1,0 +1,13 @@
+mode: free
+p: [-1.5, -0.5, 0.5, 1.5]
+m: 1.0
+t: 0.0
+L: 10.0
+theta: 0.03
+hbar: 1.0
+c: 1.0
+ell0: 1.0
+s_min: 1.0
+epsilon: 1.0e-12
+F: 0.0
+weight: uniform

@@ -1,0 +1,7 @@
+export_class,mode,launchable,pair_unit_count,shell_count,mean_neighbor_count,median_neighbor_count,max_neighbor_count,connected_component_count,largest_component_size,a1_score_mean,a1_score_median,a1_status,a1_only_outcome,b1_score_mean,b1_score_median,b1_status,b1_only_outcome,combined_status,a1_drives_result,b1_drives_result,a1_b1_disagreement,dominant_channel,notes
+negative,shared_endpoint,True,4,4,2.0,2.0,2,1,4,0.5,0.5,weak,weak,2.0,2.0,active,strong,structured_intermediate,False,True,True,b1,
+negative,graph_distance_1,True,4,4,3.0,3.0,3,1,4,0.75,0.75,partial,strong,2.0,2.0,active,strong,structured_intermediate,False,False,False,mixed,
+abs,shared_endpoint,True,4,4,2.0,2.0,2,1,4,0.5,0.5,weak,weak,2.0,2.0,active,strong,structured_intermediate,False,True,True,b1,
+abs,graph_distance_1,True,4,4,3.0,3.0,3,1,4,0.75,0.75,partial,strong,2.0,2.0,active,strong,structured_intermediate,False,False,False,mixed,
+positive,shared_endpoint,False,0,0,0.0,,,0,0,,,not_applicable,na,,,not_applicable,na,boundary_non_launchable,False,False,False,none,
+positive,graph_distance_1,False,0,0,0.0,,,0,0,,,not_applicable,na,,,not_applicable,na,boundary_non_launchable,False,False,False,none,

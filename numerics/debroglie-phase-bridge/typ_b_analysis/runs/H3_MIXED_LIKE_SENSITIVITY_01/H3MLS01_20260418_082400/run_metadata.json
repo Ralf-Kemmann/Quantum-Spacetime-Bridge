@@ -1,0 +1,9 @@
+{
+  "block_id": "H3_MIXED_LIKE_SENSITIVITY_01",
+  "block_version": "v1",
+  "run_id": "H3MLS01_20260418_082400",
+  "source_block": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "generated_at": "2026-04-18T08:24:00",
+  "config_path": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/configs/h3_mixed_like_sensitivity.yaml",
+  "schema_path": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/schemas/h3_mixed_like_sensitivity.schema.json"
+}

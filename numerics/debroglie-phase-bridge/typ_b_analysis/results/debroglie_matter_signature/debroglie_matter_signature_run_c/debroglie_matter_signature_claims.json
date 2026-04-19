@@ -1,0 +1,15 @@
+{
+  "claim_ds1_status": "supported",
+  "claim_ds2_status": "partly_supported",
+  "claim_ds3_status": "supported",
+  "claim_ds4_status": "partly_supported",
+  "claim_ds5_status": "supported",
+  "mass_only_status": "partly_supported",
+  "matter_sensitive_status": "supported",
+  "tau_window_candidate_status": "partly_supported",
+  "overall_status": "partly_supported",
+  "notes": {
+    "max_matter_sensitive_delta": 5.0,
+    "tau_candidate_count": 0
+  }
+}

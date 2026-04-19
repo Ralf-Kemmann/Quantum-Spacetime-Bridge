@@ -1,0 +1,17 @@
+{
+  "variant": "pair_rigidity_distance",
+  "feature_count": 2,
+  "overall_pass": true,
+  "result_label": "supported",
+  "separation_margin_mean": 0.19444444444444436,
+  "assignment_score": 0.7333333333333334,
+  "original_stability_score": 0.855,
+  "original_vs_control_margin_delta": 0.19444444444444436,
+  "type_B_like_pattern_detected": true,
+  "positive_bootstrap_fraction": 0.855,
+  "n_active_features": 2,
+  "active_features": [
+    "simple_rigidity_surrogate",
+    "distance_to_type_D"
+  ]
+}

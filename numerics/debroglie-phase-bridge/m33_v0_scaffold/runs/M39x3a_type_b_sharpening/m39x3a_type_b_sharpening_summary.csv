@@ -1,0 +1,3 @@
+candidate_id,variant_id,candidate_role,dominant_marker,delta_p2_relative_gain_vs_type_A,distance_to_type_D,observed_irregularity_level,prediction_match_status,cross_type_effect,type_B_sharpening_value
+TB2_FINITE_SQUARE_WELL_1D,FINITE_WELL_STANDARD,primary,delta_p,0.272,0.30000000000000004,low_to_moderate,partially_supported,no_cross_type_alarm,0.5720000000000001
+TB3_ANHARMONIC_OSCILLATOR_WEAK_1D,ANHARMONIC_STANDARD,reserve,delta_p,0.26,0.2,low,partially_supported,comparison_only,0.46

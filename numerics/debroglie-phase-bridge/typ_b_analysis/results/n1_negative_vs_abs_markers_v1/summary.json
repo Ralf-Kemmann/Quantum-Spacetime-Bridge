@@ -1,0 +1,176 @@
+{
+  "run_id": "n1_negative_vs_abs_markers_v1",
+  "block": "N1_NEGATIVE_VS_ABS_MARKERS",
+  "status": "completed",
+  "timestamp_utc": "2026-04-10T06:47:33Z",
+  "seed": 123,
+  "inputs": {
+    "dataset_roots": [
+      "../results/a1_probe/k0",
+      "../results/a1_sign_scan/k0/theta_0.03",
+      "../results/a1_probe/n1a_alpha"
+    ],
+    "export_classes": [
+      "negative",
+      "abs",
+      "positive"
+    ],
+    "export_pattern": "*.npz",
+    "search_mode": "recursive"
+  },
+  "parameters": {
+    "pair_unit": {
+      "matrix_pair_mode": "adjacency_plus_threshold",
+      "score_field": "G",
+      "tau": 0.025
+    },
+    "baseline": {
+      "neighborhood_mode": "shared_endpoint"
+    },
+    "alternative": {
+      "neighborhood_mode": "graph_distance_1"
+    },
+    "markers": {
+      "enabled": true,
+      "compare_classes": {
+        "left": "negative",
+        "right": "abs"
+      },
+      "structure": {
+        "enabled": true,
+        "metrics": [
+          "mean_neighbor_count",
+          "median_neighbor_count",
+          "max_neighbor_count",
+          "shell_density_ratio",
+          "component_compactness_proxy"
+        ],
+        "epsilon": 1e-09
+      },
+      "weights": {
+        "enabled": true,
+        "metrics": [
+          "weight_mean",
+          "weight_median",
+          "weight_max",
+          "weight_cv",
+          "strong_edge_fraction"
+        ],
+        "epsilon": 1e-09,
+        "strong_edge_reference": "self_q75"
+      },
+      "channel": {
+        "enabled": true,
+        "metrics": [
+          "a1_score_mean",
+          "a1_score_median",
+          "b1_score_mean",
+          "b1_score_median",
+          "a1_b1_gap_mean"
+        ],
+        "epsilon": 1e-09
+      }
+    }
+  },
+  "per_dataset": {
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/k0": {
+      "baseline": {
+        "negative_launchable": true,
+        "abs_launchable": true,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "tie",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 15,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 15
+      },
+      "alternative": {
+        "negative_launchable": true,
+        "abs_launchable": true,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "tie",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 15,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 15
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03": {
+      "baseline": {
+        "negative_launchable": true,
+        "abs_launchable": true,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "tie",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 15,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 15
+      },
+      "alternative": {
+        "negative_launchable": true,
+        "abs_launchable": true,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "tie",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 15,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 15
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha": {
+      "baseline": {
+        "negative_launchable": false,
+        "abs_launchable": false,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "not_applicable",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 10,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 10
+      },
+      "alternative": {
+        "negative_launchable": false,
+        "abs_launchable": false,
+        "structural_marker_flag": "tie",
+        "weight_marker_flag": "tie",
+        "channel_marker_flag": "not_applicable",
+        "overall_marker_specificity_flag": "tie",
+        "informative_marker_count": 10,
+        "negative_win_count": 0,
+        "abs_win_count": 0,
+        "tie_count": 10
+      }
+    }
+  },
+  "global_summary": {
+    "negative_advantage_count": 0,
+    "abs_advantage_count": 0,
+    "tie_count": 6,
+    "not_applicable_count": 0
+  },
+  "decision": {
+    "block_judgement": "inconclusive",
+    "short_reason": "Additional marker families do not yet reveal a stable internal advantage of negative over abs."
+  },
+  "validation": {
+    "dataset_count": 3,
+    "nan_metrics_detected": false,
+    "validation_notes": []
+  },
+  "warnings": [],
+  "open_points": [
+    "Marker comparison is diagnostic and does not by itself establish physical privilege.",
+    "Small dataset counts limit the strength of internal specificity claims.",
+    "n1a_alpha should be treated as a sensitivity case in the marker reading as well."
+  ]
+}

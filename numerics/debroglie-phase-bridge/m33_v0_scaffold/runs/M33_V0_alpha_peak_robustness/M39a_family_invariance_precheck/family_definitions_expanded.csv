@@ -1,0 +1,6 @@
+family_id,description,expected_type,n_modes,p_min,p_max,p_span,p_values_serialized,notes
+F1,symmetrische Kontrolle,control_symmetric,7,-4.0,4.0,8.0,"[-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0]",Nahezu spiegelnde Referenzfamilie zur Kontrolle gegen triviale Symmetrieeffekte.
+F2,mild asymmetrisch kompakt,compact_negative_candidate,7,-3.0,4.0,7.0,"[-3.0, -2.0, -0.5, 0.0, 1.0, 2.5, 4.0]","Soll eher kompakte negative delta_p2-Strukturen begünstigen, analog zur S2-Arbeitshypothese."
+F3,stark asymmetrisch fernreichweitig,large_negative_candidate,7,-5.0,7.0,12.0,"[-5.0, -2.0, -1.0, 0.0, 1.0, 3.0, 7.0]","Soll groß-negative asymmetrische delta_p2-Strukturen begünstigen, analog zur S1-Arbeitshypothese."
+F4,nichtaffin verzerrt,large_negative_candidate,7,-3.0,5.2,8.2,"[-3.0, -2.2, -0.6, 0.0, 1.4, 2.1, 5.2]","Testet, ob die Asymmetrie-Logik auch unter unregelmäßiger Kanalgeometrie erhalten bleibt."
+F5,asymmetrie-abgeschwächte Gegenprobe,control_symmetric,7,-3.0,3.2,6.2,"[-3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.2]",Abgeschwächte Asymmetrie als Gegenprobe; soll die vermutete Mechanik eher schwächen als schärfen.

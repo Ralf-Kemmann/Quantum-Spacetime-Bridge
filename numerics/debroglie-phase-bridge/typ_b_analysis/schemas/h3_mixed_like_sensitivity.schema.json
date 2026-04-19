@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H3_MIXED_LIKE_SENSITIVITY_01 config schema",
+  "type": "object",
+  "required": [
+    "block_id",
+    "block_version",
+    "source_block",
+    "data_inputs",
+    "mapping_modes",
+    "states",
+    "replication",
+    "metrics",
+    "decision_rules",
+    "outputs"
+  ],
+  "properties": {
+    "block_id": {
+      "type": "string",
+      "const": "H3_MIXED_LIKE_SENSITIVITY_01"
+    },
+    "block_version": {
+      "type": "string"
+    },
+    "source_block": {
+      "type": "string",
+      "const": "H3_SUPPORT_MANIPULATION_DESIGN_01"
+    },
+    "description": {
+      "type": "string"
+    },
+    "data_inputs": {
+      "type": "object",
+      "required": ["support_score_table_path"],
+      "properties": {
+        "support_score_table_path": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "mapping_modes": {
+      "type": "object",
+      "required": ["M0", "M1", "M2"],
+      "properties": {
+        "M0": { "$ref": "#/$defs/mapping_mode" },
+        "M1": { "$ref": "#/$defs/mapping_mode" },
+        "M2": { "$ref": "#/$defs/mapping_mode" }
+      },
+      "additionalProperties": false
+    },
+    "states": {
+      "type": "object",
+      "required": ["A", "B", "C", "D1", "D2"],
+      "properties": {
+        "A": { "$ref": "#/$defs/state" },
+        "B": { "$ref": "#/$defs/state" },
+        "C": { "$ref": "#/$defs/state" },
+        "D1": { "$ref": "#/$defs/state" },
+        "D2": { "$ref": "#/$defs/state" }
+      },
+      "additionalProperties": false
+    },
+    "replication": {
+      "type": "object",
+      "required": ["seeds", "run_all_states_per_seed", "parameter_perturbations"],
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "integer" }
+        },
+        "run_all_states_per_seed": { "type": "boolean" },
+        "parameter_perturbations": {
+          "type": "object",
+          "required": ["enabled", "perturbation_profiles"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "perturbation_profiles": {
+              "type": "object",
+              "required": ["base", "mild_plus", "mild_minus"],
+              "properties": {
+                "base": { "$ref": "#/$defs/profile_factor" },
+                "mild_plus": { "$ref": "#/$defs/profile_factor" },
+                "mild_minus": { "$ref": "#/$defs/profile_factor" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["numeric", "categorical"],
+      "properties": {
+        "numeric": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "categorical": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision_rules": {
+      "type": "object",
+      "required": [
+        "baseline_first_preserved",
+        "monotone_support_scaling",
+        "null_model_suppression",
+        "boundedness_preserved"
+      ],
+      "properties": {
+        "baseline_first_preserved": { "type": "boolean" },
+        "monotone_support_scaling": { "type": "boolean" },
+        "null_model_suppression": { "type": "boolean" },
+        "boundedness_preserved": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["root_dir", "files"],
+      "properties": {
+        "root_dir": { "type": "string" },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "mapping_mode": {
+      "type": "object",
+      "required": ["label", "support_rule", "neighbor_rule"],
+      "properties": {
+        "label": { "type": "string" },
+        "support_rule": { "type": "string" },
+        "neighbor_rule": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": "object",
+      "required": ["label", "reading_mode", "support_manipulation"],
+      "properties": {
+        "label": { "type": "string" },
+        "reading_mode": { "type": "string" },
+        "support_manipulation": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string" },
+            "axis": { "type": "string" },
+            "level": { "type": "number" },
+            "variant": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "profile_factor": {
+      "type": "object",
+      "required": ["factor"],
+      "properties": {
+        "factor": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

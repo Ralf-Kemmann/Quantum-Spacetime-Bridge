@@ -1,0 +1,6 @@
+family_id,variant_id,dominant_marker,energy_marker_best,eigenvalue_marker_best,energy_vs_eigenvalue_margin,dispersion_consistency_flag
+ER1_RING,RING_SIGNED,delta_p,delta_p2,delta_p2,0.0,1
+ER1_RING,RING_ABS,delta_p,delta_p2,delta_p2,0.0,1
+ER1_RING,RING_DEGEN_SAFE,delta_p,delta_p2,delta_p2,0.0,1
+ER2_CAVITY,CAVITY_STANDARD,abs_delta_k,delta_k,delta_k2,-0.011411351172878781,1
+ER3_MEMBRANE,MEMBRANE_STANDARD,delta_k,delta_k,delta_k2,-0.0466931857673577,1

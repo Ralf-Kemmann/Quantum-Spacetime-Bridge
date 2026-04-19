@@ -1,0 +1,30 @@
+{
+  "run_id": "compatibility_real_export_npz_positive_001",
+  "raw_export_path": "./real_local_export_from_npz_positive.json",
+  "mapping_path": "./compatibility_local_model_mapping_npz_negative_v1.json",
+  "context": {
+    "context_id": "CLCX-NPZ-POS-01",
+    "focal_unit_id": "p0_2",
+    "status": "accepted_first_pass_local_context"
+  },
+  "frame": {
+    "lower_floor": "overlap_only_baseline",
+    "upper_ceiling": "simple_rigidity_surrogate",
+    "downstream_target": "DLBSR_class"
+  },
+  "params": {
+    "a1_lambda": 1.0,
+    "a1_active_threshold": 0.20,
+    "a1_overlap_margin": 0.08,
+    "a1_stabilization_ceiling": 0.85,
+    "a1_neighbor_min": 3,
+    "b1_active_threshold": 0.12,
+    "b1_overlap_margin": 0.05,
+    "b1_conflict_penalty": 1.0,
+    "b1_stabilization_ceiling": 0.70
+  },
+  "notes": [
+    "Run config for NPZ-derived positive export.",
+    "Focal unit p0_3 should be checked against export neighbor structure if needed."
+  ]
+}

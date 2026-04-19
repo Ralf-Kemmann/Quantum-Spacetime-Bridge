@@ -1,0 +1,130 @@
+{
+  "block_id": "M.3.9x.3g.a",
+  "block_title": "Type-B exclusion test / null-model control",
+  "run_id": "m39x3g_a_run_001",
+  "run_status": "completed",
+  "feature_space_version": "v_current_baseline",
+  "decision_rule_version": "v2_calibrated",
+  "result_label": "type_B_exclusion_supported",
+  "overall_interpretation": "Original data satisfy absolute quality criteria and remain clearly stronger than controls, while enabled controls fail to reproduce robust Type-B-like structure.",
+  "original_reference": {
+    "dataset_count": 5,
+    "group_labels": [
+      "AO",
+      "FSW"
+    ],
+    "n_rows": 5,
+    "scaling_method": "zscore_from_original_reference",
+    "distance_metric": "euclidean"
+  },
+  "control_family_results": [
+    {
+      "control_family": "K1a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.1763299651413311,
+      "mean_inter_distance": 0.14519106668526066,
+      "pooled_intra_distance": 0.1627697083929994,
+      "separation_margin_mean": 0.01342060777645915,
+      "separation_margin_ci": [
+        -0.015077365406478443,
+        0.11611527406407757
+      ],
+      "separation_ratio_mean": 1.1385414518376697,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 0.6839999999999999,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Bootstrap-based smoke-test interpretation.",
+      "warnings": []
+    },
+    {
+      "control_family": "K2a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.1382562868739142,
+      "mean_inter_distance": 0.16818274624509907,
+      "pooled_intra_distance": 0.14373286925929096,
+      "separation_margin_mean": 0.04999311713798561,
+      "separation_margin_ci": [
+        0.022777342185464525,
+        0.12001064885180175
+      ],
+      "separation_ratio_mean": 1.480548177271495,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 0.8900000000000001,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Bootstrap-based smoke-test interpretation.",
+      "warnings": []
+    },
+    {
+      "control_family": "K3a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.16115807495025172,
+      "mean_inter_distance": 0.17844291253033542,
+      "pooled_intra_distance": 0.1551837632974597,
+      "separation_margin_mean": 0.051307543799054785,
+      "separation_margin_ci": [
+        0.023515870312225243,
+        0.13572277263599955
+      ],
+      "separation_ratio_mean": 1.4563379770196285,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 0.8980000000000001,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Bootstrap-based smoke-test interpretation.",
+      "warnings": []
+    }
+  ],
+  "aggregate_metrics": {
+    "original_separation_margin": 0.21222907364845206,
+    "original_stability_score": 1.0,
+    "original_assignment_score": 1.0,
+    "control_typeB_like_fraction": 0.0,
+    "original_vs_control_margin_delta": 0.16223595651046646
+  },
+  "decision_trace": {
+    "thresholds_used": {
+      "min_stability_score_for_supported": 0.7,
+      "min_original_over_control_margin_delta": 0.086,
+      "max_control_typeB_like_fraction_for_supported": 0.1,
+      "max_control_typeB_like_fraction_for_weak": 0.3,
+      "enabled_control_count": 3,
+      "derived_control_typeB_like_fraction": 0.0,
+      "reference_original_separation_margin_min": 0.21,
+      "reference_original_stability_score_min": 0.8,
+      "reference_original_assignment_score_min": 0.75,
+      "reference_control_margin_quantile_min": 0.75,
+      "original_quality_ok": true,
+      "control_exclusion_ok": true,
+      "relative_advantage_ok": true
+    },
+    "supported_conditions_met": true,
+    "weak_conditions_met": false,
+    "ambiguous_conditions_met": false,
+    "failed_conditions_met": false
+  },
+  "warnings": [],
+  "errors": [],
+  "reproducibility": {
+    "random_seed": 1729,
+    "seed_list": [
+      1729,
+      2718,
+      3141
+    ],
+    "n_resamples": 100,
+    "software_env": {
+      "python_version": "3.12",
+      "numpy_version": "TBD",
+      "pandas_version": "TBD",
+      "sklearn_version": "TBD"
+    }
+  }
+}

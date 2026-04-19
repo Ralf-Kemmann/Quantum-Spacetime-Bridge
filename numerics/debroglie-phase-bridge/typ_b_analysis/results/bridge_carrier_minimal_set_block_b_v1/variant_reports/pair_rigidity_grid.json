@@ -1,0 +1,17 @@
+{
+  "variant": "pair_rigidity_grid",
+  "feature_count": 2,
+  "overall_pass": true,
+  "result_label": "supported",
+  "separation_margin_mean": 0.2525925925925925,
+  "assignment_score": 0.8,
+  "original_stability_score": 0.96,
+  "original_vs_control_margin_delta": 0.2525925925925925,
+  "type_B_like_pattern_detected": true,
+  "positive_bootstrap_fraction": 0.96,
+  "n_active_features": 2,
+  "active_features": [
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ]
+}

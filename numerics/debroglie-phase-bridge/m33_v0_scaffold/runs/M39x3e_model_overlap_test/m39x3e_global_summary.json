@@ -1,0 +1,12 @@
+{
+  "run_id": "M39x3e_model_overlap_test",
+  "source_run_id": "M39x3d_transition_mapping",
+  "n_pair_feature_rows": 60,
+  "n_pair_rows": 12,
+  "n_group_rows": 3,
+  "global_overlap_status": "no_meaningful_model_overlap",
+  "transfer_mean_overlap_distance": 0.9056627684703695,
+  "prejump_mean_overlap_distance": 1.2885939444463879,
+  "jump_mean_overlap_distance": 1.742406439029231,
+  "all_pair_sets_have_only_weak_or_worse_overlap": false
+}

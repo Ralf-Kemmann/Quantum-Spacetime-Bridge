@@ -1,0 +1,13 @@
+{
+  "run_id": "M39x3f_type_b_map",
+  "n_path_points": 18,
+  "n_path_relations": 9,
+  "global_prediction_status": "type_B_paths_related_but_separate",
+  "FSW_quantitative_corridor_visible": true,
+  "AO_structural_transition_visible": true,
+  "no_shared_core_overlap": true,
+  "at_least_one_transfer_map_approach_zone": true,
+  "distance_diagnosis_supports_related_paths": true,
+  "maps_do_not_show_consistent_relation": false,
+  "path_roles_remain_ambiguous": false
+}

@@ -1,0 +1,1 @@
+run_id,t,p_family,theta,alpha,kernel_mode,chi,rho_pos,rho_neg,lambda_max_pos,lambda_max_neg,lambda_max_abs,lambda2_abs,weighted_clustering_abs,natural_connectivity_abs,global_efficiency_abs,n_components_abs,finite_fraction,peak_flag_chi,peak_flag_lambda2,peak_flag_wclust

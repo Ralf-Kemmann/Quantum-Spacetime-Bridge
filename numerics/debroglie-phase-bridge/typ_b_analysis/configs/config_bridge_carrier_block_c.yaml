@@ -1,0 +1,88 @@
+run_id: bridge_carrier_block_c_v1
+source_run_id: M39x_current_bridge_eval
+
+mode: internal_only
+random_seed: 42
+
+data:
+  input_csv: data/bridge_eval_base_dataset.csv
+  results_dir: results/bridge_carrier_block_c_v1
+
+columns:
+  sample_id: sample_id
+  group_label: group_label
+  dataset_role: dataset_role
+  source_family: source_family
+  split_label: split_label
+
+core_features:
+  - distance_to_type_D
+  - spacing_cv
+  - simple_rigidity_surrogate
+  - grid_deviation_score
+
+variants:
+  - name: full
+    active_features:
+      - distance_to_type_D
+      - spacing_cv
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: single_distance
+    active_features:
+      - distance_to_type_D
+
+  - name: single_spacing
+    active_features:
+      - spacing_cv
+
+  - name: single_rigidity
+    active_features:
+      - simple_rigidity_surrogate
+
+  - name: single_grid
+    active_features:
+      - grid_deviation_score
+
+  - name: triple_without_distance
+    active_features:
+      - spacing_cv
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: triple_without_spacing
+    active_features:
+      - distance_to_type_D
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: triple_without_rigidity
+    active_features:
+      - distance_to_type_D
+      - spacing_cv
+      - grid_deviation_score
+
+  - name: triple_without_grid
+    active_features:
+      - distance_to_type_D
+      - spacing_cv
+      - simple_rigidity_surrogate
+
+evaluation:
+  bootstrap:
+    enabled: true
+    n_bootstrap: 200
+    sample_fraction: 1.0
+  thresholds:
+    assignment_pass_min: 0.60
+    stability_pass_min: 0.60
+    near_sufficient_margin_ratio: 0.85
+    near_sufficient_assignment_ratio: 0.90
+    near_sufficient_stability_ratio: 0.90
+
+outputs:
+  write_csv: true
+  write_json: true
+  write_markdown: true
+  write_variant_json: true

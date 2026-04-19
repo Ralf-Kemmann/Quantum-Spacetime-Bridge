@@ -1,0 +1,20 @@
+{
+  "n_families_total": 5,
+  "n_screen_pass": 4,
+  "n_screen_failed": 1,
+  "family_ids_passed": [
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "family_ids_failed": [
+    "F5"
+  ],
+  "best_control_family": "F1",
+  "best_large_negative_candidate": "F3",
+  "best_compact_negative_candidate": "F2",
+  "best_positive_mixed_candidate": null,
+  "precheck_pass_flag": 1,
+  "notes": "Precheck evaluates asymmetry-type suitability, not full mechanism proof."
+}

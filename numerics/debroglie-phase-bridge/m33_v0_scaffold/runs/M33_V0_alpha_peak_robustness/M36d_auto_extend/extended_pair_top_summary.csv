@@ -1,0 +1,7 @@
+run_id,t,p_family,theta,source_feature,best_p0,best_sigma_p,best_alpha_source,best_branch_source,alpha_pref_readout,branch_pref_readout,n_pairs_total,top1_share,top3_share,top5_share,top10_share,effective_pair_count,dominance_label,case_label,branch_basis,branch_label
+M33_V0_alpha_peak_robustness,20.0,P2,1e-08,abs,4.0,1.0,1.42,,1.42,,21,0.8004415110952051,0.998587346311562,0.9999720631716909,0.9999999916442175,1.4829005463284974,pair_dominated,t=20.0__pf=P2__th=1e-08,nearest_branch_readout,S1
+M33_V0_alpha_peak_robustness,40.0,P2,1e-09,neg,-1.5,0.8,1.42,,1.42,,21,0.748035350736259,0.9930964220315388,0.9985356644908198,0.9999999996579864,1.6845972987073528,pair_dominated,t=40.0__pf=P2__th=1e-09,nearest_branch_readout,S1
+M33_V0_alpha_peak_robustness,2.0,P1,3e-09,neg,3.5,0.3,1.58,,1.58,,21,1.0,1.0,1.0,1.0,1.0,pair_dominated,t=2.0__pf=P1__th=3e-09,nearest_branch_readout,S2
+M33_V0_alpha_peak_robustness,10.0,P2,1e-09,neg,-4.0,0.3,1.78,,1.78,,21,1.0,1.0,1.0,1.0,1.0,pair_dominated,t=10.0__pf=P2__th=1e-09,nearest_branch_readout,S3
+M33_V0_alpha_peak_robustness,10.0,P2,3e-09,neg,-4.0,0.3,1.78,,1.78,,21,1.0,1.0,1.0,1.0,1.0,pair_dominated,t=10.0__pf=P2__th=3e-09,nearest_branch_readout,S3
+M33_V0_alpha_peak_robustness,10.0,P2,1e-08,neg,-4.0,0.3,1.78,,1.78,,21,1.0,1.0,1.0,1.0,1.0,pair_dominated,t=10.0__pf=P2__th=1e-08,nearest_branch_readout,S3

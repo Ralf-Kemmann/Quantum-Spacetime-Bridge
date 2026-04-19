@@ -1,0 +1,22 @@
+run_id: H3_READINESS_UPLIFT_01
+output_dir: runs/H3_READINESS_UPLIFT_01
+
+inputs:
+  summaries:
+    - results/n1_negative_vs_abs_v1/summary.json
+    - results/n1_negative_vs_abs_markers_v1/summary.json
+    - results/n1_alt_neighborhood_v1/summary.json
+    - results/n1_alt_neighborhood_v2/summary.json
+    - results/n1_alt_neighborhood_v22/summary.json
+    - results/n1_a1_b1_decoupling_v1/summary.json
+
+policy:
+  tie_warning_threshold: 0.7
+  shell_positive_threshold: 1
+  require_launchability_for_reference: true
+  require_structure_for_reference: true
+
+outputs:
+  write_summary_json: true
+  write_candidate_table_csv: true
+  write_block_readout_md: true

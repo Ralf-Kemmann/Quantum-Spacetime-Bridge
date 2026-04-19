@@ -1,0 +1,2 @@
+family_id,predicted_weak_flag,observed_branch_match_frac,observed_identity_strength,observed_delta_p2_dominance,weaker_than_f2_f3_f4_flag,falsification_alert_flag
+F5,1,0.4683809523809524,0.23676190476190478,0.3525714285714286,1,0

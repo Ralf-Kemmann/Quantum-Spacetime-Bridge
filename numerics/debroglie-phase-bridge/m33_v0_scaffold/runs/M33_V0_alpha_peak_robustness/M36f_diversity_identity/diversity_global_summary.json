@@ -1,0 +1,15 @@
+{
+  "n_cases_raw": 9,
+  "n_cases_pruned": 6,
+  "n_cases_effective_weighted": 5.999999999999999,
+  "pair_separability_pruned": -0.028240116084846556,
+  "delta_p_separability_pruned": 0.11125051182217827,
+  "delta_p2_separability_pruned": 0.1639522992295914,
+  "pair_separability_weighted": 0.07816595492287523,
+  "delta_p_separability_weighted": 0.2066468127958257,
+  "delta_p2_separability_weighted": 0.2703583702367343,
+  "dominant_identity_level_pruned": "delta_p2_class",
+  "dominant_identity_level_weighted": "delta_p2_class",
+  "replicate_sensitivity_flag": 0,
+  "final_label": "F2"
+}

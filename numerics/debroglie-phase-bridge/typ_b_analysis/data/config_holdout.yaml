@@ -1,0 +1,232 @@
+block_id: "M.3.9x.3g.c"
+block_title: "Type-B holdout validation"
+run_id: "m39x3g_c_holdout_run_001"
+run_status: "planned"
+
+project:
+  project_id: "typ_b_analysis"
+  project_stage: "M.3.9x.3g.c"
+  analyst_mode: "defensive_red_team"
+  notes: >
+    Holdout-style validation block for the hardened Type-B exclusion protocol.
+    The purpose is to test whether the positive exclusion result survives on a
+    holdout original reference that was not used for threshold calibration or
+    primary reference selection.
+
+data:
+  holdout_original_features_path: "data/holdout/holdout_original_features.csv"
+  control_features_path: "data/controls/control_features_v2.csv"
+  input_manifest_path: "data/holdout/holdout_input_manifest.csv"
+
+  id_columns:
+    dataset_id: "dataset_id"
+    family_id: "family_id"
+    window_id: "window_id"
+    label_internal: "label_internal"
+    source_type: "source_type"
+    control_family: "control_family"
+    replicate_id: "replicate_id"
+
+  source_type_values:
+    holdout_original: "holdout_original"
+    control: "control"
+
+feature_space:
+  feature_space_version: "v_current_baseline"
+  feature_columns:
+    - "distance_to_type_D"
+    - "spacing_cv"
+    - "simple_rigidity_surrogate"
+    - "grid_deviation_score"
+
+  required_feature_columns:
+    - "distance_to_type_D"
+    - "spacing_cv"
+    - "simple_rigidity_surrogate"
+    - "grid_deviation_score"
+
+  allow_additional_features: true
+  missing_value_policy: "fail_if_required_missing"
+  row_filter_policy: "keep_all_valid_rows"
+
+preprocessing:
+  scaling_method: "zscore_from_original_reference"
+  scaling_reference: "fixed_from_calibration_context"
+  center: true
+  scale: true
+  clip_outliers: false
+  outlier_clip_quantiles: null
+
+distance:
+  distance_metric: "euclidean"
+  pairwise_engine: "sklearn"
+  distance_scope: "full_feature_space"
+
+holdout_definition:
+  holdout_level: "H1_or_H2"
+  holdout_source_type: "to_be_filled"
+  must_not_be_used_for_calibration: true
+  must_not_be_used_for_reference_selection: true
+  primary_holdout_reference_id: "HOLDOUT_OX"
+  notes: >
+    Replace HOLDOUT_OX with the actual holdout reference identifier once the
+    holdout source is fixed. The holdout reference must not have contributed to
+    threshold calibration or O2/O3 selection.
+
+fixed_thresholds:
+  calibration_source: "M.3.9x.3g.a/b fixed working thresholds"
+  original_separation_margin_min: 0.21
+  original_stability_score_min: 0.80
+  original_assignment_score_min: 0.75
+  min_original_over_control_margin_delta: 0.086
+  control_margin_quantile_min: 0.75
+  notes: >
+    These thresholds are fixed inputs for the holdout block and must not be
+    changed on the basis of holdout results.
+
+type_b_rules:
+  version: "operational_type_b_rules_v1"
+  notes: >
+    Same hardened Type-B rule block as used in the current exclusion protocol.
+
+  distance_to_type_D:
+    min: 0.15
+    max: 0.45
+
+  spacing_cv:
+    min: 0.20
+    max: 0.60
+
+  grid_deviation_score:
+    min: 0.05
+    max: 0.30
+
+  simple_rigidity_surrogate:
+    min: 0.40
+
+  separation_margin:
+    min: 0.20
+
+  assignment_score:
+    min: 0.75
+
+  stability_score:
+    min: 0.80
+
+  separation_margin_ci_low:
+    min: 0.05
+
+control_families:
+  - id: "K1a"
+    description: "grid_disrupted_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: "Adversarial grid-disrupted control."
+
+  - id: "K2a"
+    description: "rigidity_disrupted_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: "Adversarial rigidity-disrupted control."
+
+  - id: "K3a"
+    description: "coupled_structural_disruption_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: "Adversarial coupled structural-disruption control."
+
+metrics:
+  primary_metrics:
+    - "mean_intra_distance"
+    - "mean_inter_distance"
+    - "pooled_intra_distance"
+    - "separation_margin"
+    - "separation_ratio"
+    - "stability_score"
+    - "assignment_score"
+
+  pooled_intra_definition: "mean(intra_holdout_reference, intra_control)"
+  separation_margin_definition: "mean_inter_distance - pooled_intra_distance"
+  separation_ratio_definition: "mean_inter_distance / pooled_intra_distance"
+
+assignment:
+  method: "nearest_centroid"
+  cv_scheme: "leave_one_out"
+  report_confusion: false
+
+resampling:
+  enabled: true
+  scheme: "bootstrap"
+  n_resamples: 1000
+  stratified: true
+  sample_fraction: 1.0
+  with_replacement: true
+  confidence_interval: 0.95
+
+decision_rules:
+  version: "holdout_v1"
+
+  invalid_conditions:
+    require_minimum_two_enabled_control_families: true
+    require_identical_preprocessing_for_original_and_control: true
+    require_resampling: true
+    require_fixed_distance_metric: true
+    require_documented_feature_space: true
+    require_fixed_thresholds: true
+
+  thresholds:
+    min_stability_score_for_supported: 0.70
+    min_original_over_control_margin_delta: 0.086
+    max_control_typeB_like_fraction_for_supported: 0.10
+    max_control_typeB_like_fraction_for_weak: 0.30
+
+  interpretation_logic:
+    supported: >
+      Holdout reference satisfies the fixed quality thresholds and remains clearly
+      stronger than controls under the hardened exclusion protocol.
+    weak: >
+      Holdout reference shows partial support, but the evidence is still too weak
+      for a strong holdout claim.
+    ambiguous: >
+      Holdout result is inconclusive under the fixed thresholds and current
+      controls.
+    failed: >
+      Holdout reference does not sustain the positive exclusion result under the
+      fixed hardened protocol.
+
+outputs:
+  base_dir: "runs/M39x3g_c_holdout/m39x3g_c_holdout_run_001"
+  write_input_manifest_copy: true
+  write_scaled_features: true
+  write_pairwise_distances: false
+  write_diagnostics_tables: true
+  write_resampling_tables: true
+  write_report_md: true
+  write_summary_json: true
+
+paths:
+  diagnostics_dir: "diagnostics"
+  resampling_dir: "resampling"
+  report_path: "holdout_report.md"
+  summary_path: "holdout_summary.json"
+  diagnostics_path: "holdout_diagnostics.csv"
+
+reproducibility:
+  random_seed: 1729
+  seed_list:
+    - 1729
+    - 2718
+    - 3141
+  software_env:
+    python_version: "3.12"
+    numpy_version: "TBD"
+    pandas_version: "TBD"
+    sklearn_version: "TBD"
+
+audit:
+  created_by: "Nova"
+  created_at: "2026-04-04"
+  last_modified_at: "2026-04-04"
+  notes: >
+    Initial holdout validation config. The holdout source, holdout reference id,
+    and holdout manifest rows must be filled before execution.

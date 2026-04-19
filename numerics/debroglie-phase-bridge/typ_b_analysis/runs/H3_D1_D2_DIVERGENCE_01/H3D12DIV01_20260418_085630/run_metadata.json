@@ -1,0 +1,9 @@
+{
+  "block_id": "H3_D1_D2_DIVERGENCE_01",
+  "block_version": "v1",
+  "run_id": "H3D12DIV01_20260418_085630",
+  "source_block": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "generated_at": "2026-04-18T08:56:30",
+  "config_path": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/configs/h3_d1_d2_divergence.yaml",
+  "schema_path": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/schemas/h3_d1_d2_divergence.schema.json"
+}

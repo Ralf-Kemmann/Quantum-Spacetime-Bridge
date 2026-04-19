@@ -1,0 +1,5 @@
+family_id,variant_id,spectral_type,hardening_status,hardening_note,observed_irregularity_level,delta_p_competitive,delta_p2_absolute_strength_high,delta_p2_not_clearly_dominant,delta_p2_relative_gain_vs_type_A,distance_to_type_D,behavior_matches_type_D_too_closely
+TD1_1D_BOX,BOX_STANDARD,type_D_regular_nonring,supported,Type D supports a broader regularity reading.,low,True,False,True,0.135,,
+TB2_FINITE_SQUARE_WELL_1D,FINITE_WELL_STANDARD,type_B_quadratic_nontrivial,partially_supported,Primary Type B is plausible and somewhat separated from Type D.,low_to_moderate,True,False,True,0.272,0.30000000000000004,False
+TB3_ANHARMONIC_OSCILLATOR_WEAK_1D,ANHARMONIC_STANDARD,type_B_quadratic_nontrivial,partially_supported,Reserve Type B remains plausible but not decisive.,low,True,False,True,0.26,0.2,False
+CROSS_TYPE_PRIMARY,TYPE_B_PRIMARY_VS_TYPE_D,cross_type,no_cross_type_alarm,Primary Type B and Type D are distinguishable enough.,,,,,,,

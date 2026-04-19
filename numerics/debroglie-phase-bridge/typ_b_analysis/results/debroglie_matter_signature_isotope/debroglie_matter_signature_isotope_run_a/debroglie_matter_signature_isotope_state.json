@@ -1,0 +1,105 @@
+{
+  "run_id": "debroglie_matter_signature_isotope_run_a",
+  "created_utc": "2026-04-13T06:20:43.944871+00:00",
+  "conditions": {
+    "temperature_C": 20.0,
+    "pressure_mbar": 1013.0,
+    "volume_m3": 1.0,
+    "temperature_K": 293.15,
+    "pressure_Pa": 101300.0
+  },
+  "model_assumptions": {
+    "species_mode": "isotope_series",
+    "gas_model": "ideal_gas",
+    "velocity_model": "rms",
+    "frequency_mode": "none",
+    "density_mode": "ideal_gas_number_density",
+    "isotope_mode": "wave_only"
+  },
+  "comparisons": {
+    "mass_only_ordering": [
+      "3h",
+      "2h",
+      "1h"
+    ],
+    "wave_signature_ordering": [
+      "1h",
+      "2h",
+      "3h"
+    ],
+    "combined_signature_ordering": [
+      "1h",
+      "2h",
+      "3h"
+    ],
+    "matter_sensitive_delta_wave": {
+      "3h": 2.0,
+      "2h": 0.0,
+      "1h": -2.0
+    },
+    "matter_sensitive_delta_isotope": {
+      "3h": 2.0,
+      "2h": 0.0,
+      "1h": -2.0
+    },
+    "structure_invariance_check": {
+      "valence_constant": true,
+      "closure_constant": true,
+      "electron_count_constant": true
+    },
+    "isotope_consistency_flag": true
+  },
+  "isotope_results": [
+    {
+      "isotope": "1h",
+      "label": "1H",
+      "element_symbol": "H",
+      "mass_u": 1.00782503223,
+      "lambda_db": 1.4699132076236666e-10,
+      "energy_j": 6.071058815249999e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 1,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 1.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.6666666666666666,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.6666666666666666
+    },
+    {
+      "isotope": "2h",
+      "label": "2H",
+      "element_symbol": "H",
+      "mass_u": 2.01410177812,
+      "lambda_db": 1.0397850199213139e-10,
+      "energy_j": 6.071058815249999e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 1,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.36835586081658805,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.456118620272196,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.456118620272196
+    },
+    {
+      "isotope": "3h",
+      "label": "3H",
+      "element_symbol": "H",
+      "mass_u": 3.0160492779,
+      "lambda_db": 8.496988808531537e-11,
+      "energy_j": 6.071058815249999e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 1,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.3333333333333333,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.3333333333333333
+    }
+  ]
+}

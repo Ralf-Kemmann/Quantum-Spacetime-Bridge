@@ -1,0 +1,745 @@
+
+project:
+  run_id: "M33_V0_alpha_peak_robustness"
+  tag: "phase_source_vs_readout"
+  seed: 42
+  output_root: "./runs/M33_V0_alpha_peak_robustness"
+
+physics:
+  hbar: 1.0
+  m: 1.0
+
+grid:
+  x_min: -40.0
+  x_max: 40.0
+  nx: 4001
+  window:
+    type: "gaussian"
+    sigma: 8.0
+    normalize_weights: true
+
+time_scan:
+  enabled: true
+  t_values: [0.0, 2.0, 5.0, 10.0, 20.0, 40.0]
+
+alpha_scan:
+  coarse:
+    alpha_min: 0.3
+    alpha_max: 3.0
+    alpha_step: 0.1
+  refine:
+    enabled: true
+    center_mode: "fixed"
+    fixed_center: 1.6
+    half_width: 0.3
+    alpha_step: 0.02
+
+p_sets:
+  active_families: ["P0", "P1", "P2", "P3"]
+  families:
+    P0:
+      description: "symmetric reference"
+      p_values: [-3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+    P1:
+      description: "mild asymmetric"
+      p_values: [-3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0]
+    P2:
+      description: "strong asymmetric"
+      p_values: [-4.0, -2.0, -1.0, 0.0, 1.0, 3.0, 6.0]
+    P3:
+      description: "affine asymmetric"
+      p_values: [-3.0, -1.9, -0.8, 0.0, 1.2, 2.7, 4.4]
+
+graphs:
+  theta_scan:
+    enabled: true
+    theta_values: [1.0e-9, 3.0e-9, 1.0e-8]
+
+phases:
+  phi0_mode: "zero"
+  phi0_seed: 123
+  dispersion:
+    mode: "scaled_free"
+    formula: "omega_i = alpha * p_i^2 / (2*m)"
+
+kernel:
+  build_kbar: true
+  kbar_average:
+    mode: "weighted_x_average"
+  sign_preserving:
+    enabled: true
+    zero_tolerance: 1.0e-12
+
+graphs:
+  theta_scan:
+    enabled: true
+    theta_values: [0.02, 0.03, 0.05]
+  adjacency_modes: ["abs", "positive", "negative"]
+  weighted_layer:
+    enabled: true
+    metrics:
+      - "natural_connectivity"
+      - "weighted_clustering"
+      - "global_efficiency"
+
+source_test:
+  enabled: true
+  measures:
+    - "var_dphi_x"
+    - "mean_cos_dphi"
+    - "mean_abs_cos_dphi"
+    - "kbar_ij"
+    - "sign_fraction"
+    - "lambda_max_kpos"
+    - "lambda_max_kneg"
+
+readout_test:
+  enabled: true
+  measures:
+    - "chi"
+    - "rho_pos"
+    - "rho_neg"
+    - "lambda_max_pos"
+    - "lambda_max_neg"
+    - "lambda_max_abs"
+    - "lambda2_abs"
+    - "weighted_clustering_abs"
+    - "natural_connectivity_abs"
+    - "global_efficiency_abs"
+
+peak_detection:
+  edge_exclusion_bins: 1
+  prominence_mode: "median_baseline"
+  source_peak_band: [1.4, 1.8]
+  readout_peak_band: [1.4, 1.8]
+  coherence_tol_fine: 0.15
+  robust_fraction_min: 0.70
+
+controls:
+  require_t0_control: true
+  require_nontrivial_p_asymmetry: true
+  finite_fraction_min: 1.0
+  allow_edge_peaks: false
+
+labels:
+  source_labels: ["Q0", "Q1", "Q2", "Q3"]
+  robustness_labels: ["R0", "R1", "R2", "R3"]
+m34_branch_analysis:
+  enabled: true
+
+  input:
+    readout_summary: "runs/M33_V0_alpha_peak_robustness/M33_readout_scan/alpha_scan_summary.csv"
+    readout_candidates: "runs/M33_V0_alpha_peak_robustness/M33_readout_scan/local_coherence_candidates.csv"
+    source_summary: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_peak_summary.csv"
+    source_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/kernel_sign_stats.csv"
+
+  selection:
+    exclude_t0: true
+    candidate_scope: "preferred"   # preferred | band_only | all_band_candidates
+    allowed_readout_labels: ["R1", "R3"]
+    band_min: 1.3
+    band_max: 1.9
+    min_coherence_score: null
+
+  branches:
+    - id: "B1"
+      left: 1.38
+      right: 1.46
+      center: 1.42
+    - id: "B2"
+      left: 1.55
+      right: 1.66
+      center: 1.60
+    - id: "B3"
+      left: 1.72
+      right: 1.82
+      center: 1.77
+
+  source_link:
+    enabled: true
+    alpha_tolerance: 0.12
+
+  thresholds:
+    dominant_branch_min_fraction: 0.45
+    source_link_min_fraction: 0.60
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M34_branch_scan"
+
+m35a_packet_model:
+  enabled: true
+
+  input:
+    source_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/kernel_sign_stats.csv"
+    readout_summary: "runs/M33_V0_alpha_peak_robustness/M33_readout_scan/alpha_scan_summary.csv"
+    branch_assignment: "runs/M33_V0_alpha_peak_robustness/M34_branch_scan/branch_assignment.csv"
+
+  selection:
+    exclude_t0: true
+    allowed_readout_labels: ["R1", "R3"]
+    source_features: ["neg", "abs"]
+    candidate_scope: "preferred"
+
+  packet_model:
+    family: "gaussian"
+    p0_grid: [-4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    sigma_p_grid: [0.3, 0.5, 0.8, 1.0, 1.3, 1.7, 2.2, 3.0]
+    pair_weight_mode: "product_prob"
+
+  alpha:
+    band_min: 1.3
+    band_max: 1.9
+
+  source_branches:
+    - id: "S1"
+      left: 1.38
+      right: 1.46
+      center: 1.42
+    - id: "S2"
+      left: 1.55
+      right: 1.66
+      center: 1.60
+    - id: "S3"
+      left: 1.72
+      right: 1.82
+      center: 1.77
+
+  coupling:
+    alpha_tolerance: 0.12
+    branch_match_weight: 1.0
+    alpha_match_weight: 1.0
+    source_score_weight: 0.5
+    readout_score_weight: 0.5
+
+  thresholds:
+    dominant_source_branch_min_fraction: 0.45
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M35a_packet_model"
+
+m35b_pair_kernel_export:
+  enabled: true
+
+  input:
+    phase_pair_stats: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/phase_pair_stats.csv"
+
+  output:
+    pair_kernel_csv: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+    summary_json: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha_summary.json"
+    validation_csv: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha_validation.csv"
+
+  export:
+    sign_zero_tolerance: 1.0e-12
+    require_pair_order: true
+    drop_nonfinite_rows: false
+    sort_rows: true
+m35b_packet_kernel:
+  enabled: true
+
+  input:
+    source_pair_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+    readout_summary: "runs/M33_V0_alpha_peak_robustness/M33_readout_scan/alpha_scan_summary.csv"
+    branch_assignment: "runs/M33_V0_alpha_peak_robustness/M34_branch_scan/branch_assignment.csv"
+
+  selection:
+    exclude_t0: true
+    allowed_readout_labels: ["R1", "R3"]
+    source_features: ["neg", "abs"]
+
+  packet_model:
+    family: "gaussian"
+    p0_grid: [-4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    sigma_p_grid: [0.3, 0.5, 0.8, 1.0, 1.3, 1.7, 2.2, 3.0]
+    pair_weight_mode: "product_prob"
+
+  alpha:
+    band_min: 1.3
+    band_max: 1.9
+
+  source_branches:
+    - id: "S1"
+      left: 1.38
+      right: 1.46
+      center: 1.42
+    - id: "S2"
+      left: 1.55
+      right: 1.66
+      center: 1.60
+    - id: "S3"
+      left: 1.72
+      right: 1.82
+      center: 1.77
+
+  coupling:
+    alpha_tolerance: 0.12
+    branch_match_weight: 1.0
+    alpha_match_weight: 1.0
+    source_score_weight: 0.5
+    readout_score_weight: 0.5
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M35b_packet_kernel"
+
+m35b_packet_kernel:
+  enabled: true
+
+  input:
+    source_pair_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+    readout_summary: "runs/M33_V0_alpha_peak_robustness/M33_readout_scan/alpha_scan_summary.csv"
+    branch_assignment: "runs/M33_V0_alpha_peak_robustness/M34_branch_scan/branch_assignment.csv"
+
+  selection:
+    exclude_t0: true
+    allowed_readout_labels: ["R1", "R3"]
+    source_features: ["neg", "abs"]
+
+  packet_model:
+    family: "gaussian"
+    p0_grid: [-4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+    sigma_p_grid: [0.3, 0.5, 0.8, 1.0, 1.3, 1.7, 2.2, 3.0]
+    pair_weight_mode: "product_prob"
+
+  alpha:
+    band_min: 1.3
+    band_max: 1.9
+
+  source_branches:
+    - id: "S1"
+      left: 1.38
+      right: 1.46
+      center: 1.42
+    - id: "S2"
+      left: 1.55
+      right: 1.66
+      center: 1.60
+    - id: "S3"
+      left: 1.72
+      right: 1.82
+      center: 1.77
+
+  coupling:
+    alpha_tolerance: 0.12
+    branch_match_weight: 1.0
+    alpha_match_weight: 1.0
+    source_score_weight: 0.5
+    readout_score_weight: 0.5
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M35b_packet_kernel"
+m35c_soft_branch:
+  enabled: true
+
+  input:
+    packet_fit_best: "runs/M33_V0_alpha_peak_robustness/M35b_packet_kernel/packet_fit_best.csv"
+
+  branches:
+    - id: "S1"
+      left: 1.38
+      right: 1.46
+      center: 1.42
+    - id: "S2"
+      left: 1.55
+      right: 1.66
+      center: 1.60
+    - id: "S3"
+      left: 1.72
+      right: 1.82
+      center: 1.77
+
+  soft_matching:
+    sigma_branch: 0.06
+    sigma_tail: 0.05
+    mode: "gaussian_center"
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch"
+m36a_pair_audit:
+  enabled: true
+
+  input:
+    packet_fit_best: "runs/M33_V0_alpha_peak_robustness/M35b_packet_kernel/packet_fit_best.csv"
+    source_pair_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+
+  selection:
+    audit_cases:
+      - {t: 2.0,  p_family: "P1", theta: 1.0e-09}
+      - {t: 5.0,  p_family: "P0", theta: 1.0e-09}
+      - {t: 40.0, p_family: "P3", theta: 1.0e-09}
+
+  grouping:
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit"
+m36b_pair_identity:
+  enabled: true
+
+  input:
+    pair_contributions: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_contributions.csv"
+    pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_top_summary.csv"
+    pair_class_summary: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_class_summary.csv"
+
+  selection:
+    top_k_values: [1, 3, 5]
+    branch_source_column: "branch_pref_readout"
+
+  comparison:
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36b_pair_identity"
+
+m36c_branch_expanded:
+  enabled: true
+
+  input:
+    nearest_branch_assignment: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/nearest_branch_assignment.csv"
+    soft_branch_scores: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_scores.csv"
+    soft_branch_summary: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_summary.csv"
+    pair_contributions: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_contributions.csv"
+    pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_top_summary.csv"
+    pair_class_summary: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_class_summary.csv"
+
+  selection:
+    branch_basis: "nearest_branch_readout"
+    n_cases_per_branch: 3
+    require_nearest_match: true
+    require_soft_match: false
+    ranking_metric: "soft_overlap_score"
+    audit_mode: "strict_reuse"   # strict_reuse | auto_extend
+
+  comparison:
+    top_k_values: [1, 3, 5]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36c_branch_expanded"
+m36d_auto_extend:
+  enabled: true
+
+  input:
+    nearest_branch_assignment: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/nearest_branch_assignment.csv"
+    soft_branch_scores: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_scores.csv"
+    soft_branch_summary: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_summary.csv"
+    packet_fit_best: "runs/M33_V0_alpha_peak_robustness/M35b_packet_kernel/packet_fit_best.csv"
+    source_pair_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+    pair_top_summary_existing: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_top_summary.csv"
+    pair_contributions_existing: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_contributions.csv"
+    pair_class_summary_existing: "runs/M33_V0_alpha_peak_robustness/M36a_pair_audit/pair_class_summary.csv"
+
+  selection:
+    branch_basis: "nearest_branch_readout"
+    target_cases_per_branch: 3
+    require_nearest_match: true
+    require_soft_match: false
+    ranking_primary: "soft_overlap_score"
+    ranking_secondary: "hard_delta_alpha"
+
+  grouping:
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend"
+
+m36e_combined_identity:
+  enabled: true
+
+  input:
+    combined_pair_contributions: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_contributions.csv"
+    combined_pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_top_summary.csv"
+    combined_pair_class_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_class_summary.csv"
+
+  comparison:
+    top_k_values: [1, 3, 5]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36e_combined_identity"
+m36f_diversity_identity:
+  enabled: true
+
+  input:
+    combined_pair_contributions: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_contributions.csv"
+    combined_pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_top_summary.csv"
+    combined_pair_class_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_class_summary.csv"
+
+  diversity:
+    grouping_columns: ["branch_label", "t", "p_family", "source_feature"]
+    ranking_primary: "top3_share"
+    ranking_secondary: "effective_pair_count"
+    run_pruned: true
+    run_weighted: true
+
+  comparison:
+    top_k_values: [1, 3, 5]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M36f_diversity_identity"
+m37_sigma_robustness:
+  enabled: true
+
+  input:
+    combined_pair_contributions: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_contributions.csv"
+    combined_pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_top_summary.csv"
+    combined_pair_class_summary: "runs/M33_V0_alpha_peak_robustness/M36d_auto_extend/combined_pair_class_summary.csv"
+    source_pair_kernel: "runs/M33_V0_alpha_peak_robustness/V0_source_scan/source_pair_kernel_alpha.csv"
+    diversity_case_table: "runs/M33_V0_alpha_peak_robustness/M36f_diversity_identity/diversity_case_table.csv"
+
+  sweep:
+    sigma_factors: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0]
+    min_sigma_p: 0.1
+    modes: ["pruned", "weighted"]
+
+  comparison:
+    top_k_values: [1, 3, 5]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M37_sigma_robustness"
+
+    m38a_dispersion_test:
+  enabled: true
+
+  packet:
+    k0_values: [-4.0, -1.5, -1.0, 3.5, 4.0]
+    sigma_k_values: [0.3, 0.5, 0.8, 1.0]
+    t_values: [2.0, 5.0, 10.0]
+    v: 1.0
+    nu_values: [0.0, 0.02]
+
+  grid:
+    k_min: -8.0
+    k_max: 8.0
+    n_k: 801
+    x_min: -40.0
+    x_max: 40.0
+    n_x: 801
+
+  comparison:
+    dispersion_modes: ["none", "quadratic"]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test"
+m38a_dispersion_test:
+  enabled: true
+
+  packet:
+    k0_values: [-4.0, -1.5, -1.0, 3.5, 4.0]
+    sigma_k_values: [0.3, 0.5, 0.8, 1.0]
+    t_values: [2.0, 5.0, 10.0]
+    v: 1.0
+    nu_values: [0.0, 0.02]
+
+  grid:
+    k_min: -8.0
+    k_max: 8.0
+    n_k: 801
+    x_min: -40.0
+    x_max: 40.0
+    n_x: 801
+
+  comparison:
+    dispersion_modes: ["none", "quadratic"]
+    class_modes: ["delta_p", "delta_p2"]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test"
+m38b_branch_dispersion:
+  enabled: true
+
+  input:
+    wavepacket_case_grid: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test/wavepacket_case_grid.csv"
+    wavepacket_metrics: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test/wavepacket_metrics.csv"
+    dispersion_pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test/dispersion_pair_top_summary.csv"
+    dispersion_class_summary: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test/dispersion_class_summary.csv"
+    dispersion_identity_comparison: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test/dispersion_identity_comparison.csv"
+
+    branch_reference_summary: "runs/M33_V0_alpha_peak_robustness/M36f_diversity_identity/diversity_branch_summary.csv"
+    sigma_branch_scores: "runs/M33_V0_alpha_peak_robustness/M37_sigma_robustness/sigma_branch_scores.csv"
+    soft_branch_frequency: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_frequency_table.csv"
+
+  matching:
+    reference_modes: ["pruned", "weighted"]
+    top_k_values: [1, 3, 5]
+    class_modes: ["delta_p", "delta_p2"]
+    use_hard: true
+    use_nearest: true
+    use_soft: true
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion"
+m38a_dispersion_test_v2:
+  enabled: true
+
+  packet:
+    k0_values: [-4.0, -1.5, -1.0, 3.5, 4.0]
+    sigma_k_values: [0.3, 0.5, 0.8, 1.0]
+    t_values: [2.0, 5.0, 10.0]
+    v: 1.0
+    nu_values: [0.0, 0.02]
+
+  grid:
+    k_min: -8.0
+    k_max: 8.0
+    n_k: 801
+    x_min: -40.0
+    x_max: 40.0
+    n_x: 801
+
+  comparison:
+    dispersion_modes: ["none", "quadratic"]
+    class_modes: ["delta_p", "delta_p2"]
+    pair_top_k_values: [1, 3, 5, 10]
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2"
+
+m38b_branch_dispersion_v2:
+  enabled: true
+
+  input:
+    wavepacket_case_grid: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/wavepacket_case_grid.csv"
+    wavepacket_metrics: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/wavepacket_metrics.csv"
+    dispersion_pair_full: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/dispersion_pair_full.csv"
+    dispersion_pair_topk: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/dispersion_pair_topk.csv"
+    dispersion_pair_top_summary: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/dispersion_pair_top_summary.csv"
+    dispersion_class_summary: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/dispersion_class_summary.csv"
+    dispersion_identity_comparison: "runs/M33_V0_alpha_peak_robustness/M38a_dispersion_test_v2/dispersion_identity_comparison.csv"
+
+    branch_reference_summary: "runs/M33_V0_alpha_peak_robustness/M36f_diversity_identity/diversity_branch_summary.csv"
+    sigma_branch_scores: "runs/M33_V0_alpha_peak_robustness/M37_sigma_robustness/sigma_branch_scores.csv"
+    soft_branch_frequency: "runs/M33_V0_alpha_peak_robustness/M35c_soft_branch/soft_branch_frequency_table.csv"
+
+  matching:
+    reference_modes: ["pruned", "weighted"]
+    top_k_values: [1, 3, 5, 10]
+    class_modes: ["delta_p", "delta_p2"]
+    hard_min_score: 0.55
+    hard_min_margin: 0.10
+    use_hard: true
+    use_nearest: true
+    use_soft: true
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2"
+m38b_branch_dispersion_v2_1:
+  enabled: true
+
+  input:
+    branch_dispersion_case_table: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_case_table.csv"
+    branch_dispersion_match_scores: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_match_scores.csv"
+    branch_dispersion_pair_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_shift.csv"
+    branch_dispersion_pair_migration_detail: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_migration_detail.csv"
+    branch_dispersion_class_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_class_shift.csv"
+    branch_dispersion_branch_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_branch_summary.csv"
+    s2_focus_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/S2_focus_summary.csv"
+    branch_dispersion_global_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_global_summary.json"
+
+  hard_rule_grid:
+    hard_min_score_values: [0.45, 0.50, 0.55, 0.60]
+    hard_min_margin_values: [0.03, 0.05, 0.08, 0.10]
+
+  relabel:
+    stable_identity_overlap_min: 0.95
+    stable_identity_weighted_min: 0.95
+    stable_reweighting_overlap_min: 0.80
+    stable_reweighting_weighted_max: 0.95
+    major_migration_overlap_max: 0.40
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2_1"
+m38b_branch_dispersion_v2_1:
+  enabled: true
+
+  input:
+    branch_dispersion_case_table: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_case_table.csv"
+    branch_dispersion_match_scores: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_match_scores.csv"
+    branch_dispersion_pair_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_shift.csv"
+    branch_dispersion_pair_migration_detail: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_migration_detail.csv"
+    branch_dispersion_class_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_class_shift.csv"
+    branch_dispersion_branch_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_branch_summary.csv"
+    s2_focus_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/S2_focus_summary.csv"
+    branch_dispersion_global_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_global_summary.json"
+
+  hard_rule_grid:
+    hard_min_score_values: [0.45, 0.50, 0.55, 0.60]
+    hard_min_margin_values: [0.03, 0.05, 0.08, 0.10]
+
+  selection:
+    # Choose the first candidate that meets these targets.
+    # If none meet them, the runner falls back to the best elbow.
+    max_ambiguity_target: 0.35
+    min_resolved_preservation_target: 0.90
+
+  relabel:
+    stable_identity_overlap_min: 0.95
+    stable_identity_weighted_min: 0.95
+    stable_identity_entering_max: 0
+    stable_identity_leaving_max: 0
+    stable_identity_rank_shift_max: 0.50
+
+    stable_reweighting_overlap_min: 0.80
+    stable_reweighting_weighted_max: 0.95
+    stable_reweighting_entering_max: 1
+    stable_reweighting_leaving_max: 1
+    stable_reweighting_rank_shift_max: 2.50
+
+    major_migration_overlap_max: 0.40
+    major_migration_weighted_max: 0.60
+    major_migration_changed_pairs_min: 3
+    major_migration_rank_shift_min: 4.00
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2_1"
+m38b_branch_dispersion_v2_1:
+  enabled: true
+
+  input:
+    branch_dispersion_case_table: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_case_table.csv"
+    branch_dispersion_match_scores: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_match_scores.csv"
+    branch_dispersion_pair_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_shift.csv"
+    branch_dispersion_pair_migration_detail: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_pair_migration_detail.csv"
+    branch_dispersion_class_shift: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_class_shift.csv"
+    branch_dispersion_branch_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_branch_summary.csv"
+    s2_focus_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/S2_focus_summary.csv"
+    branch_dispersion_global_summary: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2/branch_dispersion_global_summary.json"
+
+  hard_rule_grid:
+    hard_min_score_values: [0.35, 0.38, 0.40, 0.42, 0.45, 0.50, 0.55, 0.60]
+    hard_min_margin_values: [0.00, 0.01, 0.02, 0.03, 0.05, 0.08, 0.10]
+
+  selection:
+    max_ambiguity_target: 0.35
+    min_resolved_preservation_target: 0.90
+
+  relabel:
+    stable_identity_overlap_min: 0.95
+    stable_identity_weighted_min: 0.95
+    stable_identity_entering_max: 0
+    stable_identity_leaving_max: 0
+    stable_identity_rank_shift_max: 0.50
+
+    stable_reweighting_overlap_min: 0.80
+    stable_reweighting_weighted_max: 0.95
+    stable_reweighting_entering_max: 1
+    stable_reweighting_leaving_max: 1
+    stable_reweighting_rank_shift_max: 2.50
+
+    major_migration_overlap_max: 0.40
+    major_migration_weighted_max: 0.60
+    major_migration_changed_pairs_min: 3
+    major_migration_rank_shift_min: 4.00
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M38b_branch_dispersion_v2_1"
+
+# Recommended operational candidate after follow-up:
+# hard_min_score: 0.38
+# hard_min_margin: 0.00
+#
+# More permissive fallback:
+# hard_min_score: 0.35
+# hard_min_margin: 0.00
+

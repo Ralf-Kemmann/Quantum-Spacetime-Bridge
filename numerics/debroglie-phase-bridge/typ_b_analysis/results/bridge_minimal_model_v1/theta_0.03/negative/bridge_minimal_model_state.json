@@ -1,0 +1,122 @@
+{
+  "run_id": "bridge_minimal_model_v1",
+  "dataset_id": "theta_0.03",
+  "dataset_root": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03",
+  "export_class": "negative",
+  "regime": "macro",
+  "source_files": [
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03/negative/matrices.npz"
+  ],
+  "source_matrix_name": "G",
+  "available_npz_fields": [
+    "G",
+    "adjacency",
+    "d_rel",
+    "edge_length",
+    "graph_distance",
+    "kbar"
+  ],
+  "state_fields": {
+    "A": [
+      9.876640424859436e-13,
+      1.0123359575140563,
+      1.0123359575140563,
+      9.876640424859436e-13
+    ],
+    "theta": [
+      -0.039999999999999994,
+      0.03999999999999917,
+      0.03999999999999917,
+      -0.039999999999999994
+    ],
+    "phi_geom": [
+      -26.937873935368604,
+      0.012260489603261452,
+      0.012260489603261452,
+      -26.937873935368604
+    ]
+  },
+  "effective_structure": {
+    "d_eff": [
+      [
+        0.0,
+        26.950134424971864,
+        53.90026884994373,
+        0.0
+      ],
+      [
+        26.950134424971864,
+        0.0,
+        0.0,
+        53.90026884994373
+      ],
+      [
+        53.90026884994373,
+        0.0,
+        0.0,
+        26.950134424971864
+      ],
+      [
+        0.0,
+        53.90026884994373,
+        26.950134424971864,
+        0.0
+      ]
+    ],
+    "neighborhoods": {
+      "0": [
+        3
+      ],
+      "1": [
+        2
+      ],
+      "2": [
+        1
+      ],
+      "3": [
+        0
+      ]
+    },
+    "graph_proxy": [
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ]
+    ]
+  },
+  "diagnostics": {
+    "structure_stability_score": 0.5601576021146373,
+    "phase_influence_score": 0.01233595751405625,
+    "geometry_readability_score": 1.0,
+    "a_theta_coupling_active": true,
+    "theta_visibility": 0.2,
+    "phase_averaging_strength": 0.8
+  },
+  "testable_claims_ready": [
+    "claim_A",
+    "claim_B",
+    "claim_C",
+    "claim_D"
+  ],
+  "timestamp_utc": "2026-04-10T10:24:07Z"
+}

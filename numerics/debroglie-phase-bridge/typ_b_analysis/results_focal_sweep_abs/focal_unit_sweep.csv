@@ -1,0 +1,7 @@
+focal_unit_id,support_sector,support_value,neighbor_count,neighbors,a1_status,a1_score,a1_agreement,a1_conflict,a1_anti_stabilization,b1_status,b1_relative_fragility,b1_baseline_support,b1_anti_stabilization
+p0_1,-1,0.029394,4,"p0_2,p0_3,p1_2,p1_3",materially_active,0.278128,0.639064,0.360936,passes,weak_ambiguous,0.218042,0.067403,passes
+p0_2,1,0.024663,4,"p0_1,p0_3,p1_2,p2_3",weak_ambiguous,-1.0,0.0,1.0,passes,weak_ambiguous,0.0,0.0,passes
+p0_3,-1,0.032934,4,"p0_1,p0_2,p1_3,p2_3",weak_ambiguous,0.087505,0.543753,0.456247,passes,materially_active,0.388424,0.042395,passes
+p1_2,-1,0.054402,4,"p0_1,p0_2,p1_3,p2_3",weak_ambiguous,0.087505,0.543753,0.456247,passes,materially_active,0.425931,0.063863,passes
+p1_3,1,0.024663,4,"p0_1,p0_3,p1_2,p2_3",weak_ambiguous,-1.0,0.0,1.0,passes,weak_ambiguous,0.0,0.0,passes
+p2_3,-1,0.029394,4,"p0_2,p0_3,p1_2,p1_3",materially_active,0.278128,0.639064,0.360936,passes,weak_ambiguous,0.218042,0.067403,passes

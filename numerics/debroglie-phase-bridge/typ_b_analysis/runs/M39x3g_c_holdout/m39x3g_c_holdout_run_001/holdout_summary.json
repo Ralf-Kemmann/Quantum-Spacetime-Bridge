@@ -1,0 +1,129 @@
+{
+  "block_id": "M.3.9x.3g.a",
+  "block_title": "Type-B holdout validation",
+  "run_id": "m39x3g_c_holdout_run_001",
+  "run_status": "completed",
+  "feature_space_version": "v_current_baseline",
+  "decision_rule_version": "holdout_v1",
+  "result_label": "type_B_exclusion_weak",
+  "overall_interpretation": "Original data show partial quality and controls remain mostly negative, but the relative advantage over controls is still too weak for strong support.",
+  "original_reference": {
+    "dataset_count": 3,
+    "group_labels": [
+      "AO"
+    ],
+    "n_rows": 3,
+    "scaling_method": "zscore_from_original_reference",
+    "distance_metric": "euclidean"
+  },
+  "control_family_results": [
+    {
+      "control_family": "K1a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.1763299651413311,
+      "mean_inter_distance": 0.3670100207372981,
+      "pooled_intra_distance": 0.09883165099345104,
+      "separation_margin_mean": 0.2886652088682804,
+      "separation_margin_ci": [
+        0.2602939391554819,
+        0.34266415080739754
+      ],
+      "separation_ratio_mean": 79200.81339114743,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 1.0,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Holdout evaluation diagnostic.",
+      "warnings": []
+    },
+    {
+      "control_family": "K2a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.1382562868739142,
+      "mean_inter_distance": 0.4192008805582553,
+      "pooled_intra_distance": 0.07979481185974258,
+      "separation_margin_mean": 0.3562661316335307,
+      "separation_margin_ci": [
+        0.3320760788734794,
+        0.39942185715527645
+      ],
+      "separation_ratio_mean": 84191.85147747045,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 1.0,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Holdout evaluation diagnostic.",
+      "warnings": []
+    },
+    {
+      "control_family": "K3a",
+      "enabled": true,
+      "n_instances": 5,
+      "n_rows": 5,
+      "mean_intra_distance": 0.16115807495025172,
+      "mean_inter_distance": 0.4140155084009562,
+      "pooled_intra_distance": 0.09124570589791134,
+      "separation_margin_mean": 0.3417977028063483,
+      "separation_margin_ci": [
+        0.31741339402595703,
+        0.3941226209026133
+      ],
+      "separation_ratio_mean": 88225.70887014465,
+      "stability_score_mean": 0.0,
+      "stability_score_ci": null,
+      "assignment_score_mean": 1.0,
+      "type_B_like_pattern_detected": false,
+      "interpretation": "Holdout evaluation diagnostic.",
+      "warnings": []
+    }
+  ],
+  "aggregate_metrics": {
+    "original_separation_margin": 0.3562661316335307,
+    "original_stability_score": 0.0,
+    "original_assignment_score": 1.0,
+    "control_typeB_like_fraction": 0.0,
+    "original_vs_control_margin_delta": 0.014468428827182411
+  },
+  "decision_trace": {
+    "thresholds_used": {
+      "min_stability_score_for_supported": 0.7,
+      "min_original_over_control_margin_delta": 0.086,
+      "max_control_typeB_like_fraction_for_supported": 0.1,
+      "max_control_typeB_like_fraction_for_weak": 0.3,
+      "enabled_control_count": 3,
+      "derived_control_typeB_like_fraction": 0.0,
+      "reference_original_separation_margin_min": 0.21,
+      "reference_original_stability_score_min": 0.8,
+      "reference_original_assignment_score_min": 0.75,
+      "reference_control_margin_quantile_min": 0.75,
+      "original_quality_ok": false,
+      "control_exclusion_ok": true,
+      "relative_advantage_ok": false
+    },
+    "supported_conditions_met": false,
+    "weak_conditions_met": true,
+    "ambiguous_conditions_met": false,
+    "failed_conditions_met": false
+  },
+  "warnings": [],
+  "errors": [],
+  "reproducibility": {
+    "random_seed": 1729,
+    "seed_list": [
+      1729,
+      2718,
+      3141
+    ],
+    "n_resamples": 1000,
+    "software_env": {
+      "python_version": "3.12",
+      "numpy_version": "TBD",
+      "pandas_version": "TBD",
+      "sklearn_version": "TBD"
+    }
+  }
+}

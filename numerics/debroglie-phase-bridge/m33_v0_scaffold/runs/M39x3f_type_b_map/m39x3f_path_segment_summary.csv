@@ -1,0 +1,9 @@
+path_id,segment_id,segment_interpretation,n_points,regime_ids,mean_delta_p2_relative_gain_vs_type_A,mean_distance_to_type_D,mean_spacing_cv,mean_grid_deviation_score,mean_simple_rigidity_surrogate,dominant_regime_assignment,has_local_transition_flag,has_knee_candidate_flag
+FSW_PATH,FSW_TYPE_D_NEAR,type_D_near_entry,3,"FSW_D01,FSW_D02,FSW_D03",0.03499999999999993,0.04484266666666667,0.0408058349064072,0.04333333333333337,0.0015093333333332335,type_D_near,True,False
+FSW_PATH,FSW_ENTRY,entry_to_quantitative_corridor,1,FSW_D04,0.087,0.113176,0.1431256344367255,0.1333333333333334,0.0131759999999999,quantitative_type_B_window,True,False
+FSW_PATH,FSW_CORE,quantitative_type_B_core,2,"FSW_D05,FSW_D06",0.24,0.242668,0.29988775305177107,0.23750000000000004,0.042668,quantitative_type_B_window,True,False
+FSW_PATH,FSW_OUTER,irregular_outer_corridor,3,"FSW_D07,FSW_D08,FSW_D09",0.10899999999999999,0.25248000000000004,0.4406307146176371,0.2677777777777777,0.052479999999999964,quantitative_type_B_window,False,False
+AO_PATH,AO_EARLY,early_quantitative_gain,3,"AO_A01,AO_A02,AO_A03",0.43533333333333335,0.08257244444444434,0.05909118929335936,0.0794444444444443,0.004794666666666566,quantitative_type_B_transfer_zone,False,False
+AO_PATH,AO_TRANSFER,quantitative_transfer_zone,3,"AO_A04,AO_A05,AO_A06",0.26,0.14983999999999997,0.15844073616498486,0.25666666666666665,0.04983999999999994,quantitative_type_B_transfer_zone,False,False
+AO_PATH,AO_TRANSITION,structural_transition_zone,2,"AO_A07,AO_A08",0.13699999999999996,0.3,0.25538512777200156,0.4991666666666665,0.1835119999999999,jump_transition_candidate,False,False
+AO_PATH,AO_JUMP,qualitative_structural_core,1,AO_A09,0.1169999999999999,0.3,0.2915973678275185,0.6266666666666664,0.2866239999999999,qualitative_type_B_jump,True,False

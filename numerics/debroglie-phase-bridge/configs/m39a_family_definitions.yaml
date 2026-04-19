@@ -1,0 +1,30 @@
+families:
+  - family_id: F1
+    description: "symmetrische Kontrolle"
+    expected_type: "control_symmetric"
+    notes: "Nahezu spiegelnde Referenzfamilie zur Kontrolle gegen triviale Symmetrieeffekte."
+    p_values: [-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0]
+
+  - family_id: F2
+    description: "mild asymmetrisch kompakt"
+    expected_type: "compact_negative_candidate"
+    notes: "Nachgeschärfte kompakte Negativfamilie mit reduziertem positivem Fernende zur besseren Trennung gegen large_negative."
+    p_values: [-2.8, -1.8, -0.6, 0.0, 0.9, 1.7, 2.6]
+
+  - family_id: F3
+    description: "stark asymmetrisch fernreichweitig"
+    expected_type: "large_negative_candidate"
+    notes: "Soll groß-negative asymmetrische delta_p2-Strukturen begünstigen, analog zur S1-Arbeitshypothese."
+    p_values: [-5.0, -2.0, -1.0, 0.0, 1.0, 3.0, 7.0]
+
+  - family_id: F4
+    description: "nichtaffin verzerrt"
+    expected_type: "large_negative_candidate"
+    notes: "Testet, ob die Asymmetrie-Logik auch unter unregelmäßiger Kanalgeometrie erhalten bleibt."
+    p_values: [-3.0, -2.2, -0.6, 0.0, 1.4, 2.1, 5.2]
+
+  - family_id: F5
+    description: "asymmetrie-abgeschwächte Gegenprobe"
+    expected_type: "control_symmetric"
+    notes: "Abgeschwächte Asymmetrie als Gegenprobe; soll die vermutete Mechanik eher schwächen als schärfen."
+    p_values: [-3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.2]

@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H3_D1_D2_DIVERGENCE_01 config schema",
+  "type": "object",
+  "required": [
+    "block_id",
+    "block_version",
+    "source_block",
+    "data_inputs",
+    "reference_logic",
+    "states",
+    "replication",
+    "metrics",
+    "decision_rules",
+    "outputs"
+  ],
+  "properties": {
+    "block_id": {
+      "type": "string",
+      "const": "H3_D1_D2_DIVERGENCE_01"
+    },
+    "block_version": {
+      "type": "string"
+    },
+    "source_block": {
+      "type": "string",
+      "const": "H3_SUPPORT_MANIPULATION_DESIGN_01"
+    },
+    "description": {
+      "type": "string"
+    },
+    "data_inputs": {
+      "type": "object",
+      "required": ["support_score_table_path"],
+      "properties": {
+        "support_score_table_path": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "reference_logic": {
+      "type": "object",
+      "required": [
+        "mapping_origin",
+        "pair_representation",
+        "score_channel",
+        "support_mapping",
+        "neighbor_mapping"
+      ],
+      "properties": {
+        "mapping_origin": { "type": "string" },
+        "pair_representation": { "type": "boolean" },
+        "score_channel": { "type": "string" },
+        "support_mapping": { "type": "string" },
+        "neighbor_mapping": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "states": {
+      "type": "object",
+      "required": ["D1", "D2"],
+      "properties": {
+        "D1": { "$ref": "#/$defs/state" },
+        "D2": { "$ref": "#/$defs/state" }
+      },
+      "additionalProperties": false
+    },
+    "replication": {
+      "type": "object",
+      "required": ["seeds", "run_all_states_per_seed", "parameter_perturbations"],
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "integer" }
+        },
+        "run_all_states_per_seed": { "type": "boolean" },
+        "parameter_perturbations": {
+          "type": "object",
+          "required": ["enabled", "perturbation_profiles"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "perturbation_profiles": {
+              "type": "object",
+              "required": ["base", "mild_plus", "mild_minus"],
+              "properties": {
+                "base": { "$ref": "#/$defs/profile_factor" },
+                "mild_plus": { "$ref": "#/$defs/profile_factor" },
+                "mild_minus": { "$ref": "#/$defs/profile_factor" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["numeric", "categorical"],
+      "properties": {
+        "numeric": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "categorical": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision_rules": {
+      "type": "object",
+      "required": [
+        "detect_algorithmic_divergence",
+        "detect_outcome_divergence",
+        "detect_practical_collapse"
+      ],
+      "properties": {
+        "detect_algorithmic_divergence": { "type": "boolean" },
+        "detect_outcome_divergence": { "type": "boolean" },
+        "detect_practical_collapse": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["root_dir", "files"],
+      "properties": {
+        "root_dir": { "type": "string" },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "required": ["label", "reading_mode", "support_manipulation"],
+      "properties": {
+        "label": { "type": "string" },
+        "reading_mode": { "type": "string" },
+        "support_manipulation": {
+          "type": "object",
+          "required": ["type", "variant"],
+          "properties": {
+            "type": { "type": "string" },
+            "variant": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "profile_factor": {
+      "type": "object",
+      "required": ["factor"],
+      "properties": {
+        "factor": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

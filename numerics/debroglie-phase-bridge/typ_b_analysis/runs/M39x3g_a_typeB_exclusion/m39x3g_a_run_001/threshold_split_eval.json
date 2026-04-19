@@ -1,0 +1,156 @@
+{
+  "protocol": {
+    "name": "threshold_split_eval_v1",
+    "description": "O1-based calibration; O2 primary evaluation; O3 replication evaluation",
+    "distance_metric": "euclidean",
+    "n_resamples": 100,
+    "seed": 1729
+  },
+  "calibration": {
+    "source_pair": "O1",
+    "source_margin": 0.17360190252056484,
+    "control_delta_quantile_q": 0.9,
+    "suggested_original_separation_margin_min_raw": 0.17360190252056484,
+    "suggested_original_separation_margin_min_used": 0.17360190252056484,
+    "suggested_min_original_over_control_margin_delta": 0.1528667928718004,
+    "notes": [
+      "Suggested original separation margin threshold = median(original_margins) + std(original_margins).",
+      "Suggested relative-advantage threshold = q0.90(control_deltas).",
+      "These are calibration values, not final physical constants.",
+      "Because calibration used only O1 as original margin input, the used margin threshold is max(raw_suggestion, O1 margin)."
+    ]
+  },
+  "pairs": {
+    "O1": {
+      "pair_id": "O1",
+      "fsw_labels": [
+        "FSW_D05",
+        "FSW_D06"
+      ],
+      "ao_labels": [
+        "AO_A03",
+        "AO_A04",
+        "AO_A05"
+      ],
+      "separation_margin_mean": 0.17360190252056484,
+      "separation_margin_ci_low": 0.12994683589370945,
+      "separation_margin_ci_high": 0.2396034470367678,
+      "separation_ratio_mean": Infinity,
+      "assignment_score_mean": 1.0,
+      "stability_score": 1.0,
+      "passes_margin_threshold": true,
+      "passes_stability_threshold": true,
+      "passes_assignment_threshold": true,
+      "overall_pass": true
+    },
+    "O2": {
+      "pair_id": "O2",
+      "fsw_labels": [
+        "FSW_D05",
+        "FSW_D06"
+      ],
+      "ao_labels": [
+        "AO_A04",
+        "AO_A05",
+        "AO_A06"
+      ],
+      "separation_margin_mean": 0.21222907364845206,
+      "separation_margin_ci_low": 0.19044266430529033,
+      "separation_margin_ci_high": 0.272763633939717,
+      "separation_ratio_mean": Infinity,
+      "assignment_score_mean": 1.0,
+      "stability_score": 1.0,
+      "passes_margin_threshold": true,
+      "passes_stability_threshold": true,
+      "passes_assignment_threshold": true,
+      "overall_pass": true
+    },
+    "O3": {
+      "pair_id": "O3",
+      "fsw_labels": [
+        "FSW_D05",
+        "FSW_D06"
+      ],
+      "ao_labels": [
+        "AO_A04",
+        "AO_A05"
+      ],
+      "separation_margin_mean": 0.21222907364845206,
+      "separation_margin_ci_low": 0.19044266430529033,
+      "separation_margin_ci_high": 0.272763633939717,
+      "separation_ratio_mean": Infinity,
+      "assignment_score_mean": 1.0,
+      "stability_score": 1.0,
+      "passes_margin_threshold": true,
+      "passes_stability_threshold": true,
+      "passes_assignment_threshold": true,
+      "overall_pass": true
+    }
+  },
+  "decisions": {
+    "O2": {
+      "result_label": "type_B_exclusion_supported",
+      "overall_interpretation": "Original data satisfy absolute quality criteria and remain clearly stronger than controls, while enabled controls fail to reproduce robust Type-B-like structure.",
+      "decision_trace": {
+        "thresholds_used": {
+          "min_stability_score_for_supported": 0.7,
+          "min_original_over_control_margin_delta": 0.1528667928718004,
+          "max_control_typeB_like_fraction_for_supported": 0.1,
+          "max_control_typeB_like_fraction_for_weak": 0.3,
+          "enabled_control_count": 3,
+          "derived_control_typeB_like_fraction": 0.0,
+          "reference_original_separation_margin_min": 0.17360190252056484,
+          "reference_original_stability_score_min": 0.8,
+          "reference_original_assignment_score_min": 0.75,
+          "reference_control_margin_quantile_min": 0.75,
+          "original_quality_ok": true,
+          "control_exclusion_ok": true,
+          "relative_advantage_ok": true
+        },
+        "supported_conditions_met": true,
+        "weak_conditions_met": false,
+        "ambiguous_conditions_met": false,
+        "failed_conditions_met": false
+      },
+      "aggregate_metrics": {
+        "original_separation_margin": 0.21222907364845206,
+        "original_stability_score": 1.0,
+        "original_assignment_score": 1.0,
+        "control_typeB_like_fraction": 0.0,
+        "original_vs_control_margin_delta": 0.16223595651046646
+      }
+    },
+    "O3": {
+      "result_label": "type_B_exclusion_supported",
+      "overall_interpretation": "Original data satisfy absolute quality criteria and remain clearly stronger than controls, while enabled controls fail to reproduce robust Type-B-like structure.",
+      "decision_trace": {
+        "thresholds_used": {
+          "min_stability_score_for_supported": 0.7,
+          "min_original_over_control_margin_delta": 0.1528667928718004,
+          "max_control_typeB_like_fraction_for_supported": 0.1,
+          "max_control_typeB_like_fraction_for_weak": 0.3,
+          "enabled_control_count": 3,
+          "derived_control_typeB_like_fraction": 0.0,
+          "reference_original_separation_margin_min": 0.17360190252056484,
+          "reference_original_stability_score_min": 0.8,
+          "reference_original_assignment_score_min": 0.75,
+          "reference_control_margin_quantile_min": 0.75,
+          "original_quality_ok": true,
+          "control_exclusion_ok": true,
+          "relative_advantage_ok": true
+        },
+        "supported_conditions_met": true,
+        "weak_conditions_met": false,
+        "ambiguous_conditions_met": false,
+        "failed_conditions_met": false
+      },
+      "aggregate_metrics": {
+        "original_separation_margin": 0.21222907364845206,
+        "original_stability_score": 1.0,
+        "original_assignment_score": 1.0,
+        "control_typeB_like_fraction": 0.0,
+        "original_vs_control_margin_delta": 0.16223595651046646
+      }
+    }
+  }
+}

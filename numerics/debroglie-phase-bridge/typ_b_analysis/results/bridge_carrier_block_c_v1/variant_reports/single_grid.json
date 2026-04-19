@@ -1,0 +1,16 @@
+{
+  "variant": "single_grid",
+  "feature_count": 1,
+  "overall_pass": false,
+  "result_label": "failed",
+  "separation_margin_mean": 0.10740740740740745,
+  "assignment_score": 0.5777777777777777,
+  "original_stability_score": 0.85,
+  "original_vs_control_margin_delta": 0.10740740740740745,
+  "type_B_like_pattern_detected": false,
+  "positive_bootstrap_fraction": 0.85,
+  "n_active_features": 1,
+  "active_features": [
+    "grid_deviation_score"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-04-08T17:55:32+00:00",
+  "export_path": "./real_local_export_from_npz_negative.json",
+  "mapping_path": "./compatibility_local_model_mapping_npz_negative_v1.json",
+  "n_units": 4,
+  "a1_status_counts": {
+    "materially_active": 4,
+    "weak_ambiguous": 0,
+    "collapsed": 0
+  },
+  "b1_status_counts": {
+    "materially_active": 4,
+    "weak_ambiguous": 0,
+    "collapsed": 0
+  },
+  "rows": [
+    {
+      "focal_unit_id": "p0_1",
+      "support_sector": -1,
+      "support_value": 0.029394,
+      "neighbor_count": 2,
+      "neighbors": "p0_3,p1_2",
+      "a1_status": "materially_active",
+      "a1_score": 1.0,
+      "a1_agreement": 1.0,
+      "a1_conflict": 0.0,
+      "a1_anti_stabilization": "passes",
+      "b1_status": "materially_active",
+      "b1_relative_fragility": 0.125904,
+      "b1_baseline_support": 0.11673,
+      "b1_anti_stabilization": "passes"
+    },
+    {
+      "focal_unit_id": "p0_3",
+      "support_sector": -1,
+      "support_value": 0.032934,
+      "neighbor_count": 2,
+      "neighbors": "p0_1,p2_3",
+      "a1_status": "materially_active",
+      "a1_score": 1.0,
+      "a1_agreement": 1.0,
+      "a1_conflict": 0.0,
+      "a1_anti_stabilization": "passes",
+      "b1_status": "materially_active",
+      "b1_relative_fragility": 0.179535,
+      "b1_baseline_support": 0.091722,
+      "b1_anti_stabilization": "passes"
+    },
+    {
+      "focal_unit_id": "p1_2",
+      "support_sector": -1,
+      "support_value": 0.054402,
+      "neighbor_count": 2,
+      "neighbors": "p0_1,p2_3",
+      "a1_status": "materially_active",
+      "a1_score": 1.0,
+      "a1_agreement": 1.0,
+      "a1_conflict": 0.0,
+      "a1_anti_stabilization": "passes",
+      "b1_status": "materially_active",
+      "b1_relative_fragility": 0.240315,
+      "b1_baseline_support": 0.113189,
+      "b1_anti_stabilization": "passes"
+    },
+    {
+      "focal_unit_id": "p2_3",
+      "support_sector": -1,
+      "support_value": 0.029394,
+      "neighbor_count": 2,
+      "neighbors": "p0_3,p1_2",
+      "a1_status": "materially_active",
+      "a1_score": 1.0,
+      "a1_agreement": 1.0,
+      "a1_conflict": 0.0,
+      "a1_anti_stabilization": "passes",
+      "b1_status": "materially_active",
+      "b1_relative_fragility": 0.125904,
+      "b1_baseline_support": 0.11673,
+      "b1_anti_stabilization": "passes"
+    }
+  ]
+}

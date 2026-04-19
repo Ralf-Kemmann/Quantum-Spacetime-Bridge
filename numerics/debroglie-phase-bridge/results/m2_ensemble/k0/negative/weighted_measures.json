@@ -1,0 +1,15 @@
+{
+  "case": "k0",
+  "run_kind": "k0",
+  "kernel_mode": "negative",
+  "theta": 0.03,
+  "natural_connectivity": 0.0014426745880994339,
+  "weighted_clustering": 0.0,
+  "global_efficiency": 0.030714944500889546,
+  "weighted_measure_spec": {
+    "clustering_mode": "onnela",
+    "use_zero_diagonal": true,
+    "length_epsilon": 1e-12
+  },
+  "wrong_dispersion_spec": null
+}

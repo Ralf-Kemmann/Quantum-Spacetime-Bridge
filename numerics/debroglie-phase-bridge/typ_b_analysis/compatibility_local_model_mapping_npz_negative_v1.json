@@ -1,0 +1,21 @@
+{
+  "mapping_id": "compatibility_local_model_mapping_npz_negative_v1",
+  "description": "Mapping for NPZ-derived local export built from kbar pair-units.",
+  "unit_collection_path": "units",
+  "unit_mapping": {
+    "id_field": "unit.uid",
+    "support_value_field": "metrics.support_strength",
+    "support_sector_field": "structure.support_sector",
+    "adjacent_ids_field": "topology.immediate_neighbors"
+  },
+  "perturbation_mapping": {
+    "mode": "scale_down",
+    "strength": 0.5
+  },
+  "notes": [
+    "Source export derived from matrices.npz via pair-unit conversion.",
+    "support_strength = abs(kbar_ij)",
+    "support_sector = sign(raw_kbar_value)",
+    "immediate_neighbors = pair-units sharing one endpoint"
+  ]
+}

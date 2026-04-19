@@ -1,0 +1,7 @@
+export_class,neighborhood_mode,node_count,pair_unit_count,edge_count,mean_degree,median_degree,max_degree,min_degree,isolated_count,connected_component_count,largest_component_size,launchability_support_flag
+negative,shared_endpoint,2,2,0,0.0,0.0,0,0,2,2,1,False
+negative,graph_distance_1,2,2,0,0.0,0.0,0,0,2,2,1,False
+abs,shared_endpoint,2,2,0,0.0,0.0,0,0,2,2,1,False
+abs,graph_distance_1,2,2,0,0.0,0.0,0,0,2,2,1,False
+positive,shared_endpoint,0,0,0,0.0,0.0,0,0,0,0,0,False
+positive,graph_distance_1,0,0,0,0.0,0.0,0,0,0,0,0,False

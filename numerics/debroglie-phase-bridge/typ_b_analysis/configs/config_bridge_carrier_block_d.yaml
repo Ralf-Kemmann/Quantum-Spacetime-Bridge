@@ -1,0 +1,104 @@
+run_id: bridge_carrier_block_d_v1
+source_run_id: M39x_current_bridge_eval
+
+mode: internal_plus_h2
+random_seed: 42
+
+data:
+  internal_original_csv: data/original/original_features.csv
+  internal_control_csv: data/controls/control_features.csv
+  holdout_original_csv: data/holdout/holdout_original_features.csv
+  holdout_candidate_csv: data/holdout/holdout_original_features.csv
+  # Optional alternative, if the candidate matrix above is not the feature table you want:
+  # holdout_candidate_csv: data/holdout/holdout_candidate_decision_matrix.csv
+  results_dir: results/bridge_carrier_block_d_v1
+
+columns:
+  sample_id: sample_id
+  group_label: group_label
+  dataset_role: dataset_role
+  source_family: source_family
+  split_label: split_label
+
+input_mapping:
+  internal_original:
+    rename:
+      dataset_id: sample_id
+      group_target: group_label
+    dataset_role: original
+    source_family_from: group_label
+    split_label: inherited_eval
+
+  internal_control:
+    rename:
+      dataset_id: sample_id
+      control_family: group_label
+    dataset_role: control
+    source_family_from: group_label
+    split_label: inherited_eval
+
+  holdout_original:
+    rename:
+      dataset_id: sample_id
+      group_target: group_label
+    dataset_role: original
+    source_family_from: group_label
+    split_label: h2_eval
+
+  holdout_candidate:
+    rename:
+      dataset_id: sample_id
+      control_family: group_label
+    dataset_role: control
+    source_family_from: group_label
+    split_label: h2_eval
+
+core_features:
+  - distance_to_type_D
+  - spacing_cv
+  - simple_rigidity_surrogate
+  - grid_deviation_score
+
+variants:
+  - name: full
+    active_features:
+      - distance_to_type_D
+      - spacing_cv
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: single_rigidity
+    active_features:
+      - simple_rigidity_surrogate
+
+  - name: pair_rigidity_grid
+    active_features:
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: triple_without_distance
+    active_features:
+      - spacing_cv
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+  - name: triple_without_spacing
+    active_features:
+      - distance_to_type_D
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+
+evaluation:
+  bootstrap:
+    enabled: true
+    n_bootstrap: 200
+    sample_fraction: 1.0
+  thresholds:
+    assignment_min: 0.60
+    stability_min: 0.60
+
+outputs:
+  write_csv: true
+  write_json: true
+  write_markdown: true
+  write_variant_json: true

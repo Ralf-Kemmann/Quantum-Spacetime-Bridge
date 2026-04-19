@@ -1,0 +1,214 @@
+families:
+  - family_id: "ER1_RING"
+    family_label: "external_control_ring"
+    family_type: "external_control"
+    model_class: "ring_schrodinger_quadratic"
+    description: >
+      Freies Teilchen auf dem Ring als Schlüsselfall für Vorzeichen,
+      Richtungsinformation, p^2-Degenerazie und maximale Ladder-Regularität.
+    source_tag: "M39x_external_reference_wave_1"
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "signed"
+      values: [-3, -2, -1, 1, 2, 3]
+
+    derived_spectra:
+      - variable_name: "abs_p"
+        from: "p"
+        transform: "abs"
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target:
+      type: "pair_branch_label"
+      field_name: "branch_label"
+      construction: "inherit_existing_external_reference_logic"
+
+    analysis_variants:
+      - variant_id: "RING_SIGNED"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: true
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: false
+        active_spectrum: "p"
+        enabled_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_ABS"
+        enabled: true
+        pairing_mode: "unique_abs_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "abs_p"
+        enabled_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_DEGEN_SAFE"
+        enabled: true
+        pairing_mode: "degeneracy_safe_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        enabled_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+    irregularity_config:
+      expected_regularity: "high"
+      enable_unfolding: true
+      enable_spacing_metrics: true
+      enable_rigidity_surrogate: true
+
+  - family_id: "ER2_CAVITY"
+    family_label: "external_main_test_cavity"
+    family_type: "external_main_test"
+    model_class: "cavity_helmholtz_linear_energy"
+    description: >
+      Rechteckiger EM-Hohlraumresonator als externer Multi-Index-Testfall.
+      Natürliche Eigenwertgröße ist k^2, während die Energie pro Quant linear
+      in omega verläuft.
+    source_tag: "M39x_external_reference_wave_1"
+
+    mode_table:
+      type: "rectangular_cavity_modes"
+      geometry:
+        a: 1.0
+        b: 1.5
+        d: 2.0
+      mode_indices:
+        - [1, 1, 1]
+        - [1, 1, 2]
+        - [1, 2, 1]
+        - [2, 1, 1]
+        - [2, 2, 1]
+        - [2, 1, 2]
+        - [1, 2, 2]
+        - [2, 2, 2]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+
+    branch_target:
+      type: "pair_branch_label"
+      field_name: "branch_label"
+      construction: "inherit_existing_external_reference_logic"
+
+    analysis_variants:
+      - variant_id: "CAVITY_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_index_permutations_as_distinct: true
+          collapse_equal_k_shells: false
+        active_spectrum: "k"
+        enabled_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_omega"
+
+    irregularity_config:
+      expected_regularity: "medium_to_high_irregularity"
+      enable_unfolding: true
+      enable_spacing_metrics: true
+      enable_rigidity_surrogate: true
+
+  - family_id: "ER3_MEMBRANE"
+    family_label: "external_hard_bias_test_membrane"
+    family_type: "external_hard_bias_test"
+    model_class: "membrane_helmholtz_bessel"
+    description: >
+      Kreisförmige Membran mit Bessel-Nullstellen als harter externer Bias-Test.
+      Natürliche Spektralgröße ist k^2 bzw. lambda, nicht automatisch Energie.
+    source_tag: "M39x_external_reference_wave_1"
+
+    mode_table:
+      type: "circular_membrane_bessel_modes"
+      mode_indices:
+        - [0, 1]
+        - [1, 1]
+        - [2, 1]
+        - [0, 2]
+        - [3, 1]
+        - [1, 2]
+        - [2, 2]
+        - [0, 3]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "lambda"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+
+    branch_target:
+      type: "pair_branch_label"
+      field_name: "branch_label"
+      construction: "inherit_existing_external_reference_logic"
+
+    analysis_variants:
+      - variant_id: "MEMBRANE_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_bessel_near_clusters_as_distinct: true
+          collapse_equal_lambda_shells: false
+        active_spectrum: "k"
+        enabled_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_lambda"
+
+    irregularity_config:
+      expected_regularity: "high_irregularity"
+      enable_unfolding: true
+      enable_spacing_metrics: true
+      enable_rigidity_surrogate: true

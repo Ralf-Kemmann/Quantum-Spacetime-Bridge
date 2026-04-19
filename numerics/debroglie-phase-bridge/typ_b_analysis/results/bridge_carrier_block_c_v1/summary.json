@@ -1,0 +1,231 @@
+{
+  "run_id": "bridge_carrier_block_c_v1",
+  "source_run_id": "M39x_current_bridge_eval",
+  "mode": "internal_only",
+  "base_variant": "full",
+  "variants_tested": 9,
+  "core_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ],
+  "results": [
+    {
+      "variant": "full",
+      "feature_count": 4,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.12074074074074076,
+      "assignment_score": 0.6333333333333333,
+      "original_stability_score": 0.945,
+      "original_vs_control_margin_delta": 0.12074074074074076,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.945,
+      "n_active_features": 4,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.0,
+      "delta_assignment_score": 0.0,
+      "delta_original_stability_score": 0.0,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_set_signal": "baseline"
+    },
+    {
+      "variant": "single_distance",
+      "feature_count": 1,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": -0.008888888888888724,
+      "assignment_score": 0.26666666666666666,
+      "original_stability_score": 0.625,
+      "original_vs_control_margin_delta": -0.008888888888888724,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.625,
+      "n_active_features": 1,
+      "active_features": [
+        "distance_to_type_D"
+      ],
+      "delta_separation_margin_mean": -0.12962962962962948,
+      "delta_assignment_score": -0.36666666666666664,
+      "delta_original_stability_score": -0.31999999999999995,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_set_signal": "insufficient_under_current_logic"
+    },
+    {
+      "variant": "single_spacing",
+      "feature_count": 1,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": -0.01333333333333353,
+      "assignment_score": 0.26666666666666666,
+      "original_stability_score": 0.625,
+      "original_vs_control_margin_delta": -0.01333333333333353,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.625,
+      "n_active_features": 1,
+      "active_features": [
+        "spacing_cv"
+      ],
+      "delta_separation_margin_mean": -0.1340740740740743,
+      "delta_assignment_score": -0.36666666666666664,
+      "delta_original_stability_score": -0.31999999999999995,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_set_signal": "insufficient_under_current_logic"
+    },
+    {
+      "variant": "single_rigidity",
+      "feature_count": 1,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.3977777777777774,
+      "assignment_score": 0.8333333333333333,
+      "original_stability_score": 0.87,
+      "original_vs_control_margin_delta": 0.3977777777777774,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.87,
+      "n_active_features": 1,
+      "active_features": [
+        "simple_rigidity_surrogate"
+      ],
+      "delta_separation_margin_mean": 0.27703703703703664,
+      "delta_assignment_score": 0.19999999999999996,
+      "delta_original_stability_score": -0.07499999999999996,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_set_signal": "candidate_single_anchor"
+    },
+    {
+      "variant": "single_grid",
+      "feature_count": 1,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": 0.10740740740740745,
+      "assignment_score": 0.5777777777777777,
+      "original_stability_score": 0.85,
+      "original_vs_control_margin_delta": 0.10740740740740745,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.85,
+      "n_active_features": 1,
+      "active_features": [
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": -0.013333333333333308,
+      "delta_assignment_score": -0.05555555555555558,
+      "delta_original_stability_score": -0.09499999999999997,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_set_signal": "insufficient_under_current_logic"
+    },
+    {
+      "variant": "triple_without_distance",
+      "feature_count": 3,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.1639506172839505,
+      "assignment_score": 0.7444444444444445,
+      "original_stability_score": 0.985,
+      "original_vs_control_margin_delta": 0.1639506172839505,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.985,
+      "n_active_features": 3,
+      "active_features": [
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.043209876543209735,
+      "delta_assignment_score": 0.11111111111111116,
+      "delta_original_stability_score": 0.040000000000000036,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_set_signal": "candidate_near_full_core"
+    },
+    {
+      "variant": "triple_without_spacing",
+      "feature_count": 3,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.16543209876543202,
+      "assignment_score": 0.7333333333333334,
+      "original_stability_score": 0.925,
+      "original_vs_control_margin_delta": 0.16543209876543202,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.925,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.04469135802469126,
+      "delta_assignment_score": 0.10000000000000009,
+      "delta_original_stability_score": -0.019999999999999907,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_set_signal": "candidate_near_full_core"
+    },
+    {
+      "variant": "triple_without_rigidity",
+      "feature_count": 3,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": 0.02839506172839512,
+      "assignment_score": 0.4222222222222222,
+      "original_stability_score": 0.82,
+      "original_vs_control_margin_delta": 0.02839506172839512,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.82,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": -0.09234567901234564,
+      "delta_assignment_score": -0.21111111111111108,
+      "delta_original_stability_score": -0.125,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_set_signal": "insufficient_under_current_logic"
+    },
+    {
+      "variant": "triple_without_grid",
+      "feature_count": 3,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": 0.12518518518518507,
+      "assignment_score": 0.3666666666666667,
+      "original_stability_score": 0.895,
+      "original_vs_control_margin_delta": 0.12518518518518507,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.895,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "simple_rigidity_surrogate"
+      ],
+      "delta_separation_margin_mean": 0.0044444444444443065,
+      "delta_assignment_score": -0.2666666666666666,
+      "delta_original_stability_score": -0.04999999999999993,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_set_signal": "insufficient_under_current_logic"
+    }
+  ],
+  "interpretation_rule": {
+    "candidate_single_anchor": "single feature still passes",
+    "candidate_near_full_core": "reduced set remains close to full",
+    "candidate_sufficient_reduced_set": "reduced set still passes",
+    "weak_or_partial_set": "reduced set retains only partial signal",
+    "insufficient_under_current_logic": "reduced set fails to preserve current bridge logic"
+  }
+}

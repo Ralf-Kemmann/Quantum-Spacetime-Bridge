@@ -1,0 +1,7 @@
+export_class,neighborhood_mode,shell_count,mean_shell_size,median_shell_size,max_shell_size,min_shell_size,valid_shell_count,invalid_shell_count,late_stage_count,a1_neighbor_min,comment
+negative,shared_endpoint,0,0.0,0.0,0,0,0,2,0,3,
+negative,graph_distance_1,0,0.0,0.0,0,0,0,2,0,3,
+abs,shared_endpoint,0,0.0,0.0,0,0,0,2,0,3,
+abs,graph_distance_1,0,0.0,0.0,0,0,0,2,0,3,
+positive,shared_endpoint,0,0.0,0.0,0,0,0,2,0,3,
+positive,graph_distance_1,0,0.0,0.0,0,0,0,2,0,3,

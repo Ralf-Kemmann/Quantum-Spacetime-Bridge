@@ -1,0 +1,15 @@
+{
+  "schema_version": "3.1.0",
+  "generated_at": "2026-04-08T08:08:56+00:00",
+  "run_id": "compatibility_real_export_npz_negative_001",
+  "context_id": "CLCX-NPZ-NEG-01",
+  "focal_unit_id": "p0_3",
+  "a1_status": "materially_active",
+  "b1_status": "materially_active",
+  "a1_score": 1.0,
+  "a1_neighbor_count": 2,
+  "b1_relative_fragility": 0.179535,
+  "global_outcome": "Outcome C — Promising pre-stabilization candidate found",
+  "promotion_state": "both_candidates_promoted",
+  "lead_candidate": "A1_and_B1"
+}

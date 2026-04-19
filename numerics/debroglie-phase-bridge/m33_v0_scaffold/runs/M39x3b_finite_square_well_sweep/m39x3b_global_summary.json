@@ -1,0 +1,11 @@
+{
+  "run_id": "M39x3b_finite_square_well_sweep",
+  "n_families_total": 5,
+  "n_families_implemented": 5,
+  "n_prediction_supported": 4,
+  "n_prediction_partially_supported": 5,
+  "n_prediction_open": 0,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "global_prediction_status": "finite_square_well_type_B_window_found"
+}

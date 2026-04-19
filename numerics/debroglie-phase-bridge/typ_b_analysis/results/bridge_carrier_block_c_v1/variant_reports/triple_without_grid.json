@@ -1,0 +1,18 @@
+{
+  "variant": "triple_without_grid",
+  "feature_count": 3,
+  "overall_pass": false,
+  "result_label": "failed",
+  "separation_margin_mean": 0.12518518518518507,
+  "assignment_score": 0.3666666666666667,
+  "original_stability_score": 0.895,
+  "original_vs_control_margin_delta": 0.12518518518518507,
+  "type_B_like_pattern_detected": false,
+  "positive_bootstrap_fraction": 0.895,
+  "n_active_features": 3,
+  "active_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate"
+  ]
+}

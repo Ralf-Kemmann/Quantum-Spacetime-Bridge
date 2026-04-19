@@ -1,0 +1,65 @@
+{
+  "block_id": "H3_MIXED_LIKE_SENSITIVITY_01",
+  "source_block": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "mapping_modes_evaluated": [
+    "M0",
+    "M1",
+    "M2"
+  ],
+  "reference_mode": "M0",
+  "overall_outcome_by_mode": {
+    "M0": {
+      "label": "mixed_as_neutral",
+      "overall_outcome": "limited_supported",
+      "gain_A": 0.0,
+      "gain_B": 0.346623,
+      "gain_C": 0.696622,
+      "gain_D1": -0.005667,
+      "gain_D2": -0.005667
+    },
+    "M1": {
+      "label": "mixed_as_boundary",
+      "overall_outcome": "limited_supported",
+      "gain_A": 0.0,
+      "gain_B": 0.346623,
+      "gain_C": 0.696622,
+      "gain_D1": -0.005667,
+      "gain_D2": -0.002834
+    },
+    "M2": {
+      "label": "mixed_as_support",
+      "overall_outcome": "limited_supported",
+      "gain_A": 0.0,
+      "gain_B": 0.343789,
+      "gain_C": 0.693789,
+      "gain_D1": -0.005667,
+      "gain_D2": -0.006211
+    }
+  },
+  "A_B_C_order_preserved_by_mode": {
+    "M0": true,
+    "M1": true,
+    "M2": true
+  },
+  "nullmodel_behavior_by_mode": {
+    "M0": {
+      "baseline_first_preserved": true,
+      "null_model_suppression": true,
+      "D1_negative_or_low": true,
+      "D2_negative_or_low": true
+    },
+    "M1": {
+      "baseline_first_preserved": true,
+      "null_model_suppression": true,
+      "D1_negative_or_low": true,
+      "D2_negative_or_low": true
+    },
+    "M2": {
+      "baseline_first_preserved": true,
+      "null_model_suppression": true,
+      "D1_negative_or_low": true,
+      "D2_negative_or_low": true
+    }
+  },
+  "robustness_assessment": "robust_across_mappings"
+}

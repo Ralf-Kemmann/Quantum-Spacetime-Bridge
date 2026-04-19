@@ -1,0 +1,128 @@
+{
+  "run_id": "debroglie_matter_signature_isotope_strontium_run_c",
+  "created_utc": "2026-04-13T08:01:13.425916+00:00",
+  "conditions": {
+    "temperature_C": 20.0,
+    "pressure_mbar": 1013.0,
+    "volume_m3": 1.0,
+    "temperature_K": 293.15,
+    "pressure_Pa": 101300.0
+  },
+  "model_assumptions": {
+    "species_mode": "isotope_series",
+    "gas_model": "ideal_gas",
+    "velocity_model": "rms",
+    "frequency_mode": "none",
+    "density_mode": "ideal_gas_number_density",
+    "isotope_mode": "wave_plus_valence_plus_closure"
+  },
+  "comparisons": {
+    "mass_only_ordering": [
+      "88sr",
+      "87sr",
+      "86sr",
+      "84sr"
+    ],
+    "wave_signature_ordering": [
+      "84sr",
+      "86sr",
+      "87sr",
+      "88sr"
+    ],
+    "combined_signature_ordering": [
+      "84sr",
+      "86sr",
+      "87sr",
+      "88sr"
+    ],
+    "matter_sensitive_delta_wave": {
+      "88sr": 3.0,
+      "87sr": 1.0,
+      "86sr": -1.0,
+      "84sr": -3.0
+    },
+    "matter_sensitive_delta_isotope_strontium": {
+      "88sr": 3.0,
+      "87sr": 1.0,
+      "86sr": -1.0,
+      "84sr": -3.0
+    },
+    "structure_invariance_check": {
+      "valence_constant": true,
+      "closure_constant": true,
+      "electron_count_constant": true
+    },
+    "monotonic_wave_flag": true,
+    "series_consistency_flag": true
+  },
+  "isotope_results": [
+    {
+      "isotope": "84sr",
+      "label": "84Sr",
+      "element_symbol": "Sr",
+      "mass_u": 83.9134191,
+      "lambda_db": 1.610899898786007e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 2,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 1.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.6666666666666666,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.38888888888888884
+    },
+    {
+      "isotope": "86sr",
+      "label": "86Sr",
+      "element_symbol": "Sr",
+      "mass_u": 85.9092606,
+      "lambda_db": 1.5920777471286213e-11,
+      "energy_j": 6.071058815249998e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 2,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.49425467228676256,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.49808489076225415,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.33269496358741807
+    },
+    {
+      "isotope": "87sr",
+      "label": "87Sr",
+      "element_symbol": "Sr",
+      "mass_u": 86.9088775,
+      "lambda_db": 1.582895310300009e-11,
+      "energy_j": 6.0710588152500005e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 2,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.24535138337610893,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.4151171277920363,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.30503904259734543
+    },
+    {
+      "isotope": "88sr",
+      "label": "88Sr",
+      "element_symbol": "Sr",
+      "mass_u": 87.9056125,
+      "lambda_db": 1.5738957425217054e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "valence_electron_count": 2,
+      "shell_closure_score": 0.0,
+      "length_scale_score": 0.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.3333333333333333,
+      "valence_score": 0.5,
+      "signature_score_combined": 0.27777777777777773
+    }
+  ]
+}

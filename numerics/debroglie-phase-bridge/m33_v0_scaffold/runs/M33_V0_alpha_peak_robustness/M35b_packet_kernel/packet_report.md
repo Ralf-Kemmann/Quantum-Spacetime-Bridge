@@ -1,0 +1,10 @@
+# M.3.5b Packet Kernel Report
+
+- final_label: K2
+- n_source_curve_rows: 848640
+- n_source_candidate_rows: 16320
+- n_fit_grid_rows: 16320
+- n_best_rows: 60
+- branch_match_frac: 0.6666666666666666
+- alpha_match_frac: 0.9833333333333333
+- mean_delta_alpha: 0.04966666666666666

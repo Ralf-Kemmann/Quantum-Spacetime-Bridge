@@ -1,0 +1,19 @@
+{
+  "variant": "pair_rigidity_grid",
+  "feature_count": 2,
+  "active_features": [
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ],
+  "internal_overall_pass": true,
+  "internal_result_label": "supported",
+  "internal_separation_margin_mean": 0.2525925925925925,
+  "internal_assignment_score": 0.8,
+  "internal_original_stability_score": 0.725,
+  "h2_overall_pass": false,
+  "h2_result_label": "failed",
+  "h2_separation_margin_mean": 0.0,
+  "h2_assignment_score": 0.0,
+  "h2_original_stability_score": 0.0,
+  "h2_proxy_rigidity_rows": 6
+}

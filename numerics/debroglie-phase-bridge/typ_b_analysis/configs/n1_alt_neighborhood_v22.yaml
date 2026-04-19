@@ -1,0 +1,93 @@
+run:
+  run_id: "n1_alt_neighborhood_v22"
+  seed: 123
+  output_dir: "results/n1_alt_neighborhood_v22"
+  overwrite: false
+
+inputs:
+  export_root: "../results/a1_probe/n1a_alpha"
+  export_classes:
+    - "negative"
+    - "abs"
+    - "positive"
+  export_pattern: "*.npz"
+  search_mode: "recursive"
+
+baseline:
+  neighborhood:
+    mode: "shared_endpoint"
+    directed: false
+
+alternative:
+  neighborhood:
+    mode: "graph_distance_1"
+    directed: false
+    require_mutual: false
+
+pair_unit:
+  enabled: true
+  source: "matrix_adapter_v22"
+  matrix_pair_mode: "adjacency_plus_threshold"
+
+  matrix_fields:
+    adjacency: "adjacency"
+    primary_score: "G"
+    secondary_score: "kbar"
+    edge_length: "edge_length"
+    d_rel: "d_rel"
+
+  threshold:
+    enabled: true
+    tau: 0.03
+    score_field: "G"
+    use_absolute_value: true
+
+  weights:
+    use_edge_length_as_weight: true
+    fallback_weight_field: "G"
+
+a1:
+  enabled: true
+  stabilization_ceiling: 0.95
+  neighbor_min: 3
+  late_stage_rule: "reformed"
+
+b1:
+  enabled: true
+  conflict_penalty: 1.0
+
+decision:
+  enabled: true
+  launchability:
+    min_pair_units: 1
+    min_local_shells: 1
+  status_rule:
+    use_a1: true
+    use_b1: true
+
+reporting:
+  write_per_class_details: false
+  write_neighbor_tables: true
+  write_shell_tables: true
+  write_status_tables: true
+  write_summary_json: true
+  write_readout_md: true
+
+comparisons:
+  compare_against_baseline: true
+  delta_fields:
+    - "launchable"
+    - "shell_count"
+    - "mean_neighbor_count"
+    - "a1_status"
+    - "b1_status"
+    - "combined_status"
+
+validation:
+  strict_export_class_presence: true
+  fail_on_empty_input: true
+  fail_on_nan_metrics: true
+  require_baseline_pattern:
+    negative_launchable: true
+    abs_launchable: true
+    positive_launchable: false

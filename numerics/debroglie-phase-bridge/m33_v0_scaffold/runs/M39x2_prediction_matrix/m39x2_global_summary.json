@@ -1,0 +1,15 @@
+{
+  "run_id": "M39x2_prediction_matrix",
+  "n_families_total": 5,
+  "n_families_implemented": 3,
+  "n_prediction_supported": 1,
+  "n_prediction_partially_supported": 4,
+  "n_prediction_open": 2,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "missing_type_B_flag": 1,
+  "missing_type_D_flag": 1,
+  "ring_prediction_stressed": 0,
+  "type_C_prediction_stressed": 0,
+  "global_prediction_status": "prediction_matrix_partially_supported"
+}

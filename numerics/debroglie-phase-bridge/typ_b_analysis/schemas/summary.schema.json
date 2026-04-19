@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/m39x3g_a_summary.schema.json",
+  "title": "M.3.9x.3g.a summary schema",
+  "description": "Schema for Type-B exclusion test summary output.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "block_id",
+    "block_title",
+    "run_id",
+    "run_status",
+    "feature_space_version",
+    "decision_rule_version",
+    "result_label",
+    "overall_interpretation",
+    "original_reference",
+    "control_family_results",
+    "aggregate_metrics",
+    "warnings",
+    "errors",
+    "reproducibility"
+  ],
+  "properties": {
+    "block_id": {
+      "type": "string",
+      "const": "M.3.9x.3g.a"
+    },
+    "block_title": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_status": {
+      "type": "string",
+      "enum": ["planned", "completed", "invalid", "failed_runtime"]
+    },
+    "feature_space_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_rule_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result_label": {
+      "type": "string",
+      "enum": [
+        "type_B_exclusion_supported",
+        "type_B_exclusion_weak",
+        "type_B_exclusion_ambiguous",
+        "type_B_exclusion_failed",
+        "not_evaluated"
+      ]
+    },
+    "overall_interpretation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_count",
+        "group_labels",
+        "n_rows",
+        "scaling_method",
+        "distance_metric"
+      ],
+      "properties": {
+        "dataset_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "group_labels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "n_rows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scaling_method": {
+          "type": "string"
+        },
+        "distance_metric": {
+          "type": "string"
+        }
+      }
+    },
+    "control_family_results": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "control_family",
+          "enabled",
+          "n_instances",
+          "n_rows",
+          "separation_margin_mean",
+          "separation_margin_ci",
+          "separation_ratio_mean",
+          "stability_score_mean",
+          "stability_score_ci",
+          "assignment_score_mean",
+          "type_B_like_pattern_detected",
+          "interpretation"
+        ],
+        "properties": {
+          "control_family": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "n_instances": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "n_rows": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "mean_intra_distance": {
+            "type": ["number", "null"]
+          },
+          "mean_inter_distance": {
+            "type": ["number", "null"]
+          },
+          "pooled_intra_distance": {
+            "type": ["number", "null"]
+          },
+          "separation_margin_mean": {
+            "type": ["number", "null"]
+          },
+          "separation_margin_ci": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "separation_ratio_mean": {
+            "type": ["number", "null"]
+          },
+          "stability_score_mean": {
+            "type": ["number", "null"]
+          },
+          "stability_score_ci": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "assignment_score_mean": {
+            "type": ["number", "null"]
+          },
+          "type_B_like_pattern_detected": {
+            "type": "boolean"
+          },
+          "interpretation": {
+            "type": "string"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "aggregate_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_separation_margin",
+        "original_stability_score",
+        "original_assignment_score",
+        "control_typeB_like_fraction",
+        "original_vs_control_margin_delta"
+      ],
+      "properties": {
+        "original_separation_margin": {
+          "type": ["number", "null"]
+        },
+        "original_stability_score": {
+          "type": ["number", "null"]
+        },
+        "original_assignment_score": {
+          "type": ["number", "null"]
+        },
+        "control_typeB_like_fraction": {
+          "type": ["number", "null"],
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "original_vs_control_margin_delta": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "decision_trace": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "thresholds_used": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["number", "string", "boolean", "null"]
+          }
+        },
+        "supported_conditions_met": {
+          "type": ["boolean", "null"]
+        },
+        "weak_conditions_met": {
+          "type": ["boolean", "null"]
+        },
+        "ambiguous_conditions_met": {
+          "type": ["boolean", "null"]
+        },
+        "failed_conditions_met": {
+          "type": ["boolean", "null"]
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reproducibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "random_seed",
+        "seed_list",
+        "n_resamples"
+      ],
+      "properties": {
+        "random_seed": {
+          "type": ["integer", "null"]
+        },
+        "seed_list": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "n_resamples": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "software_env": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

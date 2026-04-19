@@ -1,0 +1,4 @@
+run_id,t,p_family,theta,selection_mode,branch_basis,branch_label,selection_rank,nearest_branch_match_flag,soft_branch_match_flag,soft_overlap_score,hard_delta_alpha,source_feature,best_p0,best_sigma_p,best_alpha_source,alpha_pref_readout,case_label
+M33_V0_alpha_peak_robustness,5.0,P0,1e-09,strict_reuse,nearest_branch_readout,S1,1,1,1,0.1334686442381539,0.1099999999999998,neg,,,1.3,,t=5.0__pf=P0__th=1e-09
+M33_V0_alpha_peak_robustness,2.0,P1,1e-09,strict_reuse,nearest_branch_readout,S2,1,1,1,0.8956994608243896,0.0,neg,,,1.58,,t=2.0__pf=P1__th=1e-09
+M33_V0_alpha_peak_robustness,40.0,P3,1e-09,strict_reuse,nearest_branch_readout,S2,2,1,1,0.8360870708756243,0.01,neg,,,1.58,,t=40.0__pf=P3__th=1e-09

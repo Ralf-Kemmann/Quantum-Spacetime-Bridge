@@ -1,0 +1,21 @@
+{
+  "run_id": "M39x3ea_feature_distance_diagnosis",
+  "source_run_id": "M39x3e_model_overlap_test",
+  "baseline_global_status": "mixed_overlap_baseline",
+  "n_pair_set_rows": 3,
+  "n_sensitivity_rows": 24,
+  "global_diagnostic_status": "two_feature_cluster_dominates_distance",
+  "has_single_feature_dominance": false,
+  "has_two_feature_cluster_dominance": true,
+  "has_broad_distribution": true,
+  "equal_weights_improves_overlap_status": false,
+  "zscore_like_rescale_improves_overlap_status": false,
+  "local_range_norm_improves_overlap_status": false,
+  "no_rigidity_keeps_no_meaningful_model_overlap": true,
+  "no_grid_deviation_keeps_no_meaningful_model_overlap": false,
+  "no_rigidity_no_grid_keeps_no_meaningful_model_overlap": false,
+  "overlap_stable_under_ablation": false,
+  "no_alternative_test_reaches_partial_or_better": false,
+  "weighting_and_normalization_tests_disagree": false,
+  "no_overlap_remains_robust": false
+}

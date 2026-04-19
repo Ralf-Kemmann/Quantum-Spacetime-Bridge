@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "H3_SUPPORT_MANIPULATION_DESIGN_01 config schema",
+  "type": "object",
+  "required": [
+    "block_id",
+    "source_block",
+    "reading_modes",
+    "states",
+    "replication",
+    "null_models",
+    "metrics",
+    "readability_definition",
+    "decision_rules",
+    "outputs"
+  ],
+  "properties": {
+    "block_id": {
+      "type": "string",
+      "const": "H3_SUPPORT_MANIPULATION_DESIGN_01"
+    },
+    "source_block": {
+      "type": "string",
+      "const": "N1_A1_B1_DECOUPLING"
+    },
+    "reading_modes": {
+      "type": "object",
+      "required": ["baseline", "auxiliary"],
+      "properties": {
+        "baseline": {
+          "type": "object",
+          "required": ["rule", "role"],
+          "properties": {
+            "rule": { "type": "string", "const": "G = B" },
+            "role": { "type": "string", "const": "primary_anchor" }
+          },
+          "additionalProperties": true
+        },
+        "auxiliary": {
+          "type": "object",
+          "required": ["rule", "role"],
+          "properties": {
+            "rule": { "type": "string", "const": "G = B^1.25" },
+            "role": { "type": "string", "const": "strictly_secondary_bounded_mode" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "states": {
+      "type": "object",
+      "required": ["A", "B", "C", "D1", "D2"],
+      "properties": {
+        "A": { "$ref": "#/$defs/state" },
+        "B": { "$ref": "#/$defs/state" },
+        "C": { "$ref": "#/$defs/state" },
+        "D1": { "$ref": "#/$defs/state" },
+        "D2": { "$ref": "#/$defs/state" }
+      },
+      "additionalProperties": false
+    },
+    "replication": {
+      "type": "object",
+      "required": ["seeds", "run_all_states_per_seed"],
+      "properties": {
+        "seeds": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "integer" }
+        },
+        "run_all_states_per_seed": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "null_models": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "preserve": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "destroy": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["preserve", "destroy"]
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["numeric", "categorical"],
+      "properties": {
+        "numeric": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "categorical": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "readability_definition": {
+      "type": "object",
+      "required": ["detectable", "readable", "admissible_low_gain"],
+      "additionalProperties": true
+    },
+    "decision_rules": {
+      "type": "object",
+      "required": [
+        "baseline_first_preserved",
+        "monotone_support_scaling",
+        "null_model_suppression",
+        "boundedness_preserved"
+      ],
+      "additionalProperties": true
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["root_dir", "files"],
+      "properties": {
+        "root_dir": { "type": "string" },
+        "files": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "required": ["label", "reading_mode", "support_manipulation"],
+      "properties": {
+        "label": { "type": "string" },
+        "reading_mode": { "type": "string" },
+        "support_manipulation": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string" },
+            "axis": { "type": "string" },
+            "level": { "type": "number" },
+            "variant": { "type": "string" },
+            "variants": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

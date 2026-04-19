@@ -1,0 +1,7 @@
+run_id,t,p_family,theta,branch_basis,branch_label,selection_rank_within_branch,soft_overlap_score,hard_delta_alpha,nearest_branch_match_flag,soft_branch_match_flag,source_feature,best_p0,best_sigma_p,best_alpha_source,alpha_pref_readout,extension_reason,case_label
+M33_V0_alpha_peak_robustness,20.0,P2,1e-08,nearest_branch_readout,S1,1,1.0001234098040883,0.0,1,1,abs,4.0,1.0,1.42,1.42,missing_branch_support,t=20.0__pf=P2__th=1e-08
+M33_V0_alpha_peak_robustness,40.0,P2,1e-09,nearest_branch_readout,S1,2,1.0001234098040883,0.0,1,1,neg,-1.5,0.8,1.42,1.42,missing_branch_support,t=40.0__pf=P2__th=1e-09
+M33_V0_alpha_peak_robustness,2.0,P1,3e-09,nearest_branch_readout,S2,1,0.8956994608243896,0.0,1,1,neg,3.5,0.3,1.58,1.58,missing_branch_support,t=2.0__pf=P1__th=3e-09
+M33_V0_alpha_peak_robustness,10.0,P2,1e-09,nearest_branch_readout,S3,1,0.9727278869204352,0.0,1,1,neg,-4.0,0.3,1.78,1.78,missing_branch_support,t=10.0__pf=P2__th=1e-09
+M33_V0_alpha_peak_robustness,10.0,P2,3e-09,nearest_branch_readout,S3,2,0.9727278869204352,0.0,1,1,neg,-4.0,0.3,1.78,1.78,missing_branch_support,t=10.0__pf=P2__th=3e-09
+M33_V0_alpha_peak_robustness,10.0,P2,1e-08,nearest_branch_readout,S3,3,0.9727278869204352,0.0,1,1,neg,-4.0,0.3,1.78,1.78,missing_branch_support,t=10.0__pf=P2__th=1e-08

@@ -1,0 +1,155 @@
+{
+  "notes_dir": "typ_b_analysis/notes",
+  "manifest": "typ_b_analysis/typ_b_notes_expected_manifest.json",
+  "extra_count": 28,
+  "category_counts": {
+    "bindable_overlap": 2,
+    "compatibility_legacy": 14,
+    "dlbsr": 4,
+    "pre_readable_legacy": 6,
+    "readability": 1,
+    "type_b_meta": 1
+  },
+  "extras": [
+    {
+      "filename": "BINDABLE_OVERLAP_CRITERIA_NOTE.md",
+      "category": "bindable_overlap",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "BINDABLE_RELATIONAL_OVERLAP_NOTE.md",
+      "category": "bindable_overlap",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_BASELINE_COMPARISON_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_CANDIDATE_A_LOCAL_SUPPORT_COHERENCE_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_CANDIDATE_B_EARLY_REMOVAL_FRAGILITY_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_CANDIDATE_EVALUATION_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_FIRST_DOWNSTREAM_OUTCOME_PROXY_PROPOSAL_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_FIRST_PASS_CANDIDATE_PAIR_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_FIRST_PASS_DOWNSTREAM_OUTCOME_PROXY_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_FIRST_PASS_FIXED_COMPARISON_FRAME_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_FIRST_TEST_MATRIX_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_LATER_STABILIZATION_BOUNDARY_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_LAYER_MINIMAL_PILOT_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_LAYER_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_OVERLAP_BASELINE_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "COMPATIBILITY_PROXY_CANDIDATES_NOTE.md",
+      "category": "compatibility_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "DLBSR_CLASS_DEFINITION_NOTE.md",
+      "category": "dlbsr",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "DLBSR_CLASS_SCORE_MARGIN_DECISION_NOTE.md",
+      "category": "dlbsr",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "DLBSR_CLASS_SUPPORT_POSITIVE_CRITERION_NOTE.md",
+      "category": "dlbsr",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "DLBSR_DECISION_RULE_NOTE.md",
+      "category": "dlbsr",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_FIRST_CASE_WINDOW_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_ORGANIZATION_CANDIDATE_MARKERS_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_TYPE_B_FIRST_PASS_DECISION_LOGIC_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_TYPE_B_FIRST_SEGMENT_CANDIDATE_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_TYPE_B_SEGMENT_SELECTION_RULE_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "PRE_READABLE_TYPE_B_TRANSITIONAL_WINDOW_BINDING_NOTE.md",
+      "category": "pre_readable_legacy",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "READABILITY_LAYER_NOTE.md",
+      "category": "readability",
+      "archive_candidate": "maybe"
+    },
+    {
+      "filename": "TYPE_B_OPERATIONAL_SHARPENING_NOTE.md",
+      "category": "type_b_meta",
+      "archive_candidate": "maybe"
+    }
+  ]
+}

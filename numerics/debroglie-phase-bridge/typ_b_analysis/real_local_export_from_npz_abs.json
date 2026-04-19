@@ -1,0 +1,171 @@
+{
+  "export_id": "matrices_local_export",
+  "source_npz": "../results/a1_probe/k0/abs/matrices.npz",
+  "conversion_mode": "g_nonzero",
+  "n_nodes": 4,
+  "unit_count": 6,
+  "units": [
+    {
+      "unit": {
+        "uid": "p0_1",
+        "kind": "pair_unit",
+        "endpoints": [
+          0,
+          1
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.029393586065447345,
+        "raw_kbar_value": -0.029393586065447345,
+        "g_value": 0.029393586065447345,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": -1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_2",
+          "p0_3",
+          "p1_2",
+          "p1_3"
+        ]
+      }
+    },
+    {
+      "unit": {
+        "uid": "p0_2",
+        "kind": "pair_unit",
+        "endpoints": [
+          0,
+          2
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.024663321204975212,
+        "raw_kbar_value": 0.024663321204975212,
+        "g_value": 0.024663321204975212,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": 1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_1",
+          "p0_3",
+          "p1_2",
+          "p2_3"
+        ]
+      }
+    },
+    {
+      "unit": {
+        "uid": "p0_3",
+        "kind": "pair_unit",
+        "endpoints": [
+          0,
+          3
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.03293438746976206,
+        "raw_kbar_value": -0.03293438746976206,
+        "g_value": 0.03293438746976206,
+        "adjacency_value": 1
+      },
+      "structure": {
+        "support_sector": -1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_1",
+          "p0_2",
+          "p1_3",
+          "p2_3"
+        ]
+      }
+    },
+    {
+      "unit": {
+        "uid": "p1_2",
+        "kind": "pair_unit",
+        "endpoints": [
+          1,
+          2
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.05440211108893698,
+        "raw_kbar_value": -0.05440211108893698,
+        "g_value": 0.05440211108893698,
+        "adjacency_value": 1
+      },
+      "structure": {
+        "support_sector": -1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_1",
+          "p0_2",
+          "p1_3",
+          "p2_3"
+        ]
+      }
+    },
+    {
+      "unit": {
+        "uid": "p1_3",
+        "kind": "pair_unit",
+        "endpoints": [
+          1,
+          3
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.024663321204975212,
+        "raw_kbar_value": 0.024663321204975212,
+        "g_value": 0.024663321204975212,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": 1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_1",
+          "p0_3",
+          "p1_2",
+          "p2_3"
+        ]
+      }
+    },
+    {
+      "unit": {
+        "uid": "p2_3",
+        "kind": "pair_unit",
+        "endpoints": [
+          2,
+          3
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.029393586065447345,
+        "raw_kbar_value": -0.029393586065447345,
+        "g_value": 0.029393586065447345,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": -1
+      },
+      "topology": {
+        "immediate_neighbors": [
+          "p0_2",
+          "p0_3",
+          "p1_2",
+          "p1_3"
+        ]
+      }
+    }
+  ]
+}

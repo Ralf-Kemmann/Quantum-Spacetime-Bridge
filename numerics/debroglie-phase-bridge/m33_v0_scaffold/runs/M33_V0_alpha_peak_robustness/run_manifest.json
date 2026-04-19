@@ -1,0 +1,9 @@
+{
+  "run_id": "M33_V0_alpha_peak_robustness",
+  "tag": "phase_source_vs_readout",
+  "timestamp_utc": "2026-03-26T10:24:54.477915+00:00",
+  "seed": 42,
+  "script_version": "m33_v0_runner.py",
+  "config_snapshot": "config_snapshot.yaml",
+  "status": "completed"
+}

@@ -1,0 +1,97 @@
+run:
+  run_id: "n1_a1_b1_decoupling_v1"
+  seed: 123
+  output_dir: "results/n1_a1_b1_decoupling_v1"
+  overwrite: false
+
+inputs:
+  export_root: "../results/a1_sign_scan/k0/theta_0.03"
+  export_classes:
+    - "negative"
+    - "abs"
+    - "positive"
+  export_pattern: "*.npz"
+  search_mode: "recursive"
+
+baseline:
+  neighborhood:
+    mode: "shared_endpoint"
+    directed: false
+
+alternative:
+  neighborhood:
+    mode: "graph_distance_1"
+    directed: false
+    require_mutual: false
+
+pair_unit:
+  enabled: true
+  source: "matrix_adapter_v22"
+  matrix_pair_mode: "adjacency_plus_threshold"
+
+  matrix_fields:
+    adjacency: "adjacency"
+    primary_score: "G"
+    secondary_score: "kbar"
+    edge_length: "edge_length"
+    d_rel: "d_rel"
+
+  threshold:
+    enabled: true
+    tau: 0.025
+    score_field: "G"
+    use_absolute_value: true
+
+  weights:
+    use_edge_length_as_weight: true
+    fallback_weight_field: "G"
+
+a1:
+  enabled: true
+  stabilization_ceiling: 0.95
+  neighbor_min: 3
+  late_stage_rule: "reformed"
+
+b1:
+  enabled: true
+  conflict_penalty: 1.0
+
+decoupling:
+  enabled: true
+
+  a1_only:
+    enabled: true
+    strong_statuses:
+      - "active"
+      - "partial"
+    weak_statuses:
+      - "weak"
+
+  b1_only:
+    enabled: true
+    strong_statuses:
+      - "active"
+      - "partial"
+    weak_statuses:
+      - "weak"
+
+  dominance_rule:
+    prefer_single_channel_if_other_is_weak: true
+    mark_disagreement_if_strength_gap_ge_1: true
+
+decision:
+  enabled: true
+  launchability:
+    min_pair_units: 1
+    min_local_shells: 1
+
+reporting:
+  write_summary_json: true
+  write_per_class_csv: true
+  write_comparison_csv: true
+  write_readout_md: true
+
+validation:
+  strict_export_class_presence: true
+  fail_on_empty_input: true
+  fail_on_nan_metrics: true

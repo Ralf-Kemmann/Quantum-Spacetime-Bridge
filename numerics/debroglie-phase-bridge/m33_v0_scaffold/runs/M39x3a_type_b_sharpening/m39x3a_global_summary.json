@@ -1,0 +1,15 @@
+{
+  "run_id": "M39x3a_type_b_sharpening",
+  "n_families_total": 6,
+  "n_families_implemented": 6,
+  "n_prediction_supported": 2,
+  "n_prediction_partially_supported": 6,
+  "n_prediction_open": 0,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "type_B_primary_status": "partially_supported",
+  "type_B_reserve_status": "partially_supported",
+  "type_D_status": "supported",
+  "cross_type_status": "no_cross_type_alarm",
+  "global_prediction_status": "type_B_sharpened"
+}

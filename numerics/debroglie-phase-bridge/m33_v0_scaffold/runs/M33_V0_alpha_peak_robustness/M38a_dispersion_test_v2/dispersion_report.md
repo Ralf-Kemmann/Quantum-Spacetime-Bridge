@@ -1,0 +1,15 @@
+# M.3.8a-v2 Dispersion Test with Full-Pair Persistence
+
+- n_cases_total: 480
+- n_pair_rows_total: 10080
+- width_growth_detected_fraction: 1.0
+- delta_p2_identity_preserved_fraction: 1.0
+- delta_p_identity_preserved_fraction: 1.0
+- pair_identity_preserved_fraction: 1.0
+- pair_overlap_top3_mean: 0.9347222222222221
+- pair_overlap_top5_mean: 0.9658333333333334
+- dominant_preserved_identity_level: pair
+- full_pair_persistence_ok: 1
+- final_label: H2p-3
+
+This v2 persists full pair tables and top-k pair tables for direct reuse in M.3.8b-v2.

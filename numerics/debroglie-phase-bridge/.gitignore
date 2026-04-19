@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Results / data (selektiv versionieren)
+results/**/result.json
+results/**/summary.txt
+results/**/matrices.npz
+data/raw/*
+data/interim/*
+data/processed/*
+
+# Keep directory placeholders
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!results/k0/.gitkeep
+!results/n0/.gitkeep
+!results/t1/.gitkeep
+!results/t1a/.gitkeep
+!results/t1b/.gitkeep
+!results/m1/.gitkeep

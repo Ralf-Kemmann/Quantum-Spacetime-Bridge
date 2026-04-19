@@ -1,0 +1,163 @@
+project:
+  run_id: M33_V0_alpha_peak_robustness
+  tag: phase_source_vs_readout
+  seed: 42
+  output_root: ./runs/M33_V0_alpha_peak_robustness
+physics:
+  hbar: 1.0
+  m: 1.0
+grid:
+  x_min: -40.0
+  x_max: 40.0
+  nx: 4001
+  window:
+    type: gaussian
+    sigma: 8.0
+    normalize_weights: true
+time_scan:
+  enabled: true
+  t_values:
+  - 0.0
+  - 2.0
+  - 5.0
+  - 10.0
+  - 20.0
+  - 40.0
+alpha_scan:
+  coarse:
+    alpha_min: 0.3
+    alpha_max: 3.0
+    alpha_step: 0.1
+  refine:
+    enabled: true
+    center_mode: fixed
+    fixed_center: 1.6
+    half_width: 0.3
+    alpha_step: 0.02
+p_sets:
+  active_families:
+  - P0
+  - P1
+  - P2
+  - P3
+  families:
+    P0:
+      description: symmetric reference
+      p_values:
+      - -3.0
+      - -2.0
+      - -1.0
+      - 0.0
+      - 1.0
+      - 2.0
+      - 3.0
+    P1:
+      description: mild asymmetric
+      p_values:
+      - -3.0
+      - -2.0
+      - -1.0
+      - 0.0
+      - 1.0
+      - 2.0
+      - 4.0
+    P2:
+      description: strong asymmetric
+      p_values:
+      - -4.0
+      - -2.0
+      - -1.0
+      - 0.0
+      - 1.0
+      - 3.0
+      - 6.0
+    P3:
+      description: affine asymmetric
+      p_values:
+      - -3.0
+      - -1.9
+      - -0.8
+      - 0.0
+      - 1.2
+      - 2.7
+      - 4.4
+phases:
+  phi0_mode: zero
+  phi0_seed: 123
+  dispersion:
+    mode: scaled_free
+    formula: omega_i = alpha * p_i^2 / (2*m)
+kernel:
+  build_kbar: true
+  kbar_average:
+    mode: weighted_x_average
+  sign_preserving:
+    enabled: true
+    zero_tolerance: 1.0e-12
+graphs:
+  theta_scan:
+    enabled: true
+    theta_values:
+    - 1.0e-09
+    - 3.0e-09
+    - 1.0e-08
+  adjacency_modes:
+  - abs
+  - positive
+  - negative
+  weighted_layer:
+    enabled: true
+    metrics:
+    - natural_connectivity
+    - weighted_clustering
+    - global_efficiency
+source_test:
+  enabled: true
+  measures:
+  - var_dphi_x
+  - mean_cos_dphi
+  - mean_abs_cos_dphi
+  - kbar_ij
+  - sign_fraction
+  - lambda_max_kpos
+  - lambda_max_kneg
+readout_test:
+  enabled: true
+  measures:
+  - chi
+  - rho_pos
+  - rho_neg
+  - lambda_max_pos
+  - lambda_max_neg
+  - lambda_max_abs
+  - lambda2_abs
+  - weighted_clustering_abs
+  - natural_connectivity_abs
+  - global_efficiency_abs
+peak_detection:
+  edge_exclusion_bins: 1
+  prominence_mode: median_baseline
+  source_peak_band:
+  - 1.4
+  - 1.8
+  readout_peak_band:
+  - 1.4
+  - 1.8
+  coherence_tol_fine: 0.15
+  robust_fraction_min: 0.7
+controls:
+  require_t0_control: true
+  require_nontrivial_p_asymmetry: true
+  finite_fraction_min: 1.0
+  allow_edge_peaks: false
+labels:
+  source_labels:
+  - Q0
+  - Q1
+  - Q2
+  - Q3
+  robustness_labels:
+  - R0
+  - R1
+  - R2
+  - R3

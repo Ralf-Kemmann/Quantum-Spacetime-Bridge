@@ -1,0 +1,134 @@
+{
+  "run_id": "bridge_carrier_block_d_v1",
+  "source_run_id": "M39x_current_bridge_eval",
+  "mode": "internal_plus_h2",
+  "base_variant": "full",
+  "variants_tested": 5,
+  "core_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ],
+  "results": [
+    {
+      "variant": "full",
+      "feature_count": 4,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "internal_overall_pass": true,
+      "internal_result_label": "supported",
+      "internal_separation_margin_mean": 0.12074074074074076,
+      "internal_assignment_score": 0.6333333333333333,
+      "internal_original_stability_score": 0.6,
+      "h2_overall_pass": false,
+      "h2_result_label": "failed",
+      "h2_separation_margin_mean": 0.0,
+      "h2_assignment_score": 0.16666666666666666,
+      "h2_original_stability_score": 0.205,
+      "h2_proxy_rigidity_rows": 6,
+      "transfer_signal": "baseline",
+      "delta_internal_assignment_vs_full": 0.0,
+      "delta_h2_assignment_vs_full": 0.0
+    },
+    {
+      "variant": "single_rigidity",
+      "feature_count": 1,
+      "active_features": [
+        "simple_rigidity_surrogate"
+      ],
+      "internal_overall_pass": true,
+      "internal_result_label": "supported",
+      "internal_separation_margin_mean": 0.3977777777777774,
+      "internal_assignment_score": 0.8333333333333333,
+      "internal_original_stability_score": 0.89,
+      "h2_overall_pass": false,
+      "h2_result_label": "failed",
+      "h2_separation_margin_mean": 0.0,
+      "h2_assignment_score": 0.0,
+      "h2_original_stability_score": 0.0,
+      "h2_proxy_rigidity_rows": 6,
+      "transfer_signal": "baseline",
+      "delta_internal_assignment_vs_full": 0.19999999999999996,
+      "delta_h2_assignment_vs_full": -0.16666666666666666
+    },
+    {
+      "variant": "pair_rigidity_grid",
+      "feature_count": 2,
+      "active_features": [
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "internal_overall_pass": true,
+      "internal_result_label": "supported",
+      "internal_separation_margin_mean": 0.2525925925925925,
+      "internal_assignment_score": 0.8,
+      "internal_original_stability_score": 0.725,
+      "h2_overall_pass": false,
+      "h2_result_label": "failed",
+      "h2_separation_margin_mean": 0.0,
+      "h2_assignment_score": 0.0,
+      "h2_original_stability_score": 0.0,
+      "h2_proxy_rigidity_rows": 6,
+      "transfer_signal": "baseline",
+      "delta_internal_assignment_vs_full": 0.16666666666666674,
+      "delta_h2_assignment_vs_full": -0.16666666666666666
+    },
+    {
+      "variant": "triple_without_distance",
+      "feature_count": 3,
+      "active_features": [
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "internal_overall_pass": true,
+      "internal_result_label": "supported",
+      "internal_separation_margin_mean": 0.1639506172839505,
+      "internal_assignment_score": 0.7444444444444445,
+      "internal_original_stability_score": 0.685,
+      "h2_overall_pass": false,
+      "h2_result_label": "failed",
+      "h2_separation_margin_mean": 0.0,
+      "h2_assignment_score": 0.0,
+      "h2_original_stability_score": 0.0,
+      "h2_proxy_rigidity_rows": 6,
+      "transfer_signal": "baseline",
+      "delta_internal_assignment_vs_full": 0.11111111111111116,
+      "delta_h2_assignment_vs_full": -0.16666666666666666
+    },
+    {
+      "variant": "triple_without_spacing",
+      "feature_count": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "internal_overall_pass": true,
+      "internal_result_label": "supported",
+      "internal_separation_margin_mean": 0.16543209876543202,
+      "internal_assignment_score": 0.7333333333333334,
+      "internal_original_stability_score": 0.705,
+      "h2_overall_pass": false,
+      "h2_result_label": "failed",
+      "h2_separation_margin_mean": 0.0,
+      "h2_assignment_score": 0.16666666666666666,
+      "h2_original_stability_score": 0.205,
+      "h2_proxy_rigidity_rows": 6,
+      "transfer_signal": "baseline",
+      "delta_internal_assignment_vs_full": 0.10000000000000009,
+      "delta_h2_assignment_vs_full": 0.0
+    }
+  ],
+  "interpretation_rule": {
+    "candidate_transfer_core": "passes internally and under H2 mirror",
+    "candidate_transfer_partial": "passes internally, only partial under H2 mirror",
+    "internal_only_core": "internal core but not transportable under current H2 mirror",
+    "insufficient_under_current_logic": "fails to preserve current bridge logic"
+  }
+}

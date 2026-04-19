@@ -1,0 +1,88 @@
+{
+  "run_id": "H3_READINESS_UPLIFT_01",
+  "created_at_utc": "2026-04-17T06:34:57Z",
+  "best_reference_candidates": [],
+  "best_support_candidates": [
+    "N1_A1_B1_DECOUPLING"
+  ],
+  "excluded_sources": [
+    "N1_NEGATIVE_VS_ABS",
+    "N1_NEGATIVE_VS_ABS_MARKERS",
+    "N1",
+    "N1",
+    "N1"
+  ],
+  "overall_uplift_status": "partial_readiness_uplift_achieved",
+  "recommended_next_h3_input_set": [
+    "N1_A1_B1_DECOUPLING"
+  ],
+  "summary_text": "Some blocks can be retained as limited H3 input candidates, but readiness remains partial and selective.",
+  "candidate_rows": [
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_v1/summary.json",
+      "source_block": "N1_NEGATIVE_VS_ABS",
+      "block_type": "class_specificity",
+      "launchability_signal": "unknown",
+      "structure_signal": "unknown",
+      "differentiation_signal": "mixed",
+      "h3_candidate_role": "reject_for_h3_now",
+      "readiness_level": "excluded",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_markers_v1/summary.json",
+      "source_block": "N1_NEGATIVE_VS_ABS_MARKERS",
+      "block_type": "marker_comparison",
+      "launchability_signal": "present",
+      "structure_signal": "unknown",
+      "differentiation_signal": "weak",
+      "h3_candidate_role": "not_ready",
+      "readiness_level": "restricted",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_alt_neighborhood_v1/summary.json",
+      "source_block": "N1",
+      "block_type": "alt_neighborhood",
+      "launchability_signal": "absent",
+      "structure_signal": "boundary_only",
+      "differentiation_signal": "unknown",
+      "h3_candidate_role": "not_ready",
+      "readiness_level": "restricted",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_alt_neighborhood_v2/summary.json",
+      "source_block": "N1",
+      "block_type": "alt_neighborhood",
+      "launchability_signal": "absent",
+      "structure_signal": "boundary_only",
+      "differentiation_signal": "unknown",
+      "h3_candidate_role": "not_ready",
+      "readiness_level": "restricted",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_alt_neighborhood_v22/summary.json",
+      "source_block": "N1",
+      "block_type": "alt_neighborhood",
+      "launchability_signal": "absent",
+      "structure_signal": "boundary_only",
+      "differentiation_signal": "unknown",
+      "h3_candidate_role": "not_ready",
+      "readiness_level": "restricted",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_a1_b1_decoupling_v1/summary.json",
+      "source_block": "N1_A1_B1_DECOUPLING",
+      "block_type": "decoupling",
+      "launchability_signal": "present",
+      "structure_signal": "present",
+      "differentiation_signal": "unknown",
+      "h3_candidate_role": "support_candidate",
+      "readiness_level": "usable_but_limited",
+      "comment": ""
+    }
+  ]
+}

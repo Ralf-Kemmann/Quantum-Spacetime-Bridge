@@ -1,0 +1,17 @@
+{
+  "variant": "pair_rigidity_spacing",
+  "feature_count": 2,
+  "overall_pass": true,
+  "result_label": "supported",
+  "separation_margin_mean": 0.19222222222222218,
+  "assignment_score": 0.7444444444444445,
+  "original_stability_score": 0.99,
+  "original_vs_control_margin_delta": 0.19222222222222218,
+  "type_B_like_pattern_detected": true,
+  "positive_bootstrap_fraction": 0.99,
+  "n_active_features": 2,
+  "active_features": [
+    "simple_rigidity_surrogate",
+    "spacing_cv"
+  ]
+}

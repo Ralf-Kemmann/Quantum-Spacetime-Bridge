@@ -1,0 +1,53 @@
+{
+  "run_id": "H3_SUPPORT_SIDE_BY_SIDE_PROBE_01",
+  "created_at_utc": "2026-04-17T07:00:47Z",
+  "source_block": "N1_A1_B1_DECOUPLING",
+  "baseline_anchor_status": "primary_retained",
+  "combined_status_stability": "stable",
+  "auxiliary_compatibility": "compatible_but_bounded",
+  "neighbor_shift_signal": "positive_shift",
+  "a1_shift_signal": "positive_low_level_shift",
+  "b1_shift_signal": "stable",
+  "expected_gain_profile": "low_but_readable",
+  "support_side_by_side_outcome": "support_side_by_side_admissible_low_gain",
+  "recommended_next_step": "document_as_limited_support_side_h3_entry",
+  "summary_text": "The support-side decoupling block permits a first bounded side-by-side H3 reading: baseline remains primary, while the auxiliary reading contributes only a low but readable additional contrast.",
+  "class_level_readout": [
+    {
+      "export_class": "negative",
+      "baseline_launchable": "True",
+      "alternative_launchable": "True",
+      "baseline_combined_status": "structured_intermediate",
+      "alternative_combined_status": "structured_intermediate",
+      "delta_combined_status": "unchanged",
+      "delta_mean_neighbor_count": "1.0",
+      "delta_a1_status": "strengthened",
+      "delta_b1_status": "unchanged",
+      "interpretation_flag": "soft_shift"
+    },
+    {
+      "export_class": "abs",
+      "baseline_launchable": "True",
+      "alternative_launchable": "True",
+      "baseline_combined_status": "structured_intermediate",
+      "alternative_combined_status": "structured_intermediate",
+      "delta_combined_status": "unchanged",
+      "delta_mean_neighbor_count": "1.0",
+      "delta_a1_status": "strengthened",
+      "delta_b1_status": "unchanged",
+      "interpretation_flag": "soft_shift"
+    },
+    {
+      "export_class": "positive",
+      "baseline_launchable": "False",
+      "alternative_launchable": "False",
+      "baseline_combined_status": "boundary_non_launchable",
+      "alternative_combined_status": "boundary_non_launchable",
+      "delta_combined_status": "unchanged",
+      "delta_mean_neighbor_count": "0.0",
+      "delta_a1_status": "unchanged",
+      "delta_b1_status": "unchanged",
+      "interpretation_flag": "stable"
+    }
+  ]
+}

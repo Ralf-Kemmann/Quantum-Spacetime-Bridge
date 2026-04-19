@@ -1,0 +1,18 @@
+run_id: H3_PRECHECK_01
+output_dir: runs/H3_PRECHECK_01
+
+inputs:
+  summaries:
+    - results/n1_negative_vs_abs_v1/summary.json
+    - results/n1_negative_vs_abs_markers_v1/summary.json
+    - results/n1_alt_neighborhood_v22/summary.json
+
+policy:
+  tie_warning_threshold: 0.7
+  require_launchability_signal: true
+  require_local_structure_signal: true
+
+outputs:
+  write_summary_json: true
+  write_precheck_table_csv: true
+  write_block_readout_md: true

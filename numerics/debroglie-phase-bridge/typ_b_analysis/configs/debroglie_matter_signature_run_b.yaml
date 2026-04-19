@@ -1,0 +1,52 @@
+run_id: debroglie_matter_signature_run_b
+
+species_list:
+  - hydrogen
+  - sodium
+  - carbon
+  - nitrogen
+  - sulfur
+  - phosphorus
+
+conditions:
+  temperature_C: 20.0
+  pressure_mbar: 1013.0
+  volume_m3: 1.0
+
+model_assumptions:
+  species_mode: atomic_species
+  gas_model: ideal_gas
+  velocity_model: mean
+  frequency_mode: kinetic_energy_based
+  density_mode: ideal_gas_number_density
+
+surrogates:
+  enabled:
+    - length_scale_score
+    - energy_score
+    - occupancy_score
+    - signature_score
+  signature_score_mode: simple_normalized_sum
+  weights:
+    length_scale_score: 1.0
+    energy_score: 1.0
+    occupancy_score: 1.0
+
+tau_grid:
+  - 0.001
+  - 0.01
+  - 0.1
+  - 1.0
+
+comparison:
+  enable_mass_vs_matter_sensitivity: true
+  compute_tau_alignment_score: true
+  compute_matter_sensitive_delta: true
+
+output:
+  base_dir: results/debroglie_matter_signature
+  write_state_json: true
+  write_readout_md: true
+  write_scan_csv: true
+  write_claims_json: true
+  write_tau_response_csv: true

@@ -1,0 +1,381 @@
+run:
+  run_id: "M39x3d_transition_mapping"
+  title: "M.3.9x.3d — Dichter FSW-/AO-Sweep und Grenzbestimmung"
+  description: >
+    Dense mapping run for quantitative and qualitative Type-B regime boundaries.
+    A dense finite-square-well sweep and a dense anharmonic-oscillator sweep
+    are evaluated to identify Type-D-near zones, quantitative Type-B windows,
+    and qualitative Type-B jump regions.
+  outdir: "runs/M39x3d_transition_mapping"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  family_definitions_yaml: "configs/m39x3d_transition_mapping_families.yaml"
+
+execution:
+  enabled_blocks:
+    - family_diagnostics
+    - prediction_evaluation
+    - spectral_type_summary
+    - control_hardening_rules
+    - transition_mapping
+    - knee_break_detection
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_family_prediction_summary: true
+  require_spectral_type_summary: true
+  require_missing_cases_summary: true
+  require_transition_mapping_summary: true
+  global_prediction_status_allowed_values:
+    - "type_B_quantitative_window_mapped"
+    - "type_B_quantitative_window_narrow"
+    - "ao_qualitative_jump_transition_mapped"
+    - "ao_transition_gradual_only"
+    - "transition_has_knee_or_break"
+    - "internal_type_B_regimes_supported"
+    - "internal_type_B_regimes_not_yet_stable"
+
+pairing:
+  default_pairing_mode: "all_pairs"
+  supported_pairing_modes:
+    - "all_pairs"
+    - "matched_pairs"
+    - "nearest_pairs"
+    - "degeneracy_safe_pairs"
+    - "unique_abs_pairs"
+    - "no_sign_mirror_pairs"
+  defaults:
+    exclude_self_pairs: true
+    sort_pairs_canonically: true
+    unique_unordered_pairs: true
+
+markers:
+  supported_markers:
+    - "delta_p"
+    - "abs_delta_p"
+    - "delta_p2"
+    - "abs_delta_p2"
+    - "delta_E_quad"
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_omega"
+    - "delta_lambda"
+
+  default_marker_sets:
+    type_A_ladder:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_B_quadratic_nontrivial:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_C_multiindex_structure:
+      - "delta_k"
+      - "abs_delta_k"
+      - "delta_k2"
+      - "abs_delta_k2"
+      - "delta_omega"
+      - "delta_lambda"
+
+    type_D_regular_nonring:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+strength_scoring:
+  absolute_strength:
+    method: "rank_separation_score"
+    higher_is_better: true
+    normalize_to_unit_interval: true
+
+  relative_dominance:
+    method: "bootstrap_win_fraction"
+    higher_is_better: true
+
+  support_thresholds:
+    absolute_support_min: 0.60
+    dominance_stable_min: 0.70
+    dominance_margin_min: 0.05
+    competitive_margin_max: 0.10
+    type_b_distance_min: 0.10
+    small_distance_threshold: 0.05
+    knee_excess_min: 0.25
+    jump_rigidity_excess_min: 0.50
+    jump_grid_excess_min: 0.25
+    jump_spacing_excess_min: 0.25
+
+bootstrap:
+  enabled: true
+  n_bootstrap: 1000
+  resample_level: "pair"
+  confidence_level: 0.95
+  stratified_by_branch_label: false
+
+irregularity:
+  enabled: true
+  compute_measures:
+    - "spacing_mean"
+    - "spacing_std"
+    - "spacing_cv"
+    - "spacing_ratio"
+    - "simple_unfolding_density"
+    - "simple_rigidity_surrogate"
+    - "grid_deviation_score"
+    - "second_difference_curvature"
+
+irregularity_levels:
+  low:
+    spacing_cv_max: 0.20
+  low_to_moderate:
+    spacing_cv_max: 0.45
+  moderate:
+    spacing_cv_min: 0.15
+    spacing_cv_max: 0.60
+  moderate_to_high:
+    spacing_cv_min: 0.20
+  high:
+    spacing_cv_min: 0.50
+
+prediction_logic:
+  allowed_match_status_values:
+    - "supported"
+    - "partially_supported"
+    - "open"
+    - "stressed"
+    - "failed"
+
+  supported_rules:
+    require_expected_relative_winner: true
+    allow_expected_allowed_winners: true
+    check_delta_p2_role: true
+    check_irregularity_level: true
+    check_direction_blindness_relevance: true
+
+  default_open_conditions:
+    - "family_status_placeholder"
+    - "missing_control_case"
+    - "insufficient_data"
+
+transition_mapping:
+  block_id: "M39x3d_transition_mapping"
+  purpose: "dense_mapping_of_quantitative_and_qualitative_type_B_regimes"
+
+  sweeps:
+    - sweep_id: "FSW_DENSE"
+      family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+      model_class: "finite_square_well_1d"
+      sweep_parameter: "well_depth"
+      sweep_mode: "depth_only"
+      fixed_parameters:
+        well_width: 1.0
+        mass: 1.0
+
+    - sweep_id: "AO_DENSE"
+      family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+      model_class: "anharmonic_oscillator_1d"
+      sweep_parameter: "anharmonic_strength"
+      sweep_mode: "anharmonic_strength_only"
+      fixed_parameters:
+        mass: 1.0
+        omega0: 1.0
+
+mapping_references:
+  type_A_reference:
+    family_id: "ER1_RING"
+    variant_id: "RING_SIGNED"
+
+  type_D_reference:
+    family_id: "TD1_1D_BOX"
+    variant_id: "BOX_STANDARD"
+
+  fsw_reference:
+    family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+    regime_id: "FSW_D06"
+
+  ao_reference:
+    family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+    regime_id: "AO_A05"
+
+  ao_jump_reference:
+    family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+    regime_id: "AO_A09"
+
+evaluation_targets:
+  - "regime_id"
+  - "regime_parameter"
+  - "n_states"
+  - "dominant_marker"
+  - "delta_p2_relative_gain_vs_type_A"
+  - "distance_to_type_D"
+  - "observed_irregularity_level"
+  - "spacing_cv"
+  - "grid_deviation_score"
+  - "simple_rigidity_surrogate"
+  - "second_difference_curvature"
+  - "prediction_match_status"
+  - "window_or_jump_membership"
+  - "nonlinearity_excess"
+  - "local_transition_flag"
+  - "knee_candidate_flag"
+  - "regime_assignment"
+
+regime_prediction_profiles:
+  FSW_D01:
+    expected_regime_assignment: "type_D_near"
+  FSW_D02:
+    expected_regime_assignment: "type_D_near"
+  FSW_D03:
+    expected_regime_assignment: "transition_to_quantitative_type_B"
+  FSW_D04:
+    expected_regime_assignment: "transition_to_quantitative_type_B"
+  FSW_D05:
+    expected_regime_assignment: "quantitative_type_B_window"
+  FSW_D06:
+    expected_regime_assignment: "quantitative_type_B_window"
+  FSW_D07:
+    expected_regime_assignment: "quantitative_type_B_window"
+  FSW_D08:
+    expected_regime_assignment: "edge_near_quantitative_type_B"
+  FSW_D09:
+    expected_regime_assignment: "edge_case"
+
+  AO_A01:
+    expected_regime_assignment: "near_regular"
+  AO_A02:
+    expected_regime_assignment: "first_transfer_signal"
+  AO_A03:
+    expected_regime_assignment: "quantitative_type_B_transfer"
+  AO_A04:
+    expected_regime_assignment: "quantitative_type_B_transfer"
+  AO_A05:
+    expected_regime_assignment: "quantitative_type_B_transfer"
+  AO_A06:
+    expected_regime_assignment: "pre_jump_transition"
+  AO_A07:
+    expected_regime_assignment: "pre_jump_transition"
+  AO_A08:
+    expected_regime_assignment: "jump_transition_candidate"
+  AO_A09:
+    expected_regime_assignment: "qualitative_type_B_jump"
+  AO_A10:
+    expected_regime_assignment: "post_jump_or_edge_case"
+
+derived_transition_flags:
+  - "delta_p2_relative_gain_vs_type_A"
+  - "distance_to_type_D"
+  - "observed_irregularity_level"
+  - "nonlinearity_excess_spacing_cv"
+  - "nonlinearity_excess_grid_dev"
+  - "nonlinearity_excess_rigidity"
+  - "local_transition_flag"
+  - "knee_candidate_flag"
+  - "quantitative_type_B_window_flag"
+  - "qualitative_type_B_jump_flag"
+  - "edge_case_flag"
+
+fsw_transition_rules:
+  quantitative_type_B_window:
+    require:
+      - "delta_p2_relative_gain_vs_type_A > 0"
+      - "distance_to_type_D > 0"
+      - "qualitative_type_B_jump_flag == false"
+      - "stable_across_neighboring_points == true"
+
+  quantitative_type_B_window_narrow:
+    require:
+      - "delta_p2_relative_gain_vs_type_A > 0"
+      - "distance_to_type_D > 0"
+    allow_any:
+      - "stable_across_neighboring_points == false"
+      - "edge_case_flag == true"
+
+  type_D_near_zone:
+    require:
+      - "distance_to_type_D <= small_distance_threshold"
+      - "observed_irregularity_level in [low, low_to_moderate]"
+
+ao_transition_rules:
+  qualitative_type_B_jump:
+    require:
+      - "qualitative_type_B_jump_flag == true"
+      - "local_transition_flag == true"
+
+  jump_transition_candidate:
+    require:
+      - "knee_candidate_flag == true"
+    allow_any:
+      - "rigidity_nonlinear == true"
+      - "grid_deviation_nonlinear == true"
+
+  quantitative_type_B_transfer_zone:
+    require:
+      - "delta_p2_relative_gain_vs_type_A > 0"
+      - "distance_to_type_D > 0"
+      - "qualitative_type_B_jump_flag == false"
+
+  post_jump_or_edge_case:
+    trigger_any:
+      - "edge_case_flag == true"
+      - "loss_of_transfer_pattern == true"
+
+transition_mapping_global_logic:
+  type_B_quantitative_window_mapped:
+    require:
+      - "multiple_neighboring_fsw_points_in_quantitative_window == true"
+
+  type_B_quantitative_window_narrow:
+    require:
+      - "at_least_one_fsw_window_core_point == true"
+    allow_any:
+      - "neighbor_stability_limited == true"
+
+  ao_qualitative_jump_transition_mapped:
+    require:
+      - "at_least_one_ao_jump_point == true"
+      - "at_least_one_pre_jump_point == true"
+
+  ao_transition_gradual_only:
+    trigger_any:
+      - "no_knee_candidate_found == true"
+      - "all_ao_measures_change_smoothly == true"
+
+  transition_has_knee_or_break:
+    trigger_any:
+      - "knee_candidate_flag_detected == true"
+      - "local_transition_flag_detected == true"
+
+  internal_type_B_regimes_supported:
+    require:
+      - "quantitative_window_identified == true"
+      - "qualitative_jump_identified == true"
+
+  internal_type_B_regimes_not_yet_stable:
+    trigger_any:
+      - "window_or_jump_membership_changes_with_small_threshold_shifts == true"
+      - "mapping_inconclusive == true"
+
+outputs:
+  markdown_report: "m39x3d_transition_mapping_report.md"
+  global_summary_json: "m39x3d_global_summary.json"
+  family_prediction_summary_csv: "m39x3d_family_prediction_summary.csv"
+  spectral_type_summary_csv: "m39x3d_spectral_type_summary.csv"
+  marker_summary_csv: "m39x3d_marker_summary.csv"
+  irregularity_summary_csv: "m39x3d_irregularity_summary.csv"
+  bootstrap_summary_csv: "m39x3d_bootstrap_summary.csv"
+  missing_cases_summary_csv: "m39x3d_missing_cases_summary.csv"
+  transition_mapping_summary_csv: "m39x3d_transition_mapping_summary.csv"
+  source_notes_md: "m39x3d_source_notes.md"

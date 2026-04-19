@@ -1,0 +1,21 @@
+{
+  "variant": "full",
+  "feature_count": 4,
+  "active_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ],
+  "internal_overall_pass": true,
+  "internal_result_label": "supported",
+  "internal_separation_margin_mean": 0.12074074074074076,
+  "internal_assignment_score": 0.6333333333333333,
+  "internal_original_stability_score": 0.6,
+  "h2_overall_pass": false,
+  "h2_result_label": "failed",
+  "h2_separation_margin_mean": 0.0,
+  "h2_assignment_score": 0.16666666666666666,
+  "h2_original_stability_score": 0.205,
+  "h2_proxy_rigidity_rows": 6
+}

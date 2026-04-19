@@ -1,0 +1,6 @@
+record_id,run_id,dataset_id,source_type,control_family,family_id,window_id,label_internal,group_target,replicate_id,is_original_reference,is_enabled,feature_space_version,normalization_version,input_file,notes
+1,m39x3g_a_run_001,orig_001,original,original,FSW,D05,FSW_D05,FSW,0,true,true,v_current_baseline,zscore_from_original_reference_v1,data/original/original_features.csv,baseline reference
+2,m39x3g_a_run_001,orig_002,original,original,FSW,D06,FSW_D06,FSW,0,true,true,v_current_baseline,zscore_from_original_reference_v1,data/original/original_features.csv,baseline reference
+3,m39x3g_a_run_001,orig_003,original,original,AO,A03,AO_A03,AO,0,true,true,v_current_baseline,zscore_from_original_reference_v1,data/original/original_features.csv,priority pairing P1
+4,m39x3g_a_run_001,orig_004,original,original,AO,A04,AO_A04,AO,0,true,true,v_current_baseline,zscore_from_original_reference_v1,data/original/original_features.csv,baseline reference
+5,m39x3g_a_run_001,orig_005,original,original,AO,A05,AO_A05,AO,0,true,true,v_current_baseline,zscore_from_original_reference_v1,data/original/original_features.csv,priority pairing P1

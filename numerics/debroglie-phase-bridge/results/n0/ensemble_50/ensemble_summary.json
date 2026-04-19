@@ -1,0 +1,4463 @@
+{
+  "n_runs": 50,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50
+  ],
+  "results": [
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 1
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 1,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.017402660903442,
+        0.021501226003184,
+        0.022769490650007,
+        0.046077375788951,
+        0.060118424996122,
+        0.064599935978003
+      ],
+      "connected_components": [
+        [
+          1
+        ],
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 2
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 2,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.012171542767818,
+        0.0305349802548,
+        0.036780219872008,
+        0.04016142885186,
+        0.043104955189472,
+        0.07367808540332
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.18608727715672968,
+        "d03_minus_d12": 0.34476504006117925,
+        "d02_minus_d13": 0.6067983525813272
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.18608727715672968,
+        "d03_minus_d12": -0.34476504006117925,
+        "d02_minus_d13": -0.6067983525813272
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 3
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 3,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.0020803536092,
+        0.02711629647514,
+        0.037386503241425,
+        0.044084278127262,
+        0.046121826482633,
+        0.053058853201343
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.35009197184195195,
+        "d03_minus_d12": -0.7900234659422465,
+        "d02_minus_d13": -1.2099765340577533
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.35009197184195195,
+        "d03_minus_d12": 0.7900234659422465,
+        "d02_minus_d13": 1.2099765340577533
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 4
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 4,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.021892235350286,
+        0.022631334586286,
+        0.030089331034984,
+        0.03187622623034,
+        0.035562132938473,
+        0.061882052920495
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.721059542729356,
+        "d03_minus_d12": 0.05768981445271537,
+        "d02_minus_d13": -0.05768981445271537
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.721059542729356,
+        "d03_minus_d12": -0.05768981445271537,
+        "d02_minus_d13": 0.05768981445271537
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 5
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 5,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.007017273424119,
+        0.010309092702942,
+        0.019247868639421,
+        0.032240314216763,
+        0.049641891837655,
+        0.07773635697819
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": 0.568382593004849,
+        "d02_minus_d13": 2.328593390893642
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": -0.568382593004849,
+        "d02_minus_d13": -2.328593390893642
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 6
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 6,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002063529879001,
+        0.011776744714899,
+        0.013360359117012,
+        0.01996847818249,
+        0.020370087664379,
+        0.039511986297317
+      ],
+      "connected_components": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 7
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 7,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.016609222113928,
+        0.026807771105877,
+        0.028940471017714,
+        0.029539018436601,
+        0.054442431956492,
+        0.068572070079785
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 8
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 8,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.016440281573568,
+        0.032278625670411,
+        0.033981446624152,
+        0.035693470180548,
+        0.050072323684896,
+        0.106549667656061
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.755142805413068,
+        "d03_minus_d12": -0.3385006700427504,
+        "d02_minus_d13": -0.051409420920276894
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.755142805413068,
+        "d03_minus_d12": 0.3385006700427504,
+        "d02_minus_d13": 0.051409420920276894
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 9
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 9,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.003093294288342,
+        0.011813859620099,
+        0.043653651553893,
+        0.053573732869541,
+        0.060211886474377,
+        0.085434846206267
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.9999999999999998,
+        "d03_minus_d12": 0.8831891069901818,
+        "d02_minus_d13": 0.6714671186851784
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.9999999999999998,
+        "d03_minus_d12": -0.8831891069901818,
+        "d02_minus_d13": -0.6714671186851784
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 10
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 10,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.0002774254692,
+        0.002828810039739,
+        0.006100224861687,
+        0.014540993530452,
+        0.049543941504512,
+        0.079008340078872
+      ],
+      "connected_components": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": -0.4666934345559479
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": 0.4666934345559479
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 11
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 11,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.001391705463884,
+        0.011200258284097,
+        0.028459592410665,
+        0.057800787433863,
+        0.068272409848951,
+        0.083123858026596
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.1968260312503638,
+        "d03_minus_d12": -0.36332936184697306,
+        "d02_minus_d13": 2.363329361846973
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.1968260312503638,
+        "d03_minus_d12": 0.36332936184697306,
+        "d02_minus_d13": -2.363329361846973
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 12
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 12,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002296257046282,
+        0.005093571493312,
+        0.01333833342431,
+        0.014421590977537,
+        0.10725516764619,
+        0.114484202515418
+      ],
+      "connected_components": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 13
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 13,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.010070461434354,
+        0.020541874225874,
+        0.023942029936651,
+        0.040836416582105,
+        0.049384128306092,
+        0.08323948826851
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.19005483661978362,
+        "d03_minus_d12": 0.5220927706242344,
+        "d02_minus_d13": -0.5220927706242344
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.19005483661978362,
+        "d03_minus_d12": -0.5220927706242344,
+        "d02_minus_d13": 0.5220927706242344
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 14
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 14,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.009164716952211,
+        0.012630728434819,
+        0.013176459060607,
+        0.052298485806381,
+        0.070448290604795,
+        0.073759134263194
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.0459258678654573,
+        "d03_minus_d12": 2.0459258678654573,
+        "d02_minus_d13": -0.04592586786545727
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.0459258678654573,
+        "d03_minus_d12": -2.0459258678654573,
+        "d02_minus_d13": 0.04592586786545727
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 15
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 15,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.013047154369029,
+        0.017029781723316,
+        0.020317595535295,
+        0.021895017737775,
+        0.041065411103679,
+        0.069065888435432
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 16
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 16,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.013941384179939,
+        0.026961089784197,
+        0.040420481879951,
+        0.048276599587285,
+        0.050872704444803,
+        0.059221482270342
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.052379558601320264,
+        "d03_minus_d12": -1.4343272771317797,
+        "d02_minus_d13": 0.3819477185304594
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.052379558601320264,
+        "d03_minus_d12": 1.4343272771317797,
+        "d02_minus_d13": -0.3819477185304594
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 17
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 17,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002643664498104,
+        0.025267063177517,
+        0.028161831496646,
+        0.031203380417544,
+        0.042927354319111,
+        0.057586050169481
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 18
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 18,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.006793761102457,
+        0.017748590391171,
+        0.02299715582154,
+        0.032439120972561,
+        0.040112553494806,
+        0.062351997963756
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 19
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 19,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.011025897054081,
+        0.01668561241776,
+        0.019379929169221,
+        0.021368233017355,
+        0.028731471121308,
+        0.069781132687714
+      ],
+      "connected_components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 20
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 20,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.000688796714807,
+        0.017260005175026,
+        0.033032237462253,
+        0.043267157820503,
+        0.089763438219093,
+        0.123417607024914
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.9996937682079048,
+        "d03_minus_d12": -3.047873684715756,
+        "d02_minus_d13": 1.0481799165078511
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.9996937682079048,
+        "d03_minus_d12": 3.047873684715756,
+        "d02_minus_d13": -1.0481799165078511
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 21
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 21,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.008648364045906,
+        0.021021790612979,
+        0.024807839897666,
+        0.060818459689432,
+        0.067143386329281,
+        0.079421265283186
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.9010629290862917,
+        "d03_minus_d12": 0.09893707091370829,
+        "d02_minus_d13": -2.434808530917825
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.9010629290862917,
+        "d03_minus_d12": -0.09893707091370829,
+        "d02_minus_d13": 2.434808530917825
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 22
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 22,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002515716877572,
+        0.011678022153035,
+        0.018606038067811,
+        0.026355417413644,
+        0.027248760553731,
+        0.058988500080883
+      ],
+      "connected_components": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 23
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 23,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.004936243298176,
+        0.022516666459723,
+        0.029046797890945,
+        0.033388416931005,
+        0.034160276029805,
+        0.052778973535755
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -1.457903841547438,
+        "d03_minus_d12": -2.8929532750706004,
+        "d02_minus_d13": -0.02285440802427474
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 1.457903841547438,
+        "d03_minus_d12": 2.8929532750706004,
+        "d02_minus_d13": 0.02285440802427474
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 24
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 24,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.023995312600963,
+        0.025461949238864,
+        0.02643640053965,
+        0.053912101696186,
+        0.057252991627714,
+        0.093692092283521
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.4925338951221123,
+        "d03_minus_d12": 2.045192712840354,
+        "d02_minus_d13": 1.0601249225961291
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.4925338951221123,
+        "d03_minus_d12": -2.045192712840354,
+        "d02_minus_d13": -1.0601249225961291
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 25
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 25,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.017444982593015,
+        0.037576180600643,
+        0.039217467598743,
+        0.045431314272198,
+        0.05444683224309,
+        0.064856333946531
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.5458042217286421,
+        "d03_minus_d12": -0.5030523271641363,
+        "d02_minus_d13": -1.3708543153433053
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.5458042217286421,
+        "d03_minus_d12": 0.5030523271641363,
+        "d02_minus_d13": 1.3708543153433053
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 26
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 26,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.005506447758107,
+        0.009581720161846,
+        0.044319672221153,
+        0.052771082418312,
+        0.05362298676553,
+        0.06852291000785
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.26120478281211357,
+        "d03_minus_d12": 0.016014474500918086,
+        "d02_minus_d13": 0.8094508129700788
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.26120478281211357,
+        "d03_minus_d12": -0.016014474500918086,
+        "d02_minus_d13": -0.8094508129700788
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 27
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 27,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.003806426696547,
+        0.018649124168882,
+        0.022832943138897,
+        0.036311836110702,
+        0.040103917585921,
+        0.074573195227625
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": 2.7196373775592946,
+        "d02_minus_d13": 0.7196373775592948
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": -2.7196373775592946,
+        "d02_minus_d13": -0.7196373775592948
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 28
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 28,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.020774944165716,
+        0.024538835924455,
+        0.025219435629269,
+        0.036314527370445,
+        0.068798409701244,
+        0.087265826369084
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 29
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 29,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.005817648051967,
+        0.006759051335874,
+        0.010558339730725,
+        0.054981921651333,
+        0.05736545438754,
+        0.087982912920811
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.042437848257634636,
+        "d03_minus_d12": 0.42770034206124863,
+        "d02_minus_d13": -0.42770034206124885
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.042437848257634636,
+        "d03_minus_d12": -0.42770034206124863,
+        "d02_minus_d13": 0.42770034206124885
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 30
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 30,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.000920671277079,
+        0.010145293547104,
+        0.029612162250036,
+        0.051281413309155,
+        0.05611353283436,
+        0.071777844398668
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": 1.0900486375684624,
+        "d02_minus_d13": 1.5824463259059147
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": -1.0900486375684624,
+        "d02_minus_d13": -1.5824463259059147
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 31
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 31,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.017086878197502,
+        0.018953473985859,
+        0.031478723494754,
+        0.048471366577868,
+        0.056824424360295,
+        0.08402256984121
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.5501122075759706,
+        "d03_minus_d12": 0.1589929958812233,
+        "d02_minus_d13": -0.1589929958812233
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.5501122075759706,
+        "d03_minus_d12": -0.1589929958812233,
+        "d02_minus_d13": 0.1589929958812233
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 32
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 32,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.012531236230998,
+        0.016791386282895,
+        0.037986216780477,
+        0.051616739587089,
+        0.081527928950526,
+        0.099746074488095
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.45709961757246065,
+        "d03_minus_d12": 1.5083047062946482,
+        "d02_minus_d13": 0.9654043238671091
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.45709961757246065,
+        "d03_minus_d12": -1.5083047062946482,
+        "d02_minus_d13": -0.9654043238671091
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 33
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 33,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.003954461634198,
+        0.005733587755494,
+        0.02887025019412,
+        0.034945125878763,
+        0.039272193678556,
+        0.084687212651015
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.7684478895526932,
+        "d03_minus_d12": -2.8851856188982374,
+        "d02_minus_d13": 0.8851856188982374
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.7684478895526932,
+        "d03_minus_d12": 2.8851856188982374,
+        "d02_minus_d13": -0.8851856188982374
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 34
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 34,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.011025913693813,
+        0.013425500333523,
+        0.042558621803137,
+        0.044865062419405,
+        0.052254470944655,
+        0.070728587955633
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -1.5079673849168849,
+        "d03_minus_d12": -1.6604334683990443,
+        "d02_minus_d13": -0.5079673849168849
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 1.5079673849168849,
+        "d03_minus_d12": 1.6604334683990443,
+        "d02_minus_d13": 0.5079673849168849
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 35
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 35,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.014155289491463,
+        0.022578241813008,
+        0.025262962021439,
+        0.047119978064117,
+        0.055525755257332,
+        0.064784709690518
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.1641498979902272,
+        "d03_minus_d12": -0.1542226421477162,
+        "d02_minus_d13": -2.154222642147716
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.1641498979902272,
+        "d03_minus_d12": 0.1542226421477162,
+        "d02_minus_d13": 2.154222642147716
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 36
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 36,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002755975269654,
+        0.012761267377488,
+        0.020429817828966,
+        0.032913295095489,
+        0.064356103417563,
+        0.073265474984116
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": -0.6705550943599607,
+        "d02_minus_d13": 2.929870517195894
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": 0.6705550943599607,
+        "d02_minus_d13": -2.929870517195894
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 37
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 37,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.015504781684736,
+        0.036679589302963,
+        0.039981306756279,
+        0.0498489041938,
+        0.053642839964542,
+        0.056113579077297
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.086191563218869,
+        "d03_minus_d12": -0.619872448654919,
+        "d02_minus_d13": 0.07335148781787959
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.086191563218869,
+        "d03_minus_d12": 0.619872448654919,
+        "d02_minus_d13": -0.07335148781787959
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 38
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 38,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.011898663815457,
+        0.019617306172448,
+        0.027212163964221,
+        0.029199141873379,
+        0.072200699696246,
+        0.074614979195302
+      ],
+      "connected_components": [
+        [
+          1
+        ],
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 39
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 39,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.004165883073201,
+        0.02693716150661,
+        0.032604347261138,
+        0.049341426983636,
+        0.051193939195715,
+        0.068430495459276
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.7413729342684623,
+        "d03_minus_d12": 1.7782300521046763,
+        "d02_minus_d13": -0.7413729342684623
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.7413729342684623,
+        "d03_minus_d12": -1.7782300521046763,
+        "d02_minus_d13": 0.7413729342684623
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 40
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 40,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.000420418035736,
+        0.001449547405836,
+        0.0379335854151,
+        0.045567901428495,
+        0.045871660454608,
+        0.056402399051183
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.2133081413545213,
+        "d03_minus_d12": 1.0232975126507085,
+        "d02_minus_d13": -0.21330814135452125
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.2133081413545213,
+        "d03_minus_d12": -1.0232975126507085,
+        "d02_minus_d13": 0.21330814135452125
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 41
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 41,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.010639853264379,
+        0.018035242924881,
+        0.025216344854492,
+        0.035873707047697,
+        0.054113122555091,
+        0.065516764059679
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": 0.41107208458350475,
+        "d02_minus_d13": 2.793530748993731
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": -0.41107208458350475,
+        "d02_minus_d13": -2.793530748993731
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 42
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 42,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002218675097695,
+        0.006762615318977,
+        0.018041444413679,
+        0.022140756444708,
+        0.035731886987263,
+        0.061478856280674
+      ],
+      "connected_components": [
+        [
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 43
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 43,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.003160264791654,
+        0.00350290210288,
+        0.003585390111386,
+        0.019120143392453,
+        0.046802805621656,
+        0.071835571459732
+      ],
+      "connected_components": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": -0.42843662729494847
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": 0.42843662729494847
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 44
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 44,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.008833528113636,
+        0.018309300821177,
+        0.018896893877529,
+        0.033229819619473,
+        0.069649539090709,
+        0.082426184592028
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.9084555065026034,
+        "d03_minus_d12": 2.076882584415662,
+        "d02_minus_d13": -1.7400284285895447
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.9084555065026034,
+        "d03_minus_d12": -2.076882584415662,
+        "d02_minus_d13": 1.7400284285895447
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 45
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 45,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002102882532453,
+        0.02171921823184,
+        0.037274631612039,
+        0.048163925600228,
+        0.057878664375595,
+        0.098768429212053
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 1.0,
+        "d03_minus_d12": 0.7437026683138381,
+        "d02_minus_d13": 0.5344291855540337
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.0,
+        "d03_minus_d12": -0.7437026683138381,
+        "d02_minus_d13": -0.5344291855540337
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 46
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 46,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.007121240130778,
+        0.033841044536954,
+        0.048426649541555,
+        0.049336574159846,
+        0.054763768570012,
+        0.06329206908866
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": 0.24909435507444755,
+        "d03_minus_d12": -0.37699127417476674,
+        "d02_minus_d13": -0.9813845971873549
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -0.24909435507444755,
+        "d03_minus_d12": 0.37699127417476674,
+        "d02_minus_d13": 0.9813845971873549
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 47
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 47,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.008395028205792,
+        0.011312143087686,
+        0.014674343299925,
+        0.026975178686354,
+        0.036078729323092,
+        0.050210931007582
+      ],
+      "connected_components": [
+        [
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ]
+      ],
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": 1.3305292758924074,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": -1.3305292758924074,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 48
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 48,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.03222794902376,
+        0.033044594939516,
+        0.039134161472507,
+        0.040876964061198,
+        0.043515603138225,
+        0.078937005368085
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -0.27526155561010013,
+        "d03_minus_d12": 0.5955305673577116,
+        "d02_minus_d13": -0.23773262031380837
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 0.27526155561010013,
+        "d03_minus_d12": -0.5955305673577116,
+        "d02_minus_d13": 0.23773262031380837
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 49
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 49,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.004349086054245,
+        0.004572754708957,
+        0.007368047682671,
+        0.032085888159598,
+        0.052385958879359,
+        0.052847705454174
+      ],
+      "connected_components": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "standard_pairs": {
+        "d03_minus_d01": -1.0087757000786088,
+        "d03_minus_d12": -2.008775700078609,
+        "d02_minus_d13": -0.008775700078608839
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": 1.0087757000786088,
+        "d03_minus_d12": 2.008775700078609,
+        "d02_minus_d13": 0.008775700078608839
+      }
+    },
+    {
+      "run_kind": "n0",
+      "config": {
+        "mode": "free",
+        "p": [
+          -1.5,
+          -0.5,
+          0.5,
+          1.5
+        ],
+        "m": 1.0,
+        "t": 0.0,
+        "L": 10.0,
+        "theta": 0.03,
+        "hbar": 1.0,
+        "c": 1.0,
+        "ell0": 1.0,
+        "s_min": 1.0,
+        "epsilon": 1e-12,
+        "F": 0.0,
+        "weight": "uniform"
+      },
+      "null_spec": {
+        "null_mode": "random_phase",
+        "seed": 50
+      },
+      "phase_source_summary": {
+        "phase_type": "random_phase",
+        "mode": "free",
+        "seed": 50,
+        "n_grid": 256
+      },
+      "theta_crit": [
+        0.002173941228708,
+        0.018457275506487,
+        0.019762855741279,
+        0.02556771087555,
+        0.025797422369376,
+        0.0392380719683
+      ],
+      "connected_components": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "bridge_predictions": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      }
+    }
+  ]
+}

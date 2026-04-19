@@ -1,0 +1,211 @@
+run:
+  run_id: "M39x3e_model_overlap_test"
+  title: "M.3.9x.3e — Modell-Überlappungstest FSW ↔ AO"
+  description: >
+    Model-overlap test to determine whether the finite square well (FSW)
+    and anharmonic oscillator (AO) share a common Type-B structure in a
+    joint feature space, or whether they represent distinct pathways
+    through the broader Type-B region.
+  outdir: "runs/M39x3e_model_overlap_test"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  source_run_id: "M39x3d_transition_mapping"
+  source_transition_summary_csv: "runs/M39x3d_transition_mapping/m39x3d_transition_mapping_summary.csv"
+
+execution:
+  enabled_blocks:
+    - overlap_feature_extraction
+    - pairwise_overlap_scoring
+    - group_overlap_evaluation
+    - model_overlap_decision
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_pair_feature_comparison: true
+  require_pair_overlap_summary: true
+  require_group_overlap_summary: true
+  global_overlap_status_allowed_values:
+    - "shared_type_B_overlap_supported"
+    - "shared_quantitative_type_B_overlap_supported"
+    - "ao_qualitative_extension_beyond_shared_overlap"
+    - "weak_model_overlap_only"
+    - "no_meaningful_model_overlap"
+
+model_overlap_test:
+  block_id: "M39x3e_model_overlap_test"
+  purpose: "test_shared_type_B_structure_between_fsw_and_ao"
+
+  comparison_space:
+    numeric_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+      - "spacing_cv"
+      - "grid_deviation_score"
+      - "simple_rigidity_surrogate"
+
+    categorical_features:
+      - "dominant_marker"
+      - "observed_irregularity_level"
+
+  reference_groups:
+    fsw_core:
+      family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+      regime_ids:
+        - "FSW_D05"
+        - "FSW_D06"
+
+    ao_quantitative_transfer:
+      family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+      regime_ids:
+        - "AO_A04"
+        - "AO_A05"
+        - "AO_A06"
+
+    ao_prejump:
+      family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+      regime_ids:
+        - "AO_A07"
+        - "AO_A08"
+
+    ao_jump_core:
+      family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+      regime_ids:
+        - "AO_A09"
+
+  pair_sets:
+    - pair_set_id: "FSW_CORE_VS_AO_TRANSFER"
+      fsw_group: "fsw_core"
+      ao_group: "ao_quantitative_transfer"
+      expectation: "shared_quantitative_type_B_overlap"
+
+    - pair_set_id: "FSW_CORE_VS_AO_PREJUMP"
+      fsw_group: "fsw_core"
+      ao_group: "ao_prejump"
+      expectation: "boundary_or_partial_overlap"
+
+    - pair_set_id: "FSW_CORE_VS_AO_JUMP"
+      fsw_group: "fsw_core"
+      ao_group: "ao_jump_core"
+      expectation: "qualitative_extension_beyond_overlap"
+
+overlap_distance_logic:
+  numeric_feature_weights:
+    delta_p2_relative_gain_vs_type_A: 1.0
+    distance_to_type_D: 1.0
+    spacing_cv: 0.8
+    grid_deviation_score: 1.0
+    simple_rigidity_surrogate: 1.2
+
+  categorical_penalties:
+    dominant_marker_mismatch: 0.15
+    irregularity_level_mismatch: 0.10
+
+  normalization:
+    method: "range_normalized_from_source_run"
+    epsilon: 1.0e-12
+
+  feature_overlap_thresholds:
+    near_max: 0.20
+    moderate_max: 0.45
+
+  pair_overlap_thresholds:
+    strong_overlap_max: 0.35
+    partial_overlap_max: 0.60
+    weak_overlap_max: 0.85
+
+  overlap_score:
+    definition: >
+      Weighted sum of normalized numeric feature differences plus
+      categorical mismatch penalties, aggregated per FSW/AO pair.
+
+pair_feature_table:
+  output_name: "m39x3e_pair_feature_comparison.csv"
+  fields:
+    - "pair_set_id"
+    - "fsw_regime_id"
+    - "ao_regime_id"
+    - "feature_name"
+    - "fsw_value"
+    - "ao_value"
+    - "raw_difference"
+    - "abs_difference"
+    - "normalized_difference"
+    - "feature_weight"
+    - "weighted_difference"
+    - "feature_overlap_judgement"
+
+pair_overlap_table:
+  output_name: "m39x3e_pair_overlap_summary.csv"
+  fields:
+    - "pair_set_id"
+    - "fsw_regime_id"
+    - "ao_regime_id"
+    - "dominant_marker_fsw"
+    - "dominant_marker_ao"
+    - "dominant_marker_match_flag"
+    - "irregularity_level_fsw"
+    - "irregularity_level_ao"
+    - "irregularity_level_match_flag"
+    - "mean_normalized_difference"
+    - "weighted_overlap_distance_score"
+    - "overlap_status"
+    - "overlap_note"
+
+group_overlap_table:
+  output_name: "m39x3e_group_overlap_summary.csv"
+  fields:
+    - "pair_set_id"
+    - "n_pairs"
+    - "mean_overlap_distance"
+    - "min_overlap_distance"
+    - "max_overlap_distance"
+    - "strong_overlap_count"
+    - "partial_overlap_count"
+    - "weak_overlap_count"
+    - "no_overlap_count"
+    - "group_overlap_status"
+    - "group_overlap_note"
+
+model_overlap_decision_rules:
+  shared_type_B_overlap_supported:
+    require:
+      - "FSW_CORE_VS_AO_TRANSFER.mean_overlap_distance <= strong_overlap_max"
+      - "FSW_CORE_VS_AO_TRANSFER.strong_overlap_count >= 2"
+
+  shared_quantitative_type_B_overlap_supported:
+    require:
+      - "FSW_CORE_VS_AO_TRANSFER.mean_overlap_distance <= partial_overlap_max"
+      - "FSW_CORE_VS_AO_TRANSFER.partial_overlap_count >= 2"
+
+  ao_qualitative_extension_beyond_shared_overlap:
+    require:
+      - "FSW_CORE_VS_AO_TRANSFER.mean_overlap_distance <= partial_overlap_max"
+      - "FSW_CORE_VS_AO_JUMP.mean_overlap_distance > partial_overlap_max"
+
+  weak_model_overlap_only:
+    require:
+      - "FSW_CORE_VS_AO_TRANSFER.mean_overlap_distance <= weak_overlap_max"
+    allow_any:
+      - "FSW_CORE_VS_AO_TRANSFER.strong_overlap_count == 0"
+      - "FSW_CORE_VS_AO_TRANSFER.partial_overlap_count < 2"
+
+  no_meaningful_model_overlap:
+    trigger_any:
+      - "FSW_CORE_VS_AO_TRANSFER.mean_overlap_distance > weak_overlap_max"
+      - "all_pair_sets_have_only_weak_or_worse_overlap == true"
+
+inputs:
+  family_definitions_yaml: "configs/m39x3e_model_overlap_test_families.yaml"
+  source_run_id: "M39x3d_transition_mapping"
+  source_transition_summary_csv: "runs/M39x3d_transition_mapping/m39x3d_transition_mapping_summary.csv"
+
+outputs:
+  markdown_report: "m39x3e_model_overlap_report.md"
+  global_summary_json: "m39x3e_global_summary.json"
+  pair_feature_comparison_csv: "m39x3e_pair_feature_comparison.csv"
+  pair_overlap_summary_csv: "m39x3e_pair_overlap_summary.csv"
+  group_overlap_summary_csv: "m39x3e_group_overlap_summary.csv"
+  source_notes_md: "m39x3e_source_notes.md"

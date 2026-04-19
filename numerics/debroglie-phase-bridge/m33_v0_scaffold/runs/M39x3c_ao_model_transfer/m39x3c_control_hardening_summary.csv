@@ -1,0 +1,5 @@
+family_id,variant_id,spectral_type,hardening_status,hardening_note,observed_irregularity_level,delta_p_competitive,delta_p2_absolute_strength_high,delta_p2_not_clearly_dominant,delta_p2_relative_gain_vs_type_A,distance_to_type_D,distance_to_FSW_intermediate,dominant_marker_match_flag,fsw_like_type_B_pattern_flag,qualitative_jump_candidate_flag,edge_case_flag,model_transfer_support_flag
+TD1_1D_BOX,BOX_STANDARD,type_D_regular_nonring,supported,Type D supports the broader regularity reading.,low,True,False,True,0.135,,,,,,,
+TB3_ANHARMONIC_OSCILLATOR_1D_SWEEP,AO_WEAK,type_B_quadratic_nontrivial,partially_supported,AO_WEAK shows a first transferable Type-B signal.,low,True,False,True,0.472,0.2,0.30000000000000004,True,True,False,False,False
+TB3_ANHARMONIC_OSCILLATOR_1D_SWEEP,AO_INTERMEDIATE,type_B_quadratic_nontrivial,open,AO_INTERMEDIATE does not yet support model transfer.,low,True,False,True,0.249,0.2,0.30000000000000004,True,True,False,False,False
+TB3_ANHARMONIC_OSCILLATOR_1D_SWEEP,AO_STRONG,type_B_quadratic_nontrivial,partially_supported,AO_STRONG remains compatible but edge-near.,low_to_moderate,True,False,True,0.132,0.232,0.132,True,True,True,False,False

@@ -1,0 +1,218 @@
+[
+  {
+    "theta_min": 0.0,
+    "theta_max": 0.032934387469762,
+    "theta_rep": 0.016467193734881,
+    "window_width_decades": null,
+    "theta": 0.016467193734881,
+    "theta_crit": [
+      0.032934387469762,
+      0.045647262536381,
+      0.054402111088937
+    ],
+    "theta_interval_index": 0,
+    "n_edges": 6,
+    "n_components": 1,
+    "largest_component_size": 4,
+    "connected_pair_fraction": 1.0,
+    "graph_diameter": 1.0,
+    "connected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "disconnected_pairs": [],
+    "fully_connected": true,
+    "fragmented": false,
+    "defined_pair_count": 3,
+    "standard_pairs": {
+      "d03_minus_d01": 0.5018856361262463,
+      "d03_minus_d12": 0.5018856361262463,
+      "d02_minus_d13": 0.0
+    },
+    "topology_label": "cc1_e6_diam1.0"
+  },
+  {
+    "theta_min": 0.032934387469762,
+    "theta_max": 0.045647262536381,
+    "theta_rep": 0.038773246334387876,
+    "window_width_decades": 0.14176514741069596,
+    "theta": 0.038773246334387876,
+    "theta_crit": [
+      0.032934387469762,
+      0.045647262536381,
+      0.054402111088937
+    ],
+    "theta_interval_index": 1,
+    "n_edges": 6,
+    "n_components": 1,
+    "largest_component_size": 4,
+    "connected_pair_fraction": 1.0,
+    "graph_diameter": 2.0,
+    "connected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "disconnected_pairs": [],
+    "fully_connected": true,
+    "fragmented": false,
+    "defined_pair_count": 3,
+    "standard_pairs": {
+      "d03_minus_d01": 1.1754593209922675,
+      "d03_minus_d12": 1.1754593209922675,
+      "d02_minus_d13": 0.0
+    },
+    "topology_label": "cc1_e6_diam2.0"
+  },
+  {
+    "theta_min": 0.045647262536381,
+    "theta_max": 0.054402111088937,
+    "theta_rep": 0.04983279489864151,
+    "window_width_decades": 0.07620101490543703,
+    "theta": 0.04983279489864151,
+    "theta_crit": [
+      0.032934387469762,
+      0.045647262536381,
+      0.054402111088937
+    ],
+    "theta_interval_index": 2,
+    "n_edges": 6,
+    "n_components": 1,
+    "largest_component_size": 4,
+    "connected_pair_fraction": 1.0,
+    "graph_diameter": 3.0,
+    "connected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "disconnected_pairs": [],
+    "fully_connected": true,
+    "fragmented": false,
+    "defined_pair_count": 3,
+    "standard_pairs": {
+      "d03_minus_d01": 2.0,
+      "d03_minus_d12": 2.0,
+      "d02_minus_d13": 0.0
+    },
+    "topology_label": "cc1_e6_diam3.0"
+  },
+  {
+    "theta_min": 0.054402111088937,
+    "theta_max": 0.1,
+    "theta_rep": 0.07375778676786404,
+    "window_width_decades": 0.26438424705757546,
+    "theta": 0.07375778676786404,
+    "theta_crit": [
+      0.032934387469762,
+      0.045647262536381,
+      0.054402111088937
+    ],
+    "theta_interval_index": 3,
+    "n_edges": 0,
+    "n_components": 4,
+    "largest_component_size": 1,
+    "connected_pair_fraction": 0.0,
+    "graph_diameter": null,
+    "connected_pairs": [],
+    "disconnected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "fully_connected": false,
+    "fragmented": true,
+    "defined_pair_count": 0,
+    "standard_pairs": {
+      "d03_minus_d01": null,
+      "d03_minus_d12": null,
+      "d02_minus_d13": null
+    },
+    "topology_label": "cc4_e0_diamNone"
+  }
+]

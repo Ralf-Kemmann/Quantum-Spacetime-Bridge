@@ -1,0 +1,4 @@
+run_id,t,p_family,theta,source_feature,best_p0,best_sigma_p,best_alpha_source,best_branch_source,alpha_pref_readout,branch_pref_readout,n_pairs_total,top1_share,top3_share,top5_share,top10_share,effective_pair_count,dominance_label
+M33_V0_alpha_peak_robustness,2.0,P1,1e-09,neg,3.5,0.3,1.58,S2,1.58,S2,21,1.0,1.0,1.0,1.0,1.0,pair_dominated
+M33_V0_alpha_peak_robustness,5.0,P0,1e-09,neg,-1.0,0.3,1.3,,1.41,S1,21,0.5115005972913547,0.9999999739994059,0.999999999758344,1.0000000000000002,2.002649573504858,pair_dominated
+M33_V0_alpha_peak_robustness,40.0,P3,1e-09,neg,-2.0,0.5,1.58,S2,1.57,S2,21,0.6625343125883215,0.9999856624956222,0.9999999932490057,1.0,1.834562996569662,pair_dominated

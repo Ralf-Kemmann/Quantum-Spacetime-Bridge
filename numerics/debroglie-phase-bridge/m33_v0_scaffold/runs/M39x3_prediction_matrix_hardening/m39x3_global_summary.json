@@ -1,0 +1,14 @@
+{
+  "run_id": "M39x3_prediction_matrix_hardening",
+  "n_families_total": 5,
+  "n_families_implemented": 5,
+  "n_prediction_supported": 2,
+  "n_prediction_partially_supported": 5,
+  "n_prediction_open": 0,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "type_B_hardening_status": "partially_supported",
+  "type_D_hardening_status": "supported",
+  "cross_type_status": "prediction_matrix_stressed_by_controls",
+  "global_prediction_status": "prediction_matrix_stressed_by_controls"
+}

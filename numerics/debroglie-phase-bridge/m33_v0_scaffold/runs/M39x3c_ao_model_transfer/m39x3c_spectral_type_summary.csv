@@ -1,0 +1,5 @@
+spectral_type,n_families,n_supported,n_partially_supported,n_open,n_stressed,n_failed
+type_A_ladder,3,1,2,0,0,0
+type_B_quadratic_nontrivial,6,3,2,1,0,0
+type_C_multiindex_structure,2,0,2,0,0,0
+type_D_regular_nonring,1,1,0,0,0,0

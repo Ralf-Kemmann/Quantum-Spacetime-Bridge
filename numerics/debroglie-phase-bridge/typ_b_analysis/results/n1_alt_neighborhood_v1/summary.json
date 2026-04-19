@@ -1,0 +1,216 @@
+{
+  "run_id": "n1_alt_neighborhood_v1",
+  "block": "N1",
+  "status": "completed",
+  "timestamp_utc": "2026-04-09T07:55:46Z",
+  "seed": 123,
+  "inputs": {
+    "export_root": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03",
+    "export_classes": [
+      "negative",
+      "abs",
+      "positive"
+    ],
+    "export_pattern": "*.npz",
+    "search_mode": "recursive",
+    "input_file_counts": {
+      "negative": 1,
+      "abs": 1,
+      "positive": 1
+    }
+  },
+  "baseline": {
+    "neighborhood_mode": "shared_endpoint",
+    "directed": false
+  },
+  "alternative": {
+    "neighborhood_mode": "graph_distance_1",
+    "directed": false,
+    "require_mutual": false
+  },
+  "parameters": {
+    "a1": {
+      "stabilization_ceiling": 0.95,
+      "neighbor_min": 3,
+      "late_stage_rule": "reformed"
+    },
+    "b1": {
+      "conflict_penalty": 1.0
+    },
+    "decision": {
+      "min_pair_units": 1,
+      "min_local_shells": 1
+    }
+  },
+  "per_class": {
+    "negative": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    },
+    "abs": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    },
+    "positive": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 0,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": null,
+        "max_neighbor_count": null,
+        "connected_component_count": 0,
+        "largest_component_size": 0,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 0,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": null,
+        "max_neighbor_count": null,
+        "connected_component_count": 0,
+        "largest_component_size": 0,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "combined_status": "boundary_non_launchable",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    }
+  },
+  "global_comparison": {
+    "negative_status_stable": true,
+    "abs_status_stable": true,
+    "positive_boundary_changed": false,
+    "overall_ordering_preserved": true,
+    "major_regime_break": false,
+    "ordering_comment": "No usable local shell structure was generated under either neighborhood; block is not interpretable as a regime failure."
+  },
+  "decision": {
+    "block_judgement": "inconclusive",
+    "short_reason": "No usable local shell structure was generated under either neighborhood; block is not interpretable as a regime failure."
+  },
+  "validation": {
+    "all_export_classes_present": true,
+    "baseline_reproduces_expected_pattern": false,
+    "nan_metrics_detected": false,
+    "empty_inputs_detected": false,
+    "validation_notes": []
+  },
+  "warnings": [],
+  "open_points": [
+    "Alternative neighborhood is operational, not yet physically privileged.",
+    "Positive launchability under alternative rule does not by itself imply meaningful local structure.",
+    "No claim about geometric emergence follows from this block alone."
+  ]
+}

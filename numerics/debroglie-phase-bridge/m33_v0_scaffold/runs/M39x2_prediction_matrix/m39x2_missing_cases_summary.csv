@@ -1,0 +1,5 @@
+family_id,family_label,spectral_type,status,implementation_note
+TB1_QUADRATIC_NONTRIVIAL,type_B_quadratic_nontrivial_placeholder,type_B_quadratic_nontrivial,placeholder,"Must be defined before the prediction matrix can be considered fully hardened.
+"
+TD1_REGULAR_NONRING,type_D_regular_nonring_placeholder,type_D_regular_nonring,placeholder,"Must be defined to test whether the current ring explanation is genuinely about ladder regularity or still partly ring-specific.
+"

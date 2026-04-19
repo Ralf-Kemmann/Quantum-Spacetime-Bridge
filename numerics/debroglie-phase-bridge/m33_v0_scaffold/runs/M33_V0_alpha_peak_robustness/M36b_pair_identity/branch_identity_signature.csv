@@ -1,0 +1,3 @@
+run_id,branch_label,n_cases,dominant_pair_mode,dominant_class_mode,consensus_top1_pair,consensus_top1_delta_p,consensus_top1_delta_p2,consensus_top3_classes,within_branch_overlap,between_branch_overlap,signature_label
+M33_V0_alpha_peak_robustness,S1,1,top_pair,,"(2,3)",-1.0,1.0,,,0.16278518618131582,single_case
+M33_V0_alpha_peak_robustness,S2,2,top_pair,,"(0,1)",-1.0,5.0,,0.0,0.16278518618131582,non_specific

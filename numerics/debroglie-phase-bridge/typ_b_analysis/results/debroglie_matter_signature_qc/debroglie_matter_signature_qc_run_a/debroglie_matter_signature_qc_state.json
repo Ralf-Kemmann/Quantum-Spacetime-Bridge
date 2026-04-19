@@ -1,0 +1,141 @@
+{
+  "run_id": "debroglie_matter_signature_qc_run_a",
+  "created_utc": "2026-04-12T07:33:46.148481+00:00",
+  "conditions": {
+    "temperature_C": 20.0,
+    "pressure_mbar": 1013.0,
+    "volume_m3": 1.0,
+    "temperature_K": 293.15,
+    "pressure_Pa": 101300.0
+  },
+  "model_assumptions": {
+    "species_mode": "atomic_species",
+    "gas_model": "ideal_gas",
+    "velocity_model": "rms",
+    "frequency_mode": "none",
+    "density_mode": "ideal_gas_number_density",
+    "qc_mode": "ionization_energy"
+  },
+  "comparisons": {
+    "mass_only_ordering": [
+      "sulfur",
+      "phosphorus",
+      "sodium",
+      "nitrogen",
+      "carbon",
+      "hydrogen"
+    ],
+    "wave_signature_ordering": [
+      "hydrogen",
+      "carbon",
+      "nitrogen",
+      "sodium",
+      "phosphorus",
+      "sulfur"
+    ],
+    "combined_signature_ordering": [
+      "hydrogen",
+      "nitrogen",
+      "carbon",
+      "phosphorus",
+      "sulfur",
+      "sodium"
+    ],
+    "matter_sensitive_delta_wave": {
+      "sulfur": 5.0,
+      "phosphorus": 3.0,
+      "sodium": 1.0,
+      "nitrogen": -1.0,
+      "carbon": -3.0,
+      "hydrogen": -5.0
+    },
+    "matter_sensitive_delta_qc": {
+      "sulfur": 4.0,
+      "phosphorus": 2.0,
+      "sodium": 3.0,
+      "nitrogen": -2.0,
+      "carbon": -2.0,
+      "hydrogen": -5.0
+    }
+  },
+  "species_results": [
+    {
+      "species": "hydrogen",
+      "lambda_db": 1.4699022924960177e-10,
+      "energy_j": 6.071058815249999e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 13.6,
+      "length_scale_score": 1.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.6666666666666666,
+      "ionization_score": 0.936347114791525,
+      "signature_score_combined": 0.8015068907290959
+    },
+    {
+      "species": "sodium",
+      "lambda_db": 3.07763389486368e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 5.14,
+      "length_scale_score": 0.09612112579062518,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.36537370859687507,
+      "ionization_score": 0.0,
+      "signature_score_combined": 0.18268685429843753
+    },
+    {
+      "species": "carbon",
+      "lambda_db": 4.257892370080863e-11,
+      "energy_j": 6.0710588152500005e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 11.26,
+      "length_scale_score": 0.28376967743288284,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.4279232258109609,
+      "ionization_score": 0.7546496530926221,
+      "signature_score_combined": 0.5912864394517915
+    },
+    {
+      "species": "nitrogen",
+      "lambda_db": 3.9428631018409355e-11,
+      "energy_j": 6.071058815249999e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 14.53,
+      "length_scale_score": 0.2393352244259701,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.41311174147532337,
+      "ionization_score": 1.0,
+      "signature_score_combined": 0.7065558707376617
+    },
+    {
+      "species": "sulfur",
+      "lambda_db": 2.6061685746616612e-11,
+      "energy_j": 6.07105881525e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 10.36,
+      "length_scale_score": 0.0,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.3333333333333333,
+      "ionization_score": 0.6744847183034987,
+      "signature_score_combined": 0.503909025818416
+    },
+    {
+      "species": "phosphorus",
+      "lambda_db": 2.6514734593298206e-11,
+      "energy_j": 6.0710588152500005e-21,
+      "number_density": 2.502858308970984e+25,
+      "ionization_energy_ev": 10.49,
+      "length_scale_score": 0.009962625305522298,
+      "energy_score": 0.5,
+      "occupancy_score": 0.5,
+      "signature_score_wave": 0.3366542084351741,
+      "ionization_score": 0.6864849461788411,
+      "signature_score_combined": 0.5115695773070076
+    }
+  ]
+}

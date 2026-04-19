@@ -1,0 +1,6 @@
+state,n,median_gain_value,median_gain_vs_A,median_gain_vs_D,positive_direction_fraction,median_sign_stability,median_replicate_consistency,median_null_noise_margin,median_support_sep_baseline,median_support_sep_combined
+A,15,0.0,0.0,0.010398,0.0,0.0,0.0,0.02,0.029394,0.029394
+B,15,0.341424,0.341424,0.351822,1.0,1.0,1.0,0.02,0.029394,0.370818
+C,15,0.691423,0.691423,0.701821,1.0,1.0,1.0,0.02,0.029394,0.720817
+D1,15,-0.010398,-0.010398,0.0,0.0,0.0,0.0,0.02,0.029394,0.018996
+D2,15,-0.009487,-0.009487,0.00091,0.0,0.0,0.0,0.02,0.029394,0.019907

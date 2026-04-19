@@ -1,0 +1,22 @@
+{
+  "variant": "proxy_rigidity_plus_spacing",
+  "feature_count": 2,
+  "active_features": [
+    "simple_rigidity_surrogate",
+    "spacing_cv"
+  ],
+  "internal_overall_pass": true,
+  "internal_result_label": "supported",
+  "internal_separation_margin_mean": 0.19222222222222218,
+  "internal_assignment_score": 0.7444444444444445,
+  "internal_original_stability_score": 0.695,
+  "h2_overall_pass": false,
+  "h2_result_label": "failed",
+  "h2_separation_margin_mean": -0.9828491625117075,
+  "h2_assignment_score": 0.0,
+  "h2_original_stability_score": 0.0,
+  "h2_proxy_rigidity_rows": 3,
+  "transfer_signal": "internal_only_core",
+  "delta_internal_assignment_vs_full": 0.11111111111111116,
+  "delta_h2_assignment_vs_full": 0.0
+}

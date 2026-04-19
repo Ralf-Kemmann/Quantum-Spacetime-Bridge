@@ -1,0 +1,115 @@
+run:
+  run_id: "n1_negative_vs_abs_markers_v1"
+  seed: 123
+  output_dir: "results/n1_negative_vs_abs_markers_v1"
+  overwrite: false
+
+inputs:
+  dataset_roots:
+    - "../results/a1_probe/k0"
+    - "../results/a1_sign_scan/k0/theta_0.03"
+    - "../results/a1_probe/n1a_alpha"
+  export_classes:
+    - "negative"
+    - "abs"
+    - "positive"
+  export_pattern: "*.npz"
+  search_mode: "recursive"
+
+pair_unit:
+  enabled: true
+  source: "matrix_adapter_v22"
+  matrix_pair_mode: "adjacency_plus_threshold"
+
+  matrix_fields:
+    adjacency: "adjacency"
+    primary_score: "G"
+    secondary_score: "kbar"
+    edge_length: "edge_length"
+    d_rel: "d_rel"
+
+  threshold:
+    enabled: true
+    tau: 0.025
+    score_field: "G"
+    use_absolute_value: true
+
+  weights:
+    use_edge_length_as_weight: true
+    fallback_weight_field: "G"
+
+baseline:
+  neighborhood:
+    mode: "shared_endpoint"
+    directed: false
+
+alternative:
+  neighborhood:
+    mode: "graph_distance_1"
+    directed: false
+    require_mutual: false
+
+a1:
+  enabled: true
+  stabilization_ceiling: 0.95
+  neighbor_min: 3
+  late_stage_rule: "reformed"
+
+b1:
+  enabled: true
+  conflict_penalty: 1.0
+
+decision:
+  enabled: true
+  launchability:
+    min_pair_units: 1
+    min_local_shells: 1
+
+markers:
+  enabled: true
+
+  compare_classes:
+    left: "negative"
+    right: "abs"
+
+  structure:
+    enabled: true
+    metrics:
+      - "mean_neighbor_count"
+      - "median_neighbor_count"
+      - "max_neighbor_count"
+      - "shell_density_ratio"
+      - "component_compactness_proxy"
+    epsilon: 1.0e-9
+
+  weights:
+    enabled: true
+    metrics:
+      - "weight_mean"
+      - "weight_median"
+      - "weight_max"
+      - "weight_cv"
+      - "strong_edge_fraction"
+    epsilon: 1.0e-9
+    strong_edge_reference: "self_q75"
+
+  channel:
+    enabled: true
+    metrics:
+      - "a1_score_mean"
+      - "a1_score_median"
+      - "b1_score_mean"
+      - "b1_score_median"
+      - "a1_b1_gap_mean"
+    epsilon: 1.0e-9
+
+reporting:
+  write_summary_json: true
+  write_per_dataset_csv: true
+  write_metrics_csv: true
+  write_readout_md: true
+
+validation:
+  strict_export_class_presence: true
+  fail_on_empty_input: true
+  fail_on_nan_metrics: true

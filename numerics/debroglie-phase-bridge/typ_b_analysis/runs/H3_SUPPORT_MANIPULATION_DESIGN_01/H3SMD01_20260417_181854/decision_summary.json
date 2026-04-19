@@ -1,0 +1,25 @@
+{
+  "block_id": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "source_block": "N1_A1_B1_DECOUPLING",
+  "baseline_first_preserved": true,
+  "aux_shift_detectable": true,
+  "aux_shift_readable": true,
+  "monotone_support_scaling": true,
+  "null_model_suppression": true,
+  "boundedness_preserved": true,
+  "hard_fail_triggered": false,
+  "hard_fail_reasons": [],
+  "overall_outcome": "limited_supported",
+  "allowed_outcomes": [
+    "not_supported",
+    "noise_compatible",
+    "limited_supported",
+    "limited_supported_but_fragile"
+  ],
+  "medians": {
+    "gain_A": 0.0,
+    "gain_B": 0.09,
+    "gain_C": 0.127,
+    "gain_D": 0.012
+  }
+}

@@ -1,0 +1,7 @@
+dataset_root,mode,negative_launchable,abs_launchable,structural_marker_flag,weight_marker_flag,channel_marker_flag,overall_marker_specificity_flag,informative_marker_count,negative_win_count,abs_win_count,tie_count,comment
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/k0,baseline,True,True,tie,tie,tie,tie,15,0,0,15,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/k0,alternative,True,True,tie,tie,tie,tie,15,0,0,15,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03,baseline,True,True,tie,tie,tie,tie,15,0,0,15,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03,alternative,True,True,tie,tie,tie,tie,15,0,0,15,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha,baseline,False,False,tie,tie,not_applicable,tie,10,0,0,10,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha,alternative,False,False,tie,tie,not_applicable,tie,10,0,0,10,

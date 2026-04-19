@@ -1,0 +1,16 @@
+{
+  "variant": "single_distance",
+  "feature_count": 1,
+  "overall_pass": false,
+  "result_label": "failed",
+  "separation_margin_mean": -0.008888888888888724,
+  "assignment_score": 0.26666666666666666,
+  "original_stability_score": 0.625,
+  "original_vs_control_margin_delta": -0.008888888888888724,
+  "type_B_like_pattern_detected": false,
+  "positive_bootstrap_fraction": 0.625,
+  "n_active_features": 1,
+  "active_features": [
+    "distance_to_type_D"
+  ]
+}

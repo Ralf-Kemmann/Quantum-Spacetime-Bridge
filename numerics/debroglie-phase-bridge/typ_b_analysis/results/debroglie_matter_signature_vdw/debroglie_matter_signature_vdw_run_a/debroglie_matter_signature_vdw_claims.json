@@ -1,0 +1,12 @@
+{
+  "claim_vdw1_status": "partly_supported",
+  "claim_vdw2_status": "partly_supported",
+  "claim_vdw3_status": "partly_supported",
+  "claim_vdw4_status": "partly_supported",
+  "claim_vdw5_status": "supported",
+  "overall_status": "partly_supported",
+  "notes": {
+    "max_wave_delta": 5.0,
+    "max_combined_delta": 5.0
+  }
+}

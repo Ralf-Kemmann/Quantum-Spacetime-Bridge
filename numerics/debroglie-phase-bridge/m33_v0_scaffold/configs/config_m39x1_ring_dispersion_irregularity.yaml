@@ -1,0 +1,278 @@
+run:
+  run_id: "M39x1_ring_dispersion_irregularity"
+  title: "M.3.9x.1 — Ring-Sonderfall, Dispersionstest und Irregularitäts-Hypothese"
+  description: >
+    Auditlauf zur Klärung, ob delta_p2 primär als Energieunterschied,
+    als Spektral-/Eigenwertstrukturmarker oder als modellabhängiges Mischbild
+    zu lesen ist.
+  outdir: "runs/M39x1_ring_dispersion_irregularity"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  family_definitions_yaml: "configs/m39x1_ring_dispersion_irregularity_families.yaml"
+
+execution:
+  enabled_blocks:
+    - ring_special_case
+    - dispersion_corrected_energy
+    - irregularity
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  separate_absolute_and_relative: true
+  require_block_level_summary: true
+  require_family_level_summary: true
+  require_marker_level_summary: true
+  require_bootstrap_summary: true
+  global_interpretation_allowed_values:
+    - "energy_special_case_supported"
+    - "structure_marker_supported"
+    - "mixed_picture_supported"
+    - "inconclusive"
+
+pairing:
+  default_pairing_mode: "all_pairs"
+  supported_pairing_modes:
+    - "all_pairs"
+    - "matched_pairs"
+    - "nearest_pairs"
+    - "degeneracy_safe_pairs"
+    - "unique_abs_pairs"
+    - "no_sign_mirror_pairs"
+
+  defaults:
+    exclude_self_pairs: true
+    sort_pairs_canonically: true
+    unique_unordered_pairs: true
+
+ring_pairing_overrides:
+  signed_variant:
+    pairing_mode: "all_pairs"
+    allow_sign_mirror_pairs: true
+  abs_variant:
+    pairing_mode: "unique_abs_pairs"
+    allow_sign_mirror_pairs: false
+  degeneracy_safe_variant:
+    pairing_mode: "degeneracy_safe_pairs"
+    allow_sign_mirror_pairs: false
+    collapse_equal_energy_shells: false
+
+markers:
+  common_marker_options:
+    compute_signed: true
+    compute_absolute: true
+    allow_normalized_variants: false
+
+  ring_markers:
+    - "delta_p"
+    - "abs_delta_p"
+    - "delta_p2"
+    - "abs_delta_p2"
+    - "delta_E_quad"
+
+  cavity_markers:
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_omega"
+
+  membrane_markers:
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_lambda"
+
+dispersion_models:
+  ring_schrodinger_quadratic:
+    base_variable: "p"
+    energy_proxy: "E_quad"
+    definitions:
+      E_quad: "p^2 / (2m)"
+    constants:
+      m: 1.0
+      hbar: 1.0
+
+  cavity_helmholtz_linear_energy:
+    base_variable: "k"
+    energy_proxy: "omega"
+    definitions:
+      lambda: "k^2"
+      omega: "c * k"
+    constants:
+      c: 1.0
+
+  membrane_helmholtz_bessel:
+    base_variable: "k"
+    energy_proxy: "omega"
+    definitions:
+      lambda: "k^2"
+      omega: "v * k"
+    constants:
+      v: 1.0
+
+strength_scoring:
+  absolute_strength:
+    method: "rank_separation_score"
+    higher_is_better: true
+    normalize_to_unit_interval: true
+    fields:
+      - "absolute_strength"
+      - "strength_mean"
+      - "strength_ci_low"
+      - "strength_ci_high"
+      - "absolute_support_flag"
+
+  relative_dominance:
+    method: "bootstrap_win_fraction"
+    higher_is_better: true
+    fields:
+      - "relative_rank"
+      - "dominance_margin"
+      - "bootstrap_win_fraction"
+      - "dominant_level_flag"
+      - "dominance_stable_flag"
+
+  support_thresholds:
+    absolute_support_min: 0.60
+    dominance_stable_min: 0.70
+    dominance_margin_min: 0.05
+
+bootstrap:
+  enabled: true
+  n_bootstrap: 1000
+  resample_level: "pair"
+  confidence_level: 0.95
+  stratified_by_branch_label: false
+
+ring_special_case_block:
+  enabled: true
+  variants_to_run:
+    - "RING_SIGNED"
+    - "RING_ABS"
+    - "RING_DEGEN_SAFE"
+
+  diagnostics:
+    compute_sign_sensitivity_flag: true
+    compute_degeneracy_sensitivity_flag: true
+    compute_ladder_regular_flag: true
+    compute_delta_p2_blind_to_direction_flag: true
+
+  positive_interpretation_rules:
+    require_any:
+      - "delta_p2_absolute_but_not_relative"
+      - "dominance_shift_under_abs_or_degen_safe"
+      - "ring_low_irregularity_with_delta_p_advantage"
+
+dispersion_corrected_energy_block:
+  enabled: true
+  families_to_run:
+    - "ER1_RING"
+    - "ER2_CAVITY"
+    - "ER3_MEMBRANE"
+
+  compare_energy_like_vs_eigenvalue_like: true
+  outputs:
+    - "energy_marker_best"
+    - "eigenvalue_marker_best"
+    - "energy_vs_eigenvalue_margin"
+    - "dispersion_consistency_flag"
+
+  expected_alignment:
+    ER1_RING:
+      energy_like_markers:
+        - "delta_E_quad"
+        - "delta_p2"
+      eigenvalue_like_markers:
+        - "delta_p2"
+    ER2_CAVITY:
+      energy_like_markers:
+        - "delta_omega"
+        - "delta_k"
+      eigenvalue_like_markers:
+        - "delta_k2"
+    ER3_MEMBRANE:
+      energy_like_markers:
+        - "delta_omega"
+        - "delta_k"
+      eigenvalue_like_markers:
+        - "delta_k2"
+        - "delta_lambda"
+
+irregularity_block:
+  enabled: true
+  families_to_run:
+    - "ER1_RING"
+    - "ER2_CAVITY"
+    - "ER3_MEMBRANE"
+
+  compute_measures:
+    - "spacing_mean"
+    - "spacing_std"
+    - "spacing_cv"
+    - "nearest_neighbor_spacings"
+    - "spacing_ratio"
+    - "local_pair_spacing"
+    - "simple_unfolding_density"
+    - "simple_rigidity_surrogate"
+
+  factorization_test:
+    enabled: true
+    formula: "delta_p2 = delta_p * p_sum"
+    fields:
+      - "delta_p_effect"
+      - "p_sum_effect"
+      - "product_effect"
+      - "interaction_gain_flag"
+
+  irregularity_support_rules:
+    require_any:
+      - "delta_p2_correlates_with_spacing_cv"
+      - "delta_p2_correlates_with_unfolded_irregularity"
+      - "ring_has_low_irregularity_and_lower_relative_delta_p2"
+
+outputs:
+  markdown_report: "m39x1_report.md"
+  global_summary_json: "m39x1_global_summary.json"
+  family_block_summary_csv: "m39x1_family_block_summary.csv"
+  marker_strength_summary_csv: "m39x1_marker_strength_summary.csv"
+  marker_dominance_summary_csv: "m39x1_marker_dominance_summary.csv"
+  ring_special_case_summary_csv: "m39x1_ring_special_case_summary.csv"
+  dispersion_test_summary_csv: "m39x1_dispersion_test_summary.csv"
+  irregularity_summary_csv: "m39x1_irregularity_summary.csv"
+  factorization_summary_csv: "m39x1_factorization_summary.csv"
+  bootstrap_summary_csv: "m39x1_bootstrap_summary.csv"
+  source_notes_md: "m39x1_source_notes.md"
+
+global_decision_logic:
+  ring_special_case_flag:
+    any_of:
+      - "delta_p2_blind_to_direction_flag"
+      - "degeneracy_sensitivity_flag"
+      - "sign_sensitivity_flag"
+
+  energy_special_case_support_flag:
+    all_of:
+      - "ER1_RING_dispersion_consistency_flag"
+      - "not ER2_CAVITY_energy_marker_best_only"
+      - "not ER3_MEMBRANE_energy_marker_best_only"
+
+  structure_marker_support_flag:
+    any_of:
+      - "ER2_CAVITY_eigenvalue_marker_best"
+      - "ER3_MEMBRANE_eigenvalue_marker_best"
+      - "irregularity_support_flag"
+
+  mixed_picture_support_flag:
+    all_of:
+      - "ring_special_case_flag"
+      - "structure_marker_support_flag"
+
+  final_label_priority:
+    - "mixed_picture_supported"
+    - "structure_marker_supported"
+    - "energy_special_case_supported"
+    - "inconclusive"

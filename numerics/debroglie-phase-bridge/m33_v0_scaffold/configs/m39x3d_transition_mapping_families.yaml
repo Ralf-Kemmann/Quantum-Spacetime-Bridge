@@ -1,0 +1,471 @@
+families:
+  - family_id: "ER1_RING"
+    family_label: "external_control_ring"
+    spectral_type: "type_A_ladder"
+    model_class: "ring_schrodinger_quadratic"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Regular ladder-like ring control case with sign and degeneracy structure.
+      Used as primary Type-A prediction anchor.
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "signed"
+      values: [-3, -2, -1, 1, 2, 3]
+
+    derived_spectra:
+      - variable_name: "abs_p"
+        from: "p"
+        transform: "abs"
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_p"
+      expected_allowed_winners:
+        - "delta_p"
+      expected_delta_p2_role: "not_necessarily_dominant"
+      expected_irregularity_level: "low_to_moderate"
+      expected_direction_blindness_relevant: true
+      expected_prediction_status_if_missing_family: "open"
+
+    analysis_variants:
+      - variant_id: "RING_SIGNED"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: true
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: false
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_ABS"
+        enabled: true
+        pairing_mode: "unique_abs_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "abs_p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_DEGEN_SAFE"
+        enabled: true
+        pairing_mode: "degeneracy_safe_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+  - family_id: "ER2_CAVITY"
+    family_label: "external_main_test_cavity"
+    spectral_type: "type_C_multiindex_structure"
+    model_class: "cavity_helmholtz_linear_energy"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Rectangular cavity as a multi-index eigenvalue-structure family.
+
+    mode_table:
+      type: "rectangular_cavity_modes"
+      geometry:
+        a: 1.0
+        b: 1.5
+        d: 2.0
+      mode_indices:
+        - [1, 1, 1]
+        - [1, 1, 2]
+        - [1, 2, 1]
+        - [2, 1, 1]
+        - [2, 2, 1]
+        - [2, 1, 2]
+        - [1, 2, 2]
+        - [2, 2, 2]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+      - variable_name: "lambda"
+        from: "k"
+        transform: "square"
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_k2"
+      expected_allowed_winners:
+        - "delta_k2"
+        - "abs_delta_k2"
+        - "delta_k"
+        - "abs_delta_k"
+      expected_delta_p2_role: "structure_support_expected"
+      expected_irregularity_level: "moderate"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "CAVITY_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_index_permutations_as_distinct: true
+          collapse_equal_k_shells: false
+        active_spectrum: "k"
+        active_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_omega"
+          - "delta_lambda"
+
+  - family_id: "ER3_MEMBRANE"
+    family_label: "external_hard_bias_test_membrane"
+    spectral_type: "type_C_multiindex_structure"
+    model_class: "membrane_helmholtz_bessel"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Circular membrane with Bessel-zero structure as hard Type-C case.
+
+    mode_table:
+      type: "circular_membrane_bessel_modes"
+      mode_indices:
+        - [0, 1]
+        - [1, 1]
+        - [2, 1]
+        - [0, 2]
+        - [3, 1]
+        - [1, 2]
+        - [2, 2]
+        - [0, 3]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "lambda"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_k2"
+      expected_allowed_winners:
+        - "delta_k2"
+        - "abs_delta_k2"
+        - "delta_lambda"
+        - "delta_k"
+      expected_delta_p2_role: "structure_support_expected"
+      expected_irregularity_level: "moderate_to_high"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "MEMBRANE_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_bessel_near_clusters_as_distinct: true
+          collapse_equal_lambda_shells: false
+        active_spectrum: "k"
+        active_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_lambda"
+
+  - family_id: "TD1_1D_BOX"
+    family_label: "type_D_primary_1d_box"
+    spectral_type: "type_D_regular_nonring"
+    model_class: "box_1d_quadratic_nonperiodic"
+    family_source: "M39x3_control_extension"
+    status: "implemented"
+    enabled: true
+    description: >
+      Regular non-ring control case: 1D particle in a box.
+      Used as Type-D reference during transition mapping.
+
+    candidate_role: "reference"
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "positive_only"
+      values: [1, 2, 3, 4, 5, 6]
+
+    derived_spectra:
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_p"
+      expected_allowed_winners:
+        - "delta_p"
+        - "abs_delta_p"
+      expected_delta_p2_role: "not_necessarily_dominant"
+      expected_irregularity_level: "low_to_moderate"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "BOX_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+  - family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+    family_label: "type_B_primary_fsw_dense_mapping"
+    spectral_type: "type_B_quadratic_nontrivial"
+    model_class: "finite_square_well_1d"
+    family_source: "M39x3d_transition_mapping"
+    status: "implemented"
+    enabled: true
+    description: >
+      Dense finite-square-well sweep for mapping the quantitative Type-B window.
+
+    candidate_role: "primary_dense_mapping"
+    sweep_mode: "depth_only"
+
+    fixed_parameters:
+      well_width: 1.0
+      mass: 1.0
+
+    sweep_regimes:
+      - regime_id: "FSW_D01"
+        regime_label: "deep_box_like_01"
+        well_depth: 14.0
+        expectation: "type_D_near"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.99, 1.98, 2.96, 3.92, 4.86, 5.78]
+
+      - regime_id: "FSW_D02"
+        regime_label: "deep_box_like_02"
+        well_depth: 12.0
+        expectation: "type_D_near"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.98, 1.96, 2.93, 3.88, 4.80, 5.67]
+
+      - regime_id: "FSW_D03"
+        regime_label: "transition_in"
+        well_depth: 10.0
+        expectation: "entering_quantitative_type_B"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.97, 1.92, 2.86, 3.77, 4.64, 5.46]
+
+      - regime_id: "FSW_D04"
+        regime_label: "transition_in_02"
+        well_depth: 8.0
+        expectation: "quantitative_type_B_strengthening"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.95, 1.89, 2.78, 3.61, 4.34, 4.96]
+
+      - regime_id: "FSW_D05"
+        regime_label: "window_core_01"
+        well_depth: 6.5
+        expectation: "best_quantitative_type_B_window"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.93, 1.85, 2.72, 3.47, 4.06, 4.43]
+
+      - regime_id: "FSW_D06"
+        regime_label: "window_core_02"
+        well_depth: 6.0
+        expectation: "best_quantitative_type_B_window"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.92, 1.84, 2.69, 3.42, 3.98, 4.31]
+
+      - regime_id: "FSW_D07"
+        regime_label: "window_outer"
+        well_depth: 5.0
+        expectation: "quantitative_type_B_persists"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.89, 1.77, 2.57, 3.22, 3.66, 3.89]
+
+      - regime_id: "FSW_D08"
+        regime_label: "shallow_transition"
+        well_depth: 4.0
+        expectation: "edge_near_quantitative_type_B"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.85, 1.66, 2.36, 2.90, 3.24, 3.42]
+
+      - regime_id: "FSW_D09"
+        regime_label: "shallow_edge"
+        well_depth: 3.0
+        expectation: "edge_case_nontriviality"
+        base_spectrum:
+          variable_name: "p"
+          values: [0.81, 1.55, 2.18, 2.66, 2.97, 3.10]
+
+  - family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+    family_label: "type_B_ao_dense_mapping"
+    spectral_type: "type_B_quadratic_nontrivial"
+    model_class: "anharmonic_oscillator_1d"
+    family_source: "M39x3d_transition_mapping"
+    status: "implemented"
+    enabled: true
+    description: >
+      Dense anharmonic-oscillator sweep for transfer mapping and qualitative jump detection.
+
+    candidate_role: "dense_transfer_and_jump_mapping"
+    sweep_mode: "anharmonic_strength_only"
+
+    fixed_parameters:
+      mass: 1.0
+      omega0: 1.0
+
+    sweep_regimes:
+      - regime_id: "AO_A01"
+        regime_label: "very_weak_01"
+        anharmonic_strength: 0.03
+        expectation: "near_regular"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.02, 3.08, 4.18, 5.32, 6.50]
+
+      - regime_id: "AO_A02"
+        regime_label: "weak_01"
+        anharmonic_strength: 0.05
+        expectation: "first_type_B_signal"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.04, 3.12, 4.24, 5.40, 6.60]
+
+      - regime_id: "AO_A03"
+        regime_label: "weak_02"
+        anharmonic_strength: 0.08
+        expectation: "transfer_strengthening"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.06, 3.19, 4.37, 5.61, 6.93]
+
+      - regime_id: "AO_A04"
+        regime_label: "intermediate_in"
+        anharmonic_strength: 0.10
+        expectation: "quantitative_type_B_transfer"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.07, 3.23, 4.49, 5.88, 7.42]
+
+      - regime_id: "AO_A05"
+        regime_label: "intermediate_core"
+        anharmonic_strength: 0.12
+        expectation: "best_transfer_candidate"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.08, 3.28, 4.62, 6.12, 7.80]
+
+      - regime_id: "AO_A06"
+        regime_label: "intermediate_out"
+        anharmonic_strength: 0.14
+        expectation: "pre_jump_transition"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.10, 3.35, 4.78, 6.44, 8.31]
+
+      - regime_id: "AO_A07"
+        regime_label: "strong_transition_01"
+        anharmonic_strength: 0.17
+        expectation: "approaching_qualitative_jump"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.12, 3.43, 4.97, 6.86, 9.05]
+
+      - regime_id: "AO_A08"
+        regime_label: "strong_transition_02"
+        anharmonic_strength: 0.19
+        expectation: "approaching_qualitative_jump"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.14, 3.50, 5.15, 7.18, 9.62]
+
+      - regime_id: "AO_A09"
+        regime_label: "strong_core"
+        anharmonic_strength: 0.22
+        expectation: "qualitative_jump_candidate"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.16, 3.58, 5.34, 7.52, 10.18]
+
+      - regime_id: "AO_A10"
+        regime_label: "strong_outer"
+        anharmonic_strength: 0.25
+        expectation: "post_jump_or_edge_case"
+        base_spectrum:
+          variable_name: "p"
+          values: [1.00, 2.20, 3.70, 5.68, 8.20, 11.20]

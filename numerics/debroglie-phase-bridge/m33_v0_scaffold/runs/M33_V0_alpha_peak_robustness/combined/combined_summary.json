@@ -1,0 +1,10 @@
+{
+  "source_readout_link_supported": false,
+  "median_delta_source_preferred": 0.7,
+  "median_alpha_coherent_global": 2.1500000000000004,
+  "median_alpha_coherent_band": 1.58,
+  "global_t0_control_pass": true,
+  "global_asymmetry_pass": true,
+  "final_decision": "R1",
+  "interpretation": "weak or edge-dominated structure hint"
+}

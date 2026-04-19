@@ -1,0 +1,6 @@
+run_id,aggregation_level,p_family,n_valid_runs,frac_source_in_band,frac_readout_in_band,frac_coherent,median_alpha_source,median_alpha_global,median_alpha_band,median_alpha_preferred,median_score_global,median_score_band,median_delta_source_preferred,global_t0_control_pass,global_asymmetry_pass,final_decision,kill_signal
+M33_V0_alpha_peak_robustness,p_family,P0,18,0.0,0.8333333333333334,0.0,1.15,2.1500000000000004,1.58,1.58,,,0.7800000000000002,1,1,R1,source_readout_decoupling
+M33_V0_alpha_peak_robustness,p_family,P1,18,0.0,0.8333333333333334,0.0,1.2,2.1,1.58,1.58,,,0.9800000000000001,1,1,R1,source_readout_decoupling
+M33_V0_alpha_peak_robustness,p_family,P2,18,0.16666666666666666,0.8333333333333334,0.1111111111111111,1.0,2.25,1.58,1.58,,,0.83,1,1,R1,source_readout_decoupling
+M33_V0_alpha_peak_robustness,p_family,P3,18,0.8333333333333334,0.8333333333333334,0.5,1.66,1.66,1.57,1.57,,,0.06999999999999984,1,1,R1,source_readout_decoupling
+M33_V0_alpha_peak_robustness,global,ALL,72,0.25,0.8333333333333334,0.1527777777777778,1.58,2.1500000000000004,1.58,1.58,,,0.7,1,1,R1,source_readout_decoupling

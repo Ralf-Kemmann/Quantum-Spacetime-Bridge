@@ -1,0 +1,254 @@
+block_id: "M.3.9x.3g.a"
+block_title: "Type-B exclusion test / null-model control"
+run_id: "m39x3g_a_run_001"
+run_status: "planned"
+
+project:
+  project_id: "typ_b_analysis"
+  project_stage: "M.3.9x.3g.a"
+  analyst_mode: "defensive_red_team"
+  notes: >
+    Nullmodell- und Ausschlusstest zur Prüfung, ob der aktuelle Diagnoseapparat
+    Typ-B-artige Pfade auch in explizit nicht-typ-B-artigen Kontrollmodellen erzeugt.
+
+data:
+  original_features_path: "data/original/original_features.csv"
+  control_features_path: "data/controls/control_features.csv"
+  input_manifest_path: "data/input_manifest.csv"
+
+  id_columns:
+    dataset_id: "dataset_id"
+    family_id: "family_id"
+    window_id: "window_id"
+    label_internal: "label_internal"
+    source_type: "source_type"
+    control_family: "control_family"
+    replicate_id: "replicate_id"
+
+  source_type_values:
+    original: "original"
+    control: "control"
+
+feature_space:
+  feature_space_version: "v_current_baseline"
+  feature_columns:
+    - "distance_to_type_D"
+    - "spacing_cv"
+    - "simple_rigidity_surrogate"
+    - "grid_deviation_score"
+
+  required_feature_columns:
+    - "distance_to_type_D"
+    - "spacing_cv"
+
+  allow_additional_features: true
+  missing_value_policy: "fail_if_required_missing"
+  row_filter_policy: "keep_all_valid_rows"
+
+preprocessing:
+  scaling_method: "zscore_from_original_reference"
+  scaling_reference: "original_only"
+  center: true
+  scale: true
+  clip_outliers: false
+  outlier_clip_quantiles: null
+
+distance:
+  distance_metric: "euclidean"
+  pairwise_engine: "sklearn"
+  distance_scope: "full_feature_space"
+
+grouping:
+  original_target_groups:
+    - "FSW"
+    - "AO"
+
+  original_group_mapping:
+    FSW:
+      - "FSW_D05"
+      - "FSW_D06"
+    AO:
+      - "AO_A03"
+      - "AO_A04"
+      - "AO_A05"
+
+  control_grouping_strategy: "family_as_group"
+  minimum_group_size: 3
+
+type_b_rules:
+  version: "operational_type_b_rules_v1"
+  notes: >
+    Vorläufige operationale Regeln für Typ-B-Konsistenz. Diese Schwellen dienen als
+    Arbeits- und Testkriterien und sind nicht als endgültige Definition zu lesen.
+
+  distance_to_type_D:
+    min: 0.15
+    max: 0.45
+
+  spacing_cv:
+    min: 0.20
+    max: 0.60
+
+  grid_deviation_score:
+    min: 0.05
+    max: 0.30
+
+  simple_rigidity_surrogate:
+    min: 0.40
+
+  separation_margin:
+    min: 0.20
+
+  assignment_score:
+    min: 0.75
+
+  stability_score:
+    min: 0.80
+
+  separation_margin_ci_low:
+    min: 0.05
+
+reference_rules:
+  version: "reference_rules_v1_calibrated"
+  notes: >
+    Datenbasiert kalibrierte absolute Referenzkriterien aus den aktuellen
+    FSW/AO- und Kontrollwerten. Diese Schwellen sind Arbeitswerte und nicht
+    als endgültige physikalische Definition zu lesen.
+
+  original_separation_margin:
+    min: 0.21
+
+  original_stability_score:
+    min: 0.80
+
+  original_assignment_score:
+    min: 0.75
+
+  control_margin_quantile:
+    min: 0.75
+
+control_families:
+  - id: "K1"
+    description: "moderately_irregular_random_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: >
+      Zufällige oder pseudorandomisierte Strukturen mit moderater Irregularität
+      ohne erwartete Typ-B-Kohärenz.
+
+  - id: "K2"
+    description: "perturbed_grid_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: >
+      Systematisch gestörte Gitterstruktur ohne angenommene Zwischenraummechanik.
+
+  - id: "K3"
+    description: "mixed_A_C_D_control"
+    expected_not_type_B: true
+    enabled: true
+    notes: >
+      Mischkontrolle aus A/C/D-nahen Strukturen als Restklassen-Test.
+
+  - id: "K4"
+    description: "adversarial_similarity_control"
+    expected_not_type_B: true
+    enabled: false
+    notes: >
+      Optional schwierige Kontrollfamilie mit oberflächlich ähnlicher Rohstatistik.
+
+metrics:
+  primary_metrics:
+    - "mean_intra_distance"
+    - "mean_inter_distance"
+    - "pooled_intra_distance"
+    - "separation_margin"
+    - "separation_ratio"
+    - "stability_score"
+    - "assignment_score"
+
+  pooled_intra_definition: "mean(intra_FSW, intra_AO)"
+  separation_margin_definition: "mean_inter_distance - pooled_intra_distance"
+  separation_ratio_definition: "mean_inter_distance / pooled_intra_distance"
+
+assignment:
+  method: "nearest_centroid"
+  cv_scheme: "leave_one_out"
+  report_confusion: false
+
+resampling:
+  enabled: true
+  scheme: "bootstrap"
+  n_resamples: 1000
+  stratified: true
+  sample_fraction: 1.0
+  with_replacement: true
+  confidence_interval: 0.95
+
+decision_rules:
+  version: "v2_calibrated"
+
+  invalid_conditions:
+    require_minimum_two_enabled_control_families: true
+    require_identical_preprocessing_for_original_and_control: true
+    require_resampling: true
+    require_fixed_distance_metric: true
+    require_documented_feature_space: true
+
+  thresholds:
+    min_stability_score_for_supported: 0.70
+    min_original_over_control_margin_delta: 0.086
+    max_control_typeB_like_fraction_for_supported: 0.10
+    max_control_typeB_like_fraction_for_weak: 0.30
+
+  interpretation_logic:
+    supported: >
+      Original data satisfy absolute quality criteria and remain clearly stronger than
+      controls, while enabled controls fail to reproduce robust Type-B-like structure.
+    weak: >
+      Original data show partial quality and controls remain mostly negative, but the
+      relative advantage over controls is still too weak for strong support.
+    ambiguous: >
+      Controls do not robustly reproduce Type-B-like structure, but the original signal
+      does not yet satisfy all absolute or relative quality criteria in a stable way.
+    failed: >
+      At least one central control family reproduces robust Type-B-like structure, or
+      the original signal itself fails minimum quality requirements.
+
+outputs:
+  base_dir: "runs/M39x3g_a_typeB_exclusion/m39x3g_a_run_001"
+  write_input_manifest_copy: true
+  write_scaled_features: true
+  write_pairwise_distances: false
+  write_diagnostics_tables: true
+  write_resampling_tables: true
+  write_report_md: true
+  write_summary_json: true
+
+paths:
+  diagnostics_dir: "diagnostics"
+  resampling_dir: "resampling"
+  report_path: "report.md"
+  summary_path: "summary.json"
+
+reproducibility:
+  random_seed: 1729
+  seed_list:
+    - 1729
+    - 2718
+    - 3141
+  software_env:
+    python_version: "3.12"
+    numpy_version: "TBD"
+    pandas_version: "TBD"
+    sklearn_version: "TBD"
+
+audit:
+  created_by: "Nova"
+  created_at: "2026-04-02"
+  last_modified_at: "2026-04-02"
+  notes: >
+    Repo-taugliche Vorlage mit operational_type_b_rules_v1 und kalibrierten
+    reference_rules/decision thresholds. Schwellenwerte bleiben Arbeitswerte
+    und müssen gegen bessere Originale und adversariale Kontrollen weiter
+    gehärtet werden.

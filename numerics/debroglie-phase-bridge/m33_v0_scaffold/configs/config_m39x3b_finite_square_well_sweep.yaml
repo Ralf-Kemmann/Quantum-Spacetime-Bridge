@@ -1,0 +1,316 @@
+run:
+  run_id: "M39x3b_finite_square_well_sweep"
+  title: "M.3.9x.3b — Finite-Square-Well-Sweep und Typ-B-Robustheit"
+  description: >
+    Robustness run for the finite square well as primary Type-B candidate.
+    The well width is kept fixed while the well depth is swept across
+    deep, intermediate, and shallow regimes to identify a robust Type-B window.
+  outdir: "runs/M39x3b_finite_square_well_sweep"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  family_definitions_yaml: "configs/m39x3b_finite_square_well_sweep_families.yaml"
+
+execution:
+  enabled_blocks:
+    - family_diagnostics
+    - prediction_evaluation
+    - spectral_type_summary
+    - control_hardening_rules
+    - cross_type_evaluation
+    - finite_square_well_sweep_evaluation
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_family_prediction_summary: true
+  require_spectral_type_summary: true
+  require_missing_cases_summary: true
+  require_control_hardening_summary: true
+  require_finite_square_well_sweep_summary: true
+  global_prediction_status_allowed_values:
+    - "finite_square_well_type_B_window_found"
+    - "finite_square_well_type_B_window_plausible_but_narrow"
+    - "finite_square_well_too_close_to_type_D"
+    - "finite_square_well_edge_case_only"
+
+pairing:
+  default_pairing_mode: "all_pairs"
+  supported_pairing_modes:
+    - "all_pairs"
+    - "matched_pairs"
+    - "nearest_pairs"
+    - "degeneracy_safe_pairs"
+    - "unique_abs_pairs"
+    - "no_sign_mirror_pairs"
+  defaults:
+    exclude_self_pairs: true
+    sort_pairs_canonically: true
+    unique_unordered_pairs: true
+
+markers:
+  supported_markers:
+    - "delta_p"
+    - "abs_delta_p"
+    - "delta_p2"
+    - "abs_delta_p2"
+    - "delta_E_quad"
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_omega"
+    - "delta_lambda"
+
+  default_marker_sets:
+    type_A_ladder:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_B_quadratic_nontrivial:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_C_multiindex_structure:
+      - "delta_k"
+      - "abs_delta_k"
+      - "delta_k2"
+      - "abs_delta_k2"
+      - "delta_omega"
+      - "delta_lambda"
+
+    type_D_regular_nonring:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+strength_scoring:
+  absolute_strength:
+    method: "rank_separation_score"
+    higher_is_better: true
+    normalize_to_unit_interval: true
+
+  relative_dominance:
+    method: "bootstrap_win_fraction"
+    higher_is_better: true
+
+  support_thresholds:
+    absolute_support_min: 0.60
+    dominance_stable_min: 0.70
+    dominance_margin_min: 0.05
+    competitive_margin_max: 0.10
+    type_b_distance_min: 0.10
+
+bootstrap:
+  enabled: true
+  n_bootstrap: 1000
+  resample_level: "pair"
+  confidence_level: 0.95
+  stratified_by_branch_label: false
+
+irregularity:
+  enabled: true
+  compute_measures:
+    - "spacing_mean"
+    - "spacing_std"
+    - "spacing_cv"
+    - "spacing_ratio"
+    - "simple_unfolding_density"
+    - "simple_rigidity_surrogate"
+
+irregularity_levels:
+  low:
+    spacing_cv_max: 0.20
+  low_to_moderate:
+    spacing_cv_max: 0.45
+  moderate:
+    spacing_cv_min: 0.15
+    spacing_cv_max: 0.60
+  moderate_to_high:
+    spacing_cv_min: 0.20
+  high:
+    spacing_cv_min: 0.50
+
+prediction_logic:
+  allowed_match_status_values:
+    - "supported"
+    - "partially_supported"
+    - "open"
+    - "stressed"
+    - "failed"
+
+  supported_rules:
+    require_expected_relative_winner: true
+    allow_expected_allowed_winners: true
+    check_delta_p2_role: true
+    check_irregularity_level: true
+    check_direction_blindness_relevance: true
+
+  default_open_conditions:
+    - "family_status_placeholder"
+    - "missing_control_case"
+    - "insufficient_data"
+
+derived_flags:
+  type_B:
+    - "delta_p2_relative_gain_vs_type_A"
+    - "distance_to_type_D"
+    - "observed_irregularity_level"
+    - "box_like_proximity_flag"
+    - "edge_case_instability_flag"
+    - "best_type_B_window_candidate_flag"
+
+  type_D:
+    - "delta_p_competitive"
+    - "delta_p2_absolute_strength_high"
+    - "delta_p2_not_clearly_dominant"
+    - "observed_irregularity_level"
+
+finite_square_well_sweep:
+  family_id: "TB2_FINITE_SQUARE_WELL_1D_SWEEP"
+  spectral_type: "type_B_quadratic_nontrivial"
+  candidate_role: "primary_sweep"
+  sweep_mode: "depth_only"
+  width_mode: "fixed"
+
+  fixed_parameters:
+    well_width: 1.0
+    mass: 1.0
+
+  regimes:
+    - regime_id: "FSW_DEEP"
+      regime_label: "deep_box_like"
+      well_depth: 12.0
+      expectation: "box_like_type_D_proximity"
+
+    - regime_id: "FSW_INTERMEDIATE"
+      regime_label: "intermediate_type_B_window"
+      well_depth: 6.0
+      expectation: "best_type_B_window"
+
+    - regime_id: "FSW_SHALLOW"
+      regime_label: "shallow_edge_case"
+      well_depth: 3.0
+      expectation: "edge_case_nontriviality"
+
+regime_prediction_profiles:
+  FSW_DEEP:
+    expected_relative_winner: "delta_p"
+    expected_allowed_winners:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+    expected_delta_p2_role: "weak_type_B_gain_possible"
+    expected_irregularity_level: "low_to_moderate"
+    expected_regime_interpretation: "close_to_type_D"
+
+  FSW_INTERMEDIATE:
+    expected_relative_winner: "open"
+    expected_allowed_winners:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+    expected_delta_p2_role: "best_type_B_window_candidate"
+    expected_irregularity_level: "moderate"
+    expected_regime_interpretation: "best_type_B_window"
+
+  FSW_SHALLOW:
+    expected_relative_winner: "open"
+    expected_allowed_winners:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+    expected_delta_p2_role: "edge_case_nontriviality"
+    expected_irregularity_level: "moderate_to_high"
+    expected_regime_interpretation: "edge_case_risk"
+
+evaluation_targets:
+  - "regime_id"
+  - "well_depth"
+  - "well_width"
+  - "n_bound_states"
+  - "dominant_marker"
+  - "delta_p2_relative_gain_vs_type_A"
+  - "distance_to_type_D"
+  - "observed_irregularity_level"
+  - "prediction_match_status"
+  - "type_B_robustness_value"
+
+finite_square_well_decision_rules:
+  FSW_DEEP:
+    supported_if:
+      - "prediction_match_status in [partially_supported, supported]"
+      - "box_like_proximity_flag == true"
+    interpretation: "expected_box_like_reference"
+
+  FSW_INTERMEDIATE:
+    supported_if:
+      - "prediction_match_status in [partially_supported, supported]"
+      - "delta_p2_relative_gain_vs_type_A > 0"
+      - "distance_to_type_D > 0"
+      - "best_type_B_window_candidate_flag == true"
+    interpretation: "candidate_best_type_B_window"
+
+  FSW_SHALLOW:
+    supported_if:
+      - "prediction_match_status in [partially_supported, supported]"
+      - "distance_to_type_D > 0"
+    stressed_if:
+      - "edge_case_instability_flag == true"
+    interpretation: "edge_case_test"
+
+finite_square_well_global_logic:
+  finite_square_well_type_B_window_found:
+    require:
+      - "FSW_INTERMEDIATE.best_type_B_window_candidate_flag == true"
+      - "FSW_INTERMEDIATE.prediction_match_status in [partially_supported, supported]"
+      - "FSW_INTERMEDIATE.distance_to_type_D > 0"
+
+  finite_square_well_type_B_window_plausible_but_narrow:
+    require:
+      - "at_least_one_regime_has_positive_distance_to_type_D"
+      - "at_least_one_regime_has_positive_delta_p2_gain"
+    allow_any:
+      - "FSW_INTERMEDIATE only partially separates"
+      - "FSW_SHALLOW shows edge_case_instability"
+
+  finite_square_well_too_close_to_type_D:
+    trigger_any:
+      - "all_regimes.box_like_proximity_flag == true"
+      - "all_regimes.distance_to_type_D <= 0"
+
+  finite_square_well_edge_case_only:
+    trigger_any:
+      - "only_FSW_SHALLOW_has_positive_distance_to_type_D"
+      - "FSW_SHALLOW.edge_case_instability_flag == true"
+
+control_hardening:
+  enabled: true
+  type_A_reference_family: "ER1_RING"
+  type_A_reference_variant: "RING_SIGNED"
+  type_D_reference_family: "TD1_1D_BOX"
+  type_D_reference_variant: "BOX_STANDARD"
+
+outputs:
+  markdown_report: "m39x3b_finite_square_well_sweep_report.md"
+  global_summary_json: "m39x3b_global_summary.json"
+  family_prediction_summary_csv: "m39x3b_family_prediction_summary.csv"
+  spectral_type_summary_csv: "m39x3b_spectral_type_summary.csv"
+  marker_summary_csv: "m39x3b_marker_summary.csv"
+  irregularity_summary_csv: "m39x3b_irregularity_summary.csv"
+  bootstrap_summary_csv: "m39x3b_bootstrap_summary.csv"
+  missing_cases_summary_csv: "m39x3b_missing_cases_summary.csv"
+  control_hardening_summary_csv: "m39x3b_control_hardening_summary.csv"
+  finite_square_well_sweep_summary_csv: "m39x3b_finite_square_well_sweep_summary.csv"
+  source_notes_md: "m39x3b_source_notes.md"

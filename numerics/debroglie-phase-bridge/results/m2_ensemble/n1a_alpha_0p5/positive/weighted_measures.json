@@ -1,0 +1,18 @@
+{
+  "case": "n1a_alpha_0p5",
+  "run_kind": "n1a",
+  "kernel_mode": "positive",
+  "theta": 0.03,
+  "natural_connectivity": 0.000802156910606951,
+  "weighted_clustering": 0.0,
+  "global_efficiency": 0.013353080533320003,
+  "weighted_measure_spec": {
+    "clustering_mode": "onnela",
+    "use_zero_diagonal": true,
+    "length_epsilon": 1e-12
+  },
+  "wrong_dispersion_spec": {
+    "dispersion_mode": "scaled_quadratic",
+    "alpha": 0.5
+  }
+}

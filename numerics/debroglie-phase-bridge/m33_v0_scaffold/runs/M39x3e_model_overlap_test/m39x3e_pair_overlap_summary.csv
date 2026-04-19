@@ -1,0 +1,13 @@
+pair_set_id,fsw_regime_id,ao_regime_id,dominant_marker_fsw,dominant_marker_ao,dominant_marker_match_flag,irregularity_level_fsw,irregularity_level_ao,irregularity_level_match_flag,mean_normalized_difference,weighted_overlap_distance_score,overlap_status,overlap_note
+FSW_CORE_VS_AO_TRANSFER,FSW_D05,AO_A04,delta_p,delta_p,True,low_to_moderate,low,False,0.21438954068077778,1.108227314837577,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_TRANSFER,FSW_D05,AO_A05,delta_p,delta_p,True,low_to_moderate,low,False,0.14798368419039815,0.7846925740933116,weak_overlap,Weak overlap only.
+FSW_CORE_VS_AO_TRANSFER,FSW_D05,AO_A06,delta_p,delta_p,True,low_to_moderate,low,False,0.13727993231842836,0.7602537062893492,weak_overlap,Weak overlap only.
+FSW_CORE_VS_AO_TRANSFER,FSW_D06,AO_A04,delta_p,delta_p,True,low_to_moderate,low,False,0.22006912564975498,1.1268865478310102,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_TRANSFER,FSW_D06,AO_A05,delta_p,delta_p,True,low_to_moderate,low,False,0.14962593666267493,0.77849805613698,weak_overlap,Weak overlap only.
+FSW_CORE_VS_AO_TRANSFER,FSW_D06,AO_A06,delta_p,delta_p,True,low_to_moderate,low,False,0.16319402945089928,0.8754184116339885,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_PREJUMP,FSW_D05,AO_A07,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.21695764778756868,1.1155638775671557,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_PREJUMP,FSW_D05,AO_A08,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.26170482050934685,1.3837053556423804,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_PREJUMP,FSW_D06,AO_A07,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.23542253498775972,1.1934825332503953,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_PREJUMP,FSW_D06,AO_A08,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.28016970770953786,1.4616240113256203,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_JUMP,FSW_D05,AO_A09,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.3201147026241607,1.7128762464302458,no_meaningful_overlap,No meaningful overlap in the shared feature space.
+FSW_CORE_VS_AO_JUMP,FSW_D06,AO_A09,delta_p,delta_p,True,low_to_moderate,low_to_moderate,True,0.33386502220303427,1.7719366316282161,no_meaningful_overlap,No meaningful overlap in the shared feature space.

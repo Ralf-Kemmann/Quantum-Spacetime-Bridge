@@ -1,0 +1,216 @@
+run:
+  run_id: "M39x3ea_feature_distance_diagnosis"
+  title: "M.3.9x.3e.a — Feature-wise Distanzdiagnose"
+  description: >
+    Diagnostic decomposition of the failed FSW/AO model-overlap result from
+    M39x3e. The goal is to identify which features drive the pairwise and
+    groupwise overlap distances, and to test whether the negative overlap
+    result remains robust under ablation, reweighting, and alternative
+    normalization schemes.
+  outdir: "runs/M39x3ea_feature_distance_diagnosis"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  source_run_id: "M39x3e_model_overlap_test"
+  pair_feature_comparison_csv: "runs/M39x3e_model_overlap_test/m39x3e_pair_feature_comparison.csv"
+  pair_overlap_summary_csv: "runs/M39x3e_model_overlap_test/m39x3e_pair_overlap_summary.csv"
+  group_overlap_summary_csv: "runs/M39x3e_model_overlap_test/m39x3e_group_overlap_summary.csv"
+
+execution:
+  enabled_blocks:
+    - baseline_feature_contribution_analysis
+    - pair_set_feature_diagnosis
+    - sensitivity_recomputation
+    - diagnostic_decision
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_pair_feature_contribution: true
+  require_pair_set_feature_diagnosis: true
+  require_sensitivity_summary: true
+  global_diagnostic_status_allowed_values:
+    - "single_feature_dominates_distance"
+    - "two_feature_cluster_dominates_distance"
+    - "distance_broadly_distributed"
+    - "overlap_sensitive_to_weighting"
+    - "overlap_sensitive_to_normalization"
+    - "overlap_stable_under_ablation"
+    - "no_overlap_remains_robust"
+    - "mixed_diagnostic_result"
+
+feature_distance_diagnosis:
+  block_id: "M39x3ea_feature_distance_diagnosis"
+  purpose: "diagnose_which_features_drive_the_failed_model_overlap"
+
+  target_pair_sets:
+    - "FSW_CORE_VS_AO_TRANSFER"
+    - "FSW_CORE_VS_AO_PREJUMP"
+    - "FSW_CORE_VS_AO_JUMP"
+
+diagnostic_features:
+  - "delta_p2_relative_gain_vs_type_A"
+  - "distance_to_type_D"
+  - "spacing_cv"
+  - "grid_deviation_score"
+  - "simple_rigidity_surrogate"
+
+categorical_diagnostics:
+  enabled: true
+  fields:
+    - "dominant_marker_match_flag"
+    - "irregularity_level_match_flag"
+
+contribution_metrics:
+  absolute_contribution_field: "weighted_difference"
+  relative_contribution_method: "pairwise_share_of_total_weighted_distance"
+  epsilon: 1.0e-12
+
+contribution_pattern_logic:
+  single_feature_dominates_distance:
+    require:
+      - "top_feature_relative_contribution >= 0.50"
+
+  two_feature_cluster_dominates_distance:
+    require:
+      - "top_2_features_relative_contribution_sum >= 0.70"
+
+  distance_broadly_distributed:
+    require:
+      - "top_feature_relative_contribution < 0.40"
+      - "top_2_features_relative_contribution_sum < 0.70"
+
+sensitivity_tests:
+  - test_id: "baseline"
+    label: "baseline_from_m39x3e"
+    source: "pair_feature_comparison_csv"
+    weights: "from_source_run"
+    normalization: "from_source_run"
+    keep_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+      - "spacing_cv"
+      - "grid_deviation_score"
+      - "simple_rigidity_surrogate"
+
+  - test_id: "equal_weights"
+    label: "equal_weights_same_features"
+    weights:
+      delta_p2_relative_gain_vs_type_A: 1.0
+      distance_to_type_D: 1.0
+      spacing_cv: 1.0
+      grid_deviation_score: 1.0
+      simple_rigidity_surrogate: 1.0
+    normalization: "from_source_run"
+    keep_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+      - "spacing_cv"
+      - "grid_deviation_score"
+      - "simple_rigidity_surrogate"
+
+  - test_id: "no_rigidity"
+    label: "drop_simple_rigidity_surrogate"
+    weights: "from_source_run"
+    normalization: "from_source_run"
+    drop_features:
+      - "simple_rigidity_surrogate"
+
+  - test_id: "no_grid_deviation"
+    label: "drop_grid_deviation_score"
+    weights: "from_source_run"
+    normalization: "from_source_run"
+    drop_features:
+      - "grid_deviation_score"
+
+  - test_id: "no_rigidity_no_grid"
+    label: "drop_rigidity_and_grid"
+    weights: "from_source_run"
+    normalization: "from_source_run"
+    drop_features:
+      - "simple_rigidity_surrogate"
+      - "grid_deviation_score"
+
+  - test_id: "quantitative_core_only"
+    label: "only_quantitative_core_features"
+    weights: "from_source_run"
+    normalization: "from_source_run"
+    keep_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+
+  - test_id: "zscore_like_rescale"
+    label: "alternative_normalization_global_zscore_like"
+    weights: "from_source_run"
+    normalization: "zscore_from_source_run"
+    keep_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+      - "spacing_cv"
+      - "grid_deviation_score"
+      - "simple_rigidity_surrogate"
+
+  - test_id: "local_range_norm"
+    label: "alternative_normalization_local_pairset_range"
+    weights: "from_source_run"
+    normalization: "local_pairset_range"
+    keep_features:
+      - "delta_p2_relative_gain_vs_type_A"
+      - "distance_to_type_D"
+      - "spacing_cv"
+      - "grid_deviation_score"
+      - "simple_rigidity_surrogate"
+
+pair_overlap_thresholds:
+  strong_overlap_max: 0.35
+  partial_overlap_max: 0.60
+  weak_overlap_max: 0.85
+
+diagnostic_decision_logic:
+  overlap_sensitive_to_weighting:
+    trigger_any:
+      - "baseline_global_status == no_meaningful_model_overlap"
+      - "equal_weights_improves_overlap_status == true"
+      - "at_least_one_weighting_variant_reaches_partial_or_better == true"
+
+  overlap_sensitive_to_normalization:
+    trigger_any:
+      - "zscore_like_rescale_improves_overlap_status == true"
+      - "local_range_norm_improves_overlap_status == true"
+
+  overlap_stable_under_ablation:
+    require:
+      - "baseline_global_status == no_meaningful_model_overlap"
+      - "no_rigidity_keeps_no_meaningful_model_overlap == true"
+      - "no_grid_deviation_keeps_no_meaningful_model_overlap == true"
+      - "no_rigidity_no_grid_keeps_no_meaningful_model_overlap == true"
+
+  no_overlap_remains_robust:
+    require:
+      - "baseline_global_status == no_meaningful_model_overlap"
+      - "overlap_stable_under_ablation == true"
+      - "no_alternative_test_reaches_partial_or_better == true"
+
+  mixed_diagnostic_result:
+    trigger_any:
+      - "weighting_and_normalization_tests_disagree == true"
+      - "ablation_changes_some_but_not_all_pair_sets == true"
+
+visualization:
+  enabled: true
+  outputs:
+    - "feature_contribution_barplot_data"
+    - "pairset_feature_heatmap_data"
+    - "sensitivity_comparison_plot_data"
+
+outputs:
+  markdown_report: "m39x3ea_feature_distance_diagnosis_report.md"
+  global_summary_json: "m39x3ea_global_summary.json"
+  pair_feature_contribution_csv: "m39x3ea_pair_feature_contribution.csv"
+  pair_set_feature_diagnosis_csv: "m39x3ea_pair_set_feature_diagnosis.csv"
+  sensitivity_summary_csv: "m39x3ea_sensitivity_summary.csv"
+  feature_contribution_plotdata_csv: "m39x3ea_feature_contribution_plotdata.csv"
+  pairset_heatmap_plotdata_csv: "m39x3ea_pairset_heatmap_plotdata.csv"
+  sensitivity_plotdata_csv: "m39x3ea_sensitivity_plotdata.csv"
+  source_notes_md: "m39x3ea_source_notes.md"

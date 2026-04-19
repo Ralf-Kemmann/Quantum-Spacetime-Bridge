@@ -1,0 +1,119 @@
+{
+  "run_id": "n1_negative_vs_abs_v1",
+  "block": "N1_NEGATIVE_VS_ABS",
+  "status": "completed",
+  "timestamp_utc": "2026-04-09T23:07:20Z",
+  "seed": 123,
+  "inputs": {
+    "dataset_roots": [
+      "../results/a1_probe/k0",
+      "../results/a1_sign_scan/k0/theta_0.03",
+      "../results/a1_probe/n1a_alpha"
+    ],
+    "export_classes": [
+      "negative",
+      "abs",
+      "positive"
+    ],
+    "export_pattern": "*.npz",
+    "search_mode": "recursive"
+  },
+  "parameters": {
+    "pair_unit": {
+      "matrix_pair_mode": "adjacency_plus_threshold",
+      "score_field": "G",
+      "tau": 0.025
+    },
+    "baseline": {
+      "neighborhood_mode": "shared_endpoint"
+    },
+    "alternative": {
+      "neighborhood_mode": "graph_distance_1"
+    },
+    "specificity": {
+      "compare_classes": {
+        "left": "negative",
+        "right": "abs"
+      },
+      "structure_metrics": [
+        "pair_unit_count",
+        "shell_count",
+        "mean_neighbor_count"
+      ],
+      "channel_metrics": [
+        "a1_score_mean",
+        "b1_score_mean",
+        "a1_status",
+        "b1_status"
+      ],
+      "combined_metrics": [
+        "combined_status"
+      ]
+    }
+  },
+  "per_dataset": {
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/k0": {
+      "baseline": {
+        "specificity_flag": "tie",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      },
+      "alternative": {
+        "specificity_flag": "tie",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03": {
+      "baseline": {
+        "specificity_flag": "tie",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      },
+      "alternative": {
+        "specificity_flag": "tie",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha": {
+      "baseline": {
+        "specificity_flag": "not_applicable",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      },
+      "alternative": {
+        "specificity_flag": "not_applicable",
+        "negative_beats_abs_structural": false,
+        "negative_beats_abs_channel": false,
+        "negative_beats_abs_combined": false
+      }
+    }
+  },
+  "global_summary": {
+    "negative_advantage_count": 0,
+    "abs_advantage_count": 0,
+    "tie_count": 4,
+    "not_applicable_count": 2
+  },
+  "decision": {
+    "block_judgement": "inconclusive",
+    "short_reason": "Current signal supports a shared upper block negative/abs over positive, but does not yet show a stable internal advantage of negative over abs."
+  },
+  "validation": {
+    "dataset_count": 3,
+    "nan_metrics_detected": false,
+    "validation_notes": []
+  },
+  "warnings": [],
+  "open_points": [
+    "Current specificity test is still diagnostic and depends on the frozen adapter setup.",
+    "A tie between negative and abs is an informative outcome, not a failure of the block.",
+    "n1a_alpha remains a sensitivity case and should not dominate the reading of signal-bearing datasets."
+  ]
+}

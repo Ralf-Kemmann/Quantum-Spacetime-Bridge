@@ -1,0 +1,74 @@
+block_id: "H3_D1_D2_DIVERGENCE_01"
+block_version: "v1"
+source_block: "H3_SUPPORT_MANIPULATION_DESIGN_01"
+
+description: >
+  Divergenztest für die beiden Nullmodelle D1 und D2.
+  Prüft, ob D1 und D2 algorithmisch und outcome-seitig
+  im aktuellen H3-Setup wirklich verschieden wirken.
+
+data_inputs:
+  support_score_table_path: "data/original/h3_support_scores.csv"
+
+reference_logic:
+  mapping_origin: "fixed_logic_h3_v1"
+  pair_representation: true
+  score_channel: "G"
+  support_mapping: "is_support"
+  neighbor_mapping: "is_neighbor"
+
+states:
+  D1:
+    label: "permutation_null"
+    reading_mode: "baseline_plus_auxiliary"
+    support_manipulation:
+      type: "null_model"
+      variant: "permutation_null"
+
+  D2:
+    label: "topology_preserving_random_null"
+    reading_mode: "baseline_plus_auxiliary"
+    support_manipulation:
+      type: "null_model"
+      variant: "topology_preserving_random_null"
+
+replication:
+  seeds: [101, 202, 303, 404, 505]
+  run_all_states_per_seed: true
+  parameter_perturbations:
+    enabled: true
+    perturbation_profiles:
+      base:
+        factor: 1.00
+      mild_plus:
+        factor: 1.05
+      mild_minus:
+        factor: 0.95
+
+metrics:
+  numeric:
+    - "gain_value"
+    - "support_sep_baseline"
+    - "support_sep_combined"
+    - "delta_gain_D2_minus_D1"
+    - "delta_support_sep_combined_D2_minus_D1"
+    - "jaccard_support_D1_vs_D2"
+    - "changed_assignment_fraction_D1_vs_D2"
+  categorical:
+    - "null_variant"
+    - "final_assessment"
+
+decision_rules:
+  detect_algorithmic_divergence: true
+  detect_outcome_divergence: true
+  detect_practical_collapse: true
+
+outputs:
+  root_dir: "runs/H3_D1_D2_DIVERGENCE_01/{run_id}"
+  files:
+    - "d1_d2_divergence_state_metrics.csv"
+    - "d1_d2_assignment_comparison.csv"
+    - "d1_d2_divergence_summary.csv"
+    - "d1_d2_divergence_decision_summary.json"
+    - "d1_d2_divergence_readout.md"
+    - "run_metadata.json"

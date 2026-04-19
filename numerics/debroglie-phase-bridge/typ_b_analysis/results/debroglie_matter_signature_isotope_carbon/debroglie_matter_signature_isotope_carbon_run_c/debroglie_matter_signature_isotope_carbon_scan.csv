@@ -1,0 +1,3 @@
+isotope,label,element_symbol,mass_u,proton_number,neutron_number,electron_count,lambda_db,energy_j,number_density,valence_electron_count,shell_closure_score,length_scale_score,energy_score,occupancy_score,signature_score_wave,valence_score,signature_score_combined,matter_sensitive_delta_wave,matter_sensitive_delta_isotope_carbon
+12c,12C,C,12.0,6,6,6,4.2598434570621364e-11,6.07105881525e-21,2.502858308970984e+25,4,0.0,1.0,0.5,0.5,0.6666666666666666,0.5,0.38888888888888884,-1.0,-1.0
+13c,13C,C,13.00335483507,6,7,6,4.0921972188551905e-11,6.07105881525e-21,2.502858308970984e+25,4,0.0,0.0,0.5,0.5,0.3333333333333333,0.5,0.27777777777777773,1.0,1.0

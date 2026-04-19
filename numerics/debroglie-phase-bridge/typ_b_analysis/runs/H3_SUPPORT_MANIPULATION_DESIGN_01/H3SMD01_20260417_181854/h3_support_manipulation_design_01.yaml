@@ -1,0 +1,171 @@
+block_id: H3_SUPPORT_MANIPULATION_DESIGN_01
+block_version: "0.1"
+project: "Gravitation und RaumZeit"
+source_block: "N1_A1_B1_DECOUPLING"
+
+purpose: >
+  Test whether the currently limited support-side H3 entry remains readable
+  under controlled support-side manipulation, while baseline-first remains
+  preserved and the effect collapses under null/randomized support conditions.
+
+working_constraints:
+  baseline_first_required: true
+  auxiliary_strictly_secondary: true
+  no_reference_claim: true
+  no_full_hierarchy_claim: true
+
+reading_modes:
+  baseline:
+    id: "baseline"
+    rule: "G = B"
+    role: "primary_anchor"
+
+  auxiliary:
+    id: "auxiliary"
+    rule: "G = B^1.25"
+    role: "strictly_secondary_bounded_mode"
+
+states:
+  A:
+    label: "baseline_reference"
+    reading_mode: "baseline"
+    support_manipulation:
+      type: "none"
+      level: 0.0
+
+  B:
+    label: "mild_auxiliary"
+    reading_mode: "baseline_plus_auxiliary"
+    support_manipulation:
+      type: "axis_defined_manipulation"
+      axis: "support_weighting"
+      level: 0.35
+
+  C:
+    label: "stronger_support_manipulation"
+    reading_mode: "baseline_plus_auxiliary"
+    support_manipulation:
+      type: "axis_defined_manipulation"
+      axis: "support_weighting"
+      level: 0.70
+
+  D:
+    label: "null_randomized_support_side"
+    reading_mode: "baseline_plus_auxiliary"
+    support_manipulation:
+      type: "null_model"
+      variants: ["permutation_null", "topology_preserving_random_null"]
+
+manipulation_policy:
+  allowed_axes:
+    - "support_weighting"
+    - "support_connectivity"
+    - "support_neighborhood_perturbation"
+    - "support_role_masking"
+  rules:
+    - "C must be a stronger version of B on the same manipulation axis."
+    - "Support-side changes only; no silent global redefinition."
+    - "No manipulation may force auxiliary to become primary by construction."
+
+data_inputs:
+  feature_matrix_path: "data/original/features.csv"
+  support_structure_path: "data/original/support_structure.csv"
+  neighborhood_definition_path: "data/original/neighborhoods.csv"
+  role_labels_path: "data/original/role_labels.csv"
+  metadata_path: "data/original/metadata.json"
+
+replication:
+  seeds: [101, 202, 303, 404, 505]
+  run_all_states_per_seed: true
+  parameter_perturbations:
+    enabled: true
+    perturbation_profiles:
+      - "base"
+      - "mild_plus"
+      - "mild_minus"
+
+null_models:
+  permutation_null:
+    preserve:
+      - "global_size"
+      - "rough_density"
+    destroy:
+      - "local_support_assignment"
+
+  topology_preserving_random_null:
+    preserve:
+      - "coarse_connectivity_profile"
+      - "degree_like_statistics_if_available"
+    destroy:
+      - "fine_support_semantics"
+
+metrics:
+  numeric:
+    - "gain_value"
+    - "gain_vs_A"
+    - "gain_vs_D"
+    - "sign_stability"
+    - "replicate_consistency"
+    - "null_noise_margin"
+  categorical:
+    - "baseline_anchor_status"
+    - "combined_status_stability"
+    - "auxiliary_compatibility"
+    - "neighbor_shift_signal"
+    - "a1_shift_signal"
+    - "b1_shift_signal"
+
+readability_definition:
+  detectable:
+    median_gain_vs_A_gt: 0.0
+    positive_direction_fraction_gte: 0.60
+
+  readable:
+    requires_detectable: true
+    sign_stability_gte: 0.80
+    replicate_consistency_gte: 0.80
+    median_gain_vs_D_gt_null_noise_margin: true
+
+  admissible_low_gain:
+    requires_readable: true
+    baseline_anchor_status_equals: "primary_retained"
+    combined_status_stability_in: ["stable", "near_stable"]
+    gain_value_lt_role_flip_threshold: true
+
+decision_rules:
+  baseline_first_preserved:
+    all_of: ["B", "C"]
+    require:
+      baseline_anchor_status: "primary_retained"
+
+  monotone_support_scaling:
+    require_numeric:
+      - "median(gain_A) <= median(gain_B)"
+      - "median(gain_B) <= median(gain_C)"
+    allow_soft_partial: true
+
+  null_model_suppression:
+    require_numeric:
+      - "median(gain_B) > median(gain_D)"
+      - "median(gain_C) > median(gain_D)"
+
+  boundedness_preserved:
+    require:
+      auxiliary_primary_takeover: false
+      role_flip: false
+
+hard_fail_conditions:
+  - "baseline_first_broken"
+  - "auxiliary_becomes_primary"
+  - "effect_not_above_null"
+  - "direction_random_across_replicates"
+
+outputs:
+  root_dir: "runs/H3_SUPPORT_MANIPULATION_DESIGN_01/{run_id}"
+  files:
+    - "run_metadata.json"
+    - "state_metrics.csv"
+    - "replicate_summary.csv"
+    - "nullmodel_comparison.csv"
+    - "decision_summary.json"
+    - "block_readout.md"

@@ -1,0 +1,11 @@
+{
+  "run_id": "M39x3c_ao_model_transfer",
+  "n_families_total": 6,
+  "n_families_implemented": 6,
+  "n_prediction_supported": 5,
+  "n_prediction_partially_supported": 6,
+  "n_prediction_open": 1,
+  "n_prediction_stressed": 0,
+  "n_prediction_failed": 0,
+  "global_prediction_status": "type_B_qualitative_jump_candidate"
+}

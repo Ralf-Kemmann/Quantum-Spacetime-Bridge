@@ -1,0 +1,13 @@
+{
+  "ring_special_case_flag": 1,
+  "dispersion_consistency_flag": 1,
+  "irregularity_support_flag": 1,
+  "energy_special_case_support_flag": 1,
+  "structure_marker_support_flag": 1,
+  "mixed_picture_support_flag": 1,
+  "absolute_vs_relative_reporting_ok": 1,
+  "global_interpretation": "mixed_picture_supported",
+  "run_id": "M39x1_ring_dispersion_irregularity",
+  "n_families_total": 3,
+  "n_blocks_total": 3
+}

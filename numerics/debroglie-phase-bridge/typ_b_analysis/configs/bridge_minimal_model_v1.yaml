@@ -1,0 +1,206 @@
+run:
+  run_id: "bridge_minimal_model_v1"
+  seed: 123
+  output_dir: "results/bridge_minimal_model_v1"
+  overwrite: false
+
+inputs:
+  dataset_roots:
+    - "../results/a1_probe/k0"
+    - "../results/a1_sign_scan/k0/theta_0.03"
+    - "../results/a1_probe/n1a_alpha"
+  export_classes:
+    - "negative"
+    - "abs"
+    - "positive"
+  export_pattern: "*.npz"
+  search_mode: "recursive"
+
+model:
+  name: "bridge_minimal_model_v1"
+  description: "Minimales Brückenmodell von relationaler Mikrostruktur zu coarse-grained Geometrieproxy"
+
+  fundamental_variables:
+    amplitude_proxy: "A"
+    phase_proxy: "theta"
+    geometry_proxy: "phi_geom"
+    effective_distance: "d_eff"
+
+  interpretation:
+    A: "coarse-grained Kohärenz-/Amplitudenproxy; primärer Kandidat für geometrische Lesbarkeit"
+    theta: "Phasen-/Interferenzproxy; moduliert oder stabilisiert A, ist aber nicht direkt Geometrie"
+    phi_geom: "aus A abgeleiteter geometrischer Makroproxy"
+    d_eff: "effektive Distanz / geometrisch lesbare Nähe-Ferne-Struktur"
+
+pair_unit:
+  enabled: true
+  source: "matrix_adapter_v22"
+  matrix_pair_mode: "adjacency_plus_threshold"
+
+  matrix_fields:
+    adjacency: "adjacency"
+    primary_score: "G"
+    secondary_score: "kbar"
+    edge_length: "edge_length"
+    d_rel: "d_rel"
+
+  threshold:
+    enabled: true
+    tau: 0.025
+    score_field: "G"
+    use_absolute_value: true
+
+  weights:
+    use_edge_length_as_weight: true
+    fallback_weight_field: "G"
+    ignore_nonfinite_weights: true
+
+coarse_graining:
+  enabled: true
+
+  input_preference_order:
+    - "G"
+    - "Kbar"
+    - "K"
+
+  normalization:
+    enabled: true
+    matrix_mode: "max_abs"
+    epsilon: 1.0e-12
+
+  amplitude_proxy:
+    enabled: true
+    construction_mode: "weighted_local_coherence"
+    source_matrix: "G"
+    aggregation_axis: "node"
+    use_absolute_value: true
+    neighborhood_weighting: true
+    normalize_to_unit_interval: true
+    epsilon: 1.0e-12
+
+  phase_proxy:
+    enabled: true
+    construction_mode: "signed_structure_surrogate"
+    source_matrix: "G"
+    aggregation_axis: "node"
+    use_sign_sensitive_structure: true
+    center_by_global_mean: true
+    normalize_to_pi_interval: false
+    epsilon: 1.0e-12
+
+  coupling:
+    enabled: true
+    mode: "modulated_amplitude"
+    a_theta_coupling: 1.0
+    theta_feedback_weight: 0.25
+    stabilization_weight: 0.75
+    allow_decoupling_test: true
+
+regimes:
+  default: "macro"
+
+  macro:
+    enabled: true
+    phase_averaging_strength: 0.80
+    theta_visibility: 0.20
+    a_dominance_required: true
+    description: "Langwelliger Makrobereich; theta weitgehend ausgemittelt, A dominiert"
+
+  coherent:
+    enabled: true
+    phase_averaging_strength: 0.10
+    theta_visibility: 0.90
+    a_dominance_required: false
+    description: "Kohärenter Bereich; Interferenz-/Phasenstruktur bleibt aktiv"
+
+  mixed:
+    enabled: true
+    phase_averaging_strength: 0.50
+    theta_visibility: 0.50
+    a_dominance_required: false
+    description: "Übergangsbereich; A und theta tragen gemeinsam"
+
+geometry_projection:
+  enabled: true
+
+  phi_geom:
+    construction_mode: "log_amplitude"
+    source_field: "A"
+    formula: "log(A + epsilon)"
+    epsilon: 1.0e-12
+    normalize_output: false
+
+  effective_distance:
+    enabled: true
+    construction_mode: "inverse_geometry_proximity"
+    source_field: "phi_geom"
+    pairwise_mode: "absolute_difference"
+    add_graph_constraint: true
+    use_pair_unit_graph: true
+    fallback_to_dense_pairwise: true
+    epsilon: 1.0e-12
+
+  neighborhoods:
+    enabled: true
+    construction_mode: "distance_threshold"
+    threshold_mode: "relative_quantile"
+    quantile: 0.35
+    minimum_neighbors: 1
+
+diagnostics:
+  enabled: true
+
+  structure_stability_score:
+    enabled: true
+    mode: "local_perturbation_recompute"
+    perturbation_strength: 0.05
+    n_trials: 10
+
+  phase_influence_score:
+    enabled: true
+    mode: "compare_coupled_vs_decoupled"
+    decoupling_value: 0.0
+
+  geometry_readability_score:
+    enabled: true
+    mode: "composite"
+    components:
+      - "distance_finiteness"
+      - "neighborhood_stability"
+      - "phi_geom_variation"
+    weights:
+      distance_finiteness: 0.40
+      neighborhood_stability: 0.30
+      phi_geom_variation: 0.30
+
+testable_claims:
+  enabled: true
+  claims:
+    - id: "claim_A"
+      text: "A ist im Makroregime der primäre geometrische Proxy."
+    - id: "claim_B"
+      text: "theta beeinflusst die Ausbildung oder Stabilität von A, ist aber nicht selbst direkt Geometrie."
+    - id: "claim_C"
+      text: "d_eff ist nur dann ernsthaft geometrisch lesbar, wenn anschließende Metriktests mindestens teilweise bestanden werden."
+    - id: "claim_D"
+      text: "Der Übergang von coherent zu macro erzeugt sichtbare, aber nicht chaotische Strukturänderung."
+
+outputs:
+  write_state_json: true
+  write_readout_md: true
+  write_claims_json: true
+
+  filenames:
+    state_json: "bridge_minimal_model_state.json"
+    readout_md: "bridge_minimal_model_readout.md"
+    claims_json: "bridge_minimal_model_claims.json"
+
+validation:
+  require_structural_matrix: true
+  preferred_required_matrix: "G"
+  fail_on_missing_all_matrices: true
+  fail_on_empty_input: true
+  fail_on_nan_fields: true
+  fail_on_nonfinite_distance_matrix: false
+  require_nontrivial_A: false
+  require_nonconstant_theta_unless_decoupling_test: false

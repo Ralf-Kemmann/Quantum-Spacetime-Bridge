@@ -1,0 +1,7 @@
+theta,k0_n_edges,k0_n_components,k0_graph_diameter,k0_defined_pair_fraction,k0_topology,a05_n_edges,a05_n_components,a05_graph_diameter,a05_defined_pair_fraction,a05_topology,a20_n_edges,a20_n_components,a20_graph_diameter,a20_defined_pair_fraction,a20_topology
+0.02,6,1,1.0,1.0,cc1_e6_diam1.0,6,1,1.0,1.0,cc1_e6_diam1.0,6,1,2.0,1.0,cc1_e6_diam2.0
+0.026,6,1,2.0,1.0,cc1_e6_diam2.0,6,1,1.0,1.0,cc1_e6_diam1.0,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0
+0.03,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0,6,1,1.0,1.0,cc1_e6_diam1.0,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0
+0.035,1,3,1.0,0.0,cc3_e1_diam1.0,6,1,2.0,1.0,cc1_e6_diam2.0,1,3,1.0,0.0,cc3_e1_diam1.0
+0.04,1,3,1.0,0.0,cc3_e1_diam1.0,6,1,2.0,1.0,cc1_e6_diam2.0,1,3,1.0,0.0,cc3_e1_diam1.0
+0.045,1,3,1.0,0.0,cc3_e1_diam1.0,6,1,3.0,1.0,cc1_e6_diam3.0,1,3,1.0,0.0,cc3_e1_diam1.0

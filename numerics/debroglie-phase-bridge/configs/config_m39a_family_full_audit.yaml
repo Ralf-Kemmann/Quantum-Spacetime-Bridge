@@ -1,0 +1,88 @@
+m39a_family_full_audit:
+  enabled: true
+
+  input:
+    family_definitions: "configs/m39a_family_definitions.yaml"
+
+  family_selection:
+    include_families: ["F1", "F2", "F3", "F4", "F5"]
+
+    family_roles:
+      F1: "control"
+      F2: "compact_negative"
+      F3: "large_negative"
+      F4: "large_negative_distorted"
+      F5: "falsification_candidate"
+
+  audit:
+    run_pair_identity_audit: true
+    run_delta_p_audit: true
+    run_delta_p2_audit: true
+    run_diversity_control: true
+    run_sigma_light: true
+    run_matched_pair_analysis: true
+    run_f5_falsification_check: true
+    run_alpha_interpretation_block: true
+
+  diversity:
+    enabled: true
+    modes: ["pruned", "weighted"]
+
+  sigma_light:
+    enabled: true
+    sigma_p_values: [0.50, 0.75, 1.00, 1.25, 1.50]
+
+  matched_pairs:
+    enabled: true
+
+    source_families: ["F2"]
+    target_families: ["F3", "F4"]
+
+    relative_delta_p2_tolerance: 0.05
+    absolute_delta_p2_tolerance: 0.50
+
+    require_same_sign_delta_p2: true
+    choose_best_match_only: true
+    min_matches_required: 3
+
+  falsification:
+    enabled: true
+    family_id: "F5"
+
+    max_branch_match_frac: 0.60
+    max_identity_strength: 0.60
+    max_delta_p2_dominance: 0.60
+
+    require_weaker_than_f2: true
+    require_weaker_than_f3: true
+    require_weaker_than_f4: true
+
+  alpha_interpretation:
+    enabled: true
+    reference_alpha: 1.0
+    interpretation_mode:
+      alpha_eq_1: "kinetic_energy_difference"
+      alpha_ne_1: "quadratic_momentum_difference_only"
+
+  thresholds:
+    min_family_pass_confidence: 0.50
+    min_global_pass_fraction: 0.75
+    control_max_branch_strength: 0.55
+    delta_p2_min_dominance_margin: 0.05
+
+  outputs:
+    root: "runs/M33_V0_alpha_peak_robustness/M39a_family_full_audit"
+
+    family_audit_case_table: "family_audit_case_table.csv"
+    family_audit_pair_summary: "family_audit_pair_summary.csv"
+    family_audit_class_summary: "family_audit_class_summary.csv"
+    family_audit_global_summary: "family_audit_global_summary.json"
+    family_audit_branch_summary: "family_audit_branch_summary.csv"
+
+    family_matched_pair_summary: "family_matched_pair_summary.csv"
+    family_matched_pair_branch_compare: "family_matched_pair_branch_compare.csv"
+
+    family_f5_falsification_summary: "family_f5_falsification_summary.csv"
+    family_alpha_interpretation_notes: "family_alpha_interpretation_notes.md"
+
+    family_audit_report: "family_audit_report.md"

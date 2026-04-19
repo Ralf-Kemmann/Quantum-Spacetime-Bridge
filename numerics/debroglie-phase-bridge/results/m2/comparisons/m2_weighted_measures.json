@@ -1,0 +1,221 @@
+[
+  {
+    "case": "k0",
+    "run_kind": "k0",
+    "kernel_mode": "abs",
+    "theta": 0.03,
+    "natural_connectivity": 0.0017783914642937565,
+    "weighted_clustering": 0.5774939548539433,
+    "global_efficiency": 0.03257505218325736,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "k0",
+    "run_kind": "k0",
+    "kernel_mode": "positive",
+    "theta": 0.03,
+    "natural_connectivity": 0.0003041088777768339,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.008221107068325071,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "k0",
+    "run_kind": "k0",
+    "kernel_mode": "negative",
+    "theta": 0.03,
+    "natural_connectivity": 0.0014426745880994339,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.030714944500889546,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "n0",
+    "run_kind": "n0",
+    "kernel_mode": "abs",
+    "theta": 0.03,
+    "natural_connectivity": 0.0039103053914177595,
+    "weighted_clustering": 0.48448692514061953,
+    "global_efficiency": 0.044579567205017406,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": {
+      "null_mode": "random_phase",
+      "seed": 12345
+    },
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "n0",
+    "run_kind": "n0",
+    "kernel_mode": "positive",
+    "theta": 0.03,
+    "natural_connectivity": 0.0036460972526902325,
+    "weighted_clustering": 0.5195968272896913,
+    "global_efficiency": 0.038513543914454114,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": {
+      "null_mode": "random_phase",
+      "seed": 12345
+    },
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "n0",
+    "run_kind": "n0",
+    "kernel_mode": "negative",
+    "theta": 0.03,
+    "natural_connectivity": 0.0002493033404703731,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.00913258401263811,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": {
+      "null_mode": "random_phase",
+      "seed": 12345
+    },
+    "wrong_dispersion_spec": null
+  },
+  {
+    "case": "n1a_alpha_0p5",
+    "run_kind": "n1a",
+    "kernel_mode": "abs",
+    "theta": 0.03,
+    "natural_connectivity": 0.0030354261908791605,
+    "weighted_clustering": 0.797960790223184,
+    "global_efficiency": 0.04382327830032783,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 0.5
+    }
+  },
+  {
+    "case": "n1a_alpha_0p5",
+    "run_kind": "n1a",
+    "kernel_mode": "positive",
+    "theta": 0.03,
+    "natural_connectivity": 0.000802156910606951,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.013353080533320003,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 0.5
+    }
+  },
+  {
+    "case": "n1a_alpha_0p5",
+    "run_kind": "n1a",
+    "kernel_mode": "negative",
+    "theta": 0.03,
+    "natural_connectivity": 0.002149951208727135,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.038946051237796785,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 0.5
+    }
+  },
+  {
+    "case": "n1a_alpha_2p0",
+    "run_kind": "n1a",
+    "kernel_mode": "abs",
+    "theta": 0.03,
+    "natural_connectivity": 0.001466165371799909,
+    "weighted_clustering": 0.4852370571362735,
+    "global_efficiency": 0.02843449320401629,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 2.0
+    }
+  },
+  {
+    "case": "n1a_alpha_2p0",
+    "run_kind": "n1a",
+    "kernel_mode": "positive",
+    "theta": 0.03,
+    "natural_connectivity": 0.00025624630413296817,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.00754642214371578,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 2.0
+    }
+  },
+  {
+    "case": "n1a_alpha_2p0",
+    "run_kind": "n1a",
+    "kernel_mode": "negative",
+    "theta": 0.03,
+    "natural_connectivity": 0.001191167457239534,
+    "weighted_clustering": 0.0,
+    "global_efficiency": 0.025581293775599156,
+    "weighted_measure_spec": {
+      "clustering_mode": "onnela",
+      "use_zero_diagonal": true,
+      "length_epsilon": 1e-12
+    },
+    "null_spec": null,
+    "wrong_dispersion_spec": {
+      "dispersion_mode": "scaled_quadratic",
+      "alpha": 2.0
+    }
+  }
+]

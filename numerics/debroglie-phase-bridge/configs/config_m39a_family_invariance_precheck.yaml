@@ -1,0 +1,53 @@
+m39a_family_invariance_precheck:
+  enabled: true
+
+  input:
+    family_definitions: "configs/m39a_family_definitions.yaml"
+
+  screening:
+    min_modes_required: 5
+    preferred_modes: 7
+
+    large_negative_threshold: -10.0
+    compact_negative_lower: -10.0
+    compact_negative_upper: 0.0
+
+    symmetry_mean_tolerance: 0.75
+    symmetry_balance_tolerance: 0.15
+
+    min_large_negative_fraction: 0.15
+    min_compact_negative_fraction: 0.20
+    min_positive_fraction: 0.20
+
+    min_type_confidence: 0.50
+
+    compact_dominance_margin: 0.05
+    compact_extreme_guard: 20.0
+    large_negative_extreme_guard: 20.0
+
+  typing:
+    allow_mixed_positive_label: true
+    allow_weak_or_ambiguous_label: true
+
+    candidate_labels:
+      control_symmetric: "control_symmetric"
+      large_negative_candidate: "large_negative_candidate"
+      compact_negative_candidate: "compact_negative_candidate"
+      positive_mixed_candidate: "positive_mixed_candidate"
+      weak_or_ambiguous: "weak_or_ambiguous"
+
+  selection:
+    require_control_family: true
+    require_large_negative_family: true
+    require_compact_negative_family: true
+
+    max_failed_families_for_pass: 2
+
+  output:
+    root: "runs/M33_V0_alpha_peak_robustness/M39a_family_invariance_precheck"
+
+    family_definitions_expanded: "family_definitions_expanded.csv"
+    family_pair_class_screen: "family_pair_class_screen.csv"
+    family_type_summary: "family_type_summary.csv"
+    family_type_precheck: "family_type_precheck.json"
+    family_invariance_precheck_report: "family_invariance_precheck_report.md"

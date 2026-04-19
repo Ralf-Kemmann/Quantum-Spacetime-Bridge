@@ -1,0 +1,10 @@
+{
+  "source_hypothesis": "alpha*=1.6 is upstream-visible in phase/interference structure",
+  "n_total_runs": 1248,
+  "n_valid_runs": 24,
+  "median_alpha_star_source": 1.58,
+  "frac_source_in_band": 0.25,
+  "t0_control_pass": true,
+  "dominant_source_feature": "sign_imbalance",
+  "source_label_global": "Q0"
+}

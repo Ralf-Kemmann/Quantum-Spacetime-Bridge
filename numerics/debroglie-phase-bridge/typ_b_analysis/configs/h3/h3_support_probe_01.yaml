@@ -1,0 +1,18 @@
+run_id: H3_SUPPORT_PROBE_01
+output_dir: runs/H3_SUPPORT_PROBE_01
+
+inputs:
+  summary_json: results/n1_a1_b1_decoupling_v1/summary.json
+  per_class_csv: results/n1_a1_b1_decoupling_v1/a1_b1_decoupling_per_class.csv
+  comparison_csv: results/n1_a1_b1_decoupling_v1/a1_b1_decoupling_comparison.csv
+  block_readout_md: results/n1_a1_b1_decoupling_v1/block_readout.md
+
+policy:
+  require_launchability_signal: true
+  require_structure_signal: true
+  baseline_must_remain_primary: true
+
+outputs:
+  write_summary_json: true
+  write_probe_table_csv: true
+  write_block_readout_md: true

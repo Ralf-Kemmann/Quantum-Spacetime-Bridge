@@ -1,0 +1,276 @@
+{
+  "run_id": "n1_exportclass_nullmodel_v1",
+  "block": "N1_EXPORTCLASS_NULLMODEL",
+  "status": "completed",
+  "timestamp_utc": "2026-04-09T22:14:29Z",
+  "seed": 123,
+  "inputs": {
+    "dataset_roots": [
+      "../results/a1_probe/k0",
+      "../results/a1_sign_scan/k0/theta_0.03",
+      "../results/a1_probe/n1a_alpha"
+    ],
+    "export_classes": [
+      "negative",
+      "abs",
+      "positive"
+    ],
+    "export_pattern": "*.npz",
+    "search_mode": "recursive"
+  },
+  "parameters": {
+    "pair_unit": {
+      "matrix_pair_mode": "adjacency_plus_threshold",
+      "score_field": "G",
+      "tau": 0.025
+    },
+    "baseline": {
+      "neighborhood_mode": "shared_endpoint"
+    },
+    "alternative": {
+      "neighborhood_mode": "graph_distance_1"
+    },
+    "target_rule": {
+      "require_negative_launchable": true,
+      "require_abs_launchable": true,
+      "require_positive_non_launchable": true
+    },
+    "ordering_rule": {
+      "use_combined_status": true,
+      "treat_negative_abs_as_joint_upper_block": true,
+      "require_positive_as_lower_block": true
+    }
+  },
+  "per_dataset": {
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/k0": {
+      "input_file_counts": {
+        "negative": 1,
+        "abs": 1,
+        "positive": 1
+      },
+      "real_assignment": {
+        "assignment_label": "negative<=negative;abs<=abs;positive<=positive",
+        "target_match": true,
+        "ordering_flag": "negative_abs_above_positive"
+      },
+      "null_runs": [
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": true,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": true,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=positive;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=negative;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        }
+      ],
+      "null_summary": {
+        "n_runs": 8,
+        "n_target_matches": 2,
+        "null_target_match_rate": 0.25,
+        "real_beats_null": true,
+        "real_equals_null": false
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_sign_scan/k0/theta_0.03": {
+      "input_file_counts": {
+        "negative": 1,
+        "abs": 1,
+        "positive": 1
+      },
+      "real_assignment": {
+        "assignment_label": "negative<=negative;abs<=abs;positive<=positive",
+        "target_match": true,
+        "ordering_flag": "negative_abs_above_positive"
+      },
+      "null_runs": [
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": true,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": true,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=positive;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=negative;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "positive_intrudes"
+        }
+      ],
+      "null_summary": {
+        "n_runs": 8,
+        "n_target_matches": 2,
+        "null_target_match_rate": 0.25,
+        "real_beats_null": true,
+        "real_equals_null": false
+      }
+    },
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha": {
+      "input_file_counts": {
+        "negative": 1,
+        "abs": 1,
+        "positive": 1
+      },
+      "real_assignment": {
+        "assignment_label": "negative<=negative;abs<=abs;positive<=positive",
+        "target_match": false,
+        "ordering_flag": "negative_abs_above_positive"
+      },
+      "null_runs": [
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "role_swap",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=negative;abs<=positive;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=negative;positive<=positive",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=abs;abs<=positive;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=negative;positive<=abs",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        },
+        {
+          "nullmodel_type": "permutation",
+          "assignment_label": "negative<=positive;abs<=abs;positive<=negative",
+          "target_match": false,
+          "ordering_flag": "negative_abs_above_positive"
+        }
+      ],
+      "null_summary": {
+        "n_runs": 8,
+        "n_target_matches": 0,
+        "null_target_match_rate": 0.0,
+        "real_beats_null": false,
+        "real_equals_null": true
+      }
+    }
+  },
+  "global_summary": {
+    "datasets_tested": 3,
+    "real_target_matches": 2,
+    "null_target_match_rate_mean": 0.16666666666666666,
+    "real_better_count": 2,
+    "real_equal_count": 1,
+    "real_worse_count": 0
+  },
+  "decision": {
+    "block_judgement": "supported",
+    "short_reason": "Real exportclass assignments outperform simple null assignments in the signal-bearing datasets tested."
+  },
+  "validation": {
+    "dataset_count": 3,
+    "nan_metrics_detected": false,
+    "validation_notes": []
+  },
+  "warnings": [],
+  "open_points": [
+    "Nullmodel comparison is operational and does not by itself establish physical privilege.",
+    "Small dataset counts limit the strength of permutation-style conclusions.",
+    "n1a_alpha should be treated as a sensitivity case in the nullmodel reading as well."
+  ]
+}

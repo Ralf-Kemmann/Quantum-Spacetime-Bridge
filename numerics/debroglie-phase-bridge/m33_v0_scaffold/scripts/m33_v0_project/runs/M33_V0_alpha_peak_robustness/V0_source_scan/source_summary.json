@@ -1,0 +1,10 @@
+{
+  "source_hypothesis": "",
+  "n_total_runs": 0,
+  "n_valid_runs": 0,
+  "median_alpha_star_source": null,
+  "frac_source_in_band": null,
+  "t0_control_pass": null,
+  "dominant_source_feature": "",
+  "source_label_global": ""
+}

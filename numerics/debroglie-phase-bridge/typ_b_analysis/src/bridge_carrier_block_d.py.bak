@@ -1,0 +1,379 @@
+from __future__ import annotations
+
+import json
+import math
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import pandas as pd
+import yaml
+
+
+@dataclass
+class BootstrapConfig:
+    enabled: bool
+    n_bootstrap: int
+    sample_fraction: float
+
+
+@dataclass
+class ThresholdConfig:
+    assignment_min: float
+    stability_min: float
+
+
+@dataclass
+class EvaluationConfig:
+    bootstrap: BootstrapConfig
+    thresholds: ThresholdConfig
+
+
+@dataclass
+class VariantConfig:
+    name: str
+    active_features: List[str]
+
+
+@dataclass
+class Config:
+    run_id: str
+    source_run_id: str
+    mode: str
+    random_seed: int
+    data: Dict[str, Any]
+    columns: Dict[str, str]
+    input_mapping: Dict[str, Dict[str, Any]]
+    core_features: List[str]
+    variants: List[VariantConfig]
+    evaluation: EvaluationConfig
+    outputs: Dict[str, Any]
+
+
+def load_config(path: str | Path) -> Config:
+    with open(path, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+    evaluation = EvaluationConfig(
+        bootstrap=BootstrapConfig(**raw["evaluation"]["bootstrap"]),
+        thresholds=ThresholdConfig(**raw["evaluation"]["thresholds"]),
+    )
+    variants = [VariantConfig(**v) for v in raw["variants"]]
+    return Config(
+        run_id=raw["run_id"],
+        source_run_id=raw["source_run_id"],
+        mode=raw["mode"],
+        random_seed=raw.get("random_seed", 42),
+        data=raw["data"],
+        columns=raw["columns"],
+        input_mapping=raw["input_mapping"],
+        core_features=raw["core_features"],
+        variants=variants,
+        evaluation=evaluation,
+        outputs=raw["outputs"],
+    )
+
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def safe_float(value: Any) -> Optional[float]:
+    try:
+        if value is None or pd.isna(value):
+            return None
+        return float(value)
+    except Exception:
+        return None
+
+
+def mean_or_none(series: pd.Series) -> Optional[float]:
+    return safe_float(series.mean()) if not series.empty else None
+
+
+def std_or_floor(series: pd.Series, floor: float = 1e-9) -> float:
+    val = pd.to_numeric(series, errors="coerce").std(ddof=0)
+    if pd.isna(val) or val == 0:
+        return floor
+    return float(max(val, floor))
+
+
+def normalize_frame(df: pd.DataFrame, mapping: Dict[str, Any]) -> pd.DataFrame:
+    rename_map = mapping.get("rename", {})
+    out = df.rename(columns=rename_map).copy()
+
+    if "sample_id" not in out.columns:
+        if "dataset_id" in out.columns:
+            out["sample_id"] = out["dataset_id"]
+        else:
+            out["sample_id"] = [f"row_{i:04d}" for i in range(len(out))]
+
+    if "group_label" not in out.columns:
+        out["group_label"] = "unknown"
+
+    out["dataset_role"] = mapping["dataset_role"]
+
+    source_family_from = mapping.get("source_family_from")
+    if source_family_from and source_family_from in out.columns:
+        out["source_family"] = out[source_family_from]
+    elif "source_family" not in out.columns:
+        out["source_family"] = mapping["dataset_role"]
+
+    out["split_label"] = mapping.get("split_label", "inherited_eval")
+    return out
+
+
+def load_four_way_dataset(cfg: Config) -> pd.DataFrame:
+    parts = []
+    keys = [
+        ("internal_original_csv", "internal_original"),
+        ("internal_control_csv", "internal_control"),
+        ("holdout_original_csv", "holdout_original"),
+        ("holdout_candidate_csv", "holdout_candidate"),
+    ]
+    for path_key, mapping_key in keys:
+        path = Path(cfg.data[path_key])
+        df = pd.read_csv(path)
+        df = normalize_frame(df, cfg.input_mapping[mapping_key])
+        parts.append(df)
+    all_df = pd.concat(parts, ignore_index=True, sort=False)
+    missing = [c for c in cfg.core_features if c not in all_df.columns]
+    if missing:
+        raise ValueError(f"Missing core feature columns: {missing}")
+    return all_df
+
+
+def build_reference_stats(df_ref: pd.DataFrame, features: List[str]) -> Dict[str, Dict[str, float]]:
+    stats: Dict[str, Dict[str, float]] = {}
+    for feat in features:
+        col = pd.to_numeric(df_ref[feat], errors="coerce")
+        q50 = float(col.quantile(0.50))
+        iqr = float(col.quantile(0.75) - col.quantile(0.25))
+        if iqr == 0 or pd.isna(iqr):
+            iqr = std_or_floor(col)
+        stats[feat] = {"q50": q50, "iqr": iqr}
+    return stats
+
+
+def add_bridge_scores(df: pd.DataFrame, stats: Dict[str, Dict[str, float]], features: List[str]) -> pd.DataFrame:
+    out = df.copy()
+
+    def corridor_distance(row: pd.Series) -> float:
+        distances = []
+        for feat in features:
+            x = pd.to_numeric(pd.Series([row[feat]]), errors="coerce").iloc[0]
+            q50 = stats[feat]["q50"]
+            iqr = stats[feat]["iqr"] or 1e-9
+            distances.append(abs(float(x) - q50) / iqr)
+        return float(sum(distances) / len(distances)) if distances else 0.0
+
+    out["_corridor_distance"] = out.apply(corridor_distance, axis=1)
+    out["_bridge_score"] = -out["_corridor_distance"]
+    return out
+
+
+def evaluate_subset(df_scored: pd.DataFrame, split_label: str, cfg: Config) -> Dict[str, Any]:
+    subset = df_scored[df_scored["split_label"] == split_label].copy()
+    orig = subset[subset["dataset_role"] == "original"]
+    ctrl = subset[subset["dataset_role"] == "control"]
+
+    if orig.empty or ctrl.empty:
+        return {
+            "overall_pass": False,
+            "result_label": "failed",
+            "separation_margin_mean": None,
+            "assignment_score": None,
+            "original_stability_score": None,
+            "original_vs_control_margin_delta": None,
+            "type_B_like_pattern_detected": False,
+            "positive_bootstrap_fraction": None,
+        }
+
+    orig_scores = orig["_bridge_score"]
+    ctrl_scores = ctrl["_bridge_score"]
+    separation_margin_mean = float(orig_scores.mean() - ctrl_scores.mean())
+
+    ctrl_threshold = float(ctrl_scores.median())
+    orig_hit = float((orig_scores > ctrl_threshold).mean())
+    orig_threshold = float(orig_scores.median())
+    ctrl_reject = float((ctrl_scores < orig_threshold).mean())
+    assignment_score = 0.5 * (orig_hit + ctrl_reject)
+
+    fractions = []
+    if cfg.evaluation.bootstrap.enabled:
+        for i in range(cfg.evaluation.bootstrap.n_bootstrap):
+            boot_orig = orig.sample(frac=cfg.evaluation.bootstrap.sample_fraction, replace=True, random_state=cfg.random_seed + i)
+            boot_ctrl = ctrl.sample(frac=cfg.evaluation.bootstrap.sample_fraction, replace=True, random_state=cfg.random_seed + 10000 + i)
+            if boot_orig.empty or boot_ctrl.empty:
+                continue
+            boot_margin = float(boot_orig["_bridge_score"].mean() - boot_ctrl["_bridge_score"].mean())
+            boot_ctrl_th = float(boot_ctrl["_bridge_score"].median())
+            boot_orig_hit = float((boot_orig["_bridge_score"] > boot_ctrl_th).mean())
+            boot_orig_th = float(boot_orig["_bridge_score"].median())
+            boot_ctrl_rej = float((boot_ctrl["_bridge_score"] < boot_orig_th).mean())
+            boot_assignment = 0.5 * (boot_orig_hit + boot_ctrl_rej)
+            fractions.append(float(boot_margin > 0 and boot_assignment >= cfg.evaluation.thresholds.assignment_min))
+
+    stability = safe_float(sum(fractions) / len(fractions)) if fractions else None
+    pattern = bool(separation_margin_mean > 0 and assignment_score >= cfg.evaluation.thresholds.assignment_min)
+    overall_pass = bool(
+        separation_margin_mean > 0
+        and assignment_score >= cfg.evaluation.thresholds.assignment_min
+        and (stability is not None and stability >= cfg.evaluation.thresholds.stability_min)
+    )
+    result_label = "supported" if overall_pass else ("weak" if pattern else "failed")
+
+    return {
+        "overall_pass": overall_pass,
+        "result_label": result_label,
+        "separation_margin_mean": separation_margin_mean,
+        "assignment_score": assignment_score,
+        "original_stability_score": stability,
+        "original_vs_control_margin_delta": separation_margin_mean,
+        "type_B_like_pattern_detected": pattern,
+        "positive_bootstrap_fraction": stability,
+    }
+
+
+def classify_transfer_signal(internal_metrics: Dict[str, Any], h2_metrics: Dict[str, Any], full_internal: Dict[str, Any], full_h2: Dict[str, Any]) -> str:
+    if internal_metrics == full_internal and h2_metrics == full_h2:
+        return "baseline"
+
+    if internal_metrics.get("overall_pass") and h2_metrics.get("overall_pass"):
+        return "candidate_transfer_core"
+    if internal_metrics.get("overall_pass") and h2_metrics.get("result_label") == "weak":
+        return "candidate_transfer_partial"
+    if internal_metrics.get("overall_pass") and not h2_metrics.get("overall_pass"):
+        return "internal_only_core"
+    return "insufficient_under_current_logic"
+
+
+def to_serializable(obj: Any) -> Any:
+    if isinstance(obj, Path):
+        return str(obj)
+    if isinstance(obj, dict):
+        return {k: to_serializable(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [to_serializable(v) for v in obj]
+    if isinstance(obj, float) and (math.isnan(obj) or math.isinf(obj)):
+        return None
+    return obj
+
+
+def write_json(path: Path, payload: Dict[str, Any]) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(to_serializable(payload), f, indent=2, ensure_ascii=False)
+
+
+def write_markdown(results_dir: Path, rows: List[Dict[str, Any]]) -> None:
+    lines = [
+        "# BRIDGE_CARRIER_BLOCK_D — H2 / transfer mirror",
+        "",
+        "## Summary table",
+        "",
+        "| variant | internal_pass | internal_label | h2_pass | h2_label | internal_assignment | h2_assignment | transfer_signal |",
+        "|---|---:|---|---:|---|---:|---:|---|",
+    ]
+    for row in rows:
+        lines.append(
+            f"| {row['variant']} | {row['internal_overall_pass']} | {row['internal_result_label']} | "
+            f"{row['h2_overall_pass']} | {row['h2_result_label']} | {row['internal_assignment_score']} | "
+            f"{row['h2_assignment_score']} | {row['transfer_signal']} |"
+        )
+    (results_dir / "BRIDGE_CARRIER_BLOCK_D_RESULTS.md").write_text("\n".join(lines), encoding="utf-8")
+
+
+def run_block_d(cfg: Config) -> Dict[str, Any]:
+    results_dir = Path(cfg.data["results_dir"])
+    ensure_dir(results_dir)
+    ensure_dir(results_dir / "variant_reports")
+
+    df = load_four_way_dataset(cfg)
+    df_ref = df[(df["split_label"] == "inherited_eval") & (df["dataset_role"] == "original")].copy()
+    if df_ref.empty:
+        raise RuntimeError("Internal original reference set is empty.")
+
+    rows: List[Dict[str, Any]] = []
+    baseline_internal = None
+    baseline_h2 = None
+
+    for variant in cfg.variants:
+        stats = build_reference_stats(df_ref, variant.active_features)
+        scored = add_bridge_scores(df, stats, variant.active_features)
+
+        internal_metrics = evaluate_subset(scored, "inherited_eval", cfg)
+        h2_metrics = evaluate_subset(scored, "h2_eval", cfg)
+
+        row = {
+            "variant": variant.name,
+            "feature_count": len(variant.active_features),
+            "active_features": variant.active_features,
+            "internal_overall_pass": internal_metrics["overall_pass"],
+            "internal_result_label": internal_metrics["result_label"],
+            "internal_separation_margin_mean": internal_metrics["separation_margin_mean"],
+            "internal_assignment_score": internal_metrics["assignment_score"],
+            "internal_original_stability_score": internal_metrics["original_stability_score"],
+            "h2_overall_pass": h2_metrics["overall_pass"],
+            "h2_result_label": h2_metrics["result_label"],
+            "h2_separation_margin_mean": h2_metrics["separation_margin_mean"],
+            "h2_assignment_score": h2_metrics["assignment_score"],
+            "h2_original_stability_score": h2_metrics["original_stability_score"],
+        }
+        if variant.name == "full":
+            baseline_internal = internal_metrics
+            baseline_h2 = h2_metrics
+        rows.append(row)
+        if cfg.outputs.get("write_variant_json", False):
+            write_json(results_dir / "variant_reports" / f"{variant.name}.json", row)
+
+    if baseline_internal is None or baseline_h2 is None:
+        raise RuntimeError("Missing full baseline variant.")
+
+    for row in rows:
+        current_internal = {
+            "overall_pass": row["internal_overall_pass"],
+            "result_label": row["internal_result_label"],
+        }
+        current_h2 = {
+            "overall_pass": row["h2_overall_pass"],
+            "result_label": row["h2_result_label"],
+        }
+        row["transfer_signal"] = classify_transfer_signal(current_internal, current_h2, {"overall_pass": baseline_internal["overall_pass"], "result_label": baseline_internal["result_label"]}, {"overall_pass": baseline_h2["overall_pass"], "result_label": baseline_h2["result_label"]})
+        row["delta_internal_assignment_vs_full"] = None if row["internal_assignment_score"] is None else row["internal_assignment_score"] - baseline_internal["assignment_score"]
+        row["delta_h2_assignment_vs_full"] = None if row["h2_assignment_score"] is None else row["h2_assignment_score"] - baseline_h2["assignment_score"]
+
+    if cfg.outputs.get("write_csv", False):
+        pd.DataFrame(rows).to_csv(results_dir / "bridge_carrier_block_d.csv", index=False)
+    summary = {
+        "run_id": cfg.run_id,
+        "source_run_id": cfg.source_run_id,
+        "mode": cfg.mode,
+        "base_variant": "full",
+        "variants_tested": len(cfg.variants),
+        "core_features": cfg.core_features,
+        "results": rows,
+        "interpretation_rule": {
+            "candidate_transfer_core": "passes internally and under H2 mirror",
+            "candidate_transfer_partial": "passes internally, only partial under H2 mirror",
+            "internal_only_core": "internal core but not transportable under current H2 mirror",
+            "insufficient_under_current_logic": "fails to preserve current bridge logic",
+        },
+    }
+    if cfg.outputs.get("write_json", False):
+        write_json(results_dir / "summary.json", summary)
+    if cfg.outputs.get("write_markdown", False):
+        write_markdown(results_dir, rows)
+    return summary
+
+
+def main() -> None:
+    import argparse
+    parser = argparse.ArgumentParser(description="Bridge carrier block D: H2/transfer mirror")
+    parser.add_argument("--config", required=True)
+    args = parser.parse_args()
+    cfg = load_config(args.config)
+    summary = run_block_d(cfg)
+    print(json.dumps(to_serializable(summary), indent=2, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

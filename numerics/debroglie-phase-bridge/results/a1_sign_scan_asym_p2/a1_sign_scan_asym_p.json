@@ -1,0 +1,1230 @@
+[
+  {
+    "theta": 0.026,
+    "cases": {
+      "k0": {
+        "abs": {
+          "case": "k0",
+          "theta": 0.026,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0013328782604238537,
+            0.013821781306505436,
+            0.015950676345428075,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "k0",
+          "theta": 0.026,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.013821781306505436,
+            0.015950676345428075
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "k0",
+          "theta": 0.026,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.0013328782604238537,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_0p5": {
+        "abs": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.026,
+          "kernel_mode": "abs",
+          "n_edges": 6,
+          "n_components": 1,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 1.0,
+          "topology_label": "cc1_e6_diam2.0",
+          "theta_crit": [
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03528208397858316,
+            0.03759791850067363,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": 1.9278312144939969,
+            "d03_minus_d12": 2.7920890382309262,
+            "d02_minus_d13": 0.10382240699452461
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.026,
+          "kernel_mode": "positive",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03759791850067363
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.026,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.03528208397858316,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_2p0": {
+        "abs": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.026,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.004940700515902018,
+            0.01502914814458578,
+            0.015299019725905683,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.026,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.004940700515902018,
+            0.015299019725905683
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.026,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.01502914814458578,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "theta": 0.03,
+    "cases": {
+      "k0": {
+        "abs": {
+          "case": "k0",
+          "theta": 0.03,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0013328782604238537,
+            0.013821781306505436,
+            0.015950676345428075,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "k0",
+          "theta": 0.03,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.013821781306505436,
+            0.015950676345428075
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "k0",
+          "theta": 0.03,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.0013328782604238537,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_0p5": {
+        "abs": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.03,
+          "kernel_mode": "abs",
+          "n_edges": 6,
+          "n_components": 1,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 1.0,
+          "topology_label": "cc1_e6_diam2.0",
+          "theta_crit": [
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03528208397858316,
+            0.03759791850067363,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": 1.9278312144939969,
+            "d03_minus_d12": 2.7920890382309262,
+            "d02_minus_d13": 0.10382240699452461
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.03,
+          "kernel_mode": "positive",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03759791850067363
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.03,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.03528208397858316,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_2p0": {
+        "abs": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.03,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.004940700515902018,
+            0.01502914814458578,
+            0.015299019725905683,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.03,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.004940700515902018,
+            0.015299019725905683
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.03,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.01502914814458578,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "theta": 0.035,
+    "cases": {
+      "k0": {
+        "abs": {
+          "case": "k0",
+          "theta": 0.035,
+          "kernel_mode": "abs",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0013328782604238537,
+            0.013821781306505436,
+            0.015950676345428075,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "k0",
+          "theta": 0.035,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.013821781306505436,
+            0.015950676345428075
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "k0",
+          "theta": 0.035,
+          "kernel_mode": "negative",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.0013328782604238537,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_0p5": {
+        "abs": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.035,
+          "kernel_mode": "abs",
+          "n_edges": 6,
+          "n_components": 1,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 1.0,
+          "topology_label": "cc1_e6_diam2.0",
+          "theta_crit": [
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03528208397858316,
+            0.03759791850067363,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": 1.9278312144939969,
+            "d03_minus_d12": 2.7920890382309262,
+            "d02_minus_d13": 0.9364266092429328
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.035,
+          "kernel_mode": "positive",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03759791850067363
+          ],
+          "connected_components": [
+            [
+              0,
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.035,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.03528208397858316,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2,
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_2p0": {
+        "abs": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.035,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.004940700515902018,
+            0.01502914814458578,
+            0.015299019725905683,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.035,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.004940700515902018,
+            0.015299019725905683
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.035,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.01502914814458578,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "theta": 0.04,
+    "cases": {
+      "k0": {
+        "abs": {
+          "case": "k0",
+          "theta": 0.04,
+          "kernel_mode": "abs",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0013328782604238537,
+            0.013821781306505436,
+            0.015950676345428075,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "k0",
+          "theta": 0.04,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.013821781306505436,
+            0.015950676345428075
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "k0",
+          "theta": 0.04,
+          "kernel_mode": "negative",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.0013328782604238537,
+            0.025644607704872247,
+            0.0308757238841347,
+            0.08425357782906603
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_0p5": {
+        "abs": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.04,
+          "kernel_mode": "abs",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03528208397858316,
+            0.03759791850067363,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.04,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.016357304259695907,
+            0.03180275407242842,
+            0.03759791850067363
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_0p5",
+          "theta": 0.04,
+          "kernel_mode": "negative",
+          "n_edges": 1,
+          "n_components": 3,
+          "graph_diameter": 1.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc3_e1_diam1.0",
+          "theta_crit": [
+            0.0,
+            0.03528208397858316,
+            0.03966145449727092,
+            0.08922903700502963
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      },
+      "n1a_alpha_2p0": {
+        "abs": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.04,
+          "kernel_mode": "abs",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.004940700515902018,
+            0.01502914814458578,
+            0.015299019725905683,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "positive": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.04,
+          "kernel_mode": "positive",
+          "n_edges": 0,
+          "n_components": 4,
+          "graph_diameter": null,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc4_e0_diamNone",
+          "theta_crit": [
+            0.0,
+            0.004940700515902018,
+            0.015299019725905683
+          ],
+          "connected_components": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        },
+        "negative": {
+          "case": "n1a_alpha_2p0",
+          "theta": 0.04,
+          "kernel_mode": "negative",
+          "n_edges": 3,
+          "n_components": 2,
+          "graph_diameter": 2.0,
+          "defined_pair_fraction": 0.0,
+          "topology_label": "cc2_e3_diam2.0",
+          "theta_crit": [
+            0.0,
+            0.01502914814458578,
+            0.034678523610212376,
+            0.045569423719401085,
+            0.06526396716265465
+          ],
+          "connected_components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "standard_pairs": {
+            "d03_minus_d01": null,
+            "d03_minus_d12": null,
+            "d02_minus_d13": null
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,70 @@
+families:
+  - family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+    family_label: "type_B_primary_fsw_dense_mapping"
+    spectral_type: "type_B_quadratic_nontrivial"
+    model_class: "finite_square_well_1d"
+    family_source: "M39x3d_transition_mapping"
+    status: "implemented"
+    enabled: true
+    description: >
+      Dense finite-square-well mapping family used as the primary FSW source
+      for the model-overlap test. Only selected core regimes are compared
+      against AO regimes in the shared Type-B feature space.
+
+    comparison_role: "fsw_source_family"
+
+    selected_overlap_regimes:
+      - regime_id: "FSW_D05"
+        regime_label: "window_core_01"
+        role_in_overlap_test: "fsw_core"
+        expectation: "quantitative_type_B_core"
+
+      - regime_id: "FSW_D06"
+        regime_label: "window_core_02"
+        role_in_overlap_test: "fsw_core"
+        expectation: "quantitative_type_B_core"
+
+  - family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+    family_label: "type_B_ao_dense_mapping"
+    spectral_type: "type_B_quadratic_nontrivial"
+    model_class: "anharmonic_oscillator_1d"
+    family_source: "M39x3d_transition_mapping"
+    status: "implemented"
+    enabled: true
+    description: >
+      Dense anharmonic-oscillator mapping family used as the AO source
+      for the model-overlap test. Quantitative-transfer, prejump, and
+      jump-core regimes are compared against the FSW core regimes.
+
+    comparison_role: "ao_source_family"
+
+    selected_overlap_regimes:
+      - regime_id: "AO_A04"
+        regime_label: "intermediate_in"
+        role_in_overlap_test: "ao_quantitative_transfer"
+        expectation: "shared_quantitative_type_B_overlap_candidate"
+
+      - regime_id: "AO_A05"
+        regime_label: "intermediate_core"
+        role_in_overlap_test: "ao_quantitative_transfer"
+        expectation: "shared_quantitative_type_B_overlap_candidate"
+
+      - regime_id: "AO_A06"
+        regime_label: "intermediate_out"
+        role_in_overlap_test: "ao_quantitative_transfer"
+        expectation: "shared_quantitative_type_B_overlap_candidate"
+
+      - regime_id: "AO_A07"
+        regime_label: "strong_transition_01"
+        role_in_overlap_test: "ao_prejump"
+        expectation: "boundary_or_partial_overlap_candidate"
+
+      - regime_id: "AO_A08"
+        regime_label: "strong_transition_02"
+        role_in_overlap_test: "ao_prejump"
+        expectation: "boundary_or_partial_overlap_candidate"
+
+      - regime_id: "AO_A09"
+        regime_label: "strong_core"
+        role_in_overlap_test: "ao_jump_core"
+        expectation: "qualitative_extension_beyond_overlap_candidate"

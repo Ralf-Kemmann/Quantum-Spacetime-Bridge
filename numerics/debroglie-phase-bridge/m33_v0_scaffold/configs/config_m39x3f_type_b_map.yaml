@@ -1,0 +1,209 @@
+run:
+  run_id: "M39x3f_type_b_map"
+  title: "M.3.9x.3f — Typ-B-Karte / Zwei-Pfade-Hypothese"
+  description: >
+    Mapping block that reframes Type B as a structured space with at least
+    two related paths: a primarily quantitative FSW path and a
+    quantitatively-structurally evolving AO path.
+  outdir: "runs/M39x3f_type_b_map"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  transition_mapping_csv: "runs/M39x3d_transition_mapping/m39x3d_transition_mapping_summary.csv"
+  pair_overlap_summary_csv: "runs/M39x3e_model_overlap_test/m39x3e_pair_overlap_summary.csv"
+  group_overlap_summary_csv: "runs/M39x3e_model_overlap_test/m39x3e_group_overlap_summary.csv"
+  pair_set_feature_diagnosis_csv: "runs/M39x3ea_feature_distance_diagnosis/m39x3ea_pair_set_feature_diagnosis.csv"
+  sensitivity_summary_csv: "runs/M39x3ea_feature_distance_diagnosis/m39x3ea_sensitivity_summary.csv"
+
+execution:
+  enabled_blocks:
+    - load_source_runs
+    - build_path_point_summary
+    - build_path_segment_summary
+    - build_path_relation_summary
+    - build_plotdata_exports
+    - global_type_b_map_decision
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_path_point_summary: true
+  require_path_segment_summary: true
+  require_path_relation_summary: true
+  global_status_allowed_values:
+    - "type_B_two_path_hypothesis_supported"
+    - "type_B_paths_related_but_separate"
+    - "type_B_annäherungszone_identified"
+    - "type_B_no_shared_core_but_structural_relation"
+    - "type_B_paths_not_yet_coherent"
+
+type_b_map:
+  block_id: "M39x3f_type_b_map"
+  purpose: "map_fsw_and_ao_as_two_related_paths_through_type_B_space"
+
+paths:
+  - path_id: "FSW_PATH"
+    family_id: "TB2_FINITE_SQUARE_WELL_1D_DENSE_SWEEP"
+    path_role: "quantitative_corridor"
+    regime_ids:
+      - "FSW_D01"
+      - "FSW_D02"
+      - "FSW_D03"
+      - "FSW_D04"
+      - "FSW_D05"
+      - "FSW_D06"
+      - "FSW_D07"
+      - "FSW_D08"
+      - "FSW_D09"
+
+  - path_id: "AO_PATH"
+    family_id: "TB3_ANHARMONIC_OSCILLATOR_1D_DENSE_SWEEP"
+    path_role: "quantitative_structural_transition"
+    regime_ids:
+      - "AO_A01"
+      - "AO_A02"
+      - "AO_A03"
+      - "AO_A04"
+      - "AO_A05"
+      - "AO_A06"
+      - "AO_A07"
+      - "AO_A08"
+      - "AO_A09"
+
+path_segmentation:
+  FSW_PATH:
+    - segment_id: "FSW_TYPE_D_NEAR"
+      regime_ids: ["FSW_D01", "FSW_D02", "FSW_D03"]
+      interpretation: "type_D_near_entry"
+
+    - segment_id: "FSW_ENTRY"
+      regime_ids: ["FSW_D04"]
+      interpretation: "entry_to_quantitative_corridor"
+
+    - segment_id: "FSW_CORE"
+      regime_ids: ["FSW_D05", "FSW_D06"]
+      interpretation: "quantitative_type_B_core"
+
+    - segment_id: "FSW_OUTER"
+      regime_ids: ["FSW_D07", "FSW_D08", "FSW_D09"]
+      interpretation: "irregular_outer_corridor"
+
+  AO_PATH:
+    - segment_id: "AO_EARLY"
+      regime_ids: ["AO_A01", "AO_A02", "AO_A03"]
+      interpretation: "early_quantitative_gain"
+
+    - segment_id: "AO_TRANSFER"
+      regime_ids: ["AO_A04", "AO_A05", "AO_A06"]
+      interpretation: "quantitative_transfer_zone"
+
+    - segment_id: "AO_TRANSITION"
+      regime_ids: ["AO_A07", "AO_A08"]
+      interpretation: "structural_transition_zone"
+
+    - segment_id: "AO_JUMP"
+      regime_ids: ["AO_A09"]
+      interpretation: "qualitative_structural_core"
+
+map_axes:
+  transfer_map:
+    x: "distance_to_type_D"
+    y: "spacing_cv"
+    fsw_focus_regimes:
+      - "FSW_D05"
+      - "FSW_D06"
+    ao_focus_regimes:
+      - "AO_A04"
+      - "AO_A05"
+      - "AO_A06"
+
+  ao_structure_map:
+    x: "regime_parameter"
+    y_series:
+      - "simple_rigidity_surrogate"
+      - "grid_deviation_score"
+    ao_focus_regimes:
+      - "AO_A01"
+      - "AO_A02"
+      - "AO_A03"
+      - "AO_A04"
+      - "AO_A05"
+      - "AO_A06"
+      - "AO_A07"
+      - "AO_A08"
+      - "AO_A09"
+
+  global_type_b_map:
+    x: "distance_to_type_D"
+    y: "simple_rigidity_surrogate"
+    color: "spacing_cv"
+    marker_shape: "path_id"
+
+path_relation_logic:
+  approach_zone:
+    transfer_map_distance_threshold: 0.12
+    definition: >
+      FSW and AO points occupy nearby regions in the transfer map even if
+      they do not achieve strict overlap in the formal overlap test.
+
+  separation_zone:
+    transfer_map_distance_threshold: 0.20
+    definition: >
+      FSW and AO points occupy clearly separated regions in the selected map.
+
+  structural_transition_flag:
+    rigidity_jump_min: 0.05
+    grid_deviation_jump_min: 0.10
+    definition: >
+      AO points show a marked increase in rigidity and/or grid deviation
+      relative to the earlier AO transfer zone.
+
+  quantitative_corridor_flag:
+    definition: >
+      FSW points show a stable corridor-like progression dominated by
+      distance_to_type_D and spacing_cv without strong structural reorganization.
+
+diagnostic_integration:
+  use_pair_overlap_summary: true
+  use_group_overlap_summary: true
+  use_pair_set_feature_diagnosis: true
+  use_sensitivity_summary: true
+
+type_b_map_decision_logic:
+  type_B_two_path_hypothesis_supported:
+    require:
+      - "FSW_quantitative_corridor_visible == true"
+      - "AO_structural_transition_visible == true"
+      - "distance_diagnosis_supports_related_paths == true"
+
+  type_B_paths_related_but_separate:
+    require:
+      - "FSW_quantitative_corridor_visible == true"
+      - "AO_structural_transition_visible == true"
+      - "no_shared_core_overlap == true"
+
+  type_B_annäherungszone_identified:
+    require:
+      - "at_least_one_transfer_map_approach_zone == true"
+
+  type_B_no_shared_core_but_structural_relation:
+    require:
+      - "no_shared_core_overlap == true"
+      - "distance_diagnosis_supports_related_paths == true"
+
+  type_B_paths_not_yet_coherent:
+    trigger_any:
+      - "maps_do_not_show_consistent_relation == true"
+      - "path_roles_remain_ambiguous == true"
+
+outputs:
+  markdown_report: "m39x3f_type_b_map_report.md"
+  global_summary_json: "m39x3f_global_summary.json"
+  path_point_summary_csv: "m39x3f_path_point_summary.csv"
+  path_segment_summary_csv: "m39x3f_path_segment_summary.csv"
+  path_relation_summary_csv: "m39x3f_path_relation_summary.csv"
+  transfer_map_plotdata_csv: "m39x3f_transfer_map_plotdata.csv"
+  ao_structure_map_plotdata_csv: "m39x3f_ao_structure_map_plotdata.csv"
+  global_type_b_map_plotdata_csv: "m39x3f_global_type_b_map_plotdata.csv"
+  source_notes_md: "m39x3f_source_notes.md"

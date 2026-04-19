@@ -1,0 +1,36 @@
+run_id: H3_PACKAGE_HIERARCHY_CHECK_01
+output_dir: runs/H3_PACKAGE_HIERARCHY_CHECK_01
+
+response_modes:
+  baseline:
+    label: G_eq_B
+    alpha: 1.0
+  auxiliary:
+    label: G_eq_B_pow_1p25
+    alpha: 1.25
+
+inputs:
+  preferred_matrix_fields:
+    - negative_matrix
+    - abs_matrix
+    - positive_matrix
+    - matrix
+    - K
+    - B
+
+policy:
+  edge_default_opening: false
+  edge_probe_if_blocked: false
+
+expected_logic:
+  reference: secondary_helpful
+  support: secondary_tolerable_but_not_needed
+  edge: not_opened_by_default
+
+package_inputs:
+  reference:
+    npz: data/exports/reference/reference_matrix.npz
+  support:
+    npz: data/exports/support/support_matrix.npz
+  edge:
+    npz: data/exports/edge/edge_matrix.npz

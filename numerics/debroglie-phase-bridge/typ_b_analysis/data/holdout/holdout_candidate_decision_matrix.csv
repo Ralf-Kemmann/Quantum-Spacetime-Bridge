@@ -1,0 +1,10 @@
+candidate_id,independent_from_O1_O2_O3,independent_from_calibration,four_features_direct,four_features_derivable,documentable_independence,sufficient_sample_size,boundary_risk_acceptable,overall_recommendation,decision_notes
+H1-04,yes,yes,yes,na,yes,unknown,yes,recommended,best first internal holdout if split is truly frozen
+H2-01,unknown,unknown,unknown,unknown,unknown,unknown,unknown,review_needed,project-near external run must be checked carefully
+H2-02,unknown,unknown,unknown,unknown,unknown,unknown,unknown,review_needed,other family/run in same ecosystem
+H1-01,unknown,unknown,yes,na,partial,unknown,yes,review_needed,good only if clearly outside O1/O2/O3 and calibration context
+H1-02,unknown,unknown,yes,na,partial,unknown,yes,review_needed,depends on genuine independence from current reference selection
+H1-03,unknown,unknown,yes,na,partial,unknown,yes,review_needed,may be too close or too far from current Type-B zone
+H2-03,yes,yes,no,unknown,yes,unknown,unknown,review_needed,feature mapping to target space must be justified
+H2-04,yes,yes,no,unknown,yes,unknown,unknown,review_needed,feature mapping may be too indirect
+H2-05,unknown,unknown,unknown,unknown,unknown,unknown,unknown,review_needed,local lateral runs need provenance check

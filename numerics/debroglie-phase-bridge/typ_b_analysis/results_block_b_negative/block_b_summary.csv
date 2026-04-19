@@ -1,0 +1,9 @@
+export_label,ceiling,neighbor_min,b1_conflict_penalty,n_focals,a1_active_count,a1_weak_count,a1_collapsed_count,b1_active_count,b1_weak_count,b1_collapsed_count,outcome_C_count,promotion_A1_and_B1_count,promotion_A1_count,promotion_B1_count
+negative,0.85,3,1.0,4,4,0,0,4,0,0,4,4,0,0
+negative,0.85,3,1.25,4,4,0,0,4,0,0,4,4,0,0
+negative,0.85,4,1.0,4,4,0,0,4,0,0,4,4,0,0
+negative,0.85,4,1.25,4,4,0,0,4,0,0,4,4,0,0
+negative,0.95,3,1.0,4,4,0,0,4,0,0,4,4,0,0
+negative,0.95,3,1.25,4,4,0,0,4,0,0,4,4,0,0
+negative,0.95,4,1.0,4,4,0,0,4,0,0,4,4,0,0
+negative,0.95,4,1.25,4,4,0,0,4,0,0,4,4,0,0

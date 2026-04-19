@@ -1,0 +1,4 @@
+pair_set_id,n_pairs,mean_overlap_distance,min_overlap_distance,max_overlap_distance,strong_overlap_count,partial_overlap_count,weak_overlap_count,no_overlap_count,group_overlap_status,group_overlap_note
+FSW_CORE_VS_AO_TRANSFER,6,0.9056627684703695,0.7602537062893492,1.1268865478310102,0,0,3,3,no_meaningful_model_overlap,No meaningful overlap in the tested pair set.
+FSW_CORE_VS_AO_PREJUMP,4,1.2885939444463879,1.1155638775671557,1.4616240113256203,0,0,0,4,no_meaningful_model_overlap,No meaningful overlap in the tested pair set.
+FSW_CORE_VS_AO_JUMP,2,1.742406439029231,1.7128762464302458,1.7719366316282161,0,0,0,2,ao_qualitative_extension_beyond_shared_overlap,AO jump core extends beyond the shared FSW/AO overlap.

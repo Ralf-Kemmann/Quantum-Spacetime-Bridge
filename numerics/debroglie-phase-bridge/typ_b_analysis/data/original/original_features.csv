@@ -1,0 +1,6 @@
+dataset_id,label_internal,group_target,distance_to_type_D,spacing_cv,simple_rigidity_surrogate,grid_deviation_score
+orig_001,FSW_D05,FSW,0.42,0.11,0.27,0.08
+orig_002,FSW_D06,FSW,0.45,0.10,0.29,0.09
+orig_003,AO_A03,AO,0.51,0.14,0.36,0.18
+orig_004,AO_A04,AO,0.55,0.16,0.39,0.21
+orig_005,AO_A05,AO,0.58,0.17,0.41,0.24

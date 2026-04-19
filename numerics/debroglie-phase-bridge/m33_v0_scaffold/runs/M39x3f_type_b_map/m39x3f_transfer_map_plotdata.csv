@@ -1,0 +1,6 @@
+path_id,path_role,variant_id,segment_id,regime_parameter,distance_to_type_D,spacing_cv,delta_p2_relative_gain_vs_type_A,grid_deviation_score,simple_rigidity_surrogate
+FSW_PATH,quantitative_corridor,FSW_D05,FSW_CORE,6.5,0.24016,0.2862851439971509,0.223,0.23,0.04016
+FSW_PATH,quantitative_corridor,FSW_D06,FSW_CORE,6.0,0.245176,0.3134903621063912,0.257,0.2450000000000001,0.045176
+AO_PATH,quantitative_structural_transition,AO_A04,AO_TRANSFER,0.1,0.127704,0.129630207299459,0.318,0.195,0.0277039999999999
+AO_PATH,quantitative_structural_transition,AO_A05,AO_TRANSFER,0.12,0.1452799999999999,0.1564639538620044,0.248,0.2499999999999998,0.0452799999999999
+AO_PATH,quantitative_structural_transition,AO_A06,AO_TRANSFER,0.14,0.176536,0.1892280473334911,0.214,0.3250000000000002,0.076536

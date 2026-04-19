@@ -1,0 +1,459 @@
+from __future__ import annotations
+
+import json
+import math
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import pandas as pd
+import yaml
+
+
+@dataclass
+class BootstrapConfig:
+    enabled: bool
+    n_bootstrap: int
+    sample_fraction: float
+
+
+@dataclass
+class ThresholdConfig:
+    stability_primary_ratio: float
+    margin_secondary_ratio: float
+
+
+@dataclass
+class EvaluationConfig:
+    reuse_current_threshold_logic: bool
+    reuse_current_assignment_logic: bool
+    reuse_current_resampling_logic: bool
+    bootstrap: BootstrapConfig
+    thresholds: ThresholdConfig
+
+
+@dataclass
+class VariantConfig:
+    name: str
+    drop: List[str]
+
+
+@dataclass
+class Config:
+    run_id: str
+    source_run_id: str
+    mode: str
+    random_seed: int
+    input_csv: Path
+    results_dir: Path
+    columns: Dict[str, str]
+    core_features: List[str]
+    variants: List[VariantConfig]
+    evaluation: EvaluationConfig
+    outputs: Dict[str, Any]
+
+
+def load_config(path: str | Path) -> Config:
+    with open(path, "r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+
+    bootstrap = BootstrapConfig(**raw["evaluation"]["bootstrap"])
+    thresholds = ThresholdConfig(**raw["evaluation"]["thresholds"])
+    evaluation = EvaluationConfig(
+        reuse_current_threshold_logic=raw["evaluation"]["reuse_current_threshold_logic"],
+        reuse_current_assignment_logic=raw["evaluation"]["reuse_current_assignment_logic"],
+        reuse_current_resampling_logic=raw["evaluation"]["reuse_current_resampling_logic"],
+        bootstrap=bootstrap,
+        thresholds=thresholds,
+    )
+
+    variants = [VariantConfig(**v) for v in raw["variants"]]
+
+    return Config(
+        run_id=raw["run_id"],
+        source_run_id=raw["source_run_id"],
+        mode=raw["mode"],
+        random_seed=raw.get("random_seed", 42),
+        input_csv=Path(raw["data"]["input_csv"]),
+        results_dir=Path(raw["data"]["results_dir"]),
+        columns=raw["columns"],
+        core_features=raw["core_features"],
+        variants=variants,
+        evaluation=evaluation,
+        outputs=raw["outputs"],
+    )
+
+
+def ensure_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def safe_float(value: Any) -> Optional[float]:
+    try:
+        if value is None:
+            return None
+        if pd.isna(value):
+            return None
+        return float(value)
+    except Exception:
+        return None
+
+
+def mean_or_none(series: pd.Series) -> Optional[float]:
+    if series.empty:
+        return None
+    value = series.mean()
+    return safe_float(value)
+
+
+def validate_dataset(df: pd.DataFrame, cfg: Config) -> None:
+    required_meta = [
+        cfg.columns["sample_id"],
+        cfg.columns["group_label"],
+        cfg.columns["dataset_role"],
+        cfg.columns["source_family"],
+        cfg.columns["split_label"],
+    ]
+    required_cols = required_meta + cfg.core_features
+
+    missing = [col for col in required_cols if col not in df.columns]
+    if missing:
+        raise ValueError(f"Missing required columns: {missing}")
+
+    if df.empty:
+        raise ValueError("Input dataset is empty.")
+
+
+def run_current_bridge_evaluation(
+    dataset: pd.DataFrame,
+    active_features: List[str],
+    cfg: Config,
+) -> Dict[str, Any]:
+    """
+    Project-local placeholder.
+
+    Replace this function with the real existing bridge-evaluation call.
+    Only the active_features set should vary between runs.
+    """
+    working = dataset.copy()
+
+    feature_scores = []
+    for feat in active_features:
+        col = pd.to_numeric(working[feat], errors="coerce")
+        mu = col.mean()
+        sigma = col.std(ddof=0)
+
+        if sigma is None or pd.isna(sigma) or sigma == 0:
+            normalized = pd.Series([0.0] * len(col), index=col.index)
+        else:
+            normalized = (col - mu) / sigma
+
+        feature_scores.append(normalized.abs())
+
+    if feature_scores:
+        composite = pd.concat(feature_scores, axis=1).mean(axis=1)
+    else:
+        composite = pd.Series([0.0] * len(working), index=working.index)
+
+    working["_bridge_score"] = composite
+
+    dataset_role_col = cfg.columns["dataset_role"]
+    original_mask = working[dataset_role_col].astype(str).str.lower().eq("original")
+    control_mask = working[dataset_role_col].astype(str).str.lower().eq("control")
+
+    original_scores = working.loc[original_mask, "_bridge_score"]
+    control_scores = working.loc[control_mask, "_bridge_score"]
+
+    original_mean = mean_or_none(original_scores)
+    control_mean = mean_or_none(control_scores)
+
+    separation_margin_mean = None
+    if original_mean is not None and control_mean is not None:
+        separation_margin_mean = original_mean - control_mean
+
+    assignment_score = None
+    if original_mean is not None and control_mean is not None:
+        denom = abs(original_mean) + abs(control_mean) + 1e-9
+        assignment_score = safe_float((original_mean - control_mean) / denom)
+
+    original_vs_control_margin_delta = separation_margin_mean
+
+    original_stability_score = None
+    positive_bootstrap_fraction = None
+
+    if cfg.evaluation.bootstrap.enabled and len(working) > 0:
+        fractions = []
+        n = cfg.evaluation.bootstrap.n_bootstrap
+        frac = cfg.evaluation.bootstrap.sample_fraction
+
+        for i in range(n):
+            boot = working.sample(
+                frac=frac,
+                replace=True,
+                random_state=cfg.random_seed + i,
+            )
+
+            boot_original = boot.loc[
+                boot[dataset_role_col].astype(str).str.lower().eq("original"),
+                "_bridge_score",
+            ]
+            boot_control = boot.loc[
+                boot[dataset_role_col].astype(str).str.lower().eq("control"),
+                "_bridge_score",
+            ]
+
+            if len(boot_original) == 0 or len(boot_control) == 0:
+                continue
+
+            margin = boot_original.mean() - boot_control.mean()
+            fractions.append(float(margin > 0))
+
+        if fractions:
+            positive_bootstrap_fraction = safe_float(sum(fractions) / len(fractions))
+            original_stability_score = positive_bootstrap_fraction
+
+    any_type_B_like_pattern_detected = False
+    if separation_margin_mean is not None and assignment_score is not None:
+        any_type_B_like_pattern_detected = bool(
+            separation_margin_mean > 0 and assignment_score > 0
+        )
+
+    overall_pass = False
+    if (
+        separation_margin_mean is not None
+        and assignment_score is not None
+        and original_stability_score is not None
+    ):
+        overall_pass = bool(
+            separation_margin_mean > 0
+            and assignment_score > 0
+            and original_stability_score >= 0.5
+        )
+
+    if overall_pass:
+        result_label = "supported"
+    elif any_type_B_like_pattern_detected:
+        result_label = "weak"
+    else:
+        result_label = "failed"
+
+    return {
+        "overall_pass": overall_pass,
+        "result_label": result_label,
+        "separation_margin_mean": separation_margin_mean,
+        "assignment_score": assignment_score,
+        "original_stability_score": original_stability_score,
+        "original_vs_control_margin_delta": original_vs_control_margin_delta,
+        "type_B_like_pattern_detected": any_type_B_like_pattern_detected,
+        "positive_bootstrap_fraction": positive_bootstrap_fraction,
+        "n_active_features": len(active_features),
+        "active_features": active_features,
+    }
+
+
+def compute_degradation(current: Dict[str, Any], full: Dict[str, Any]) -> Dict[str, Any]:
+    def diff(key: str) -> Optional[float]:
+        cur = safe_float(current.get(key))
+        ref = safe_float(full.get(key))
+        if cur is None or ref is None:
+            return None
+        return cur - ref
+
+    return {
+        "delta_separation_margin_mean": diff("separation_margin_mean"),
+        "delta_assignment_score": diff("assignment_score"),
+        "delta_original_stability_score": diff("original_stability_score"),
+        "pass_changed": current.get("overall_pass") != full.get("overall_pass"),
+        "label_changed": current.get("result_label") != full.get("result_label"),
+    }
+
+
+def classify_role_signal(metrics: Dict[str, Any], full_metrics: Dict[str, Any], cfg: Config) -> str:
+    if metrics.get("active_features") == full_metrics.get("active_features"):
+        return "baseline"
+
+    full_pass = bool(full_metrics.get("overall_pass"))
+    cur_pass = bool(metrics.get("overall_pass"))
+
+    full_stability = safe_float(full_metrics.get("original_stability_score"))
+    cur_stability = safe_float(metrics.get("original_stability_score"))
+
+    full_margin = safe_float(full_metrics.get("separation_margin_mean"))
+    cur_margin = safe_float(metrics.get("separation_margin_mean"))
+
+    if full_pass and not cur_pass:
+        return "candidate_primary"
+
+    if (
+        full_stability is not None
+        and cur_stability is not None
+        and full_stability != 0
+        and cur_stability < cfg.evaluation.thresholds.stability_primary_ratio * full_stability
+    ):
+        return "candidate_primary"
+
+    if (
+        full_margin is not None
+        and cur_margin is not None
+        and full_margin != 0
+        and cur_margin < cfg.evaluation.thresholds.margin_secondary_ratio * full_margin
+    ):
+        return "candidate_secondary"
+
+    return "candidate_redundant_or_diagnostic"
+
+
+def to_serializable(obj: Any) -> Any:
+    if isinstance(obj, Path):
+        return str(obj)
+    if isinstance(obj, dict):
+        return {k: to_serializable(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [to_serializable(v) for v in obj]
+    if isinstance(obj, tuple):
+        return [to_serializable(v) for v in obj]
+    if isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+    return obj
+
+
+def write_variant_json(results_dir: Path, variant_name: str, payload: Dict[str, Any]) -> None:
+    variant_dir = results_dir / "variant_reports"
+    ensure_dir(variant_dir)
+    out_path = variant_dir / f"{variant_name}.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(to_serializable(payload), f, indent=2, ensure_ascii=False)
+
+
+def write_summary_json(results_dir: Path, summary: Dict[str, Any]) -> None:
+    out_path = results_dir / "summary.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(to_serializable(summary), f, indent=2, ensure_ascii=False)
+
+
+def write_results_csv(results_dir: Path, rows: List[Dict[str, Any]]) -> None:
+    out_path = results_dir / "bridge_carrier_leave_one_out.csv"
+    pd.DataFrame(rows).to_csv(out_path, index=False)
+
+
+def write_markdown_summary(results_dir: Path, summary_rows: List[Dict[str, Any]]) -> None:
+    out_path = results_dir / "BRIDGE_CARRIER_ISOLATION_RESULTS.md"
+
+    lines = [
+        "# BRIDGE_CARRIER_ISOLATION_RESULTS — Leave-one-out block A",
+        "",
+        "## Purpose",
+        "Test structural necessity of the four current core bridge-carrier candidates by removing one variable at a time.",
+        "",
+        "## Summary table",
+        "",
+        "| variant | removed_variable | overall_pass | result_label | separation_margin_mean | assignment_score | original_stability_score | provisional_role_signal |",
+        "|---|---|---:|---|---:|---:|---:|---|",
+    ]
+
+    for row in summary_rows:
+        lines.append(
+            f"| {row['variant']} | {row['removed_variable'] or '-'} | "
+            f"{row['overall_pass']} | {row['result_label']} | "
+            f"{row['separation_margin_mean']} | {row['assignment_score']} | "
+            f"{row['original_stability_score']} | {row['provisional_role_signal']} |"
+        )
+
+    lines.extend([
+        "",
+        "## Interpretation",
+        "- candidate_primary: strong structural damage or collapse after removal",
+        "- candidate_secondary: weakening without total collapse",
+        "- candidate_redundant_or_diagnostic: little change under current conditions",
+        "",
+    ])
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
+def run_leave_one_out(cfg: Config) -> Dict[str, Any]:
+    ensure_dir(cfg.results_dir)
+
+    df = pd.read_csv(cfg.input_csv)
+    validate_dataset(df, cfg)
+
+    results: List[Dict[str, Any]] = []
+
+    for variant in cfg.variants:
+        active_features = [f for f in cfg.core_features if f not in variant.drop]
+
+        metrics = run_current_bridge_evaluation(
+            dataset=df,
+            active_features=active_features,
+            cfg=cfg,
+        )
+
+        result = {
+            "variant": variant.name,
+            "removed_variable": variant.drop[0] if variant.drop else None,
+            "feature_count": len(active_features),
+            **metrics,
+        }
+        results.append(result)
+
+        if cfg.outputs.get("write_variant_json", False):
+            write_variant_json(cfg.results_dir, variant.name, result)
+
+    full_row = next((r for r in results if r["variant"] == "full"), None)
+    if full_row is None:
+        raise RuntimeError("No 'full' variant found. Cannot compute degradation.")
+
+    summary_rows: List[Dict[str, Any]] = []
+    for row in results:
+        degradation = compute_degradation(row, full_row)
+        role = classify_role_signal(row, full_row, cfg)
+
+        summary_rows.append({
+            **row,
+            **degradation,
+            "provisional_role_signal": role,
+        })
+
+    if cfg.outputs.get("write_csv", False):
+        write_results_csv(cfg.results_dir, summary_rows)
+
+    summary = {
+        "run_id": cfg.run_id,
+        "source_run_id": cfg.source_run_id,
+        "mode": cfg.mode,
+        "base_variant": "full",
+        "variants_tested": len(cfg.variants),
+        "core_features": cfg.core_features,
+        "results": summary_rows,
+        "interpretation_rule": {
+            "strong_collapse": "likely primary",
+            "moderate_weakening": "likely secondary/supportive",
+            "little_change": "likely diagnostic_or_redundant",
+        },
+    }
+
+    if cfg.outputs.get("write_json", False):
+        write_summary_json(cfg.results_dir, summary)
+
+    if cfg.outputs.get("write_markdown", False):
+        write_markdown_summary(cfg.results_dir, summary_rows)
+
+    return summary
+
+
+def main() -> None:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Bridge carrier leave-one-out runner")
+    parser.add_argument("--config", required=True, help="Path to YAML configuration file")
+    args = parser.parse_args()
+
+    cfg = load_config(args.config)
+    summary = run_leave_one_out(cfg)
+    print(json.dumps(to_serializable(summary), indent=2, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

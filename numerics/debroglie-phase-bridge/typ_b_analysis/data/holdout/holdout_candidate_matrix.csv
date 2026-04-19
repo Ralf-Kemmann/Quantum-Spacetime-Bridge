@@ -1,0 +1,10 @@
+candidate_id,source_path_or_repo,holdout_type,used_in_O1_O2_O3,used_in_calibration,features_direct,features_derivable,priority,status,notes
+H1-04,current typ_b_analysis blind split,H1,no,no,yes,na,A,planned,first internal hard holdout
+H2-01,m33_v0_scaffold/<run>,H2,unknown,unknown,unknown,unknown,A,candidate,project-near external reference
+H2-02,debroglie-phase-bridge/<run_or_family>,H2,unknown,unknown,unknown,unknown,A,candidate,other data stream in same ecosystem
+H1-01,typ_b_analysis other windows,H1,unknown,unknown,yes,na,B,candidate,other original windows outside O1/O2/O3
+H1-02,typ_b_analysis other FSW cores,H1,unknown,unknown,yes,na,B,candidate,other FSW cores outside D05-D06
+H1-03,typ_b_analysis other AO windows,H1,unknown,unknown,yes,na,B,candidate,other AO windows outside A03-A06
+H2-03,polyakov-gram-graph,H2,no,no,no,unknown,B,candidate,feature mapping must be checked
+H2-04,debroglie-phase-verification,H2,no,no,no,unknown,B,candidate,feature mapping must be checked
+H2-05,local earlier_or_lateral_runs,H2,unknown,unknown,unknown,unknown,A,candidate,other local runs outside Type-B hardening block

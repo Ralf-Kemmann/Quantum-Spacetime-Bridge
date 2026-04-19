@@ -1,0 +1,19 @@
+{
+  "variant": "minus_spacing_cv",
+  "removed_variable": "spacing_cv",
+  "feature_count": 3,
+  "overall_pass": true,
+  "result_label": "supported",
+  "separation_margin_mean": 0.16543209876543202,
+  "assignment_score": 0.7333333333333334,
+  "original_stability_score": 0.925,
+  "original_vs_control_margin_delta": 0.16543209876543202,
+  "type_B_like_pattern_detected": true,
+  "positive_bootstrap_fraction": 0.925,
+  "n_active_features": 3,
+  "active_features": [
+    "distance_to_type_D",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ]
+}

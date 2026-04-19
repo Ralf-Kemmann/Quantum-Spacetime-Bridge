@@ -1,0 +1,62 @@
+run_id: bridge_carrier_leave_one_out_v1
+source_run_id: M39x_current_bridge_eval
+
+mode: internal_only
+random_seed: 42
+
+data:
+  input_csv: data/bridge_eval_base_dataset.csv
+  results_dir: results/bridge_carrier_leave_one_out_v1
+
+columns:
+  sample_id: sample_id
+  group_label: group_label
+  dataset_role: dataset_role
+  source_family: source_family
+  split_label: split_label
+
+core_features:
+  - distance_to_type_D
+  - spacing_cv
+  - simple_rigidity_surrogate
+  - grid_deviation_score
+
+variants:
+  - name: full
+    drop: []
+
+  - name: minus_distance_to_type_D
+    drop:
+      - distance_to_type_D
+
+  - name: minus_spacing_cv
+    drop:
+      - spacing_cv
+
+  - name: minus_simple_rigidity_surrogate
+    drop:
+      - simple_rigidity_surrogate
+
+  - name: minus_grid_deviation_score
+    drop:
+      - grid_deviation_score
+
+evaluation:
+  reuse_current_threshold_logic: true
+  reuse_current_assignment_logic: true
+  reuse_current_resampling_logic: true
+
+  bootstrap:
+    enabled: true
+    n_bootstrap: 200
+    sample_fraction: 1.0
+
+  thresholds:
+    stability_primary_ratio: 0.50
+    margin_secondary_ratio: 0.80
+
+outputs:
+  write_csv: true
+  write_json: true
+  write_markdown: true
+  write_variant_json: true

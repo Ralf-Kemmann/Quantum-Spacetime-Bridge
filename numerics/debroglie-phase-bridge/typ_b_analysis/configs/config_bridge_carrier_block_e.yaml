@@ -1,0 +1,76 @@
+run_id: bridge_carrier_block_e_v1
+source_run_id: M39x_current_bridge_eval
+
+mode: h2_discrimination
+random_seed: 42
+
+data:
+  internal_original_csv: data/original/original_features.csv
+  internal_control_csv: data/controls/control_features.csv
+  h2_features_csv: data/holdout/holdout_original_features.csv
+  results_dir: results/bridge_carrier_block_e_v1
+
+columns:
+  internal_original:
+    sample_id: dataset_id
+    group_label: group_target
+  internal_control:
+    sample_id: dataset_id
+    group_label: control_family
+  h2:
+    sample_id: dataset_id
+    group_label: group_target
+
+core_features:
+  - distance_to_type_D
+  - spacing_cv
+  - simple_rigidity_surrogate
+  - grid_deviation_score
+
+variants:
+  - name: full_reference
+    active_features:
+      - distance_to_type_D
+      - spacing_cv
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+  - name: proxy_rigidity_only
+    active_features:
+      - simple_rigidity_surrogate
+  - name: proxy_rigidity_plus_distance
+    active_features:
+      - simple_rigidity_surrogate
+      - distance_to_type_D
+  - name: proxy_rigidity_plus_grid
+    active_features:
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+  - name: proxy_rigidity_plus_spacing
+    active_features:
+      - simple_rigidity_surrogate
+      - spacing_cv
+  - name: proxy_rigidity_plus_grid_plus_distance
+    active_features:
+      - simple_rigidity_surrogate
+      - grid_deviation_score
+      - distance_to_type_D
+
+evaluation:
+  bootstrap:
+    enabled: true
+    n_bootstrap: 200
+    sample_fraction: 1.0
+  thresholds:
+    assignment_min: 0.60
+    stability_min: 0.60
+  h2:
+    use_internal_controls_as_fallback: true
+    substitute_rigidity_proxy: true
+    rigidity_proxy_column: rigidity_proxy_second_difference_curvature
+    rigidity_proxy_flag_column: rigidity_proxy_used
+
+outputs:
+  write_csv: true
+  write_json: true
+  write_markdown: true
+  write_variant_json: true

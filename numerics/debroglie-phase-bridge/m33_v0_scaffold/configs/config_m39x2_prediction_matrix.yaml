@@ -1,0 +1,184 @@
+run:
+  run_id: "M39x2_prediction_matrix"
+  title: "M.3.9x.2 — Spektraltyp-Vorhersagen und Kontrollfälle"
+  description: >
+    Prediction-matrix run to test whether the current mixed-picture reading
+    is predictive across spectral types rather than only post hoc interpretable.
+  outdir: "runs/M39x2_prediction_matrix"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  family_definitions_yaml: "configs/m39x2_prediction_matrix_families.yaml"
+
+execution:
+  enabled_blocks:
+    - family_diagnostics
+    - prediction_evaluation
+    - spectral_type_summary
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_family_prediction_summary: true
+  require_spectral_type_summary: true
+  require_missing_cases_summary: true
+  global_prediction_status_allowed_values:
+    - "prediction_matrix_supported"
+    - "prediction_matrix_partially_supported"
+    - "prediction_matrix_stressed"
+    - "prediction_matrix_failed"
+
+pairing:
+  default_pairing_mode: "all_pairs"
+  supported_pairing_modes:
+    - "all_pairs"
+    - "matched_pairs"
+    - "nearest_pairs"
+    - "degeneracy_safe_pairs"
+    - "unique_abs_pairs"
+    - "no_sign_mirror_pairs"
+  defaults:
+    exclude_self_pairs: true
+    sort_pairs_canonically: true
+    unique_unordered_pairs: true
+
+markers:
+  supported_markers:
+    - "delta_p"
+    - "abs_delta_p"
+    - "delta_p2"
+    - "abs_delta_p2"
+    - "delta_E_quad"
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_omega"
+    - "delta_lambda"
+
+  default_marker_sets:
+    type_A_ladder:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_B_quadratic_nontrivial:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_C_multiindex_structure:
+      - "delta_k"
+      - "abs_delta_k"
+      - "delta_k2"
+      - "abs_delta_k2"
+      - "delta_omega"
+      - "delta_lambda"
+
+    type_D_regular_nonring:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+strength_scoring:
+  absolute_strength:
+    method: "rank_separation_score"
+    higher_is_better: true
+    normalize_to_unit_interval: true
+
+  relative_dominance:
+    method: "bootstrap_win_fraction"
+    higher_is_better: true
+
+  support_thresholds:
+    absolute_support_min: 0.60
+    dominance_stable_min: 0.70
+    dominance_margin_min: 0.05
+
+bootstrap:
+  enabled: true
+  n_bootstrap: 1000
+  resample_level: "pair"
+  confidence_level: 0.95
+  stratified_by_branch_label: false
+
+irregularity:
+  enabled: true
+  compute_measures:
+    - "spacing_mean"
+    - "spacing_std"
+    - "spacing_cv"
+    - "spacing_ratio"
+    - "simple_unfolding_density"
+    - "simple_rigidity_surrogate"
+
+prediction_logic:
+  allowed_match_status_values:
+    - "supported"
+    - "partially_supported"
+    - "open"
+    - "stressed"
+    - "failed"
+
+  supported_rules:
+    require_expected_relative_winner: true
+    allow_expected_allowed_winners: true
+    check_delta_p2_role: true
+    check_irregularity_level: true
+    check_direction_blindness_relevance: true
+
+  default_open_conditions:
+    - "family_status_placeholder"
+    - "missing_control_case"
+    - "insufficient_data"
+
+missing_case_policy:
+  count_missing_type_B_as_open: true
+  count_missing_type_D_as_open: true
+  never_count_missing_cases_as_supported: true
+
+global_decision_logic:
+  prediction_matrix_supported:
+    require:
+      - "no_failed_core_prediction"
+      - "majority_supported_or_partially_supported"
+      - "type_A_present"
+      - "type_C_present"
+
+  prediction_matrix_partially_supported:
+    require:
+      - "majority_supported_or_partially_supported"
+    allow_any:
+      - "missing_type_B"
+      - "missing_type_D"
+      - "some_open_predictions"
+
+  prediction_matrix_stressed:
+    trigger_any:
+      - "ring_prediction_stressed"
+      - "type_C_prediction_stressed"
+      - "important_family_failed"
+      - "many_open_predictions"
+
+  prediction_matrix_failed:
+    trigger_any:
+      - "core_prediction_failed"
+      - "multiple_important_families_failed"
+
+outputs:
+  markdown_report: "m39x2_prediction_matrix_report.md"
+  global_summary_json: "m39x2_global_summary.json"
+  family_prediction_summary_csv: "m39x2_family_prediction_summary.csv"
+  spectral_type_summary_csv: "m39x2_spectral_type_summary.csv"
+  marker_summary_csv: "m39x2_marker_summary.csv"
+  irregularity_summary_csv: "m39x2_irregularity_summary.csv"
+  bootstrap_summary_csv: "m39x2_bootstrap_summary.csv"
+  missing_cases_summary_csv: "m39x2_missing_cases_summary.csv"
+  source_notes_md: "m39x2_source_notes.md"

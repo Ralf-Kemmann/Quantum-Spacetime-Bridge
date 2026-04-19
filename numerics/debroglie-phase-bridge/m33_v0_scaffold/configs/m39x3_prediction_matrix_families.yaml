@@ -1,0 +1,356 @@
+families:
+  - family_id: "ER1_RING"
+    family_label: "external_control_ring"
+    spectral_type: "type_A_ladder"
+    model_class: "ring_schrodinger_quadratic"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Regular ladder-like ring control case with sign and degeneracy structure.
+      Used as primary Type-A prediction anchor.
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "signed"
+      values: [-3, -2, -1, 1, 2, 3]
+
+    derived_spectra:
+      - variable_name: "abs_p"
+        from: "p"
+        transform: "abs"
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_p"
+      expected_allowed_winners:
+        - "delta_p"
+      expected_delta_p2_role: "not_necessarily_dominant"
+      expected_irregularity_level: "low_to_moderate"
+      expected_direction_blindness_relevant: true
+      expected_prediction_status_if_missing_family: "open"
+
+    analysis_variants:
+      - variant_id: "RING_SIGNED"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: true
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: false
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_ABS"
+        enabled: true
+        pairing_mode: "unique_abs_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "abs_p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+      - variant_id: "RING_DEGEN_SAFE"
+        enabled: true
+        pairing_mode: "degeneracy_safe_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+  - family_id: "ER2_CAVITY"
+    family_label: "external_main_test_cavity"
+    spectral_type: "type_C_multiindex_structure"
+    model_class: "cavity_helmholtz_linear_energy"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Rectangular cavity as a multi-index eigenvalue-structure family.
+
+    mode_table:
+      type: "rectangular_cavity_modes"
+      geometry:
+        a: 1.0
+        b: 1.5
+        d: 2.0
+      mode_indices:
+        - [1, 1, 1]
+        - [1, 1, 2]
+        - [1, 2, 1]
+        - [2, 1, 1]
+        - [2, 2, 1]
+        - [2, 1, 2]
+        - [1, 2, 2]
+        - [2, 2, 2]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+      - variable_name: "lambda"
+        from: "k"
+        transform: "square"
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_k2"
+      expected_allowed_winners:
+        - "delta_k2"
+        - "abs_delta_k2"
+        - "delta_k"
+        - "abs_delta_k"
+      expected_delta_p2_role: "structure_support_expected"
+      expected_irregularity_level: "moderate"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "CAVITY_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_index_permutations_as_distinct: true
+          collapse_equal_k_shells: false
+        active_spectrum: "k"
+        active_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_omega"
+          - "delta_lambda"
+
+  - family_id: "ER3_MEMBRANE"
+    family_label: "external_hard_bias_test_membrane"
+    spectral_type: "type_C_multiindex_structure"
+    model_class: "membrane_helmholtz_bessel"
+    family_source: "M39x_external_reference_wave_1"
+    status: "implemented"
+    enabled: true
+    description: >
+      Circular membrane with Bessel-zero structure as hard Type-C case.
+
+    mode_table:
+      type: "circular_membrane_bessel_modes"
+      mode_indices:
+        - [0, 1]
+        - [1, 1]
+        - [2, 1]
+        - [0, 2]
+        - [3, 1]
+        - [1, 2]
+        - [2, 2]
+        - [0, 3]
+
+    base_spectrum:
+      variable_name: "k"
+      construction: "from_existing_external_reference_family"
+
+    derived_spectra:
+      - variable_name: "k2"
+        from: "k"
+        transform: "square"
+      - variable_name: "lambda"
+        from: "k"
+        transform: "square"
+      - variable_name: "omega"
+        from: "k"
+        transform: "linear_scale"
+        parameters:
+          factor: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_k2"
+      expected_allowed_winners:
+        - "delta_k2"
+        - "abs_delta_k2"
+        - "delta_lambda"
+        - "delta_k"
+      expected_delta_p2_role: "structure_support_expected"
+      expected_irregularity_level: "moderate_to_high"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "MEMBRANE_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_bessel_near_clusters_as_distinct: true
+          collapse_equal_lambda_shells: false
+        active_spectrum: "k"
+        active_markers:
+          - "delta_k"
+          - "abs_delta_k"
+          - "delta_k2"
+          - "abs_delta_k2"
+          - "delta_lambda"
+
+  - family_id: "TD1_1D_BOX"
+    family_label: "type_D_primary_1d_box"
+    spectral_type: "type_D_regular_nonring"
+    model_class: "box_1d_quadratic_nonperiodic"
+    family_source: "M39x3_control_extension"
+    status: "implemented"
+    enabled: true
+    description: >
+      Regular non-ring control case: 1D particle in a box.
+      Used to test whether delta_p dominance generalizes beyond ring-specific
+      direction and degeneracy structure.
+
+    candidate_role: "primary"
+    candidate_rationale: >
+      Clean regular control spectrum without periodicity, without sign-paired
+      direction states, and without ring-specific degeneracy structure.
+    type_hardening_question: >
+      Does regularity alone keep delta_p relatively strong, or is the current
+      ring explanation still too ring-specific?
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "positive_only"
+      values: [1, 2, 3, 4, 5, 6]
+
+    derived_spectra:
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "delta_p"
+      expected_allowed_winners:
+        - "delta_p"
+        - "abs_delta_p"
+      expected_delta_p2_role: "not_necessarily_dominant"
+      expected_irregularity_level: "low_to_moderate"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "BOX_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"
+
+  - family_id: "TB1_1D_BOX_WEAKLY_DEFORMED"
+    family_label: "type_B_primary_1d_box_weakly_deformed"
+    spectral_type: "type_B_quadratic_nontrivial"
+    model_class: "box_1d_quadratic_weakly_deformed"
+    family_source: "M39x3_control_extension"
+    status: "implemented"
+    enabled: true
+    description: >
+      Quadratic but nontrivial intermediate case. Starts from a 1D box-like
+      sequence and introduces a mild nontrivial deformation to break trivial
+      ladder regularity without jumping directly into full multi-index structure.
+
+    candidate_role: "primary"
+    candidate_rationale: >
+      Intermediate test case between trivial regular ladder and richer
+      structure-dominated families. Used to test whether delta_p2 gains
+      relative strength once pure regularity is mildly broken.
+    type_hardening_question: >
+      Is quadratic structure alone enough to improve delta_p2, or is stronger
+      structural complexity required?
+
+    base_spectrum:
+      variable_name: "p"
+      representation: "positive_only_deformed"
+      values: [1.00, 2.05, 3.15, 4.30, 5.50, 6.75]
+
+    derived_spectra:
+      - variable_name: "p2"
+        from: "p"
+        transform: "square"
+      - variable_name: "E_quad"
+        from: "p"
+        transform: "square_over_2m"
+        parameters:
+          m: 1.0
+
+    branch_target_mode: "inherit_existing_logic"
+
+    prediction_profile:
+      expected_relative_winner: "open"
+      expected_allowed_winners:
+        - "delta_p"
+        - "abs_delta_p"
+        - "delta_p2"
+        - "abs_delta_p2"
+      expected_delta_p2_role: "quadratic_advantage_test"
+      expected_irregularity_level: "moderate"
+      expected_direction_blindness_relevant: false
+      expected_prediction_status_if_missing_family: "failed"
+
+    analysis_variants:
+      - variant_id: "BOX_WEAKLY_DEFORMED_STANDARD"
+        enabled: true
+        pairing_mode: "all_pairs"
+        degeneracy_policy:
+          treat_sign_as_distinct: false
+          collapse_equal_energy_shells: false
+          exclude_sign_mirror_pairs: true
+        active_spectrum: "p"
+        active_markers:
+          - "delta_p"
+          - "abs_delta_p"
+          - "delta_p2"
+          - "abs_delta_p2"
+          - "delta_E_quad"

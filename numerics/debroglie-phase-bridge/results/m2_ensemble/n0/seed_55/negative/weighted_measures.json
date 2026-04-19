@@ -1,0 +1,19 @@
+{
+  "case": "n0",
+  "run_kind": "n0",
+  "kernel_mode": "negative",
+  "theta": 0.03,
+  "natural_connectivity": 0.00102099444318447,
+  "weighted_clustering": 0.0,
+  "global_efficiency": 0.010651907462387264,
+  "seed": 55,
+  "weighted_measure_spec": {
+    "clustering_mode": "onnela",
+    "use_zero_diagonal": true,
+    "length_epsilon": 1e-12
+  },
+  "null_spec": {
+    "null_mode": "random_phase",
+    "seed": 55
+  }
+}

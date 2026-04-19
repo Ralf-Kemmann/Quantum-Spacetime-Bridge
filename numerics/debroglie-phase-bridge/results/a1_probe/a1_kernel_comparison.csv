@@ -1,0 +1,7 @@
+case,kernel_mode,theta,n_edges,n_components,graph_diameter,defined_pair_fraction,topology_label
+k0,abs,0.03,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0
+k0,positive,0.03,0,4,,0.0,cc4_e0_diamNone
+k0,negative,0.03,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0
+n1a_alpha,abs,0.03,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0
+n1a_alpha,positive,0.03,0,4,,0.0,cc4_e0_diamNone
+n1a_alpha,negative,0.03,2,2,1.0,0.3333333333333333,cc2_e2_diam1.0

@@ -1,0 +1,9 @@
+{
+  "source_readout_link_supported": null,
+  "median_delta_source_chi": null,
+  "median_delta_source_lambda2": null,
+  "global_t0_control_pass": null,
+  "global_asymmetry_pass": null,
+  "final_decision": "",
+  "interpretation": ""
+}

@@ -1,0 +1,17 @@
+{
+  "run_id": "M33_V0_alpha_peak_robustness",
+  "n_rows": 26208,
+  "n_t_values": 6,
+  "n_p_families": 4,
+  "n_alpha_values": 52,
+  "n_pairs_per_family": {
+    "P0": 21,
+    "P1": 21,
+    "P2": 21,
+    "P3": 21
+  },
+  "finite_fraction_global": 1.0,
+  "source_origin": "phase_pair_stats.csv",
+  "all_pair_count_ok": 1,
+  "all_sign_consistency_ok": 1
+}

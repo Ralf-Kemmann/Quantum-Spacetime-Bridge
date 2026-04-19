@@ -1,0 +1,6 @@
+family_id,family_role,expected_type,audit_mode,dominant_level,mean_branch_match_frac,mean_identity_strength,family_pass_flag
+F1,control,control_symmetric,full_audit,delta_p2,0.5428571428571428,0.38571428571428573,1
+F2,compact_negative,compact_negative_candidate,full_audit,delta_p2,0.5184523809523809,0.33690476190476193,1
+F3,large_negative,large_negative_candidate,full_audit,delta_p2,0.6571428571428571,0.6142857142857143,1
+F4,large_negative_distorted,large_negative_candidate,full_audit,delta_p2,0.5630119047619048,0.4260238095238095,1
+F5,falsification_candidate,control_symmetric,full_audit,delta_p2,0.4683809523809524,0.23676190476190478,0

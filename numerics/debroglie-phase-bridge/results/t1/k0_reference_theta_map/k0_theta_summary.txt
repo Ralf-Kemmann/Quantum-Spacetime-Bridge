@@ -1,0 +1,5 @@
+=== K.0 exact theta intervals ===
+mode: free
+theta_ref: 0.03
+theta_crit: [0.032934387469762, 0.045647262536381, 0.054402111088937]
+n_intervals: 4

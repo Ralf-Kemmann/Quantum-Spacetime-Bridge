@@ -1,0 +1,1 @@
+run_id,t,p_family,alpha,pair_i,pair_j,p_i,p_j,delta_p,E_i,E_j,delta_E,var_dphi_x,mean_dphi_x,mean_cos_dphi,mean_abs_cos_dphi,mean_sin_dphi,kbar_ij,kbar_abs_ij,kbar_sign,finite_fraction

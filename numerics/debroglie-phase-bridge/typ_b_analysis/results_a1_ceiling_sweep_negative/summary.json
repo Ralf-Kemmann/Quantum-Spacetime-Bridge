@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-04-08T07:21:39+00:00",
+  "export_path": "./real_local_export_from_npz_negative.json",
+  "mapping_path": "./compatibility_local_model_mapping_npz_negative_v1.json",
+  "tested_ceilings": [
+    0.85,
+    0.9,
+    0.95,
+    0.99,
+    1.01
+  ],
+  "n_units": 4,
+  "per_ceiling": [
+    {
+      "ceiling": 0.85,
+      "n_units": 4,
+      "materially_active_count": 0,
+      "weak_ambiguous_count": 0,
+      "collapsed_count": 4,
+      "anti_stabilization_pass_count": 0,
+      "mean_a1_score": 1.0
+    },
+    {
+      "ceiling": 0.9,
+      "n_units": 4,
+      "materially_active_count": 0,
+      "weak_ambiguous_count": 0,
+      "collapsed_count": 4,
+      "anti_stabilization_pass_count": 0,
+      "mean_a1_score": 1.0
+    },
+    {
+      "ceiling": 0.95,
+      "n_units": 4,
+      "materially_active_count": 0,
+      "weak_ambiguous_count": 0,
+      "collapsed_count": 4,
+      "anti_stabilization_pass_count": 0,
+      "mean_a1_score": 1.0
+    },
+    {
+      "ceiling": 0.99,
+      "n_units": 4,
+      "materially_active_count": 0,
+      "weak_ambiguous_count": 0,
+      "collapsed_count": 4,
+      "anti_stabilization_pass_count": 0,
+      "mean_a1_score": 1.0
+    },
+    {
+      "ceiling": 1.01,
+      "n_units": 4,
+      "materially_active_count": 4,
+      "weak_ambiguous_count": 0,
+      "collapsed_count": 0,
+      "anti_stabilization_pass_count": 4,
+      "mean_a1_score": 1.0
+    }
+  ]
+}

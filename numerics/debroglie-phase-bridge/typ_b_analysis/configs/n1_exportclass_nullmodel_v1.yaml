@@ -1,0 +1,102 @@
+run:
+  run_id: "n1_exportclass_nullmodel_v1"
+  seed: 123
+  output_dir: "results/n1_exportclass_nullmodel_v1"
+  overwrite: false
+
+inputs:
+  dataset_roots:
+    - "../results/a1_probe/k0"
+    - "../results/a1_sign_scan/k0/theta_0.03"
+    - "../results/a1_probe/n1a_alpha"
+  export_classes:
+    - "negative"
+    - "abs"
+    - "positive"
+  export_pattern: "*.npz"
+  search_mode: "recursive"
+
+pair_unit:
+  enabled: true
+  source: "matrix_adapter_v22"
+  matrix_pair_mode: "adjacency_plus_threshold"
+
+  matrix_fields:
+    adjacency: "adjacency"
+    primary_score: "G"
+    secondary_score: "kbar"
+    edge_length: "edge_length"
+    d_rel: "d_rel"
+
+  threshold:
+    enabled: true
+    tau: 0.025
+    score_field: "G"
+    use_absolute_value: true
+
+  weights:
+    use_edge_length_as_weight: true
+    fallback_weight_field: "G"
+
+baseline:
+  neighborhood:
+    mode: "shared_endpoint"
+    directed: false
+
+alternative:
+  neighborhood:
+    mode: "graph_distance_1"
+    directed: false
+    require_mutual: false
+
+a1:
+  enabled: true
+  stabilization_ceiling: 0.95
+  neighbor_min: 3
+  late_stage_rule: "reformed"
+
+b1:
+  enabled: true
+  conflict_penalty: 1.0
+
+decision:
+  enabled: true
+  launchability:
+    min_pair_units: 1
+    min_local_shells: 1
+
+nullmodel:
+  enabled: true
+
+  target_rule:
+    require_negative_launchable: true
+    require_abs_launchable: true
+    require_positive_non_launchable: true
+
+  ordering_rule:
+    use_combined_status: true
+    treat_negative_abs_as_joint_upper_block: true
+    require_positive_as_lower_block: true
+
+  role_swaps:
+    enabled: true
+    include:
+      - "negative<->abs"
+      - "negative<->positive"
+      - "abs<->positive"
+
+  permutations:
+    enabled: true
+    max_permutations_per_dataset: 6
+    include_identity: true
+
+reporting:
+  write_summary_json: true
+  write_runs_csv: true
+  write_readout_md: true
+  write_ordering_table_csv: true
+
+validation:
+  strict_export_class_presence: true
+  fail_on_empty_input: true
+  fail_on_nan_metrics: true

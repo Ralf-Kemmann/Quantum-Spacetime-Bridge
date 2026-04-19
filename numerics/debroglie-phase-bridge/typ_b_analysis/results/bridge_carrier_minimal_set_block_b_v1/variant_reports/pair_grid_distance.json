@@ -1,0 +1,17 @@
+{
+  "variant": "pair_grid_distance",
+  "feature_count": 2,
+  "overall_pass": false,
+  "result_label": "failed",
+  "separation_margin_mean": 0.049259259259259225,
+  "assignment_score": 0.3666666666666667,
+  "original_stability_score": 0.815,
+  "original_vs_control_margin_delta": 0.049259259259259225,
+  "type_B_like_pattern_detected": false,
+  "positive_bootstrap_fraction": 0.815,
+  "n_active_features": 2,
+  "active_features": [
+    "grid_deviation_score",
+    "distance_to_type_D"
+  ]
+}

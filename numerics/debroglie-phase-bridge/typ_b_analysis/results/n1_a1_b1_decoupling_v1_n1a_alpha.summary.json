@@ -1,0 +1,270 @@
+{
+  "run_id": "n1_a1_b1_decoupling_v1",
+  "block": "N1_A1_B1_DECOUPLING",
+  "status": "completed",
+  "timestamp_utc": "2026-04-09T21:48:58Z",
+  "seed": 123,
+  "inputs": {
+    "export_root": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/results/a1_probe/n1a_alpha",
+    "export_classes": [
+      "negative",
+      "abs",
+      "positive"
+    ],
+    "export_pattern": "*.npz",
+    "search_mode": "recursive",
+    "input_file_counts": {
+      "negative": 1,
+      "abs": 1,
+      "positive": 1
+    }
+  },
+  "baseline": {
+    "neighborhood_mode": "shared_endpoint",
+    "directed": false
+  },
+  "alternative": {
+    "neighborhood_mode": "graph_distance_1",
+    "directed": false,
+    "require_mutual": false
+  },
+  "parameters": {
+    "pair_unit": {
+      "matrix_pair_mode": "adjacency_plus_threshold",
+      "score_field": "G",
+      "tau": 0.025
+    },
+    "a1": {
+      "stabilization_ceiling": 0.95,
+      "neighbor_min": 3,
+      "late_stage_rule": "reformed"
+    },
+    "b1": {
+      "conflict_penalty": 1.0
+    },
+    "decision": {
+      "min_pair_units": 1,
+      "min_local_shells": 1
+    }
+  },
+  "per_class": {
+    "negative": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "baseline_dominant_channel": "none",
+        "alternative_dominant_channel": "none",
+        "dominance_shift": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    },
+    "abs": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 2,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": 0.0,
+        "max_neighbor_count": 0,
+        "connected_component_count": 2,
+        "largest_component_size": 1,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "baseline_dominant_channel": "none",
+        "alternative_dominant_channel": "none",
+        "dominance_shift": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    },
+    "positive": {
+      "baseline": {
+        "launchable": false,
+        "pair_unit_count": 0,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": null,
+        "max_neighbor_count": null,
+        "connected_component_count": 0,
+        "largest_component_size": 0,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "alternative": {
+        "launchable": false,
+        "pair_unit_count": 0,
+        "shell_count": 0,
+        "mean_neighbor_count": 0.0,
+        "median_neighbor_count": null,
+        "max_neighbor_count": null,
+        "connected_component_count": 0,
+        "largest_component_size": 0,
+        "a1_score_mean": null,
+        "a1_score_median": null,
+        "a1_status": "not_applicable",
+        "a1_only_outcome": "na",
+        "b1_score_mean": null,
+        "b1_score_median": null,
+        "b1_status": "not_applicable",
+        "b1_only_outcome": "na",
+        "combined_status": "boundary_non_launchable",
+        "a1_drives_result": false,
+        "b1_drives_result": false,
+        "a1_b1_disagreement": false,
+        "dominant_channel": "none",
+        "notes": ""
+      },
+      "comparison": {
+        "delta_launchable": "same_false",
+        "delta_shell_count": 0,
+        "delta_mean_neighbor_count": 0.0,
+        "delta_a1_status": "unchanged",
+        "delta_b1_status": "unchanged",
+        "delta_combined_status": "unchanged",
+        "baseline_dominant_channel": "none",
+        "alternative_dominant_channel": "none",
+        "dominance_shift": "unchanged",
+        "interpretation_flag": "stable",
+        "comment": ""
+      }
+    }
+  },
+  "global_summary": {
+    "b1_dominant_classes": [],
+    "a1_dominant_classes": [],
+    "mixed_classes": [],
+    "none_classes": [
+      "abs",
+      "negative",
+      "positive"
+    ],
+    "disagreement_count": 0,
+    "launchable_class_count_baseline": 0,
+    "launchable_class_count_alternative": 0
+  },
+  "decision": {
+    "block_judgement": "inconclusive",
+    "short_reason": "Too little launchable local structure is present to cleanly separate A1 and B1 contributions."
+  },
+  "validation": {
+    "all_export_classes_present": true,
+    "empty_inputs_detected": false,
+    "nan_metrics_detected": false,
+    "validation_notes": []
+  },
+  "warnings": [],
+  "open_points": [
+    "Decoupling is diagnostic and does not by itself establish physical privilege.",
+    "A1/B1 dominance may still depend on adapter and threshold choices.",
+    "n1a_alpha should be treated as a sensitivity case, not as a settled regime failure by itself."
+  ]
+}

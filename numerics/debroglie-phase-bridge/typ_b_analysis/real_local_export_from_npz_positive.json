@@ -1,0 +1,53 @@
+{
+  "export_id": "matrices_local_export",
+  "source_npz": "../results/a1_probe/k0/positive/matrices.npz",
+  "conversion_mode": "g_nonzero",
+  "n_nodes": 4,
+  "unit_count": 2,
+  "units": [
+    {
+      "unit": {
+        "uid": "p0_2",
+        "kind": "pair_unit",
+        "endpoints": [
+          0,
+          2
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.024663321204975212,
+        "raw_kbar_value": 0.024663321204975212,
+        "g_value": 0.024663321204975212,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": 1
+      },
+      "topology": {
+        "immediate_neighbors": []
+      }
+    },
+    {
+      "unit": {
+        "uid": "p1_3",
+        "kind": "pair_unit",
+        "endpoints": [
+          1,
+          3
+        ]
+      },
+      "metrics": {
+        "support_strength": 0.024663321204975212,
+        "raw_kbar_value": 0.024663321204975212,
+        "g_value": 0.024663321204975212,
+        "adjacency_value": 0
+      },
+      "structure": {
+        "support_sector": 1
+      },
+      "topology": {
+        "immediate_neighbors": []
+      }
+    }
+  ]
+}

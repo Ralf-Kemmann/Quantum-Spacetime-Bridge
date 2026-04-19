@@ -1,0 +1,14 @@
+run_id,aggregation_level,aggregation_key,n_total,n_S1,n_S2,n_S3,frac_S1,frac_S2,frac_S3,dominant_source_branch,source_branch_entropy
+M33_V0_alpha_peak_robustness,global,global,60,14,15,12,0.23333333333333334,0.25,0.2,,1.0080281937083893
+M33_V0_alpha_peak_robustness,by_t,2.0,12,0,4,0,0.0,0.3333333333333333,0.0,,0.3662040962227032
+M33_V0_alpha_peak_robustness,by_t,5.0,12,6,0,1,0.5,0.0,0.08333333333333333,S1,0.5536491444289726
+M33_V0_alpha_peak_robustness,by_t,10.0,12,0,3,3,0.0,0.25,0.25,,0.6931471805599453
+M33_V0_alpha_peak_robustness,by_t,20.0,12,7,3,2,0.5833333333333334,0.25,0.16666666666666666,S1,0.9596147939120492
+M33_V0_alpha_peak_robustness,by_t,40.0,12,1,5,6,0.08333333333333333,0.4166666666666667,0.5,S3,0.9184277849930976
+M33_V0_alpha_peak_robustness,by_p_family,P0,15,3,0,4,0.2,0.0,0.26666666666666666,,0.6743558064821054
+M33_V0_alpha_peak_robustness,by_p_family,P1,15,3,3,3,0.2,0.2,0.2,,0.9656627474604602
+M33_V0_alpha_peak_robustness,by_p_family,P2,15,5,3,5,0.3333333333333333,0.2,0.3333333333333333,,1.0542957749322266
+M33_V0_alpha_peak_robustness,by_p_family,P3,15,3,9,0,0.2,0.6,0.0,S2,0.6283829567464145
+M33_V0_alpha_peak_robustness,by_theta,1e-09,20,5,4,4,0.25,0.2,0.2,,0.9903487552536128
+M33_V0_alpha_peak_robustness,by_theta,3e-09,20,4,5,4,0.2,0.25,0.2,,0.9903487552536128
+M33_V0_alpha_peak_robustness,by_theta,1e-08,20,5,6,4,0.25,0.3,0.2,,1.0296530140645737

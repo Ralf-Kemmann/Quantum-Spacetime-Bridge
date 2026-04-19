@@ -1,0 +1,14 @@
+{
+  "n_families_total": 5,
+  "n_families_passed": 4,
+  "family_pass_fraction": 0.8,
+  "delta_p2_dominant_count": 5,
+  "control_alert_families": [],
+  "matched_pair_interpretations": [
+    "same_branch_dominance",
+    "same_branch_dominance"
+  ],
+  "f5_falsification_alert_flag": 0,
+  "global_pass_flag": 1,
+  "notes": "M.3.9a.2 evaluates family-wise dominance, matched-pair comparison, and F5 falsification behavior."
+}

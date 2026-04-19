@@ -1,0 +1,77 @@
+m39x_external_reference_audit:
+  enabled: true
+
+  input:
+    external_families: "configs/m39x_external_reference_families.yaml"
+
+  family_selection:
+    include_families:
+      - "ER1_RING"
+      - "ER2_CAVITY"
+      - "ER3_MEMBRANE"
+
+    family_roles:
+      ER1_RING: "external_control"
+      ER2_CAVITY: "external_main_test"
+      ER3_MEMBRANE: "external_hard_bias_test"
+
+  operationalization:
+    p_mode:
+      direct_momentum_label: "direct_p"
+      proxy_momentum_label: "proxy_from_k_or_p2"
+
+    normalization:
+      enabled: true
+      mode: "family_internal_first_mode"
+      epsilon: 1.0e-12
+
+    ordering:
+      mode: "ascending_p2"
+      tie_break_rule: "lexicographic_mode_label"
+
+    pairing:
+      default_mode: "sorted_neighbor"
+      allow_family_specific_override: true
+
+  audit:
+    run_delta_p_audit: true
+    run_delta_p2_audit: true
+    run_branch_summary: true
+    run_bias_check: true
+    run_source_notes: true
+    run_external_matched_pairs: false
+
+  thresholds:
+    delta_p2_min_dominance_margin: 0.05
+    control_max_branch_strength: 0.55
+    min_candidate_branch_strength: 0.50
+    min_candidate_identity_strength: 0.30
+    min_global_pass_fraction: 0.66
+
+  family_pass_logic:
+    external_control:
+      allow_pass_if_delta_p2_dominant: true
+      require_branch_match_frac_leq: 0.55
+
+    external_main_test:
+      require_delta_p2_dominant: true
+      require_branch_match_frac_geq: 0.50
+      require_identity_strength_geq: 0.30
+
+    external_hard_bias_test:
+      require_delta_p2_dominant: false
+      interpretation_mode: "stress_test"
+      record_pass_flag: true
+
+  outputs:
+    root: "runs/M39x_external_reference_audit"
+
+    external_family_definitions_expanded: "external_family_definitions_expanded.csv"
+    external_family_pair_summary: "external_family_pair_summary.csv"
+    external_family_branch_summary: "external_family_branch_summary.csv"
+    external_family_global_summary: "external_family_global_summary.json"
+    external_family_bias_check_report: "external_family_bias_check_report.md"
+    external_family_source_notes: "external_family_source_notes.md"
+
+    external_family_matched_pair_summary: "external_family_matched_pair_summary.csv"
+    external_family_matched_pair_compare: "external_family_matched_pair_compare.csv"

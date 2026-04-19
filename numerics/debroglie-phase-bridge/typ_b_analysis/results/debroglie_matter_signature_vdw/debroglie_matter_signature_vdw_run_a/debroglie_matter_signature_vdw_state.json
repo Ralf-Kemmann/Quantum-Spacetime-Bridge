@@ -1,0 +1,405 @@
+{
+  "run_id": "debroglie_matter_signature_vdw_run_a",
+  "created_utc": "2026-04-11T15:48:01.255623+00:00",
+  "conditions": {
+    "temperature_C": 20.0,
+    "pressure_mbar": 1013.0,
+    "volume_m3": 1.0,
+    "temperature_K": 293.15,
+    "pressure_Pa": 101300.0
+  },
+  "model_assumptions": {
+    "species_mode": "atomic_species",
+    "gas_model": "ideal_gas",
+    "velocity_model": "rms",
+    "frequency_mode": "kinetic_energy_based",
+    "density_mode": "ideal_gas_number_density",
+    "vdw_mode": "disabled"
+  },
+  "tau_grid": [
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "species_results": [
+    {
+      "species": "hydrogen",
+      "symbol": "H",
+      "mass_u": 1.00784,
+      "mass_kg": 1.673557692882144e-27,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 2693.5613624356606,
+      "momentum_kg_m_s": 4.507830339354309e-24,
+      "lambda_db_m": 1.4699022924960177e-10,
+      "k_m_inv": 42745598392.87147,
+      "frequency_hz": 9162382344005.215,
+      "omega_rad_s": 57568946122615.23,
+      "energy_j": 6.071058815249999e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 1.0,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.6666666666666666
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.6666666666666666
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    },
+    {
+      "species": "sodium",
+      "symbol": "Na",
+      "mass_u": 22.98976928,
+      "mass_kg": 3.8175410021560553e-26,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 563.9691691922197,
+      "momentum_kg_m_s": 2.1529754273431845e-23,
+      "lambda_db_m": 3.07763389486368e-11,
+      "k_m_inv": 204156359132.43973,
+      "frequency_hz": 9162382344005.217,
+      "omega_rad_s": 57568946122615.234,
+      "energy_j": 6.07105881525e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 0.09612112579062518,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.36537370859687507
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.36537370859687507
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    },
+    {
+      "species": "carbon",
+      "symbol": "C",
+      "mass_u": 12.011,
+      "mass_kg": 1.99447347289326e-26,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 780.2487574860686,
+      "momentum_kg_m_s": 1.5561854490638903e-23,
+      "lambda_db_m": 4.257892370080863e-11,
+      "k_m_inv": 147565620759.4618,
+      "frequency_hz": 9162382344005.219,
+      "omega_rad_s": 57568946122615.25,
+      "energy_j": 6.0710588152500005e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 0.28376967743288284,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.4279232258109609
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.4279232258109609
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    },
+    {
+      "species": "nitrogen",
+      "symbol": "N",
+      "mass_u": 14.007,
+      "mass_kg": 2.32591707058662e-26,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 722.5203853827405,
+      "momentum_kg_m_s": 1.6805224982085395e-23,
+      "lambda_db_m": 3.9428631018409355e-11,
+      "k_m_inv": 159355908254.7387,
+      "frequency_hz": 9162382344005.215,
+      "omega_rad_s": 57568946122615.23,
+      "energy_j": 6.071058815249999e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 0.2393352244259701,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.41311174147532337
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.41311174147532337
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    },
+    {
+      "species": "sulfur",
+      "symbol": "S",
+      "mass_u": 32.06,
+      "mass_kg": 5.3236882475196e-26,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 477.57425867962496,
+      "momentum_kg_m_s": 2.5424564682506047e-23,
+      "lambda_db_m": 2.6061685746616612e-11,
+      "k_m_inv": 241088982818.20792,
+      "frequency_hz": 9162382344005.217,
+      "omega_rad_s": 57568946122615.234,
+      "energy_j": 6.07105881525e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 0.0,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.3333333333333333
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.3333333333333333
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    },
+    {
+      "species": "phosphorus",
+      "symbol": "P",
+      "mass_u": 30.973761998,
+      "mass_kg": 5.143314183724947e-26,
+      "temperature_K": 293.15,
+      "pressure_Pa": 101300.0,
+      "volume_m3": 1.0,
+      "number_density_m3": 2.502858308970984e+25,
+      "particle_count": 2.502858308970984e+25,
+      "mol_count": 41.56094001646989,
+      "velocity_m_s": 485.8762721872397,
+      "momentum_kg_m_s": 2.499014322276033e-23,
+      "lambda_db_m": 2.6514734593298206e-11,
+      "k_m_inv": 236969571958.9706,
+      "frequency_hz": 9162382344005.219,
+      "omega_rad_s": 57568946122615.25,
+      "energy_j": 6.0710588152500005e-21,
+      "vdw_result": null,
+      "wave_surrogates": {
+        "length_scale_score": 0.009962625305522298,
+        "energy_score": 0.5,
+        "occupancy_score": 0.5,
+        "signature_score_wave": 0.3366542084351741
+      },
+      "vdw_surrogates": null,
+      "combined_surrogates": {
+        "signature_score_combined": 0.3366542084351741
+      },
+      "tau_response": [
+        {
+          "tau": 0.001,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.01,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 0.1,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        },
+        {
+          "tau": 1.0,
+          "tau_response_score": 0.0,
+          "tau_alignment_score": 0.0,
+          "tau_window_label": "off_window"
+        }
+      ]
+    }
+  ],
+  "comparisons": {
+    "mass_only_ordering": [
+      "sulfur",
+      "phosphorus",
+      "sodium",
+      "nitrogen",
+      "carbon",
+      "hydrogen"
+    ],
+    "wave_signature_ordering": [
+      "hydrogen",
+      "carbon",
+      "nitrogen",
+      "sodium",
+      "phosphorus",
+      "sulfur"
+    ],
+    "combined_signature_ordering": [
+      "hydrogen",
+      "carbon",
+      "nitrogen",
+      "sodium",
+      "phosphorus",
+      "sulfur"
+    ],
+    "matter_sensitive_delta_wave": {
+      "sulfur": 5.0,
+      "phosphorus": 3.0,
+      "sodium": 1.0,
+      "nitrogen": -1.0,
+      "carbon": -3.0,
+      "hydrogen": -5.0
+    },
+    "matter_sensitive_delta_vdw": {
+      "sulfur": 5.0,
+      "phosphorus": 3.0,
+      "sodium": 1.0,
+      "nitrogen": -1.0,
+      "carbon": -3.0,
+      "hydrogen": -5.0
+    }
+  }
+}

@@ -1,0 +1,4 @@
+export_class,neighborhood_mode,launchable,pair_unit_count,shell_count,mean_neighbor_count,median_neighbor_count,max_neighbor_count,connected_component_count,largest_component_size,a1_score_mean,a1_score_median,a1_status,b1_score_mean,b1_score_median,b1_status,combined_status,notes
+negative,graph_distance_1,False,2,0,0.0,0.0,0,2,1,,,not_applicable,,,not_applicable,boundary_non_launchable,
+abs,graph_distance_1,False,2,0,0.0,0.0,0,2,1,,,not_applicable,,,not_applicable,boundary_non_launchable,
+positive,graph_distance_1,False,2,0,0.0,0.0,0,2,1,,,not_applicable,,,not_applicable,boundary_non_launchable,

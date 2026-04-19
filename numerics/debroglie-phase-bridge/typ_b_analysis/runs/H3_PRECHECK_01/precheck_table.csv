@@ -1,0 +1,4 @@
+source_file,source_block,block_judgement,tie_density,launchability_signal,structure_signal,readiness_contribution,comment
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_v1/summary.json,N1_NEGATIVE_VS_ABS,inconclusive,0.666667,unknown,unknown,conditionally_ready,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_markers_v1/summary.json,N1_NEGATIVE_VS_ABS_MARKERS,inconclusive,1.0,present,unknown,weakly_ready_at_best,
+/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_alt_neighborhood_v22/summary.json,N1,inconclusive,,absent,boundary_only,boundary_limited,

@@ -1,0 +1,146 @@
+{
+  "run_id": "bridge_carrier_leave_one_out_v1",
+  "source_run_id": "M39x_current_bridge_eval",
+  "mode": "internal_only",
+  "base_variant": "full",
+  "variants_tested": 5,
+  "core_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "simple_rigidity_surrogate",
+    "grid_deviation_score"
+  ],
+  "results": [
+    {
+      "variant": "full",
+      "removed_variable": null,
+      "feature_count": 4,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.12074074074074076,
+      "assignment_score": 0.6333333333333333,
+      "original_stability_score": 0.945,
+      "original_vs_control_margin_delta": 0.12074074074074076,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.945,
+      "n_active_features": 4,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.0,
+      "delta_assignment_score": 0.0,
+      "delta_original_stability_score": 0.0,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_role_signal": "baseline"
+    },
+    {
+      "variant": "minus_distance_to_type_D",
+      "removed_variable": "distance_to_type_D",
+      "feature_count": 3,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.1639506172839505,
+      "assignment_score": 0.7444444444444445,
+      "original_stability_score": 0.985,
+      "original_vs_control_margin_delta": 0.1639506172839505,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.985,
+      "n_active_features": 3,
+      "active_features": [
+        "spacing_cv",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.043209876543209735,
+      "delta_assignment_score": 0.11111111111111116,
+      "delta_original_stability_score": 0.040000000000000036,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_role_signal": "candidate_redundant_or_diagnostic"
+    },
+    {
+      "variant": "minus_spacing_cv",
+      "removed_variable": "spacing_cv",
+      "feature_count": 3,
+      "overall_pass": true,
+      "result_label": "supported",
+      "separation_margin_mean": 0.16543209876543202,
+      "assignment_score": 0.7333333333333334,
+      "original_stability_score": 0.925,
+      "original_vs_control_margin_delta": 0.16543209876543202,
+      "type_B_like_pattern_detected": true,
+      "positive_bootstrap_fraction": 0.925,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "simple_rigidity_surrogate",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": 0.04469135802469126,
+      "delta_assignment_score": 0.10000000000000009,
+      "delta_original_stability_score": -0.019999999999999907,
+      "pass_changed": false,
+      "label_changed": false,
+      "provisional_role_signal": "candidate_redundant_or_diagnostic"
+    },
+    {
+      "variant": "minus_simple_rigidity_surrogate",
+      "removed_variable": "simple_rigidity_surrogate",
+      "feature_count": 3,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": 0.02839506172839512,
+      "assignment_score": 0.4222222222222222,
+      "original_stability_score": 0.82,
+      "original_vs_control_margin_delta": 0.02839506172839512,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.82,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "grid_deviation_score"
+      ],
+      "delta_separation_margin_mean": -0.09234567901234564,
+      "delta_assignment_score": -0.21111111111111108,
+      "delta_original_stability_score": -0.125,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_role_signal": "candidate_primary"
+    },
+    {
+      "variant": "minus_grid_deviation_score",
+      "removed_variable": "grid_deviation_score",
+      "feature_count": 3,
+      "overall_pass": false,
+      "result_label": "failed",
+      "separation_margin_mean": 0.12518518518518507,
+      "assignment_score": 0.3666666666666667,
+      "original_stability_score": 0.895,
+      "original_vs_control_margin_delta": 0.12518518518518507,
+      "type_B_like_pattern_detected": false,
+      "positive_bootstrap_fraction": 0.895,
+      "n_active_features": 3,
+      "active_features": [
+        "distance_to_type_D",
+        "spacing_cv",
+        "simple_rigidity_surrogate"
+      ],
+      "delta_separation_margin_mean": 0.0044444444444443065,
+      "delta_assignment_score": -0.2666666666666666,
+      "delta_original_stability_score": -0.04999999999999993,
+      "pass_changed": true,
+      "label_changed": true,
+      "provisional_role_signal": "candidate_primary"
+    }
+  ],
+  "interpretation_rule": {
+    "strong_collapse": "likely primary",
+    "moderate_weakening": "likely secondary/supportive",
+    "little_change": "likely diagnostic_or_redundant"
+  }
+}

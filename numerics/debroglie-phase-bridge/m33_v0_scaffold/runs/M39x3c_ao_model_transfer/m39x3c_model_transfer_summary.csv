@@ -1,0 +1,4 @@
+ao_regime_id,fsw_reference_regime,dominant_marker,dominant_marker_match_flag,delta_p2_relative_gain_vs_type_A,distance_to_type_D,distance_to_FSW_intermediate,observed_irregularity_level,qualitative_jump_candidate_flag,fsw_like_type_B_pattern_flag,model_transfer_support_flag,prediction_match_status,type_B_model_transfer_value,model_transfer_assessment
+AO_WEAK,FSW_INTERMEDIATE,delta_p,True,0.472,0.2,0.30000000000000004,low,False,True,False,partially_supported,0.3719999999999999,AO_WEAK shows a first transferable Type-B signal.
+AO_INTERMEDIATE,FSW_INTERMEDIATE,delta_p,True,0.249,0.2,0.30000000000000004,low,False,True,False,open,0.14899999999999997,AO_INTERMEDIATE does not yet support model transfer.
+AO_STRONG,FSW_INTERMEDIATE,delta_p,True,0.132,0.232,0.132,low_to_moderate,True,True,False,partially_supported,0.23199999999999998,AO_STRONG remains compatible but edge-near.

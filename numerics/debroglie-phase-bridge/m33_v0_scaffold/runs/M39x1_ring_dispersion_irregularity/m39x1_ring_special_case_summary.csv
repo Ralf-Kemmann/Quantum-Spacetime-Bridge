@@ -1,0 +1,4 @@
+family_id,variant_id,pairing_mode,dominant_marker,sign_sensitivity_flag,degeneracy_sensitivity_flag,ladder_regular_flag,delta_p2_blind_to_direction_flag,spacing_cv,block_positive_flag
+ER1_RING,RING_SIGNED,all_pairs,delta_p,1,0,0,1,0.33333333333333337,1
+ER1_RING,RING_ABS,unique_abs_pairs,delta_p,0,0,0,0,1.2247448713915892,0
+ER1_RING,RING_DEGEN_SAFE,degeneracy_safe_pairs,delta_p,0,0,0,0,0.33333333333333337,0

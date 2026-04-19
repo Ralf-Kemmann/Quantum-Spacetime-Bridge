@@ -1,0 +1,18 @@
+# M.3.8b-v2 Hard-Branch / Full-Pair Validation
+
+- n_cases_total: 480
+- hard_branch_preservation_rate: 0.9833333333333333
+- nearest_branch_preservation_rate: 0.98125
+- soft_branch_preservation_rate: 0.98125
+- hard_branch_ambiguity_rate: 0.9854166666666667
+- delta_p_preservation_rate: 0.965625
+- delta_p2_preservation_rate: 0.9458333333333333
+- pair_preservation_rate: 0.8479166666666667
+- pair_overlap_top3_mean: 0.9347222222222221
+- weighted_pair_overlap_top3_mean: 0.8816121102070226
+- most_stable_identity_level: delta_p_class
+- most_dispersion_sensitive_branch: S2
+- S2_migration_mode: major_migration
+- final_label: I3v2-3
+
+This v2 uses full persisted pair tables and an independent hard-branch rule.

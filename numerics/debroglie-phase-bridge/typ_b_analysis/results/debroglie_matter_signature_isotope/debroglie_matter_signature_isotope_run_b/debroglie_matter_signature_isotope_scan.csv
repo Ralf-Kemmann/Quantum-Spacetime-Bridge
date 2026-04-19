@@ -1,0 +1,4 @@
+isotope,label,element_symbol,mass_u,proton_number,neutron_number,electron_count,lambda_db,energy_j,number_density,valence_electron_count,shell_closure_score,length_scale_score,energy_score,occupancy_score,signature_score_wave,valence_score,signature_score_combined,matter_sensitive_delta_wave,matter_sensitive_delta_isotope
+1h,1H,H,1.00782503223,1,0,1,1.4699132076236666e-10,6.071058815249999e-21,2.502858308970984e+25,1,0.0,1.0,0.5,0.5,0.6666666666666666,0.5,0.5833333333333333,-2.0,-2.0
+2h,2H,H,2.01410177812,1,1,1,1.0397850199213139e-10,6.071058815249999e-21,2.502858308970984e+25,1,0.0,0.36835586081658805,0.5,0.5,0.456118620272196,0.5,0.47805931013609804,0.0,0.0
+3h,3H,H,3.0160492779,1,2,1,8.496988808531537e-11,6.071058815249999e-21,2.502858308970984e+25,1,0.0,0.0,0.5,0.5,0.3333333333333333,0.5,0.41666666666666663,2.0,2.0

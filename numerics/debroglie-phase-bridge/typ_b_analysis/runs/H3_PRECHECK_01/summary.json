@@ -1,0 +1,42 @@
+{
+  "run_id": "H3_PRECHECK_01",
+  "created_at_utc": "2026-04-17T06:22:14Z",
+  "differentiation_status": "weak",
+  "launchability_status": "mixed",
+  "structure_readiness_status": "weak_to_boundary_limited",
+  "h3_package_readiness": "not_ready_yet",
+  "primary_blocker": "insufficient internal differentiation and boundary-dominated local structure",
+  "summary_text": "Current data do not yet provide a strong enough internal differentiation and local structure basis for a clean H3 package-role hierarchy test.",
+  "block_rows": [
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_v1/summary.json",
+      "source_block": "N1_NEGATIVE_VS_ABS",
+      "block_judgement": "inconclusive",
+      "tie_density": 0.666667,
+      "launchability_signal": "unknown",
+      "structure_signal": "unknown",
+      "readiness_contribution": "conditionally_ready",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_negative_vs_abs_markers_v1/summary.json",
+      "source_block": "N1_NEGATIVE_VS_ABS_MARKERS",
+      "block_judgement": "inconclusive",
+      "tie_density": 1.0,
+      "launchability_signal": "present",
+      "structure_signal": "unknown",
+      "readiness_contribution": "weakly_ready_at_best",
+      "comment": ""
+    },
+    {
+      "source_file": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/debroglie-phase-bridge/debroglie-phase-bridge/typ_b_analysis/results/n1_alt_neighborhood_v22/summary.json",
+      "source_block": "N1",
+      "block_judgement": "inconclusive",
+      "tie_density": null,
+      "launchability_signal": "absent",
+      "structure_signal": "boundary_only",
+      "readiness_contribution": "boundary_limited",
+      "comment": ""
+    }
+  ]
+}

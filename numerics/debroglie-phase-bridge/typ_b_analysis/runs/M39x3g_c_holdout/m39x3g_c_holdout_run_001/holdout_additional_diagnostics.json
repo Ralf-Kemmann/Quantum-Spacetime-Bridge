@@ -1,0 +1,104 @@
+{
+  "run_id": "m39x3g_c_holdout_run_001",
+  "h2_mapping_diagnostics": {
+    "reduced_mapping_mode": true,
+    "proxy_rigidity_used": true,
+    "direct_feature_count": 3,
+    "proxy_feature_count": 1,
+    "missing_direct_features_before_proxy_fill": [
+      "simple_rigidity_surrogate"
+    ]
+  },
+  "margin_diagnostics": {
+    "control_margin_mean": 0.32890968110271984,
+    "control_margin_median": 0.3417977028063483,
+    "control_margin_max": 0.3562661316335307,
+    "original_minus_control_mean": 0.027356450530810872,
+    "original_minus_control_median": 0.014468428827182411,
+    "original_minus_control_max": 0.0,
+    "original_rank_among_controls": 1,
+    "n_control_margins": 3
+  },
+  "stability_diagnostics": {
+    "original_stability_score": 0.0,
+    "reference_original_stability_score_min": 0.8,
+    "stability_gap": -0.8,
+    "note": "Current holdout stability is derived from inherited full-protocol logic and may be too strict for reduced H2 mode."
+  },
+  "relative_advantage_diagnostics": {
+    "original_vs_control_margin_delta": 0.014468428827182411,
+    "reference_min_original_over_control_margin_delta": 0.086,
+    "delta_gap": -0.07153157117281758,
+    "note": "Current relative-advantage threshold is inherited from the hardened internal protocol."
+  },
+  "stability_trace": {
+    "holdout_reference_n_rows": 3,
+    "holdout_reference_dataset_count": 3,
+    "holdout_reference_group_count": 1,
+    "proxy_rigidity_used": true,
+    "reduced_mapping_mode": true,
+    "raw_signal_summary": {
+      "holdout_margin_passes_type_b_min": true,
+      "holdout_assignment_passes_type_b_min": true,
+      "holdout_stability_passes_type_b_min": false
+    },
+    "per_control_trace": [
+      {
+        "control_family": "K1a",
+        "stability_score_mean": 0.0,
+        "type_B_like_pattern_detected": false,
+        "assignment_score_mean": 1.0,
+        "separation_margin_mean": 0.2886652088682804,
+        "separation_margin_ci_low": 0.2602939391554819,
+        "margin_pass_under_type_b_rules": true,
+        "assignment_pass_under_type_b_rules": true,
+        "ci_low_pass_under_type_b_rules": true
+      },
+      {
+        "control_family": "K2a",
+        "stability_score_mean": 0.0,
+        "type_B_like_pattern_detected": false,
+        "assignment_score_mean": 1.0,
+        "separation_margin_mean": 0.3562661316335307,
+        "separation_margin_ci_low": 0.3320760788734794,
+        "margin_pass_under_type_b_rules": true,
+        "assignment_pass_under_type_b_rules": true,
+        "ci_low_pass_under_type_b_rules": true
+      },
+      {
+        "control_family": "K3a",
+        "stability_score_mean": 0.0,
+        "type_B_like_pattern_detected": false,
+        "assignment_score_mean": 1.0,
+        "separation_margin_mean": 0.3417977028063483,
+        "separation_margin_ci_low": 0.31741339402595703,
+        "margin_pass_under_type_b_rules": true,
+        "assignment_pass_under_type_b_rules": true,
+        "ci_low_pass_under_type_b_rules": true
+      }
+    ],
+    "aggregate_trace_flags": {
+      "any_type_B_like_pattern_detected": false,
+      "any_ci_low_pass_under_type_b_rules": true,
+      "all_assignment_pass_under_type_b_rules": true,
+      "all_margin_pass_under_type_b_rules": true,
+      "all_ci_low_pass_under_type_b_rules": true
+    },
+    "likely_zeroing_candidates": [
+      "reduced_mapping_mode_active",
+      "proxy_rigidity_used",
+      "single_group_holdout_reference",
+      "very_small_holdout_reference",
+      "no_type_B_like_pattern_detected_in_resampling_outputs"
+    ],
+    "note": "Diagnostic trace only; localizes plausible causes of stability collapse in reduced H2 mode."
+  },
+  "reduced_h2_stability_diagnostics": {
+    "reduced_h2_stability_score": 1.0,
+    "component_mean_margin_pass": 1.0,
+    "component_mean_assignment_pass": 1.0,
+    "component_mean_ci_low_pass": 1.0,
+    "n_controls_used": 3,
+    "note": "Diagnostic reduced-H2 stability score based on margin/assignment/CI pass rates only; excludes type_B_like_pattern_detected gating."
+  }
+}

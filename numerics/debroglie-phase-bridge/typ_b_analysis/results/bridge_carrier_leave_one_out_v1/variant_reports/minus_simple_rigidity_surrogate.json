@@ -1,0 +1,19 @@
+{
+  "variant": "minus_simple_rigidity_surrogate",
+  "removed_variable": "simple_rigidity_surrogate",
+  "feature_count": 3,
+  "overall_pass": false,
+  "result_label": "failed",
+  "separation_margin_mean": 0.02839506172839512,
+  "assignment_score": 0.4222222222222222,
+  "original_stability_score": 0.82,
+  "original_vs_control_margin_delta": 0.02839506172839512,
+  "type_B_like_pattern_detected": false,
+  "positive_bootstrap_fraction": 0.82,
+  "n_active_features": 3,
+  "active_features": [
+    "distance_to_type_D",
+    "spacing_cv",
+    "grid_deviation_score"
+  ]
+}

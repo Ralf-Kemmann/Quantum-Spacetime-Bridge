@@ -1,0 +1,5 @@
+=== K.0 vs N.0 theta comparison ===
+mode: free
+theta_ref: 0.03
+n_seeds: 50
+output_root: results/t1

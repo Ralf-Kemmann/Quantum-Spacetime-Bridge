@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "debroglie-phase-bridge"
+version = "0.1.0"
+description = "Reference implementation for the de Broglie phase bridge project"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Ralf Kemmann" }
+]
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pyyaml>=6.0",
+  "matplotlib>=3.8"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

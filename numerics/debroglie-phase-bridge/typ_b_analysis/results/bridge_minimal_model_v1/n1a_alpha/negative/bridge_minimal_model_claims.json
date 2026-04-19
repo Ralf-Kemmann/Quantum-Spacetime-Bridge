@@ -1,0 +1,20 @@
+{
+  "claims": [
+    {
+      "id": "claim_A",
+      "text": "A ist im Makroregime der primäre geometrische Proxy."
+    },
+    {
+      "id": "claim_B",
+      "text": "theta beeinflusst die Ausbildung oder Stabilität von A, ist aber nicht selbst direkt Geometrie."
+    },
+    {
+      "id": "claim_C",
+      "text": "d_eff ist nur dann ernsthaft geometrisch lesbar, wenn anschließende Metriktests mindestens teilweise bestanden werden."
+    },
+    {
+      "id": "claim_D",
+      "text": "Der Übergang von coherent zu macro erzeugt sichtbare, aber nicht chaotische Strukturänderung."
+    }
+  ]
+}

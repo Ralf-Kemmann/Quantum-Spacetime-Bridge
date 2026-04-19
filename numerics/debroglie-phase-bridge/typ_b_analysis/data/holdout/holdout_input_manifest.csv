@@ -1,0 +1,4 @@
+record_id,run_id,dataset_id,source_type,family_id,window_id,label_internal,group_target,is_holdout_reference,used_for_calibration,used_for_reference_selection,input_file,notes
+1,m39x3g_c_holdout_run_001,H2_M39x3c_AO_WEAK,holdout_original,ER2_CAVITY,AO_WEAK,HOLDOUT_AO_WEAK,AO,true,false,false,data/holdout/holdout_original_features.csv,H2 candidate from M39x3c_ao_model_transfer; reduced_3of4_plus_proxy mapping
+2,m39x3g_c_holdout_run_001,H2_M39x3c_AO_INTERMEDIATE,holdout_original,ER2_CAVITY,AO_INTERMEDIATE,HOLDOUT_AO_INTERMEDIATE,AO,true,false,false,data/holdout/holdout_original_features.csv,H2 candidate from M39x3c_ao_model_transfer; reduced_3of4_plus_proxy mapping
+3,m39x3g_c_holdout_run_001,H2_M39x3c_AO_STRONG,holdout_original,ER2_CAVITY,AO_STRONG,HOLDOUT_AO_STRONG,AO,true,false,false,data/holdout/holdout_original_features.csv,H2 candidate from M39x3c_ao_model_transfer; reduced_3of4_plus_proxy mapping

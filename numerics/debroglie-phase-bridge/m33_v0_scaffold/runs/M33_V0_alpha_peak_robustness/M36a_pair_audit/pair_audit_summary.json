@@ -1,0 +1,7 @@
+{
+  "n_audit_cases": 3,
+  "dominant_mechanism": "few_pairs",
+  "median_top3_share": 0.9999999739994059,
+  "median_effective_pair_count": 1.834562996569662,
+  "primary_class_mode_supported": "delta_p"
+}

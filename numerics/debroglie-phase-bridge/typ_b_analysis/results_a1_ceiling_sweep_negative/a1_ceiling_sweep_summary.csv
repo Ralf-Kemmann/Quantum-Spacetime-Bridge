@@ -1,0 +1,6 @@
+ceiling,n_units,materially_active_count,weak_ambiguous_count,collapsed_count,anti_stabilization_pass_count,mean_a1_score
+0.85,4,0,0,4,0,1.0
+0.9,4,0,0,4,0,1.0
+0.95,4,0,0,4,0,1.0
+0.99,4,0,0,4,0,1.0
+1.01,4,4,0,0,4,1.0

@@ -1,0 +1,39 @@
+run_id: debroglie_matter_signature_isotope_run_b
+
+isotope_list:
+  - 1H
+  - 2H
+  - 3H
+
+conditions:
+  temperature_C: 20.0
+  pressure_mbar: 1013.0
+  volume_m3: 1.0
+
+model_assumptions:
+  species_mode: isotope_series
+  gas_model: ideal_gas
+  velocity_model: rms
+  frequency_mode: none
+  density_mode: ideal_gas_number_density
+  isotope_mode: wave_plus_valence
+
+surrogates:
+  wave_enabled:
+    - length_scale_score
+    - energy_score
+    - occupancy_score
+  qc_valence_enabled:
+    - valence_score
+  combined_mode: weighted_sum
+  weights:
+    wave: 1.0
+    qc_valence: 1.0
+    qc_shell: 0.0
+
+output:
+  base_dir: results/debroglie_matter_signature_isotope
+  write_state_json: true
+  write_readout_md: true
+  write_scan_csv: true
+  write_claims_json: true

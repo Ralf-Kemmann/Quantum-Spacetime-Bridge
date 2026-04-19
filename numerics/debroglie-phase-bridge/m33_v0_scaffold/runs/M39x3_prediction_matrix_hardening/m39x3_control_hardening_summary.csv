@@ -1,0 +1,4 @@
+family_id,variant_id,spectral_type,hardening_status,hardening_note,observed_irregularity_level,delta_p_competitive,delta_p2_absolute_strength_high,delta_p2_not_clearly_dominant,delta_p2_relative_gain_vs_type_A,behavior_matches_type_D_too_closely
+TB1_1D_BOX_WEAKLY_DEFORMED,BOX_WEAKLY_DEFORMED_STANDARD,type_B_quadratic_nontrivial,partially_supported,Type B is plausible but not yet sharply distinct.,low,True,False,True,0.454,False
+TD1_1D_BOX,BOX_STANDARD,type_D_regular_nonring,supported,Type D supports a broader regularity reading.,low,True,False,True,0.135,
+CROSS_TYPE,TYPE_B_VS_TYPE_D,cross_type,prediction_matrix_stressed_by_controls,Type B and Type D are not cleanly distinguishable.,,,,,,

@@ -1,0 +1,5 @@
+family_id,variant_id,spectral_type,hardening_status,hardening_note,observed_irregularity_level,delta_p_competitive,delta_p2_absolute_strength_high,delta_p2_not_clearly_dominant,delta_p2_relative_gain_vs_type_A,distance_to_type_D,box_like_proximity_flag,edge_case_instability_flag,best_type_B_window_candidate_flag
+TD1_1D_BOX,BOX_STANDARD,type_D_regular_nonring,supported,Type D supports the broader regularity reading.,low,True,False,True,0.135,,,,
+TB2_FINITE_SQUARE_WELL_1D_SWEEP,FSW_DEEP,type_B_quadratic_nontrivial,partially_supported,Deep regime remains plausible but less box-like than expected.,low,True,False,True,0.04,0.04,False,False,True
+TB2_FINITE_SQUARE_WELL_1D_SWEEP,FSW_INTERMEDIATE,type_B_quadratic_nontrivial,supported,Intermediate regime is the strongest Type-B-window candidate.,low_to_moderate,True,False,True,0.248,0.30000000000000004,False,False,True
+TB2_FINITE_SQUARE_WELL_1D_SWEEP,FSW_SHALLOW,type_B_quadratic_nontrivial,supported,Shallow regime remains useful without edge-case instability.,moderate,True,False,True,0.167,0.267,False,False,True

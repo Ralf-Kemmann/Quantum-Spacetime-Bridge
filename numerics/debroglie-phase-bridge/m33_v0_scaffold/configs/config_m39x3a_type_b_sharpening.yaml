@@ -1,0 +1,404 @@
+run:
+  run_id: "M39x3a_type_b_sharpening"
+  title: "M.3.9x.3a — Typ-B-Nachschärfung gegen Typ D"
+  description: >
+    Sharpening run for Type B against Type D by replacing the weakly deformed
+    box as primary Type-B candidate with a finite square well and adding a weak
+    anharmonic oscillator as reserve comparison candidate.
+  outdir: "runs/M39x3a_type_b_sharpening"
+  random_seed: 1729
+  overwrite: true
+
+inputs:
+  family_definitions_yaml: "configs/m39x3a_type_b_sharpening_families.yaml"
+
+execution:
+  enabled_blocks:
+    - family_diagnostics
+    - prediction_evaluation
+    - spectral_type_summary
+    - control_hardening_rules
+    - cross_type_evaluation
+    - type_b_sharpening_evaluation
+  stop_on_error: true
+  log_level: "INFO"
+
+reporting:
+  require_family_prediction_summary: true
+  require_spectral_type_summary: true
+  require_missing_cases_summary: true
+  require_control_hardening_summary: true
+  require_type_b_sharpening_summary: true
+  global_prediction_status_allowed_values:
+    - "prediction_matrix_strengthened"
+    - "prediction_matrix_still_partial"
+    - "prediction_matrix_stressed_by_controls"
+    - "prediction_matrix_revised"
+    - "type_B_sharpened"
+    - "type_B_still_too_close_to_type_D"
+    - "type_B_requires_new_candidate_class"
+    - "type_B_collapses_into_type_D"
+
+pairing:
+  default_pairing_mode: "all_pairs"
+  supported_pairing_modes:
+    - "all_pairs"
+    - "matched_pairs"
+    - "nearest_pairs"
+    - "degeneracy_safe_pairs"
+    - "unique_abs_pairs"
+    - "no_sign_mirror_pairs"
+  defaults:
+    exclude_self_pairs: true
+    sort_pairs_canonically: true
+    unique_unordered_pairs: true
+
+markers:
+  supported_markers:
+    - "delta_p"
+    - "abs_delta_p"
+    - "delta_p2"
+    - "abs_delta_p2"
+    - "delta_E_quad"
+    - "delta_k"
+    - "abs_delta_k"
+    - "delta_k2"
+    - "abs_delta_k2"
+    - "delta_omega"
+    - "delta_lambda"
+
+  default_marker_sets:
+    type_A_ladder:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_B_quadratic_nontrivial:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+    type_C_multiindex_structure:
+      - "delta_k"
+      - "abs_delta_k"
+      - "delta_k2"
+      - "abs_delta_k2"
+      - "delta_omega"
+      - "delta_lambda"
+
+    type_D_regular_nonring:
+      - "delta_p"
+      - "abs_delta_p"
+      - "delta_p2"
+      - "abs_delta_p2"
+      - "delta_E_quad"
+
+strength_scoring:
+  absolute_strength:
+    method: "rank_separation_score"
+    higher_is_better: true
+    normalize_to_unit_interval: true
+
+  relative_dominance:
+    method: "bootstrap_win_fraction"
+    higher_is_better: true
+
+  support_thresholds:
+    absolute_support_min: 0.60
+    dominance_stable_min: 0.70
+    dominance_margin_min: 0.05
+    competitive_margin_max: 0.10
+    type_b_distance_min: 0.10
+
+bootstrap:
+  enabled: true
+  n_bootstrap: 1000
+  resample_level: "pair"
+  confidence_level: 0.95
+  stratified_by_branch_label: false
+
+irregularity:
+  enabled: true
+  compute_measures:
+    - "spacing_mean"
+    - "spacing_std"
+    - "spacing_cv"
+    - "spacing_ratio"
+    - "simple_unfolding_density"
+    - "simple_rigidity_surrogate"
+
+irregularity_levels:
+  low:
+    spacing_cv_max: 0.20
+  low_to_moderate:
+    spacing_cv_max: 0.45
+  moderate:
+    spacing_cv_min: 0.15
+    spacing_cv_max: 0.60
+  moderate_to_high:
+    spacing_cv_min: 0.20
+  high:
+    spacing_cv_min: 0.50
+
+prediction_logic:
+  allowed_match_status_values:
+    - "supported"
+    - "partially_supported"
+    - "open"
+    - "stressed"
+    - "failed"
+
+  supported_rules:
+    require_expected_relative_winner: true
+    allow_expected_allowed_winners: true
+    check_delta_p2_role: true
+    check_irregularity_level: true
+    check_direction_blindness_relevance: true
+
+  default_open_conditions:
+    - "family_status_placeholder"
+    - "missing_control_case"
+    - "insufficient_data"
+
+derived_flags:
+  type_B:
+    - "delta_p2_relative_gain_vs_type_A"
+    - "observed_irregularity_level"
+    - "distance_to_type_D"
+    - "behavior_matches_type_D_too_closely"
+
+  type_D:
+    - "delta_p_competitive"
+    - "delta_p2_absolute_strength_high"
+    - "delta_p2_not_clearly_dominant"
+    - "observed_irregularity_level"
+
+  cross_type:
+    - "type_B_relative_winner"
+    - "type_D_relative_winner"
+    - "type_B_irregularity_level"
+    - "type_D_irregularity_level"
+    - "type_B_prediction_match_status"
+    - "type_D_prediction_match_status"
+    - "type_B_behavior_matches_type_D_too_closely"
+
+decision_rules:
+  type_B_primary_standard_candidate:
+    family_id: "TB2_FINITE_SQUARE_WELL_1D"
+
+    support_conditions:
+      strong_support:
+        all_of:
+          - "relative_winner in [delta_p2, abs_delta_p2]"
+          - "delta_p2_relative_gain_vs_type_A > 0"
+          - "distance_to_type_D >= type_b_distance_min"
+          - "observed_irregularity_level in [moderate, moderate_to_high]"
+
+      partial_support:
+        all_of:
+          - "relative_winner in [delta_p, abs_delta_p, delta_p2, abs_delta_p2]"
+          - "delta_p2_relative_gain_vs_type_A >= 0"
+          - "distance_to_type_D > 0"
+        not_all_of:
+          - "relative_winner in [delta_p2, abs_delta_p2]"
+          - "distance_to_type_D >= type_b_distance_min"
+
+    stress_conditions:
+      stressed:
+        any_of:
+          - "relative_winner in [delta_p, abs_delta_p] and delta_p2_relative_gain_vs_type_A == 0"
+          - "distance_to_type_D <= 0"
+          - "behavior_matches_type_D_too_closely == true"
+
+    falsification_conditions:
+      falsified:
+        all_of:
+          - "relative_winner in [delta_p, abs_delta_p]"
+          - "delta_p2_relative_gain_vs_type_A <= 0"
+          - "distance_to_type_D <= 0"
+          - "behavior_matches_type_D_too_closely == true"
+
+    output_mapping:
+      strong_support: "supported"
+      partial_support: "partially_supported"
+      stressed: "stressed"
+      falsified: "failed"
+      fallback: "open"
+
+  type_B_reserve_standard_candidate:
+    family_id: "TB3_ANHARMONIC_OSCILLATOR_WEAK_1D"
+
+    support_conditions:
+      strong_support:
+        all_of:
+          - "relative_winner in [delta_p2, abs_delta_p2]"
+          - "delta_p2_relative_gain_vs_type_A > 0"
+          - "observed_irregularity_level in [moderate, moderate_to_high]"
+
+      partial_support:
+        all_of:
+          - "relative_winner in [delta_p, abs_delta_p, delta_p2, abs_delta_p2]"
+          - "delta_p2_relative_gain_vs_type_A >= 0"
+
+    stress_conditions:
+      stressed:
+        any_of:
+          - "behavior_matches_type_D_too_closely == true"
+          - "distance_to_type_D <= 0"
+
+    falsification_conditions:
+      falsified:
+        all_of:
+          - "relative_winner in [delta_p, abs_delta_p]"
+          - "delta_p2_relative_gain_vs_type_A <= 0"
+          - "distance_to_type_D <= 0"
+
+    output_mapping:
+      strong_support: "supported"
+      partial_support: "partially_supported"
+      stressed: "stressed"
+      falsified: "failed"
+      fallback: "open"
+
+  type_D_regular_nonring:
+    family_id: "TD1_1D_BOX"
+
+    support_conditions:
+      strong_support:
+        any_of:
+          - "relative_winner in [delta_p, abs_delta_p]"
+          - "relative_winner in [delta_p, abs_delta_p] and delta_p2_absolute_strength_high == true"
+
+      partial_support:
+        all_of:
+          - "relative_winner in [delta_p, abs_delta_p, delta_p2, abs_delta_p2]"
+        any_of:
+          - "delta_p_competitive == true"
+          - "delta_p2_not_clearly_dominant == true"
+
+    stress_conditions:
+      stressed:
+        any_of:
+          - "relative_winner in [delta_p2, abs_delta_p2] and delta_p_competitive == true"
+          - "observed_irregularity_level == low and relative_winner in [delta_p2, abs_delta_p2]"
+
+    falsification_conditions:
+      falsified:
+        all_of:
+          - "relative_winner in [delta_p2, abs_delta_p2]"
+          - "delta_p_competitive == false"
+          - "observed_irregularity_level in [low, low_to_moderate]"
+
+    output_mapping:
+      strong_support: "supported"
+      partial_support: "partially_supported"
+      stressed: "stressed"
+      falsified: "failed"
+      fallback: "open"
+
+cross_type_rules:
+  type_B_primary_vs_type_D:
+    intended_relation: "distinguishable"
+
+    stress_conditions:
+      stressed:
+        any_of:
+          - "type_B_relative_winner == type_D_relative_winner and type_B_irregularity_level == type_D_irregularity_level"
+          - "type_B_behavior_matches_type_D_too_closely == true"
+          - "type_B_distance_to_type_D <= 0"
+
+    falsification_conditions:
+      falsified:
+        all_of:
+          - "type_B_relative_winner in [delta_p, abs_delta_p]"
+          - "type_D_relative_winner in [delta_p, abs_delta_p]"
+          - "type_B_delta_p2_relative_gain_vs_type_A <= 0"
+          - "type_B_distance_to_type_D <= 0"
+
+    output_mapping:
+      stressed: "prediction_matrix_stressed_by_controls"
+      falsified: "prediction_matrix_revised"
+      fallback: "no_cross_type_alarm"
+
+type_B_sharpening:
+  enabled: true
+
+  type_A_reference_family: "ER1_RING"
+  type_A_reference_variant: "RING_SIGNED"
+
+  type_D_reference_family: "TD1_1D_BOX"
+  type_D_reference_variant: "BOX_STANDARD"
+
+  type_B_primary_family: "TB2_FINITE_SQUARE_WELL_1D"
+  type_B_primary_variant: "FINITE_WELL_STANDARD"
+
+  type_B_reserve_family: "TB3_ANHARMONIC_OSCILLATOR_WEAK_1D"
+  type_B_reserve_variant: "ANHARMONIC_STANDARD"
+
+  helper_semantics:
+    delta_p2_relative_gain_vs_type_A: >
+      Compare Type-B delta_p2 relative position against the declared Type-A reference,
+      using bootstrap win fraction first and relative rank as tie-breaker.
+
+    distance_to_type_D: >
+      Compare Type-B and Type-D by winner family, irregularity level, and delta_p2
+      relative gain. Positive values indicate increasing separation from Type D.
+
+    behavior_matches_type_D_too_closely: >
+      True if Type-B and Type-D share winner family, similar irregularity level,
+      and no visible delta_p2 gain over Type-A.
+
+    type_B_sharpening_value: >
+      Composite summary of delta_p2 gain over Type A plus distance to Type D.
+
+missing_case_policy:
+  count_missing_type_B_as_open: false
+  count_missing_type_D_as_open: false
+  never_count_missing_cases_as_supported: true
+
+global_decision_logic:
+  type_B_sharpened:
+    require:
+      - "type_B_primary_present"
+      - "type_D_reference_present"
+      - "type_B_primary_supported_or_partially_supported"
+      - "type_B_distance_to_type_D_positive"
+      - "no_cross_type_alarm"
+
+  type_B_still_too_close_to_type_D:
+    require:
+      - "type_B_primary_present"
+      - "type_D_reference_present"
+    allow_any:
+      - "type_B_primary_partially_supported"
+      - "cross_type_alarm"
+      - "type_B_distance_to_type_D_nonpositive"
+
+  type_B_requires_new_candidate_class:
+    trigger_any:
+      - "type_B_primary_failed"
+      - "type_B_reserve_failed"
+      - "both_type_B_candidates_too_close_to_type_D"
+
+  type_B_collapses_into_type_D:
+    trigger_any:
+      - "type_B_primary_behaves_like_type_D"
+      - "type_B_primary_no_delta_p2_gain"
+      - "cross_type_falsified"
+
+outputs:
+  markdown_report: "m39x3a_type_b_sharpening_report.md"
+  global_summary_json: "m39x3a_global_summary.json"
+  family_prediction_summary_csv: "m39x3a_family_prediction_summary.csv"
+  spectral_type_summary_csv: "m39x3a_spectral_type_summary.csv"
+  marker_summary_csv: "m39x3a_marker_summary.csv"
+  irregularity_summary_csv: "m39x3a_irregularity_summary.csv"
+  bootstrap_summary_csv: "m39x3a_bootstrap_summary.csv"
+  missing_cases_summary_csv: "m39x3a_missing_cases_summary.csv"
+  control_hardening_summary_csv: "m39x3a_control_hardening_summary.csv"
+  type_b_sharpening_summary_csv: "m39x3a_type_b_sharpening_summary.csv"
+  source_notes_md: "m39x3a_source_notes.md"

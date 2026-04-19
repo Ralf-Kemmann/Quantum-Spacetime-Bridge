@@ -1,0 +1,17 @@
+source_family,target_family,source_pair,target_pair,source_delta_p2,target_delta_p2,relative_delta_p2_diff,absolute_delta_p2_diff,source_branch_identity,target_branch_identity,same_branch_flag
+F2,F3,0-5,1-2,2.75,3.0,0.08333333333333333,0.25,positive,positive,1
+F2,F3,1-2,1-3,3.75,4.0,0.0625,0.25,positive,positive,1
+F2,F3,1-3,1-3,4.0,4.0,0.0,0.0,positive,positive,1
+F2,F3,1-4,1-2,3.0,3.0,0.0,0.0,positive,positive,1
+F2,F3,2-4,3-4,-0.75,-1.0,0.25,0.25,compact_negative,compact_negative,1
+F2,F3,3-4,3-4,-1.0,-1.0,0.0,0.0,compact_negative,compact_negative,1
+F2,F3,4-5,1-5,-5.25,-5.0,0.047619047619047616,0.25,compact_negative,compact_negative,1
+F2,F4,0-1,1-3,5.0,4.840000000000001,0.03199999999999985,0.15999999999999925,positive,positive,1
+F2,F4,0-2,0-2,8.75,8.64,0.012571428571428506,0.10999999999999943,positive,positive,1
+F2,F4,0-3,0-3,9.0,9.0,0.0,0.0,positive,positive,1
+F2,F4,0-5,1-4,2.75,2.880000000000001,0.045138888888889145,0.13000000000000078,positive,positive,1
+F2,F4,1-2,0-1,3.75,4.159999999999999,0.09855769230769215,0.40999999999999925,positive,positive,1
+F2,F4,1-3,0-1,4.0,4.159999999999999,0.03846153846153829,0.15999999999999925,positive,positive,1
+F2,F4,1-4,1-4,3.0,2.880000000000001,0.03999999999999974,0.11999999999999922,positive,positive,1
+F2,F4,1-5,4-5,-2.25,-2.45,0.08163265306122455,0.20000000000000018,compact_negative,compact_negative,1
+F2,F4,2-3,2-3,0.25,0.36,0.3055555555555555,0.10999999999999999,positive,positive,1

@@ -1,0 +1,12 @@
+{
+  "block_id": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "block_version": "0.1",
+  "run_id": "H3SMD01_YYYYMMDD_HHMMSS",
+  "source_block": "N1_A1_B1_DECOUPLING",
+  "seed": 101,
+  "parameter_profile": "base",
+  "state_order": ["A", "B", "C", "D"],
+  "manipulation_axis": "support_weighting",
+  "null_model_variants": ["permutation_null", "topology_preserving_random_null"],
+  "notes": "Baseline-first test with bounded auxiliary contrast check."
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "3.1.0",
+  "generated_at": "2026-04-08T08:08:56+00:00",
+  "run_id": "compatibility_real_export_npz_negative_001",
+  "runner": {
+    "name": "run_compatibility_first_pass_real_export.py",
+    "mode": "real_export_mapping_computed_proxies_reformed_a1_ceiling"
+  },
+  "raw_export_path": "./real_local_export_from_npz_negative.json",
+  "mapping_path": "./compatibility_local_model_mapping_npz_negative_v1.json",
+  "context": {
+    "context_id": "CLCX-NPZ-NEG-01",
+    "focal_unit_id": "p0_3",
+    "status": "accepted_first_pass_local_context",
+    "mapped_focal_support_value": 0.03293438746976206,
+    "mapped_focal_support_sector": -1,
+    "mapped_neighborhood_unit_ids": [
+      "p0_1",
+      "p2_3"
+    ]
+  },
+  "frame": {
+    "lower_floor": "overlap_only_baseline",
+    "upper_ceiling": "simple_rigidity_surrogate",
+    "downstream_target": "DLBSR_class"
+  },
+  "params": {
+    "a1_lambda": 1.0,
+    "a1_active_threshold": 0.2,
+    "a1_overlap_margin": 0.08,
+    "a1_stabilization_ceiling": 0.85,
+    "a1_neighbor_min": 3,
+    "b1_active_threshold": 0.12,
+    "b1_overlap_margin": 0.05,
+    "b1_conflict_penalty": 1.0,
+    "b1_stabilization_ceiling": 0.7
+  },
+  "a1": {
+    "candidate_id": "CLC-A-01",
+    "candidate_name": "local_support_coherence",
+    "metrics": {
+      "agreement_local": 1.0,
+      "conflict_local": 0.0,
+      "a1_score": 1.0,
+      "neighbor_count": 2,
+      "focal_overlap_proxy": 0.359069,
+      "anti_overlap_delta": 0.640931
+    },
+    "judgment": {
+      "internal_activity": "active",
+      "anti_overlap": "passes",
+      "anti_stabilization": "passes",
+      "short_reason": "A1 score=1.000, neighbor_count=2, ceiling=0.850, neighbor_min=3; agreement=1.000, conflict=0.000, anti_overlap_delta=0.641."
+    },
+    "derived_status": "materially_active"
+  },
+  "b1": {
+    "candidate_id": "ERF-B-01",
+    "candidate_name": "early_removal_fragility",
+    "metrics": {
+      "baseline_support_local": 0.091722,
+      "perturbed_support_local": 0.075254,
+      "fragility_local": 0.016467,
+      "relative_fragility": 0.179535,
+      "focal_overlap_proxy": 0.359069,
+      "anti_overlap_delta": 0.179535
+    },
+    "judgment": {
+      "internal_activity": "active",
+      "anti_overlap": "passes",
+      "anti_stabilization": "passes",
+      "short_reason": "B1 relative_fragility=0.180 from real local perturbation binding; baseline_support=0.092, perturbed_support=0.075, anti_overlap_delta=0.180."
+    },
+    "derived_status": "materially_active"
+  },
+  "global_outcome": "Outcome C — Promising pre-stabilization candidate found",
+  "promotion": {
+    "promotion_state": "both_candidates_promoted",
+    "lead_candidate": "A1_and_B1",
+    "text": "Both candidates promoted for next sharpening step."
+  },
+  "notes": [
+    "Run config for NPZ-derived negative export.",
+    "Focal unit p0_3 should be checked against export neighbor structure if needed."
+  ]
+}

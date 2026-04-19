@@ -1,0 +1,11 @@
+{
+  "block_id": "H3_D1_D2_DIVERGENCE_01",
+  "source_block": "H3_SUPPORT_MANIPULATION_DESIGN_01",
+  "algorithmic_divergence_detected": true,
+  "outcome_divergence_detected": true,
+  "practical_collapse_detected": false,
+  "median_jaccard_support": 0.230769,
+  "median_delta_gain_D2_minus_D1": -0.000544,
+  "median_delta_support_sep_combined_D2_minus_D1": 0.0,
+  "final_assessment": "distinct_nullmodels"
+}

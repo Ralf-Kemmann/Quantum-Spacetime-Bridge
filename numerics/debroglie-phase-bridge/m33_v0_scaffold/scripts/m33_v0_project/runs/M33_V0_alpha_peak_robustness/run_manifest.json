@@ -1,0 +1,9 @@
+{
+  "run_id": "",
+  "tag": "",
+  "timestamp_utc": "",
+  "seed": 0,
+  "script_version": "m33_v0_runner.py",
+  "config_snapshot": "config_snapshot.yaml",
+  "status": "initialized"
+}

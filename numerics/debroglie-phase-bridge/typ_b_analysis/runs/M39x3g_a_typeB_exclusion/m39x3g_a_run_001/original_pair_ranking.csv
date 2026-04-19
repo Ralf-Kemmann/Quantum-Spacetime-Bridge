@@ -1,0 +1,4 @@
+pair_id,fsw_labels,ao_labels,fsw_n_rows,ao_n_rows,separation_margin_mean,separation_margin_ci_low,separation_margin_ci_high,separation_ratio_mean,assignment_score_mean,stability_score,passes_margin_threshold,passes_stability_threshold,passes_assignment_threshold,overall_pass,notes
+O2,"['FSW_D05', 'FSW_D06']","['AO_A04', 'AO_A05', 'AO_A06']",2,2,0.21222907364845206,0.19044266430529033,0.272763633939717,inf,1.0,1.0,True,True,True,True,Shifted AO window for robustness check.
+O3,"['FSW_D05', 'FSW_D06']","['AO_A04', 'AO_A05']",2,2,0.21222907364845206,0.19044266430529033,0.272763633939717,inf,1.0,1.0,True,True,True,True,Tighter AO core candidate.
+O1,"['FSW_D05', 'FSW_D06']","['AO_A03', 'AO_A04', 'AO_A05']",2,3,0.17360190252056484,0.12994683589370945,0.2396034470367678,inf,1.0,1.0,False,True,True,False,Primary baseline original pair.

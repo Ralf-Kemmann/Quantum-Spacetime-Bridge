@@ -1,0 +1,274 @@
+{
+  "case": "a05",
+  "theta_ref": 0.03,
+  "theta_upper": 0.06,
+  "theta_crit": [
+    0.032934387469762,
+    0.04005924159996,
+    0.047742344021674,
+    0.054402111088937
+  ],
+  "intervals": [
+    {
+      "theta_min": 0.0,
+      "theta_max": 0.032934387469762,
+      "theta_rep": 0.016467193734881,
+      "window_width_decades": null,
+      "theta": 0.016467193734881,
+      "theta_crit": [
+        0.032934387469762,
+        0.04005924159996,
+        0.047742344021674,
+        0.054402111088937
+      ],
+      "n_edges": 6,
+      "n_components": 1,
+      "largest_component_size": 4,
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "defined_pair_count": 3,
+      "defined_pair_fraction": 1.0,
+      "standard_pairs": {
+        "d03_minus_d01": 0.3713013956825235,
+        "d03_minus_d12": 0.5018856361262463,
+        "d02_minus_d13": 0.0
+      },
+      "topology_label": "cc1_e6_diam1.0"
+    },
+    {
+      "theta_min": 0.032934387469762,
+      "theta_max": 0.04005924159996,
+      "theta_rep": 0.036322535492416985,
+      "window_width_decades": 0.08505313236246331,
+      "theta": 0.036322535492416985,
+      "theta_crit": [
+        0.032934387469762,
+        0.04005924159996,
+        0.047742344021674,
+        0.054402111088937
+      ],
+      "n_edges": 6,
+      "n_components": 1,
+      "largest_component_size": 4,
+      "graph_diameter": 2.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "defined_pair_count": 3,
+      "defined_pair_fraction": 1.0,
+      "standard_pairs": {
+        "d03_minus_d01": 1.3060435614359907,
+        "d03_minus_d12": 1.4366278018797134,
+        "d02_minus_d13": 0.0
+      },
+      "topology_label": "cc1_e6_diam2.0"
+    },
+    {
+      "theta_min": 0.04005924159996,
+      "theta_max": 0.047742344021674,
+      "theta_rep": 0.0437323918133075,
+      "window_width_decades": 0.07620101490543363,
+      "theta": 0.0437323918133075,
+      "theta_crit": [
+        0.032934387469762,
+        0.04005924159996,
+        0.047742344021674,
+        0.054402111088937
+      ],
+      "n_edges": 6,
+      "n_components": 1,
+      "largest_component_size": 4,
+      "graph_diameter": 3.0,
+      "connected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "disconnected_pairs": [],
+      "defined_pair_count": 3,
+      "defined_pair_fraction": 1.0,
+      "standard_pairs": {
+        "d03_minus_d01": 2.1305842404437225,
+        "d03_minus_d12": 2.261168480887445,
+        "d02_minus_d13": 0.0
+      },
+      "topology_label": "cc1_e6_diam3.0"
+    },
+    {
+      "theta_min": 0.047742344021674,
+      "theta_max": 0.054402111088937,
+      "theta_rep": 0.05096355857976713,
+      "window_width_decades": 0.0567120150482361,
+      "theta": 0.05096355857976713,
+      "theta_crit": [
+        0.032934387469762,
+        0.04005924159996,
+        0.047742344021674,
+        0.054402111088937
+      ],
+      "n_edges": 1,
+      "n_components": 3,
+      "largest_component_size": 2,
+      "graph_diameter": 1.0,
+      "connected_pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "defined_pair_count": 0,
+      "defined_pair_fraction": 0.0,
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "topology_label": "cc3_e1_diam1.0"
+    },
+    {
+      "theta_min": 0.054402111088937,
+      "theta_max": 0.06,
+      "theta_rep": 0.05713253596101104,
+      "window_width_decades": 0.042535497441219004,
+      "theta": 0.05713253596101104,
+      "theta_crit": [
+        0.032934387469762,
+        0.04005924159996,
+        0.047742344021674,
+        0.054402111088937
+      ],
+      "n_edges": 0,
+      "n_components": 4,
+      "largest_component_size": 1,
+      "graph_diameter": null,
+      "connected_pairs": [],
+      "disconnected_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "defined_pair_count": 0,
+      "defined_pair_fraction": 0.0,
+      "standard_pairs": {
+        "d03_minus_d01": null,
+        "d03_minus_d12": null,
+        "d02_minus_d13": null
+      },
+      "topology_label": "cc4_e0_diamNone"
+    }
+  ]
+}
