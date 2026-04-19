@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as an active research repository at an intermediate methodological stage."
+title: "Quantum–Spacetime Bridge"
+abstract: >-
+  A cautious, wave-based research framework exploring whether weighted
+  relational structure can provide a bounded methodological bridge between
+  quantum organization and spacetime-related effective structure. The current
+  repository documents an intermediate research stage and should not be read as
+  a completed theory claim.
+type: software
+authors:
+  - family-names: "Kemmann"
+    given-names: "Ralf"
+    orcid: "https://orcid.org/0009-0008-9932-3745"
+    affiliation: "Independent Researcher"
+repository-code: "https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge"
+url: "https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge"
+license: "NOASSERTION"
+keywords:
+  - "quantum spacetime"
+  - "wave-based framework"
+  - "relational structure"
+  - "pair-based H3"
+  - "methodological evidence"
+  - "theoretical physics"
+version: "0.1.0"
+date-released: "2026-04-19"

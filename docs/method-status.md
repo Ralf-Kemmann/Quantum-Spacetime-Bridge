@@ -1,171 +1,159 @@
-# Method status
+# Method Status
 
-## Scope
+## Current methodological status of the Quantum–Spacetime Bridge project
 
-This document summarizes the current methodological status of the Quantum–Spacetime Bridge project.
+This document summarizes the present methodological status of the **Quantum–Spacetime Bridge** project. It is intended as a compact scientific status note rather than as a theory paper or a final interpretive statement.
 
-Its purpose is not to restate the full conceptual motivation, but to record where the present workflow stands in operational terms: what has already been fixed, what has already been tested, and which parts of the current result are methodologically supported.
+The purpose of this note is to make one thing clear from the outset:
 
----
+> The current project state provides **bounded methodological evidence** under a controlled architecture.  
+> It does **not** yet justify a full theory claim.
 
-## Current workflow focus
+## 1. Role of this document
 
-The present workflow is centered on a bounded local support-side test framework.
+This project is being developed in a deliberately stepwise and scientifically restrained way. As a consequence, it is important to distinguish between:
 
-At the current stage, the main methodological focus is on:
+- physical motivation
+- methodological construction
+- current test status
+- present evidence level
+- what remains open
 
-- pair-based representation,
-- fixed baseline / combined reading separation,
-- frozen logic before robustness interpretation,
-- mixed-like sensitivity testing,
-- and explicit null-model comparison.
+This note focuses on the **methodological layer**. Its goal is to state, as clearly as possible, what the framework currently supports and where the present limits are.
 
-This means that the project is currently operating on the level of **intermediate testable structure**, not on the level of a completed global bridge claim.
+## 2. Current framework basis
 
----
+The current working basis is a **pair-based H3 setup** with **fixed logic**.
 
-## Fixed elements already in place
+This means that the framework does not rely on moving interpretive targets or post hoc adjustments in order to generate an interesting reading. Instead, the present result has been developed within a constrained architecture whose purpose is to test whether a readable structural signal survives under controlled conditions.
 
-The following elements are currently treated as fixed within the active H3-related workflow:
+The emphasis is therefore on:
 
-### 1. Pair-based representation
-The local units are represented at pair level rather than by coarse class-level or row-level aggregation.
+- methodological control
+- fixed evaluation logic
+- local interpretability
+- explicit boundary discipline
 
-This was introduced to preserve local structure that would otherwise be flattened by overly broad summaries.
+## 3. Current positive methodological findings
 
-### 2. Baseline / combined separation
-The workflow distinguishes explicitly between:
+At the present stage, the following points are treated as the central positive findings of the project:
 
-- baseline reading,
-- combined reading.
+### 3.1 Pair-based local H3 structure established
 
-This separation is necessary in order to define a local contrast measure without collapsing manipulated and reference structure into a single undifferentiated score.
+A pair-based local H3 structure has been built as the current working environment for testing bounded relational contrast. This provides the operational stage on which the present signal reading is based.
 
-### 3. Fixed-logic freeze
-A fixed-logic stage has been introduced before broader robustness interpretation.
+### 3.2 Fixed-logic block in place
 
-This freeze includes:
+The framework has been brought into a fixed-logic form. This matters because the project is explicitly designed to avoid inflating exploratory flexibility into apparent robustness.
 
-- pair-based unit logic,
-- G-based primary scoring,
-- support-like / boundary-like / mixed-like distinction,
-- fixed support / neighbor mapping,
-- fixed A/B/C/D1/D2 architecture.
+The existence of a fixed-logic block means that the current reading is tied to a stable test architecture rather than to shifting interpretation rules.
 
-The purpose of this freeze is to prevent moving targets during later robustness discussion.
+### 3.3 Mixed-like sensitivity passed
 
----
+The current framework has passed a mixed-like sensitivity test. In methodological terms, this is important because it indicates that the setup is not restricted to a trivial or overly brittle contrast regime.
 
-## Robustness checks already performed
+This does not by itself prove broad physical significance, but it strengthens the claim that the framework is capable of carrying a readable intermediate signal under nontrivial conditions.
 
-### A. Manipulation ordering
-The current support-side block shows ordered monotone behavior across the A/B/C structure.
+### 3.4 D1/D2 divergence shown
 
-At the level of current readouts, this means:
+A D1/D2 divergence has been demonstrated. This is relevant because it argues against a practically collapsed null-pattern reading.
 
-- A remains baseline-like,
-- B becomes positively shifted,
-- C becomes more strongly shifted.
+Again, this is not yet a full physical mechanism. But it is a meaningful methodological result: the present signal cannot be reduced to a completely flat or trivial no-contrast interpretation.
 
-This is interpreted as an ordered support-side response rather than arbitrary fluctuation.
+## 4. Where the present effect appears to reside
 
-### B. Mixed-like sensitivity
-A dedicated mixed-like sensitivity test has already been performed.
+One of the most important current outcomes is not merely that a contrast is detectable, but **where it appears to be located**.
 
-Three remapping modes were tested:
+The current reading is:
 
-- mixed as neutral,
-- mixed as boundary,
-- mixed as support.
+- the observed effect does **not** primarily reside in topology
+- the observed effect does **not** primarily reside in derived distance geometry
+- the relevant detectable contrast appears to reside in **weighted relational structure**
 
-The result did not collapse under these alternative assignments. This supports the interpretation that the current signal is not carried solely by one convenient mixed-pair labeling choice.
+This is the scientifically most informative part of the present status.
 
-### C. D1 / D2 divergence
-A separate D1/D2 divergence block has also been completed.
+If the readable effect had already been exhausted by topology or by derived distance geometry, the framework would be methodologically less distinctive. The current indication instead suggests that the informative layer is a weighted relational one. That narrows the field of interpretation in a useful way.
 
-This test showed that:
+## 5. Why this remains a bounded claim
 
-- D1 and D2 produce clearly different effective support assignments,
-- the null models do not practically collapse into one another,
-- and the main distinction is mechanistic rather than a large-scale outcome split.
+Although the current findings are methodologically meaningful, they remain intentionally bounded.
 
-This is methodologically important because it strengthens the credibility of the null-model layer itself.
+The project does **not** presently claim:
 
----
+- a completed quantum-gravity framework
+- a full derivation of spacetime from the current setup
+- a numerically established full package-role hierarchy
+- a universal interpretation of the observed contrast
+- a final physical mechanism
 
-## Structural localization of the current effect
+This limitation is not an afterthought. It is part of the current evidential discipline.
 
-A direct matrix comparison showed that the baseline-to-combined difference sits selectively in the weighted relational layer.
+The project aims to avoid a common mistake in early-stage theoretical work: reading a meaningful intermediate signal as if it already settled the largest conceptual questions.
 
-At the current stage, the following pattern has been established:
+## 6. Best current interpretation
 
-- `kbar` changes,
-- `G` changes,
-- `adjacency` remains unchanged,
-- `graph_distance`, `edge_length`, and `d_rel` remain unchanged wherever defined.
+The best current interpretation of the project state is therefore:
 
-This means that the currently visible effect is best interpreted as a **reweighting within stable structure**, not as a topological break and not as a change of derived distance geometry.
+> The framework supports a **bounded methodological signal** within a controlled pair-based H3 architecture.  
+> This signal is readable enough to motivate further work and specific enough to narrow where the relevant structure may lie.  
+> It is not yet strong enough to warrant a full theory-level conclusion.
 
----
+In compact form, the current public line is:
 
-## Current result status
+> **bounded methodological evidence, not a full theory claim**
 
-The present status of the workflow is best described as:
+## 7. Scientific value of the present stage
 
-**bounded methodological evidence, not a full theory claim**
+The value of the current stage lies in several methodological gains:
 
-More specifically, the currently supported methodological picture is:
+- a controlled architecture has been established
+- interpretive flexibility has been reduced by fixed logic
+- a nontrivial readable contrast has been retained
+- trivial-location readings have been partly excluded
+- a more specific structural target has emerged
 
-- a readable local support-side signal exists,
-- the signal remains ordered under controlled manipulation,
-- the result survives mixed-like remapping,
-- the null-model layer remains non-collapsed,
-- and the visible effect is structurally localized in weighted relational structure.
+That combination is scientifically useful even without a grand conclusion.
 
----
+The project therefore contributes not by declaring completion, but by improving the precision of the question itself.
 
-## What remains open
+## 8. Open limitations
 
-Despite the progress above, the following points remain open:
+Important limitations remain open and should be kept explicit.
 
-### 1. Broader generalization
-The current result is local and bounded. It does not yet justify large extrapolations to a full quantum–spacetime bridge mechanism.
+### 8.1 No full package-role hierarchy yet
 
-### 2. Extension beyond the current block
-The present status concerns a specific H3-related local test architecture. Broader transfer to other blocks or other structural families remains future work.
+A full package-role hierarchy is not yet numerically established. This means the present structure should not be oversold as globally resolved.
 
-### 3. Stronger external packaging
-The project now has a more defensible intermediate methodological core, but outward-facing scientific packaging still requires careful curation, especially if moved toward broader theory audiences.
+### 8.2 No final spacetime mechanism established
 
-### 4. Further null-model refinement
-Even though D1 and D2 are already distinguishable, future work may still sharpen or extend the null-model layer.
+The current result does not yet identify a full mechanism by which spacetime-related structure would be generated from the present setup.
 
----
+### 8.3 No unique physical interpretation guaranteed
 
-## Working interpretation
+The present structural signal is readable and methodologically relevant, but it is not yet uniquely pinned to a single unavoidable physical interpretation.
 
-The current methodological reading is:
+### 8.4 Further controlled tests are still needed
 
-> a physically motivated local signal can be operationalized in pair-based form, remain readable under baseline-first conditions, survive explicit sensitivity pressure, and remain nontrivially separated from more than one null-model construction.
+The framework has reached an important intermediate point, but the next stages still require controlled extension, sharpening, and pressure-testing.
 
-That does not yet amount to a full bridge theory. But it does mean that the project has moved beyond pure intuition and now contains an explicit, stress-tested intermediate structure.
+## 9. Near-term methodological priorities
 
----
+The next methodological priorities follow directly from the present status:
 
-## Practical reading of this repository
+- strengthen documentation clarity
+- sharpen the distinction between signal and interpretation
+- improve bibliographic and repository maturity
+- extend controlled tests where they can genuinely discriminate
+- preserve fixed-logic discipline during expansion
 
-At the moment, the repository should be read in the following order:
+## 10. Bottom line
 
-1. `README.md`
-2. `docs/project-overview.md`
-3. `docs/method-status.md`
-4. selected visual material in `figures/`
-5. robustness notes in `notes/`
+At the current stage, the **Quantum–Spacetime Bridge** project has reached a credible methodological intermediate result.
 
-This order reflects the intended movement from general orientation to methodological detail.
+It has established a pair-based H3 test environment, fixed the internal logic of the current reading, passed mixed-like sensitivity, and demonstrated a D1/D2 divergence. Most importantly, the detectable contrast appears to sit in **weighted relational structure**, rather than primarily in topology or derived distance geometry.
 
----
+That is enough to justify continued investigation.
 
-## One-line status summary
+It is **not** enough to justify a completed theory claim.
 
-The project currently stands at the level of a bounded, pair-based, robustness-tested local signal with fixed logic and non-collapsed null-model comparison.
+This asymmetry is exactly the point: the project is interesting because it has begun to isolate a readable structural signal while still maintaining scientific restraint.
