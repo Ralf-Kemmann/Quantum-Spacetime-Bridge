@@ -24,3 +24,7 @@ __pycache__/
 
 # Local exports
 *.zip
+
+# generated cleanup/check outputs
+docs/numerics_inventory/
+docs/repo_checks/
