@@ -1,0 +1,27 @@
+# BMC-12 Feature Leave-One-Out configuration
+
+run_id: BMC12_feature_leaveoneout_open
+input_feature_table: data/bmc12_feature_table_with_derived.csv
+output_dir: runs/BMC-12/feature_leaveoneout_open
+
+node_id_column: node_id
+
+features:
+  - feature_mode_frequency
+  - feature_length_scale
+  - feature_shape_factor
+  - feature_spectral_index
+
+tau: 0.30
+
+standardization:
+  ddof: 0
+  zero_std_policy: error
+
+dominance_thresholds:
+  strong_edge_retention_drop_below: 0.70
+  moderate_edge_retention_drop_below: 0.85
+  strong_density_relative_change_above: 0.35
+  moderate_density_relative_change_above: 0.20
+  component_count_increase_strong: 2
+  component_count_increase_moderate: 1

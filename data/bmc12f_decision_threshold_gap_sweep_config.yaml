@@ -1,0 +1,37 @@
+# BMC-12f Decision-Threshold / Dominance-Gap Sensitivity Sweep configuration
+
+run_id: BMC12f_decision_threshold_gap_sweep_open
+
+inputs:
+  variant_summary_csv: runs/BMC-12e/edgecount_neighborhood_sweep_open/bmc12e_edgecount_sweep_variant_summary.csv
+
+outputs:
+  output_root: runs/BMC-12f/decision_threshold_gap_sweep_open
+
+edge_counts:
+  - 70
+  - 75
+  - 81
+
+case_order:
+  - baseline_all_features
+  - drop_feature_mode_frequency
+  - drop_feature_length_scale
+  - drop_feature_shape_factor
+  - drop_feature_spectral_index
+
+threshold_grid:
+  arrangement_signal_min:
+    - 0.045
+    - 0.050
+    - 0.055
+  dominance_gap_min:
+    - 0.020
+    - 0.030
+    - 0.040
+
+signals:
+  full_graph: full_graph_arrangement_signal
+  backbone_only: backbone_only_arrangement_signal
+  off_backbone_only: off_backbone_only_arrangement_signal
+  coupling_only: coupling_only_arrangement_signal

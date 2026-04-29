@@ -1,0 +1,26 @@
+# BMC-12b Matched Leave-One-Out configuration
+
+run_id: BMC12b_matched_leaveoneout_open
+
+input_feature_table: data/bmc12_feature_table_with_derived_from_bmc08c.csv
+output_dir: runs/BMC-12b/matched_leaveoneout_open
+
+node_id_column: node_id
+
+features:
+  - feature_mode_frequency
+  - feature_length_scale
+  - feature_shape_factor
+  - feature_spectral_index
+
+baseline_tau: 0.30
+matching_mode: edge_count
+
+standardization:
+  ddof: 0
+  zero_std_policy: error
+
+structure_thresholds:
+  high_overlap_fraction_at_least: 0.75
+  moderate_overlap_fraction_at_least: 0.50
+  fragmentation_if_component_count_increases: true

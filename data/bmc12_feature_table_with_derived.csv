@@ -1,0 +1,23 @@
+node_id,node_family,node_label,L_major_raw,L_minor_raw,m_ref_raw,feature_mode_frequency,feature_length_scale,origin_tag,comment,feature_shape_factor,feature_spectral_index
+ring_p_-3,RING,external_control_ring: p=-3,1,1,3,4.5,0.333333333333,M39x_external_reference_wave_1,ER1_RING; p=-3; E_quad=p^2/2; shape neutralized to 1.0,1.0,3.0
+ring_p_-2,RING,external_control_ring: p=-2,1,1,2,2,0.5,M39x_external_reference_wave_1,ER1_RING; p=-2; E_quad=p^2/2; shape neutralized to 1.0,1.0,2.0
+ring_p_-1,RING,external_control_ring: p=-1,1,1,1,0.5,1,M39x_external_reference_wave_1,ER1_RING; p=-1; E_quad=p^2/2; shape neutralized to 1.0,1.0,1.0
+ring_p_1,RING,external_control_ring: p=1,1,1,1,0.5,1,M39x_external_reference_wave_1,ER1_RING; p=1; E_quad=p^2/2; shape neutralized to 1.0,1.0,1.0
+ring_p_2,RING,external_control_ring: p=2,1,1,2,2,0.5,M39x_external_reference_wave_1,ER1_RING; p=2; E_quad=p^2/2; shape neutralized to 1.0,1.0,2.0
+ring_p_3,RING,external_control_ring: p=3,1,1,3,4.5,0.333333333333,M39x_external_reference_wave_1,ER1_RING; p=3; E_quad=p^2/2; shape neutralized to 1.0,1.0,3.0
+cavity_1_1_1,CAVITY,"external_main_test_cavity: mode=(1,1,1)",2,1,1,1.30170827932,0.768221279597,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(1,1,1); k from rectangular cavity geometry",2.0,1.0
+cavity_1_1_2,CAVITY,"external_main_test_cavity: mode=(1,1,2)",2,1,2,1.56347191994,0.639602149067,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(1,1,2); k from rectangular cavity geometry",2.0,2.0
+cavity_1_2_1,CAVITY,"external_main_test_cavity: mode=(1,2,1)",2,1,3,1.74005108482,0.574695771133,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(1,2,1); k from rectangular cavity geometry",2.0,3.0
+cavity_2_1_1,CAVITY,"external_main_test_cavity: mode=(2,1,1)",2,1,5,2.16666666667,0.461538461538,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(2,1,1); k from rectangular cavity geometry",2.0,5.0
+cavity_2_2_1,CAVITY,"external_main_test_cavity: mode=(2,2,1)",2,1,7,2.45515331044,0.407306539981,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(2,2,1); k from rectangular cavity geometry",2.0,7.0
+cavity_2_1_2,CAVITY,"external_main_test_cavity: mode=(2,1,2)",2,1,6,2.33333333333,0.428571428571,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(2,1,2); k from rectangular cavity geometry",2.0,6.0
+cavity_1_2_2,CAVITY,"external_main_test_cavity: mode=(1,2,2)",2,1,4,1.94365063162,0.514495755428,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(1,2,2); k from rectangular cavity geometry",2.0,4.0
+cavity_2_2_2,CAVITY,"external_main_test_cavity: mode=(2,2,2)",2,1,8,2.60341655864,0.384110639799,M39x_external_reference_wave_1,"ER2_CAVITY; mode=(2,2,2); k from rectangular cavity geometry",2.0,8.0
+membrane_0_1,MEMBRANE,"external_hard_bias_test_membrane: mode=(0,1)",2,2,1,2.4048255577,0.415830577315,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(0,1); k from hard-coded Bessel zero / radius",1.0,1.0
+membrane_1_1,MEMBRANE,"external_hard_bias_test_membrane: mode=(1,1)",2,2,2,3.8317059702,0.260980359082,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(1,1); k from hard-coded Bessel zero / radius",1.0,2.0
+membrane_2_1,MEMBRANE,"external_hard_bias_test_membrane: mode=(2,1)",2,2,3,5.1356223018,0.19471836931,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(2,1); k from hard-coded Bessel zero / radius",1.0,3.0
+membrane_0_2,MEMBRANE,"external_hard_bias_test_membrane: mode=(0,2)",2,2,4,5.5200781103,0.181156856845,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(0,2); k from hard-coded Bessel zero / radius",1.0,4.0
+membrane_3_1,MEMBRANE,"external_hard_bias_test_membrane: mode=(3,1)",2,2,5,6.3801618952,0.156735834674,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(3,1); k from hard-coded Bessel zero / radius",1.0,5.0
+membrane_1_2,MEMBRANE,"external_hard_bias_test_membrane: mode=(1,2)",2,2,6,7.0155866698,0.142539754274,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(1,2); k from hard-coded Bessel zero / radius",1.0,6.0
+membrane_2_2,MEMBRANE,"external_hard_bias_test_membrane: mode=(2,2)",2,2,7,8.4172441404,0.118803729976,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(2,2); k from hard-coded Bessel zero / radius",1.0,7.0
+membrane_0_3,MEMBRANE,"external_hard_bias_test_membrane: mode=(0,3)",2,2,8,8.6537279129,0.115557134459,M39x_external_reference_wave_1,"ER3_MEMBRANE; mode=(0,3); k from hard-coded Bessel zero / radius",1.0,8.0
