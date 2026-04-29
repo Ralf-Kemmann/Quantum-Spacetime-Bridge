@@ -1,0 +1,97 @@
+# BMC-15e Geometry-Control Nulls — MVP Config
+#
+# This config is a first-pass scaffold.
+# Paths may need adjustment to the local repo state before execution.
+
+run_id: BMC-15e_geometry_control_nulls_mvp
+
+input:
+  observed_metrics_path: runs/BMC-15/geometry_proxy_diagnostics_open/geometry_proxy_metrics.csv
+  observed_graphs_dir: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects
+
+output:
+  output_dir: runs/BMC-15e/geometry_control_nulls_open
+
+random:
+  seed: 15015
+  n_replicates: 200
+  max_generation_attempts: 2000
+
+graph_objects:
+  - N81_full_baseline
+  - maximum_spanning_tree_envelope
+  - mutual_kNN_k3_envelope
+
+control_families:
+  - name: soft_geometric_kernel
+    enabled: true
+    dimensions: [2, 3, 4]
+    matching:
+      node_count: exact
+      edge_count: exact
+      connected: prefer_true
+    weight_modes:
+      - unweighted
+      - observed_rank_remap
+    generator_params:
+      point_distribution: uniform_unit_cube
+      kernel: exp_negative_distance
+      scale_mode: median_distance
+
+  - name: random_geometric_graph
+    enabled: true
+    dimensions: [2, 3, 4]
+    matching:
+      node_count: exact
+      edge_count: exact
+      connected: prefer_true
+    weight_modes:
+      - unweighted
+      - observed_rank_remap
+    generator_params:
+      point_distribution: uniform_unit_cube
+      edge_selection: top_nearest_pairs
+
+  - name: toy_hyperbolic_control
+    enabled: false
+    dimensions: [2]
+    matching:
+      node_count: exact
+      edge_count: exact
+      connected: prefer_true
+    weight_modes:
+      - unweighted
+      - observed_rank_remap
+    generator_params:
+      radial_distribution: exponential
+      angular_distribution: uniform
+      edge_selection: soft_hyperbolic_distance
+
+diagnostics:
+  triangle_defects: true
+  embedding_stress: true
+  negative_eigenvalue_burden: true
+  geodesic_consistency: true
+  local_dimension_proxy: true
+
+embedding:
+  dimensions: [2, 3, 4]
+  distance_mode: shortest_path
+  disconnected_policy: largest_component
+
+labeling:
+  tie_tolerance: 1.0e-12
+  all_zero_tie_label: observed_geometry_control_equivalent
+  directional_metrics:
+    triangle_defects: lower_is_more_geometry_like
+    embedding_stress: lower_is_more_geometry_like
+    negative_eigenvalue_burden: lower_is_more_geometry_like
+    geodesic_consistency_error: lower_is_more_geometry_like
+    local_dimension_proxy: not_directional
+
+readout:
+  write_summary_json: true
+  write_metrics_csv: true
+  write_family_summary_csv: true
+  write_observed_position_summary_csv: true
+  write_readout_md: true

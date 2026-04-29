@@ -28,3 +28,14 @@ __pycache__/
 # generated cleanup/check outputs
 docs/numerics_inventory/
 docs/repo_checks/
+
+# local Python environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# local/generated run outputs
+runs/
