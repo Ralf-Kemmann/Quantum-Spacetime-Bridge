@@ -1,0 +1,11 @@
+input:
+  feature_table_csv: "data/bmc08c_real_units_feature_table.csv"
+
+graph:
+  k_values:
+    - 2
+    - 3
+    - 4
+
+output:
+  output_dir: "data/bmc09c_mutual_knn_inputs"

@@ -1,0 +1,18 @@
+input:
+  feature_table_csv: "data/bmc08c_real_units_feature_table.csv"
+
+threshold:
+  tau_values:
+    - 0.25
+    - 0.30
+    - 0.35
+
+hybrid:
+  cases:
+    - k: 3
+      tau: 0.25
+    - k: 3
+      tau: 0.30
+
+output:
+  output_dir: "data/bmc09d_threshold_hybrid_inputs"

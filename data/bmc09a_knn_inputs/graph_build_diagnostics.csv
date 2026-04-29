@@ -1,0 +1,4 @@
+k,graph_construction_method,graph_construction_parameters,graph_node_count,graph_edge_count,connected_component_count,largest_component_size,mean_degree,graph_density
+2,symmetric_knn,{'k': 2},22,27,2,14,2.4545454545454546,0.11688311688311688
+3,symmetric_knn,{'k': 3},22,43,1,22,3.909090909090909,0.18614718614718614
+4,symmetric_knn,{'k': 4},22,56,1,22,5.090909090909091,0.24242424242424243
