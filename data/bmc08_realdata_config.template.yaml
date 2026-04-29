@@ -1,0 +1,37 @@
+run:
+  run_id: "BMC08a_realdata_open"
+  output_dir: "runs/BMC-08/BMC08a_realdata_open"
+  seed: 101
+
+inputs:
+  baseline_relational_table: "data/baseline_relational_table_real.csv"
+  node_metadata: "data/node_metadata_real.csv"
+  bmc04_reference_summary: null
+  pair_neighborhood_matrix: null
+  diffusion_distance_matrix: null
+
+graph:
+  directed: false
+  weight_column: "weight"
+  source_column: "source"
+  target_column: "target"
+
+perturbation:
+  repeats: 50
+  preserve_weight_multiset: true
+
+decision:
+  arrangement_signal_min: 0.05
+  dominance_gap_min: 0.03
+  minimum_repeat_count: 50
+  minimum_arm_edge_count: 2
+
+backbone_variants:
+  enabled: true
+  variants:
+    - variant_name: "strength_topk"
+      method: "strength_topk"
+      top_k: 4
+    - variant_name: "strength_topalpha_025"
+      method: "strength_topalpha"
+      alpha: 0.25

@@ -1,0 +1,5 @@
+node_id,node_family,node_label,L_major_raw,L_minor_raw,m_ref_raw,feature_mode_frequency,feature_length_scale,origin_tag,comment
+ring_001,RING,Ring-001,4.8,4.4,1,12.4,4.8,m39x1_export,baseline ring
+ring_002,RING,Ring-002,5.0,4.5,2,13.1,5.0,m39x1_export,ring second reference mode
+cavity_001,CAVITY,Cavity-001,7.2,5.3,1,8.7,7.2,m39x1_export,baseline cavity
+membrane_001,MEMBRANE,Membrane-001,6.8,3.7,3,5.4,6.8,m39x1_export,membrane third reference mode

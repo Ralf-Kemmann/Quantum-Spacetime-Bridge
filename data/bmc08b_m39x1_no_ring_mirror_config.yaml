@@ -1,0 +1,15 @@
+input:
+  families_yaml: "numerics/debroglie-phase-bridge/m33_v0_scaffold/configs/m39x1_ring_dispersion_irregularity_families.yaml"
+  family_ids:
+    - "ER1_RING"
+    - "ER2_CAVITY"
+    - "ER3_MEMBRANE"
+
+ring_handling:
+  keep_rule: "positive_only"
+
+constants:
+  membrane_radius: 1.0
+
+output:
+  feature_table_csv: "data/bmc08b_real_units_feature_table.csv"

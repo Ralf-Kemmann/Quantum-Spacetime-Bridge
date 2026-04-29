@@ -1,0 +1,32 @@
+{
+  "dataset_id": "BMC08a_realdata_v1",
+  "dataset_version": "v1",
+  "source_artifacts": [
+    "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/data/bmc08b_real_units_feature_table.csv"
+  ],
+  "node_semantics": "single physical instances from ring/cavity/membrane block",
+  "edge_semantics": "pairwise similarity between standardized feature vectors",
+  "feature_set": [
+    "feature_mode_frequency",
+    "feature_length_scale",
+    "feature_shape_factor",
+    "feature_spectral_index"
+  ],
+  "weight_rule": "1 / (1 + euclidean_distance(z-scored features))",
+  "shell_rule": "family shell: RING=0, CAVITY=1, MEMBRANE=2",
+  "ring_l_major_rule": "outer_diameter or major_extent",
+  "ring_l_minor_rule": "ring_width or minor_extent",
+  "ring_m_ref_rule": "fundamental_mode_or_lowest_consistent_reference",
+  "cavity_l_major_rule": "cavity_length or major_extent",
+  "cavity_l_minor_rule": "cavity_width or minor_extent",
+  "cavity_m_ref_rule": "fundamental_mode_or_lowest_consistent_reference",
+  "membrane_l_major_rule": "membrane_span or major_extent",
+  "membrane_l_minor_rule": "membrane_width or minor_extent",
+  "membrane_m_ref_rule": "fundamental_mode_or_lowest_consistent_reference",
+  "record_count": 19,
+  "notes": [
+    "Open build artifact for BMC-08a.",
+    "No hidden standardization in the runner.",
+    "Same-shells are family-defined in version 1."
+  ]
+}

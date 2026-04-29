@@ -1,0 +1,20 @@
+{
+  "dataset_id": "BMC08a_realdata_v1",
+  "dataset_version": "v1",
+  "source_artifacts": [
+    "data/bmc08a_real_units_feature_table.csv"
+  ],
+  "node_semantics": "single physical instances from ring/cavity/membrane block",
+  "edge_semantics": "pairwise similarity between standardized feature vectors",
+  "feature_set": [
+    "feature_mode_frequency",
+    "feature_length_scale",
+    "feature_shape_factor",
+    "feature_spectral_index"
+  ],
+  "weight_rule": "1 / (1 + euclidean_distance(z-scored features))",
+  "shell_rule": "family shell: RING=0, CAVITY=1, MEMBRANE=2",
+  "notes": [
+    "Template only. Replace with build output."
+  ]
+}

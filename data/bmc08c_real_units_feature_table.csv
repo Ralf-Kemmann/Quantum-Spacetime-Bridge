@@ -1,0 +1,23 @@
+node_id,node_family,node_label,L_major_raw,L_minor_raw,m_ref_raw,feature_mode_frequency,feature_length_scale,origin_tag,comment
+ring_p_m3,RING,p=-3,1,1,3,-3,0.3333333333333333,M39x_external_reference_wave_1,sign-sensitive ring
+ring_p_m2,RING,p=-2,1,1,2,-2,0.5,M39x_external_reference_wave_1,sign-sensitive ring
+ring_p_m1,RING,p=-1,1,1,1,-1,1.0,M39x_external_reference_wave_1,sign-sensitive ring
+ring_p_1,RING,p=1,1,1,1,1,1.0,M39x_external_reference_wave_1,sign-sensitive ring
+ring_p_2,RING,p=2,1,1,2,2,0.5,M39x_external_reference_wave_1,sign-sensitive ring
+ring_p_3,RING,p=3,1,1,3,3,0.3333333333333333,M39x_external_reference_wave_1,sign-sensitive ring
+cavity_1_1_1,CAVITY,"[1, 1, 1]",2.0,1.0,1,1.3017082793177757,0.7682212795973759,M39x_external_reference_wave_1,cavity
+cavity_1_1_2,CAVITY,"[1, 1, 2]",2.0,1.0,2,1.5634719199411433,0.6396021490668312,M39x_external_reference_wave_1,cavity
+cavity_1_2_1,CAVITY,"[1, 2, 1]",2.0,1.0,3,1.740051084818425,0.5746957711326909,M39x_external_reference_wave_1,cavity
+cavity_2_1_1,CAVITY,"[2, 1, 1]",2.0,1.0,5,2.1666666666666665,0.46153846153846156,M39x_external_reference_wave_1,cavity
+cavity_2_2_1,CAVITY,"[2, 2, 1]",2.0,1.0,7,2.455153310442706,0.4073065399812784,M39x_external_reference_wave_1,cavity
+cavity_2_1_2,CAVITY,"[2, 1, 2]",2.0,1.0,6,2.3333333333333335,0.42857142857142855,M39x_external_reference_wave_1,cavity
+cavity_1_2_2,CAVITY,"[1, 2, 2]",2.0,1.0,4,1.9436506316151,0.5144957554275266,M39x_external_reference_wave_1,cavity
+cavity_2_2_2,CAVITY,"[2, 2, 2]",2.0,1.0,8,2.6034165586355513,0.3841106397986879,M39x_external_reference_wave_1,cavity
+membrane_0_1,MEMBRANE,"[0, 1]",2,2,1,2.4048255577,0.41583057731489276,M39x_external_reference_wave_1,membrane
+membrane_1_1,MEMBRANE,"[1, 1]",2,2,1,3.8317059702,0.2609803590821464,M39x_external_reference_wave_1,membrane
+membrane_2_1,MEMBRANE,"[2, 1]",2,2,1,5.1356223018,0.1947183693102795,M39x_external_reference_wave_1,membrane
+membrane_0_2,MEMBRANE,"[0, 2]",2,2,2,5.5200781103,0.1811568568448487,M39x_external_reference_wave_1,membrane
+membrane_3_1,MEMBRANE,"[3, 1]",2,2,1,6.3801618952,0.15673583467409063,M39x_external_reference_wave_1,membrane
+membrane_1_2,MEMBRANE,"[1, 2]",2,2,2,7.0155866698,0.14253975427382296,M39x_external_reference_wave_1,membrane
+membrane_2_2,MEMBRANE,"[2, 2]",2,2,2,8.4172441404,0.11880372997621981,M39x_external_reference_wave_1,membrane
+membrane_0_3,MEMBRANE,"[0, 3]",2,2,3,8.6537279129,0.11555713445870107,M39x_external_reference_wave_1,membrane

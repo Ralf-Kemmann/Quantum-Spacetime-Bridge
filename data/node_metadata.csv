@@ -1,0 +1,9 @@
+node_id,shell_index,node_label,backbone_hint,comment
+n01,0,anchor_A,1,high-weight local anchor
+n02,0,anchor_B,1,high-weight local anchor
+n03,1,bridge_C,1,candidate bridge node
+n04,1,bridge_D,1,candidate bridge node
+n05,1,mid_E,0,mid-shell comparator
+n06,1,mid_F,0,mid-shell comparator
+n07,2,outer_G,0,outer-shell node
+n08,2,outer_H,0,outer-shell node

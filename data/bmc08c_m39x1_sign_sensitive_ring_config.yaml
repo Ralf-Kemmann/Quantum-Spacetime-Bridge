@@ -1,0 +1,5 @@
+input:
+  families_yaml: numerics/debroglie-phase-bridge/m33_v0_scaffold/configs/m39x1_ring_dispersion_irregularity_families.yaml
+
+output:
+  feature_table_csv: data/bmc08c_real_units_feature_table.csv
