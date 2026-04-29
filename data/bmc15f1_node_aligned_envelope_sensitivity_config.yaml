@@ -1,0 +1,99 @@
+# BMC-15f.1 Node-Aligned Envelope-Construction Sensitivity — Candidate Config
+#
+# Use only after the node-alignment preflight confirms exact node match.
+# If another candidate is the exact match, update input.relational_matrix_path.
+
+run_id: BMC-15f1_node_aligned_envelope_construction_sensitivity_mvp
+
+input:
+  relational_matrix_path: data/bmc08c_real_units_feature_table.csv
+  node_metadata_path: data/node_metadata_real.csv
+  reference_graphs_dir: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects
+  reference_metrics_path: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_metrics.json
+
+output:
+  output_dir: runs/BMC-15f1/node_aligned_envelope_sensitivity_open
+
+random:
+  seed: 150151
+
+reference_objects:
+  - maximum_spanning_tree_envelope
+  - mutual_kNN_k3_envelope
+  - threshold_path_consensus_envelope
+
+core_reference:
+  enabled: true
+  object_name: top_strength_reference_core
+  use_for_containment_only: true
+
+envelope_families:
+  - name: mutual_kNN_k_sweep
+    enabled: true
+    construction_mode: mutual_kNN
+    weight_source: similarity
+    parameters:
+      k: [2, 3, 4, 5, 6]
+
+  - name: threshold_sweep
+    enabled: true
+    construction_mode: top_fraction_threshold
+    weight_source: similarity
+    parameters:
+      top_fraction: [0.02, 0.03, 0.05, 0.08, 0.10]
+
+  - name: spanning_tree_variants
+    enabled: true
+    construction_mode: spanning_tree
+    weight_source: similarity
+    parameters:
+      modes:
+        - maximum_spanning_tree
+        - minimum_distance_spanning_tree
+
+diagnostics:
+  graph_summary: true
+  triangle_defects: true
+  embedding_stress: true
+  negative_eigenvalue_burden: true
+  geodesic_consistency: true
+  local_dimension_proxy: true
+  edge_overlap: true
+  core_containment: true
+
+embedding:
+  dimensions: [2, 3, 4]
+  distance_mode: shortest_path
+  disconnected_policy: largest_component
+
+stability:
+  reference_family: mutual_kNN_k_sweep
+  metric_tolerance: 1.0e-12
+  connectedness_required: false
+  dispersion_thresholds:
+    stable_cv_max: 0.10
+    moderately_stable_cv_max: 0.25
+    parameter_sensitive_cv_min: 0.25
+
+labeling:
+  tie_tolerance: 1.0e-12
+  directional_metrics:
+    triangle_defects: lower_is_more_geometry_like
+    embedding_stress_2d: lower_is_more_geometry_like
+    embedding_stress_3d: lower_is_more_geometry_like
+    embedding_stress_4d: lower_is_more_geometry_like
+    negative_eigenvalue_burden: lower_is_more_geometry_like
+    geodesic_consistency_error: lower_is_more_geometry_like
+    local_dimension_proxy: not_directional
+    edge_overlap: not_directional
+    core_containment: higher_is_more_contained
+
+readout:
+  write_summary_json: true
+  write_variant_metrics_csv: true
+  write_family_summary_csv: true
+  write_stability_summary_csv: true
+  write_edge_overlap_summary_csv: true
+  write_core_containment_summary_csv: true
+  write_readout_md: true
+  write_plots: false
