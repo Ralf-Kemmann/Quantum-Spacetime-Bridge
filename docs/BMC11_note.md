@@ -1,0 +1,1 @@
+BMC-11 Kovarianz-erhaltenes Nullmodell: multivariates Gaussian mit gleicher Kovarianzmatrix.
