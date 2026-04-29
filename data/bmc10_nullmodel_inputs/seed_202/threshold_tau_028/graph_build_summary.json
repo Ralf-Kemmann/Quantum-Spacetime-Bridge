@@ -1,0 +1,19 @@
+{
+  "seed": 202,
+  "graph_construction_method": "gaussian_nullmodel_threshold",
+  "graph_construction_parameters": {
+    "tau": 0.28
+  },
+  "graph_node_count": 22,
+  "graph_edge_count": 112,
+  "connected_component_count": 3,
+  "largest_component_size": 20,
+  "mean_degree": 10.181818181818182,
+  "graph_density": 0.48484848484848486,
+  "isolated_node_count": 2,
+  "component_size_profile": [
+    20,
+    1,
+    1
+  ]
+}

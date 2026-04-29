@@ -1,0 +1,10 @@
+seed,case_id,graph_construction_method,graph_construction_parameters,graph_node_count,graph_edge_count,connected_component_count,largest_component_size,mean_degree,graph_density,isolated_node_count,component_size_profile
+101,threshold_tau_028,gaussian_nullmodel_threshold,{'tau': 0.28},22,99,1,22,9.0,0.42857142857142855,0,[22]
+101,threshold_tau_03,gaussian_nullmodel_threshold,{'tau': 0.3},22,74,1,22,6.7272727272727275,0.3203463203463203,0,[22]
+101,threshold_tau_032,gaussian_nullmodel_threshold,{'tau': 0.32},22,59,1,22,5.363636363636363,0.2554112554112554,0,[22]
+202,threshold_tau_028,gaussian_nullmodel_threshold,{'tau': 0.28},22,112,3,20,10.181818181818182,0.48484848484848486,2,"[20, 1, 1]"
+202,threshold_tau_03,gaussian_nullmodel_threshold,{'tau': 0.3},22,90,3,20,8.181818181818182,0.38961038961038963,2,"[20, 1, 1]"
+202,threshold_tau_032,gaussian_nullmodel_threshold,{'tau': 0.32},22,71,3,20,6.454545454545454,0.30735930735930733,2,"[20, 1, 1]"
+303,threshold_tau_028,gaussian_nullmodel_threshold,{'tau': 0.28},22,100,2,21,9.090909090909092,0.4329004329004329,1,"[21, 1]"
+303,threshold_tau_03,gaussian_nullmodel_threshold,{'tau': 0.3},22,83,2,21,7.545454545454546,0.3593073593073593,1,"[21, 1]"
+303,threshold_tau_032,gaussian_nullmodel_threshold,{'tau': 0.32},22,71,2,21,6.454545454545454,0.30735930735930733,1,"[21, 1]"

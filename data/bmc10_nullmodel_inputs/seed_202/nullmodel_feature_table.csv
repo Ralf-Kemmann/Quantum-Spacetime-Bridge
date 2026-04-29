@@ -1,0 +1,23 @@
+node_id,node_family,node_label,L_major_raw,L_minor_raw,m_ref_raw,feature_mode_frequency,feature_length_scale,origin_tag,comment
+ring_p_m3,RING,nullmodel_RING_1,1.09436413817,1,3.48820382266,3.2548675172,0.0713811669114,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+ring_p_m2,RING,nullmodel_RING_2,1,1,4.48249757422,-0.578488141492,0.160728225047,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+ring_p_m1,RING,nullmodel_RING_3,1.53199261466,1,4.99900677274,6.40906950289,0.497344351635,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+ring_p_1,RING,nullmodel_RING_4,1,1,2.19349558598,-1.56377294476,0.112937028893,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+ring_p_2,RING,nullmodel_RING_5,1,1,3.46474050497,2.16672423373,0.544494547321,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+ring_p_3,RING,nullmodel_RING_6,1.36694431191,1,4.30377530202,2.6738345913,0.36285628456,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_1_1_1,CAVITY,nullmodel_CAVITY_7,1.34432174161,1,3.37997395011,-2.89460001564,0.516788953556,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_1_1_2,CAVITY,nullmodel_CAVITY_8,1.38116209299,1,2.21607820644,7.65914263491,0.128168873577,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_1_2_1,CAVITY,nullmodel_CAVITY_9,1.57739565354,1,2.24742652587,2.76099023701,0.583863634003,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_2_1_1,CAVITY,nullmodel_CAVITY_10,1.44503435595,1,1.48886141464,4.33566104146,0.555116247064,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_2_2_1,CAVITY,nullmodel_CAVITY_11,1.17920012965,1,1.71698496676,5.40528783468,0.406394445519,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_2_1_2,CAVITY,nullmodel_CAVITY_12,1.72198626524,1,2.74990399023,1.34048690001,0.910666483453,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_1_2_2,CAVITY,nullmodel_CAVITY_13,1.52516099486,1,4.62185458867,2.29082157214,0.49820508356,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+cavity_2_2_2,CAVITY,nullmodel_CAVITY_14,1.19857195536,1,3.72345468247,-0.932065845274,0.38566402872,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_0_1,MEMBRANE,nullmodel_MEMBRANE_15,1,1,7.21770010134,0.315488221809,0.34951283589,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_1_1,MEMBRANE,nullmodel_MEMBRANE_16,2.58977832749,1,1.36477887421,2.44482806855,0.406015080215,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_2_1,MEMBRANE,nullmodel_MEMBRANE_17,2.21497758241,1,5.51743155672,-3.46105900942,0.872462417094,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_0_2,MEMBRANE,nullmodel_MEMBRANE_18,1,1,1,5.76288613244,0.863409376887,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_3_1,MEMBRANE,nullmodel_MEMBRANE_19,1.59889156625,1,2.38982803385,1.49724916151,0.772467566781,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_1_2,MEMBRANE,nullmodel_MEMBRANE_20,1.47116641469,1,3.27113299642,4.37896813098,0.720778017838,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_2_2,MEMBRANE,nullmodel_MEMBRANE_21,1.04687265755,1,1,5.59747294149,0.45111781822,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved
+membrane_0_3,MEMBRANE,nullmodel_MEMBRANE_22,1.86319783004,1,4.3055733292,2.34324474607,0.39362990844,BMC10_nullmodel_seed_202,Gaussian nullmodel feature row with BMC-08c node contract preserved

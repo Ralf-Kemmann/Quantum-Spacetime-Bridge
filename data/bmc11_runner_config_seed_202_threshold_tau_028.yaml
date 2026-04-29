@@ -1,0 +1,45 @@
+run:
+  run_id: BMC11_seed_202_threshold_tau_028_realdata_open
+  output_dir: runs/BMC-11/BMC11_seed_202_threshold_tau_028_realdata_open
+  seed: 101
+  run_label: threshold_tau_028
+inputs:
+  baseline_relational_table: data/bmc11_baseline_relational_table_seed_202.csv
+  node_metadata: data/bmc11_node_metadata_seed_202.csv
+  bmc04_reference_summary: null
+  pair_neighborhood_matrix: null
+  diffusion_distance_matrix: null
+graph:
+  directed: false
+  weight_column: weight
+  source_column: source
+  target_column: target
+  threshold_tau: 0.28
+perturbation:
+  repeats: 50
+  edge_swap_fraction: 0.1
+  preserve_degree: true
+  preserve_weight_multiset: true
+  preserve_shell_counts: false
+readouts:
+  arrangement_signal: weighted_shell_gap_vs_weight_shuffle
+  shell_order_drift: absolute_gap_to_shuffle_mean
+  diffusion_shift: mean_abs_distance_to_optional_reference
+  pair_neighborhood_shift: mean_abs_normalized_adjacency_to_optional_reference
+decision:
+  arrangement_signal_min: 0.05
+  dominance_gap_min: 0.03
+  minimum_repeat_count: 50
+  minimum_arm_edge_count: 2
+backbone_variants:
+  enabled: true
+  variants:
+  - variant_name: strength_topk_6
+    method: strength_topk
+    top_k: 6
+  - variant_name: strength_topalpha_025
+    method: strength_topalpha
+    alpha: 0.25
+  - variant_name: strength_topalpha_050
+    method: strength_topalpha
+    alpha: 0.5

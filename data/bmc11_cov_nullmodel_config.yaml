@@ -1,0 +1,9 @@
+
+input:
+  feature_table_csv: data/bmc08c_real_units_feature_table.csv
+
+output:
+  feature_table_csv: data/bmc11_cov_null_feature_table.csv
+
+params:
+  seeds: [101, 202, 303]

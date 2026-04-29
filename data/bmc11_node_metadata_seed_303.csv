@@ -1,0 +1,23 @@
+node_id,shell_index,node_label,node_family,origin_tag,comment,feature_shape_factor,feature_spectral_index
+ring_p_m3,0,p=-3,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.64149735674,7.80014136693
+ring_p_m2,0,p=-2,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.26919982784,1.18759151933
+ring_p_m1,0,p=-1,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.78145189158,2.15748308884
+ring_p_1,0,p=1,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.28838426552,2.20802247793
+ring_p_2,0,p=2,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.30713282173,3.79845707955
+ring_p_3,0,p=3,RING,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.65592551853,3.77712328773
+cavity_1_1_1,1,"[1, 1, 1]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.37249652828,1e-09
+cavity_1_1_2,1,"[1, 1, 2]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.06496165201,1.21163415975
+cavity_1_2_1,1,"[1, 2, 1]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.3538649817,3.78597689775
+cavity_2_1_1,1,"[2, 1, 1]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.70131791353,2.61899635825
+cavity_2_2_1,1,"[2, 2, 1]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.79975867667,7.13181277336
+cavity_2_1_2,1,"[2, 1, 2]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.00344895193,2.78740492257
+cavity_1_2_2,1,"[1, 2, 2]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.13514354362,2.33934533859
+cavity_2_2_2,1,"[2, 2, 2]",CAVITY,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.30011912743,1.56065890539
+membrane_0_1,2,"[0, 1]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.55637527217,5.80111882354
+membrane_1_1,2,"[1, 1]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.74302189154,6.1343668633
+membrane_2_1,2,"[2, 1]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.49893471273,3.46195191815
+membrane_0_2,2,"[0, 2]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,2.40513104993,5.32396204569
+membrane_3_1,2,"[3, 1]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.33418869408,2.53386675535
+membrane_1_2,2,"[1, 2]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.90185973366,1.92134796902
+membrane_2_2,2,"[2, 2]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.32084407165,3.32254702319
+membrane_0_3,2,"[0, 3]",MEMBRANE,BMC11_cov_null_seed_303,Covariance-preserving multivariate Gaussian nullmodel row,1.10917044058,2.5623019813
