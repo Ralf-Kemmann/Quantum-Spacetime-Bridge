@@ -68,6 +68,7 @@ import argparse
 import json
 import math
 import sys
+import warnings
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -512,8 +513,11 @@ def normalized_embedding_stress(dist: np.ndarray, dim: int, random_state: int) -
         n_init=4,
         max_iter=300,
         eps=1e-6,
+        init="random",
     )
-    coords = mds.fit_transform(dist)
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=FutureWarning, module="sklearn.manifold._mds")
+        coords = mds.fit_transform(dist)
     emb_dist = pairwise_distances(coords)
     tri = np.triu_indices(n, 1)
     denom = np.sum(dist[tri] ** 2)
