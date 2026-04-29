@@ -1,0 +1,18 @@
+source,target,weight,edge_family,relation_type,source_family,target_family,evidence_tag,comment
+cavity_1_1_1,cavity_1_1_2,0.579990550266,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_1_1_2,cavity_1_2_1,0.638069209635,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_1_2_1,cavity_1_2_2,0.641079687086,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_1_2_2,cavity_2_1_1,0.645647838034,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_2_1_1,cavity_2_1_2,0.65761983954,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_2_1_2,cavity_2_2_1,0.662567597695,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+cavity_2_2_1,cavity_2_2_2,0.661622468379,intra_family,mutual_knn_euclidean_similarity,CAVITY,CAVITY,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_0_1,membrane_1_1,0.559596252799,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_0_1,ring_p_2,0.617660875738,cross_family,mutual_knn_euclidean_similarity,MEMBRANE,RING,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_0_2,membrane_1_2,0.653727791508,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_0_3,membrane_2_2,0.663602907996,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_1_1,membrane_2_1,0.659869462167,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_1_2,membrane_2_2,0.673764262641,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+membrane_2_1,membrane_3_1,0.690503972662,intra_family,mutual_knn_euclidean_similarity,MEMBRANE,MEMBRANE,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+ring_p_1,ring_p_m1,0.596158539082,intra_family,mutual_knn_euclidean_similarity,RING,RING,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+ring_p_2,ring_p_3,0.526002197178,intra_family,mutual_knn_euclidean_similarity,RING,RING,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2
+ring_p_m2,ring_p_m3,0.526002197178,intra_family,mutual_knn_euclidean_similarity,RING,RING,bmc09c_mutual_knn_k_2,mutual k-NN similarity edge with k=2

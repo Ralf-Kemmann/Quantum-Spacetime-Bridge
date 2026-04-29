@@ -1,0 +1,12 @@
+{
+  "graph_construction_method": "mutual_knn",
+  "graph_construction_parameters": {
+    "k": 2
+  },
+  "graph_node_count": 22,
+  "graph_edge_count": 17,
+  "connected_component_count": 5,
+  "largest_component_size": 8,
+  "mean_degree": 1.5454545454545454,
+  "graph_density": 0.0735930735930736
+}

@@ -1,0 +1,17 @@
+{
+  "graph_construction_method": "hybrid_local",
+  "graph_construction_parameters": {
+    "k": 3,
+    "tau": 0.3
+  },
+  "graph_node_count": 22,
+  "graph_edge_count": 43,
+  "connected_component_count": 1,
+  "largest_component_size": 22,
+  "mean_degree": 3.909090909090909,
+  "graph_density": 0.18614718614718614,
+  "isolated_node_count": 0,
+  "component_size_profile": [
+    22
+  ]
+}

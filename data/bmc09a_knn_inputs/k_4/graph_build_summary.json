@@ -1,0 +1,12 @@
+{
+  "graph_construction_method": "symmetric_knn",
+  "graph_construction_parameters": {
+    "k": 4
+  },
+  "graph_node_count": 22,
+  "graph_edge_count": 56,
+  "connected_component_count": 1,
+  "largest_component_size": 22,
+  "mean_degree": 5.090909090909091,
+  "graph_density": 0.24242424242424243
+}

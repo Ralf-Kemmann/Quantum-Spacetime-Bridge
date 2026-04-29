@@ -1,0 +1,18 @@
+{
+  "graph_construction_method": "threshold",
+  "graph_construction_parameters": {
+    "tau": 0.35
+  },
+  "graph_node_count": 22,
+  "graph_edge_count": 57,
+  "connected_component_count": 3,
+  "largest_component_size": 12,
+  "mean_degree": 5.181818181818182,
+  "graph_density": 0.24675324675324675,
+  "isolated_node_count": 0,
+  "component_size_profile": [
+    12,
+    8,
+    2
+  ]
+}
