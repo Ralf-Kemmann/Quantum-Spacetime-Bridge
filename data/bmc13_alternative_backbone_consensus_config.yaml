@@ -1,0 +1,37 @@
+# BMC-13 Alternative Backbone / Consensus-Backbone Filters configuration
+
+run_id: BMC13_alternative_backbone_consensus_open
+
+inputs:
+  bmc12e_edge_inventory_csv: runs/BMC-12e/edgecount_neighborhood_sweep_open/bmc12e_edgecount_sweep_edges_inventory.csv
+
+outputs:
+  output_root: runs/BMC-13/alternative_backbone_consensus_open
+
+focus:
+  reference_edge_count: 81
+  reference_case_id: baseline_all_features
+  sparse_path_edge_counts:
+    - 70
+    - 75
+    - 81
+
+methods:
+  top_strength_reference:
+    enabled: true
+    k_reference_edges: 6
+
+  mutual_knn:
+    enabled: true
+    k: 3
+
+  maximum_spanning_tree:
+    enabled: true
+
+  threshold_path_consensus:
+    enabled: true
+    minimum_presence_count: 3
+
+interpretation:
+  high_overlap_jaccard_min: 0.60
+  moderate_overlap_jaccard_min: 0.30

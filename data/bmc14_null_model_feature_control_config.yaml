@@ -1,0 +1,54 @@
+# BMC-14 Null-Model / Randomized Feature-Control configuration
+
+run_id: BMC14_null_model_feature_control_open
+
+inputs:
+  feature_table_csv: data/bmc12_feature_table_with_derived_from_bmc08c.csv
+  observed_core_edges_csv: runs/BMC-13/alternative_backbone_consensus_open/bmc13_backbone_edges.csv
+
+outputs:
+  output_root: runs/BMC-14/null_model_feature_control_open
+  write_null_edge_tables: false
+  write_null_feature_tables: false
+
+features:
+  id_column: node_id
+  family_column: node_family
+  feature_columns:
+    - feature_mode_frequency
+    - feature_length_scale
+    - feature_shape_factor
+    - feature_spectral_index
+
+reference:
+  observed_core_method_id: top_strength_reference
+  edge_count_target: 81
+  core_edge_count: 6
+
+null_models:
+  featurewise_permutation:
+    enabled: true
+  rowwise_vector_permutation:
+    enabled: true
+  family_preserving_row_permutation:
+    enabled: true
+
+replicates:
+  count: 100
+  random_seed_base: 14000
+
+methods:
+  top_strength_reference:
+    enabled: true
+    k_reference_edges: 6
+  mutual_knn:
+    enabled: true
+    k: 3
+  maximum_spanning_tree:
+    enabled: true
+
+distribution_metrics:
+  - observed_core_recovery_fraction
+  - observed_core_jaccard
+  - observed_core_containment_in_null
+  - null_core_self_containment

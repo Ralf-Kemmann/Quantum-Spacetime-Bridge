@@ -1,0 +1,44 @@
+# BMC-15 Geometry-Proxy Diagnostics configuration
+# BMC-15a: observed geometry-proxy baseline only.
+# This is not a physical spacetime reconstruction.
+
+run_id: BMC15_geometry_proxy_diagnostics_open
+
+inputs:
+  edge_inventory_csv: runs/BMC-12e/edgecount_neighborhood_sweep_open/bmc12e_edgecount_sweep_edges_inventory.csv
+  backbone_edges_csv: runs/BMC-13/alternative_backbone_consensus_open/bmc13_backbone_edges.csv
+
+outputs:
+  output_root: runs/BMC-15/geometry_proxy_diagnostics_open
+
+reference:
+  edge_count_target: 81
+  case_id: baseline_all_features
+  core_method_id: top_strength_reference
+
+distance:
+  proxy: negative_log_weight
+  epsilon: 1.0e-12
+  triangle_tolerance: 1.0e-12
+
+graphs:
+  include:
+    - N81_full_baseline
+    - top_strength_reference_core
+    - maximum_spanning_tree_envelope
+    - mutual_kNN_k3_envelope
+    - threshold_path_consensus_envelope
+
+embedding:
+  dimensions: [2, 3, 4]
+  use_largest_component_only: true
+
+diagnostics:
+  triangle_defects: true
+  embedding_stress: true
+  geodesic_consistency: true
+  shell_growth: true
+  local_dimension_proxy: true
+
+local_dimension:
+  min_fit_points: 3

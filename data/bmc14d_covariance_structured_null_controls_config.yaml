@@ -1,0 +1,69 @@
+# BMC-14d Covariance-Preserving / Structured Null Controls configuration
+
+run_id: BMC14d_covariance_structured_null_controls_open
+
+inputs:
+  feature_table_csv: data/bmc12_feature_table_with_derived_from_bmc08c.csv
+  observed_core_edges_csv: runs/BMC-13/alternative_backbone_consensus_open/bmc13_backbone_edges.csv
+  observed_edge_inventory_csv: runs/BMC-12e/edgecount_neighborhood_sweep_open/bmc12e_edgecount_sweep_edges_inventory.csv
+
+outputs:
+  output_root: runs/BMC-14d/covariance_structured_null_controls_open
+  write_null_edge_tables: false
+  write_null_feature_tables: false
+
+features:
+  id_column: node_id
+  family_column: node_family
+  feature_columns:
+    - feature_mode_frequency
+    - feature_length_scale
+    - feature_shape_factor
+    - feature_spectral_index
+
+reference:
+  observed_core_method_id: top_strength_reference
+  observed_case_id: baseline_all_features
+  edge_count_target: 81
+  core_edge_count: 6
+
+null_models:
+  global_covariance_gaussian:
+    enabled: true
+    ridge: 1.0e-9
+    clip_to_observed_minmax: true
+
+  family_covariance_gaussian:
+    enabled: true
+    ridge: 1.0e-6
+    min_family_size_for_covariance: 5
+    fallback: diagonal
+    clip_to_observed_minmax: true
+
+  weight_rank_edge_rewire:
+    enabled: true
+    source_case_id: baseline_all_features
+    preserve_weight_multiset: true
+
+replicates:
+  count: 500
+  random_seed_base: 140000
+
+methods:
+  top_strength_reference:
+    enabled: true
+    k_reference_edges: 6
+
+  mutual_knn:
+    enabled: true
+    k: 3
+
+  maximum_spanning_tree:
+    enabled: true
+
+distribution_metrics:
+  - observed_core_shared_edges
+  - observed_core_jaccard
+  - observed_core_recovery_fraction
+  - observed_core_containment_in_null
+  - null_core_self_containment

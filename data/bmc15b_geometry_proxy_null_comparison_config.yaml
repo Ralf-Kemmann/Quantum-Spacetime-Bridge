@@ -1,0 +1,98 @@
+# BMC-15b Geometry-Proxy Null Comparison configuration
+# Methodological geometry-proxy null comparison only.
+# No physical spacetime reconstruction.
+
+run_id: BMC15b_geometry_proxy_null_comparison_open
+
+inputs:
+  feature_table_csv: data/bmc12_feature_table_with_derived_from_bmc08c.csv
+  observed_edge_inventory_csv: runs/BMC-12e/edgecount_neighborhood_sweep_open/bmc12e_edgecount_sweep_edges_inventory.csv
+  observed_backbone_edges_csv: runs/BMC-13/alternative_backbone_consensus_open/bmc13_backbone_edges.csv
+  observed_bmc15_graph_inventory_csv: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_graph_inventory.csv
+  observed_bmc15_triangle_csv: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_triangle_defect_summary.csv
+  observed_bmc15_embedding_csv: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_embedding_summary.csv
+  observed_bmc15_geodesic_csv: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_geodesic_consistency_summary.csv
+  observed_bmc15_dimension_csv: runs/BMC-15/geometry_proxy_diagnostics_open/bmc15_local_dimension_proxy_summary.csv
+
+outputs:
+  output_root: runs/BMC-15b/geometry_proxy_null_comparison_open
+  write_null_edge_tables: false
+
+features:
+  id_column: node_id
+  family_column: node_family
+  feature_columns:
+    - feature_mode_frequency
+    - feature_length_scale
+    - feature_shape_factor
+    - feature_spectral_index
+
+reference:
+  edge_count_target: 81
+  case_id: baseline_all_features
+  core_edge_count: 6
+  observed_core_method_id: top_strength_reference
+
+distance:
+  proxy: negative_log_weight
+  epsilon: 1.0e-12
+  triangle_tolerance: 1.0e-12
+
+replicates:
+  count: 200
+  random_seed_base: 151500
+
+null_models:
+  global_covariance_gaussian:
+    enabled: true
+    ridge: 1.0e-9
+    clip_to_observed_minmax: true
+
+  family_covariance_gaussian:
+    enabled: true
+    ridge: 1.0e-6
+    min_family_size_for_covariance: 5
+    fallback: diagonal
+    clip_to_observed_minmax: true
+
+  weight_rank_edge_rewire:
+    enabled: true
+    preserve_weight_multiset: true
+
+  degree_preserving_edge_rewire:
+    enabled: true
+    swap_multiplier: 20
+    max_attempt_multiplier: 200
+    weight_assignment: shuffle_weights
+
+  degree_weightclass_edge_rewire:
+    enabled: true
+    swap_multiplier: 20
+    max_attempt_multiplier: 200
+    weight_classes: 4
+    weight_assignment: weightclass_shuffle
+
+  gaussian_copula_feature_null:
+    enabled: true
+    ridge: 1.0e-9
+    clip_to_observed_minmax: true
+
+null_graphs:
+  include:
+    - null_N81_full
+    - null_top_strength_core
+    - null_maximum_spanning_tree
+    - null_mutual_kNN_k3
+
+methods:
+  top_strength_reference:
+    k_reference_edges: 6
+  mutual_knn:
+    k: 3
+
+embedding:
+  dimensions: [2, 3, 4]
+  use_largest_component_only: true
+
+local_dimension:
+  min_fit_points: 3
