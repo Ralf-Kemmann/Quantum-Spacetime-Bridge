@@ -1,0 +1,7 @@
+variant_name,definition_short,ex_ante_plausibility,readout_proximity,coupling_risk,transparency,status,comment
+hint_reference,Backbone aus vorhandener backbone_hint-Markierung.,mittel,gering,gering bis mittel,hoch,faire Basis,"Offene Referenzvariante; als Ausgangspunkt vertretbar, aber nicht besonders tief begründet."
+strength_topk,"Oberste Knoten nach gewichteter Inzidenzstärke, fixes k.",hoch,gering,gering,hoch,faire Basis,"Einfache, gut begründbare Kernregel ohne direkte Readout-Nähe."
+strength_topalpha,"Oberste Knoten nach gewichteter Inzidenzstärke, Anteil alpha.",hoch,gering,gering,hoch,faire Basis,"Wie strength_topk, zusätzlich mit offener Variation der Kerngröße."
+same_shell_core,Oberste Knoten nach same-shell-orientierter Inzidenz.,mittel,hoch,hoch,hoch,kritisch / readout-nah,"Transparent definiert, aber methodisch nicht neutral gegenüber shell-naher Organisation."
+hybrid_strength_shell_lambda_05,"Mischscore aus Strength und same-shell-Anteil, lambda=0.5.",mittel,mittel bis hoch,mittel bis hoch,mittel bis hoch,"plausibel, aber sensitiv","Diagnostisch interessant, aber bereits partiell readout-nah."
+hybrid_strength_shell_lambda_07,"Mischscore aus Strength und same-shell-Anteil, lambda=0.7.",mittel bis hoch,mittel,mittel,mittel bis hoch,"plausibel, aber sensitiv","Defensiver als lambda=0.5, aber keine reine Basisregel mehr."
