@@ -1,0 +1,35 @@
+# BMC-15g Core Perturbation Robustness Config
+
+input:
+  source_graph_edges_csv: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/N81_full_baseline_edges.csv
+  reference_core_edges_csv: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/top_strength_reference_core_edges.csv
+  reference_envelopes:
+    - name: maximum_spanning_tree_envelope
+      edges_csv: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/maximum_spanning_tree_envelope_edges.csv
+    - name: mutual_kNN_k3_envelope
+      edges_csv: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/mutual_kNN_k3_envelope_edges.csv
+    - name: threshold_path_consensus_envelope
+      edges_csv: runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/threshold_path_consensus_envelope_edges.csv
+
+output:
+  output_dir: runs/BMC-15g/core_perturbation_robustness_open
+
+run:
+  repeats: 50
+  seeds: [101, 202, 303]
+
+perturbations:
+  weight_jitter:
+    enabled: true
+    strengths: [0.01, 0.03, 0.05, 0.10]
+  edge_dropout:
+    enabled: true
+    strengths: [0.01, 0.03, 0.05, 0.10]
+  edge_swap:
+    enabled: true
+    strengths: [0.01, 0.03, 0.05, 0.10]
+
+readout:
+  high_retention_threshold: 0.80
+  moderate_retention_threshold: 0.60
+  low_retention_threshold: 0.40
