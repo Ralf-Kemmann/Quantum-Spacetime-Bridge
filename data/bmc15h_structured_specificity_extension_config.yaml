@@ -98,7 +98,7 @@ null_families:
     preserve_weight_multiset: true
 
   core_seeded_decoy:
-    enabled: false
+    enabled: true
     repeats: 50
     seed_edge_count: 6
     seed_weight_quantile: 0.90
