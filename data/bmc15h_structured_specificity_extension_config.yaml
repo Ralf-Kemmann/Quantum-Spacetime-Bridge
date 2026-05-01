@@ -1,0 +1,135 @@
+# BMC-15h — Structured Specificity Extension
+# Configuration template / initial minimal run config
+#
+# Install target:
+#   data/bmc15h_structured_specificity_extension_config.yaml
+#
+# This config is intentionally explicit. Paths are repo-relative unless stated
+# otherwise. The runner should resolve them relative to repo_root.
+
+run:
+  run_id: "BMC15h_structured_specificity_extension_open"
+  repo_root: "."
+  output_dir: "runs/BMC-15h/structured_specificity_extension_open"
+  random_seed_base: 1508001
+  overwrite: true
+
+inputs:
+  # Canonical weighted edge table for the N81 / BMC geometry-proxy object.
+  # Required columns by default:
+  #   source, target, weight
+  #
+  # Adjust this path if the local canonical edge inventory has a different name.
+  canonical_edge_table: "runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/N81_full_baseline_edges.csv"
+
+  # Optional node metadata / feature table used by feature-structured shuffles.
+  # The runner can continue without this file only if feature_structured_shuffle
+  # is disabled.
+  node_metadata: "data/node_metadata_real.csv"
+
+  # Reference-core edge list.
+  # Required columns by default:
+  #   source, target
+  #
+  # Optional weight column is allowed but not required.
+  reference_core_edges: "runs/BMC-15/geometry_proxy_diagnostics_open/graph_objects/top_strength_reference_core_edges.csv"
+
+  # Optional canonical envelope tables from BMC-15f/f1/f2.
+  # If a file is missing, the runner records a warning and computes only the
+  # internally reconstructed envelope variants.
+  reference_envelopes:
+    - label: "bmc15f_mvp"
+      path: "runs/BMC-15f/envelope_construction_sensitivity_open/bmc15f_variant_edges.csv"
+    - label: "bmc15f1_node_aligned"
+      path: "runs/BMC-15f1/node_aligned_envelope_sensitivity_open/bmc15f1_variant_edges.csv"
+    - label: "bmc15f2_transition"
+      path: "runs/BMC-15f2/connectedness_transition_sweep_open/bmc15f2_variant_edges.csv"
+
+columns:
+  source: "source"
+  target: "target"
+  weight: "weight"
+
+  # Optional metadata columns for feature-structured shuffles.
+  node_id: "node_id"
+  family: "family"
+
+reference_core:
+  # If the reference_core_edges file contains more than the desired compact
+  # reference core, keep the strongest n edges after joining canonical weights.
+  # Set null to use all edges from the file.
+  max_edges: 6
+
+  # If true, sort edges by descending absolute weight before max_edges filtering.
+  sort_by_abs_weight: true
+
+construction_families:
+  # Reconstruct simple envelope families directly from each graph object.
+  # This keeps BMC-15h self-contained even when older envelope edge files have
+  # slightly different local names.
+  top_strength:
+    enabled: true
+    edge_counts: [21, 34, 55, 75]
+
+  threshold:
+    enabled: true
+    thresholds: [0.02, 0.03, 0.05, 0.08, 0.10, 0.20, 0.30]
+
+  mutual_knn:
+    enabled: true
+    k_values: [2, 3, 4, 6, 10, 15]
+
+  maximum_spanning_tree:
+    enabled: true
+
+null_families:
+  degree_weight_preserving_rewire:
+    enabled: true
+    repeats: 50
+    edge_swap_fraction: 0.25
+    max_swap_attempt_multiplier: 20
+    preserve_weight_multiset: true
+
+  feature_structured_shuffle:
+    enabled: true
+    repeats: 50
+    family_column: "family"
+    shuffle_mode: "within_family"
+    preserve_weight_multiset: true
+
+  core_seeded_decoy:
+    enabled: false
+    repeats: 50
+    seed_edge_count: 6
+    seed_weight_quantile: 0.90
+    preserve_global_edge_count: true
+
+comparison:
+  metrics:
+    - "core_edge_retention"
+    - "core_node_retention"
+    - "envelope_core_edge_containment"
+    - "envelope_core_node_containment"
+    - "envelope_jaccard_to_real"
+
+  directions:
+    core_edge_retention: "higher_is_more_core_like"
+    core_node_retention: "higher_is_more_core_like"
+    envelope_core_edge_containment: "higher_is_more_core_like"
+    envelope_core_node_containment: "higher_is_more_core_like"
+    envelope_jaccard_to_real: "higher_is_more_core_like"
+
+interpretation_thresholds:
+  # These are conservative labels for diagnostics, not proof-level statements.
+  exceedance_low: 0.05
+  exceedance_high: 0.50
+  min_null_repeats_for_label: 30
+
+outputs:
+  core_metrics_csv: "bmc15h_core_metrics.csv"
+  envelope_metrics_csv: "bmc15h_envelope_metrics.csv"
+  real_vs_null_summary_csv: "bmc15h_real_vs_null_summary.csv"
+  null_family_inventory_csv: "bmc15h_null_family_inventory.csv"
+  run_manifest_json: "bmc15h_run_manifest.json"
+  warnings_json: "bmc15h_warnings.json"
+  resolved_config_yaml: "bmc15h_config_resolved.yaml"
