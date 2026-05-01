@@ -1,0 +1,114 @@
+# BMS-FU01c — C60 Motif-Preserving Null and Topology-Only Extension Config
+# Date: 2026-05-01
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU01c_c60_motif_topology_extension_open"
+  output_dir: "runs/BMS-FU01c/c60_motif_topology_extension_open"
+  random_seed: 1618033
+
+inputs:
+  nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  edges_csv: "data/bms_fu01_c60_edges.csv"
+  faces_csv: "data/bms_fu01_c60_faces.csv"
+  graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+representations:
+  - representation_id: "bond_class_weighted"
+    edge_mode: "bond_edges_only"
+    weight_rule_id: "bond_class_6_6_1p00_5_6_0p85"
+    max_graph_distance: null
+
+  - representation_id: "topology_only_equal_weight"
+    edge_mode: "bond_edges_only"
+    weight_rule_id: "all_bond_edges_1p00"
+    max_graph_distance: null
+
+  - representation_id: "graph_distance_similarity_d3"
+    edge_mode: "graph_distance_pairs"
+    weight_rule_id: "one_over_one_plus_shortest_path_distance"
+    max_graph_distance: 3
+
+core_variants:
+  - core_variant_id: "local_6_6_patch_core"
+    mode: "first_sorted_edge_type"
+    edge_type: "6_6"
+    edge_count: 12
+    description: "FU01-v0 continuity core: first sorted 6:6 H-H edges."
+
+  - core_variant_id: "distributed_6_6_core"
+    mode: "evenly_spaced_edge_type"
+    edge_type: "6_6"
+    edge_count: 12
+    description: "Evenly spaced 6:6 H-H edges across the sorted 6:6 edge list."
+
+  - core_variant_id: "local_5_6_pentagon_boundary_core"
+    mode: "first_sorted_edge_type"
+    edge_type: "5_6"
+    edge_count: 12
+    description: "Local pentagon-boundary core: first sorted 5:6 edges."
+
+  - core_variant_id: "distributed_5_6_pentagon_boundary_core"
+    mode: "evenly_spaced_edge_type"
+    edge_type: "5_6"
+    edge_count: 12
+    description: "Evenly spaced pentagon-boundary 5:6 edges across the sorted 5:6 edge list."
+
+construction_families:
+  top_strength:
+    enabled: true
+    edge_counts: [12, 20, 30, 45, 60, 90]
+  threshold:
+    enabled: true
+    thresholds: [0.25, 0.50, 0.80, 0.85, 0.90, 0.95, 1.00]
+  mutual_knn:
+    enabled: true
+    k_values: [2, 3, 4, 6]
+  maximum_spanning_tree:
+    enabled: true
+  graph_distance_shells:
+    enabled: true
+    shell_depths: [1, 2, 3]
+
+null_families:
+  degree_preserving_rewire:
+    enabled: true
+    repeats: 50
+    swap_attempt_factor: 20
+    preserve_edge_type_counts: true
+
+  edge_class_shuffle:
+    enabled: true
+    repeats: 50
+    preserve_topology: true
+    preserve_edge_type_counts: true
+
+  motif_class_preserving_edge_swap_proxy:
+    enabled: true
+    repeats: 50
+    swap_attempt_factor: 20
+    preserve_edge_type_per_edge_class: true
+
+  core_seeded_decoy:
+    enabled: true
+    repeats: 50
+    seed_mode: "current_core_edges"
+    preserve_topology: true
+    preserve_edge_type_counts: true
+
+outputs:
+  nodes_resolved_csv: "bms_fu01c_nodes_resolved.csv"
+  edges_csv: "bms_fu01c_edges.csv"
+  faces_csv: "bms_fu01c_faces.csv"
+  representations_csv: "bms_fu01c_representations.csv"
+  core_variants_csv: "bms_fu01c_core_variants.csv"
+  reference_core_edges_csv: "bms_fu01c_reference_core_edges.csv"
+  core_metrics_csv: "bms_fu01c_core_metrics.csv"
+  envelope_metrics_csv: "bms_fu01c_envelope_metrics.csv"
+  real_vs_null_summary_csv: "bms_fu01c_real_vs_null_summary.csv"
+  representation_summary_csv: "bms_fu01c_representation_summary.csv"
+  core_variant_summary_csv: "bms_fu01c_core_variant_summary.csv"
+  null_family_inventory_csv: "bms_fu01c_null_family_inventory.csv"
+  run_manifest_json: "bms_fu01c_run_manifest.json"
+  warnings_json: "bms_fu01c_warnings.json"
+  resolved_config_yaml: "bms_fu01c_config_resolved.yaml"
