@@ -52,7 +52,7 @@ columns:
 
   # Optional metadata columns for feature-structured shuffles.
   node_id: "node_id"
-  family: "family"
+  family: "node_family"
 
 reference_core:
   # If the reference_core_edges file contains more than the desired compact
@@ -93,7 +93,7 @@ null_families:
   feature_structured_shuffle:
     enabled: true
     repeats: 50
-    family_column: "family"
+    family_column: "node_family"
     shuffle_mode: "within_family"
     preserve_weight_multiset: true
 
