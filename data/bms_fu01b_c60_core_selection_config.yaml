@@ -1,0 +1,90 @@
+# BMS-FU01b — C60 Core Selection Sensitivity Config
+# Date: 2026-05-01
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU01b_c60_core_selection_sensitivity_open"
+  output_dir: "runs/BMS-FU01b/c60_core_selection_sensitivity_open"
+  random_seed: 314159
+
+inputs:
+  nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  edges_csv: "data/bms_fu01_c60_edges.csv"
+  faces_csv: "data/bms_fu01_c60_faces.csv"
+  graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+core_variants:
+  - core_variant_id: "local_6_6_patch_core"
+    mode: "first_sorted_edge_type"
+    edge_type: "6_6"
+    edge_count: 12
+    description: "FU01-v0 continuity core: first sorted 6:6 H-H edges."
+
+  - core_variant_id: "distributed_6_6_core"
+    mode: "evenly_spaced_edge_type"
+    edge_type: "6_6"
+    edge_count: 12
+    description: "Evenly spaced 6:6 H-H edges across the sorted 6:6 edge list."
+
+  - core_variant_id: "local_5_6_pentagon_boundary_core"
+    mode: "first_sorted_edge_type"
+    edge_type: "5_6"
+    edge_count: 12
+    description: "Local pentagon-boundary core: first sorted 5:6 edges."
+
+  - core_variant_id: "distributed_5_6_pentagon_boundary_core"
+    mode: "evenly_spaced_edge_type"
+    edge_type: "5_6"
+    edge_count: 12
+    description: "Evenly spaced pentagon-boundary 5:6 edges across the sorted 5:6 edge list."
+
+construction_families:
+  top_strength:
+    enabled: true
+    edge_counts: [12, 20, 30, 45, 60, 90]
+  threshold:
+    enabled: true
+    thresholds: [0.80, 0.85, 0.90, 0.95, 1.00]
+  mutual_knn:
+    enabled: true
+    k_values: [2, 3, 4, 6]
+  maximum_spanning_tree:
+    enabled: true
+  graph_distance_shells:
+    enabled: true
+    shell_depths: [1, 2, 3]
+
+null_families:
+  degree_preserving_rewire:
+    enabled: true
+    repeats: 50
+    swap_attempt_factor: 20
+    preserve_edge_type_counts: true
+
+  edge_class_shuffle:
+    enabled: true
+    repeats: 50
+    preserve_topology: true
+    preserve_edge_type_counts: true
+
+  core_seeded_decoy:
+    enabled: true
+    repeats: 50
+    seed_mode: "current_core_edges"
+    preserve_topology: true
+    preserve_edge_type_counts: true
+
+outputs:
+  nodes_resolved_csv: "bms_fu01b_nodes_resolved.csv"
+  edges_csv: "bms_fu01b_edges.csv"
+  faces_csv: "bms_fu01b_faces.csv"
+  core_variants_csv: "bms_fu01b_core_variants.csv"
+  reference_core_edges_csv: "bms_fu01b_reference_core_edges.csv"
+  core_metrics_csv: "bms_fu01b_core_metrics.csv"
+  envelope_metrics_csv: "bms_fu01b_envelope_metrics.csv"
+  real_vs_null_summary_csv: "bms_fu01b_real_vs_null_summary.csv"
+  core_variant_summary_csv: "bms_fu01b_core_variant_summary.csv"
+  null_family_inventory_csv: "bms_fu01b_null_family_inventory.csv"
+  run_manifest_json: "bms_fu01b_run_manifest.json"
+  warnings_json: "bms_fu01b_warnings.json"
+  resolved_config_yaml: "bms_fu01b_config_resolved.yaml"
