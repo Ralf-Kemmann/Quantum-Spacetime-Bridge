@@ -1,0 +1,127 @@
+# BMS-IS01b — Family-Balanced Matter Signature Specificity Config
+# Date: 2026-05-01
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-IS01b_family_balanced_specificity_open"
+  output_dir: "runs/BMS-IS01b/family_balanced_specificity_open"
+  random_seed: 314159
+
+inputs:
+  scan_tables:
+    - run_id: "hydrogen_run_a"
+      family_id: "hydrogen_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope/debroglie_matter_signature_isotope_run_a/debroglie_matter_signature_isotope_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope"
+    - run_id: "hydrogen_run_b"
+      family_id: "hydrogen_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope/debroglie_matter_signature_isotope_run_b/debroglie_matter_signature_isotope_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope"
+    - run_id: "hydrogen_run_c"
+      family_id: "hydrogen_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope/debroglie_matter_signature_isotope_run_c/debroglie_matter_signature_isotope_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope"
+
+    - run_id: "carbon_run_a"
+      family_id: "carbon_isotopes"
+      test_axis: "isotope_structure_proxy"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_carbon/debroglie_matter_signature_isotope_carbon_run_a/debroglie_matter_signature_isotope_carbon_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_carbon"
+    - run_id: "carbon_run_b"
+      family_id: "carbon_isotopes"
+      test_axis: "isotope_structure_proxy"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_carbon/debroglie_matter_signature_isotope_carbon_run_b/debroglie_matter_signature_isotope_carbon_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_carbon"
+    - run_id: "carbon_run_c"
+      family_id: "carbon_isotopes"
+      test_axis: "isotope_structure_proxy"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_carbon/debroglie_matter_signature_isotope_carbon_run_c/debroglie_matter_signature_isotope_carbon_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_carbon"
+
+    - run_id: "strontium_run_a"
+      family_id: "strontium_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_strontium/debroglie_matter_signature_isotope_strontium_run_a/debroglie_matter_signature_isotope_strontium_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_strontium"
+    - run_id: "strontium_run_b"
+      family_id: "strontium_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_strontium/debroglie_matter_signature_isotope_strontium_run_b/debroglie_matter_signature_isotope_strontium_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_strontium"
+    - run_id: "strontium_run_c"
+      family_id: "strontium_isotopes"
+      test_axis: "isotope"
+      source_path: "numerics/debroglie-phase-bridge/typ_b_analysis/results/debroglie_matter_signature_isotope_strontium/debroglie_matter_signature_isotope_strontium_run_c/debroglie_matter_signature_isotope_strontium_scan.csv"
+      delta_column: "matter_sensitive_delta_isotope_strontium"
+
+adapter:
+  vector_columns:
+    - "mass_u"
+    - "lambda_db"
+    - "length_scale_score"
+    - "energy_score"
+    - "occupancy_score"
+    - "signature_score_wave"
+    - "valence_score"
+    - "signature_score_combined"
+    - "matter_sensitive_delta"
+  log10_columns:
+    - "mass_u"
+    - "lambda_db"
+  normalize_columns: true
+  similarity_mode: "exp_negative_euclidean"
+
+reference_core:
+  mode: "family_balanced_top_edges"
+  edges_per_family: 3
+  exclude_same_isotope_cross_run: true
+  fallback_allow_same_isotope_if_needed: false
+
+construction_families:
+  top_strength:
+    enabled: true
+    edge_counts: [6, 10, 15, 21, 34]
+  threshold:
+    enabled: true
+    thresholds: [0.50, 0.65, 0.80, 0.90, 0.95]
+  mutual_knn:
+    enabled: true
+    k_values: [2, 3, 4, 6, 10]
+  maximum_spanning_tree:
+    enabled: true
+
+null_families:
+  degree_weight_preserving_rewire:
+    enabled: true
+    repeats: 50
+    preserve_weight_multiset: true
+
+  feature_structured_shuffle:
+    enabled: true
+    repeats: 50
+    family_column: "family_id"
+    shuffle_mode: "within_family"
+
+  core_seeded_decoy:
+    enabled: true
+    repeats: 50
+    seed_edge_count: 9
+    seed_weight_quantile: 0.90
+    seed_mode: "reference_core_pairs"
+    preserve_global_edge_count: true
+
+outputs:
+  nodes_resolved_csv: "bms_is01b_nodes_resolved.csv"
+  edges_csv: "bms_is01b_edges.csv"
+  reference_core_edges_csv: "bms_is01b_reference_core_edges.csv"
+  core_metrics_csv: "bms_is01b_core_metrics.csv"
+  envelope_metrics_csv: "bms_is01b_envelope_metrics.csv"
+  real_vs_null_summary_csv: "bms_is01b_real_vs_null_summary.csv"
+  family_summary_csv: "bms_is01b_family_summary.csv"
+  null_family_inventory_csv: "bms_is01b_null_family_inventory.csv"
+  run_manifest_json: "bms_is01b_run_manifest.json"
+  warnings_json: "bms_is01b_warnings.json"
+  resolved_config_yaml: "bms_is01b_config_resolved.yaml"
