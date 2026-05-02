@@ -1,0 +1,31 @@
+# BMS-FU02f1 — Face-ID Interval Repair and 3D/Graph Layout Export Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02f1_face_id_interval_repair_3d_graph_layout_open"
+  output_dir: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open"
+
+inputs:
+  fu02f_output_dir: "runs/BMS-FU02f/carrier_role_visualization_symmetry_orbit_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+layout:
+  face_layout_mode: "role_shell_circular"
+  node_layout_mode: "deterministic_spherical_index_layout"
+  svg_width: 1400
+  svg_height: 900
+
+outputs:
+  repaired_interval_summary_json: "bms_fu02f1_repaired_interval_summary.json"
+  face_layout_csv: "bms_fu02f1_face_layout.csv"
+  node_layout_csv: "bms_fu02f1_node_layout.csv"
+  edge_layout_csv: "bms_fu02f1_edge_layout.csv"
+  graph_layout_manifest_json: "bms_fu02f1_graph_layout_manifest.json"
+  repaired_region_map_svg: "bms_fu02f1_repaired_region_map.svg"
+  run_manifest_json: "bms_fu02f1_run_manifest.json"
+  warnings_json: "bms_fu02f1_warnings.json"
+  resolved_config_yaml: "bms_fu02f1_config_resolved.yaml"

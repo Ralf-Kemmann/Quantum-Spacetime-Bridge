@@ -1,0 +1,38 @@
+# BMS-FU02f — Carrier Role Visualization and Symmetry-Orbit Inspection Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02f_carrier_role_visualization_symmetry_orbit_open"
+  output_dir: "runs/BMS-FU02f/carrier_role_visualization_symmetry_orbit_open"
+
+inputs:
+  fu02d1_output_dir: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open"
+  fu02d_output_dir: "runs/BMS-FU02d/carrier_role_geometry_patch_distribution_open"
+  fu02e1_output_dir: "runs/BMS-FU02e1/role_balance_localization_specificity_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+shape_diagnostics:
+  enable_face_id_run_diagnostics: true
+  enable_face_adjacency_boundary_diagnostics: true
+  enable_distance_to_mixed_core: true
+
+visualization:
+  write_simple_svg: true
+  svg_width: 1200
+  svg_height: 800
+
+outputs:
+  visualization_nodes_csv: "bms_fu02f_visualization_nodes.csv"
+  visualization_edges_csv: "bms_fu02f_visualization_edges.csv"
+  visualization_faces_csv: "bms_fu02f_visualization_faces.csv"
+  region_manifest_json: "bms_fu02f_region_manifest.json"
+  symmetry_orbit_inspection_csv: "bms_fu02f_symmetry_orbit_inspection.csv"
+  shape_diagnostic_summary_json: "bms_fu02f_shape_diagnostic_summary.json"
+  simple_region_map_svg: "bms_fu02f_simple_region_map.svg"
+  run_manifest_json: "bms_fu02f_run_manifest.json"
+  warnings_json: "bms_fu02f_warnings.json"
+  resolved_config_yaml: "bms_fu02f_config_resolved.yaml"
