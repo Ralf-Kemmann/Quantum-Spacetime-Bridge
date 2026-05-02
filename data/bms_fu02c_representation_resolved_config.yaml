@@ -1,0 +1,48 @@
+# BMS-FU02c — Representation-Resolved Carrier Delta Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02c_representation_resolved_carrier_delta_open"
+  output_dir: "runs/BMS-FU02c/representation_resolved_carrier_delta_open"
+  random_seed: 626262
+
+inputs:
+  fu01c_output_dir: "runs/BMS-FU01c/c60_motif_topology_extension_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+selection:
+  include_construction_families:
+    - "maximum_spanning_tree"
+    - "mutual_knn"
+    - "threshold"
+    - "top_strength"
+    - "graph_distance_shells"
+  reconstruct_graph_distance_shells: false
+  topk_values: [10, 20, 30]
+
+representations:
+  expected:
+    - "bond_class_weighted"
+    - "topology_only_equal_weight"
+    - "graph_distance_similarity_d3"
+
+null_families:
+  expected:
+    - "degree_preserving_rewire"
+    - "edge_class_shuffle"
+    - "motif_class_preserving_edge_swap_proxy"
+    - "core_seeded_decoy"
+
+outputs:
+  representation_edge_deltas_csv: "bms_fu02c_representation_edge_deltas.csv"
+  edge_representation_summary_csv: "bms_fu02c_edge_representation_summary.csv"
+  representation_motif_enrichment_csv: "bms_fu02c_representation_motif_enrichment.csv"
+  consensus_carriers_csv: "bms_fu02c_consensus_carriers.csv"
+  representation_rank_matrix_csv: "bms_fu02c_representation_rank_matrix.csv"
+  run_manifest_json: "bms_fu02c_run_manifest.json"
+  warnings_json: "bms_fu02c_warnings.json"
+  resolved_config_yaml: "bms_fu02c_config_resolved.yaml"
