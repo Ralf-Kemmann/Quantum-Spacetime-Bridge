@@ -1,0 +1,38 @@
+# BMS-FU02e — Carrier Role Null Localization Test Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02e_carrier_role_null_localization_open"
+  output_dir: "runs/BMS-FU02e/carrier_role_null_localization_open"
+  random_seed: 626263
+  repeats_per_null_family: 500
+
+inputs:
+  fu02d1_output_dir: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open"
+  fu02d_output_dir: "runs/BMS-FU02d/carrier_role_geometry_patch_distribution_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+null_families:
+  include:
+    - "edge_type_preserving_role_shuffle"
+    - "degree_spread_role_shuffle"
+    - "component_size_preserving_hp_shuffle"
+    - "hh_anchor_neighborhood_decoy"
+
+real_roles:
+  hh_consensus_role_group: "HH_CONSENSUS"
+  hp_secondary_role_group: "HP_SECONDARY"
+
+outputs:
+  null_localization_metrics_csv: "bms_fu02e_null_localization_metrics.csv"
+  real_vs_null_summary_csv: "bms_fu02e_real_vs_null_summary.csv"
+  null_family_inventory_csv: "bms_fu02e_null_family_inventory.csv"
+  real_face_metrics_json: "bms_fu02e_real_face_metrics.json"
+  null_carrier_assignments_sample_csv: "bms_fu02e_null_carrier_assignments_sample.csv"
+  run_manifest_json: "bms_fu02e_run_manifest.json"
+  warnings_json: "bms_fu02e_warnings.json"
+  resolved_config_yaml: "bms_fu02e_config_resolved.yaml"

@@ -1,0 +1,44 @@
+# BMS-FU02e1 — Role-Balance Localization Specificity Extension Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02e1_role_balance_localization_specificity_open"
+  output_dir: "runs/BMS-FU02e1/role_balance_localization_specificity_open"
+
+inputs:
+  fu02e_output_dir: "runs/BMS-FU02e/carrier_role_null_localization_open"
+  fu02d1_output_dir: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open"
+
+profile:
+  primary_metrics:
+    - "carrier_face_count"
+    - "carrier_pentagon_face_count"
+    - "mixed_seam_boundary_face_count"
+    - "largest_mixed_face_component_count"
+    - "carrier_face_component_count"
+    - "largest_carrier_face_component_count"
+  secondary_metrics:
+    - "hp_boundary_face_count"
+    - "carrier_adjacent_face_count"
+    - "hh_face_count"
+    - "hp_face_count"
+
+near_real_thresholds:
+  carrier_face_count_abs: 1
+  carrier_pentagon_face_count_abs: 1
+  mixed_seam_boundary_face_count_abs: 1
+  require_carrier_face_component_count: 1
+
+scoring:
+  component_mismatch_penalty: 4.0
+  zero_std_scale: 1.0
+
+outputs:
+  profile_distance_by_replicate_csv: "bms_fu02e1_profile_distance_by_replicate.csv"
+  profile_summary_by_family_csv: "bms_fu02e1_profile_summary_by_family.csv"
+  near_real_replicates_csv: "bms_fu02e1_near_real_replicates.csv"
+  real_profile_json: "bms_fu02e1_real_profile.json"
+  run_manifest_json: "bms_fu02e1_run_manifest.json"
+  warnings_json: "bms_fu02e1_warnings.json"
+  resolved_config_yaml: "bms_fu02e1_config_resolved.yaml"
