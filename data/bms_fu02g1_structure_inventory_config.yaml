@@ -1,0 +1,40 @@
+# BMS-FU02g1 — Structure Inventory Builder Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02g1_structure_inventory_builder_open"
+
+inputs:
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+generated_structures:
+  graphene_patch:
+    enabled: true
+    rows: 4
+    cols: 5
+    structure_id: "graphene_patch"
+
+  nanotube_armchair:
+    enabled: true
+    circumference_cells: 8
+    length_cells: 5
+    structure_id: "nanotube_armchair"
+
+  nanotube_zigzag:
+    enabled: true
+    circumference_cells: 7
+    length_cells: 6
+    structure_id: "nanotube_zigzag"
+
+outputs:
+  inventory_csv: "data/bms_fu02g_structure_inventory.csv"
+  inventory_manifest_json: "data/bms_fu02g_structure_inventory_manifest.json"
+  warnings_json: "data/bms_fu02g_structure_inventory_warnings.json"
+  resolved_config_yaml: "data/bms_fu02g_structure_inventory_config_resolved.yaml"
+
+naming:
+  output_prefix: "data/bms_fu02g"
