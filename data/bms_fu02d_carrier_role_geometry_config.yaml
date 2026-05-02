@@ -1,0 +1,38 @@
+# BMS-FU02d — Carrier Role Geometry and Patch Distribution Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02d_carrier_role_geometry_patch_distribution_open"
+  output_dir: "runs/BMS-FU02d/carrier_role_geometry_patch_distribution_open"
+
+inputs:
+  fu02c_output_dir: "runs/BMS-FU02c/representation_resolved_carrier_delta_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+carrier_groups:
+  hh_consensus_label: "hh_consensus_all_representations"
+  hp_secondary_label: "hp_secondary_carrier"
+  representation_specific_label: "representation_specific_candidate"
+  unstable_label: "decoy_reproduced_or_unstable"
+
+analysis:
+  compute_edge_components: true
+  compute_node_junctions: true
+  compute_face_involvement: true
+  compute_shell_distance_to_hh_consensus: true
+  max_shell_distance_reported: 6
+
+outputs:
+  carrier_edge_geometry_csv: "bms_fu02d_carrier_edge_geometry.csv"
+  carrier_node_geometry_csv: "bms_fu02d_carrier_node_geometry.csv"
+  carrier_face_geometry_csv: "bms_fu02d_carrier_face_geometry.csv"
+  carrier_component_summary_csv: "bms_fu02d_carrier_component_summary.csv"
+  carrier_role_adjacency_summary_csv: "bms_fu02d_carrier_role_adjacency_summary.csv"
+  visualization_edges_csv: "bms_fu02d_visualization_edges.csv"
+  run_manifest_json: "bms_fu02d_run_manifest.json"
+  warnings_json: "bms_fu02d_warnings.json"
+  resolved_config_yaml: "bms_fu02d_config_resolved.yaml"

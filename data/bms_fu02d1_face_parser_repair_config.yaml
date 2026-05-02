@@ -1,0 +1,53 @@
+# BMS-FU02d1 — Face Parser Repair and Face-Level Carrier Localization Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02d1_face_parser_repair_and_face_localization_open"
+  output_dir: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open"
+
+inputs:
+  fu02d_output_dir: "runs/BMS-FU02d/carrier_role_geometry_patch_distribution_open"
+  fu02c_output_dir: "runs/BMS-FU02c/representation_resolved_carrier_delta_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+parser:
+  edge_face_column_candidates:
+    paired:
+      - ["face_a", "face_b"]
+      - ["left_face", "right_face"]
+      - ["face_1", "face_2"]
+      - ["face1", "face2"]
+      - ["incident_face_1", "incident_face_2"]
+      - ["incident_face_a", "incident_face_b"]
+    list_like:
+      - "faces"
+      - "incident_faces"
+      - "face_ids"
+      - "shared_faces"
+      - "face_list"
+  face_node_column_candidates:
+    - "nodes"
+    - "node_ids"
+    - "vertices"
+    - "vertex_ids"
+    - "cycle_nodes"
+    - "boundary_nodes"
+
+carrier_groups:
+  hh_consensus_label: "hh_consensus_all_representations"
+  hp_secondary_label: "hp_secondary_carrier"
+
+outputs:
+  face_parser_audit_json: "bms_fu02d1_face_parser_audit.json"
+  face_localization_csv: "bms_fu02d1_face_localization.csv"
+  face_component_summary_csv: "bms_fu02d1_face_component_summary.csv"
+  face_adjacency_edges_csv: "bms_fu02d1_face_adjacency_edges.csv"
+  carrier_face_summary_csv: "bms_fu02d1_carrier_face_summary.csv"
+  visualization_faces_csv: "bms_fu02d1_visualization_faces.csv"
+  run_manifest_json: "bms_fu02d1_run_manifest.json"
+  warnings_json: "bms_fu02d1_warnings.json"
+  resolved_config_yaml: "bms_fu02d1_config_resolved.yaml"
