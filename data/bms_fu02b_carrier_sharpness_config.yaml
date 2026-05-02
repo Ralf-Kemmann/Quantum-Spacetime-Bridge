@@ -1,0 +1,54 @@
+# BMS-FU02b — Carrier Sharpness and Rank-Stability Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02b_carrier_sharpness_rank_stability_open"
+  output_dir: "runs/BMS-FU02b/carrier_sharpness_rank_stability_open"
+  random_seed: 515151
+
+inputs:
+  fu02_output_dir: "runs/BMS-FU02/load_bearing_pattern_analysis_open"
+  c60_edges_csv: "data/bms_fu01_c60_edges.csv"
+  c60_nodes_csv: "data/bms_fu01_c60_nodes.csv"
+  c60_faces_csv: "data/bms_fu01_c60_faces.csv"
+  c60_graph_manifest_json: "data/bms_fu01_c60_graph_manifest.json"
+
+sharpness:
+  topk_values: [10, 20, 30]
+  percentile_top_fractions: [0.10, 0.20, 0.3333333333]
+
+  # A strict null penalty:
+  # score_decoy_penalized = real_retention_rate - max(null_retention_rates)
+  decoy_penalty_mode: "max_null"
+
+  # FU02b-v0 uses FU02 persistence fields for topology-sensitive score.
+  # Later FU02c may recompute representation-specific deltas from FU01c context tables.
+  topology_sensitive_representations:
+    - "topology_only_equal_weight"
+    - "graph_distance_similarity_d3"
+
+  composite_weights:
+    decoy_penalized_rank: 0.35
+    topology_sensitive_rank: 0.30
+    core_variant_stability_rank: 0.20
+    fu02_mean_null_rank: 0.15
+
+labeling:
+  sharp_top_rank_cutoff: 20
+  survivor_top_rank_cutoff: 30
+  min_positive_topology_representation_count: 2
+  min_decoy_penalized_score: 0.0
+
+outputs:
+  edge_sharpness_scores_csv: "bms_fu02b_edge_sharpness_scores.csv"
+  node_sharpness_scores_csv: "bms_fu02b_node_sharpness_scores.csv"
+  topk_edge_sets_csv: "bms_fu02b_topk_edge_sets.csv"
+  motif_enrichment_csv: "bms_fu02b_motif_enrichment.csv"
+  rank_stability_matrix_csv: "bms_fu02b_rank_stability_matrix.csv"
+  decoy_penalty_profiles_csv: "bms_fu02b_decoy_penalty_profiles.csv"
+  sharp_candidate_carriers_csv: "bms_fu02b_sharp_candidate_carriers.csv"
+  sharp_candidate_neighborhoods_csv: "bms_fu02b_sharp_candidate_neighborhoods.csv"
+  run_manifest_json: "bms_fu02b_run_manifest.json"
+  warnings_json: "bms_fu02b_warnings.json"
+  resolved_config_yaml: "bms_fu02b_config_resolved.yaml"
