@@ -1,0 +1,43 @@
+{
+  "boundary_edge_count": 168,
+  "boundary_node_count": 84,
+  "boundary_present": true,
+  "cell_count": 42,
+  "cell_type_counts": {
+    "hexagon": 42
+  },
+  "closure_class": "circumferentially_closed_open_ends",
+  "curvature_class": "cylindrical_curvature_proxy",
+  "degree_histogram": {
+    "2": 84,
+    "3": 84
+  },
+  "edge_count": 210,
+  "hexagon_present": true,
+  "meta": {
+    "boundary_present": true,
+    "chirality_label": "zigzag",
+    "closure_class": "circumferentially_closed_open_ends",
+    "curvature_class": "cylindrical_curvature_proxy",
+    "diagnostic_scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+    "geometry_class": "open_curved_cylindrical_hexagonal_graph",
+    "hexagon_present": true,
+    "inversion_flag": "variant_dependent_proxy",
+    "layout_coordinate_status": "inspection_layout_only",
+    "pentagon_present": false,
+    "periodic_dimension_count": 1,
+    "reflection_flag": "variant_dependent_proxy",
+    "rotation_symmetry_label": "7-fold_cylindrical_proxy",
+    "screw_symmetry_flag": "variant_dependent_proxy",
+    "source_note": "Generated zigzag cylindrical hexagonal graph with circumference_cells=7, length_cells=6.",
+    "source_type": "generated_graph_control",
+    "structure_class": "nanotube"
+  },
+  "node_count": 168,
+  "pentagon_present": false,
+  "periodic_dimension_count": 1,
+  "scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+  "structure_id": "nanotube_zigzag",
+  "validation_status": "valid",
+  "warnings": []
+}

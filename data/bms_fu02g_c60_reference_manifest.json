@@ -1,0 +1,43 @@
+{
+  "boundary_edge_count": 0,
+  "boundary_node_count": 0,
+  "boundary_present": false,
+  "cell_count": 32,
+  "cell_type_counts": {
+    "hexagon": 20,
+    "pentagon": 12
+  },
+  "closure_class": "closed_cage",
+  "curvature_class": "positive_closed_curvature_proxy",
+  "degree_histogram": {
+    "3": 60
+  },
+  "edge_count": 90,
+  "hexagon_present": true,
+  "meta": {
+    "boundary_present": false,
+    "chirality_label": "achiral_reference",
+    "closure_class": "closed_cage",
+    "curvature_class": "positive_closed_curvature_proxy",
+    "diagnostic_scope_note": "C60 reference graph/cell inventory; not a new physical geometry derivation.",
+    "geometry_class": "closed_curved_cage",
+    "hexagon_present": true,
+    "inversion_flag": true,
+    "layout_coordinate_status": "inspection_layout_only",
+    "pentagon_present": true,
+    "periodic_dimension_count": 0,
+    "reflection_flag": true,
+    "rotation_symmetry_label": "icosahedral_reference",
+    "screw_symmetry_flag": false,
+    "source_note": "Normalized from FU01 C60 graph artifacts.",
+    "source_type": "validated_project_reference",
+    "structure_class": "fullerene"
+  },
+  "node_count": 60,
+  "pentagon_present": true,
+  "periodic_dimension_count": 0,
+  "scope_note": "C60 reference graph/cell inventory; not a new physical geometry derivation.",
+  "structure_id": "c60_reference",
+  "validation_status": "valid",
+  "warnings": []
+}

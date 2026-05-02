@@ -1,0 +1,43 @@
+{
+  "boundary_edge_count": 34,
+  "boundary_node_count": 20,
+  "boundary_present": true,
+  "cell_count": 20,
+  "cell_type_counts": {
+    "hexagon": 20
+  },
+  "closure_class": "open_patch",
+  "curvature_class": "flat_2d_proxy",
+  "degree_histogram": {
+    "2": 20,
+    "3": 38
+  },
+  "edge_count": 77,
+  "hexagon_present": true,
+  "meta": {
+    "boundary_present": true,
+    "chirality_label": "not_applicable_flat_patch",
+    "closure_class": "open_patch",
+    "curvature_class": "flat_2d_proxy",
+    "diagnostic_scope_note": "Flat finite hexagonal graph/cell control; boundary effects explicit.",
+    "geometry_class": "flat_2d_open_hexagonal_patch",
+    "hexagon_present": true,
+    "inversion_flag": "patch_dependent",
+    "layout_coordinate_status": "inspection_layout_only",
+    "pentagon_present": false,
+    "periodic_dimension_count": 0,
+    "reflection_flag": "patch_dependent",
+    "rotation_symmetry_label": "finite_patch_layout_dependent",
+    "screw_symmetry_flag": false,
+    "source_note": "Generated finite hexagonal patch rows=4, cols=5.",
+    "source_type": "generated_graph_control",
+    "structure_class": "graphene_patch"
+  },
+  "node_count": 58,
+  "pentagon_present": false,
+  "periodic_dimension_count": 0,
+  "scope_note": "Flat finite hexagonal graph/cell control; boundary effects explicit.",
+  "structure_id": "graphene_patch",
+  "validation_status": "valid",
+  "warnings": []
+}

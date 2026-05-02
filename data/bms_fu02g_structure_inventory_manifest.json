@@ -1,0 +1,188 @@
+{
+  "inventory_csv": "data/bms_fu02g_structure_inventory.csv",
+  "run_id": "BMS-FU02g1_structure_inventory_builder_open",
+  "scope_note": "FU02g1 builds graph/cell inventory controls only; no carrier specificity claim is made.",
+  "structure_count": 4,
+  "structure_ids": [
+    "c60_reference",
+    "graphene_patch",
+    "nanotube_armchair",
+    "nanotube_zigzag"
+  ],
+  "structure_manifests": {
+    "c60_reference": {
+      "boundary_edge_count": 0,
+      "boundary_node_count": 0,
+      "boundary_present": false,
+      "cell_count": 32,
+      "cell_type_counts": {
+        "hexagon": 20,
+        "pentagon": 12
+      },
+      "closure_class": "closed_cage",
+      "curvature_class": "positive_closed_curvature_proxy",
+      "degree_histogram": {
+        "3": 60
+      },
+      "edge_count": 90,
+      "hexagon_present": true,
+      "meta": {
+        "boundary_present": false,
+        "chirality_label": "achiral_reference",
+        "closure_class": "closed_cage",
+        "curvature_class": "positive_closed_curvature_proxy",
+        "diagnostic_scope_note": "C60 reference graph/cell inventory; not a new physical geometry derivation.",
+        "geometry_class": "closed_curved_cage",
+        "hexagon_present": true,
+        "inversion_flag": true,
+        "layout_coordinate_status": "inspection_layout_only",
+        "pentagon_present": true,
+        "periodic_dimension_count": 0,
+        "reflection_flag": true,
+        "rotation_symmetry_label": "icosahedral_reference",
+        "screw_symmetry_flag": false,
+        "source_note": "Normalized from FU01 C60 graph artifacts.",
+        "source_type": "validated_project_reference",
+        "structure_class": "fullerene"
+      },
+      "node_count": 60,
+      "pentagon_present": true,
+      "periodic_dimension_count": 0,
+      "scope_note": "C60 reference graph/cell inventory; not a new physical geometry derivation.",
+      "structure_id": "c60_reference",
+      "validation_status": "valid",
+      "warnings": []
+    },
+    "graphene_patch": {
+      "boundary_edge_count": 34,
+      "boundary_node_count": 20,
+      "boundary_present": true,
+      "cell_count": 20,
+      "cell_type_counts": {
+        "hexagon": 20
+      },
+      "closure_class": "open_patch",
+      "curvature_class": "flat_2d_proxy",
+      "degree_histogram": {
+        "2": 20,
+        "3": 38
+      },
+      "edge_count": 77,
+      "hexagon_present": true,
+      "meta": {
+        "boundary_present": true,
+        "chirality_label": "not_applicable_flat_patch",
+        "closure_class": "open_patch",
+        "curvature_class": "flat_2d_proxy",
+        "diagnostic_scope_note": "Flat finite hexagonal graph/cell control; boundary effects explicit.",
+        "geometry_class": "flat_2d_open_hexagonal_patch",
+        "hexagon_present": true,
+        "inversion_flag": "patch_dependent",
+        "layout_coordinate_status": "inspection_layout_only",
+        "pentagon_present": false,
+        "periodic_dimension_count": 0,
+        "reflection_flag": "patch_dependent",
+        "rotation_symmetry_label": "finite_patch_layout_dependent",
+        "screw_symmetry_flag": false,
+        "source_note": "Generated finite hexagonal patch rows=4, cols=5.",
+        "source_type": "generated_graph_control",
+        "structure_class": "graphene_patch"
+      },
+      "node_count": 58,
+      "pentagon_present": false,
+      "periodic_dimension_count": 0,
+      "scope_note": "Flat finite hexagonal graph/cell control; boundary effects explicit.",
+      "structure_id": "graphene_patch",
+      "validation_status": "valid",
+      "warnings": []
+    },
+    "nanotube_armchair": {
+      "boundary_edge_count": 48,
+      "boundary_node_count": 20,
+      "boundary_present": true,
+      "cell_count": 40,
+      "cell_type_counts": {
+        "hexagon": 40
+      },
+      "closure_class": "circumferentially_closed_open_ends",
+      "curvature_class": "cylindrical_curvature_proxy",
+      "degree_histogram": {
+        "2": 20,
+        "3": 72,
+        "4": 8
+      },
+      "edge_count": 144,
+      "hexagon_present": true,
+      "meta": {
+        "boundary_present": true,
+        "chirality_label": "armchair",
+        "closure_class": "circumferentially_closed_open_ends",
+        "curvature_class": "cylindrical_curvature_proxy",
+        "diagnostic_scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+        "geometry_class": "open_curved_cylindrical_hexagonal_graph",
+        "hexagon_present": true,
+        "inversion_flag": "variant_dependent_proxy",
+        "layout_coordinate_status": "inspection_layout_only",
+        "pentagon_present": false,
+        "periodic_dimension_count": 1,
+        "reflection_flag": "variant_dependent_proxy",
+        "rotation_symmetry_label": "8-fold_cylindrical_proxy",
+        "screw_symmetry_flag": "variant_dependent_proxy",
+        "source_note": "Generated armchair cylindrical hexagonal graph with circumference_cells=8, length_cells=5.",
+        "source_type": "generated_graph_control",
+        "structure_class": "nanotube"
+      },
+      "node_count": 100,
+      "pentagon_present": false,
+      "periodic_dimension_count": 1,
+      "scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+      "structure_id": "nanotube_armchair",
+      "validation_status": "valid",
+      "warnings": []
+    },
+    "nanotube_zigzag": {
+      "boundary_edge_count": 168,
+      "boundary_node_count": 84,
+      "boundary_present": true,
+      "cell_count": 42,
+      "cell_type_counts": {
+        "hexagon": 42
+      },
+      "closure_class": "circumferentially_closed_open_ends",
+      "curvature_class": "cylindrical_curvature_proxy",
+      "degree_histogram": {
+        "2": 84,
+        "3": 84
+      },
+      "edge_count": 210,
+      "hexagon_present": true,
+      "meta": {
+        "boundary_present": true,
+        "chirality_label": "zigzag",
+        "closure_class": "circumferentially_closed_open_ends",
+        "curvature_class": "cylindrical_curvature_proxy",
+        "diagnostic_scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+        "geometry_class": "open_curved_cylindrical_hexagonal_graph",
+        "hexagon_present": true,
+        "inversion_flag": "variant_dependent_proxy",
+        "layout_coordinate_status": "inspection_layout_only",
+        "pentagon_present": false,
+        "periodic_dimension_count": 1,
+        "reflection_flag": "variant_dependent_proxy",
+        "rotation_symmetry_label": "7-fold_cylindrical_proxy",
+        "screw_symmetry_flag": "variant_dependent_proxy",
+        "source_note": "Generated zigzag cylindrical hexagonal graph with circumference_cells=7, length_cells=6.",
+        "source_type": "generated_graph_control",
+        "structure_class": "nanotube"
+      },
+      "node_count": 168,
+      "pentagon_present": false,
+      "periodic_dimension_count": 1,
+      "scope_note": "Cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+      "structure_id": "nanotube_zigzag",
+      "validation_status": "valid",
+      "warnings": []
+    }
+  },
+  "warnings_count": 0
+}
