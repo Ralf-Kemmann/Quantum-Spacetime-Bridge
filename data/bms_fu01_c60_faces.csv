@@ -1,0 +1,33 @@
+face_id,face_type,node_ids,edge_ids,notes
+P_00,pentagon,c60_001;c60_002;c60_003;c60_004;c60_005,e_001;e_004;e_006;e_008;e_002,Pentagon generated around original icosahedron vertex 0.
+P_01,pentagon,c60_006;c60_007;c60_009;c60_010;c60_008,e_011;e_013;e_017;e_015;e_012,Pentagon generated around original icosahedron vertex 1.
+P_02,pentagon,c60_011;c60_012;c60_014;c60_015;c60_013,e_020;e_022;e_025;e_023;e_021,Pentagon generated around original icosahedron vertex 2.
+P_03,pentagon,c60_016;c60_017;c60_019;c60_020;c60_018,e_028;e_030;e_033;e_031;e_029,Pentagon generated around original icosahedron vertex 3.
+P_04,pentagon,c60_021;c60_022;c60_024;c60_025;c60_023,e_036;e_038;e_041;e_039;e_037,Pentagon generated around original icosahedron vertex 4.
+P_05,pentagon,c60_026;c60_027;c60_030;c60_029;c60_028,e_044;e_046;e_048;e_047;e_045,Pentagon generated around original icosahedron vertex 5.
+P_06,pentagon,c60_031;c60_032;c60_033;c60_035;c60_034,e_051;e_053;e_054;e_056;e_052,Pentagon generated around original icosahedron vertex 6.
+P_07,pentagon,c60_036;c60_037;c60_039;c60_040;c60_038,e_059;e_061;e_063;e_062;e_060,Pentagon generated around original icosahedron vertex 7.
+P_08,pentagon,c60_041;c60_042;c60_044;c60_045;c60_043,e_066;e_068;e_070;e_069;e_067,Pentagon generated around original icosahedron vertex 8.
+P_09,pentagon,c60_046;c60_047;c60_049;c60_050;c60_048,e_073;e_075;e_077;e_076;e_074,Pentagon generated around original icosahedron vertex 9.
+P_10,pentagon,c60_051;c60_052;c60_054;c60_055;c60_053,e_080;e_082;e_084;e_083;e_081,Pentagon generated around original icosahedron vertex 10.
+P_11,pentagon,c60_056;c60_057;c60_058;c60_059;c60_060,e_086;e_088;e_089;e_090;e_087,Pentagon generated around original icosahedron vertex 11.
+H_01,hexagon,c60_001;c60_006;c60_007;c60_012;c60_011;c60_002,e_003;e_011;e_014;e_020;e_005;e_001,"Hexagon generated from original icosahedron face (0, 1, 2)."
+H_02,hexagon,c60_002;c60_011;c60_013;c60_017;c60_016;c60_003,e_005;e_021;e_024;e_028;e_007;e_004,"Hexagon generated from original icosahedron face (0, 2, 3)."
+H_03,hexagon,c60_003;c60_016;c60_018;c60_022;c60_021;c60_004,e_007;e_029;e_032;e_036;e_009;e_006,"Hexagon generated from original icosahedron face (0, 3, 4)."
+H_04,hexagon,c60_004;c60_021;c60_023;c60_028;c60_026;c60_005,e_009;e_037;e_040;e_045;e_010;e_008,"Hexagon generated from original icosahedron face (0, 4, 5)."
+H_05,hexagon,c60_005;c60_026;c60_027;c60_008;c60_006;c60_001,e_010;e_044;e_016;e_012;e_003;e_002,"Hexagon generated from original icosahedron face (0, 5, 1)."
+H_06,hexagon,c60_009;c60_031;c60_032;c60_014;c60_012;c60_007,e_018;e_051;e_026;e_022;e_014;e_013,"Hexagon generated from original icosahedron face (1, 6, 2)."
+H_07,hexagon,c60_014;c60_032;c60_033;c60_038;c60_036;c60_015,e_026;e_053;e_055;e_060;e_027;e_025,"Hexagon generated from original icosahedron face (2, 6, 7)."
+H_08,hexagon,c60_015;c60_036;c60_037;c60_019;c60_017;c60_013,e_027;e_059;e_034;e_030;e_024;e_023,"Hexagon generated from original icosahedron face (2, 7, 3)."
+H_09,hexagon,c60_019;c60_037;c60_039;c60_043;c60_041;c60_020,e_034;e_061;e_064;e_067;e_035;e_033,"Hexagon generated from original icosahedron face (3, 7, 8)."
+H_10,hexagon,c60_020;c60_041;c60_042;c60_024;c60_022;c60_018,e_035;e_066;e_042;e_038;e_032;e_031,"Hexagon generated from original icosahedron face (3, 8, 4)."
+H_11,hexagon,c60_024;c60_042;c60_044;c60_048;c60_046;c60_025,e_042;e_068;e_071;e_074;e_043;e_041,"Hexagon generated from original icosahedron face (4, 8, 9)."
+H_12,hexagon,c60_025;c60_046;c60_047;c60_029;c60_028;c60_023,e_043;e_073;e_049;e_047;e_040;e_039,"Hexagon generated from original icosahedron face (4, 9, 5)."
+H_13,hexagon,c60_029;c60_047;c60_049;c60_054;c60_052;c60_030,e_049;e_075;e_078;e_082;e_050;e_048,"Hexagon generated from original icosahedron face (5, 9, 10)."
+H_14,hexagon,c60_030;c60_052;c60_051;c60_010;c60_008;c60_027,e_050;e_080;e_019;e_015;e_016;e_046,"Hexagon generated from original icosahedron face (5, 10, 1)."
+H_15,hexagon,c60_010;c60_051;c60_053;c60_034;c60_031;c60_009,e_019;e_081;e_057;e_052;e_018;e_017,"Hexagon generated from original icosahedron face (1, 10, 6)."
+H_16,hexagon,c60_057;c60_040;c60_038;c60_033;c60_035;c60_056,e_065;e_062;e_055;e_054;e_058;e_086,"Hexagon generated from original icosahedron face (11, 7, 6)."
+H_17,hexagon,c60_058;c60_045;c60_043;c60_039;c60_040;c60_057,e_072;e_069;e_064;e_063;e_065;e_088,"Hexagon generated from original icosahedron face (11, 8, 7)."
+H_18,hexagon,c60_059;c60_050;c60_048;c60_044;c60_045;c60_058,e_079;e_076;e_071;e_070;e_072;e_089,"Hexagon generated from original icosahedron face (11, 9, 8)."
+H_19,hexagon,c60_060;c60_055;c60_054;c60_049;c60_050;c60_059,e_085;e_084;e_078;e_077;e_079;e_090,"Hexagon generated from original icosahedron face (11, 10, 9)."
+H_20,hexagon,c60_056;c60_035;c60_034;c60_053;c60_055;c60_060,e_058;e_056;e_057;e_083;e_085;e_087,"Hexagon generated from original icosahedron face (11, 6, 10)."

@@ -1,0 +1,49 @@
+{
+  "builder": "scripts/build_bms_fu01_c60_graph.py",
+  "construction": "Combinatorial truncation of an audited icosahedron face list.",
+  "dataset_id": "BMS-FU01_C60_truncated_icosahedral_graph_v1",
+  "edge_weight_rule": {
+    "5_6": 0.85,
+    "6_6": 1.0
+  },
+  "expected_counts": {
+    "edge_count": 90,
+    "edge_type_5_6": 60,
+    "edge_type_6_6": 30,
+    "face_count": 32,
+    "hexagon_count": 20,
+    "node_count": 60,
+    "node_degree": 3,
+    "pentagon_count": 12
+  },
+  "interpretation_boundary": "Topological / structural C60 reference graph for structure-information diagnostics; not a quantum-chemical calculation.",
+  "validation": {
+    "all_edges_have_two_faces": true,
+    "all_node_degrees_3": true,
+    "all_nodes_P1_H2": true,
+    "c60_valid": true,
+    "degree_counts": {
+      "3": 60
+    },
+    "edge_count": 90,
+    "edge_type_counts": {
+      "5_6": 60,
+      "6_6": 30
+    },
+    "edge_type_counts_expected": true,
+    "face_count": 32,
+    "hexagon_count": 20,
+    "ico_all_degrees_5": true,
+    "ico_each_edge_has_two_faces": true,
+    "ico_edge_count": 30,
+    "ico_face_count": 20,
+    "ico_valid": true,
+    "ico_vertex_count": 12,
+    "local_face_signature_counts": {
+      "P1_H2": 60
+    },
+    "node_count": 60,
+    "pentagon_count": 12
+  },
+  "warnings": []
+}
