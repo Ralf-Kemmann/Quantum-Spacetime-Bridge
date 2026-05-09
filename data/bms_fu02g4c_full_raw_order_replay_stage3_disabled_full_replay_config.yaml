@@ -1,0 +1,145 @@
+# BMS-FU02g4c - Stage 3 Disabled Full Raw-Order Replay Config
+# Execution-ready in planning terms only. This config does not enable or start
+# a full replay, enumeration, or certification run.
+
+run:
+  run_id: "BMS-FU02g4c_full_raw_order_replay_stage3_disabled_full_replay_config_v0"
+  case_id: "FU02g4c_stage3_full_raw_order_replay_disabled"
+  stage: 3
+  mode: "full_raw_order_replay_disabled"
+  execution_enabled: false
+  full_replay_enabled: false
+  allow_long_replay_run: false
+  replay_started: false
+  full_certification: false
+  certification_status: "open"
+  output_dir: "runs/BMS-FU02g4c-full-replay/stage3_full_raw_order_replay_certification_001"
+
+safety:
+  require_manual_ralf_approval_before_execution: true
+  require_stage0_pass: true
+  require_stage1_disabled_config: true
+  require_stage2_candidate_008_reference_smoke_pass: true
+  require_stage3_execution_gate_plan: true
+  allow_existing_fu02g4c_anchor_mutation: false
+  allow_existing_output_overwrite: false
+  require_isolated_output_dir: true
+  forbid_git_operations: true
+  forbid_top_level_folder_creation: true
+  forbid_unbounded_run_without_explicit_approval: true
+  forbid_window_only_substitution_for_full_replay: true
+  forbid_scaffold_only_substitution_for_full_replay: true
+  full_replay_must_remain_disabled_by_default: true
+
+references:
+  stage3_gate_plan: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE3_EXECUTION_GATE_PLAN.md"
+  stage0_result_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE0_INPUT_PATH_VALIDATION_RESULT_NOTE.md"
+  stage1_disabled_config: "data/bms_fu02g4c_full_raw_order_replay_stage1_disabled_run_config.yaml"
+  stage1_result_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE1_DISABLED_RUN_CONFIG_RESULT_NOTE.md"
+  stage2_candidate_008_reference_smoke_pass_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE2_CANDIDATE_008_REFERENCE_SMOKE_PASS_RESULT_NOTE.md"
+  preflight_config: "data/bms_fu02g4c_full_raw_order_replay_certification_preflight_config.yaml"
+
+original_fu02g4c_bundle:
+  original_fu02g4c_config: "data/bms_fu02g4c_orbit_reduced_resumable_config.yaml"
+  original_enumerator_script: "scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py"
+  existing_fu02g4c_run_dir: "runs/BMS-FU02g4c"
+  known_exact_patch_photo_json_candidate_008: "runs/BMS-FU02g4c/patch_photos/bms_fu02g4c_exact_patch_26187175.json"
+
+candidate_tables:
+  g5e1_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  g5e2_classification_csv: "runs/BMS-FU02g5e2/near_match_decoy_classification/candidate_classification.csv"
+  g5f_revalidation_csv: "runs/BMS-FU02g5f/raw_order_replay_certification/candidate_revalidation.csv"
+  g5g_replay_certification_csv: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification/candidate_replay_certification.csv"
+  g5g2_per_index_photo_certification_csv: "runs/BMS-FU02g5g2/narrow_per_index_replay_photo_certification/per_index_photo_certification.csv"
+  candidate_count_expected: 11
+  require_all_11_candidates: true
+
+runner_plan:
+  original_enumerator_script: "scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py"
+  candidate_replay_certification_script: "scripts/run_bms_fu02g5g_fu02g4c_raw_order_replay_certification.py"
+  candidate_008_smoke_wrapper_script: "scripts/run_bms_fu02g4c_candidate008_only_smoke_wrapper.py"
+  execute_scripts_now: false
+  construct_command_only: true
+  full_replay_command_enabled: false
+
+candidate_handling:
+  all_candidates:
+    require_candidate_count: 11
+    require_per_raw_index_check: true
+    require_missing_or_additional_candidate_report: true
+
+  candidate_005:
+    candidate_id: "candidate_005"
+    raw_index: 26157530
+    role: "coarse_signature_degeneracy_stress_case"
+    expected_exact_match: false
+    expected_near_distance: 0
+    must_report_separately: true
+    must_not_relabel_as_exact: true
+    claim_boundary: "near_distance=0 is not identity or isomorphism; candidate_005 remains a degeneracy stress case unless separately resolved."
+
+  candidate_008:
+    candidate_id: "candidate_008"
+    raw_index: 26187175
+    role: "positive_control_known_exact"
+    nickname: "Spiegelklunker"
+    expected_exact_match: true
+    expected_near_distance: 0
+    stage2_reference_smoke_status: "PASS"
+    must_report_separately: true
+    claim_boundary: "candidate_008 is a positive control and not a substitute for full raw-order coverage."
+
+coverage_requirements:
+  require_full_raw_order_coverage: true
+  allow_explicit_gap_report_instead_of_completion: true
+  require_coverage_report_csv: true
+  require_raw_order_semantics_documented: true
+  forbid_window_only_coverage_claim: true
+  forbid_scaffold_only_coverage_claim: true
+  require_command_log: true
+  require_run_manifest: true
+
+required_future_outputs:
+  - "summary.json"
+  - "readout.md"
+  - "coverage_report.csv"
+  - "candidate_replay_certification.csv"
+  - "missing_or_additional_candidates.csv"
+  - "candidate_005_detail.json"
+  - "candidate_008_detail.json"
+  - "run_manifest.json"
+  - "command_log.txt"
+
+disabled_pass_fail_blocked_criteria:
+  pass_requires:
+    - "full raw-order coverage completed or explicit complete gap report generated"
+    - "all 11 candidates checked"
+    - "candidate_005 separately reported"
+    - "candidate_008 separately reported"
+    - "no FU02g4c anchor files modified"
+    - "isolated output directory used"
+    - "claim boundary written"
+  fail_if:
+    - "full replay runs but candidates are missing"
+    - "coverage incomplete without accepted gap report"
+    - "output tables inconsistent"
+  blocked_if:
+    - "command safety or isolation is ambiguous"
+    - "runner would overwrite FU02g4c anchor outputs"
+    - "runner would perform window/scaffold-only replay instead of full raw-order replay"
+    - "coverage cannot be audited"
+    - "candidate_005 or candidate_008 would not be separately reported"
+
+claim_boundary:
+  after_stage3_disabled_config_allowed:
+    - "A disabled Stage-3 full raw-order replay config exists."
+    - "Stage-3 prerequisites and required outputs are encoded."
+    - "candidate_005 and candidate_008 are explicitly separated."
+    - "Stage-2 candidate_008 reference smoke PASS is referenced as a positive-control prerequisite."
+  after_stage3_disabled_config_not_allowed:
+    - "Stage-3 full replay was executed."
+    - "FU02g4c full raw-order replay certification is complete."
+    - "All 11 candidates are raw-order certified."
+    - "candidate_005 is exact."
+    - "candidate_008 proves global non-genericity."
+    - "near_distance=0 implies identity or isomorphism."
