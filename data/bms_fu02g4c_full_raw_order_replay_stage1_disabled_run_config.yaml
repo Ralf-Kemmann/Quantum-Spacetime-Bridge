@@ -1,0 +1,122 @@
+# BMS-FU02g4c - Full Raw-Order Replay Stage 1 Disabled Run Config
+# Date: 2026-05-09
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Execution-ready but disabled config. This file prepares the later Stage 2/3
+# path without authorizing any replay, enumeration, certification run, or FU02g4c
+# anchor mutation.
+
+run:
+  run_id: "BMS-FU02g4c_full_raw_order_replay_stage1_disabled_run_config_v0"
+  case_id: "FU02g4c_full_raw_order_replay_stage1_disabled"
+  stage: 1
+  mode: "execution_ready_disabled"
+  execution_enabled: false
+  allow_long_replay_run: false
+  replay_started: false
+  full_certification: false
+  certification_status: "open"
+  output_dir: "runs/BMS-FU02g4c-full-replay/stage1_disabled_run_config"
+
+safety:
+  require_stage0_pass: true
+  require_manual_ralf_approval_before_stage2: true
+  require_manual_ralf_approval_before_full_replay: true
+  allow_existing_fu02g4c_anchor_mutation: false
+  allow_existing_output_overwrite: false
+  require_isolated_output_dir: true
+  forbid_git_operations: true
+  forbid_top_level_folder_creation: true
+  forbid_unbounded_run_without_explicit_approval: true
+
+stage0_reference:
+  summary_json: "runs/BMS-FU02g4c-full-replay/preflight/stage0_input_path_validation/summary.json"
+  readout_md: "runs/BMS-FU02g4c-full-replay/preflight/stage0_input_path_validation/readout.md"
+  documented_result_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE0_INPUT_PATH_VALIDATION_RESULT_NOTE.md"
+  expected_stage0_status: "PASS"
+
+runner_plan:
+  original_enumerator_script: "scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py"
+  certification_candidate_script: "scripts/run_bms_fu02g5g_fu02g4c_raw_order_replay_certification.py"
+  photo_check_script: "scripts/run_bms_fu02g5g2_narrow_per_index_replay_photo_certification.py"
+  single_patch_inspector_script: "scripts/inspect_bms_fu02g4c_single_exact_patch.py"
+  execution_note: "Scripts are named for later planning only; Stage 1 does not execute them."
+
+input_bundle:
+  original_fu02g4c_config: "data/bms_fu02g4c_orbit_reduced_resumable_config.yaml"
+  preflight_config: "data/bms_fu02g4c_full_raw_order_replay_certification_preflight_config.yaml"
+  g5f_config: "data/bms_fu02g5f_raw_order_replay_certification_config.yaml"
+  g5g_config: "data/bms_fu02g5g_fu02g4c_raw_order_replay_certification_config.yaml"
+  g5g2_config: "data/bms_fu02g5g2_narrow_per_index_replay_photo_certification_config.yaml"
+
+candidate_tables:
+  g5e1_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  g5e2_classification_csv: "runs/BMS-FU02g5e2/near_match_decoy_classification/candidate_classification.csv"
+  g5f_revalidation_csv: "runs/BMS-FU02g5f/raw_order_replay_certification/candidate_revalidation.csv"
+  g5g_replay_certification_csv: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification/candidate_replay_certification.csv"
+  g5g2_per_index_photo_certification_csv: "runs/BMS-FU02g5g2/narrow_per_index_replay_photo_certification/per_index_photo_certification.csv"
+
+certification_targets:
+  require_all_11_candidates_from_tables: true
+  candidate_count_expected: 11
+  all_candidates_must_be_checked_per_index: true
+  explicit_special_targets:
+    candidate_005:
+      raw_index: 26157530
+      role: "coarse_signature_degeneracy_stress_case"
+      expected_exact_match: false
+      expected_near_distance: 0
+      must_report_separately: true
+      claim_boundary: "near_distance=0 is not identity or isomorphism"
+    candidate_008:
+      raw_index: 26187175
+      role: "positive_control_known_exact"
+      expected_exact_match: true
+      expected_near_distance: 0
+      must_report_separately: true
+      claim_boundary: "positive control is not a substitute for full raw-order coverage"
+
+proposed_stage2_smoke_check:
+  stage: 2
+  enabled: false
+  purpose: "bounded smoke check only"
+  requires_manual_approval: true
+  max_candidates_for_smoke_check: 1
+  recommended_candidate: "candidate_008"
+  reason: "positive_control_known_exact"
+  must_not_be_read_as_full_certification: true
+
+proposed_stage3_full_replay:
+  stage: 3
+  enabled: false
+  purpose: "full raw-order replay certification"
+  requires_manual_approval: true
+  requires_stage2_or_explicit_skip_reason: true
+  requires_complete_coverage_or_gap_report: true
+  must_write_summary_json: true
+  must_write_readout_md: true
+  must_write_candidate_replay_table: true
+  must_write_candidate_005_separate_section: true
+  must_write_candidate_008_separate_section: true
+
+required_outputs_for_future_run:
+  - "summary.json"
+  - "readout.md"
+  - "candidate_replay_certification.csv"
+  - "coverage_report.csv"
+  - "missing_or_additional_candidates.csv"
+  - "candidate_005_detail.json"
+  - "candidate_008_detail.json"
+
+claim_boundary:
+  after_stage1_allowed:
+    - "A disabled execution-ready config exists."
+    - "Stage 0 PASS is referenced."
+    - "A later Stage 2/Stage 3 pathway is specified."
+  after_stage1_not_allowed:
+    - "FU02g4c full raw-order replay was started."
+    - "FU02g4c full raw-order replay certification is complete."
+    - "All 11 candidates are raw-order certified."
+    - "candidate_005 is exact."
+    - "near_distance=0 implies identity or isomorphism."
+    - "global non-genericity is proven."
