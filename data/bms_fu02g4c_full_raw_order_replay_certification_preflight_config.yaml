@@ -1,0 +1,107 @@
+# BMS-FU02g4c - Full Raw-Order Replay Certification Preflight Config
+# Date: 2026-05-09
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Preflight-only scaffold. This config is intended to make the next full
+# FU02g4c raw-order replay certification pass auditable before any long replay
+# run is started. It must not be treated as completed certification output.
+
+run:
+  run_id: "BMS-FU02g4c_full_raw_order_replay_certification_preflight_v0"
+  case_id: "FU02g4c_full_raw_order_replay_certification_preflight"
+  output_dir: "runs/BMS-FU02g4c-full-replay/preflight"
+  mode: "preflight_only"
+  allow_long_replay_run: false
+  allow_existing_fu02g4c_anchor_mutation: false
+  allow_existing_output_overwrite: false
+  require_isolated_output_dir: true
+  claim_full_certification_after_preflight: false
+
+original_fu02g4c_bundle:
+  base_config_yaml: "data/bms_fu02g4c_orbit_reduced_resumable_config.yaml"
+  enumerator_script: "scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py"
+  c60_cells_csv: "data/bms_fu02g_c60_reference_cells.csv"
+  c60_edges_csv: "data/bms_fu02g_c60_reference_edges.csv"
+  fu02f1_face_layout_csv: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open/bms_fu02f1_face_layout.csv"
+  existing_fu02g4c_run_dir: "runs/BMS-FU02g4c"
+  existing_fu02g4c_inspect_config_glob: "data/bms_fu02g4c_inspect_window_*.yaml"
+  existing_fu02g4c_log_globs:
+    - "runs/BMS-FU02g4c/inspect_window_*.log"
+    - "runs/BMS-FU02g4c/chunk_batch_logs/*.log"
+    - "runs/BMS-FU02g4c/chunk_batch_logs_gap_safe/*.log"
+  existing_known_exact_patch_photo_json: "runs/BMS-FU02g4c/patch_photos/bms_fu02g4c_exact_patch_26187175.json"
+
+candidate_inputs:
+  g5e1_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  g5e2_classification_csv: "runs/BMS-FU02g5e2/near_match_decoy_classification/candidate_classification.csv"
+  g5f_revalidation_csv: "runs/BMS-FU02g5f/raw_order_replay_certification/candidate_revalidation.csv"
+  g5g_replay_certification_csv: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification/candidate_replay_certification.csv"
+  g5g2_per_index_photo_certification_csv: "runs/BMS-FU02g5g2/narrow_per_index_replay_photo_certification/per_index_photo_certification.csv"
+  face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+preflight_checks:
+  require_all_input_paths_exist: true
+  require_no_existing_output_overwrite: true
+  require_output_dir_is_not_existing_fu02g4c_anchor_dir: true
+  require_original_enumerator_declared: true
+  require_original_input_bundle_declared: true
+  require_index_semantics_declared: true
+  require_candidate_mapping_table: true
+  require_candidate_005_separate_row: true
+  require_candidate_008_separate_row: true
+  require_near_vs_exact_status_columns: true
+  require_raw_order_coverage_audit_before_claim: true
+
+index_semantics:
+  expected_semantics: "raw_index is interpreted as skip_first_raw_patches: skip raw_index connected patches, then inspect or capture the next patch."
+  must_be_verified_against_fu02g4c_enumerator: true
+  scaffold_indices_are_not_assumed_certified_raw_order_indices: true
+
+certification_targets:
+  - candidate_id: "candidate_005"
+    raw_index: 26157530
+    target_role: "coarse_signature_degeneracy_stress_case"
+    expected_exact_match: false
+    expected_near_distance: 0
+    must_report_separately: true
+    claim_boundary: "near_distance=0 is not exact identity or isomorphism"
+  - candidate_id: "candidate_008"
+    raw_index: 26187175
+    target_role: "positive_control_known_exact"
+    expected_exact_match: true
+    expected_near_distance: 0
+    must_report_separately: true
+    claim_boundary: "positive control only; not a substitute for full raw-order coverage"
+
+full_replay_requirements:
+  full_fu02g4c_replay_certification_default: false
+  require_exact_original_fu02g4c_enumerator_reused: true
+  require_full_original_input_bundle_reused: true
+  require_no_fu02g4c_anchor_file_mutation: true
+  require_isolated_new_outputs: true
+  require_complete_raw_order_coverage_or_explicit_gap_report: true
+  require_per_candidate_node_edge_photo_outputs: true
+  require_candidate_replay_certification_table: true
+  require_readout_md: true
+  require_summary_json: true
+
+known_risks_to_report:
+  - "unvollstaendige raw-order coverage"
+  - "scaffold/window replay statt full raw-order replay"
+  - "candidate mapping nicht eindeutig"
+  - "near-match vs exact-match unklar"
+  - "coarse-signature degeneracy bei candidate_005 nicht separat ausgewiesen"
+  - "positive-control candidate_008 nicht separat ausgewiesen"
+  - "untracked files or outputs influencing replay interpretation"
+
+claim_boundary:
+  after_preflight_allowed:
+    - "Inputs, scripts, configs, and prior outputs for FU02g4c full raw-order replay were inventoried."
+    - "candidate_005 and candidate_008 are explicit certification targets."
+    - "The next run requirements and risks are documented."
+  after_preflight_not_allowed:
+    - "FU02g4c full raw-order replay certification is complete."
+    - "All candidates are fully raw-order certified."
+    - "candidate_005 is exact or role-transport eligible."
+    - "near_distance=0 implies identity or isomorphism."
+    - "global non-genericity is proven."
