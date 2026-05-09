@@ -1,0 +1,127 @@
+# BMS-FU02g4c - Stage 2 Candidate_008 Disabled Smoke-Check Config
+# Date: 2026-05-09
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Execution-ready in planning terms only. This config does not enable or start
+# a smoke check, replay, enumeration, or certification run.
+
+run:
+  run_id: "BMS-FU02g4c_full_raw_order_replay_stage2_candidate_008_disabled_smoke_config_v0"
+  case_id: "FU02g4c_stage2_candidate_008_bounded_smoke_disabled"
+  stage: 2
+  mode: "bounded_smoke_check_disabled"
+  execution_enabled: false
+  smoke_check_enabled: false
+  allow_long_replay_run: false
+  replay_started: false
+  full_certification: false
+  certification_status: "open"
+  output_dir: "runs/BMS-FU02g4c-full-replay/stage2_bounded_smoke_check_candidate_008"
+
+safety:
+  require_stage0_pass: true
+  require_stage1_disabled_config: true
+  require_manual_ralf_approval_before_execution: true
+  require_manual_ralf_approval_before_full_replay: true
+  allow_existing_fu02g4c_anchor_mutation: false
+  allow_existing_output_overwrite: false
+  require_isolated_output_dir: true
+  forbid_git_operations: true
+  forbid_top_level_folder_creation: true
+  forbid_unbounded_run_without_explicit_approval: true
+  max_candidates_allowed_for_smoke_check: 1
+  full_replay_must_remain_disabled: true
+
+references:
+  stage0_summary_json: "runs/BMS-FU02g4c-full-replay/preflight/stage0_input_path_validation/summary.json"
+  stage0_readout_md: "runs/BMS-FU02g4c-full-replay/preflight/stage0_input_path_validation/readout.md"
+  stage0_result_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE0_INPUT_PATH_VALIDATION_RESULT_NOTE.md"
+  stage1_disabled_config: "data/bms_fu02g4c_full_raw_order_replay_stage1_disabled_run_config.yaml"
+  stage1_result_note: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE1_DISABLED_RUN_CONFIG_RESULT_NOTE.md"
+  stage2_plan: "docs/BMS_FU02G4C_FULL_RAW_ORDER_REPLAY_STAGE2_BOUNDED_SMOKE_CHECK_PLAN.md"
+
+runner_plan:
+  primary_candidate_replay_script: "scripts/run_bms_fu02g5g_fu02g4c_raw_order_replay_certification.py"
+  single_patch_inspector_script: "scripts/inspect_bms_fu02g4c_single_exact_patch.py"
+  photo_check_script: "scripts/run_bms_fu02g5g2_narrow_per_index_replay_photo_certification.py"
+  original_enumerator_script_reference_only: "scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py"
+  execute_scripts_now: false
+
+input_bundle:
+  preflight_config: "data/bms_fu02g4c_full_raw_order_replay_certification_preflight_config.yaml"
+  stage1_disabled_config: "data/bms_fu02g4c_full_raw_order_replay_stage1_disabled_run_config.yaml"
+  original_fu02g4c_config: "data/bms_fu02g4c_orbit_reduced_resumable_config.yaml"
+  g5g_replay_certification_csv: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification/candidate_replay_certification.csv"
+  g5g2_per_index_photo_certification_csv: "runs/BMS-FU02g5g2/narrow_per_index_replay_photo_certification/per_index_photo_certification.csv"
+  known_exact_patch_photo_json: "runs/BMS-FU02g4c/patch_photos/bms_fu02g4c_exact_patch_26187175.json"
+
+smoke_target:
+  candidate_id: "candidate_008"
+  raw_index: 26187175
+  role: "positive_control_known_exact"
+  nickname: "Spiegelklunker"
+  expected_exact_match: true
+  expected_near_distance: 0
+  purpose: "bounded positive-control technical smoke check"
+  must_report_separately: true
+  must_not_be_read_as_full_coverage: true
+  must_not_be_read_as_global_non_genericity_proof: true
+  claim_boundary: "candidate_008 is a positive-control smoke target only; it is not a substitute for full raw-order coverage."
+
+excluded_from_stage2_first_smoke:
+  candidate_id: "candidate_005"
+  raw_index: 26157530
+  role: "coarse_signature_degeneracy_stress_case"
+  expected_exact_match: false
+  expected_near_distance: 0
+  reason_for_exclusion_from_first_smoke: "Degeneracy stress case; reserved for later dedicated degeneracy handling."
+  claim_boundary: "near_distance=0 is not identity or isomorphism; candidate_005 must not be relabeled exact."
+
+proposed_disabled_execution:
+  command_construction_allowed: true
+  command_execution_allowed: false
+  max_candidates: 1
+  selected_candidate: "candidate_008"
+  bounded_window_only_if_required: true
+  unbounded_replay_allowed: false
+  full_raw_order_replay_allowed: false
+  requires_manual_enable_flag_change: true
+  requires_new_commit_or_explicit_terminal_approval_before_execution: true
+
+required_future_outputs_if_enabled_later:
+  - "summary.json"
+  - "readout.md"
+  - "candidate_008_smoke_check.json"
+  - "candidate_008_replay_or_photo_reference.json"
+  - "claim_boundary_section_in_readout"
+
+disabled_pass_fail_criteria_for_future_execution:
+  pass_requires:
+    - "candidate_008 is the only candidate checked"
+    - "outputs are written to isolated stage2 output_dir"
+    - "no FU02g4c anchor files are modified"
+    - "no full replay is started"
+    - "expected exact-marker is found or mismatch is explicitly reported"
+    - "claim boundary is written"
+  fail_or_blocked_if:
+    - "more than one candidate would be checked"
+    - "full replay would be started"
+    - "output path would overwrite existing FU02g4c anchor outputs"
+    - "candidate_008 cannot be mapped unambiguously"
+    - "required input paths are missing"
+    - "manual Ralf approval is absent"
+
+claim_boundary:
+  after_disabled_stage2_config_allowed:
+    - "A disabled Stage-2 candidate_008 smoke-check config exists."
+    - "candidate_008 is selected as bounded positive-control smoke target."
+    - "candidate_005 remains reserved for later degeneracy-stress handling."
+    - "No Stage-2 execution is enabled."
+  after_disabled_stage2_config_not_allowed:
+    - "Stage-2 smoke check was executed."
+    - "FU02g4c full raw-order replay was started."
+    - "FU02g4c full raw-order replay certification is complete."
+    - "All 11 candidates are raw-order certified."
+    - "candidate_008 proves global non-genericity."
+    - "candidate_005 is exact."
+    - "near_distance=0 implies identity or isomorphism."
