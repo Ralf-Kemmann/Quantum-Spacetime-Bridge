@@ -1,0 +1,157 @@
+# BMS-FU02g5 — Role-Assignment Sensitivity Controls
+# Date: 2026-05-06
+# Project: Quantum–Spacetime Bridge / Gravitation und RaumZeit
+#
+# Edit only input.full_face_graph_edges_csv if your local C60 face-graph edge list
+# uses a different path.
+
+run:
+  run_id: "BMS-FU02g5b_window_around_exact_patch_v0"
+  case_id: "FU02g5b_window_around_exact_patch"
+  output_dir: "runs/BMS-FU02g5b/window_around_exact_patch"
+  patch_size: 17
+
+  # Window controls. Conservative default: smoke/candidate comparison only.
+  # Set enumerate_connected_patches: true for windowed enumeration.
+  enumerate_connected_patches: true
+  skip_first_connected_patches: 26187000
+  max_connected_patches_this_run: 500
+  max_wall_seconds: 300
+  progress_every: 100
+
+  # Coarse near-distance threshold for role-degree histogram diagnostic.
+  # This is a sensitivity diagnostic, not automatically identical to FU02g4c near logic.
+  near_distance_threshold: 2
+
+input:
+  # Required for graph-based validation/signatures.
+  # If this file does not exist locally, replace with the actual C60 face-graph edge CSV.
+  full_face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+  reference_carrier_nodes:
+    - H_07
+    - H_09
+    - H_11
+    - H_12
+    - H_13
+    - H_14
+    - H_15
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  reference_mixed_core_nodes:
+    - H_09
+    - H_11
+    - H_13
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+
+  reference_pentagon_boundary_nodes:
+    - H_07
+    - H_12
+    - H_14
+    - H_15
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  localized_exact_patch_nodes:
+    - H_01
+    - H_02
+    - H_03
+    - H_05
+    - H_06
+    - H_07
+    - H_08
+    - H_09
+    - H_10
+    - H_15
+    - H_16
+    - H_17
+    - P_00
+    - P_01
+    - P_02
+    - P_03
+    - P_07
+
+  localized_exact_patch_mixed_core_nodes:
+    - H_01
+    - H_02
+    - H_03
+    - H_05
+    - H_06
+    - H_07
+    - H_08
+    - H_09
+
+  localized_exact_patch_pentagon_boundary_nodes:
+    - H_10
+    - H_15
+    - H_16
+    - H_17
+    - P_00
+    - P_01
+    - P_02
+    - P_03
+    - P_07
+
+role_variants:
+  - variant_id: "v0_type_preferred"
+    mode: "v0_type_preferred"
+    enabled: true
+    description: "Baseline role assignment: mixed_core and pentagon_boundary retain current v0 role labels."
+    random_seed:
+
+  - variant_id: "uncolored_carrier_only"
+    mode: "uncolored_carrier_only"
+    enabled: true
+    description: "All carrier nodes receive one generic carrier role; internal coloring erased."
+    random_seed:
+
+  - variant_id: "face_type_only"
+    mode: "face_type_only"
+    enabled: true
+    description: "Roles are assigned only by H/P face type labels."
+    random_seed:
+
+  - variant_id: "swap_core_boundary"
+    mode: "swap_core_boundary"
+    enabled: true
+    description: "Mixed-core and pentagon-boundary roles are intentionally swapped."
+    random_seed:
+
+  - variant_id: "core_erased"
+    mode: "core_erased"
+    enabled: true
+    description: "Mixed-core role erased into generic carrier; boundary role retained."
+    random_seed:
+
+  - variant_id: "boundary_erased"
+    mode: "boundary_erased"
+    enabled: true
+    description: "Boundary role erased into generic carrier; mixed-core role retained."
+    random_seed:
+
+  - variant_id: "random_role_permutation_seed_104729"
+    mode: "random_role_permutation_seeded"
+    enabled: false
+    description: "Seeded random permutation of carrier roles preserving baseline role counts."
+    random_seed: 104729
+
+report:
+  write_result_note: true
+  write_candidate_pair_summary: true
+  write_config_resolved: true
