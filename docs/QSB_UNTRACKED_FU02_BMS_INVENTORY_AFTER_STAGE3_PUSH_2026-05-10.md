@@ -1,0 +1,148 @@
+# QSB Untracked FU02/BMS Inventory After Stage-3 Push
+
+Date: 2026-05-10
+
+Context: after commit af26613 and push of FU02g4c Stage-3 execution-path scaffold.
+
+
+## Top-level groups
+
+      1 AGENTS.md
+     78 data
+     39 docs
+     14 scripts
+
+## Full untracked file list
+
+- AGENTS.md
+- data/bms_fu02g1b_nanotube_armchair_repaired_cells.csv
+- data/bms_fu02g1b_nanotube_armchair_repaired_edges.csv
+- data/bms_fu02g1b_nanotube_armchair_repaired_manifest.json
+- data/bms_fu02g1b_nanotube_armchair_repaired_nodes.csv
+- data/bms_fu02g1b_nanotube_topology_repair_config.yaml
+- data/bms_fu02g1b_nanotube_topology_repair_config_resolved.yaml
+- data/bms_fu02g1b_nanotube_topology_repair_inventory.csv
+- data/bms_fu02g1b_nanotube_topology_repair_manifest.json
+- data/bms_fu02g1b_nanotube_topology_repair_warnings.json
+- data/bms_fu02g1b_nanotube_zigzag_repaired_cells.csv
+- data/bms_fu02g1b_nanotube_zigzag_repaired_edges.csv
+- data/bms_fu02g1b_nanotube_zigzag_repaired_manifest.json
+- data/bms_fu02g1b_nanotube_zigzag_repaired_nodes.csv
+- data/bms_fu02g2_carrier_diagnostic_transfer_config.yaml
+- data/bms_fu02g3_real_structure_memory_null_config.yaml
+- data/bms_fu02g4_symmetry_orbit_inspection_config.yaml
+- data/bms_fu02g4b_exhaustive_connected_patch_signature_config.yaml
+- data/bms_fu02g4c_inspect_window_26179015_26180015.yaml
+- data/bms_fu02g4c_inspect_window_26179015_26189015.yaml
+- data/bms_fu02g4c_inspect_window_26179015_26279015.yaml
+- data/bms_fu02g4c_inspect_window_26180015_26181015.yaml
+- data/bms_fu02g4c_inspect_window_26181015_26182015.yaml
+- data/bms_fu02g4c_inspect_window_26182015_26183015.yaml
+- data/bms_fu02g4c_inspect_window_26183015_26184015.yaml
+- data/bms_fu02g4c_inspect_window_26184015_26185015.yaml
+- data/bms_fu02g4c_inspect_window_26185015_26186015.yaml
+- data/bms_fu02g4c_inspect_window_26186015_26187015.yaml
+- data/bms_fu02g4c_inspect_window_26187015_26187115.yaml
+- data/bms_fu02g4c_inspect_window_26187015_26188015.yaml
+- data/bms_fu02g4c_inspect_window_26187115_26187125.yaml
+- data/bms_fu02g4c_inspect_window_26187115_26187215.yaml
+- data/bms_fu02g4c_inspect_window_26187125_26187135.yaml
+- data/bms_fu02g4c_inspect_window_26187135_26187145.yaml
+- data/bms_fu02g4c_inspect_window_26187145_26187155.yaml
+- data/bms_fu02g4c_inspect_window_26187155_26187165.yaml
+- data/bms_fu02g4c_inspect_window_26187165_26187175.yaml
+- data/bms_fu02g4c_inspect_window_26187175_26187176.yaml
+- data/bms_fu02g4c_inspect_window_26187175_26187185.yaml
+- data/bms_fu02g4c_inspect_window_26187176_26187177.yaml
+- data/bms_fu02g4c_inspect_window_26187177_26187178.yaml
+- data/bms_fu02g4c_inspect_window_26187178_26187179.yaml
+- data/bms_fu02g4c_inspect_window_26187179_26187180.yaml
+- data/bms_fu02g4c_inspect_window_26187180_26187181.yaml
+- data/bms_fu02g4c_inspect_window_26187181_26187182.yaml
+- data/bms_fu02g4c_inspect_window_26187182_26187183.yaml
+- data/bms_fu02g4c_inspect_window_26187183_26187184.yaml
+- data/bms_fu02g4c_inspect_window_26187184_26187185.yaml
+- data/bms_fu02g4c_inspect_window_26187185_26187195.yaml
+- data/bms_fu02g4c_inspect_window_26187195_26187205.yaml
+- data/bms_fu02g4c_inspect_window_26187205_26187215.yaml
+- data/bms_fu02g4c_inspect_window_26187215_26187315.yaml
+- data/bms_fu02g4c_inspect_window_26187315_26187415.yaml
+- data/bms_fu02g4c_inspect_window_26187415_26187515.yaml
+- data/bms_fu02g4c_inspect_window_26187515_26187615.yaml
+- data/bms_fu02g4c_inspect_window_26187615_26187715.yaml
+- data/bms_fu02g4c_inspect_window_26187715_26187815.yaml
+- data/bms_fu02g4c_inspect_window_26187815_26187915.yaml
+- data/bms_fu02g4c_inspect_window_26187915_26188015.yaml
+- data/bms_fu02g4c_inspect_window_26188015_26189015.yaml
+- data/bms_fu02g4c_inspect_window_26189015_26199015.yaml
+- data/bms_fu02g4c_inspect_window_26199015_26209015.yaml
+- data/bms_fu02g4c_inspect_window_26209015_26219015.yaml
+- data/bms_fu02g4c_inspect_window_26219015_26229015.yaml
+- data/bms_fu02g4c_inspect_window_26229015_26239015.yaml
+- data/bms_fu02g4c_inspect_window_26239015_26249015.yaml
+- data/bms_fu02g4c_inspect_window_26249015_26259015.yaml
+- data/bms_fu02g4c_inspect_window_26259015_26269015.yaml
+- data/bms_fu02g4c_inspect_window_26269015_26279015.yaml
+- data/bms_fu02g4c_orbit_reduced_resumable_config.yaml
+- data/bms_fu02g5_role_assignment_sensitivity_config.yaml
+- data/bms_fu02g5b_first500_enumeration_smoke_config.yaml
+- data/bms_fu02g5b_window_around_exact_patch_config.yaml
+- data/bms_fu02g5d_automorphy_only_role_transport_config.yaml
+- data/bms_fu02g5e1_near_match_localization_config.yaml
+- data/bms_fu02g5e2_near_match_decoy_classification_config.yaml
+- data/bms_fu02g5f_raw_order_replay_certification_config.yaml
+- data/bms_fu02g5g2_narrow_per_index_replay_photo_certification_config.yaml
+- data/bms_fu02g5g_fu02g4c_raw_order_replay_certification_config.yaml
+- docs/BMS_FU02G1B_NANOTUBE_TOPOLOGY_REPAIR_FIELD_LIST.md
+- docs/BMS_FU02G1B_NANOTUBE_TOPOLOGY_REPAIR_VALIDATION_SPEC.md
+- docs/BMS_FU02G1_STRUCTURE_INVENTORY_BUILDER_INITIAL_RESULT_NOTE.md
+- docs/BMS_FU02G2_CARRIER_DIAGNOSTIC_TRANSFER_FIELD_LIST.md
+- docs/BMS_FU02G2_CARRIER_DIAGNOSTIC_TRANSFER_GEOMETRY_CONTROLS_SPEC.md
+- docs/BMS_FU02G3_REAL_STRUCTURE_MEMORY_NULL_SPECIFICITY_FIELD_LIST.md
+- docs/BMS_FU02G3_REAL_STRUCTURE_MEMORY_NULL_SPECIFICITY_SPEC.md
+- docs/BMS_FU02G4B_EXHAUSTIVE_CONNECTED_PATCH_SIGNATURE_CHECK_FIELD_LIST.md
+- docs/BMS_FU02G4B_EXHAUSTIVE_CONNECTED_PATCH_SIGNATURE_CHECK_SPEC.md
+- docs/BMS_FU02G4C_ORBIT_REDUCED_RESUMABLE_CONNECTED_PATCH_ENUMERATION_FIELD_LIST.md
+- docs/BMS_FU02G4C_ORBIT_REDUCED_RESUMABLE_CONNECTED_PATCH_ENUMERATION_SPEC.md
+- docs/BMS_FU02G4_SYMMETRY_ORBIT_INSPECTION_C60_REFERENCE_SPEC.md
+- docs/BMS_FU02G4_SYMMETRY_ORBIT_INSPECTION_FIELD_LIST.md
+- docs/BMS_FU02G5C_ROLE_TRANSPORT_RULE_SPEC.md
+- docs/BMS_FU02G5D_AUTOMORPHY_ONLY_ROLE_TRANSPORT_FIELD_LIST.md
+- docs/BMS_FU02G5D_AUTOMORPHY_ONLY_ROLE_TRANSPORT_RESULT_NOTE.md
+- docs/BMS_FU02G5E1_NEAR_MATCH_LOCALIZATION_FIELD_LIST.md
+- docs/BMS_FU02G5E2_NEAR_MATCH_DECOY_CLASSIFICATION_FIELD_LIST.md
+- docs/BMS_FU02G5E2_RED_TEAM_PACKET.md
+- docs/BMS_FU02G5E3_RED_TEAM_SYNTHESIS_AND_NEXT_CONTROLS.md
+- docs/BMS_FU02G5F_RAW_ORDER_REPLAY_CERTIFICATION_FIELD_LIST.md
+- docs/BMS_FU02G5G2_NARROW_PER_INDEX_REPLAY_PHOTO_CERTIFICATION_FIELD_LIST.md
+- docs/BMS_FU02G5G_FU02G4C_RAW_ORDER_REPLAY_CERTIFICATION_FIELD_LIST.md
+- docs/BMS_FU02G5G_RAW_ORDER_REPLAY_CERTIFICATION_RESULT_NOTE.md
+- docs/BMS_FU02G5_ROLE_ASSIGNMENT_SENSITIVITY_FIELD_LIST.md
+- docs/BMS_FU02G5_ROLE_ASSIGNMENT_SENSITIVITY_SPEC.md
+- docs/QSB_ABSCHLUSSBERICHT_2026-05-09_FU02G5G2.md
+- docs/QSB_APERIODIC_NONLATTICE_CONTEXT_NOTE.md
+- docs/QSB_CHAT_UMZUG_BMS_FU02G4C_TO_G5_2026-05-06.md
+- docs/QSB_CODEX_AUFTRAG_FU02G4C_STAGE3_EXECUTION_PATH_IMPLEMENTATION_2026-05-10.md
+- docs/QSB_FU02G4C_RESULT_NOTE_AUTOMORPHIC_EXACT_MATCH_2026-05-06.md
+- docs/QSB_FU02G4C_STAGE3_EXECUTION_PATH_SPEC_2026-05-10.md
+- docs/QSB_FU02G4C_STAGE3_IMPLEMENTATION_SPEC_2026-05-10.md
+- docs/QSB_LITERATURE_CONTEXT_APERIODIC_NONLATTICE_SPACETIME_DEEP_RESEARCH_2026-05-07.md
+- docs/QSB_NEW_CHAT_START_PROMPT_FU02G5_2026-05-06.md
+- docs/QSB_NOVA_CHARACTER_AND_WORKING_STYLE_2026-05-06.md
+- docs/QSB_PROJEKTZUSAMMENFASSUNG_2026-05-06_FU02G5B.md
+- docs/QSB_PROJEKTZUSAMMENFASSUNG_2026-05-07_FU02G5E1.md
+- docs/inspect_bms_fu02g4c_single_exact_patch_FIELD_LIST.md
+- scripts/inspect_bms_fu02g4c_single_exact_patch.py
+- scripts/inspect_bms_fu02g5e1_near_match_candidates.py
+- scripts/run_bms_fu02g1b_nanotube_topology_repair_validation.py
+- scripts/run_bms_fu02g2_carrier_diagnostic_transfer.py
+- scripts/run_bms_fu02g3_real_structure_memory_null_specificity.py
+- scripts/run_bms_fu02g4_symmetry_orbit_inspection.py
+- scripts/run_bms_fu02g4c_orbit_reduced_resumable_connected_patch_enumeration.py
+- scripts/run_bms_fu02g5_role_assignment_sensitivity.py
+- scripts/run_bms_fu02g5_role_assignment_sensitivity.py.bak_before_face_ab_parser_patch
+- scripts/run_bms_fu02g5d_automorphy_only_role_transport.py
+- scripts/run_bms_fu02g5e2_near_match_decoy_classification.py
+- scripts/run_bms_fu02g5f_raw_order_replay_certification.py
+- scripts/run_bms_fu02g5g2_narrow_per_index_replay_photo_certification.py
+- scripts/run_bms_fu02g5g_fu02g4c_raw_order_replay_certification.py
