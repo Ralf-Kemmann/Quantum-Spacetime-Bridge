@@ -1,0 +1,74 @@
+# BMS-FU02g5e1 - Near-Match Candidate Localization / Photo
+# Date: 2026-05-08
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Exact FU02g4c replay order is not asserted by default because this inspection
+# is constrained to the repaired face_a/face_b adjacency CSV input.
+
+run:
+  run_id: "BMS-FU02g5e1_scaffold_localization_v0"
+  case_id: "FU02g5e1_near_match_candidate_localization_photo"
+  output_dir: "runs/BMS-FU02g5e1/near_match_localization"
+  mode_label: "scaffold localization"
+  patch_size: 17
+  progress_every: 1000000
+
+input:
+  full_face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+  reference_carrier_nodes:
+    - H_07
+    - H_09
+    - H_11
+    - H_12
+    - H_13
+    - H_14
+    - H_15
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  reference_mixed_core_nodes:
+    - H_09
+    - H_11
+    - H_13
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+
+  reference_pentagon_boundary_nodes:
+    - H_07
+    - H_12
+    - H_14
+    - H_15
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+near_signature:
+  near_signature_max_abs_difference_sum: 2
+
+windows:
+  - window_id: "early_2m_3m"
+    skip_first_raw_patches: 2000000
+    max_raw_patches_this_run: 1000001
+
+  - window_id: "mid_17987055_18925223"
+    skip_first_raw_patches: 17987055
+    max_raw_patches_this_run: 938168
+
+  - window_id: "exact_zone_25979015_26784197"
+    skip_first_raw_patches: 25979015
+    max_raw_patches_this_run: 805183
+
