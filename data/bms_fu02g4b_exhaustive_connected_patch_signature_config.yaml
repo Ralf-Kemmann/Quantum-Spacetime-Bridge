@@ -1,0 +1,34 @@
+# BMS-FU02g4b — Exhaustive Connected Patch Signature Check Config
+# Date: 2026-05-03
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02g4b_exhaustive_connected_patch_signature_check_open"
+  output_dir: "runs/BMS-FU02g4b/exhaustive_connected_patch_signature_check_open"
+  random_seed: 260505
+
+inputs:
+  c60_cells_csv: "data/bms_fu02g_c60_reference_cells.csv"
+  c60_edges_csv: "data/bms_fu02g_c60_reference_edges.csv"
+  fu02f1_face_layout_csv: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open/bms_fu02f1_face_layout.csv"
+  fu02g4_reference_signature_json: "runs/BMS-FU02g4/symmetry_orbit_inspection_c60_reference_open/bms_fu02g4_reference_patch_signature.json"
+
+reference_roles:
+  mixed_core_role: "mixed_seam_boundary_face"
+  pentagon_boundary_role: "hp_boundary_face"
+  adjacent_shell_role: "carrier_adjacent_face"
+  noncarrier_role: "noncarrier_face"
+
+enumeration:
+  target_patch_size: "reference"
+  max_patches: 5000000
+  timeout_seconds: 900
+  progress_every: 100000
+  store_patch_signature_counts: true
+  max_match_examples: 200
+
+role_assignment:
+  mode: "type_preferred_role_assignment"
+
+near_signature:
+  max_abs_difference_sum: 2
