@@ -1,0 +1,48 @@
+# BMS-FU02g3 — Real-Structure Memory Null Specificity Config
+# Date: 2026-05-02
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02g3_real_structure_memory_null_specificity_open"
+  output_dir: "runs/BMS-FU02g3/real_structure_memory_null_specificity_open"
+  random_seed: 260503
+
+inputs:
+  c60_cells_csv: "data/bms_fu02g_c60_reference_cells.csv"
+  c60_edges_csv: "data/bms_fu02g_c60_reference_edges.csv"
+  c60_nodes_csv: "data/bms_fu02g_c60_reference_nodes.csv"
+  fu02f1_face_layout_csv: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open/bms_fu02f1_face_layout.csv"
+  fu02g2_cell_diagnostics_csv: "runs/BMS-FU02g2/carrier_diagnostic_transfer_geometry_controls_open/bms_fu02g2_cell_diagnostics.csv"
+
+reference_roles:
+  carrier_roles:
+    - "mixed_seam_boundary_face"
+    - "hp_boundary_face"
+  mixed_core_role: "mixed_seam_boundary_face"
+  pentagon_boundary_role: "hp_boundary_face"
+  adjacent_shell_role: "carrier_adjacent_face"
+  noncarrier_role: "noncarrier_face"
+
+nulls:
+  repeats_per_family: 1000
+  families:
+    carrier_count_random_patch:
+      enabled: true
+    type_count_preserving_patch:
+      enabled: true
+    connected_patch_seeded:
+      enabled: true
+    role_count_preserving_connected_patch:
+      enabled: true
+
+near_reference:
+  carrier_overlap_fraction_min: 0.70
+  role_balance_deviation_max: 2
+  require_connected: true
+  compactness_min: 0.90
+
+strict_near_reference:
+  carrier_overlap_fraction_min: 0.85
+  role_balance_deviation_max: 0
+  require_connected: true
+  compactness_min: 0.95
