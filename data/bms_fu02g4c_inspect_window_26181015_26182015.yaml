@@ -1,0 +1,42 @@
+# BMS-FU02g4c — Orbit-Reduced / Resumable Connected Patch Enumeration Config
+# Date: 2026-05-03
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02g4c_orbit_reduced_resumable_connected_patch_enumeration_open"
+  output_dir: "runs/BMS-FU02g4c/orbit_reduced_resumable_connected_patch_enumeration_open"
+  chunk_id: "inspect_window_26181015_26182015"
+  random_seed: 260506
+
+inputs:
+  c60_cells_csv: "data/bms_fu02g_c60_reference_cells.csv"
+  c60_edges_csv: "data/bms_fu02g_c60_reference_edges.csv"
+  fu02f1_face_layout_csv: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open/bms_fu02f1_face_layout.csv"
+
+reference_roles:
+  mixed_core_role: "mixed_seam_boundary_face"
+  pentagon_boundary_role: "hp_boundary_face"
+  adjacent_shell_role: "carrier_adjacent_face"
+  noncarrier_role: "noncarrier_face"
+
+enumeration:
+  target_patch_size: "reference"
+  skip_first_raw_patches: 26181015
+  max_raw_patches_this_run: 1000
+  timeout_seconds: 900
+  progress_every: 100000
+  max_match_examples: 200
+  store_signature_counts: true
+  store_orbit_signature_counts: true
+
+orbit_reduction:
+  enabled: true
+  max_automorphisms: 200000
+  timeout_seconds_soft: 60
+  require_networkx_for_orbit_reduction: false
+
+role_assignment:
+  mode: "type_preferred_role_assignment"
+
+near_signature:
+  max_abs_difference_sum: 2
