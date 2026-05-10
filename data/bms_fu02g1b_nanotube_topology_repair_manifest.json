@@ -1,0 +1,111 @@
+{
+  "inventory_csv": "data/bms_fu02g1b_nanotube_topology_repair_inventory.csv",
+  "run_id": "BMS-FU02g1b_nanotube_topology_repair_validation_open",
+  "scope_note": "FU02g1b repairs nanotube topology controls only; no carrier diagnostic is run.",
+  "structure_count": 2,
+  "structure_ids": [
+    "nanotube_armchair_repaired",
+    "nanotube_zigzag_repaired"
+  ],
+  "structure_manifests": {
+    "nanotube_armchair_repaired": {
+      "boundary_edge_count": 54,
+      "boundary_node_count": 30,
+      "cell_count": 48,
+      "cell_type_counts": {
+        "hexagon": 48
+      },
+      "closure_class": "circumferentially_closed_open_ends",
+      "curvature_class": "cylindrical_curvature_proxy",
+      "degree4_count": 0,
+      "degree_histogram": {
+        "2": 30,
+        "3": 94
+      },
+      "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+      "edge_count": 171,
+      "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+      "max_degree": 3,
+      "meta": {
+        "boundary_edge_count": 54,
+        "boundary_node_count": 30,
+        "boundary_present": true,
+        "chirality_label": "armchair",
+        "closure_class": "circumferentially_closed_open_ends",
+        "curvature_class": "cylindrical_curvature_proxy",
+        "degree4_count": 0,
+        "degree_histogram": {
+          "2": 30,
+          "3": 94
+        },
+        "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+        "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+        "hexagon_present": true,
+        "layout_coordinate_status": "inspection_layout_only",
+        "max_degree": 3,
+        "pentagon_present": false,
+        "periodic_dimension_count": 1,
+        "source_type": "generated_graph_control_repaired",
+        "structure_class": "nanotube",
+        "validation_status": "valid_for_fu02g2_candidate",
+        "variant": "armchair",
+        "warnings": []
+      },
+      "node_count": 124,
+      "structure_id": "nanotube_armchair_repaired",
+      "validation_status": "valid_for_fu02g2_candidate",
+      "variant": "armchair",
+      "warnings": []
+    },
+    "nanotube_zigzag_repaired": {
+      "boundary_edge_count": 32,
+      "boundary_node_count": 16,
+      "cell_count": 48,
+      "cell_type_counts": {
+        "hexagon": 48
+      },
+      "closure_class": "circumferentially_closed_open_ends",
+      "curvature_class": "cylindrical_curvature_proxy",
+      "degree4_count": 0,
+      "degree_histogram": {
+        "2": 16,
+        "3": 96
+      },
+      "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+      "edge_count": 160,
+      "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+      "max_degree": 3,
+      "meta": {
+        "boundary_edge_count": 32,
+        "boundary_node_count": 16,
+        "boundary_present": true,
+        "chirality_label": "zigzag",
+        "closure_class": "circumferentially_closed_open_ends",
+        "curvature_class": "cylindrical_curvature_proxy",
+        "degree4_count": 0,
+        "degree_histogram": {
+          "2": 16,
+          "3": 96
+        },
+        "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+        "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+        "hexagon_present": true,
+        "layout_coordinate_status": "inspection_layout_only",
+        "max_degree": 3,
+        "pentagon_present": false,
+        "periodic_dimension_count": 1,
+        "source_type": "generated_graph_control_repaired",
+        "structure_class": "nanotube",
+        "validation_status": "valid_for_fu02g2_candidate",
+        "variant": "zigzag",
+        "warnings": []
+      },
+      "node_count": 112,
+      "structure_id": "nanotube_zigzag_repaired",
+      "validation_status": "valid_for_fu02g2_candidate",
+      "variant": "zigzag",
+      "warnings": []
+    }
+  },
+  "warnings_count": 0
+}

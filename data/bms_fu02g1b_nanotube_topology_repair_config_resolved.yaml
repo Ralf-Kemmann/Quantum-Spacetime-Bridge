@@ -1,0 +1,27 @@
+run:
+  run_id: BMS-FU02g1b_nanotube_topology_repair_validation_open
+generated_structures:
+  nanotube_armchair_repaired:
+    enabled: true
+    structure_id: nanotube_armchair_repaired
+    variant: armchair
+    circumference_cells: 8
+    length_cells: 6
+  nanotube_zigzag_repaired:
+    enabled: true
+    structure_id: nanotube_zigzag_repaired
+    variant: zigzag
+    circumference_cells: 8
+    length_cells: 6
+validation:
+  max_allowed_degree: 3
+  require_no_degree4: true
+  require_degree3_more_than_degree2: true
+  require_boundary_not_dominant: true
+outputs:
+  inventory_csv: data/bms_fu02g1b_nanotube_topology_repair_inventory.csv
+  repair_manifest_json: data/bms_fu02g1b_nanotube_topology_repair_manifest.json
+  warnings_json: data/bms_fu02g1b_nanotube_topology_repair_warnings.json
+  resolved_config_yaml: data/bms_fu02g1b_nanotube_topology_repair_config_resolved.yaml
+naming:
+  output_prefix: data/bms_fu02g1b

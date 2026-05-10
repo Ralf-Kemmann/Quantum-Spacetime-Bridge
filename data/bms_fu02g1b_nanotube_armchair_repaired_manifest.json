@@ -1,0 +1,49 @@
+{
+  "boundary_edge_count": 54,
+  "boundary_node_count": 30,
+  "cell_count": 48,
+  "cell_type_counts": {
+    "hexagon": 48
+  },
+  "closure_class": "circumferentially_closed_open_ends",
+  "curvature_class": "cylindrical_curvature_proxy",
+  "degree4_count": 0,
+  "degree_histogram": {
+    "2": 30,
+    "3": 94
+  },
+  "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+  "edge_count": 171,
+  "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+  "max_degree": 3,
+  "meta": {
+    "boundary_edge_count": 54,
+    "boundary_node_count": 30,
+    "boundary_present": true,
+    "chirality_label": "armchair",
+    "closure_class": "circumferentially_closed_open_ends",
+    "curvature_class": "cylindrical_curvature_proxy",
+    "degree4_count": 0,
+    "degree_histogram": {
+      "2": 30,
+      "3": 94
+    },
+    "diagnostic_scope_note": "Topology-repaired cylindrical graph/cell control; not validated molecular nanotube coordinates.",
+    "geometry_class": "repaired_open_curved_cylindrical_hexagonal_graph",
+    "hexagon_present": true,
+    "layout_coordinate_status": "inspection_layout_only",
+    "max_degree": 3,
+    "pentagon_present": false,
+    "periodic_dimension_count": 1,
+    "source_type": "generated_graph_control_repaired",
+    "structure_class": "nanotube",
+    "validation_status": "valid_for_fu02g2_candidate",
+    "variant": "armchair",
+    "warnings": []
+  },
+  "node_count": 124,
+  "structure_id": "nanotube_armchair_repaired",
+  "validation_status": "valid_for_fu02g2_candidate",
+  "variant": "armchair",
+  "warnings": []
+}
