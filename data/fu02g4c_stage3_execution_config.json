@@ -1,0 +1,18 @@
+{
+  "stage": "FU02g4c Stage 3",
+  "date": "2026-05-10",
+  "execution_enabled": false,
+  "dry_run_allowed": true,
+  "reference_smoke_candidate": "candidate_008",
+  "degeneracy_stress_candidate": "candidate_005",
+  "candidate_ids": [
+    "candidate_008",
+    "candidate_005"
+  ],
+  "blocked_operations": [
+    "full_raw_order_replay",
+    "full_certification",
+    "global_non_genericity_claim"
+  ],
+  "claim_boundary": "Stage 3 validates a controlled execution path scaffold."
+}

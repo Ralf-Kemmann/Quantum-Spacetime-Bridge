@@ -1,0 +1,9 @@
+{
+  "claim_boundary": "Stage 3 validates a controlled execution path scaffold.",
+  "files": [
+    "readout.md",
+    "summary.json",
+    "manifest.json"
+  ],
+  "status": "dry_run_path_validated"
+}

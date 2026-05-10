@@ -1,0 +1,25 @@
+{
+  "blocked_operations": [
+    "full_raw_order_replay",
+    "full_certification",
+    "global_non_genericity_claim"
+  ],
+  "candidate_ids": [
+    "candidate_008",
+    "candidate_005"
+  ],
+  "certification_started": false,
+  "claim_boundary": "Stage 3 validates a controlled execution path scaffold.",
+  "config_path": "data/fu02g4c_stage3_execution_config.json",
+  "created_at_utc": "2026-05-10T06:31:59.861310+00:00",
+  "date": "2026-05-10",
+  "degeneracy_stress_candidate": "candidate_005",
+  "dry_run_allowed": true,
+  "execution_enabled": false,
+  "mode": "negative-gate",
+  "output_dir": "runs/FU02g4c_stage3_execution_path_2026-05-10-qsb_negative_gate",
+  "reference_smoke_candidate": "candidate_008",
+  "replay_started": false,
+  "stage": "FU02g4c Stage 3",
+  "status": "execution_gate_blocked_as_expected"
+}
