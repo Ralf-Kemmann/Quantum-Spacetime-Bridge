@@ -1,0 +1,33 @@
+# BMS-FU02g4 — Symmetry-Orbit Inspection Config
+# Date: 2026-05-03
+# Project: Gravitation und RaumZeit / Quantum-Spacetime-Bridge
+
+run:
+  run_id: "BMS-FU02g4_symmetry_orbit_inspection_c60_reference_open"
+  output_dir: "runs/BMS-FU02g4/symmetry_orbit_inspection_c60_reference_open"
+  random_seed: 260504
+
+inputs:
+  c60_cells_csv: "data/bms_fu02g_c60_reference_cells.csv"
+  c60_edges_csv: "data/bms_fu02g_c60_reference_edges.csv"
+  fu02f1_face_layout_csv: "runs/BMS-FU02f1/face_id_interval_repair_3d_graph_layout_open/bms_fu02f1_face_layout.csv"
+  fu02g3_reference_profile_json: "runs/BMS-FU02g3/real_structure_memory_null_specificity_open/bms_fu02g3_reference_profile.json"
+
+reference_roles:
+  mixed_core_role: "mixed_seam_boundary_face"
+  pentagon_boundary_role: "hp_boundary_face"
+  adjacent_shell_role: "carrier_adjacent_face"
+  noncarrier_role: "noncarrier_face"
+
+automorphism:
+  enabled: true
+  max_automorphisms: 200000
+  timeout_seconds_soft: 30
+
+connected_patch_sampling:
+  enabled: true
+  sample_count: 5000
+  exact_size: true
+
+near_signature:
+  max_abs_difference_sum: 2
