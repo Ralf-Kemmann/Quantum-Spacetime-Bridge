@@ -1,0 +1,34 @@
+# BMS-FU02g5g - FU02g4c Raw-Order Replay Certification Recovery
+# Date: 2026-05-08
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Certification/recovery block only. The default policy inventories existing
+# FU02g4c artifacts and does not rerun FU02g4c, because reruns would touch
+# existing FU02g4c output surfaces and the original bundle/order guarantee must
+# not be silently assumed.
+
+run:
+  run_id: "BMS-FU02g5g_fu02g4c_raw_order_replay_certification_recovery_v0"
+  case_id: "FU02g5g_fu02g4c_raw_order_replay_certification_recovery"
+  output_dir: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification"
+  allow_replay_rerun: false
+  rerun_policy: "Do not rerun FU02g4c unless the original enumerator/input bundle and output isolation are explicitly certified."
+
+input:
+  g5e1_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  g5e2_classification_csv: "runs/BMS-FU02g5e2/near_match_decoy_classification/candidate_classification.csv"
+  g5f_revalidation_csv: "runs/BMS-FU02g5f/raw_order_replay_certification/candidate_revalidation.csv"
+  fu02g4c_run_dir: "runs/BMS-FU02g4c"
+  fu02g4c_base_config_yaml: "data/bms_fu02g4c_orbit_reduced_resumable_config.yaml"
+  fu02g4c_inspect_config_glob: "data/bms_fu02g4c_inspect_window_*.yaml"
+  face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+  required_certification_targets:
+    - label: "known_exact_candidate"
+      candidate_id: "candidate_008"
+      raw_index: 26187175
+    - label: "candidate_005_stress_case"
+      candidate_id: "candidate_005"
+      raw_index: 26157530
+
+  known_exact_patch_photo_json: "runs/BMS-FU02g4c/patch_photos/bms_fu02g4c_exact_patch_26187175.json"
