@@ -1,0 +1,99 @@
+# BMS-FU02g5g2 - Narrow Per-Index Replay/Photo Certification
+# Date: 2026-05-09
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Certification/control block only. This runner reconstructs the current
+# scaffold/FU02g4c-style connected-patch order from the repaired face graph. It
+# does not claim full FU02g4c replay certification unless explicitly configured
+# with exact original enumerator/full input bundle reuse.
+
+run:
+  run_id: "BMS-FU02g5g2_narrow_per_index_replay_photo_certification_v0"
+  case_id: "FU02g5g2_narrow_per_index_replay_photo_certification"
+  output_dir: "runs/BMS-FU02g5g2/narrow_per_index_replay_photo_certification"
+  target_patch_size: 17
+  max_runtime_seconds: 1200
+  full_fu02g4c_replay_certification: false
+  exact_original_fu02g4c_enumerator_reused: false
+  full_original_input_bundle_reused: false
+  index_semantics: "target_raw_index is interpreted as skip_first_raw_patches: skip target_raw_index connected patches, then capture the next patch."
+
+input:
+  g5e1_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  g5e2_classification_csv: "runs/BMS-FU02g5e2/near_match_decoy_classification/candidate_classification.csv"
+  g5f_revalidation_csv: "runs/BMS-FU02g5f/raw_order_replay_certification/candidate_revalidation.csv"
+  g5g_replay_certification_csv: "runs/BMS-FU02g5g/fu02g4c_raw_order_replay_certification/candidate_replay_certification.csv"
+  face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+  reference_carrier_nodes:
+    - H_07
+    - H_09
+    - H_11
+    - H_12
+    - H_13
+    - H_14
+    - H_15
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  known_exact_localized_candidate_nodes:
+    - H_01
+    - H_02
+    - H_03
+    - H_05
+    - H_06
+    - H_07
+    - H_08
+    - H_09
+    - H_10
+    - H_15
+    - H_16
+    - H_17
+    - P_00
+    - P_01
+    - P_02
+    - P_03
+    - P_07
+
+targets:
+  - candidate_id: "candidate_000"
+    raw_index: 2338804
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_001"
+    raw_index: 2338805
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_002"
+    raw_index: 2839553
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_003"
+    raw_index: 18575893
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_004"
+    raw_index: 26157529
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_005"
+    raw_index: 26157530
+    target_role: "coarse_signature_degeneracy_stress_case"
+  - candidate_id: "candidate_006"
+    raw_index: 26161006
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_007"
+    raw_index: 26167866
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_009"
+    raw_index: 26187327
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_010"
+    raw_index: 26328307
+    target_role: "non_exact_near_candidate"
+  - candidate_id: "candidate_008"
+    raw_index: 26187175
+    target_role: "positive_control_known_exact"
