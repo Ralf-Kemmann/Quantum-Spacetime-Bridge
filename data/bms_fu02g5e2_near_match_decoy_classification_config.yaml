@@ -1,0 +1,77 @@
+# BMS-FU02g5e2 - Near-Match Decoy Classification
+# Date: 2026-05-08
+# Project: Quantum-Spacetime Bridge / Gravitation und RaumZeit
+#
+# Classification is based on FU02g5e1 scaffold localization. FU02g4c raw-order
+# replay certification remains open unless scaffold_order_certification is
+# explicitly set true here.
+
+run:
+  run_id: "BMS-FU02g5e2_near_match_decoy_classification_v0"
+  case_id: "FU02g5e2_near_match_decoy_classification"
+  output_dir: "runs/BMS-FU02g5e2/near_match_decoy_classification"
+  mode_label: "g5e1 scaffold localization"
+  scaffold_order_certification: false
+
+input:
+  near_match_candidates_csv: "runs/BMS-FU02g5e1/near_match_localization/near_match_candidates.csv"
+  full_face_graph_edges_csv: "runs/BMS-FU02d1/face_parser_repair_and_face_localization_open/bms_fu02d1_face_adjacency_edges.csv"
+
+  reference_carrier_nodes:
+    - H_07
+    - H_09
+    - H_11
+    - H_12
+    - H_13
+    - H_14
+    - H_15
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  reference_mixed_core_nodes:
+    - H_09
+    - H_11
+    - H_13
+    - H_16
+    - H_17
+    - H_18
+    - H_19
+    - H_20
+
+  reference_pentagon_boundary_nodes:
+    - H_07
+    - H_12
+    - H_14
+    - H_15
+    - P_07
+    - P_08
+    - P_09
+    - P_10
+    - P_11
+
+  known_exact_localized_fu02g4c_candidate_nodes:
+    - H_01
+    - H_02
+    - H_03
+    - H_05
+    - H_06
+    - H_07
+    - H_08
+    - H_09
+    - H_10
+    - H_15
+    - H_16
+    - H_17
+    - P_00
+    - P_01
+    - P_02
+    - P_03
+    - P_07
