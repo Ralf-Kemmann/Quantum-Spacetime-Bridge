@@ -8,6 +8,8 @@
 #   bash scripts/qsb_bridge_synth_check.sh 01b
 #   bash scripts/qsb_bridge_synth_check.sh 01c
 #   bash scripts/qsb_bridge_synth_check.sh 01d
+#   bash scripts/qsb_bridge_synth_check.sh 01e
+#   bash scripts/qsb_bridge_synth_check.sh 01f
 #
 # Safety:
 # - Does not modify files.
@@ -177,6 +179,44 @@ check_01d() {
     docs/QSB_BRIDGE_SYNTH_01D_PROXY_MARKER_SOURCE_BINDING_FIELD_LIST.md 180
 }
 
+check_01e() {
+  common_git_checks
+
+  wc_if_exists \
+    data/qsb_bridge_synth_01e_readout_claim_map.csv
+
+  print_file_if_exists "01E RESULT NOTE" \
+    docs/QSB_BRIDGE_SYNTH_01E_RESULT_NOTE.md 260
+
+  print_file_if_exists "01E CONSERVATIVE CROSS TEST READOUT" \
+    docs/QSB_BRIDGE_SYNTH_01E_CONSERVATIVE_CROSS_TEST_READOUT.md 360
+
+  head_file_if_exists "01E READOUT CLAIM MAP HEAD" \
+    data/qsb_bridge_synth_01e_readout_claim_map.csv 20
+
+  print_file_if_exists "01E READOUT CLAIM MAP FIELD LIST" \
+    docs/QSB_BRIDGE_SYNTH_01E_READOUT_CLAIM_MAP_FIELD_LIST.md 220
+}
+
+check_01f() {
+  common_git_checks
+
+  wc_if_exists \
+    data/qsb_bridge_synth_01f_documentation_synthesis_map.csv
+
+  print_file_if_exists "01F RESULT NOTE" \
+    docs/QSB_BRIDGE_SYNTH_01F_RESULT_NOTE.md 260
+
+  print_file_if_exists "01F DOCUMENTATION-READY SYNTHESIS MAP" \
+    docs/QSB_BRIDGE_SYNTH_01F_DOCUMENTATION_READY_SYNTHESIS_MAP.md 360
+
+  head_file_if_exists "01F DOCUMENTATION SYNTHESIS MAP HEAD" \
+    data/qsb_bridge_synth_01f_documentation_synthesis_map.csv 20
+
+  print_file_if_exists "01F DOCUMENTATION SYNTHESIS MAP FIELD LIST" \
+    docs/QSB_BRIDGE_SYNTH_01F_DOCUMENTATION_SYNTHESIS_MAP_FIELD_LIST.md 220
+}
+
 usage() {
   cat <<'EOF'
 Usage:
@@ -184,6 +224,8 @@ Usage:
   bash scripts/qsb_bridge_synth_check.sh 01b
   bash scripts/qsb_bridge_synth_check.sh 01c
   bash scripts/qsb_bridge_synth_check.sh 01d
+  bash scripts/qsb_bridge_synth_check.sh 01e
+  bash scripts/qsb_bridge_synth_check.sh 01f
 
 This script is read-only. It does not modify files or perform git write actions.
 EOF
@@ -196,6 +238,8 @@ case "$BLOCK" in
   01b|01B) check_01b ;;
   01c|01C) check_01c ;;
   01d|01D) check_01d ;;
+  01e|01E) check_01e ;;
+  01f|01F) check_01f ;;
   -h|--help|"") usage ;;
   *)
     echo "ERROR: Unknown block: $BLOCK"
