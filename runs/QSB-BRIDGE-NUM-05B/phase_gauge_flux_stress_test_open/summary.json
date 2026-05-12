@@ -1,0 +1,39 @@
+{
+  "block_id": "QSB-BRIDGE-NUM-05B",
+  "claim_boundary": [
+    "This is a synthetic method-level phase/gauge/flux stress test.",
+    "Phase diagnostics are toy diagnostics, not real quantum dynamics.",
+    "Failure to distinguish gauge-equivalent and loop-flux cases is a possible negative finding.",
+    "No physical validation claim follows.",
+    "No spacetime emergence claim follows.",
+    "No physical metric recovery claim follows.",
+    "No causal structure claim follows.",
+    "No de-Broglie confirmation claim follows."
+  ],
+  "gauge_flux_distinction_passed": true,
+  "magnitude_distance_invariance_all_passed": true,
+  "main_findings": [
+    "Gauge-equivalent and loop-flux phase families are reported separately.",
+    "Magnitude-only distance and threshold graph readouts remain invariant because |K_ij| is fixed.",
+    "Loop-flux and adversarial phase families produce nonzero loop closure in this toy setting.",
+    "Magnetic/Hermitian Laplacian spectra provide a phase-aware method-level readout.",
+    "All claims remain toy-level and non-physical."
+  ],
+  "max_low_eigenvalue_shift_non_gauge": 1.2311280991,
+  "max_noise_sweep_low_eigenvalue_shift": 1.095030964772,
+  "output_files": {
+    "gauge_flux_summary_csv": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/gauge_flux_summary.csv",
+    "laplacian_spectrum_summary_csv": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/laplacian_spectrum_summary.csv",
+    "phase_family_summary_csv": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/phase_family_summary.csv",
+    "phase_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/phase_noise_sweep_summary.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/resolved_config.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_05B_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/summary.json"
+  },
+  "phase_family_count": 8,
+  "run_id": "phase_gauge_flux_stress_test_open",
+  "stop_go_outcome": "go_with_documented_boundaries",
+  "threshold_graph_invariance_all_passed": true
+}

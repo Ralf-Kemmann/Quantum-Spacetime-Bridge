@@ -1,0 +1,67 @@
+block_id: QSB-BRIDGE-NUM-05B
+run_id: phase_gauge_flux_stress_test_open
+description: Phase, gauge, and flux stress test on a fixed synthetic magnitude matrix.
+
+parameters:
+  n_nodes: 12
+  l0: 2.0
+  tau: 0.35
+  epsilon: 1.0e-12
+  seed: 5205
+  tolerance: 1.0e-9
+  loop_flux_tolerance: 1.0e-7
+  low_eigenvalue_count: 5
+
+phase_families:
+  - phase_zero_reference
+  - global_phase_transformation
+  - local_gauge_transformation_theta_i_minus_theta_j
+  - random_low_amplitude_phase_noise
+  - random_high_amplitude_phase_noise
+  - correlated_phase_field
+  - loop_flux_vortex_like_phase_family
+  - adversarial_high_frequency_phase_family
+
+phase_parameters:
+  global_phase_alpha: 0.9
+  local_gauge_seed: 5211
+  local_gauge_amplitude: 1.4
+  random_low_seed: 5212
+  random_low_sigma: 0.2
+  random_high_seed: 5213
+  random_high_sigma: 1.6
+  correlated_amplitude: 1.1
+  vortex_flux_strength: 0.75
+  adversarial_amplitude: 1.8
+  adversarial_frequency: 5
+
+noise_sweep:
+  seed: 5220
+  sigmas:
+    - 0.0
+    - 0.1
+    - 0.25
+    - 0.5
+    - 0.9
+    - 1.3
+
+outputs:
+  run_dir: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open
+  summary_json: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/summary.json
+  readout_md: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/readout.md
+  phase_family_summary_csv: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/phase_family_summary.csv
+  gauge_flux_summary_csv: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/gauge_flux_summary.csv
+  laplacian_spectrum_summary_csv: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/laplacian_spectrum_summary.csv
+  phase_noise_sweep_summary_csv: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/phase_noise_sweep_summary.csv
+  resolved_config_json: runs/QSB-BRIDGE-NUM-05B/phase_gauge_flux_stress_test_open/resolved_config.json
+  result_note_md: docs/QSB_BRIDGE_NUM_05B_RESULT_NOTE.md
+
+claim_boundary:
+  - This is a synthetic method-level phase/gauge/flux stress test.
+  - Phase diagnostics are toy diagnostics, not real quantum dynamics.
+  - Failure to distinguish gauge-equivalent and loop-flux cases is a possible negative finding.
+  - No physical validation claim follows.
+  - No spacetime emergence claim follows.
+  - No physical metric recovery claim follows.
+  - No causal structure claim follows.
+  - No de-Broglie confirmation claim follows.
