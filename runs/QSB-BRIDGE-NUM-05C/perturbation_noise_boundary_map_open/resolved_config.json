@@ -1,0 +1,81 @@
+{
+  "block_id": "QSB-BRIDGE-NUM-05C",
+  "breakdown_thresholds": {
+    "maximum_distance_stress": 0.45,
+    "maximum_loop_flux_rms": 1.0,
+    "maximum_low_eigenvalue_shift": 0.8,
+    "minimum_geometry_score": 0.75,
+    "minimum_hostile_control_gap": 0.1,
+    "minimum_nearest_neighbor_recall": 0.7,
+    "minimum_rank_order_stability": 0.75,
+    "minimum_threshold_graph_jaccard": 0.75
+  },
+  "claim_boundary": [
+    "This is a synthetic method-level perturbation boundary map.",
+    "Breakdown or instability is a valid negative finding.",
+    "No physical validation claim follows.",
+    "No spacetime emergence claim follows.",
+    "No physical metric recovery claim follows.",
+    "No causal structure claim follows.",
+    "No de-Broglie confirmation claim follows.",
+    "No real quantum dynamics claim follows."
+  ],
+  "description": "Synthetic perturbation and noise boundary map for magnitude and phase diagnostics.",
+  "dropout_levels": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.35,
+    0.5
+  ],
+  "noise_levels": [
+    0.0,
+    0.02,
+    0.05,
+    0.1,
+    0.2,
+    0.35,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "outputs": {
+    "breakdown_threshold_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/breakdown_threshold_summary.csv",
+    "combined_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/combined_noise_sweep_summary.csv",
+    "magnitude_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/magnitude_noise_sweep_summary.csv",
+    "phase_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/phase_noise_sweep_summary.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/resolved_config.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_05C_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/summary.json"
+  },
+  "parameters": {
+    "epsilon": 1e-12,
+    "l0": 2.0,
+    "low_eigenvalue_count": 5,
+    "n_nodes": 36,
+    "nearest_neighbor_k": 4,
+    "reference_hostile_score": 0.524862368919,
+    "seed": 5305,
+    "tau": 0.35
+  },
+  "perturbation_families": {
+    "combined": [
+      "combined_magnitude_phase_perturbation"
+    ],
+    "magnitude": [
+      "magnitude_gaussian_noise_sweep",
+      "magnitude_multiplicative_noise_sweep",
+      "rank_order_near_degeneracy_perturbation",
+      "edge_dropout_missing_correlation_perturbation"
+    ],
+    "phase": [
+      "phase_gaussian_noise_sweep",
+      "correlated_phase_noise_sweep"
+    ]
+  },
+  "repo_root": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge",
+  "run_id": "perturbation_noise_boundary_map_open"
+}

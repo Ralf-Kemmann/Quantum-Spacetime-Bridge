@@ -1,0 +1,40 @@
+{
+  "block_id": "QSB-BRIDGE-NUM-05C",
+  "breakdown_family_count": 7,
+  "claim_boundary": [
+    "This is a synthetic method-level perturbation boundary map.",
+    "Breakdown or instability is a valid negative finding.",
+    "No physical validation claim follows.",
+    "No spacetime emergence claim follows.",
+    "No physical metric recovery claim follows.",
+    "No causal structure claim follows.",
+    "No de-Broglie confirmation claim follows.",
+    "No real quantum dynamics claim follows."
+  ],
+  "combined_sweep_rows": 9,
+  "earliest_sensitive_breakdown_family": "magnitude_gaussian_noise_sweep",
+  "earliest_sensitive_breakdown_noise_level": 0.02,
+  "families_with_breakdown": 6,
+  "future_result_discussion_requirement": "Create a separate 05C result discussion with a human-readable Bauchbild.",
+  "magnitude_sweep_rows": 33,
+  "main_findings": [
+    "Breakdown or instability is treated as a valid negative finding.",
+    "The earliest sensitive breakdown family is explicitly reported.",
+    "Magnitude, phase, and combined perturbation families are reported separately.",
+    "All thresholds are synthetic method-level thresholds, not physical constants."
+  ],
+  "output_files": {
+    "breakdown_threshold_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/breakdown_threshold_summary.csv",
+    "combined_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/combined_noise_sweep_summary.csv",
+    "magnitude_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/magnitude_noise_sweep_summary.csv",
+    "phase_noise_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/phase_noise_sweep_summary.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/resolved_config.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_05C_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-05C/perturbation_noise_boundary_map_open/summary.json"
+  },
+  "phase_sweep_rows": 18,
+  "run_id": "perturbation_noise_boundary_map_open",
+  "stop_go_outcome": "revise_or_bound_before_real_data"
+}
