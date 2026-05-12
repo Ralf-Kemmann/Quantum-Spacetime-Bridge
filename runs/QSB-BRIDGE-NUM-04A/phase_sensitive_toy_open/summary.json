@@ -1,0 +1,43 @@
+{
+  "all_hermitian_checks_passed": true,
+  "block_id": "QSB-BRIDGE-NUM-04A",
+  "epsilon": 1e-12,
+  "hermitian_checks": {
+    "phase_linear_gradient": true,
+    "phase_random_high": true,
+    "phase_random_low": true,
+    "phase_vortex_like": true,
+    "phase_zero": true
+  },
+  "l0": 2.0,
+  "magnitude_invariance_passed": true,
+  "main_findings": [
+    "All variants share the same magnitude matrix A_ij, so the distance-like diagnostics are invariant within the configured tolerance.",
+    "The threshold graph at tau=0.35 is unchanged across phase variants.",
+    "The phase-sensitive toy diagnostics change across the tested phase patterns.",
+    "The readout is methodological and toy-level only."
+  ],
+  "max_distance_diff_across_phase_variants": 0.0,
+  "max_graph_jaccard_loss": 0.0,
+  "n_nodes": 12,
+  "output_files": {
+    "pairwise_diagnostics_csv": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_pairwise_diagnostics.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_config_resolved.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_04A_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/summary.json",
+    "variant_summary_csv": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_variant_summary.csv"
+  },
+  "phase_sensitive_diagnostics_changed": true,
+  "run_id": "phase_sensitive_toy_open",
+  "tau": 0.35,
+  "variant_count": 5,
+  "variants": [
+    "phase_zero",
+    "phase_linear_gradient",
+    "phase_random_low",
+    "phase_random_high",
+    "phase_vortex_like"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "block_id": "QSB-BRIDGE-NUM-04A",
+  "claim_boundary": [
+    "This is a toy diagnostic, not a physical proof.",
+    "K_ij and d_ij are toy objects in this run.",
+    "D_ij is a distance-like construction, not a spacetime metric.",
+    "Phase-sensitive toy diagnostics are interference-like diagnostics, not real quantum dynamics.",
+    "Magnitude invariance does not establish spacetime emergence.",
+    "Phase response does not establish de-Broglie physics.",
+    "Geometry Proxy remains Proxy.",
+    "The integrated bridge map remains methodological."
+  ],
+  "computed_pair_count": 66,
+  "computed_triangle_count": 220,
+  "description": "Phase-sensitive toy diagnostic for magnitude/phase separation.",
+  "outputs": {
+    "pairwise_diagnostics_csv": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_pairwise_diagnostics.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_config_resolved.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_04A_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/summary.json",
+    "variant_summary_csv": "runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_variant_summary.csv"
+  },
+  "parameters": {
+    "base_distance": "circular_index_distance",
+    "epsilon": 1e-12,
+    "l0": 2.0,
+    "n_nodes": 12,
+    "tau": 0.35,
+    "tolerance": 1e-12
+  },
+  "phase_parameters": {
+    "phase_linear_gradient_step": 0.45,
+    "phase_random_high_amplitude": 2.4,
+    "phase_random_high_seed": 4105,
+    "phase_random_low_amplitude": 0.35,
+    "phase_random_low_seed": 4104,
+    "phase_vortex_sine_amplitude": 0.85,
+    "phase_vortex_winding": 1.0
+  },
+  "phase_variants": [
+    "phase_zero",
+    "phase_linear_gradient",
+    "phase_random_low",
+    "phase_random_high",
+    "phase_vortex_like"
+  ],
+  "repo_root": "/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge",
+  "run_id": "phase_sensitive_toy_open"
+}

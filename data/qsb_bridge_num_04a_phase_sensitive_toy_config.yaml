@@ -1,0 +1,46 @@
+block_id: QSB-BRIDGE-NUM-04A
+run_id: phase_sensitive_toy_open
+description: Phase-sensitive toy diagnostic for magnitude/phase separation.
+
+parameters:
+  n_nodes: 12
+  l0: 2.0
+  tau: 0.35
+  epsilon: 1.0e-12
+  tolerance: 1.0e-12
+  base_distance: circular_index_distance
+
+phase_variants:
+  - phase_zero
+  - phase_linear_gradient
+  - phase_random_low
+  - phase_random_high
+  - phase_vortex_like
+
+phase_parameters:
+  phase_linear_gradient_step: 0.45
+  phase_random_low_seed: 4104
+  phase_random_low_amplitude: 0.35
+  phase_random_high_seed: 4105
+  phase_random_high_amplitude: 2.4
+  phase_vortex_winding: 1.0
+  phase_vortex_sine_amplitude: 0.85
+
+outputs:
+  run_dir: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open
+  summary_json: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/summary.json
+  readout_md: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/readout.md
+  variant_summary_csv: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_variant_summary.csv
+  pairwise_diagnostics_csv: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_pairwise_diagnostics.csv
+  resolved_config_json: runs/QSB-BRIDGE-NUM-04A/phase_sensitive_toy_open/phase_toy_config_resolved.json
+  result_note_md: docs/QSB_BRIDGE_NUM_04A_RESULT_NOTE.md
+
+claim_boundary:
+  - This is a toy diagnostic, not a physical proof.
+  - K_ij and d_ij are toy objects in this run.
+  - D_ij is a distance-like construction, not a spacetime metric.
+  - Phase-sensitive toy diagnostics are interference-like diagnostics, not real quantum dynamics.
+  - Magnitude invariance does not establish spacetime emergence.
+  - Phase response does not establish de-Broglie physics.
+  - Geometry Proxy remains Proxy.
+  - The integrated bridge map remains methodological.
