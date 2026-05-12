@@ -1,0 +1,74 @@
+block_id: QSB-BRIDGE-NUM-05A
+run_id: geometric_validation_hostile_controls_open
+description: Geometric validation and hostile controls for magnitude-derived diagnostics.
+
+parameters:
+  l0: 2.0
+  tau: 0.35
+  epsilon: 1.0e-12
+  seed: 5105
+  nearest_neighbor_k: 4
+  pairwise_sample_limit: 600
+  default_n_nodes: 36
+  tolerance: 1.0e-10
+
+geometric_baselines:
+  - baseline_1d_ring
+  - baseline_2d_torus_grid
+  - baseline_random_geometric
+
+hostile_controls:
+  - control_distribution_matched_random_magnitude
+  - control_non_geometric_block_matrix
+  - control_near_degenerate_magnitude
+  - control_node_permutation
+  - control_gaussian_magnitude_perturbation
+
+control_parameters:
+  distribution_matched_seed: 5111
+  block_matrix_seed: 5112
+  near_degenerate_seed: 5113
+  node_permutation_seed: 5114
+  gaussian_perturbation_seed: 5115
+  gaussian_sigma: 0.035
+  near_degenerate_base: 0.42
+  near_degenerate_jitter: 0.018
+  block_count: 4
+  block_within_magnitude: 0.72
+  block_between_magnitude: 0.18
+  block_jitter: 0.04
+
+sensitivity:
+  tau_values:
+    - 0.25
+    - 0.35
+    - 0.45
+  l0_values:
+    - 1.5
+    - 2.0
+    - 2.5
+  n_values:
+    - 16
+    - 36
+    - 64
+
+outputs:
+  run_dir: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open
+  summary_json: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/summary.json
+  readout_md: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/readout.md
+  variant_summary_csv: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/variant_summary.csv
+  control_summary_csv: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/control_summary.csv
+  pairwise_or_matrix_diagnostics_csv: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/pairwise_or_matrix_diagnostics.csv
+  parameter_sweep_summary_csv: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/parameter_sweep_summary.csv
+  resolved_config_json: runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/resolved_config.json
+  result_note_md: docs/QSB_BRIDGE_NUM_05A_RESULT_NOTE.md
+
+claim_boundary:
+  - This is a synthetic method-level diagnostic block.
+  - Geometric baselines and hostile controls are reported separately.
+  - Hostile-control success is a possible negative finding.
+  - No physical validation claim follows.
+  - No spacetime emergence claim follows.
+  - No physical metric recovery claim follows.
+  - No causal structure claim follows.
+  - No de-Broglie confirmation claim follows.

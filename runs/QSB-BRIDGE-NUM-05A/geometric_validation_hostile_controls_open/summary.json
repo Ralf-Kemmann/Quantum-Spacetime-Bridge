@@ -1,0 +1,42 @@
+{
+  "block_id": "QSB-BRIDGE-NUM-05A",
+  "claim_boundary": [
+    "This is a synthetic method-level diagnostic block.",
+    "Geometric baselines and hostile controls are reported separately.",
+    "Hostile-control success is a possible negative finding.",
+    "No physical validation claim follows.",
+    "No spacetime emergence claim follows.",
+    "No physical metric recovery claim follows.",
+    "No causal structure claim follows.",
+    "No de-Broglie confirmation claim follows."
+  ],
+  "geometric_baseline_count": 3,
+  "geometric_baseline_mean_score": 1.0,
+  "hostile_control_count": 5,
+  "hostile_control_mean_score": 0.524862368919,
+  "hostile_control_scored_as_well_as_baseline": false,
+  "main_findings": [
+    "Geometric baselines and hostile controls are reported separately.",
+    "Node permutation is treated as an invariance control, not as a hostile failure.",
+    "Hostile-control success is treated as a possible negative finding.",
+    "All readouts remain synthetic and method-level."
+  ],
+  "minimum_control_gap_excludes_node_permutation": true,
+  "minimum_control_gap_vs_baseline": 0.223289764739,
+  "node_permutation_invariance_passed": true,
+  "output_files": {
+    "control_summary_csv": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/control_summary.csv",
+    "pairwise_or_matrix_diagnostics_csv": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/pairwise_or_matrix_diagnostics.csv",
+    "parameter_sweep_summary_csv": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/parameter_sweep_summary.csv",
+    "readout_md": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/readout.md",
+    "resolved_config_json": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/resolved_config.json",
+    "result_note_md": "docs/QSB_BRIDGE_NUM_05A_RESULT_NOTE.md",
+    "run_dir": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open",
+    "summary_json": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/summary.json",
+    "variant_summary_csv": "runs/QSB-BRIDGE-NUM-05A/geometric_validation_hostile_controls_open/variant_summary.csv"
+  },
+  "reference_geometric_baseline": "baseline_2d_torus_grid",
+  "reference_geometric_score": 1.0,
+  "run_id": "geometric_validation_hostile_controls_open",
+  "stop_go_outcome": "go_with_documented_boundaries"
+}

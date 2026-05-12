@@ -1,0 +1,6 @@
+family_id,family_type,n_nodes,l0,tau,coordinate_distance_correlation,shortest_path_distance_error_vs_known_geometry,nearest_neighbor_recall_vs_known_geometry,triangle_inequality_violation_rate,distance_stress,threshold_graph_edge_count,threshold_graph_jaccard,connected_component_count,false_positive_geometry_score,control_gap_vs_geometric_baseline
+control_distribution_matched_random_magnitude,hostile_control,36,2.0,0.35,0.023213482252,0.35835310334,0.180555555556,0.047245564893,0.468057850865,630,1.0,1,0.405281677106,0.594718322894
+control_non_geometric_block_matrix,hostile_control,36,2.0,0.35,0.368175304547,1.183671016005,0.25,0.014145658263,6.25462712189,144,0.228571428571,4,0.303490701015,0.696509298985
+control_near_degenerate_magnitude,hostile_control,36,2.0,0.35,-0.064680048747,3.324764607699,0.083333333333,0.0,3.153563317154,630,1.0,1,0.138829231215,0.861170768785
+control_node_permutation,hostile_control,36,2.0,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,0.0
+control_gaussian_magnitude_perturbation,hostile_control,36,2.0,0.35,0.851582864308,0.328561118839,0.673611111111,0.077871148459,0.206341079773,630,1.0,1,0.776710235261,0.223289764739

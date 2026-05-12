@@ -1,0 +1,10 @@
+family_id,family_type,n_nodes,l0,tau,coordinate_distance_correlation,shortest_path_distance_error_vs_known_geometry,nearest_neighbor_recall_vs_known_geometry,triangle_inequality_violation_rate,distance_stress,threshold_graph_edge_count,threshold_graph_jaccard,connected_component_count,false_positive_geometry_score,control_gap_vs_geometric_baseline,sweep_kind,sweep_value
+baseline_2d_torus_grid,geometric_baseline,36,2.0,0.25,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,tau,0.25
+baseline_2d_torus_grid,geometric_baseline,36,2.0,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,tau,0.35
+baseline_2d_torus_grid,geometric_baseline,36,2.0,0.45,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,tau,0.45
+baseline_2d_torus_grid,geometric_baseline,36,1.5,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,l0,1.5
+baseline_2d_torus_grid,geometric_baseline,36,2.0,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,l0,2.0
+baseline_2d_torus_grid,geometric_baseline,36,2.5,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,l0,2.5
+baseline_2d_torus_grid,geometric_baseline,16,2.0,0.35,1.0,0.0,1.0,0.0,0.0,120,1.0,1,1.0,,n,16
+baseline_2d_torus_grid,geometric_baseline,36,2.0,0.35,1.0,0.0,1.0,0.0,0.0,630,1.0,1,1.0,,n,36
+baseline_2d_torus_grid,geometric_baseline,64,2.0,0.35,1.0,0.0,1.0,0.0,0.0,2016,1.0,1,1.0,,n,64
