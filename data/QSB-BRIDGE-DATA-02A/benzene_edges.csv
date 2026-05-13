@@ -1,0 +1,7 @@
+edge_id,system_id,source,target,bond_class,bond_order_proxy,edge_family,is_ring_edge,reference_control_role
+Bz_e_00,benzene,Bz_00,Bz_01,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only
+Bz_e_01,benzene,Bz_01,Bz_02,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only
+Bz_e_02,benzene,Bz_02,Bz_03,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only
+Bz_e_03,benzene,Bz_03,Bz_04,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only
+Bz_e_04,benzene,Bz_04,Bz_05,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only
+Bz_e_05,benzene,Bz_05,Bz_00,aromatic_uniform,1.5,benzene_uniform_aromatic_proxy,true,synthetic_reference_control_only

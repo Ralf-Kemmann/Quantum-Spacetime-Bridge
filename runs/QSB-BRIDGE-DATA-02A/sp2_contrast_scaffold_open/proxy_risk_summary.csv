@@ -1,0 +1,7 @@
+proxy_id,intended_use,geometry_smuggling_risk,claim_boundary,qsb_bridge_num_05c_warning
+coordinate_distance_reference_kernel,reference_control_only,high,coordinate-derived kernel is not independent evidence,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+graph_distance_reference_kernel,reference_control_only,high,graph-derived kernel is not independent evidence,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+bond_class_weighted_proxy,synthetic_contrast_proxy_only,medium,bond labels are controlled scaffold labels only,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+local_environment_proxy,synthetic_local_label_proxy_only,medium_to_high,local environment labels can encode scaffold construction,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+spectral_graph_toy_proxy,toy_graph_diagnostic_only,medium,toy graph spectrum is not molecular validation,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+phase_loop_toy_proxy,toy_loop_phase_scaffold_only,medium,toy phase labels are not physical phase content,local-neighborhood sensitivity under small additive magnitude noise at 0.02

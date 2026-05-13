@@ -1,0 +1,7 @@
+node_id,system_id,atom_label,sp2_role,ring_index,x_ref,y_ref,z_ref,curvature_label,local_environment_label,claim_role
+Bz_00,benzene,C,planar_aromatic_carbon,0,1.0,0.0,0.0,planar,uniform_aromatic_ring,reference_control_only
+Bz_01,benzene,C,planar_aromatic_carbon,1,0.5,0.866025403784,0.0,planar,uniform_aromatic_ring,reference_control_only
+Bz_02,benzene,C,planar_aromatic_carbon,2,-0.5,0.866025403784,0.0,planar,uniform_aromatic_ring,reference_control_only
+Bz_03,benzene,C,planar_aromatic_carbon,3,-1.0,0.0,0.0,planar,uniform_aromatic_ring,reference_control_only
+Bz_04,benzene,C,planar_aromatic_carbon,4,-0.5,-0.866025403784,0.0,planar,uniform_aromatic_ring,reference_control_only
+Bz_05,benzene,C,planar_aromatic_carbon,5,0.5,-0.866025403784,0.0,planar,uniform_aromatic_ring,reference_control_only

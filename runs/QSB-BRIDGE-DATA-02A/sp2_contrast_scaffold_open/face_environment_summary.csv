@@ -1,0 +1,4 @@
+system_id,face_type,face_count,local_environment_label,claim_role
+benzene,planar_ring_placeholder,1,single_planar_six_member_ring_reference,reference_control_only
+c60,hexagon,20,hexagon_with_three_pentagon_and_three_hexagon_edges,reference_control_only
+c60,pentagon,12,pentagon_surrounded_by_hexagons,reference_control_only

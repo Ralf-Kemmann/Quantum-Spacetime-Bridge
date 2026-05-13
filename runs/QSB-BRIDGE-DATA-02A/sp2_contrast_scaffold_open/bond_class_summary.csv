@@ -1,0 +1,4 @@
+system_id,bond_class,bond_class_count,reference_control_role,notes
+benzene,aromatic_uniform,6,synthetic_reference_control_only,controlled scaffold bond label; not validation
+c60,5_6,60,synthetic_reference_control_only,controlled scaffold bond label; not validation
+c60,6_6,30,synthetic_reference_control_only,controlled scaffold bond label; not validation

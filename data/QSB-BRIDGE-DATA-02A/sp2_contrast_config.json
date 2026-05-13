@@ -1,0 +1,79 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02A",
+  "run_id": "sp2_contrast_scaffold_open",
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_physical_no_molecular_validation",
+  "network_policy": "no_downloads_no_network_required",
+  "output_dir": "runs/QSB-BRIDGE-DATA-02A/sp2_contrast_scaffold_open",
+  "data_dir": "data/QSB-BRIDGE-DATA-02A",
+  "families": [
+    "benzene_planar_ring_reference",
+    "benzene_uniform_aromatic_proxy",
+    "benzene_bond_alternation_control",
+    "c60_fullerene_graph_reference",
+    "c60_bond_class_weighted_proxy",
+    "c60_curvature_stress_proxy",
+    "c60_face_type_local_environment_proxy",
+    "matched_random_sp2_control",
+    "degree_preserving_random_control",
+    "bond_class_shuffle_control",
+    "curvature_label_shuffle_control"
+  ],
+  "proxy_families": [
+    {
+      "proxy_id": "coordinate_distance_reference_kernel",
+      "intended_use": "reference_control_only",
+      "geometry_smuggling_risk": "high",
+      "claim_boundary": "coordinate-derived kernel is not independent evidence"
+    },
+    {
+      "proxy_id": "graph_distance_reference_kernel",
+      "intended_use": "reference_control_only",
+      "geometry_smuggling_risk": "high",
+      "claim_boundary": "graph-derived kernel is not independent evidence"
+    },
+    {
+      "proxy_id": "bond_class_weighted_proxy",
+      "intended_use": "synthetic_contrast_proxy_only",
+      "geometry_smuggling_risk": "medium",
+      "claim_boundary": "bond labels are controlled scaffold labels only"
+    },
+    {
+      "proxy_id": "local_environment_proxy",
+      "intended_use": "synthetic_local_label_proxy_only",
+      "geometry_smuggling_risk": "medium_to_high",
+      "claim_boundary": "local environment labels can encode scaffold construction"
+    },
+    {
+      "proxy_id": "spectral_graph_toy_proxy",
+      "intended_use": "toy_graph_diagnostic_only",
+      "geometry_smuggling_risk": "medium",
+      "claim_boundary": "toy graph spectrum is not molecular validation"
+    },
+    {
+      "proxy_id": "phase_loop_toy_proxy",
+      "intended_use": "toy_loop_phase_scaffold_only",
+      "geometry_smuggling_risk": "medium",
+      "claim_boundary": "toy phase labels are not physical phase content"
+    }
+  ],
+  "benzene_expected": {
+    "node_count": 6,
+    "edge_count": 6,
+    "degree": 2
+  },
+  "c60_expected": {
+    "node_count": 60,
+    "edge_count": 90,
+    "degree": 3,
+    "face_count": 32,
+    "pentagon_count": 12,
+    "hexagon_count": 20,
+    "euler_characteristic": 2,
+    "bond_class_counts": {
+      "6_6": 30,
+      "5_6": 60
+    }
+  },
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "future_result_discussion_requirement": "Create a separate DATA-02A result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only."
+}

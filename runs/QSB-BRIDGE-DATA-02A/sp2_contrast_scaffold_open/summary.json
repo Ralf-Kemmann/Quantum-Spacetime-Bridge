@@ -1,0 +1,39 @@
+{
+  "benzene_validation": {
+    "all_degrees_2": true,
+    "degree_distribution": {
+      "2": 6
+    },
+    "edge_count": 6,
+    "node_count": 6,
+    "passed": true
+  },
+  "block_id": "QSB-BRIDGE-DATA-02A",
+  "c60_validation": {
+    "all_degrees_3": true,
+    "bond_class_counts": {
+      "5_6": 60,
+      "6_6": 30
+    },
+    "degree_distribution": {
+      "3": 60
+    },
+    "edge_count": 90,
+    "euler_characteristic": 2,
+    "face_count": 32,
+    "hexagon_count": 20,
+    "node_count": 60,
+    "passed": true,
+    "pentagon_count": 12
+  },
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_physical_no_molecular_validation",
+  "external_data_downloaded": false,
+  "future_result_discussion_requirement": "Create a separate DATA-02A result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only.",
+  "network_policy": "no_downloads_no_network_required",
+  "no_molecular_validation_claim": true,
+  "no_physical_validation_claim": true,
+  "no_realdata_validation_claim": true,
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "sp2_contrast_scaffold_open",
+  "stop_go_outcome": "go_scaffold_generated_with_exact_c60_validation"
+}

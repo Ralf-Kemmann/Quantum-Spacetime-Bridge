@@ -1,0 +1,97 @@
+{
+  "benzene_validation": {
+    "all_degrees_2": true,
+    "degree_distribution": {
+      "2": 6
+    },
+    "edge_count": 6,
+    "node_count": 6,
+    "passed": true
+  },
+  "block_id": "QSB-BRIDGE-DATA-02A",
+  "c60_validation": {
+    "all_degrees_3": true,
+    "bond_class_counts": {
+      "5_6": 60,
+      "6_6": 30
+    },
+    "degree_distribution": {
+      "3": 60
+    },
+    "edge_count": 90,
+    "euler_characteristic": 2,
+    "face_count": 32,
+    "hexagon_count": 20,
+    "node_count": 60,
+    "passed": true,
+    "pentagon_count": 12
+  },
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_physical_no_molecular_validation",
+  "external_data_downloaded": false,
+  "families": [
+    "benzene_planar_ring_reference",
+    "benzene_uniform_aromatic_proxy",
+    "benzene_bond_alternation_control",
+    "c60_fullerene_graph_reference",
+    "c60_bond_class_weighted_proxy",
+    "c60_curvature_stress_proxy",
+    "c60_face_type_local_environment_proxy",
+    "matched_random_sp2_control",
+    "degree_preserving_random_control",
+    "bond_class_shuffle_control",
+    "curvature_label_shuffle_control"
+  ],
+  "future_result_discussion_requirement": "Create a separate DATA-02A result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only.",
+  "proxy_families": [
+    {
+      "claim_boundary": "coordinate-derived kernel is not independent evidence",
+      "geometry_smuggling_risk": "high",
+      "intended_use": "reference_control_only",
+      "proxy_id": "coordinate_distance_reference_kernel"
+    },
+    {
+      "claim_boundary": "graph-derived kernel is not independent evidence",
+      "geometry_smuggling_risk": "high",
+      "intended_use": "reference_control_only",
+      "proxy_id": "graph_distance_reference_kernel"
+    },
+    {
+      "claim_boundary": "bond labels are controlled scaffold labels only",
+      "geometry_smuggling_risk": "medium",
+      "intended_use": "synthetic_contrast_proxy_only",
+      "proxy_id": "bond_class_weighted_proxy"
+    },
+    {
+      "claim_boundary": "local environment labels can encode scaffold construction",
+      "geometry_smuggling_risk": "medium_to_high",
+      "intended_use": "synthetic_local_label_proxy_only",
+      "proxy_id": "local_environment_proxy"
+    },
+    {
+      "claim_boundary": "toy graph spectrum is not molecular validation",
+      "geometry_smuggling_risk": "medium",
+      "intended_use": "toy_graph_diagnostic_only",
+      "proxy_id": "spectral_graph_toy_proxy"
+    },
+    {
+      "claim_boundary": "toy phase labels are not physical phase content",
+      "geometry_smuggling_risk": "medium",
+      "intended_use": "toy_loop_phase_scaffold_only",
+      "proxy_id": "phase_loop_toy_proxy"
+    }
+  ],
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "sp2_contrast_scaffold_open",
+  "stop_go_outcome": "go_scaffold_generated_with_exact_c60_validation",
+  "systems": [
+    "benzene",
+    "c60"
+  ],
+  "tables": {
+    "benzene_edges": "data/QSB-BRIDGE-DATA-02A/benzene_edges.csv",
+    "benzene_nodes": "data/QSB-BRIDGE-DATA-02A/benzene_nodes.csv",
+    "c60_edges": "data/QSB-BRIDGE-DATA-02A/c60_edges.csv",
+    "c60_faces": "data/QSB-BRIDGE-DATA-02A/c60_faces.csv",
+    "c60_nodes": "data/QSB-BRIDGE-DATA-02A/c60_nodes.csv"
+  }
+}
