@@ -1,0 +1,13 @@
+edge_id,system_id,source,target,bond_order_class,bond_order_proxy,hybridization_pair,pi_system_label,sigma_framework_label,reference_control_role
+Ada_e_00,adamantane,Ada_00,Ada_04,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_01,adamantane,Ada_01,Ada_04,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_02,adamantane,Ada_00,Ada_05,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_03,adamantane,Ada_02,Ada_05,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_04,adamantane,Ada_00,Ada_06,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_05,adamantane,Ada_03,Ada_06,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_06,adamantane,Ada_01,Ada_07,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_07,adamantane,Ada_02,Ada_07,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_08,adamantane,Ada_01,Ada_08,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_09,adamantane,Ada_03,Ada_08,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_10,adamantane,Ada_02,Ada_09,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only
+Ada_e_11,adamantane,Ada_03,Ada_09,single,1.0,sp3_sp3,none,diamondoid_sigma_cage,synthetic_reference_control_only

@@ -1,0 +1,11 @@
+node_id,system_id,atom_label,carbon_index,hybridization_label,hydrogen_count_metadata,saturation_label,pi_system_label,sigma_framework_label,degree_target,local_environment_label,x_ref,y_ref,z_ref,claim_role
+Ada_00,adamantane,C,0,sp3,1,saturated,none,diamondoid_sigma_cage,3,bridgehead_CH,1.0,1.0,1.0,synthetic_reference_control_only
+Ada_01,adamantane,C,1,sp3,1,saturated,none,diamondoid_sigma_cage,3,bridgehead_CH,1.0,-1.0,-1.0,synthetic_reference_control_only
+Ada_02,adamantane,C,2,sp3,1,saturated,none,diamondoid_sigma_cage,3,bridgehead_CH,-1.0,1.0,-1.0,synthetic_reference_control_only
+Ada_03,adamantane,C,3,sp3,1,saturated,none,diamondoid_sigma_cage,3,bridgehead_CH,-1.0,-1.0,1.0,synthetic_reference_control_only
+Ada_04,adamantane,C,4,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,1.0,0.0,0.0,synthetic_reference_control_only
+Ada_05,adamantane,C,5,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,0.0,1.0,0.0,synthetic_reference_control_only
+Ada_06,adamantane,C,6,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,0.0,0.0,1.0,synthetic_reference_control_only
+Ada_07,adamantane,C,7,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,0.0,0.0,-1.0,synthetic_reference_control_only
+Ada_08,adamantane,C,8,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,0.0,-1.0,0.0,synthetic_reference_control_only
+Ada_09,adamantane,C,9,sp3,2,saturated,none,diamondoid_sigma_cage,2,secondary_CH2,-1.0,0.0,0.0,synthetic_reference_control_only

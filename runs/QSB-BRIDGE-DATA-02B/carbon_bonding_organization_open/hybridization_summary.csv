@@ -1,0 +1,5 @@
+system_id,hybridization_label,count,claim_role
+adamantane,sp3,10,synthetic_scaffold_metadata_only
+benzene,sp2,6,synthetic_scaffold_metadata_only
+c60,sp2,60,synthetic_scaffold_metadata_only
+ethyne,sp,2,synthetic_scaffold_metadata_only

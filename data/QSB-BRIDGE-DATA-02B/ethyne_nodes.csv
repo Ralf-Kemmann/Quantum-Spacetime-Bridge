@@ -1,0 +1,3 @@
+node_id,system_id,atom_label,carbon_index,hybridization_label,hydrogen_count_metadata,saturation_label,pi_system_label,sigma_framework_label,x_ref,y_ref,z_ref,claim_role
+Eth_00,ethyne,C,0,sp,1,unsaturated,linear_triple_bond_pi_pair,linear_sigma_axis,-0.5,0.0,0.0,synthetic_reference_control_only
+Eth_01,ethyne,C,1,sp,1,unsaturated,linear_triple_bond_pi_pair,linear_sigma_axis,0.5,0.0,0.0,synthetic_reference_control_only

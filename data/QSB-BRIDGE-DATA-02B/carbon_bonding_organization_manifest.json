@@ -1,0 +1,216 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02B",
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_molecular_no_physical_validation",
+  "data02a_sources": {
+    "benzene_edges": "data/QSB-BRIDGE-DATA-02A/benzene_edges.csv",
+    "benzene_nodes": "data/QSB-BRIDGE-DATA-02A/benzene_nodes.csv",
+    "c60_edges": "data/QSB-BRIDGE-DATA-02A/c60_edges.csv",
+    "c60_nodes": "data/QSB-BRIDGE-DATA-02A/c60_nodes.csv"
+  },
+  "external_data_downloaded": false,
+  "families": [
+    "ethyne_linear_sp_reference",
+    "ethyne_triple_bond_proxy",
+    "benzene_planar_sp2_reference",
+    "benzene_aromatic_uniform_proxy",
+    "c60_curved_sp2_cage_reference",
+    "c60_bond_class_environment_proxy",
+    "adamantane_sp3_cage_reference",
+    "adamantane_sigma_framework_proxy",
+    "hybridization_label_shuffle_control",
+    "topology_matched_random_control",
+    "bond_order_shuffle_control",
+    "carbon_skeleton_degree_control"
+  ],
+  "future_result_discussion_requirement": "Create a separate DATA-02B result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only.",
+  "hydrogen_policy": "hydrogen_and_saturation_are_metadata_not_primary_graph_nodes",
+  "primary_representation": "carbon_skeleton_only",
+  "proxy_families": [
+    {
+      "claim_boundary": "coordinate-derived kernel is not independent evidence",
+      "intended_use": "reference_control_only",
+      "proxy_id": "coordinate_distance_reference_kernel",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "graph-derived kernel is not independent evidence",
+      "intended_use": "reference_control_only",
+      "proxy_id": "graph_distance_reference_kernel",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "bond-order labels can encode the target distinction",
+      "intended_use": "synthetic_scaffold_label_only",
+      "proxy_id": "bond_order_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "hybridization labels are circular if over-read",
+      "intended_use": "synthetic_scaffold_label_only",
+      "proxy_id": "hybridization_label_proxy",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "local labels can encode scaffold construction",
+      "intended_use": "synthetic_local_label_proxy_only",
+      "proxy_id": "local_environment_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "sigma/pi labels are scaffold metadata, not validation",
+      "intended_use": "synthetic_sigma_pi_descriptor_only",
+      "proxy_id": "sigma_pi_organization_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "toy graph spectrum is not molecular validation",
+      "intended_use": "toy_graph_diagnostic_only",
+      "proxy_id": "spectral_graph_toy_proxy",
+      "smuggling_risk": "medium"
+    }
+  ],
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "carbon_bonding_organization_open",
+  "systems": [
+    "ethyne_linear_sp_carbon_wire",
+    "benzene_planar_sp2_aromatic_resonator",
+    "c60_curved_sp2_fullerene_cage",
+    "adamantane_saturated_sp3_diamondoid_cage"
+  ],
+  "tables": {
+    "adamantane_edges": "data/QSB-BRIDGE-DATA-02B/adamantane_edges.csv",
+    "adamantane_nodes": "data/QSB-BRIDGE-DATA-02B/adamantane_nodes.csv",
+    "carbon_ladder_edges": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_edges.csv",
+    "carbon_ladder_nodes": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_nodes.csv",
+    "ethyne_edges": "data/QSB-BRIDGE-DATA-02B/ethyne_edges.csv",
+    "ethyne_nodes": "data/QSB-BRIDGE-DATA-02B/ethyne_nodes.csv"
+  },
+  "validation": {
+    "adamantane": {
+      "bond_order_class_counts": {
+        "single": 12
+      },
+      "degree_distribution": {
+        "2": 6,
+        "3": 4
+      },
+      "edge_count": 12,
+      "hybridization_counts": {
+        "sp3": 10
+      },
+      "node_count": 10,
+      "pi_system_label_counts": {
+        "none": 10
+      },
+      "sigma_framework_label_counts": {
+        "diamondoid_sigma_cage": 10
+      },
+      "specific_checks": {
+        "degree_distribution": {
+          "2": 6,
+          "3": 4
+        },
+        "edge_count": 12,
+        "hybridization_counts": {
+          "sp3": 10
+        },
+        "hydrogen_count_metadata_counts": {
+          "1": 4,
+          "2": 6
+        },
+        "node_count": 10,
+        "passed": true,
+        "pi_system_label_counts": {
+          "none": 10
+        },
+        "sigma_framework_label_counts": {
+          "diamondoid_sigma_cage": 10
+        }
+      },
+      "topology_class_counts": {
+        "saturated_sp3_diamondoid_cage": 10
+      }
+    },
+    "benzene": {
+      "bond_order_class_counts": {
+        "aromatic": 6
+      },
+      "degree_distribution": {
+        "2": 6
+      },
+      "edge_count": 6,
+      "hybridization_counts": {
+        "sp2": 6
+      },
+      "node_count": 6,
+      "pi_system_label_counts": {
+        "planar_aromatic_pi_ring": 6
+      },
+      "sigma_framework_label_counts": {
+        "planar_ring_sigma_framework": 6
+      },
+      "topology_class_counts": {
+        "planar_aromatic_ring": 6
+      }
+    },
+    "c60": {
+      "bond_order_class_counts": {
+        "5_6": 60,
+        "6_6": 30
+      },
+      "degree_distribution": {
+        "3": 60
+      },
+      "edge_count": 90,
+      "hybridization_counts": {
+        "sp2": 60
+      },
+      "node_count": 60,
+      "pi_system_label_counts": {
+        "curved_fullerene_pi_network": 60
+      },
+      "sigma_framework_label_counts": {
+        "curved_fullerene_sigma_cage": 60
+      },
+      "topology_class_counts": {
+        "curved_fullerene_cage": 60
+      }
+    },
+    "ethyne": {
+      "bond_order_class_counts": {
+        "triple": 1
+      },
+      "degree_distribution": {
+        "1": 2
+      },
+      "edge_count": 1,
+      "hybridization_counts": {
+        "sp": 2
+      },
+      "node_count": 2,
+      "pi_system_label_counts": {
+        "linear_triple_bond_pi_pair": 2
+      },
+      "sigma_framework_label_counts": {
+        "linear_sigma_axis": 2
+      },
+      "specific_checks": {
+        "bond_order_class_counts": {
+          "triple": 1
+        },
+        "degree_distribution": {
+          "1": 2
+        },
+        "edge_count": 1,
+        "hybridization_counts": {
+          "sp": 2
+        },
+        "node_count": 2,
+        "passed": true
+      },
+      "topology_class_counts": {
+        "linear_sp_carbon_wire": 2
+      }
+    }
+  }
+}

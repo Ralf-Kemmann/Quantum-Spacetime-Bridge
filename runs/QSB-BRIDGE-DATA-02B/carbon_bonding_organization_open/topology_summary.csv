@@ -1,0 +1,5 @@
+system_id,topology_class,node_count,edge_count,degree_distribution,claim_role
+adamantane,saturated_sp3_diamondoid_cage,10,12,"{""2"": 6, ""3"": 4}",synthetic_reference_scaffold_only
+benzene,planar_aromatic_ring,6,6,"{""2"": 6}",synthetic_reference_scaffold_only
+c60,curved_fullerene_cage,60,90,"{""3"": 60}",synthetic_reference_scaffold_only
+ethyne,linear_sp_carbon_wire,2,1,"{""1"": 2}",synthetic_reference_scaffold_only

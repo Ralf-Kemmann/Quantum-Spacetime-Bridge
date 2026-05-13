@@ -1,0 +1,146 @@
+{
+  "benzene_source": "data/QSB-BRIDGE-DATA-02A/benzene_nodes.csv",
+  "block_id": "QSB-BRIDGE-DATA-02B",
+  "c60_source": "data/QSB-BRIDGE-DATA-02A/c60_nodes.csv",
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_molecular_no_physical_validation",
+  "external_data_downloaded": false,
+  "future_result_discussion_requirement": "Create a separate DATA-02B result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only.",
+  "hydrogen_policy": "hydrogen_and_saturation_are_metadata_not_primary_graph_nodes",
+  "network_policy": "no_downloads_no_network_required",
+  "no_molecular_validation_claim": true,
+  "no_physical_validation_claim": true,
+  "no_realdata_validation_claim": true,
+  "primary_representation": "carbon_skeleton_only",
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "carbon_bonding_organization_open",
+  "stop_go_outcome": "go_scaffold_generated_with_carbon_skeleton_checks",
+  "system_count": 4,
+  "validation": {
+    "adamantane": {
+      "bond_order_class_counts": {
+        "single": 12
+      },
+      "degree_distribution": {
+        "2": 6,
+        "3": 4
+      },
+      "edge_count": 12,
+      "hybridization_counts": {
+        "sp3": 10
+      },
+      "node_count": 10,
+      "pi_system_label_counts": {
+        "none": 10
+      },
+      "sigma_framework_label_counts": {
+        "diamondoid_sigma_cage": 10
+      },
+      "specific_checks": {
+        "degree_distribution": {
+          "2": 6,
+          "3": 4
+        },
+        "edge_count": 12,
+        "hybridization_counts": {
+          "sp3": 10
+        },
+        "hydrogen_count_metadata_counts": {
+          "1": 4,
+          "2": 6
+        },
+        "node_count": 10,
+        "passed": true,
+        "pi_system_label_counts": {
+          "none": 10
+        },
+        "sigma_framework_label_counts": {
+          "diamondoid_sigma_cage": 10
+        }
+      },
+      "topology_class_counts": {
+        "saturated_sp3_diamondoid_cage": 10
+      }
+    },
+    "benzene": {
+      "bond_order_class_counts": {
+        "aromatic": 6
+      },
+      "degree_distribution": {
+        "2": 6
+      },
+      "edge_count": 6,
+      "hybridization_counts": {
+        "sp2": 6
+      },
+      "node_count": 6,
+      "pi_system_label_counts": {
+        "planar_aromatic_pi_ring": 6
+      },
+      "sigma_framework_label_counts": {
+        "planar_ring_sigma_framework": 6
+      },
+      "topology_class_counts": {
+        "planar_aromatic_ring": 6
+      }
+    },
+    "c60": {
+      "bond_order_class_counts": {
+        "5_6": 60,
+        "6_6": 30
+      },
+      "degree_distribution": {
+        "3": 60
+      },
+      "edge_count": 90,
+      "hybridization_counts": {
+        "sp2": 60
+      },
+      "node_count": 60,
+      "pi_system_label_counts": {
+        "curved_fullerene_pi_network": 60
+      },
+      "sigma_framework_label_counts": {
+        "curved_fullerene_sigma_cage": 60
+      },
+      "topology_class_counts": {
+        "curved_fullerene_cage": 60
+      }
+    },
+    "ethyne": {
+      "bond_order_class_counts": {
+        "triple": 1
+      },
+      "degree_distribution": {
+        "1": 2
+      },
+      "edge_count": 1,
+      "hybridization_counts": {
+        "sp": 2
+      },
+      "node_count": 2,
+      "pi_system_label_counts": {
+        "linear_triple_bond_pi_pair": 2
+      },
+      "sigma_framework_label_counts": {
+        "linear_sigma_axis": 2
+      },
+      "specific_checks": {
+        "bond_order_class_counts": {
+          "triple": 1
+        },
+        "degree_distribution": {
+          "1": 2
+        },
+        "edge_count": 1,
+        "hybridization_counts": {
+          "sp": 2
+        },
+        "node_count": 2,
+        "passed": true
+      },
+      "topology_class_counts": {
+        "linear_sp_carbon_wire": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02B",
+  "claim_boundary": "synthetic_reference_style_scaffold_only_no_realdata_no_molecular_no_physical_validation",
+  "data02a_sources": {
+    "benzene_edges": "data/QSB-BRIDGE-DATA-02A/benzene_edges.csv",
+    "benzene_nodes": "data/QSB-BRIDGE-DATA-02A/benzene_nodes.csv",
+    "c60_edges": "data/QSB-BRIDGE-DATA-02A/c60_edges.csv",
+    "c60_nodes": "data/QSB-BRIDGE-DATA-02A/c60_nodes.csv"
+  },
+  "data_dir": "data/QSB-BRIDGE-DATA-02B",
+  "expected_checks": {
+    "adamantane": {
+      "degree_distribution": {
+        "2": 6,
+        "3": 4
+      },
+      "edge_count": 12,
+      "hybridization": "sp3",
+      "node_count": 10,
+      "pi_system_label": "none",
+      "sigma_framework_label": "diamondoid_sigma_cage"
+    },
+    "benzene": {
+      "bond_class": "aromatic",
+      "degree_distribution": {
+        "2": 6
+      },
+      "edge_count": 6,
+      "hybridization": "sp2",
+      "node_count": 6
+    },
+    "c60": {
+      "bond_class_counts": {
+        "5_6": 60,
+        "6_6": 30
+      },
+      "degree_distribution": {
+        "3": 60
+      },
+      "edge_count": 90,
+      "node_count": 60
+    },
+    "ethyne": {
+      "bond_class": "triple",
+      "degree_distribution": {
+        "1": 2
+      },
+      "edge_count": 1,
+      "hybridization": "sp",
+      "node_count": 2
+    }
+  },
+  "families": [
+    "ethyne_linear_sp_reference",
+    "ethyne_triple_bond_proxy",
+    "benzene_planar_sp2_reference",
+    "benzene_aromatic_uniform_proxy",
+    "c60_curved_sp2_cage_reference",
+    "c60_bond_class_environment_proxy",
+    "adamantane_sp3_cage_reference",
+    "adamantane_sigma_framework_proxy",
+    "hybridization_label_shuffle_control",
+    "topology_matched_random_control",
+    "bond_order_shuffle_control",
+    "carbon_skeleton_degree_control"
+  ],
+  "future_result_discussion_requirement": "Create a separate DATA-02B result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation scaffold-only.",
+  "hydrogen_policy": "hydrogen_and_saturation_are_metadata_not_primary_graph_nodes",
+  "network_policy": "no_downloads_no_network_required",
+  "output_dir": "runs/QSB-BRIDGE-DATA-02B/carbon_bonding_organization_open",
+  "primary_representation": "carbon_skeleton_only",
+  "proxy_families": [
+    {
+      "claim_boundary": "coordinate-derived kernel is not independent evidence",
+      "intended_use": "reference_control_only",
+      "proxy_id": "coordinate_distance_reference_kernel",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "graph-derived kernel is not independent evidence",
+      "intended_use": "reference_control_only",
+      "proxy_id": "graph_distance_reference_kernel",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "bond-order labels can encode the target distinction",
+      "intended_use": "synthetic_scaffold_label_only",
+      "proxy_id": "bond_order_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "hybridization labels are circular if over-read",
+      "intended_use": "synthetic_scaffold_label_only",
+      "proxy_id": "hybridization_label_proxy",
+      "smuggling_risk": "high"
+    },
+    {
+      "claim_boundary": "local labels can encode scaffold construction",
+      "intended_use": "synthetic_local_label_proxy_only",
+      "proxy_id": "local_environment_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "sigma/pi labels are scaffold metadata, not validation",
+      "intended_use": "synthetic_sigma_pi_descriptor_only",
+      "proxy_id": "sigma_pi_organization_proxy",
+      "smuggling_risk": "medium_to_high"
+    },
+    {
+      "claim_boundary": "toy graph spectrum is not molecular validation",
+      "intended_use": "toy_graph_diagnostic_only",
+      "proxy_id": "spectral_graph_toy_proxy",
+      "smuggling_risk": "medium"
+    }
+  ],
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "carbon_bonding_organization_open",
+  "systems": [
+    "ethyne_linear_sp_carbon_wire",
+    "benzene_planar_sp2_aromatic_resonator",
+    "c60_curved_sp2_fullerene_cage",
+    "adamantane_saturated_sp3_diamondoid_cage"
+  ]
+}

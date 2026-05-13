@@ -1,0 +1,2 @@
+edge_id,system_id,source,target,bond_order_class,bond_order_proxy,hybridization_pair,pi_system_label,sigma_framework_label,reference_control_role
+Eth_e_00,ethyne,Eth_00,Eth_01,triple,3.0,sp_sp,linear_triple_bond_pi_pair,linear_sigma_axis,synthetic_reference_control_only
