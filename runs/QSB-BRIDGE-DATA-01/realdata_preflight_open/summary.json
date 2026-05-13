@@ -1,0 +1,27 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-01",
+  "candidate_count": 3,
+  "candidate_source_rows": 15,
+  "claim_boundary": "preflight_only_no_physical_validation",
+  "data_field_inventory_rows": 15,
+  "decision_rows": 3,
+  "external_data_downloaded": false,
+  "future_result_discussion_requirement": "Create a separate DATA-01 result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation preflight-only.",
+  "k_proxy_rows": 15,
+  "network_policy": "no_downloads_no_network_required",
+  "no_physical_validation_claim": true,
+  "qsb_bridge_num_05c_warning": "Local-neighborhood diagnostics showed sensitivity under small additive magnitude noise, with the first configured warning at noise level 0.02.",
+  "required_diagnostics": [
+    "data_availability_status",
+    "machine_readable_format_status",
+    "provenance_status",
+    "geometry_smuggling_risk",
+    "possible_K_proxy_definitions",
+    "local_neighborhood_noise_risk",
+    "phase_information_availability",
+    "go_no_go_recommendation_for_DATA02"
+  ],
+  "run_id": "realdata_preflight_open",
+  "source_type_count": 5,
+  "stop_go_outcome": "hold_for_DATA02_until_local_sources_and_provenance_are_supplied"
+}

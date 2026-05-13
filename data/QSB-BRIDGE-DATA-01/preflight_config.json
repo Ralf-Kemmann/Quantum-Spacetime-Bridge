@@ -1,0 +1,123 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-01",
+  "run_id": "realdata_preflight_open",
+  "claim_boundary": "preflight_only_no_physical_validation",
+  "network_policy": "no_downloads_no_network_required",
+  "source_registry_path": "data/QSB-BRIDGE-DATA-01/candidate_source_registry.csv",
+  "output_dir": "runs/QSB-BRIDGE-DATA-01/realdata_preflight_open",
+  "candidates": [
+    {
+      "candidate_id": "c60",
+      "candidate_label": "C60 fullerene",
+      "ground_truth_geometry": "3D coordinates, fullerene cage topology, bond lengths, and symmetry as reference geometry only.",
+      "independent_input_candidates": [
+        "vibrational_frequencies_and_modes",
+        "spectral_normal_mode_information",
+        "quantum_chemistry_outputs_if_locally_available_later"
+      ],
+      "geometry_smuggling_summary": "High if K_ij is built directly from Euclidean distances or graph adjacency and compared back to cage geometry.",
+      "uncertainty_requirements": [
+        "coordinate source and version",
+        "experimental versus computed provenance",
+        "method and basis for computed data",
+        "mode degeneracy and symmetry handling",
+        "frequency scaling or assignment uncertainty",
+        "local-neighborhood sensitivity from 05C"
+      ]
+    },
+    {
+      "candidate_id": "benzene",
+      "candidate_label": "Benzene / Benzol",
+      "ground_truth_geometry": "Planar hexagonal molecular geometry, bonding topology, and D6h-like symmetry as reference geometry only.",
+      "independent_input_candidates": [
+        "vibrational_frequencies_and_modes",
+        "spectral_normal_mode_information",
+        "quantum_chemistry_outputs_if_locally_available_later"
+      ],
+      "geometry_smuggling_summary": "High if K_ij is built from ring coordinates or graph adjacency and interpreted as recovering ring geometry.",
+      "uncertainty_requirements": [
+        "coordinate precision",
+        "hydrogen treatment",
+        "planarity assumptions",
+        "mode degeneracy",
+        "frequency scaling or assignment uncertainty",
+        "local-neighborhood sensitivity from 05C"
+      ]
+    },
+    {
+      "candidate_id": "h2",
+      "candidate_label": "H2 sanity candidate",
+      "ground_truth_geometry": "Single bond length / two-node geometry as a pipeline sanity reference only.",
+      "independent_input_candidates": [
+        "vibrational_frequencies_and_modes",
+        "quantum_chemistry_outputs_if_locally_available_later"
+      ],
+      "geometry_smuggling_summary": "Very high interpretive risk because the geometry is nearly exhausted by one distance.",
+      "uncertainty_requirements": [
+        "isotope and state",
+        "bond length source",
+        "frequency source",
+        "method and basis for computed data",
+        "trivial-size limitation"
+      ]
+    }
+  ],
+  "source_types": [
+    "structural_coordinates",
+    "molecular_graph_bonding_adjacency",
+    "vibrational_frequencies_and_modes",
+    "spectral_normal_mode_information",
+    "quantum_chemistry_outputs_if_locally_available_later"
+  ],
+  "k_proxy_definitions": [
+    {
+      "proxy_id": "coordinate_distance_kernel",
+      "description": "K_ij = f(distance_ij) from structural coordinates.",
+      "geometry_smuggling_risk": "high",
+      "preflight_assessment": "hold_as_reference_control_only",
+      "risk_reason": "Directly re-encodes target geometry."
+    },
+    {
+      "proxy_id": "bond_graph_adjacency_or_laplacian",
+      "description": "K_ij from molecular graph adjacency, bond order, or graph Laplacian.",
+      "geometry_smuggling_risk": "high",
+      "preflight_assessment": "hold_as_control_or_pipeline_sanity_only",
+      "risk_reason": "Topology can already encode the geometry to be recovered."
+    },
+    {
+      "proxy_id": "normal_mode_correlation_or_coupling",
+      "description": "K_ij from vibrational mode displacement correlations or coupling-like quantities.",
+      "geometry_smuggling_risk": "medium",
+      "preflight_assessment": "candidate_for_DATA02_if_provenance_and_uncertainty_are_documented",
+      "risk_reason": "May still depend on coordinate-derived calculations; construction chain must be explicit."
+    },
+    {
+      "proxy_id": "spectral_mode_participation_similarity",
+      "description": "K_ij from spectral or normal-mode participation similarity.",
+      "geometry_smuggling_risk": "medium",
+      "preflight_assessment": "candidate_for_DATA02_if_machine_readable_and_not_collapsed_to_geometry",
+      "risk_reason": "Assignment and degeneracy choices can impose structure."
+    },
+    {
+      "proxy_id": "local_quantum_chemistry_matrix_output",
+      "description": "K_ij from locally supplied quantum chemistry matrix-like outputs.",
+      "geometry_smuggling_risk": "medium_to_high",
+      "preflight_assessment": "candidate_only_if_local_outputs_and_method_metadata_are_available_later",
+      "risk_reason": "Computed matrices may inherit coordinate inputs; method, basis, and preprocessing must be separated."
+    }
+  ],
+  "required_diagnostics": [
+    "data_availability_status",
+    "machine_readable_format_status",
+    "provenance_status",
+    "geometry_smuggling_risk",
+    "possible_K_proxy_definitions",
+    "local_neighborhood_noise_risk",
+    "phase_information_availability",
+    "go_no_go_recommendation_for_DATA02"
+  ],
+  "carry_forward_warnings": {
+    "qsb_bridge_num_05c": "Local-neighborhood diagnostics showed sensitivity under small additive magnitude noise, with the first configured warning at noise level 0.02."
+  },
+  "future_result_discussion_requirement": "Create a separate DATA-01 result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation preflight-only."
+}
