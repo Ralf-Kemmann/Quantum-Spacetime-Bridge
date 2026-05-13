@@ -1,0 +1,74 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02C",
+  "run_id": "control_ensembles_open",
+  "claim_boundary": "synthetic_reference_style_control_ensemble_only_no_realdata_no_molecular_no_physical_validation",
+  "network_policy": "no_downloads_no_network_required",
+  "fixed_seed": 20260514,
+  "input_dependencies": {
+    "carbon_ladder_nodes": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_nodes.csv",
+    "carbon_ladder_edges": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_edges.csv",
+    "carbon_bonding_organization_manifest": "data/QSB-BRIDGE-DATA-02B/carbon_bonding_organization_manifest.json"
+  },
+  "data_dir": "data/QSB-BRIDGE-DATA-02C",
+  "output_dir": "runs/QSB-BRIDGE-DATA-02C/control_ensembles_open",
+  "control_families": [
+    {
+      "control_family_id": "hybridization_label_shuffle_control",
+      "control_distinction": "label_only_destruction",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;bond_order_counts",
+      "destruction_target": "hybridization_label_coherence",
+      "interpretation_boundary": "Tests whether hybridization labels alone drive apparent organization."
+    },
+    {
+      "control_family_id": "bond_order_shuffle_control",
+      "control_distinction": "bond_organization_mismatch",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;hybridization_counts",
+      "destruction_target": "bond_order_label_coherence",
+      "interpretation_boundary": "Tests whether bond-order labels alone drive apparent organization."
+    },
+    {
+      "control_family_id": "sigma_pi_label_shuffle_control",
+      "control_distinction": "sigma_pi_organization_mismatch",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;hybridization_counts;bond_order_counts",
+      "destruction_target": "sigma_pi_label_coherence",
+      "interpretation_boundary": "Tests whether sigma/pi labels alone drive apparent organization."
+    },
+    {
+      "control_family_id": "topology_matched_random_control",
+      "control_distinction": "topology_only_destruction",
+      "preservation_target": "node_count;edge_count",
+      "destruction_target": "connectivity_and_topology_class",
+      "interpretation_boundary": "Random topology scaffold, not molecular realism."
+    },
+    {
+      "control_family_id": "carbon_skeleton_degree_control",
+      "control_distinction": "degree_preserving_topology_randomization",
+      "preservation_target": "node_count;edge_count;degree_distribution",
+      "destruction_target": "higher_order_connectivity",
+      "interpretation_boundary": "Tests whether degree sequence is enough to mimic organization."
+    },
+    {
+      "control_family_id": "within_system_label_shuffle",
+      "control_distinction": "label_only_destruction",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;label_counts",
+      "destruction_target": "node_edge_label_alignment",
+      "interpretation_boundary": "Within-system shuffle can be a negative finding if labels are uniform and nothing changes."
+    },
+    {
+      "control_family_id": "cross_system_label_swap",
+      "control_distinction": "bond_organization_mismatch",
+      "preservation_target": "node_count;edge_count;degree_distribution",
+      "destruction_target": "system_label_coherence",
+      "interpretation_boundary": "Cross-system labels create explicit organization mismatch."
+    },
+    {
+      "control_family_id": "topology_preserving_label_randomization",
+      "control_distinction": "label_only_destruction",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class",
+      "destruction_target": "hybridization_bond_sigma_pi_label_coherence",
+      "interpretation_boundary": "Topology is fixed while labels are randomized."
+    }
+  ],
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "future_result_discussion_requirement": "Create a separate DATA-02C result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation control-ensemble-only."
+}

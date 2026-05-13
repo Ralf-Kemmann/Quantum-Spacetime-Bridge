@@ -1,0 +1,8 @@
+proxy_or_control_id,risk_type,risk_level,interpretation_boundary,qsb_bridge_num_05c_warning
+hybridization_label_shuffle_control,label_smuggling,high,Label recognition is not organization recognition.,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+bond_order_shuffle_control,bond_label_circularity,high,Bond labels can encode the target distinction.,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+sigma_pi_label_shuffle_control,sigma_pi_label_circularity,high,"Sigma/pi labels are metadata, not independent evidence.",local-neighborhood sensitivity under small additive magnitude noise at 0.02
+topology_matched_random_control,topology_circularity,medium,"Random topology controls are scaffold controls, not molecular alternatives.",local-neighborhood sensitivity under small additive magnitude noise at 0.02
+carbon_skeleton_degree_control,degree_only_mimicry,high,Degree preservation can mimic local organization.,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+coordinate_distance_reference_kernel,reference_control_only,high,Coordinate-derived channels are not independent evidence.,local-neighborhood sensitivity under small additive magnitude noise at 0.02
+graph_distance_reference_kernel,reference_control_only,high,Graph-derived channels are not independent evidence.,local-neighborhood sensitivity under small additive magnitude noise at 0.02

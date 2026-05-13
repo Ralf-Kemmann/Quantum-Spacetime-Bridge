@@ -1,0 +1,33 @@
+control_id,source_system_id,control_family_id,topology_component,hybridization_component,bond_order_component,sigma_pi_component,organization_coherence_score,original_control_coherence_contrast,negative_finding_flag,highest_risk_mimic_control,lowest_original_control_coherence_contrast,notes
+hybridization_label_shuffle_control__adamantane,adamantane,hybridization_label_shuffle_control,1.0,0.0,1.0,1.0,0.75,0.25,False,False,False,Tests whether hybridization labels alone drive apparent organization.
+hybridization_label_shuffle_control__benzene,benzene,hybridization_label_shuffle_control,1.0,0.833333,1.0,1.0,0.958333,0.041667,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+hybridization_label_shuffle_control__c60,c60,hybridization_label_shuffle_control,1.0,0.816667,1.0,1.0,0.954167,0.045833,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+hybridization_label_shuffle_control__ethyne,ethyne,hybridization_label_shuffle_control,1.0,0.0,1.0,1.0,0.75,0.25,False,False,False,Tests whether hybridization labels alone drive apparent organization.
+bond_order_shuffle_control__adamantane,adamantane,bond_order_shuffle_control,1.0,1.0,0.083333,1.0,0.770833,0.229167,False,False,False,Tests whether bond-order labels alone drive apparent organization.
+bond_order_shuffle_control__benzene,benzene,bond_order_shuffle_control,1.0,1.0,0.0,1.0,0.75,0.25,False,False,False,Tests whether bond-order labels alone drive apparent organization.
+bond_order_shuffle_control__c60,c60,bond_order_shuffle_control,1.0,1.0,0.455556,1.0,0.863889,0.136111,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+bond_order_shuffle_control__ethyne,ethyne,bond_order_shuffle_control,1.0,1.0,0.0,1.0,0.75,0.25,False,False,False,Tests whether bond-order labels alone drive apparent organization.
+sigma_pi_label_shuffle_control__adamantane,adamantane,sigma_pi_label_shuffle_control,1.0,1.0,1.0,0.091667,0.772917,0.227083,False,False,False,Tests whether sigma/pi labels alone drive apparent organization.
+sigma_pi_label_shuffle_control__benzene,benzene,sigma_pi_label_shuffle_control,1.0,1.0,1.0,0.0,0.75,0.25,False,False,False,Tests whether sigma/pi labels alone drive apparent organization.
+sigma_pi_label_shuffle_control__c60,c60,sigma_pi_label_shuffle_control,1.0,1.0,1.0,0.798611,0.949653,0.050347,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+sigma_pi_label_shuffle_control__ethyne,ethyne,sigma_pi_label_shuffle_control,1.0,1.0,1.0,0.0,0.75,0.25,False,False,False,Tests whether sigma/pi labels alone drive apparent organization.
+topology_matched_random_control__adamantane,adamantane,topology_matched_random_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+topology_matched_random_control__benzene,benzene,topology_matched_random_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+topology_matched_random_control__c60,c60,topology_matched_random_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+topology_matched_random_control__ethyne,ethyne,topology_matched_random_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+carbon_skeleton_degree_control__adamantane,adamantane,carbon_skeleton_degree_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+carbon_skeleton_degree_control__benzene,benzene,carbon_skeleton_degree_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+carbon_skeleton_degree_control__c60,c60,carbon_skeleton_degree_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+carbon_skeleton_degree_control__ethyne,ethyne,carbon_skeleton_degree_control,0.5,1.0,1.0,1.0,0.875,0.125,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+within_system_label_shuffle__adamantane,adamantane,within_system_label_shuffle,1.0,1.0,1.0,1.0,1.0,0.0,True,False,True,possible negative finding: control may mimic or preserve organization too easily
+within_system_label_shuffle__benzene,benzene,within_system_label_shuffle,1.0,1.0,1.0,1.0,1.0,0.0,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+within_system_label_shuffle__c60,c60,within_system_label_shuffle,1.0,1.0,0.555556,1.0,0.888889,0.111111,True,False,False,possible negative finding: control may mimic or preserve organization too easily
+within_system_label_shuffle__ethyne,ethyne,within_system_label_shuffle,1.0,1.0,1.0,1.0,1.0,0.0,True,True,False,possible negative finding: control may mimic or preserve organization too easily
+cross_system_label_swap__adamantane,adamantane,cross_system_label_swap,1.0,0.0,0.0,0.0,0.25,0.75,False,False,False,Cross-system labels create explicit organization mismatch.
+cross_system_label_swap__benzene,benzene,cross_system_label_swap,1.0,1.0,0.0,0.0,0.5,0.5,False,False,False,Cross-system labels create explicit organization mismatch.
+cross_system_label_swap__c60,c60,cross_system_label_swap,1.0,0.0,0.0,0.0,0.25,0.75,False,False,False,Cross-system labels create explicit organization mismatch.
+cross_system_label_swap__ethyne,ethyne,cross_system_label_swap,1.0,0.0,0.0,0.0,0.25,0.75,False,False,False,Cross-system labels create explicit organization mismatch.
+topology_preserving_label_randomization__adamantane,adamantane,topology_preserving_label_randomization,1.0,0.3,0.166667,0.6,0.516667,0.483333,False,False,False,Topology is fixed while labels are randomized.
+topology_preserving_label_randomization__benzene,benzene,topology_preserving_label_randomization,1.0,1.0,0.166667,0.5,0.666667,0.333333,False,False,False,Topology is fixed while labels are randomized.
+topology_preserving_label_randomization__c60,c60,topology_preserving_label_randomization,1.0,0.8,0.422222,0.8625,0.771181,0.228819,False,False,False,Topology is fixed while labels are randomized.
+topology_preserving_label_randomization__ethyne,ethyne,topology_preserving_label_randomization,1.0,0.5,0.0,0.5,0.5,0.5,False,False,False,Topology is fixed while labels are randomized.

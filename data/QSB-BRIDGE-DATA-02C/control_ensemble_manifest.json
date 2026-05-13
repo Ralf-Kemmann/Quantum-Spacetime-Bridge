@@ -1,0 +1,100 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02C",
+  "claim_boundary": "synthetic_reference_style_control_ensemble_only_no_realdata_no_molecular_no_physical_validation",
+  "control_count": 32,
+  "control_families": [
+    {
+      "control_distinction": "label_only_destruction",
+      "control_family_id": "hybridization_label_shuffle_control",
+      "destruction_target": "hybridization_label_coherence",
+      "interpretation_boundary": "Tests whether hybridization labels alone drive apparent organization.",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;bond_order_counts"
+    },
+    {
+      "control_distinction": "bond_organization_mismatch",
+      "control_family_id": "bond_order_shuffle_control",
+      "destruction_target": "bond_order_label_coherence",
+      "interpretation_boundary": "Tests whether bond-order labels alone drive apparent organization.",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;hybridization_counts"
+    },
+    {
+      "control_distinction": "sigma_pi_organization_mismatch",
+      "control_family_id": "sigma_pi_label_shuffle_control",
+      "destruction_target": "sigma_pi_label_coherence",
+      "interpretation_boundary": "Tests whether sigma/pi labels alone drive apparent organization.",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;hybridization_counts;bond_order_counts"
+    },
+    {
+      "control_distinction": "topology_only_destruction",
+      "control_family_id": "topology_matched_random_control",
+      "destruction_target": "connectivity_and_topology_class",
+      "interpretation_boundary": "Random topology scaffold, not molecular realism.",
+      "preservation_target": "node_count;edge_count"
+    },
+    {
+      "control_distinction": "degree_preserving_topology_randomization",
+      "control_family_id": "carbon_skeleton_degree_control",
+      "destruction_target": "higher_order_connectivity",
+      "interpretation_boundary": "Tests whether degree sequence is enough to mimic organization.",
+      "preservation_target": "node_count;edge_count;degree_distribution"
+    },
+    {
+      "control_distinction": "label_only_destruction",
+      "control_family_id": "within_system_label_shuffle",
+      "destruction_target": "node_edge_label_alignment",
+      "interpretation_boundary": "Within-system shuffle can be a negative finding if labels are uniform and nothing changes.",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class;label_counts"
+    },
+    {
+      "control_distinction": "bond_organization_mismatch",
+      "control_family_id": "cross_system_label_swap",
+      "destruction_target": "system_label_coherence",
+      "interpretation_boundary": "Cross-system labels create explicit organization mismatch.",
+      "preservation_target": "node_count;edge_count;degree_distribution"
+    },
+    {
+      "control_distinction": "label_only_destruction",
+      "control_family_id": "topology_preserving_label_randomization",
+      "destruction_target": "hybridization_bond_sigma_pi_label_coherence",
+      "interpretation_boundary": "Topology is fixed while labels are randomized.",
+      "preservation_target": "node_count;edge_count;degree_distribution;topology_class"
+    }
+  ],
+  "external_data_downloaded": false,
+  "fixed_seed": 20260514,
+  "future_result_discussion_requirement": "Create a separate DATA-02C result discussion after reading outputs; include a human-readable Bauchbild and keep all interpretation control-ensemble-only.",
+  "highest_risk_mimic_control": {
+    "control_family_id": "within_system_label_shuffle",
+    "control_id": "within_system_label_shuffle__ethyne",
+    "organization_coherence_score": 1.0,
+    "original_control_coherence_contrast": 0.0,
+    "source_system_id": "ethyne"
+  },
+  "input_dependencies": {
+    "carbon_bonding_organization_manifest": "data/QSB-BRIDGE-DATA-02B/carbon_bonding_organization_manifest.json",
+    "carbon_ladder_edges": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_edges.csv",
+    "carbon_ladder_nodes": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_nodes.csv"
+  },
+  "lowest_original_control_coherence_contrast": {
+    "control_family_id": "within_system_label_shuffle",
+    "control_id": "within_system_label_shuffle__adamantane",
+    "organization_coherence_score": 1.0,
+    "original_control_coherence_contrast": 0.0,
+    "source_system_id": "adamantane"
+  },
+  "possible_negative_finding_present": true,
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "control_ensembles_open",
+  "systems": [
+    "adamantane",
+    "benzene",
+    "c60",
+    "ethyne"
+  ],
+  "tables": {
+    "control_edges": "data/QSB-BRIDGE-DATA-02C/control_edges.csv",
+    "control_family_summary": "data/QSB-BRIDGE-DATA-02C/control_family_summary.csv",
+    "control_nodes": "data/QSB-BRIDGE-DATA-02C/control_nodes.csv",
+    "control_validation_summary": "data/QSB-BRIDGE-DATA-02C/control_validation_summary.csv"
+  }
+}
