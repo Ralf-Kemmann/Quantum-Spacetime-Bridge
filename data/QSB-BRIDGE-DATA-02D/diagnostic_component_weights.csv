@@ -1,0 +1,7 @@
+component_id,component_weight,signal_type,risk_boundary,included_in_combined_score
+topology_signature_diagnostic,0.18,topology-derived signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True
+degree_distribution_diagnostic,0.14,degree-derived signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True
+bond_order_distribution_diagnostic,0.18,bond-order-derived signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True
+hybridization_distribution_diagnostic,0.18,label-derived signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True
+sigma_pi_organization_diagnostic,0.18,sigma/pi-derived signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True
+local_environment_consistency_diagnostic,0.14,combined scaffold signal,"synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",True

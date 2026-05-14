@@ -1,0 +1,41 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02D",
+  "claim_boundary": "synthetic scaffold diagnostic only; not real-data validation, molecular validation, physical validation, spacetime emergence, or proof of electronic-configuration recognition",
+  "component_weights": {
+    "bond_order_distribution_diagnostic": 0.18,
+    "degree_distribution_diagnostic": 0.14,
+    "hybridization_distribution_diagnostic": 0.18,
+    "local_environment_consistency_diagnostic": 0.14,
+    "sigma_pi_organization_diagnostic": 0.18,
+    "topology_signature_diagnostic": 0.18
+  },
+  "data02c_low_contrast_warning": "some controls show zero/low original-control contrast, especially within-system label shuffles for small/uniform systems",
+  "diagnostic_families": [
+    "topology_signature_diagnostic",
+    "degree_distribution_diagnostic",
+    "bond_order_distribution_diagnostic",
+    "hybridization_distribution_diagnostic",
+    "sigma_pi_organization_diagnostic",
+    "local_environment_consistency_diagnostic",
+    "combined_bonding_organization_score",
+    "original_vs_control_separation_score"
+  ],
+  "external_data_downloaded": false,
+  "future_result_discussion_requirement": "Discuss DATA-02D only as scaffold diagnostic separability; treat poor separation or mimicry as boundary evidence.",
+  "input_dependencies": {
+    "carbon_bonding_organization_manifest": "data/QSB-BRIDGE-DATA-02B/carbon_bonding_organization_manifest.json",
+    "carbon_ladder_edges": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_edges.csv",
+    "carbon_ladder_nodes": "data/QSB-BRIDGE-DATA-02B/carbon_ladder_nodes.csv",
+    "control_edges": "data/QSB-BRIDGE-DATA-02C/control_edges.csv",
+    "control_ensemble_manifest": "data/QSB-BRIDGE-DATA-02C/control_ensemble_manifest.json",
+    "control_nodes": "data/QSB-BRIDGE-DATA-02C/control_nodes.csv",
+    "data02c_organization_coherence_summary": "runs/QSB-BRIDGE-DATA-02C/control_ensembles_open/organization_coherence_summary.csv"
+  },
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "diagnostic_separation_open",
+  "separation_threshold": 0.2,
+  "source_block_claim_boundaries": {
+    "DATA02B": "synthetic_reference_style_scaffold_only_no_realdata_no_molecular_no_physical_validation",
+    "DATA02C": "synthetic_reference_style_control_ensemble_only_no_realdata_no_molecular_no_physical_validation"
+  }
+}

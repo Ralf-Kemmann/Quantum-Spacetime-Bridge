@@ -1,0 +1,3 @@
+control_id,original_system_id,control_family_id,component_score_topology,component_score_degree,component_score_bond_order,component_score_hybridization,component_score_sigma_pi,component_score_local_environment,combined_bonding_organization_score,original_control_delta,mimic_risk_flag,possible_negative_finding,interpretation_boundary
+within_system_label_shuffle__adamantane,adamantane,within_system_label_shuffle,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,True,True,zero_or_low_delta_control_mimicry_boundary
+within_system_label_shuffle__ethyne,ethyne,within_system_label_shuffle,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,True,True,zero_or_low_delta_control_mimicry_boundary

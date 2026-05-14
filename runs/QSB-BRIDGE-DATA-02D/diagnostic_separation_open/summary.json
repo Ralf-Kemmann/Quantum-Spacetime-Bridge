@@ -1,0 +1,45 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02D",
+  "control_count": 32,
+  "control_family_count": 8,
+  "data02c_mimic_warning": "some controls show zero/low original-control contrast, especially within-system label shuffles for small/uniform systems",
+  "external_data_downloaded": false,
+  "highest_risk_mimic_control": {
+    "combined_bonding_organization_score": 1.0,
+    "component_score_bond_order": 1.0,
+    "component_score_degree": 1.0,
+    "component_score_hybridization": 1.0,
+    "component_score_local_environment": 1.0,
+    "component_score_sigma_pi": 1.0,
+    "component_score_topology": 1.0,
+    "control_family_id": "within_system_label_shuffle",
+    "control_id": "within_system_label_shuffle__adamantane",
+    "interpretation_boundary": "zero_or_low_delta_control_mimicry_boundary",
+    "mimic_risk_flag": "True",
+    "original_control_delta": 0.0,
+    "original_system_id": "adamantane",
+    "possible_negative_finding": "True"
+  },
+  "lowest_original_control_delta": {
+    "control_id": "within_system_label_shuffle__adamantane",
+    "original_control_delta": 0.0,
+    "original_system_id": "adamantane"
+  },
+  "no_electronic_configuration_recognition_claim": true,
+  "no_molecular_validation_claim": true,
+  "no_physical_validation_claim": true,
+  "no_realdata_validation_claim": true,
+  "no_spacetime_emergence_claim": true,
+  "original_system_count": 4,
+  "possible_negative_finding_present": true,
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "diagnostic_separation_open",
+  "separation_fail_count": 8,
+  "separation_pass_count": 24,
+  "separation_threshold": 0.2,
+  "source_blocks": [
+    "QSB-BRIDGE-DATA-02B",
+    "QSB-BRIDGE-DATA-02C"
+  ],
+  "stop_go_outcome": "revise_diagnostics_due_to_control_mimicry"
+}
