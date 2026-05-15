@@ -1,0 +1,26 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02E",
+  "data02c_mimic_warning": "some controls show zero/low original-control contrast, especially within-system label shuffles for small/uniform systems",
+  "data02d_mimic_warning": "some controls show zero/low original-control contrast, especially within-system label shuffles for small/uniform systems",
+  "data_output_dir": "data/QSB-BRIDGE-DATA-02E",
+  "degenerate_control_threshold": 0.15,
+  "high_risk_threshold": 0.95,
+  "mimic_threshold": 0.2,
+  "primary_inputs": {
+    "control_diagnostic_summary": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/control_diagnostic_summary.csv",
+    "data02d_summary": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/summary.json",
+    "diagnostic_component_weights": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/diagnostic_component_weights.csv",
+    "highest_risk_mimic_diagnostic": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/highest_risk_mimic_diagnostic.csv",
+    "original_diagnostic_summary": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/original_diagnostic_summary.csv",
+    "original_vs_control_separation": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/original_vs_control_separation.csv",
+    "proxy_risk_summary": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open/proxy_risk_summary.csv"
+  },
+  "qsb_bridge_num_05c_warning": "local-neighborhood sensitivity under small additive magnitude noise at 0.02",
+  "run_id": "control_mimicry_revision_open",
+  "run_output_dir": "runs/QSB-BRIDGE-DATA-02E/control_mimicry_revision_open",
+  "source_blocks": [
+    "QSB-BRIDGE-DATA-02D",
+    "QSB-BRIDGE-DATA-02C",
+    "QSB-BRIDGE-DATA-02B"
+  ]
+}

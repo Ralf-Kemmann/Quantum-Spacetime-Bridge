@@ -1,0 +1,15 @@
+{
+  "block_id": "QSB-BRIDGE-DATA-02E",
+  "claim_boundary": "synthetic/reference-style diagnostic only; no real-data validation, no molecular validation, no physical validation, no spacetime emergence, no physical metric recovery, no causal structure, no de-Broglie confirmation, no real quantum dynamics, no proof that electronic configurations are recognized, and no proof that bonding organization is physically recognized",
+  "data_mirrors": [
+    "control_mimic_failure_inventory.csv",
+    "control_destruction_effectiveness_summary.csv",
+    "diagnostic_specificity_summary.csv",
+    "mimic_family_risk_summary.csv",
+    "revision_recommendation_summary.csv"
+  ],
+  "external_data_downloaded": false,
+  "generated_run_dir": "runs/QSB-BRIDGE-DATA-02E/control_mimicry_revision_open",
+  "run_id": "control_mimicry_revision_open",
+  "source_run_dir": "runs/QSB-BRIDGE-DATA-02D/diagnostic_separation_open"
+}
