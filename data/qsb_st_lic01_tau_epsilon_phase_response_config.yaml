@@ -1,0 +1,182 @@
+# QSB-ST-LIC01 tau/epsilon phase-response config
+#
+# Block:
+#   QSB-ST-LIC01 / LIC01_tau_epsilon
+#
+# Status:
+#   Config scaffold only.
+#   No runner assumptions beyond field naming and output expectations.
+#
+# Claim boundary:
+#   Synthetic diagnostic configuration only.
+#   tau_rel is a relational-delay diagnostic candidate, not physical time.
+#   c_eff is a normalized scale/sensitivity parameter, not the physical speed of light.
+
+block:
+  block_id: "QSB-ST-LIC01"
+  run_id: "tau_epsilon_phase_response_open"
+  status_target: "LIC01_tau_rel_config_scaffolded_not_run"
+  construction_route: "tau_rel_phase_response_design_candidate"
+  design_note: "docs/QSB_ST_TAU_REL_PHASE_RESPONSE_CONSTRUCTION_DESIGN.md"
+
+claim_boundary:
+  allowed_claim: >
+    This configuration supports a synthetic phase-response construction route
+    for a relational-delay diagnostic candidate tau_rel(A,B).
+  disallowed_claims:
+    - "physical time"
+    - "proper time"
+    - "Lorentzian metric derived"
+    - "spacetime validation"
+    - "experimental validation"
+    - "real-data validation"
+    - "superluminal transport"
+    - "replacement of relativity"
+    - "replacement of quantum mechanics"
+
+baseline:
+  source_mode: "synthetic_reference"
+  kernel_symbol: "K_ij"
+  kernel_family: "phase_correlation_kernel"
+  node_set_mode: "small_open_synthetic"
+  require_square_kernel: true
+  require_finite_values: true
+  require_reproducible_ordering: true
+  notes: >
+    The first LIC01 run should use a transparent synthetic reference kernel.
+    No external physical-data interpretation is implied.
+
+perturbation:
+  perturbation_family: "local_phase_response"
+  operator_symbol: "P_ij(A)"
+  source_selection_mode: "all_nodes"
+  target_selection_mode: "all_nodes"
+  phase_mode: "complex_phase_if_supported"
+  fallback_mode: "real_symmetric_additive"
+  preserve_baseline_shape: true
+  epsilon_values:
+    - -0.050
+    - -0.020
+    - -0.010
+    - -0.005
+    - 0.000
+    - 0.005
+    - 0.010
+    - 0.020
+    - 0.050
+  epsilon_zero_required: true
+  symmetric_epsilon_required: true
+  notes: >
+    The symmetric epsilon sweep is intended to support finite-difference
+    response estimates around epsilon = 0.
+
+response:
+  observable_family: "local_kernel_neighborhood_response"
+  response_norm: "l2"
+  normalize_response: true
+  normalization_family: "max_abs_with_eta"
+  eta: 1.0e-12
+  finite_difference_family: "central_small_epsilon"
+  finite_difference_epsilon: 0.005
+  response_integral_family: "trapezoid_over_epsilon"
+  pairwise_score_name: "rho_tau"
+  tau_rel_transform: "inverse_response_with_eta"
+  tau_rel_normalization: "minmax_after_inverse"
+  notes: >
+    rho_tau is a response-strength score. tau_rel_candidate is a monotone
+    diagnostic transform and must not be interpreted as physical time.
+
+distance:
+  include_distance_D_if_available: true
+  distance_source_mode: "optional_graph_cost_pipeline"
+  distance_field_name: "distance_D"
+  allow_null_distance: true
+  notes: >
+    D(A,B) may be attached if an existing graph/cost distance is available.
+    LIC01-B does not require D(A,B) to be computed.
+
+interval_candidate:
+  construct_S_rel2_if_distance_available: false
+  formula: "S_rel2_candidate = c_eff^2 * tau_rel_candidate^2 - distance_D^2"
+  c_eff_values:
+    - 0.5
+    - 1.0
+    - 2.0
+  c_eff_default: 1.0
+  c_eff_physical_interpretation_allowed: false
+  notes: >
+    S_rel2 remains disabled in the first config scaffold unless distance_D
+    is explicitly supplied by a later runner/config extension.
+
+controls:
+  enabled: true
+  control_families:
+    - "global_phase_shift"
+    - "local_gauge_like_phase_shift"
+    - "random_phase"
+    - "spectrum_matched_phase"
+    - "amplitude_only_phase_uniform"
+    - "amplitude_preserved_phase_randomized"
+    - "label_shuffle"
+    - "topology_preserving_graph_control"
+  loop_closure_check_enabled: true
+  component_dominance_check_enabled: true
+  c_eff_sensitivity_check_enabled: true
+  notes: >
+    Controls are listed here as planned families. The first runner may implement
+    only a transparent subset, but any missing controls must be reported.
+
+outputs:
+  output_dir: "runs/QSB-ST-LIC01/tau_epsilon_phase_response_open"
+  write_summary_json: true
+  write_readout_md: true
+  write_config_resolved_json: true
+  csv_files:
+    pairwise_response: "tau_epsilon_pairwise_response.csv"
+    response_sweep: "tau_epsilon_response_sweep.csv"
+    tau_rel_candidate_matrix: "tau_rel_candidate_matrix.csv"
+  required_summary_keys:
+    - "block_id"
+    - "run_id"
+    - "status"
+    - "construction_route"
+    - "baseline_source"
+    - "perturbation_family"
+    - "observable_family"
+    - "epsilon_values"
+    - "pair_count"
+    - "tau_rel_constructed"
+    - "S_rel2_constructed"
+    - "claim_boundary"
+    - "warnings"
+
+acceptance:
+  config_parse_required: true
+  summary_json_required: true
+  csv_parse_required: true
+  nonzero_pair_count_required: true
+  epsilon_values_must_match_config: true
+  readout_sections_required:
+    - "Befund"
+    - "Interpretation"
+    - "Hypothese"
+    - "Offene Lücke"
+    - "Claim Boundary"
+  claim_risk_grep_terms:
+    - "proved"
+    - "proven"
+    - "validates spacetime"
+    - "physical time"
+    - "proper time"
+    - "Lorentzian metric derived"
+    - "speed of light"
+    - "experimental validation"
+    - "real-data validation"
+    - "superluminal"
+
+reproducibility:
+  random_seed: 17052026
+  deterministic_ordering_required: true
+  hidden_external_dependencies_allowed: false
+  runner_should_print_compact_summary: true
+  runner_should_write_resolved_config: true
