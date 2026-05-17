@@ -25,6 +25,13 @@ CONTROL_FAMILIES = [
     "amplitude_preserved_phase_randomized",
     "label_shuffle",
 ]
+SPECIFICITY_CONTROL_FAMILIES = [
+    "global_phase_shift",
+    "random_phase",
+    "amplitude_preserved_phase_randomized",
+    "label_shuffle",
+]
+STRUCTURED_REFERENCE_FAMILY = "structured_local_phase_response"
 
 
 def parse_args() -> argparse.Namespace:
@@ -207,13 +214,43 @@ def summarize_pair_response(
 
 
 def control_status_label(control_family: str, mean_ratio: float, max_ratio: float) -> str:
-    if control_family == "structured_local_phase_response":
+    if control_family == STRUCTURED_REFERENCE_FAMILY:
         return "structured_reference"
     if mean_ratio >= 0.9 or max_ratio >= 0.9:
         return "control_close_to_structured_warning"
     if mean_ratio <= 0.25 and max_ratio <= 0.25:
         return "control_lower_than_structured"
     return "control_computed"
+
+
+def pearson_correlation(x_values: np.ndarray, y_values: np.ndarray) -> float | None:
+    if x_values.size == 0 or y_values.size == 0:
+        return None
+    if float(np.std(x_values)) == 0.0 or float(np.std(y_values)) == 0.0:
+        return None
+    value = float(np.corrcoef(x_values, y_values)[0, 1])
+    if not math.isfinite(value):
+        return None
+    return value
+
+
+def specificity_status_label(
+    control_family: str,
+    mean_ratio: float,
+    max_ratio: float,
+    rank_separation_score: float,
+) -> str:
+    if mean_ratio > 1.0 or max_ratio > 1.0:
+        return "control_exceeds_reference_warning"
+    if control_family == "label_shuffle":
+        return "small_kernel_ambiguity_warning"
+    if mean_ratio >= 0.9 or max_ratio >= 0.9:
+        return "control_close_to_reference_warning"
+    if 0.4 <= rank_separation_score <= 0.6:
+        return "specificity_weak_or_inconclusive"
+    if mean_ratio < 0.5 and max_ratio < 0.8 and rank_separation_score > 0.75:
+        return "specificity_supported_in_tested_controls"
+    return "specificity_weak_or_inconclusive"
 
 
 def compute_control_family(
@@ -458,6 +495,7 @@ def main() -> None:
 
     control_pairwise_rows: List[Dict[str, Any]] = []
     control_summary_rows: List[Dict[str, Any]] = []
+    control_pair_values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]] = {}
     control_status_labels: Dict[str, str] = {}
     control_warnings: List[str] = []
     structured_reference_mean: float | None = None
@@ -500,6 +538,11 @@ def main() -> None:
             control_warnings.append(f"{control_family}: {warning}")
 
         for idx, record in enumerate(control_records):
+            pair_key = (str(record["source_id"]), str(record["target_id"]))
+            control_pair_values.setdefault(control_family, {})[pair_key] = {
+                "rho_tau": float(record["rho_tau"]),
+                "tau_rel_candidate": float(control_tau_candidates[idx]),
+            }
             control_pairwise_rows.append(
                 {
                     "control_family": record["control_family"],
@@ -532,6 +575,110 @@ def main() -> None:
                 "structured_reference_max_ratio": f"{max_ratio:.12g}",
                 "status": status_label,
                 "warning": warning,
+            }
+        )
+
+    reference_pair_values = control_pair_values[STRUCTURED_REFERENCE_FAMILY]
+    specificity_pairwise_rows: List[Dict[str, Any]] = []
+    specificity_summary_rows: List[Dict[str, Any]] = []
+    specificity_status_labels: Dict[str, str] = {}
+    specificity_warnings: List[str] = []
+
+    for control_family in SPECIFICITY_CONTROL_FAMILIES:
+        control_values = control_pair_values[control_family]
+        reference_rho_values: List[float] = []
+        control_rho_values: List[float] = []
+        reference_tau_values: List[float] = []
+        control_tau_values: List[float] = []
+        reference_higher_count = 0
+
+        for source_id in node_ids:
+            for target_id in node_ids:
+                pair_key = (source_id, target_id)
+                ref = reference_pair_values[pair_key]
+                ctrl = control_values[pair_key]
+                rho_ref = ref["rho_tau"]
+                rho_ctrl = ctrl["rho_tau"]
+                tau_ref = ref["tau_rel_candidate"]
+                tau_ctrl = ctrl["tau_rel_candidate"]
+                rho_delta = rho_ref - rho_ctrl
+                tau_delta = tau_ref - tau_ctrl
+                rho_ratio = rho_ctrl / (rho_ref + eta)
+                if rho_ref > rho_ctrl:
+                    reference_higher_count += 1
+                    pattern_status = "reference_higher"
+                elif rho_ctrl > rho_ref:
+                    pattern_status = "control_higher"
+                else:
+                    pattern_status = "equal"
+
+                reference_rho_values.append(rho_ref)
+                control_rho_values.append(rho_ctrl)
+                reference_tau_values.append(tau_ref)
+                control_tau_values.append(tau_ctrl)
+                specificity_pairwise_rows.append(
+                    {
+                        "source_id": source_id,
+                        "target_id": target_id,
+                        "control_family": control_family,
+                        "rho_tau_reference": f"{rho_ref:.12g}",
+                        "rho_tau_control": f"{rho_ctrl:.12g}",
+                        "rho_tau_delta": f"{rho_delta:.12g}",
+                        "rho_tau_ratio": f"{rho_ratio:.12g}",
+                        "tau_rel_reference": f"{tau_ref:.12g}",
+                        "tau_rel_control": f"{tau_ctrl:.12g}",
+                        "tau_rel_delta": f"{tau_delta:.12g}",
+                        "pattern_status": pattern_status,
+                    }
+                )
+
+        ref_rho_array = np.asarray(reference_rho_values, dtype=float)
+        ctrl_rho_array = np.asarray(control_rho_values, dtype=float)
+        ref_mean = float(np.mean(ref_rho_array))
+        ctrl_mean = float(np.mean(ctrl_rho_array))
+        ref_max = float(np.max(ref_rho_array))
+        ctrl_max = float(np.max(ctrl_rho_array))
+        mean_ratio = float(ctrl_mean / (ref_mean + eta))
+        max_ratio = float(ctrl_max / (ref_max + eta))
+        rank_separation_score = float(reference_higher_count / len(reference_rho_values))
+        pattern_correlation = pearson_correlation(ref_rho_array, ctrl_rho_array)
+        status_label = specificity_status_label(
+            control_family,
+            mean_ratio,
+            max_ratio,
+            rank_separation_score,
+        )
+
+        warning_parts: List[str] = []
+        if pattern_correlation is None:
+            warning_parts.append("pairwise pattern correlation undefined because at least one vector has zero variance")
+        if status_label != "specificity_supported_in_tested_controls":
+            warning_parts.append("synthetic specificity remains conservative/open for this control")
+        if control_family == "label_shuffle":
+            warning_parts.append("small synthetic systems can make label-shuffle specificity ambiguous")
+
+        warning_text = "; ".join(warning_parts)
+        specificity_status_labels[control_family] = status_label
+        if warning_text:
+            specificity_warnings.append(f"{control_family}: {warning_text}")
+
+        specificity_summary_rows.append(
+            {
+                "control_family": control_family,
+                "reference_family": STRUCTURED_REFERENCE_FAMILY,
+                "pair_count": len(reference_rho_values),
+                "rho_tau_reference_mean": f"{ref_mean:.12g}",
+                "rho_tau_control_mean": f"{ctrl_mean:.12g}",
+                "rho_tau_mean_delta": f"{(ref_mean - ctrl_mean):.12g}",
+                "rho_tau_mean_ratio": f"{mean_ratio:.12g}",
+                "rho_tau_reference_max": f"{ref_max:.12g}",
+                "rho_tau_control_max": f"{ctrl_max:.12g}",
+                "rho_tau_max_delta": f"{(ref_max - ctrl_max):.12g}",
+                "rho_tau_max_ratio": f"{max_ratio:.12g}",
+                "pairwise_pattern_correlation": "" if pattern_correlation is None else f"{pattern_correlation:.12g}",
+                "rank_separation_score": f"{rank_separation_score:.12g}",
+                "specificity_status": status_label,
+                "warning": warning_text,
             }
         )
 
@@ -571,6 +718,31 @@ def main() -> None:
             "tau_rel_candidate_max", "tau_rel_candidate_mean",
             "structured_reference_mean_ratio", "structured_reference_max_ratio",
             "status", "warning",
+        ],
+    )
+    specificity_contrast_summary_file = "specificity_contrast_summary.csv"
+    specificity_pairwise_contrast_file = "specificity_pairwise_contrast.csv"
+    write_csv(
+        output_dir / specificity_contrast_summary_file,
+        specificity_summary_rows,
+        [
+            "control_family", "reference_family", "pair_count",
+            "rho_tau_reference_mean", "rho_tau_control_mean",
+            "rho_tau_mean_delta", "rho_tau_mean_ratio",
+            "rho_tau_reference_max", "rho_tau_control_max",
+            "rho_tau_max_delta", "rho_tau_max_ratio",
+            "pairwise_pattern_correlation", "rank_separation_score",
+            "specificity_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / specificity_pairwise_contrast_file,
+        specificity_pairwise_rows,
+        [
+            "source_id", "target_id", "control_family",
+            "rho_tau_reference", "rho_tau_control", "rho_tau_delta",
+            "rho_tau_ratio", "tau_rel_reference", "tau_rel_control",
+            "tau_rel_delta", "pattern_status",
         ],
     )
 
@@ -613,9 +785,16 @@ def main() -> None:
         "control_family_count": len(CONTROL_FAMILIES),
         "control_pairwise_response_file": control_pairwise_file,
         "control_summary_file": control_summary_file,
-        "structured_reference_family": "structured_local_phase_response",
+        "structured_reference_family": STRUCTURED_REFERENCE_FAMILY,
         "control_status_labels": control_status_labels,
         "control_warnings": control_warnings,
+        "specificity_contrast_summary_file": specificity_contrast_summary_file,
+        "specificity_pairwise_contrast_file": specificity_pairwise_contrast_file,
+        "specificity_reference_family": STRUCTURED_REFERENCE_FAMILY,
+        "specificity_control_families": SPECIFICITY_CONTROL_FAMILIES,
+        "specificity_status_labels": specificity_status_labels,
+        "specificity_warnings": specificity_warnings,
+        "specificity_established": False,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
@@ -623,6 +802,7 @@ def main() -> None:
             "tau_rel_candidate is a normalized monotone transform of response strength.",
             "S_rel2_candidate is intentionally not constructed in this minimal run.",
             "The first control suite is synthetic and diagnostic only; it does not establish physical time, proper time, Lorentz metric behavior, spacetime emergence, or physical Bridge validation.",
+            "The LIC01-F specificity layer compares raw rho_tau contrasts and does not establish diagnostic specificity when controls remain close to reference.",
             "Small synthetic systems can make label-shuffle controls ambiguous.",
         ],
     }
@@ -655,6 +835,8 @@ config_resolved.json
 {csv_files['tau_rel_candidate_matrix']}
 {control_pairwise_file}
 {control_summary_file}
+{specificity_contrast_summary_file}
+{specificity_pairwise_contrast_file}
 ```
 
 ## Interpretation
@@ -715,6 +897,52 @@ diagnostic can be compared against global, random, phase-randomized, and
 label-shuffled controls. These controls test synthetic diagnostic specificity
 only. They do not prove physical time, proper time, a Lorentz metric, spacetime
 emergence, a physical Bridge, or experimental/real-data validation.
+
+## Specificity Readout
+
+### Specificity contrast outputs
+
+The LIC01-F specificity layer writes:
+
+```text
+{specificity_contrast_summary_file}
+{specificity_pairwise_contrast_file}
+```
+
+`{specificity_contrast_summary_file}` contains `{len(specificity_summary_rows)}` rows.
+`{specificity_pairwise_contrast_file}` contains `{len(specificity_pairwise_rows)}` rows.
+
+### Specificity summary
+
+Reference family:
+
+```text
+{STRUCTURED_REFERENCE_FAMILY}
+```
+
+Control status labels:
+
+```text
+{chr(10).join(f"- {family}: {specificity_status_labels[family]}" for family in SPECIFICITY_CONTROL_FAMILIES)}
+```
+
+The LIC01-F specificity layer compares structured reference response against
+tested synthetic controls using raw `rho_tau` contrasts, pairwise deltas,
+pattern correlation, and rank separation. `tau_rel_candidate` is reported as a
+secondary diagnostic contrast and is not used alone for specificity.
+
+### Specificity warnings
+
+```text
+{chr(10).join(f"- {warning}" for warning in specificity_warnings) if specificity_warnings else "- No specificity warnings were emitted."}
+```
+
+### Specificity interpretation boundary
+
+Specificity comparison is now available. Specificity is only supported when
+controls are clearly separated from the structured reference. If controls remain
+close to the reference, specificity remains open. No physical interpretation is
+made from this synthetic contrast layer.
 
 ## Claim Boundary
 
