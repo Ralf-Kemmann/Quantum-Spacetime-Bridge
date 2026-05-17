@@ -34,7 +34,7 @@ The Bridge is currently not claimed to be:
 - a proven physical interaction,
 - a derived spacetime metric,
 - a replacement for relativity or quantum mechanics,
-- a Theory of Everything,
+- an all-encompassing final theory,
 - an experimental prediction,
 - proof that `D_rel`, VDW, negative/abs, Carbon, or Matter Signature axes are physical carriers.
 
