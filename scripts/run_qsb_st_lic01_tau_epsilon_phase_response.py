@@ -18,6 +18,13 @@ import numpy as np
 import yaml
 
 DEFAULT_CONFIG = Path("data/qsb_st_lic01_tau_epsilon_phase_response_config.yaml")
+CONTROL_FAMILIES = [
+    "structured_local_phase_response",
+    "global_phase_shift",
+    "random_phase",
+    "amplitude_preserved_phase_randomized",
+    "label_shuffle",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -90,6 +97,48 @@ def local_phase_perturbation(kernel: np.ndarray, source_idx: int, epsilon: float
     return perturbed
 
 
+def global_phase_shift(kernel: np.ndarray, epsilon: float) -> np.ndarray:
+    """Apply a uniform phase factor to the whole synthetic kernel."""
+    return kernel * np.exp(1j * epsilon)
+
+
+def random_phase_perturbation(
+    kernel: np.ndarray,
+    source_idx: int,
+    epsilon: float,
+    random_phase_basis: np.ndarray,
+) -> np.ndarray:
+    """Apply a deterministic source-indexed random phase perturbation."""
+    phase_field = random_phase_basis[source_idx]
+    return kernel * np.exp(1j * epsilon * phase_field)
+
+
+def amplitude_preserved_phase_randomized(
+    kernel: np.ndarray,
+    source_idx: int,
+    epsilon: float,
+    randomized_phase_basis: np.ndarray,
+) -> np.ndarray:
+    """Preserve amplitudes while applying a deterministic randomized phase field."""
+    amplitude = np.abs(kernel)
+    base_phase = np.angle(kernel)
+    phase_field = randomized_phase_basis[source_idx]
+    return amplitude * np.exp(1j * (base_phase + epsilon * phase_field))
+
+
+def label_shuffle_perturbation(
+    kernel: np.ndarray,
+    source_idx: int,
+    epsilon: float,
+    permutation: np.ndarray,
+) -> Tuple[np.ndarray, np.ndarray, int]:
+    """Apply the local perturbation after a deterministic label permutation."""
+    shuffled_kernel = kernel[np.ix_(permutation, permutation)]
+    perturbed = local_phase_perturbation(shuffled_kernel, source_idx, epsilon)
+    target_permutation = np.arange(len(permutation))
+    return shuffled_kernel, perturbed, int(target_permutation[source_idx])
+
+
 def target_observable(kernel: np.ndarray, target_idx: int) -> np.ndarray:
     """Return concatenated real/imag row+column observable around target."""
     row = kernel[target_idx, :]
@@ -136,7 +185,120 @@ def central_slope(response_by_epsilon: Dict[float, float], h: float) -> float:
 
 
 def trapezoid_integral(eps: List[float], values: List[float]) -> float:
-    return float(np.trapezoid(np.asarray(values, dtype=float), np.asarray(eps, dtype=float)))
+    y_values = np.asarray(values, dtype=float)
+    x_values = np.asarray(eps, dtype=float)
+    if hasattr(np, "trapezoid"):
+        return float(np.trapezoid(y_values, x_values))
+    return float(np.trapz(y_values, x_values))
+
+
+def summarize_pair_response(
+    values: Dict[float, float],
+    epsilon_values: List[float],
+    finite_difference_epsilon: float,
+    eta: float,
+) -> Tuple[float, float, float, float]:
+    slope = central_slope(values, finite_difference_epsilon)
+    positive_small_response = values[finite_difference_epsilon]
+    rho_tau = float(positive_small_response / (abs(finite_difference_epsilon) + eta))
+    integral = trapezoid_integral(epsilon_values, [values[eps] for eps in epsilon_values])
+    peak_epsilon = max(epsilon_values, key=lambda eps: values[eps])
+    return slope, integral, float(peak_epsilon), rho_tau
+
+
+def control_status_label(control_family: str, mean_ratio: float, max_ratio: float) -> str:
+    if control_family == "structured_local_phase_response":
+        return "structured_reference"
+    if mean_ratio >= 0.9 or max_ratio >= 0.9:
+        return "control_close_to_structured_warning"
+    if mean_ratio <= 0.25 and max_ratio <= 0.25:
+        return "control_lower_than_structured"
+    return "control_computed"
+
+
+def compute_control_family(
+    control_family: str,
+    node_ids: List[str],
+    baseline_kernel: np.ndarray,
+    epsilon_values: List[float],
+    finite_difference_epsilon: float,
+    eta: float,
+    norm_family: str,
+    normalization_family: str,
+    random_phase_basis: np.ndarray,
+    randomized_phase_basis: np.ndarray,
+    label_permutation: np.ndarray,
+) -> Tuple[List[Dict[str, Any]], np.ndarray]:
+    records: List[Dict[str, Any]] = []
+    inverse_candidates: List[float] = []
+    n = len(node_ids)
+
+    for source_idx, source_id in enumerate(node_ids):
+        for target_idx, target_id in enumerate(node_ids):
+            response_by_epsilon: Dict[float, float] = {}
+            for epsilon in epsilon_values:
+                response_baseline = baseline_kernel
+                response_target_idx = target_idx
+
+                if control_family == "structured_local_phase_response":
+                    perturbed = local_phase_perturbation(baseline_kernel, source_idx, epsilon)
+                elif control_family == "global_phase_shift":
+                    perturbed = global_phase_shift(baseline_kernel, epsilon)
+                elif control_family == "random_phase":
+                    perturbed = random_phase_perturbation(
+                        baseline_kernel,
+                        source_idx,
+                        epsilon,
+                        random_phase_basis,
+                    )
+                elif control_family == "amplitude_preserved_phase_randomized":
+                    perturbed = amplitude_preserved_phase_randomized(
+                        baseline_kernel,
+                        source_idx,
+                        epsilon,
+                        randomized_phase_basis,
+                    )
+                elif control_family == "label_shuffle":
+                    response_baseline = baseline_kernel[np.ix_(label_permutation, label_permutation)]
+                    perturbed = local_phase_perturbation(response_baseline, source_idx, epsilon)
+                    response_target_idx = target_idx
+                else:
+                    raise ValueError(f"Unsupported control family: {control_family}")
+
+                response_by_epsilon[epsilon] = response_value(
+                    response_baseline,
+                    perturbed,
+                    response_target_idx,
+                    norm_family,
+                )
+
+            slope, integral, peak_epsilon, rho_tau = summarize_pair_response(
+                response_by_epsilon,
+                epsilon_values,
+                finite_difference_epsilon,
+                eta,
+            )
+            inverse_candidates.append(1.0 / (rho_tau + eta))
+            records.append(
+                {
+                    "control_family": control_family,
+                    "source_id": source_id,
+                    "target_id": target_id,
+                    "epsilon_min": min(epsilon_values),
+                    "epsilon_max": max(epsilon_values),
+                    "response_slope": slope,
+                    "response_integral": integral,
+                    "response_peak_epsilon": peak_epsilon,
+                    "rho_tau": rho_tau,
+                    "normalization_family": normalization_family,
+                    "status": "synthetic_control_pairwise_score_computed",
+                }
+            )
+
+    if len(records) != n * n:
+        raise ValueError(f"{control_family} produced {len(records)} rows, expected {n * n}")
+    tau_candidates = minmax(np.asarray(inverse_candidates, dtype=float), eta=eta)
+    return records, tau_candidates
 
 
 def write_csv(path: Path, rows: List[Dict[str, Any]], fieldnames: List[str]) -> None:
@@ -281,6 +443,98 @@ def main() -> None:
             }
         )
 
+    control_rng = np.random.default_rng(seed + 101)
+    random_phase_basis = control_rng.uniform(
+        low=-math.pi,
+        high=math.pi,
+        size=(len(node_ids), len(node_ids), len(node_ids)),
+    )
+    randomized_phase_basis = control_rng.uniform(
+        low=-math.pi,
+        high=math.pi,
+        size=(len(node_ids), len(node_ids), len(node_ids)),
+    )
+    label_permutation = control_rng.permutation(len(node_ids))
+
+    control_pairwise_rows: List[Dict[str, Any]] = []
+    control_summary_rows: List[Dict[str, Any]] = []
+    control_status_labels: Dict[str, str] = {}
+    control_warnings: List[str] = []
+    structured_reference_mean: float | None = None
+    structured_reference_max: float | None = None
+
+    for control_family in CONTROL_FAMILIES:
+        control_records, control_tau_candidates = compute_control_family(
+            control_family=control_family,
+            node_ids=node_ids,
+            baseline_kernel=baseline_kernel,
+            epsilon_values=epsilon_values,
+            finite_difference_epsilon=finite_difference_epsilon,
+            eta=eta,
+            norm_family=norm_family,
+            normalization_family=cfg["response"]["normalization_family"],
+            random_phase_basis=random_phase_basis,
+            randomized_phase_basis=randomized_phase_basis,
+            label_permutation=label_permutation,
+        )
+
+        rho_control = np.asarray([record["rho_tau"] for record in control_records], dtype=float)
+        tau_control = np.asarray(control_tau_candidates, dtype=float)
+        if control_family == "structured_local_phase_response":
+            structured_reference_mean = float(np.mean(rho_control))
+            structured_reference_max = float(np.max(rho_control))
+        if structured_reference_mean is None or structured_reference_max is None:
+            raise ValueError("Structured reference must be computed before controls")
+
+        mean_ratio = float(np.mean(rho_control) / (structured_reference_mean + eta))
+        max_ratio = float(np.max(rho_control) / (structured_reference_max + eta))
+        status_label = control_status_label(control_family, mean_ratio, max_ratio)
+        warning = ""
+        if control_family == "label_shuffle":
+            warning = "Small synthetic systems can make label-shuffle controls ambiguous; interpret as a label/identity diagnostic only."
+        elif status_label == "control_close_to_structured_warning":
+            warning = "Control response is close to structured reference; diagnostic specificity is not established for this control."
+
+        control_status_labels[control_family] = status_label
+        if warning:
+            control_warnings.append(f"{control_family}: {warning}")
+
+        for idx, record in enumerate(control_records):
+            control_pairwise_rows.append(
+                {
+                    "control_family": record["control_family"],
+                    "source_id": record["source_id"],
+                    "target_id": record["target_id"],
+                    "epsilon_min": f"{record['epsilon_min']:.12g}",
+                    "epsilon_max": f"{record['epsilon_max']:.12g}",
+                    "response_slope": f"{record['response_slope']:.12g}",
+                    "response_integral": f"{record['response_integral']:.12g}",
+                    "response_peak_epsilon": f"{record['response_peak_epsilon']:.12g}",
+                    "rho_tau": f"{record['rho_tau']:.12g}",
+                    "tau_rel_candidate": f"{float(control_tau_candidates[idx]):.12g}",
+                    "normalization_family": record["normalization_family"],
+                    "status": record["status"],
+                }
+            )
+
+        control_summary_rows.append(
+            {
+                "control_family": control_family,
+                "pair_count": len(control_records),
+                "rho_tau_min": f"{float(np.min(rho_control)):.12g}",
+                "rho_tau_max": f"{float(np.max(rho_control)):.12g}",
+                "rho_tau_mean": f"{float(np.mean(rho_control)):.12g}",
+                "rho_tau_std": f"{float(np.std(rho_control)):.12g}",
+                "tau_rel_candidate_min": f"{float(np.min(tau_control)):.12g}",
+                "tau_rel_candidate_max": f"{float(np.max(tau_control)):.12g}",
+                "tau_rel_candidate_mean": f"{float(np.mean(tau_control)):.12g}",
+                "structured_reference_mean_ratio": f"{mean_ratio:.12g}",
+                "structured_reference_max_ratio": f"{max_ratio:.12g}",
+                "status": status_label,
+                "warning": warning,
+            }
+        )
+
     csv_files = cfg["outputs"]["csv_files"]
     write_csv(
         output_dir / csv_files["response_sweep"],
@@ -296,6 +550,28 @@ def main() -> None:
         output_dir / csv_files["tau_rel_candidate_matrix"],
         tau_matrix_rows,
         ["source_id", "target_id", "tau_rel_candidate", "rho_tau", "distance_D", "S_rel2_candidate", "c_eff", "status"],
+    )
+    control_pairwise_file = "control_pairwise_response.csv"
+    control_summary_file = "control_summary.csv"
+    write_csv(
+        output_dir / control_pairwise_file,
+        control_pairwise_rows,
+        [
+            "control_family", "source_id", "target_id", "epsilon_min", "epsilon_max",
+            "response_slope", "response_integral", "response_peak_epsilon",
+            "rho_tau", "tau_rel_candidate", "normalization_family", "status",
+        ],
+    )
+    write_csv(
+        output_dir / control_summary_file,
+        control_summary_rows,
+        [
+            "control_family", "pair_count", "rho_tau_min", "rho_tau_max",
+            "rho_tau_mean", "rho_tau_std", "tau_rel_candidate_min",
+            "tau_rel_candidate_max", "tau_rel_candidate_mean",
+            "structured_reference_mean_ratio", "structured_reference_max_ratio",
+            "status", "warning",
+        ],
     )
 
     resolved_config = {
@@ -333,13 +609,21 @@ def main() -> None:
         "tau_rel_candidate_min": float(np.min(tau_array)),
         "tau_rel_candidate_max": float(np.max(tau_array)),
         "tau_rel_candidate_mean": float(np.mean(tau_array)),
+        "controls_implemented": CONTROL_FAMILIES,
+        "control_family_count": len(CONTROL_FAMILIES),
+        "control_pairwise_response_file": control_pairwise_file,
+        "control_summary_file": control_summary_file,
+        "structured_reference_family": "structured_local_phase_response",
+        "control_status_labels": control_status_labels,
+        "control_warnings": control_warnings,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
             "rho_tau is a diagnostic response-strength score.",
             "tau_rel_candidate is a normalized monotone transform of response strength.",
             "S_rel2_candidate is intentionally not constructed in this minimal run.",
-            "Some planned controls are listed in config but not implemented in this minimal runner.",
+            "The first control suite is synthetic and diagnostic only; it does not establish physical time, proper time, Lorentz metric behavior, spacetime emergence, or physical Bridge validation.",
+            "Small synthetic systems can make label-shuffle controls ambiguous.",
         ],
     }
     (output_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -369,6 +653,8 @@ config_resolved.json
 {csv_files['pairwise_response']}
 {csv_files['response_sweep']}
 {csv_files['tau_rel_candidate_matrix']}
+{control_pairwise_file}
+{control_summary_file}
 ```
 
 ## Interpretation
@@ -393,6 +679,42 @@ This minimal runner does not yet implement the full control suite listed in the
 config. It does not attach an existing distance field `D(A,B)`. It does not
 construct `S_rel2_candidate`. It does not test uniqueness, invariance, Lorentz
 compatibility, or empirical relevance.
+
+## Control Readout
+
+### Control families implemented
+
+The runner computed the following synthetic control families:
+
+```text
+{chr(10).join(f"- {family}: {control_status_labels[family]}" for family in CONTROL_FAMILIES)}
+```
+
+### Control summary
+
+The control outputs are:
+
+```text
+{control_pairwise_file}
+{control_summary_file}
+```
+
+`{control_pairwise_file}` contains `{len(control_pairwise_rows)}` rows.
+`{control_summary_file}` contains `{len(control_summary_rows)}` rows.
+
+### Control warnings
+
+```text
+{chr(10).join(f"- {warning}" for warning in control_warnings) if control_warnings else "- No control warnings were emitted."}
+```
+
+### Control interpretation boundary
+
+Under the tested synthetic control families, the LIC01 tau/epsilon response
+diagnostic can be compared against global, random, phase-randomized, and
+label-shuffled controls. These controls test synthetic diagnostic specificity
+only. They do not prove physical time, proper time, a Lorentz metric, spacetime
+emergence, a physical Bridge, or experimental/real-data validation.
 
 ## Claim Boundary
 
