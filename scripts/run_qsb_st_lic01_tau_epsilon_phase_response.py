@@ -234,6 +234,40 @@ def pearson_correlation(x_values: np.ndarray, y_values: np.ndarray) -> float | N
     return value
 
 
+def rank_desc_by_pair(rows: List[Dict[str, Any]], value_key: str) -> Dict[Tuple[str, str], int]:
+    sorted_rows = sorted(
+        rows,
+        key=lambda row: (
+            -float(row[value_key]),
+            str(row["source_id"]),
+            str(row["target_id"]),
+        ),
+    )
+    return {
+        (str(row["source_id"]), str(row["target_id"])): rank
+        for rank, row in enumerate(sorted_rows, start=1)
+    }
+
+
+def family_warning_text(
+    family: str,
+    specificity_warning_status: str,
+    small_kernel_audit_status: str,
+) -> str:
+    if family == STRUCTURED_REFERENCE_FAMILY:
+        return "structured reference row; no specificity is claimed by this audit"
+    if family == "label_shuffle":
+        return "small synthetic system ambiguity; diagnostic specificity not established"
+    if specificity_warning_status in {
+        "control_mean_exceeds_reference_warning",
+        "control_mean_close_to_reference_warning",
+    }:
+        return "diagnostic specificity not established"
+    if small_kernel_audit_status == "small_kernel_caution":
+        return "small-kernel caution; control mean lower than reference in this audit"
+    return "control mean lower than reference in this audit"
+
+
 def specificity_status_label(
     control_family: str,
     mean_ratio: float,
@@ -251,6 +285,189 @@ def specificity_status_label(
     if mean_ratio < 0.5 and max_ratio < 0.8 and rank_separation_score > 0.75:
         return "specificity_supported_in_tested_controls"
     return "specificity_weak_or_inconclusive"
+
+
+def build_observable_normalization_audit(
+    control_pair_values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]],
+    node_ids: List[str],
+    normalization_family: str,
+    eta: float,
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+    structured_values = control_pair_values[STRUCTURED_REFERENCE_FAMILY]
+    structured_mean = float(
+        np.mean([value["rho_tau"] for value in structured_values.values()])
+    )
+
+    summary_rows: List[Dict[str, Any]] = []
+    raw_control_rows: List[Dict[str, Any]] = []
+    rank_change_rows: List[Dict[str, Any]] = []
+    warning_rows: List[Dict[str, Any]] = []
+
+    for family in CONTROL_FAMILIES:
+        family_values = control_pair_values[family]
+        family_rows = [
+            {
+                "family": family,
+                "source_id": source_id,
+                "target_id": target_id,
+                "rho_tau_raw": float(family_values[(source_id, target_id)]["rho_tau"]),
+                "tau_rel_candidate": float(family_values[(source_id, target_id)]["tau_rel_candidate"]),
+            }
+            for source_id in node_ids
+            for target_id in node_ids
+        ]
+        raw_ranks = rank_desc_by_pair(family_rows, "rho_tau_raw")
+        tau_ranks = rank_desc_by_pair(family_rows, "tau_rel_candidate")
+        rho_array = np.asarray([row["rho_tau_raw"] for row in family_rows], dtype=float)
+        tau_array = np.asarray([row["tau_rel_candidate"] for row in family_rows], dtype=float)
+        raw_rank_array = np.asarray(list(raw_ranks.values()), dtype=float)
+
+        if family == STRUCTURED_REFERENCE_FAMILY:
+            specificity_warning_status = "structured_reference"
+        else:
+            rho_mean = float(np.mean(rho_array))
+            if rho_mean >= structured_mean:
+                specificity_warning_status = "control_mean_exceeds_reference_warning"
+            elif rho_mean >= 0.9 * structured_mean:
+                specificity_warning_status = "control_mean_close_to_reference_warning"
+            else:
+                specificity_warning_status = "control_mean_lower_than_reference"
+
+        if family == "global_phase_shift":
+            if float(np.mean(rho_array)) >= 0.9 * structured_mean:
+                global_phase_audit_status = "global_phase_sensitive_warning"
+            else:
+                global_phase_audit_status = "global_phase_not_dominant_in_this_audit"
+        else:
+            global_phase_audit_status = "not_applicable"
+
+        if family == "label_shuffle":
+            small_kernel_audit_status = "small_kernel_label_shuffle_ambiguous"
+        elif len(family_rows) <= 64:
+            small_kernel_audit_status = "small_kernel_caution"
+        else:
+            small_kernel_audit_status = "kernel_size_not_flagged"
+
+        warning = family_warning_text(
+            family=family,
+            specificity_warning_status=specificity_warning_status,
+            small_kernel_audit_status=small_kernel_audit_status,
+        )
+
+        top_pair = min(
+            family_rows,
+            key=lambda row: (
+                -float(row["rho_tau_raw"]),
+                str(row["source_id"]),
+                str(row["target_id"]),
+            ),
+        )
+        summary_rows.append(
+            {
+                "family": family,
+                "pair_count": len(family_rows),
+                "rho_tau_raw_min": f"{float(np.min(rho_array)):.12g}",
+                "rho_tau_raw_max": f"{float(np.max(rho_array)):.12g}",
+                "rho_tau_raw_mean": f"{float(np.mean(rho_array)):.12g}",
+                "rho_tau_raw_median": f"{float(np.median(rho_array)):.12g}",
+                "rho_tau_raw_std": f"{float(np.std(rho_array)):.12g}",
+                "rho_tau_raw_q25": f"{float(np.quantile(rho_array, 0.25)):.12g}",
+                "rho_tau_raw_q75": f"{float(np.quantile(rho_array, 0.75)):.12g}",
+                "tau_rel_min": f"{float(np.min(tau_array)):.12g}",
+                "tau_rel_max": f"{float(np.max(tau_array)):.12g}",
+                "tau_rel_mean": f"{float(np.mean(tau_array)):.12g}",
+                "tau_rel_median": f"{float(np.median(tau_array)):.12g}",
+                "tau_rel_std": f"{float(np.std(tau_array)):.12g}",
+                "normalization_family": normalization_family,
+                "rank_mean": f"{float(np.mean(raw_rank_array)):.12g}",
+                "rank_median": f"{float(np.median(raw_rank_array)):.12g}",
+                "rank_top_pair": f"{top_pair['source_id']}->{top_pair['target_id']}",
+                "global_phase_audit_status": global_phase_audit_status,
+                "small_kernel_audit_status": small_kernel_audit_status,
+                "specificity_warning_status": specificity_warning_status,
+                "warning": warning,
+            }
+        )
+
+        if specificity_warning_status in {
+            "control_mean_exceeds_reference_warning",
+            "control_mean_close_to_reference_warning",
+        }:
+            warning_rows.append(
+                {
+                    "warning_type": specificity_warning_status,
+                    "family": family,
+                    "source_id": "",
+                    "target_id": "",
+                    "rho_tau_raw": f"{float(np.mean(rho_array)):.12g}",
+                    "tau_rel_candidate": f"{float(np.mean(tau_array)):.12g}",
+                    "detail": warning,
+                }
+            )
+        if family == "label_shuffle":
+            warning_rows.append(
+                {
+                    "warning_type": "small_kernel_label_shuffle_ambiguous",
+                    "family": family,
+                    "source_id": "",
+                    "target_id": "",
+                    "rho_tau_raw": f"{float(np.mean(rho_array)):.12g}",
+                    "tau_rel_candidate": f"{float(np.mean(tau_array)):.12g}",
+                    "detail": "label-shuffle control remains ambiguous in the current 8-node synthetic kernel",
+                }
+            )
+
+        for row in family_rows:
+            pair_key = (str(row["source_id"]), str(row["target_id"]))
+            raw_rank = raw_ranks[pair_key]
+            tau_rank = tau_ranks[pair_key]
+            rank_delta = tau_rank - raw_rank
+            rank_delta_abs = abs(rank_delta)
+            rank_flip_warning = rank_delta_abs >= 16
+            status = "observable_normalization_audit_pair_computed"
+            raw_control_rows.append(
+                {
+                    "family": family,
+                    "source_id": row["source_id"],
+                    "target_id": row["target_id"],
+                    "rho_tau_raw": f"{row['rho_tau_raw']:.12g}",
+                    "tau_rel_candidate": f"{row['tau_rel_candidate']:.12g}",
+                    "raw_rank_desc": raw_rank,
+                    "tau_rank_desc": tau_rank,
+                    "rank_delta": rank_delta,
+                    "normalization_family": normalization_family,
+                    "status": status,
+                }
+            )
+            rank_change_rows.append(
+                {
+                    "family": family,
+                    "source_id": row["source_id"],
+                    "target_id": row["target_id"],
+                    "rho_tau_raw": f"{row['rho_tau_raw']:.12g}",
+                    "tau_rel_candidate": f"{row['tau_rel_candidate']:.12g}",
+                    "raw_rank_desc": raw_rank,
+                    "tau_rank_desc": tau_rank,
+                    "rank_delta": rank_delta,
+                    "rank_delta_abs": rank_delta_abs,
+                    "rank_flip_warning": str(rank_flip_warning).lower(),
+                    "status": status,
+                }
+            )
+            if rank_flip_warning:
+                warning_rows.append(
+                    {
+                        "warning_type": "normalization_rank_flip_warning",
+                        "family": family,
+                        "source_id": row["source_id"],
+                        "target_id": row["target_id"],
+                        "rho_tau_raw": f"{row['rho_tau_raw']:.12g}",
+                        "tau_rel_candidate": f"{row['tau_rel_candidate']:.12g}",
+                        "detail": f"rank_delta_abs={rank_delta_abs}",
+                    }
+                )
+
+    return summary_rows, raw_control_rows, rank_change_rows, warning_rows
 
 
 def compute_control_family(
@@ -682,6 +899,38 @@ def main() -> None:
             }
         )
 
+    (
+        observable_audit_summary_rows,
+        observable_raw_control_rows,
+        normalization_rank_change_rows,
+        warning_row_report_rows,
+    ) = build_observable_normalization_audit(
+        control_pair_values=control_pair_values,
+        node_ids=node_ids,
+        normalization_family=cfg["response"]["normalization_family"],
+        eta=eta,
+    )
+    observable_normalization_audit_summary_file = "observable_normalization_audit_summary.csv"
+    observable_raw_control_table_file = "observable_raw_control_table.csv"
+    normalization_rank_change_table_file = "normalization_rank_change_table.csv"
+    warning_row_report_file = "warning_row_report.csv"
+    observable_audit_warnings = [
+        f"{row['family']}: {row['warning']}"
+        for row in observable_audit_summary_rows
+        if row["warning"]
+    ]
+    global_phase_audit_status = next(
+        row["global_phase_audit_status"]
+        for row in observable_audit_summary_rows
+        if row["family"] == "global_phase_shift"
+    )
+    small_kernel_audit_status = "small_kernel_caution_present"
+    if any(
+        row["small_kernel_audit_status"] == "small_kernel_label_shuffle_ambiguous"
+        for row in observable_audit_summary_rows
+    ):
+        small_kernel_audit_status = "small_kernel_label_shuffle_ambiguous_present"
+
     csv_files = cfg["outputs"]["csv_files"]
     write_csv(
         output_dir / csv_files["response_sweep"],
@@ -745,6 +994,46 @@ def main() -> None:
             "tau_rel_delta", "pattern_status",
         ],
     )
+    write_csv(
+        output_dir / observable_normalization_audit_summary_file,
+        observable_audit_summary_rows,
+        [
+            "family", "pair_count", "rho_tau_raw_min", "rho_tau_raw_max",
+            "rho_tau_raw_mean", "rho_tau_raw_median", "rho_tau_raw_std",
+            "rho_tau_raw_q25", "rho_tau_raw_q75", "tau_rel_min",
+            "tau_rel_max", "tau_rel_mean", "tau_rel_median", "tau_rel_std",
+            "normalization_family", "rank_mean", "rank_median",
+            "rank_top_pair", "global_phase_audit_status",
+            "small_kernel_audit_status", "specificity_warning_status",
+            "warning",
+        ],
+    )
+    write_csv(
+        output_dir / observable_raw_control_table_file,
+        observable_raw_control_rows,
+        [
+            "family", "source_id", "target_id", "rho_tau_raw",
+            "tau_rel_candidate", "raw_rank_desc", "tau_rank_desc",
+            "rank_delta", "normalization_family", "status",
+        ],
+    )
+    write_csv(
+        output_dir / normalization_rank_change_table_file,
+        normalization_rank_change_rows,
+        [
+            "family", "source_id", "target_id", "rho_tau_raw",
+            "tau_rel_candidate", "raw_rank_desc", "tau_rank_desc",
+            "rank_delta", "rank_delta_abs", "rank_flip_warning", "status",
+        ],
+    )
+    write_csv(
+        output_dir / warning_row_report_file,
+        warning_row_report_rows,
+        [
+            "warning_type", "family", "source_id", "target_id",
+            "rho_tau_raw", "tau_rel_candidate", "detail",
+        ],
+    )
 
     resolved_config = {
         "config_path": str(args.config),
@@ -795,6 +1084,18 @@ def main() -> None:
         "specificity_status_labels": specificity_status_labels,
         "specificity_warnings": specificity_warnings,
         "specificity_established": False,
+        "observable_normalization_audit_summary_file": observable_normalization_audit_summary_file,
+        "observable_raw_control_table_file": observable_raw_control_table_file,
+        "normalization_rank_change_table_file": normalization_rank_change_table_file,
+        "warning_row_report_file": warning_row_report_file,
+        "observable_audit_family_count": len(observable_audit_summary_rows),
+        "observable_audit_pair_row_count": len(observable_raw_control_rows),
+        "normalization_rank_change_row_count": len(normalization_rank_change_rows),
+        "observable_audit_warnings": observable_audit_warnings,
+        "normalization_audit_status": "observable_normalization_audit_completed_no_specificity_claim",
+        "global_phase_audit_status": global_phase_audit_status,
+        "small_kernel_audit_status": small_kernel_audit_status,
+        "audit_established_specificity": False,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
@@ -837,6 +1138,10 @@ config_resolved.json
 {control_summary_file}
 {specificity_contrast_summary_file}
 {specificity_pairwise_contrast_file}
+{observable_normalization_audit_summary_file}
+{observable_raw_control_table_file}
+{normalization_rank_change_table_file}
+{warning_row_report_file}
 ```
 
 ## Interpretation
@@ -943,6 +1248,71 @@ Specificity comparison is now available. Specificity is only supported when
 controls are clearly separated from the structured reference. If controls remain
 close to the reference, specificity remains open. No physical interpretation is
 made from this synthetic contrast layer.
+
+## Observable / Normalization Audit Readout
+
+### Audit outputs
+
+The LIC01-G audit layer writes:
+
+```text
+{observable_normalization_audit_summary_file}
+{observable_raw_control_table_file}
+{normalization_rank_change_table_file}
+{warning_row_report_file}
+```
+
+`{observable_normalization_audit_summary_file}` contains `{len(observable_audit_summary_rows)}` rows.
+`{observable_raw_control_table_file}` contains `{len(observable_raw_control_rows)}` rows.
+`{normalization_rank_change_table_file}` contains `{len(normalization_rank_change_rows)}` rows.
+`{warning_row_report_file}` contains `{len(warning_row_report_rows)}` rows.
+
+### Raw response audit
+
+The audit reports raw `rho_tau` response values by family before the final
+`tau_rel_candidate` normalization. It compares each control family against
+`{STRUCTURED_REFERENCE_FAMILY}` at the diagnostic level only.
+
+### Normalization rank-change audit
+
+The audit ranks `rho_tau` and `tau_rel_candidate` separately within each
+family. It reports rank deltas and flags pair rows where the absolute rank
+change is at least 16.
+
+### Global phase audit
+
+Global phase audit status:
+
+```text
+{global_phase_audit_status}
+```
+
+The global phase check is an audit field for the synthetic control warning. It
+does not turn `tau_rel_candidate` into a physical time observable.
+
+### Small-kernel caution
+
+Small-kernel audit status:
+
+```text
+{small_kernel_audit_status}
+```
+
+The current synthetic kernel has `{len(node_ids)}` nodes and `{len(pairwise_rows)}` source-target
+pairs. Label-shuffle behavior is therefore treated as small-system ambiguous
+unless later larger-kernel diagnostics resolve it.
+
+### Audit interpretation boundary
+
+The audit does not establish specificity. It reports whether raw response,
+normalization, rank changes, global phase behavior, or small-kernel effects may
+explain the warning.
+
+The LIC01-G audit reports raw response, normalization, rank-change,
+global-phase, and small-kernel diagnostics for the current tau/epsilon control
+warning. It is a synthetic diagnostic audit only and makes no physical Bridge,
+spacetime, Lorentz, experimental, real-data, physical time, or proper-time
+claim.
 
 ## Claim Boundary
 
