@@ -810,6 +810,280 @@ def build_global_phase_invariant_probe(
     )
 
 
+RESIDUAL_CONTROL_FAMILIES = [
+    "random_phase",
+    "amplitude_preserved_phase_randomized",
+    "label_shuffle",
+]
+
+
+def residual_warning_type(control_family: str, mean_ratio: float) -> str:
+    if control_family == "random_phase":
+        if mean_ratio >= 1.0:
+            return "random_phase_exceeds_reference_warning"
+        if mean_ratio >= 0.9:
+            return "random_phase_close_to_reference_warning"
+        return "random_phase_below_reference_but_specificity_still_open"
+    if control_family == "amplitude_preserved_phase_randomized":
+        if mean_ratio >= 1.0:
+            return "amplitude_preserved_phase_randomized_exceeds_reference_warning"
+        if mean_ratio >= 0.9:
+            return "amplitude_preserved_phase_randomized_close_to_reference_warning"
+        return "amplitude_preserved_phase_randomized_below_reference_but_specificity_still_open"
+    if control_family == "label_shuffle":
+        if mean_ratio >= 1.0:
+            return "label_shuffle_exceeds_reference_warning"
+        if mean_ratio >= 0.9:
+            return "label_shuffle_close_to_reference_warning"
+        return "label_shuffle_below_reference_but_small_kernel_ambiguous"
+    raise ValueError(f"Unsupported residual control family: {control_family}")
+
+
+def residual_likely_failure_mode(control_family: str) -> str:
+    if control_family == "random_phase":
+        return "generic_phase_sensitivity_or_seed_instability"
+    if control_family == "amplitude_preserved_phase_randomized":
+        return "amplitude_support_dominance_or_phase_organization_not_separating"
+    if control_family == "label_shuffle":
+        return "small_kernel_identity_or_distributional_ambiguity"
+    raise ValueError(f"Unsupported residual control family: {control_family}")
+
+
+def residual_recommended_next_probe(control_family: str) -> str:
+    if control_family == "random_phase":
+        return "seed_sensitivity_sweep"
+    if control_family == "amplitude_preserved_phase_randomized":
+        return "magnitude_phase_component_separation"
+    if control_family == "label_shuffle":
+        return "larger_kernel_or_multiple_label_shuffle_stability"
+    raise ValueError(f"Unsupported residual control family: {control_family}")
+
+
+def centered_probe_values_by_family(
+    global_phase_probe_pairwise_rows: List[Dict[str, Any]],
+) -> Dict[str, Dict[Tuple[str, str], Dict[str, float]]]:
+    values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]] = {}
+    for row in global_phase_probe_pairwise_rows:
+        family = str(row["family"])
+        pair_key = (str(row["source_id"]), str(row["target_id"]))
+        values.setdefault(family, {})[pair_key] = {
+            "rho_tau_centered": float(row["rho_tau_centered"]),
+            "tau_rel_centered": float(row["tau_rel_centered"]),
+        }
+    return values
+
+
+def top_quartile_keys(pair_values: Dict[Tuple[str, str], Dict[str, float]]) -> set[Tuple[str, str]]:
+    sorted_items = sorted(
+        pair_values.items(),
+        key=lambda item: (-float(item[1]["rho_tau_centered"]), item[0][0], item[0][1]),
+    )
+    count = max(1, len(sorted_items) // 4)
+    return {pair_key for pair_key, _ in sorted_items[:count]}
+
+
+def family_correlation_status(correlation: float | None, rank_overlap_top_quartile: float) -> str:
+    if correlation is None:
+        return "correlation_degenerate_warning"
+    if correlation >= 0.8 or rank_overlap_top_quartile >= 0.5:
+        return "high_pattern_mimicry_warning"
+    if correlation >= 0.4:
+        return "moderate_pattern_similarity"
+    return "low_pattern_similarity"
+
+
+def build_residual_control_warning_analysis(
+    global_phase_probe_pairwise_rows: List[Dict[str, Any]],
+    node_ids: List[str],
+    eta: float,
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, str], List[str]]:
+    centered_values = centered_probe_values_by_family(global_phase_probe_pairwise_rows)
+    structured_values = centered_values[STRUCTURED_REFERENCE_FAMILY]
+    structured_rho = np.asarray(
+        [
+            structured_values[(source_id, target_id)]["rho_tau_centered"]
+            for source_id in node_ids
+            for target_id in node_ids
+        ],
+        dtype=float,
+    )
+    structured_tau = np.asarray(
+        [
+            structured_values[(source_id, target_id)]["tau_rel_centered"]
+            for source_id in node_ids
+            for target_id in node_ids
+        ],
+        dtype=float,
+    )
+    structured_mean = float(np.mean(structured_rho))
+    structured_max = float(np.max(structured_rho))
+
+    summary_rows: List[Dict[str, Any]] = []
+    pairwise_rows: List[Dict[str, Any]] = []
+    correlation_rows: List[Dict[str, Any]] = []
+    status_labels: Dict[str, str] = {}
+    warnings: List[str] = []
+
+    for control_family in RESIDUAL_CONTROL_FAMILIES:
+        control_values = centered_values[control_family]
+        control_rho_values: List[float] = []
+        control_tau_values: List[float] = []
+        reference_higher_count = 0
+
+        for source_id in node_ids:
+            for target_id in node_ids:
+                pair_key = (source_id, target_id)
+                structured = structured_values[pair_key]
+                control = control_values[pair_key]
+                rho_structured = structured["rho_tau_centered"]
+                rho_control = control["rho_tau_centered"]
+                tau_structured = structured["tau_rel_centered"]
+                tau_control = control["tau_rel_centered"]
+                rho_delta = rho_structured - rho_control
+                rho_ratio = rho_control / (rho_structured + eta)
+                tau_delta = tau_structured - tau_control
+                warning = ""
+
+                if rho_structured > rho_control:
+                    reference_higher_count += 1
+                    pattern_status = "reference_higher"
+                elif rho_control > rho_structured:
+                    pattern_status = "control_higher"
+                    warning = "residual control remains above structured reference for this pair"
+                else:
+                    pattern_status = "equal"
+                    warning = "residual control equals structured reference for this pair"
+
+                control_rho_values.append(rho_control)
+                control_tau_values.append(tau_control)
+                pairwise_rows.append(
+                    {
+                        "control_family": control_family,
+                        "source_id": source_id,
+                        "target_id": target_id,
+                        "rho_tau_structured": f"{rho_structured:.12g}",
+                        "rho_tau_control": f"{rho_control:.12g}",
+                        "rho_tau_delta": f"{rho_delta:.12g}",
+                        "rho_tau_ratio": f"{rho_ratio:.12g}",
+                        "tau_rel_structured": f"{tau_structured:.12g}",
+                        "tau_rel_control": f"{tau_control:.12g}",
+                        "tau_rel_delta": f"{tau_delta:.12g}",
+                        "pattern_status": pattern_status,
+                        "warning": warning,
+                    }
+                )
+
+        control_rho = np.asarray(control_rho_values, dtype=float)
+        control_tau = np.asarray(control_tau_values, dtype=float)
+        mean_ratio = float(np.mean(control_rho) / (structured_mean + eta))
+        max_ratio = float(np.max(control_rho) / (structured_max + eta))
+        pattern_correlation = pearson_correlation(structured_rho, control_rho)
+        rank_separation_score = float(reference_higher_count / len(control_rho_values))
+        warning_type = residual_warning_type(control_family, mean_ratio)
+        likely_failure_mode = residual_likely_failure_mode(control_family)
+        recommended_next_probe = residual_recommended_next_probe(control_family)
+        warning_parts = ["diagnostic specificity not established"]
+        if mean_ratio >= 0.9:
+            warning_parts.append("residual control remains close/exceeds reference")
+        if pattern_correlation is None:
+            warning_parts.append("pairwise pattern correlation undefined")
+        elif pattern_correlation >= 0.8:
+            warning_parts.append("pattern_mimicry_warning")
+        if control_family == "label_shuffle":
+            warning_parts.append("small-kernel ambiguity")
+            warning_parts.append("label stability not yet tested")
+        if control_family == "random_phase":
+            warning_parts.append("seed sensitivity not yet tested")
+        warning_text = "; ".join(warning_parts)
+
+        status_labels[control_family] = warning_type
+        warnings.append(f"{control_family}: {warning_text}")
+        summary_rows.append(
+            {
+                "control_family": control_family,
+                "pair_count": len(control_rho_values),
+                "rho_tau_centered_mean": f"{float(np.mean(control_rho)):.12g}",
+                "rho_tau_centered_max": f"{float(np.max(control_rho)):.12g}",
+                "tau_rel_centered_mean": f"{float(np.mean(control_tau)):.12g}",
+                "structured_reference_mean": f"{structured_mean:.12g}",
+                "mean_ratio_to_reference": f"{mean_ratio:.12g}",
+                "max_ratio_to_reference": f"{max_ratio:.12g}",
+                "pairwise_pattern_correlation_to_reference": "" if pattern_correlation is None else f"{pattern_correlation:.12g}",
+                "rank_separation_score": f"{rank_separation_score:.12g}",
+                "residual_warning_type": warning_type,
+                "likely_failure_mode": likely_failure_mode,
+                "recommended_next_probe": recommended_next_probe,
+                "warning": warning_text,
+            }
+        )
+
+    comparison_families = [STRUCTURED_REFERENCE_FAMILY] + RESIDUAL_CONTROL_FAMILIES
+    for idx, family_a in enumerate(comparison_families):
+        for family_b in comparison_families[idx + 1:]:
+            values_a = centered_values[family_a]
+            values_b = centered_values[family_b]
+            rho_a = np.asarray(
+                [
+                    values_a[(source_id, target_id)]["rho_tau_centered"]
+                    for source_id in node_ids
+                    for target_id in node_ids
+                ],
+                dtype=float,
+            )
+            rho_b = np.asarray(
+                [
+                    values_b[(source_id, target_id)]["rho_tau_centered"]
+                    for source_id in node_ids
+                    for target_id in node_ids
+                ],
+                dtype=float,
+            )
+            tau_a = np.asarray(
+                [
+                    values_a[(source_id, target_id)]["tau_rel_centered"]
+                    for source_id in node_ids
+                    for target_id in node_ids
+                ],
+                dtype=float,
+            )
+            tau_b = np.asarray(
+                [
+                    values_b[(source_id, target_id)]["tau_rel_centered"]
+                    for source_id in node_ids
+                    for target_id in node_ids
+                ],
+                dtype=float,
+            )
+            rho_correlation = pearson_correlation(rho_a, rho_b)
+            tau_correlation = pearson_correlation(tau_a, tau_b)
+            top_a = top_quartile_keys(values_a)
+            top_b = top_quartile_keys(values_b)
+            rank_overlap = float(len(top_a.intersection(top_b)) / max(1, len(top_a)))
+            interpretation_status = family_correlation_status(rho_correlation, rank_overlap)
+            warning = ""
+            if interpretation_status == "high_pattern_mimicry_warning":
+                warning = "pattern mimicry warning; diagnostic specificity not established"
+            elif interpretation_status == "correlation_degenerate_warning":
+                warning = "correlation degenerate; diagnostic specificity not established"
+            elif family_a == STRUCTURED_REFERENCE_FAMILY or family_b == STRUCTURED_REFERENCE_FAMILY:
+                warning = "structured-control comparison remains method-level only"
+
+            correlation_rows.append(
+                {
+                    "family_a": family_a,
+                    "family_b": family_b,
+                    "pair_count": len(rho_a),
+                    "rho_tau_pattern_correlation": "" if rho_correlation is None else f"{rho_correlation:.12g}",
+                    "tau_rel_pattern_correlation": "" if tau_correlation is None else f"{tau_correlation:.12g}",
+                    "rank_overlap_top_quartile": f"{rank_overlap:.12g}",
+                    "interpretation_status": interpretation_status,
+                    "warning": warning,
+                }
+            )
+
+    return summary_rows, pairwise_rows, correlation_rows, status_labels, warnings
+
+
 def compute_control_family(
     control_family: str,
     node_ids: List[str],
@@ -1279,6 +1553,23 @@ def main() -> None:
     global_phase_invariant_pairwise_response_file = "global_phase_invariant_pairwise_response.csv"
     global_phase_centering_diagnostics_file = "global_phase_centering_diagnostics.csv"
 
+    (
+        residual_control_summary_rows,
+        residual_control_pairwise_rows,
+        residual_control_correlation_rows,
+        residual_control_status_labels,
+        residual_control_warnings,
+    ) = build_residual_control_warning_analysis(
+        global_phase_probe_pairwise_rows=global_phase_probe_pairwise_rows,
+        node_ids=node_ids,
+        eta=eta,
+    )
+    residual_control_warning_summary_file = "residual_control_warning_summary.csv"
+    residual_control_pairwise_comparison_file = "residual_control_pairwise_comparison.csv"
+    residual_control_family_correlation_file = "residual_control_family_correlation.csv"
+    residual_control_seed_sensitivity_file = "not_generated"
+    residual_control_label_stability_file = "not_generated"
+
     csv_files = cfg["outputs"]["csv_files"]
     write_csv(
         output_dir / csv_files["response_sweep"],
@@ -1412,6 +1703,37 @@ def main() -> None:
             "response_after_centering", "status",
         ],
     )
+    write_csv(
+        output_dir / residual_control_warning_summary_file,
+        residual_control_summary_rows,
+        [
+            "control_family", "pair_count", "rho_tau_centered_mean",
+            "rho_tau_centered_max", "tau_rel_centered_mean",
+            "structured_reference_mean", "mean_ratio_to_reference",
+            "max_ratio_to_reference", "pairwise_pattern_correlation_to_reference",
+            "rank_separation_score", "residual_warning_type",
+            "likely_failure_mode", "recommended_next_probe", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / residual_control_pairwise_comparison_file,
+        residual_control_pairwise_rows,
+        [
+            "control_family", "source_id", "target_id", "rho_tau_structured",
+            "rho_tau_control", "rho_tau_delta", "rho_tau_ratio",
+            "tau_rel_structured", "tau_rel_control", "tau_rel_delta",
+            "pattern_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / residual_control_family_correlation_file,
+        residual_control_correlation_rows,
+        [
+            "family_a", "family_b", "pair_count",
+            "rho_tau_pattern_correlation", "tau_rel_pattern_correlation",
+            "rank_overlap_top_quartile", "interpretation_status", "warning",
+        ],
+    )
 
     resolved_config = {
         "config_path": str(args.config),
@@ -1484,6 +1806,17 @@ def main() -> None:
         "global_phase_probe_warnings": global_phase_probe_warnings,
         "global_phase_warning_reduced": global_phase_warning_reduced,
         "global_phase_probe_established_specificity": False,
+        "residual_control_warning_summary_file": residual_control_warning_summary_file,
+        "residual_control_pairwise_comparison_file": residual_control_pairwise_comparison_file,
+        "residual_control_family_correlation_file": residual_control_family_correlation_file,
+        "residual_control_seed_sensitivity_file": residual_control_seed_sensitivity_file,
+        "residual_control_label_stability_file": residual_control_label_stability_file,
+        "residual_control_family_count": len(residual_control_summary_rows),
+        "residual_control_pairwise_row_count": len(residual_control_pairwise_rows),
+        "residual_control_family_correlation_row_count": len(residual_control_correlation_rows),
+        "residual_control_status_labels": residual_control_status_labels,
+        "residual_control_warnings": residual_control_warnings,
+        "residual_control_established_specificity": False,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
@@ -1533,6 +1866,9 @@ config_resolved.json
 {global_phase_invariant_probe_summary_file}
 {global_phase_invariant_pairwise_response_file}
 {global_phase_centering_diagnostics_file}
+{residual_control_warning_summary_file}
+{residual_control_pairwise_comparison_file}
+{residual_control_family_correlation_file}
 ```
 
 ## Interpretation
@@ -1770,6 +2106,68 @@ The LIC01-H probe reports whether global phase centering reduces the
 global_phase_shift warning in the current synthetic tau/epsilon diagnostic. It
 does not construct `D(A,B)`, does not construct `S_rel2`, and does not create an
 interval-like object.
+
+## Residual Control Warning Analysis Readout
+
+### Residual controls analyzed
+
+The LIC01-I residual-control analysis separates the following controls after
+global phase centering:
+
+```text
+{chr(10).join(f"- {family}: {residual_control_status_labels[family]}" for family in RESIDUAL_CONTROL_FAMILIES)}
+```
+
+### Residual warning summary
+
+The residual-control outputs are:
+
+```text
+{residual_control_warning_summary_file}
+{residual_control_pairwise_comparison_file}
+{residual_control_family_correlation_file}
+```
+
+`{residual_control_warning_summary_file}` contains `{len(residual_control_summary_rows)}` rows.
+`{residual_control_pairwise_comparison_file}` contains `{len(residual_control_pairwise_rows)}` rows.
+`{residual_control_family_correlation_file}` contains `{len(residual_control_correlation_rows)}` rows.
+
+Optional seed and label stability outputs were not generated in this run:
+
+```text
+{residual_control_seed_sensitivity_file}
+{residual_control_label_stability_file}
+```
+
+### Cross-control pattern comparison
+
+The analysis compares the centered pairwise response pattern for
+`structured_local_phase_response`, `random_phase`,
+`amplitude_preserved_phase_randomized`, and `label_shuffle`. It reports
+pairwise pattern correlation and top-quartile rank overlap for all six
+undirected family pairs.
+
+### Remaining specificity boundary
+
+The residual control analysis separates random_phase, amplitude-preserved
+phase-randomized, and label-shuffle warnings after global phase centering. It
+does not establish physical time, Lorentz structure, or diagnostic specificity
+by itself.
+
+`residual_control_established_specificity` remains `False`.
+
+### Recommended next probes
+
+Recommended residual follow-ups are:
+
+```text
+- random_phase: seed_sensitivity_sweep
+- amplitude_preserved_phase_randomized: magnitude_phase_component_separation
+- label_shuffle: larger_kernel_or_multiple_label_shuffle_stability
+```
+
+No `D(A,B)` attachment, `S_rel2` construction, or interval-like object should be
+introduced before residual controls are resolved by predefined criteria.
 
 ## Claim Boundary
 
