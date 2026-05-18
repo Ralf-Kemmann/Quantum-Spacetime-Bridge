@@ -172,6 +172,63 @@ def response_value(
     raise ValueError(f"Unsupported response_norm: {norm_family}")
 
 
+def build_control_perturbation(
+    control_family: str,
+    baseline_kernel: np.ndarray,
+    source_idx: int,
+    target_idx: int,
+    epsilon: float,
+    random_phase_basis: np.ndarray,
+    randomized_phase_basis: np.ndarray,
+    label_permutation: np.ndarray,
+) -> Tuple[np.ndarray, np.ndarray, int]:
+    response_baseline = baseline_kernel
+    response_target_idx = target_idx
+
+    if control_family == "structured_local_phase_response":
+        perturbed = local_phase_perturbation(baseline_kernel, source_idx, epsilon)
+    elif control_family == "global_phase_shift":
+        perturbed = global_phase_shift(baseline_kernel, epsilon)
+    elif control_family == "random_phase":
+        perturbed = random_phase_perturbation(
+            baseline_kernel,
+            source_idx,
+            epsilon,
+            random_phase_basis,
+        )
+    elif control_family == "amplitude_preserved_phase_randomized":
+        perturbed = amplitude_preserved_phase_randomized(
+            baseline_kernel,
+            source_idx,
+            epsilon,
+            randomized_phase_basis,
+        )
+    elif control_family == "label_shuffle":
+        response_baseline = baseline_kernel[np.ix_(label_permutation, label_permutation)]
+        perturbed = local_phase_perturbation(response_baseline, source_idx, epsilon)
+    else:
+        raise ValueError(f"Unsupported control family: {control_family}")
+
+    return response_baseline, perturbed, response_target_idx
+
+
+def estimate_global_phase_angle(matrix: np.ndarray, eta: float) -> Tuple[float, str]:
+    mask = np.abs(matrix) > eta
+    if not bool(np.any(mask)):
+        return 0.0, "phase_angle_degenerate"
+    phase_sum = np.sum(matrix[mask])
+    if abs(phase_sum) <= eta:
+        return 0.0, "phase_angle_degenerate"
+    return float(np.angle(phase_sum)), "phase_angle_estimated"
+
+
+def globally_center_matrix(matrix: np.ndarray, eta: float) -> Tuple[np.ndarray, float, str, float]:
+    angle, status = estimate_global_phase_angle(matrix, eta)
+    centered = matrix * np.exp(-1j * angle)
+    norm_delta = float(np.linalg.norm(centered - matrix, ord="fro"))
+    return centered, angle, status, norm_delta
+
+
 def normalize(values: np.ndarray, eta: float) -> np.ndarray:
     max_abs = float(np.max(np.abs(values))) if values.size else 0.0
     return values / (max_abs + eta)
@@ -470,6 +527,289 @@ def build_observable_normalization_audit(
     return summary_rows, raw_control_rows, rank_change_rows, warning_rows
 
 
+def global_phase_warning_after_label(original_mean: float, centered_mean: float, eta: float) -> str:
+    if centered_mean < 0.5 * original_mean:
+        return "global_phase_warning_reduced"
+    if centered_mean >= 0.9 * original_mean:
+        return "global_phase_warning_persists"
+    if abs(original_mean) <= eta and abs(centered_mean) <= eta:
+        return "global_phase_warning_inconclusive"
+    return "global_phase_warning_inconclusive"
+
+
+def probe_status_label(
+    family: str,
+    warning_after: str,
+    original_mean: float,
+    centered_mean: float,
+    structured_centered_mean: float,
+    eta: float,
+) -> str:
+    if centered_mean < 0.1 * original_mean and family == STRUCTURED_REFERENCE_FAMILY:
+        return "structured_response_collapsed_warning"
+    if family == "global_phase_shift" and warning_after == "global_phase_warning_reduced":
+        return "global_phase_warning_reduced_probe"
+    if family == "global_phase_shift" and warning_after == "global_phase_warning_persists":
+        return "global_phase_warning_persists_probe"
+    if family != STRUCTURED_REFERENCE_FAMILY and centered_mean >= 0.9 * structured_centered_mean:
+        return "control_still_exceeds_reference_warning"
+    if abs(centered_mean) <= eta:
+        return "phase_angle_degenerate_warning"
+    return "probe_computed"
+
+
+def specificity_after_centering_label(
+    family: str,
+    probe_status: str,
+    warning_after: str,
+) -> str:
+    if probe_status == "structured_response_collapsed_warning":
+        return "structured_response_global_phase_dominated_warning"
+    if family == "global_phase_shift" and warning_after == "global_phase_warning_reduced":
+        return "specificity_not_established_global_phase_reduced_only"
+    return "specificity_not_established"
+
+
+def build_global_phase_invariant_probe(
+    node_ids: List[str],
+    baseline_kernel: np.ndarray,
+    epsilon_values: List[float],
+    finite_difference_epsilon: float,
+    eta: float,
+    norm_family: str,
+    random_phase_basis: np.ndarray,
+    randomized_phase_basis: np.ndarray,
+    label_permutation: np.ndarray,
+    control_pair_values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]],
+    global_phase_audit_status: str,
+    specificity_status_labels: Dict[str, str],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, str], List[str], bool]:
+    centered_pair_values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]] = {}
+    diagnostics_rows: List[Dict[str, Any]] = []
+
+    for family in CONTROL_FAMILIES:
+        centered_pair_values[family] = {}
+        family_centered_inverse: List[float] = []
+        family_pair_records: List[Dict[str, Any]] = []
+
+        for source_idx, source_id in enumerate(node_ids):
+            for target_idx, target_id in enumerate(node_ids):
+                centered_response_by_epsilon: Dict[float, float] = {}
+                original_response_by_epsilon: Dict[float, float] = {}
+                diagnostic_accumulator: Dict[float, Dict[str, List[float]]] = {}
+
+                for epsilon in epsilon_values:
+                    response_baseline, perturbed, response_target_idx = build_control_perturbation(
+                        control_family=family,
+                        baseline_kernel=baseline_kernel,
+                        source_idx=source_idx,
+                        target_idx=target_idx,
+                        epsilon=epsilon,
+                        random_phase_basis=random_phase_basis,
+                        randomized_phase_basis=randomized_phase_basis,
+                        label_permutation=label_permutation,
+                    )
+                    original_response = response_value(
+                        response_baseline,
+                        perturbed,
+                        response_target_idx,
+                        norm_family,
+                    )
+                    centered_baseline, baseline_angle, baseline_status, baseline_norm_delta = globally_center_matrix(
+                        response_baseline,
+                        eta,
+                    )
+                    centered_perturbed, perturbed_angle, perturbed_status, perturbed_norm_delta = globally_center_matrix(
+                        perturbed,
+                        eta,
+                    )
+                    centered_response = response_value(
+                        centered_baseline,
+                        centered_perturbed,
+                        response_target_idx,
+                        norm_family,
+                    )
+
+                    original_response_by_epsilon[epsilon] = original_response
+                    centered_response_by_epsilon[epsilon] = centered_response
+                    values = diagnostic_accumulator.setdefault(
+                        epsilon,
+                        {
+                            "angle": [],
+                            "norm_delta": [],
+                            "before": [],
+                            "after": [],
+                            "degenerate": [],
+                        },
+                    )
+                    values["angle"].append(float(perturbed_angle - baseline_angle))
+                    values["norm_delta"].append(float((baseline_norm_delta + perturbed_norm_delta) / 2.0))
+                    values["before"].append(original_response)
+                    values["after"].append(centered_response)
+                    values["degenerate"].append(
+                        1.0
+                        if baseline_status == "phase_angle_degenerate"
+                        or perturbed_status == "phase_angle_degenerate"
+                        else 0.0
+                    )
+
+                _, _, _, rho_tau_centered = summarize_pair_response(
+                    centered_response_by_epsilon,
+                    epsilon_values,
+                    finite_difference_epsilon,
+                    eta,
+                )
+                family_centered_inverse.append(1.0 / (rho_tau_centered + eta))
+                pair_key = (source_id, target_id)
+                family_pair_records.append(
+                    {
+                        "source_id": source_id,
+                        "target_id": target_id,
+                        "rho_tau_centered": rho_tau_centered,
+                    }
+                )
+
+                if source_idx == 0 and target_idx == 0:
+                    for epsilon, values in diagnostic_accumulator.items():
+                        status = "global_phase_centering_diagnostic_computed"
+                        if any(value > 0.0 for value in values["degenerate"]):
+                            status = "phase_angle_degenerate_warning"
+                        diagnostics_rows.append(
+                            {
+                                "family": family,
+                                "epsilon": f"{epsilon:.12g}",
+                                "global_phase_angle_estimate": f"{float(np.mean(values['angle'])):.12g}",
+                                "phase_centering_norm_delta": f"{float(np.mean(values['norm_delta'])):.12g}",
+                                "response_before_centering": f"{float(np.mean(values['before'])):.12g}",
+                                "response_after_centering": f"{float(np.mean(values['after'])):.12g}",
+                                "status": status,
+                            }
+                        )
+
+        tau_rel_centered = minmax(np.asarray(family_centered_inverse, dtype=float), eta=eta)
+        for idx, record in enumerate(family_pair_records):
+            pair_key = (str(record["source_id"]), str(record["target_id"]))
+            centered_pair_values[family][pair_key] = {
+                "rho_tau_centered": float(record["rho_tau_centered"]),
+                "tau_rel_centered": float(tau_rel_centered[idx]),
+            }
+
+    structured_centered_mean = float(
+        np.mean([
+            value["rho_tau_centered"]
+            for value in centered_pair_values[STRUCTURED_REFERENCE_FAMILY].values()
+        ])
+    )
+    summary_rows: List[Dict[str, Any]] = []
+    pairwise_rows: List[Dict[str, Any]] = []
+    status_labels: Dict[str, str] = {}
+    warnings: List[str] = []
+    global_phase_warning_reduced = False
+
+    for family in CONTROL_FAMILIES:
+        original_values = control_pair_values[family]
+        centered_values = centered_pair_values[family]
+        original_rho_array = np.asarray(
+            [value["rho_tau"] for value in original_values.values()],
+            dtype=float,
+        )
+        centered_rho_array = np.asarray(
+            [value["rho_tau_centered"] for value in centered_values.values()],
+            dtype=float,
+        )
+        original_mean = float(np.mean(original_rho_array))
+        centered_mean = float(np.mean(centered_rho_array))
+        mean_delta = centered_mean - original_mean
+        mean_ratio = float(centered_mean / (original_mean + eta))
+
+        if family == "global_phase_shift":
+            warning_before = global_phase_audit_status
+            warning_after = global_phase_warning_after_label(original_mean, centered_mean, eta)
+            global_phase_warning_reduced = warning_after == "global_phase_warning_reduced"
+        else:
+            warning_before = "not_applicable"
+            warning_after = "family_specific_probe_reported"
+
+        specificity_before = (
+            "structured_reference"
+            if family == STRUCTURED_REFERENCE_FAMILY
+            else specificity_status_labels.get(family, "specificity_not_established")
+        )
+        probe_status = probe_status_label(
+            family=family,
+            warning_after=warning_after,
+            original_mean=original_mean,
+            centered_mean=centered_mean,
+            structured_centered_mean=structured_centered_mean,
+            eta=eta,
+        )
+        specificity_after = specificity_after_centering_label(
+            family=family,
+            probe_status=probe_status,
+            warning_after=warning_after,
+        )
+        warning = ""
+        if probe_status != "probe_computed":
+            warning = "probe warning retained; diagnostic specificity not established"
+        elif family != STRUCTURED_REFERENCE_FAMILY:
+            warning = "control probe reported; diagnostic specificity not established"
+        else:
+            warning = "structured reference probe reported; no specificity claim"
+
+        status_labels[family] = probe_status
+        if warning:
+            warnings.append(f"{family}: {warning}")
+
+        summary_rows.append(
+            {
+                "family": family,
+                "pair_count": len(original_values),
+                "rho_tau_original_mean": f"{original_mean:.12g}",
+                "rho_tau_centered_mean": f"{centered_mean:.12g}",
+                "rho_tau_mean_delta": f"{mean_delta:.12g}",
+                "rho_tau_mean_ratio": f"{mean_ratio:.12g}",
+                "global_phase_warning_before": warning_before,
+                "global_phase_warning_after": warning_after,
+                "specificity_status_before": specificity_before,
+                "specificity_status_after": specificity_after,
+                "probe_status": probe_status,
+                "warning": warning,
+            }
+        )
+
+        for source_id in node_ids:
+            for target_id in node_ids:
+                pair_key = (source_id, target_id)
+                original = original_values[pair_key]
+                centered = centered_values[pair_key]
+                rho_delta = centered["rho_tau_centered"] - original["rho_tau"]
+                tau_delta = centered["tau_rel_centered"] - original["tau_rel_candidate"]
+                pairwise_rows.append(
+                    {
+                        "family": family,
+                        "source_id": source_id,
+                        "target_id": target_id,
+                        "rho_tau_original": f"{original['rho_tau']:.12g}",
+                        "rho_tau_centered": f"{centered['rho_tau_centered']:.12g}",
+                        "rho_tau_delta": f"{rho_delta:.12g}",
+                        "tau_rel_original": f"{original['tau_rel_candidate']:.12g}",
+                        "tau_rel_centered": f"{centered['tau_rel_centered']:.12g}",
+                        "tau_rel_delta": f"{tau_delta:.12g}",
+                        "global_phase_centering_applied": "true",
+                        "status": "global_phase_invariant_probe_pair_computed",
+                    }
+                )
+
+    return (
+        summary_rows,
+        pairwise_rows,
+        diagnostics_rows,
+        status_labels,
+        warnings,
+        global_phase_warning_reduced,
+    )
+
+
 def compute_control_family(
     control_family: str,
     node_ids: List[str],
@@ -491,33 +831,16 @@ def compute_control_family(
         for target_idx, target_id in enumerate(node_ids):
             response_by_epsilon: Dict[float, float] = {}
             for epsilon in epsilon_values:
-                response_baseline = baseline_kernel
-                response_target_idx = target_idx
-
-                if control_family == "structured_local_phase_response":
-                    perturbed = local_phase_perturbation(baseline_kernel, source_idx, epsilon)
-                elif control_family == "global_phase_shift":
-                    perturbed = global_phase_shift(baseline_kernel, epsilon)
-                elif control_family == "random_phase":
-                    perturbed = random_phase_perturbation(
-                        baseline_kernel,
-                        source_idx,
-                        epsilon,
-                        random_phase_basis,
-                    )
-                elif control_family == "amplitude_preserved_phase_randomized":
-                    perturbed = amplitude_preserved_phase_randomized(
-                        baseline_kernel,
-                        source_idx,
-                        epsilon,
-                        randomized_phase_basis,
-                    )
-                elif control_family == "label_shuffle":
-                    response_baseline = baseline_kernel[np.ix_(label_permutation, label_permutation)]
-                    perturbed = local_phase_perturbation(response_baseline, source_idx, epsilon)
-                    response_target_idx = target_idx
-                else:
-                    raise ValueError(f"Unsupported control family: {control_family}")
+                response_baseline, perturbed, response_target_idx = build_control_perturbation(
+                    control_family=control_family,
+                    baseline_kernel=baseline_kernel,
+                    source_idx=source_idx,
+                    target_idx=target_idx,
+                    epsilon=epsilon,
+                    random_phase_basis=random_phase_basis,
+                    randomized_phase_basis=randomized_phase_basis,
+                    label_permutation=label_permutation,
+                )
 
                 response_by_epsilon[epsilon] = response_value(
                     response_baseline,
@@ -931,6 +1254,31 @@ def main() -> None:
     ):
         small_kernel_audit_status = "small_kernel_label_shuffle_ambiguous_present"
 
+    (
+        global_phase_probe_summary_rows,
+        global_phase_probe_pairwise_rows,
+        global_phase_centering_diagnostics_rows,
+        global_phase_probe_status_labels,
+        global_phase_probe_warnings,
+        global_phase_warning_reduced,
+    ) = build_global_phase_invariant_probe(
+        node_ids=node_ids,
+        baseline_kernel=baseline_kernel,
+        epsilon_values=epsilon_values,
+        finite_difference_epsilon=finite_difference_epsilon,
+        eta=eta,
+        norm_family=norm_family,
+        random_phase_basis=random_phase_basis,
+        randomized_phase_basis=randomized_phase_basis,
+        label_permutation=label_permutation,
+        control_pair_values=control_pair_values,
+        global_phase_audit_status=global_phase_audit_status,
+        specificity_status_labels=specificity_status_labels,
+    )
+    global_phase_invariant_probe_summary_file = "global_phase_invariant_probe_summary.csv"
+    global_phase_invariant_pairwise_response_file = "global_phase_invariant_pairwise_response.csv"
+    global_phase_centering_diagnostics_file = "global_phase_centering_diagnostics.csv"
+
     csv_files = cfg["outputs"]["csv_files"]
     write_csv(
         output_dir / csv_files["response_sweep"],
@@ -1034,6 +1382,36 @@ def main() -> None:
             "rho_tau_raw", "tau_rel_candidate", "detail",
         ],
     )
+    write_csv(
+        output_dir / global_phase_invariant_probe_summary_file,
+        global_phase_probe_summary_rows,
+        [
+            "family", "pair_count", "rho_tau_original_mean",
+            "rho_tau_centered_mean", "rho_tau_mean_delta",
+            "rho_tau_mean_ratio", "global_phase_warning_before",
+            "global_phase_warning_after", "specificity_status_before",
+            "specificity_status_after", "probe_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / global_phase_invariant_pairwise_response_file,
+        global_phase_probe_pairwise_rows,
+        [
+            "family", "source_id", "target_id", "rho_tau_original",
+            "rho_tau_centered", "rho_tau_delta", "tau_rel_original",
+            "tau_rel_centered", "tau_rel_delta",
+            "global_phase_centering_applied", "status",
+        ],
+    )
+    write_csv(
+        output_dir / global_phase_centering_diagnostics_file,
+        global_phase_centering_diagnostics_rows,
+        [
+            "family", "epsilon", "global_phase_angle_estimate",
+            "phase_centering_norm_delta", "response_before_centering",
+            "response_after_centering", "status",
+        ],
+    )
 
     resolved_config = {
         "config_path": str(args.config),
@@ -1096,6 +1474,16 @@ def main() -> None:
         "global_phase_audit_status": global_phase_audit_status,
         "small_kernel_audit_status": small_kernel_audit_status,
         "audit_established_specificity": False,
+        "global_phase_invariant_probe_summary_file": global_phase_invariant_probe_summary_file,
+        "global_phase_invariant_pairwise_response_file": global_phase_invariant_pairwise_response_file,
+        "global_phase_centering_diagnostics_file": global_phase_centering_diagnostics_file,
+        "global_phase_probe_family_count": len(global_phase_probe_summary_rows),
+        "global_phase_probe_pair_row_count": len(global_phase_probe_pairwise_rows),
+        "global_phase_centering_diagnostics_row_count": len(global_phase_centering_diagnostics_rows),
+        "global_phase_probe_status_labels": global_phase_probe_status_labels,
+        "global_phase_probe_warnings": global_phase_probe_warnings,
+        "global_phase_warning_reduced": global_phase_warning_reduced,
+        "global_phase_probe_established_specificity": False,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
@@ -1142,6 +1530,9 @@ config_resolved.json
 {observable_raw_control_table_file}
 {normalization_rank_change_table_file}
 {warning_row_report_file}
+{global_phase_invariant_probe_summary_file}
+{global_phase_invariant_pairwise_response_file}
+{global_phase_centering_diagnostics_file}
 ```
 
 ## Interpretation
@@ -1313,6 +1704,72 @@ global-phase, and small-kernel diagnostics for the current tau/epsilon control
 warning. It is a synthetic diagnostic audit only and makes no physical Bridge,
 spacetime, Lorentz, experimental, real-data, physical time, or proper-time
 claim.
+
+## Global-Phase-Invariant Observable Probe Readout
+
+### Probe outputs
+
+The LIC01-H probe layer writes:
+
+```text
+{global_phase_invariant_probe_summary_file}
+{global_phase_invariant_pairwise_response_file}
+{global_phase_centering_diagnostics_file}
+```
+
+`{global_phase_invariant_probe_summary_file}` contains `{len(global_phase_probe_summary_rows)}` rows.
+`{global_phase_invariant_pairwise_response_file}` contains `{len(global_phase_probe_pairwise_rows)}` rows.
+`{global_phase_centering_diagnostics_file}` contains `{len(global_phase_centering_diagnostics_rows)}` rows.
+
+### Global phase centering definition
+
+For each baseline or perturbed matrix, the probe estimates a global phase angle
+as `angle(sum(matrix entries with abs(entry) > eta))`. If the sum is numerically
+near zero, the angle is set to `0.0` and the row is marked as a degenerate phase
+angle case.
+
+The centered matrix is computed as:
+
+```text
+centered_matrix = matrix * exp(-1j * global_phase_angle)
+```
+
+The probe then applies the same response logic as the existing runner to the
+centered baseline and centered perturbed matrices.
+
+### Before/after summary
+
+The probe reports original and centered `rho_tau` means by family, plus pairwise
+before/after `rho_tau` and probe-level `tau_rel_centered` values. The centered
+candidate values are minmax-normalized per family as a diagnostic probe only.
+They do not replace `tau_rel_candidate`.
+
+### Global phase warning status
+
+Global phase warning reduced:
+
+```text
+{global_phase_warning_reduced}
+```
+
+Global phase probe status labels:
+
+```text
+{chr(10).join(f"- {family}: {global_phase_probe_status_labels[family]}" for family in CONTROL_FAMILIES)}
+```
+
+### Specificity interpretation boundary
+
+The probe tests whether global phase centering reduces the global_phase_shift
+warning. It does not establish physical time, Lorentz structure, or diagnostic
+specificity by itself.
+
+`global_phase_probe_established_specificity` remains `False`.
+
+The LIC01-H probe reports whether global phase centering reduces the
+global_phase_shift warning in the current synthetic tau/epsilon diagnostic. It
+does not construct `D(A,B)`, does not construct `S_rel2`, and does not create an
+interval-like object.
 
 ## Claim Boundary
 
