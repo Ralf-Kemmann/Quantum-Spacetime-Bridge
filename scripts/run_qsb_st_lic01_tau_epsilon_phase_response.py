@@ -815,6 +815,7 @@ RESIDUAL_CONTROL_FAMILIES = [
     "amplitude_preserved_phase_randomized",
     "label_shuffle",
 ]
+STABILITY_IDS = [0, 1, 2, 3, 4, 5, 7, 11, 13, 17]
 
 
 def residual_warning_type(control_family: str, mean_ratio: float) -> str:
@@ -1082,6 +1083,419 @@ def build_residual_control_warning_analysis(
             )
 
     return summary_rows, pairwise_rows, correlation_rows, status_labels, warnings
+
+
+def family_values_from_probe_rows(
+    global_phase_probe_pairwise_rows: List[Dict[str, Any]],
+    family: str,
+) -> Dict[Tuple[str, str], Dict[str, float]]:
+    values: Dict[Tuple[str, str], Dict[str, float]] = {}
+    for row in global_phase_probe_pairwise_rows:
+        if str(row["family"]) != family:
+            continue
+        pair_key = (str(row["source_id"]), str(row["target_id"]))
+        values[pair_key] = {
+            "rho_tau_centered": float(row["rho_tau_centered"]),
+            "tau_rel_centered": float(row["tau_rel_centered"]),
+        }
+    return values
+
+
+def values_to_arrays(
+    values: Dict[Tuple[str, str], Dict[str, float]],
+    node_ids: List[str],
+) -> Tuple[np.ndarray, np.ndarray]:
+    rho = np.asarray(
+        [
+            values[(source_id, target_id)]["rho_tau_centered"]
+            for source_id in node_ids
+            for target_id in node_ids
+        ],
+        dtype=float,
+    )
+    tau = np.asarray(
+        [
+            values[(source_id, target_id)]["tau_rel_centered"]
+            for source_id in node_ids
+            for target_id in node_ids
+        ],
+        dtype=float,
+    )
+    return rho, tau
+
+
+def top_pair_label(values: Dict[Tuple[str, str], Dict[str, float]]) -> str:
+    pair_key, _ = min(
+        values.items(),
+        key=lambda item: (-float(item[1]["rho_tau_centered"]), item[0][0], item[0][1]),
+    )
+    return f"{pair_key[0]}->{pair_key[1]}"
+
+
+def top_quartile_overlap(
+    values_a: Dict[Tuple[str, str], Dict[str, float]],
+    values_b: Dict[Tuple[str, str], Dict[str, float]],
+) -> float:
+    top_a = top_quartile_keys(values_a)
+    top_b = top_quartile_keys(values_b)
+    return float(len(top_a.intersection(top_b)) / max(1, len(top_a)))
+
+
+def compare_centered_values_pairwise(
+    control_family: str,
+    run_id: int,
+    run_field_name: str,
+    structured_values: Dict[Tuple[str, str], Dict[str, float]],
+    control_values: Dict[Tuple[str, str], Dict[str, float]],
+    node_ids: List[str],
+    eta: float,
+) -> List[Dict[str, Any]]:
+    rows: List[Dict[str, Any]] = []
+    for source_id in node_ids:
+        for target_id in node_ids:
+            pair_key = (source_id, target_id)
+            structured = structured_values[pair_key]
+            control = control_values[pair_key]
+            rho_structured = structured["rho_tau_centered"]
+            rho_control = control["rho_tau_centered"]
+            tau_structured = structured["tau_rel_centered"]
+            tau_control = control["tau_rel_centered"]
+            rho_delta = rho_structured - rho_control
+            rho_ratio = rho_control / (rho_structured + eta)
+            tau_delta = tau_structured - tau_control
+            warning = ""
+            if rho_structured > rho_control:
+                pattern_status = "reference_higher"
+            elif rho_control > rho_structured:
+                pattern_status = "control_higher"
+                warning = "control remains above structured reference for this pair"
+            else:
+                pattern_status = "equal"
+                warning = "control equals structured reference for this pair"
+            rows.append(
+                {
+                    "control_family": control_family,
+                    run_field_name: run_id,
+                    "source_id": source_id,
+                    "target_id": target_id,
+                    "rho_tau_structured": f"{rho_structured:.12g}",
+                    "rho_tau_control": f"{rho_control:.12g}",
+                    "rho_tau_delta": f"{rho_delta:.12g}",
+                    "rho_tau_ratio": f"{rho_ratio:.12g}",
+                    "tau_rel_structured": f"{tau_structured:.12g}",
+                    "tau_rel_control": f"{tau_control:.12g}",
+                    "tau_rel_delta": f"{tau_delta:.12g}",
+                    "pattern_status": pattern_status,
+                    "warning": warning,
+                }
+            )
+    return rows
+
+
+def seed_sensitivity_status(mean_ratios: List[float]) -> str:
+    exceeds_count = sum(1 for value in mean_ratios if value >= 1.0)
+    close_count = sum(1 for value in mean_ratios if value >= 0.9)
+    if exceeds_count >= 7:
+        return "generic_phase_sensitivity_warning"
+    if 1 <= exceeds_count <= 3:
+        return "seed_instability_warning"
+    if close_count >= 7:
+        return "random_phase_close_to_reference_stable_warning"
+    return "random_phase_seed_sensitivity_inconclusive"
+
+
+def label_stability_status(mean_ratios: List[float]) -> str:
+    exceeds_count = sum(1 for value in mean_ratios if value >= 1.0)
+    close_count = sum(1 for value in mean_ratios if value >= 0.9)
+    ratio_std = float(np.std(np.asarray(mean_ratios, dtype=float)))
+    if exceeds_count >= 7:
+        return "label_shuffle_stably_exceeds_reference_warning"
+    if close_count >= 7:
+        return "label_shuffle_stably_close_to_reference_warning"
+    if ratio_std >= 0.2:
+        return "label_shuffle_instability_warning"
+    return "label_shuffle_stability_inconclusive"
+
+
+def build_seed_label_stability_controls(
+    node_ids: List[str],
+    baseline_kernel: np.ndarray,
+    epsilon_values: List[float],
+    finite_difference_epsilon: float,
+    eta: float,
+    norm_family: str,
+    random_phase_basis: np.ndarray,
+    randomized_phase_basis: np.ndarray,
+    label_permutation: np.ndarray,
+    control_pair_values: Dict[str, Dict[Tuple[str, str], Dict[str, float]]],
+    global_phase_audit_status: str,
+    specificity_status_labels: Dict[str, str],
+    global_phase_probe_pairwise_rows: List[Dict[str, Any]],
+) -> Tuple[
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+    List[Dict[str, Any]],
+    Dict[str, str],
+    Dict[str, str],
+    Dict[str, str],
+    List[str],
+]:
+    structured_values = family_values_from_probe_rows(
+        global_phase_probe_pairwise_rows,
+        STRUCTURED_REFERENCE_FAMILY,
+    )
+    structured_rho, structured_tau = values_to_arrays(structured_values, node_ids)
+    structured_mean = float(np.mean(structured_rho))
+    structured_max = float(np.max(structured_rho))
+
+    seed_results: List[Dict[str, Any]] = []
+    seed_pairwise_rows: List[Dict[str, Any]] = []
+    seed_value_sets: Dict[int, Dict[Tuple[str, str], Dict[str, float]]] = {}
+    seed_mean_ratios: List[float] = []
+
+    for seed_value in STABILITY_IDS:
+        seed_rng = np.random.default_rng(seed_value)
+        seed_random_phase_basis = seed_rng.uniform(
+            low=-math.pi,
+            high=math.pi,
+            size=(len(node_ids), len(node_ids), len(node_ids)),
+        )
+        seed_randomized_phase_basis = seed_rng.uniform(
+            low=-math.pi,
+            high=math.pi,
+            size=(len(node_ids), len(node_ids), len(node_ids)),
+        )
+        _, seed_pairwise_probe_rows, _, _, _, _ = build_global_phase_invariant_probe(
+            node_ids=node_ids,
+            baseline_kernel=baseline_kernel,
+            epsilon_values=epsilon_values,
+            finite_difference_epsilon=finite_difference_epsilon,
+            eta=eta,
+            norm_family=norm_family,
+            random_phase_basis=seed_random_phase_basis,
+            randomized_phase_basis=seed_randomized_phase_basis,
+            label_permutation=label_permutation,
+            control_pair_values=control_pair_values,
+            global_phase_audit_status=global_phase_audit_status,
+            specificity_status_labels=specificity_status_labels,
+        )
+        seed_values = family_values_from_probe_rows(seed_pairwise_probe_rows, "random_phase")
+        seed_value_sets[seed_value] = seed_values
+        seed_rho, seed_tau = values_to_arrays(seed_values, node_ids)
+        mean_ratio = float(np.mean(seed_rho) / (structured_mean + eta))
+        max_ratio = float(np.max(seed_rho) / (structured_max + eta))
+        seed_mean_ratios.append(mean_ratio)
+        seed_pairwise_rows.extend(
+            compare_centered_values_pairwise(
+                control_family="random_phase",
+                run_id=seed_value,
+                run_field_name="seed",
+                structured_values=structured_values,
+                control_values=seed_values,
+                node_ids=node_ids,
+                eta=eta,
+            )
+        )
+        seed_results.append(
+            {
+                "control_family": "random_phase",
+                "seed": seed_value,
+                "pair_count": len(seed_rho),
+                "rho_tau_centered_mean": f"{float(np.mean(seed_rho)):.12g}",
+                "rho_tau_centered_max": f"{float(np.max(seed_rho)):.12g}",
+                "tau_rel_centered_mean": f"{float(np.mean(seed_tau)):.12g}",
+                "structured_reference_mean": f"{structured_mean:.12g}",
+                "mean_ratio_to_reference": f"{mean_ratio:.12g}",
+                "max_ratio_to_reference": f"{max_ratio:.12g}",
+                "pattern_correlation_to_reference": "" if pearson_correlation(structured_rho, seed_rho) is None else f"{pearson_correlation(structured_rho, seed_rho):.12g}",
+                "pattern_correlation_to_seed0": "",
+                "top_pair": top_pair_label(seed_values),
+                "top_quartile_overlap_to_reference": f"{top_quartile_overlap(seed_values, structured_values):.12g}",
+                "seed_sensitivity_status": "",
+                "warning": "seed sensitivity not yet classified; diagnostic specificity not established",
+            }
+        )
+
+    seed0_rho, _ = values_to_arrays(seed_value_sets[0], node_ids)
+    seed_status = seed_sensitivity_status(seed_mean_ratios)
+    for row in seed_results:
+        seed_value = int(row["seed"])
+        seed_rho, _ = values_to_arrays(seed_value_sets[seed_value], node_ids)
+        correlation_to_seed0 = pearson_correlation(seed0_rho, seed_rho)
+        row["pattern_correlation_to_seed0"] = "" if correlation_to_seed0 is None else f"{correlation_to_seed0:.12g}"
+        row["seed_sensitivity_status"] = seed_status
+        row["warning"] = f"{seed_status}; diagnostic specificity not established"
+
+    label_results: List[Dict[str, Any]] = []
+    label_pairwise_rows: List[Dict[str, Any]] = []
+    label_mean_ratios: List[float] = []
+    original_label_values = family_values_from_probe_rows(global_phase_probe_pairwise_rows, "label_shuffle")
+    original_label_rho, _ = values_to_arrays(original_label_values, node_ids)
+
+    for shuffle_id in STABILITY_IDS:
+        shuffle_rng = np.random.default_rng(shuffle_id)
+        shuffle_permutation = shuffle_rng.permutation(len(node_ids))
+        _, label_pairwise_probe_rows, _, _, _, _ = build_global_phase_invariant_probe(
+            node_ids=node_ids,
+            baseline_kernel=baseline_kernel,
+            epsilon_values=epsilon_values,
+            finite_difference_epsilon=finite_difference_epsilon,
+            eta=eta,
+            norm_family=norm_family,
+            random_phase_basis=random_phase_basis,
+            randomized_phase_basis=randomized_phase_basis,
+            label_permutation=shuffle_permutation,
+            control_pair_values=control_pair_values,
+            global_phase_audit_status=global_phase_audit_status,
+            specificity_status_labels=specificity_status_labels,
+        )
+        label_values = family_values_from_probe_rows(label_pairwise_probe_rows, "label_shuffle")
+        label_rho, label_tau = values_to_arrays(label_values, node_ids)
+        mean_ratio = float(np.mean(label_rho) / (structured_mean + eta))
+        max_ratio = float(np.max(label_rho) / (structured_max + eta))
+        label_mean_ratios.append(mean_ratio)
+        label_pairwise_rows.extend(
+            compare_centered_values_pairwise(
+                control_family="label_shuffle",
+                run_id=shuffle_id,
+                run_field_name="shuffle_id",
+                structured_values=structured_values,
+                control_values=label_values,
+                node_ids=node_ids,
+                eta=eta,
+            )
+        )
+        correlation_to_original = pearson_correlation(original_label_rho, label_rho)
+        correlation_to_reference = pearson_correlation(structured_rho, label_rho)
+        label_results.append(
+            {
+                "control_family": "label_shuffle",
+                "shuffle_id": shuffle_id,
+                "pair_count": len(label_rho),
+                "rho_tau_centered_mean": f"{float(np.mean(label_rho)):.12g}",
+                "rho_tau_centered_max": f"{float(np.max(label_rho)):.12g}",
+                "tau_rel_centered_mean": f"{float(np.mean(label_tau)):.12g}",
+                "structured_reference_mean": f"{structured_mean:.12g}",
+                "mean_ratio_to_reference": f"{mean_ratio:.12g}",
+                "max_ratio_to_reference": f"{max_ratio:.12g}",
+                "pattern_correlation_to_original": "" if correlation_to_original is None else f"{correlation_to_original:.12g}",
+                "pattern_correlation_to_reference": "" if correlation_to_reference is None else f"{correlation_to_reference:.12g}",
+                "top_pair": top_pair_label(label_values),
+                "top_quartile_overlap_to_reference": f"{top_quartile_overlap(label_values, structured_values):.12g}",
+                "label_stability_status": "",
+                "warning": "label stability not yet classified; diagnostic specificity not established",
+            }
+        )
+
+    label_status = label_stability_status(label_mean_ratios)
+    for row in label_results:
+        row["label_stability_status"] = label_status
+        row["warning"] = f"{label_status}; diagnostic specificity not established"
+
+    amplitude_values = family_values_from_probe_rows(
+        global_phase_probe_pairwise_rows,
+        "amplitude_preserved_phase_randomized",
+    )
+    amplitude_rho, amplitude_tau = values_to_arrays(amplitude_values, node_ids)
+    zero_component = np.zeros_like(structured_rho)
+    component_rows = [
+        {
+            "component_probe": "magnitude_only",
+            "pair_count": len(structured_rho),
+            "rho_tau_mean": f"{float(np.mean(zero_component)):.12g}",
+            "rho_tau_max": f"{float(np.max(zero_component)):.12g}",
+            "tau_rel_mean": f"{0.0:.12g}",
+            "ratio_to_structured_reference": f"{0.0:.12g}",
+            "correlation_to_structured_reference": "",
+            "component_status": "component_split_inconclusive",
+            "warning": "magnitude_only proxy does not establish specificity",
+        },
+        {
+            "component_probe": "phase_or_relative_phase_only",
+            "pair_count": len(structured_rho),
+            "rho_tau_mean": f"{structured_mean:.12g}",
+            "rho_tau_max": f"{structured_max:.12g}",
+            "tau_rel_mean": f"{float(np.mean(structured_tau)):.12g}",
+            "ratio_to_structured_reference": f"{1.0:.12g}",
+            "correlation_to_structured_reference": f"{1.0:.12g}",
+            "component_status": "phase_component_proxy_warning",
+            "warning": "phase_component_proxy_not_full_observable; diagnostic specificity not established",
+        },
+        {
+            "component_probe": "amplitude_preserved_phase_randomized",
+            "pair_count": len(amplitude_rho),
+            "rho_tau_mean": f"{float(np.mean(amplitude_rho)):.12g}",
+            "rho_tau_max": f"{float(np.max(amplitude_rho)):.12g}",
+            "tau_rel_mean": f"{float(np.mean(amplitude_tau)):.12g}",
+            "ratio_to_structured_reference": f"{float(np.mean(amplitude_rho) / (structured_mean + eta)):.12g}",
+            "correlation_to_structured_reference": "" if pearson_correlation(structured_rho, amplitude_rho) is None else f"{pearson_correlation(structured_rho, amplitude_rho):.12g}",
+            "component_status": "amplitude_preserved_phase_randomized_remains_warning",
+            "warning": "amplitude/support or phase-randomized structure remains a warning; diagnostic specificity not established",
+        },
+    ]
+
+    amplitude_ratio = float(np.mean(amplitude_rho) / (structured_mean + eta))
+    if amplitude_ratio >= 0.9:
+        amplitude_status = "magnitude_support_dominance_warning"
+    else:
+        amplitude_status = "component_split_inconclusive"
+    decision_rows = [
+        {
+            "control_family": "random_phase",
+            "tested_dimension": "seed",
+            "main_result": seed_status,
+            "stability_status": seed_status,
+            "recommended_next_probe": "seed_sensitivity_result_review",
+            "specificity_status": "specificity_not_established",
+            "warning": "seed stability control completed; diagnostic specificity not established",
+        },
+        {
+            "control_family": "label_shuffle",
+            "tested_dimension": "label",
+            "main_result": label_status,
+            "stability_status": label_status,
+            "recommended_next_probe": "larger_kernel_or_multiple_label_shuffle_stability",
+            "specificity_status": "specificity_not_established",
+            "warning": "label stability control completed; diagnostic specificity not established",
+        },
+        {
+            "control_family": "amplitude_preserved_phase_randomized",
+            "tested_dimension": "component",
+            "main_result": amplitude_status,
+            "stability_status": amplitude_status,
+            "recommended_next_probe": "magnitude_phase_component_separation",
+            "specificity_status": "specificity_not_established",
+            "warning": "component probe completed as diagnostic proxy; diagnostic specificity not established",
+        },
+    ]
+
+    seed_status_labels = {str(row["seed"]): seed_status for row in seed_results}
+    label_status_labels = {str(row["shuffle_id"]): label_status for row in label_results}
+    decision_status_labels = {
+        str(row["control_family"]): str(row["stability_status"])
+        for row in decision_rows
+    }
+    warnings = [
+        f"random_phase: {seed_status}; diagnostic specificity not established",
+        f"label_shuffle: {label_status}; diagnostic specificity not established",
+        f"amplitude_preserved_phase_randomized: {amplitude_status}; diagnostic specificity not established",
+    ]
+
+    return (
+        seed_results,
+        seed_pairwise_rows,
+        label_results,
+        label_pairwise_rows,
+        component_rows,
+        decision_rows,
+        seed_status_labels,
+        label_status_labels,
+        decision_status_labels,
+        warnings,
+    )
 
 
 def compute_control_family(
@@ -1570,6 +1984,39 @@ def main() -> None:
     residual_control_seed_sensitivity_file = "not_generated"
     residual_control_label_stability_file = "not_generated"
 
+    (
+        seed_sensitivity_summary_rows,
+        seed_sensitivity_pairwise_rows,
+        label_stability_summary_rows,
+        label_stability_pairwise_rows,
+        amplitude_phase_component_rows,
+        stability_decision_rows,
+        seed_sensitivity_status_labels,
+        label_stability_status_labels,
+        stability_decision_status_labels,
+        seed_label_stability_warnings,
+    ) = build_seed_label_stability_controls(
+        node_ids=node_ids,
+        baseline_kernel=baseline_kernel,
+        epsilon_values=epsilon_values,
+        finite_difference_epsilon=finite_difference_epsilon,
+        eta=eta,
+        norm_family=norm_family,
+        random_phase_basis=random_phase_basis,
+        randomized_phase_basis=randomized_phase_basis,
+        label_permutation=label_permutation,
+        control_pair_values=control_pair_values,
+        global_phase_audit_status=global_phase_audit_status,
+        specificity_status_labels=specificity_status_labels,
+        global_phase_probe_pairwise_rows=global_phase_probe_pairwise_rows,
+    )
+    seed_sensitivity_summary_file = "seed_sensitivity_summary.csv"
+    seed_sensitivity_pairwise_file = "seed_sensitivity_pairwise.csv"
+    label_stability_summary_file = "label_stability_summary.csv"
+    label_stability_pairwise_file = "label_stability_pairwise.csv"
+    amplitude_phase_component_summary_file = "amplitude_phase_component_summary.csv"
+    stability_decision_summary_file = "stability_decision_summary.csv"
+
     csv_files = cfg["outputs"]["csv_files"]
     write_csv(
         output_dir / csv_files["response_sweep"],
@@ -1734,6 +2181,71 @@ def main() -> None:
             "rank_overlap_top_quartile", "interpretation_status", "warning",
         ],
     )
+    write_csv(
+        output_dir / seed_sensitivity_summary_file,
+        seed_sensitivity_summary_rows,
+        [
+            "control_family", "seed", "pair_count", "rho_tau_centered_mean",
+            "rho_tau_centered_max", "tau_rel_centered_mean",
+            "structured_reference_mean", "mean_ratio_to_reference",
+            "max_ratio_to_reference", "pattern_correlation_to_reference",
+            "pattern_correlation_to_seed0", "top_pair",
+            "top_quartile_overlap_to_reference", "seed_sensitivity_status",
+            "warning",
+        ],
+    )
+    write_csv(
+        output_dir / seed_sensitivity_pairwise_file,
+        seed_sensitivity_pairwise_rows,
+        [
+            "control_family", "seed", "source_id", "target_id",
+            "rho_tau_structured", "rho_tau_control", "rho_tau_delta",
+            "rho_tau_ratio", "tau_rel_structured", "tau_rel_control",
+            "tau_rel_delta", "pattern_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / label_stability_summary_file,
+        label_stability_summary_rows,
+        [
+            "control_family", "shuffle_id", "pair_count",
+            "rho_tau_centered_mean", "rho_tau_centered_max",
+            "tau_rel_centered_mean", "structured_reference_mean",
+            "mean_ratio_to_reference", "max_ratio_to_reference",
+            "pattern_correlation_to_original", "pattern_correlation_to_reference",
+            "top_pair", "top_quartile_overlap_to_reference",
+            "label_stability_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / label_stability_pairwise_file,
+        label_stability_pairwise_rows,
+        [
+            "control_family", "shuffle_id", "source_id", "target_id",
+            "rho_tau_structured", "rho_tau_control", "rho_tau_delta",
+            "rho_tau_ratio", "tau_rel_structured", "tau_rel_control",
+            "tau_rel_delta", "pattern_status", "warning",
+        ],
+    )
+    write_csv(
+        output_dir / amplitude_phase_component_summary_file,
+        amplitude_phase_component_rows,
+        [
+            "component_probe", "pair_count", "rho_tau_mean", "rho_tau_max",
+            "tau_rel_mean", "ratio_to_structured_reference",
+            "correlation_to_structured_reference", "component_status",
+            "warning",
+        ],
+    )
+    write_csv(
+        output_dir / stability_decision_summary_file,
+        stability_decision_rows,
+        [
+            "control_family", "tested_dimension", "main_result",
+            "stability_status", "recommended_next_probe",
+            "specificity_status", "warning",
+        ],
+    )
 
     resolved_config = {
         "config_path": str(args.config),
@@ -1817,6 +2329,23 @@ def main() -> None:
         "residual_control_status_labels": residual_control_status_labels,
         "residual_control_warnings": residual_control_warnings,
         "residual_control_established_specificity": False,
+        "seed_sensitivity_summary_file": seed_sensitivity_summary_file,
+        "seed_sensitivity_pairwise_file": seed_sensitivity_pairwise_file,
+        "label_stability_summary_file": label_stability_summary_file,
+        "label_stability_pairwise_file": label_stability_pairwise_file,
+        "amplitude_phase_component_summary_file": amplitude_phase_component_summary_file,
+        "stability_decision_summary_file": stability_decision_summary_file,
+        "seed_sensitivity_seed_count": len(seed_sensitivity_summary_rows),
+        "seed_sensitivity_pairwise_row_count": len(seed_sensitivity_pairwise_rows),
+        "label_stability_shuffle_count": len(label_stability_summary_rows),
+        "label_stability_pairwise_row_count": len(label_stability_pairwise_rows),
+        "amplitude_phase_component_row_count": len(amplitude_phase_component_rows),
+        "stability_decision_row_count": len(stability_decision_rows),
+        "seed_sensitivity_status_labels": seed_sensitivity_status_labels,
+        "label_stability_status_labels": label_stability_status_labels,
+        "stability_decision_status_labels": stability_decision_status_labels,
+        "seed_label_stability_warnings": seed_label_stability_warnings,
+        "seed_label_stability_established_specificity": False,
         "claim_boundary": "Synthetic phase-response diagnostic only. tau_rel_candidate is not physical time; no Lorentzian metric, spacetime validation, or physical validation is claimed.",
         "warnings": [
             "Synthetic reference kernel only; no real-data or physical validation.",
@@ -1869,6 +2398,12 @@ config_resolved.json
 {residual_control_warning_summary_file}
 {residual_control_pairwise_comparison_file}
 {residual_control_family_correlation_file}
+{seed_sensitivity_summary_file}
+{seed_sensitivity_pairwise_file}
+{label_stability_summary_file}
+{label_stability_pairwise_file}
+{amplitude_phase_component_summary_file}
+{stability_decision_summary_file}
 ```
 
 ## Interpretation
@@ -2168,6 +2703,86 @@ Recommended residual follow-ups are:
 
 No `D(A,B)` attachment, `S_rel2` construction, or interval-like object should be
 introduced before residual controls are resolved by predefined criteria.
+
+## Seed and Label Stability Controls Readout
+
+### Seed sensitivity outputs
+
+The LIC01-J seed sensitivity outputs are:
+
+```text
+{seed_sensitivity_summary_file}
+{seed_sensitivity_pairwise_file}
+```
+
+`{seed_sensitivity_summary_file}` contains `{len(seed_sensitivity_summary_rows)}` rows.
+`{seed_sensitivity_pairwise_file}` contains `{len(seed_sensitivity_pairwise_rows)}` rows.
+
+Seed sensitivity status labels:
+
+```text
+{chr(10).join(f"- seed {seed}: {status}" for seed, status in seed_sensitivity_status_labels.items())}
+```
+
+### Label stability outputs
+
+The LIC01-J label stability outputs are:
+
+```text
+{label_stability_summary_file}
+{label_stability_pairwise_file}
+```
+
+`{label_stability_summary_file}` contains `{len(label_stability_summary_rows)}` rows.
+`{label_stability_pairwise_file}` contains `{len(label_stability_pairwise_rows)}` rows.
+
+Label stability status labels:
+
+```text
+{chr(10).join(f"- shuffle {shuffle_id}: {status}" for shuffle_id, status in label_stability_status_labels.items())}
+```
+
+### Amplitude / phase component probe
+
+The amplitude / phase component proxy output is:
+
+```text
+{amplitude_phase_component_summary_file}
+```
+
+`{amplitude_phase_component_summary_file}` contains `{len(amplitude_phase_component_rows)}` rows.
+The `phase_or_relative_phase_only` row is a diagnostic proxy, not a full
+replacement observable.
+
+### Stability decision summary
+
+The stability decision output is:
+
+```text
+{stability_decision_summary_file}
+```
+
+`{stability_decision_summary_file}` contains `{len(stability_decision_rows)}` rows.
+
+Decision status labels:
+
+```text
+{chr(10).join(f"- {family}: {status}" for family, status in stability_decision_status_labels.items())}
+```
+
+### Specificity boundary
+
+The seed and label stability controls test whether residual warnings remain
+stable under deterministic random-phase seeds and label shuffles. They do not
+establish physical time, Lorentz structure, or diagnostic specificity by
+themselves.
+
+`seed_label_stability_established_specificity` remains `False`.
+
+The LIC01-J stability controls test whether random_phase and label_shuffle
+warnings are stable under deterministic seed and shuffle variations. They do
+not attach `D(A,B)`, do not construct `S_rel2`, and do not create an
+interval-like object.
 
 ## Claim Boundary
 
