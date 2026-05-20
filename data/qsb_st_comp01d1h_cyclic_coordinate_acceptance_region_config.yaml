@@ -1,0 +1,114 @@
+block_id: QSB-ST-COMP01D1H
+run_id: cyclic_coordinate_acceptance_region_open
+input_dir_d1f: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+input_dir_d1g: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open
+output_dir: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic cyclic-coordinate acceptance-region only
+  does_not_rerun_d1f: true
+  does_not_modify_d1g_outputs: true
+  does_not_introduce_physical_manifold: true
+  does_not_introduce_new_identity_score: true
+
+input_files:
+  d1f_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/summary.json
+  d1f_case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  d1g_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/summary.json
+  d1g_decision_table_case_classification: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/decision_table_case_classification.csv
+  d1g_decoy_driver_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/decoy_driver_summary.csv
+  d1g_null_family_driver_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/null_family_driver_summary.csv
+  d1g_profile_weight_driver_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/profile_weight_driver_summary.csv
+  d1g_penalty_weight_driver_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/penalty_weight_driver_summary.csv
+  d1g_kernel_size_driver_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/kernel_size_driver_summary.csv
+
+d1g_reference:
+  case_count: 9450
+  specificity_established: false
+  dominant_failure_mode_label: false_accept_region_overlap_driven
+  stable_candidate_count: 2067
+  fragile_candidate_count: 7383
+  top_warning_type: penalty_weight_sensitivity_warning
+  top_decoy_family: adversarial_near_duplicate_sweep
+  top_null_family: spectrum_matched_null
+  top_profile_weight_set: local_response_dominant
+  top_penalty_weight_set: strong_collision_penalties
+  top_kernel_size_label: kernel_size_8
+
+cyclic_coordinate_model:
+  cyclic_axis_name: angular_phase_axis
+  cyclic_phase_distance_mode: wrapped_principal_interval
+  cyclic_phase_period: 6.283185307179586
+  cyclic_phase_scale: 3.141592653589793
+  use_cos_sin_proxy_if_raw_phase_missing: true
+  linear_axes:
+    - profile_distance_raw
+    - profile_distance_collision_penalized
+    - penalty_gap
+    - control_overlap_rate
+    - decoy_success_rate
+  decision_axes:
+    - current_decision_table_label
+    - current_failure_mode_label
+    - fragile_candidate
+    - stable_candidate
+
+thresholds:
+  cyclic_phase_small: 0.10
+  cyclic_phase_medium: 0.30
+  cyclic_phase_large: 0.60
+  cyclic_acceptance_distance_threshold: 0.20
+  cyclic_false_accept_distance_threshold: 0.20
+  profile_distance_low: 0.08
+  penalty_gap_positive_threshold: 0.000001
+  improvement_warning_delta_threshold: 0
+  overstrict_stable_loss_rate_threshold: 0.20
+
+targeted_driver_checks:
+  spectrum_matched_null_exclusion: spectrum_matched_null
+  adversarial_near_duplicate_exclusion: adversarial_near_duplicate_sweep
+  local_response_dominant_exclusion: local_response_dominant
+  strong_collision_penalty_cosmetic_lock: strong_collision_penalties
+  kernel_size_8_artifact: kernel_size_8
+
+decision_table_cyclic_rules:
+  - rule_id: CY001_cyclic_false_accept_warning
+    description: Case remains in cyclic acceptance region while current D1g label indicates false accept or impostor overlap.
+    decision_label: cyclic_false_accept_warning
+    severity: high
+
+  - rule_id: CY002_spectrum_matched_null_intrusion_warning
+    description: Spectrum-matched null remains accepted under cyclic region.
+    decision_label: spectrum_matched_null_intrusion_warning
+    severity: high
+
+  - rule_id: CY003_adversarial_near_duplicate_intrusion_warning
+    description: Adversarial near duplicate remains accepted under cyclic region.
+    decision_label: adversarial_near_duplicate_intrusion_warning
+    severity: high
+
+  - rule_id: CY004_local_response_open_door_warning
+    description: Local-response-dominant setting remains fragile or accepted under cyclic logic.
+    decision_label: local_response_open_door_warning
+    severity: medium
+
+  - rule_id: CY005_cosmetic_penalty_lock_warning
+    description: Penalized distance increases, but false-accept warning remains.
+    decision_label: cosmetic_penalty_lock_warning
+    severity: high
+
+  - rule_id: CY006_kernel_size_8_artifact_warning
+    description: Kernel-size-8 cases remain sensitive under cyclic logic.
+    decision_label: kernel_size_8_artifact_warning
+    severity: medium
+
+  - rule_id: CY007_cyclic_region_reduces_false_accept_candidate
+    description: Current fragile/false-accept case becomes cyclic excluded without broad stable-candidate loss.
+    decision_label: cyclic_region_reduces_false_accept_candidate
+    severity: low
+
+  - rule_id: CY008_stable_under_cyclic_region_candidate
+    description: Case remains stable under current and cyclic interpretation.
+    decision_label: stable_under_cyclic_region_candidate
+    severity: low
