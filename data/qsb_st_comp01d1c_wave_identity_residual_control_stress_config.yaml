@@ -1,0 +1,140 @@
+block_id: QSB-ST-COMP01D1C
+run_id: wave_identity_residual_control_stress_open
+random_seed: 20260520
+output_dir: runs/QSB-ST-COMP01D1C/wave_identity_residual_control_stress_open
+
+normalization:
+  epsilon: 1.0e-12
+  similarity_scale: 1.0
+  phase_wrap_mode: principal_interval_minus_pi_pi
+
+decision_thresholds:
+  near_zero_residual_max: 1.0e-9
+  near_duplicate_residual_max: 0.15
+  control_mimicry_ratio_warning: 0.85
+  residual_matched_delta_max: 0.02
+  weight_sensitivity_shift_warning: 0.10
+
+weight_sets:
+  - weight_set_id: equal_weights
+    spectral_component: 0.3333333333
+    phase_component: 0.3333333333
+    local_component: 0.3333333333
+
+  - weight_set_id: spectral_dominant
+    spectral_component: 0.60
+    phase_component: 0.20
+    local_component: 0.20
+
+  - weight_set_id: phase_dominant
+    spectral_component: 0.20
+    phase_component: 0.60
+    local_component: 0.20
+
+  - weight_set_id: local_dominant
+    spectral_component: 0.20
+    phase_component: 0.20
+    local_component: 0.60
+
+  - weight_set_id: spectral_off
+    spectral_component: 0.00
+    phase_component: 0.50
+    local_component: 0.50
+
+  - weight_set_id: phase_off
+    spectral_component: 0.50
+    phase_component: 0.00
+    local_component: 0.50
+
+  - weight_set_id: local_off
+    spectral_component: 0.50
+    phase_component: 0.50
+    local_component: 0.00
+
+synthetic_wave_pairs:
+  # Baseline / sanity
+  - pair_id: exact_duplicate_001
+    control_family: exact_duplicate
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_duplicate, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+
+  - pair_id: simple_near_duplicate_001
+    control_family: simple_near_duplicate
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_simple_near, k: 1.01, phase: 0.05, A: 0.99, B: 0.52}
+
+  # D1b carry-over
+  - pair_id: small_delta_k_decoy_001
+    control_family: small_delta_k_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_small_k_shift, k: 1.03, phase: 0.0, A: 1.0, B: 0.5}
+
+  - pair_id: small_phase_drift_decoy_001
+    control_family: small_phase_drift_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_small_phase_shift, k: 1.0, phase: 0.15, A: 1.0, B: 0.5}
+
+  - pair_id: amplitude_preserved_perturbation_001
+    control_family: amplitude_preserved_perturbation
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_local_balance_shift, k: 1.0, phase: 0.0, A: 0.92, B: 0.65}
+
+  - pair_id: combined_near_duplicate_decoy_001
+    control_family: combined_near_duplicate_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_combined_decoy, k: 1.02, phase: 0.10, A: 0.96, B: 0.58}
+
+  - pair_id: label_shuffle_001
+    control_family: label_shuffle
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_B_label_shuffled_proxy, k: 1.35, phase: 0.45, A: 0.7, B: 1.1}
+
+  - pair_id: kernel_node_label_shuffle_proxy_001
+    control_family: kernel_node_label_shuffle_proxy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_C_kernel_proxy, k: 0.72, phase: -0.80, A: 1.25, B: 0.2}
+
+  # D1c harder controls
+  - pair_id: stronger_label_shuffle_001
+    control_family: stronger_label_shuffle
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_D_stronger_shuffle, k: 1.75, phase: 1.20, A: 0.35, B: 1.45}
+
+  - pair_id: phase_randomized_control_001
+    control_family: phase_randomized_control
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_E_phase_randomized, k: 1.0, phase: 2.40, A: 1.0, B: 0.5}
+
+  - pair_id: spectrum_matched_control_001
+    control_family: spectrum_matched_control
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_F_spectrum_matched, k: 1.0, phase: 0.65, A: 0.55, B: 1.2}
+
+  - pair_id: amplitude_matched_control_001
+    control_family: amplitude_matched_control
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_G_amplitude_matched, k: 1.42, phase: -0.35, A: 1.0, B: 0.5}
+
+  - pair_id: slope_intercept_matched_control_001
+    control_family: slope_intercept_matched_control
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_H_slope_intercept_matched, k: 0.5, phase: 0.75, A: 1.0, B: 1.0}
+
+  - pair_id: residual_matched_decoy_001
+    control_family: residual_matched_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_I_residual_matched, k: 1.02, phase: 0.08, A: 0.98, B: 0.57}
+
+  - pair_id: adversarial_near_duplicate_001
+    control_family: adversarial_near_duplicate
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_J_adversarial_near, k: 1.015, phase: -0.04, A: 1.03, B: 0.47}
+
+  - pair_id: random_parameter_control_001
+    control_family: random_parameter_control
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_K_random_parameter, k: 0.38, phase: -1.70, A: 1.6, B: -0.4}
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic control-stress and weight-sensitivity only
