@@ -1,0 +1,59 @@
+block_id: QSB-ST-COMP01D1B
+run_id: wave_identity_residual_minimal_open
+random_seed: 20260520
+output_dir: runs/QSB-ST-COMP01D1B/wave_identity_residual_minimal_open
+
+weights:
+  spectral_component: 0.3333333333
+  phase_component: 0.3333333333
+  local_component: 0.3333333333
+
+normalization:
+  epsilon: 1.0e-12
+  similarity_scale: 1.0
+  phase_wrap_mode: principal_interval_minus_pi_pi
+
+synthetic_wave_pairs:
+  - pair_id: exact_duplicate_001
+    control_family: exact_duplicate
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_duplicate, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+
+  - pair_id: small_delta_k_decoy_001
+    control_family: small_delta_k_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_small_k_shift, k: 1.03, phase: 0.0, A: 1.0, B: 0.5}
+
+  - pair_id: small_phase_drift_decoy_001
+    control_family: small_phase_drift_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_small_phase_shift, k: 1.0, phase: 0.15, A: 1.0, B: 0.5}
+
+  - pair_id: amplitude_preserved_perturbation_001
+    control_family: amplitude_preserved_perturbation
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_local_balance_shift, k: 1.0, phase: 0.0, A: 0.92, B: 0.65}
+
+  - pair_id: combined_near_duplicate_decoy_001
+    control_family: combined_near_duplicate_decoy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_A_combined_decoy, k: 1.02, phase: 0.10, A: 0.96, B: 0.58}
+
+  - pair_id: label_shuffle_001
+    control_family: label_shuffle
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_B_label_shuffled_proxy, k: 1.35, phase: 0.45, A: 0.7, B: 1.1}
+
+  - pair_id: kernel_node_label_shuffle_proxy_001
+    control_family: kernel_node_label_shuffle_proxy
+    wave_i: {wave_id: wave_A, k: 1.0, phase: 0.0, A: 1.0, B: 0.5}
+    wave_j: {wave_id: wave_C_kernel_proxy, k: 0.72, phase: -0.80, A: 1.25, B: 0.2}
+
+decision_thresholds:
+  near_zero_residual_max: 1.0e-9
+  near_duplicate_residual_max: 0.15
+  control_mimicry_ratio_warning: 0.85
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic minimal scanner only
