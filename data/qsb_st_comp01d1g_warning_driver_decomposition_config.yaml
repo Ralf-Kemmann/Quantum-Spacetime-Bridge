@@ -1,0 +1,173 @@
+block_id: QSB-ST-COMP01D1G
+run_id: warning_driver_decomposition_open
+input_dir: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+output_dir: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic warning-driver decomposition only
+  does_not_rerun_d1f: true
+  does_not_introduce_new_identity_score: true
+
+input_files:
+  d1f_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/summary.json
+  case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  profile_weight_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/profile_weight_summary.csv
+  decoy_family_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/decoy_family_summary.csv
+  kernel_size_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/kernel_size_summary.csv
+  null_family_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/null_family_summary.csv
+  warning_stability_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/warning_stability_summary.csv
+
+d1f_reference:
+  case_count: 9450
+  specificity_established: false
+  warning_count_total: 32961
+  control_profile_mimicry_warnings_count: 4901
+  null_family_overlap_warnings_count: 4901
+  decoy_success_warnings_count: 3956
+  penalty_weight_sensitivity_warnings_count: 5859
+  profile_weight_sensitivity_warnings_count: 2709
+  kernel_size_sensitivity_warnings_count: 2214
+  mean_decoy_success_rate: 0.4186243386243386
+  mean_control_overlap_rate: 0.5186243386243387
+
+thresholds:
+  high_warning_rate: 0.50
+  medium_warning_rate: 0.20
+  high_decoy_success_rate: 0.40
+  medium_decoy_success_rate: 0.20
+  high_control_overlap_rate: 0.50
+  medium_control_overlap_rate: 0.20
+  high_null_overlap_rate: 0.50
+  medium_null_overlap_rate: 0.20
+  high_sensitivity_rate: 0.40
+  medium_sensitivity_rate: 0.20
+  low_profile_distance_raw: 0.08
+  low_profile_separation_margin: 0.00
+
+decision_table_rules:
+  - rule_id: DT001_multi_driver_instability
+    description: Multiple major warnings active together.
+    conditions:
+      min_active_major_warning_flags: 3
+    decision_table_label: multi_driver_instability
+    failure_mode_label: multi_driver_instability
+    severity: high
+
+  - rule_id: DT002_false_accept_region_warning
+    description: Control/null overlap or decoy success indicates false-accept-region risk.
+    conditions:
+      any_true:
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+        - decoy_success_warning
+    decision_table_label: false_accept_region_warning
+    failure_mode_label: false_accept_region_overlap_driven
+    severity: high
+
+  - rule_id: DT003_impostor_distribution_overlap
+    description: Null family or control family overlaps the accepted region.
+    conditions:
+      any_true:
+        - null_family_overlap_warning
+        - control_profile_mimicry_warning
+    decision_table_label: impostor_distribution_overlap_warning
+    failure_mode_label: impostor_overlap_driven
+    severity: high
+
+  - rule_id: DT004_representation_instability
+    description: Profile, penalty, or kernel sensitivity indicates unstable representation.
+    conditions:
+      any_true:
+        - profile_weight_sensitivity_warning
+        - penalty_weight_sensitivity_warning
+        - kernel_size_sensitivity_warning
+    decision_table_label: representation_instability_warning
+    failure_mode_label: representation_instability_driven
+    severity: medium
+
+  - rule_id: DT005_coordinate_dominant_open_door
+    description: Coordinate-dominant profile with weak phase/control/collision response can open the door for decoys.
+    conditions:
+      profile_weight_set_id_equals: coordinate_dominant
+      any_true:
+        - decoy_success_warning
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+    decision_table_label: coordinate_dominant_open_door_warning
+    failure_mode_label: coordinate_weight_open_door
+    severity: high
+
+  - rule_id: DT006_collision_penalty_off_open_door
+    description: Collision/control penalties disabled and warning active.
+    conditions:
+      penalty_weight_set_id_equals: penalties_off
+      any_true:
+        - decoy_success_warning
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+    decision_table_label: penalty_off_open_door_warning
+    failure_mode_label: penalty_disabled_open_door
+    severity: high
+
+  - rule_id: DT007_control_response_low_open_door
+    description: Control-response contribution too weak while controls overlap.
+    conditions:
+      profile_weight_set_id_in:
+        - collision_penalty_off
+        - coordinate_dominant
+        - angular_phase_dominant
+        - local_response_dominant
+      any_true:
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+    decision_table_label: control_response_low_open_door_warning
+    failure_mode_label: control_response_underweighted
+    severity: medium
+
+  - rule_id: DT008_penalty_cosmetic_lock
+    description: Penalized distance increases but decoy/control overlap remains active.
+    conditions:
+      requires_penalty_gap_positive: true
+      any_true:
+        - decoy_success_warning
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+    decision_table_label: cosmetic_penalty_lock_warning
+    failure_mode_label: penalty_cosmetic_not_separating
+    severity: high
+
+  - rule_id: DT009_kernel_shift_warning
+    description: Kernel-size sensitivity changes the acceptance-region behavior.
+    conditions:
+      any_true:
+        - kernel_size_sensitivity_warning
+    decision_table_label: kernel_shift_acceptance_region_warning
+    failure_mode_label: kernel_size_driven
+    severity: medium
+
+  - rule_id: DT010_stable_under_tested_stress_candidate
+    description: No major warnings active in tested stress setting.
+    conditions:
+      all_false:
+        - control_profile_mimicry_warning
+        - null_family_overlap_warning
+        - decoy_success_warning
+        - profile_weight_sensitivity_warning
+        - penalty_weight_sensitivity_warning
+        - kernel_size_sensitivity_warning
+        - residual_matched_profile_warning
+        - adversarial_profile_warning
+    decision_table_label: stable_under_tested_stress_candidate
+    failure_mode_label: stable_under_tested_stress_candidate
+    severity: low
+
+major_warning_flags:
+  - control_profile_mimicry_warning
+  - null_family_overlap_warning
+  - decoy_success_warning
+  - profile_weight_sensitivity_warning
+  - penalty_weight_sensitivity_warning
+  - kernel_size_sensitivity_warning
+  - residual_matched_profile_warning
+  - adversarial_profile_warning
