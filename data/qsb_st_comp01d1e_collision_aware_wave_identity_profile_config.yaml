@@ -1,0 +1,288 @@
+block_id: QSB-ST-COMP01D1E
+run_id: collision_aware_wave_identity_profile_open
+random_seed: 20260520
+output_dir: runs/QSB-ST-COMP01D1E/collision_aware_wave_identity_profile_open
+
+normalization:
+  epsilon: 1.0e-12
+  angular_wrap_mode: principal_interval_minus_pi_pi
+  profile_distance_norm: euclidean
+  near_constant_std_threshold: 1.0e-9
+  coordinate_dependency_correlation_threshold: 0.999
+  collision_distance_threshold: 1.0e-6
+  residual_collision_threshold: 1.0e-6
+
+profile_component_weights:
+  coordinate_profile: 0.20
+  angular_phase_profile: 0.15
+  local_response_profile: 0.15
+  residual_weight_profile: 0.15
+  rank_stability_profile: 0.10
+  collision_profile: 0.15
+  control_response_profile: 0.10
+
+collision_penalty_weights:
+  profile_collision_penalty: 0.20
+  residual_collision_penalty: 0.20
+  delta_vector_collision_penalty: 0.20
+  ambiguity_penalty: 0.15
+  control_mimicry_penalty: 0.15
+  residual_matched_penalty: 0.05
+  adversarial_penalty: 0.05
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic collision-aware profile only
+
+synthetic_waves:
+  - wave_id: wave_A
+    family: reference
+    k: 1.0
+    A: 1.0
+    B: 0.5
+
+  - wave_id: wave_A_duplicate
+    family: exact_duplicate
+    k: 1.0
+    A: 1.0
+    B: 0.5
+
+  - wave_id: wave_A_simple_near
+    family: simple_near_duplicate
+    k: 1.01
+    A: 0.99
+    B: 0.52
+
+  - wave_id: wave_A_small_k_shift
+    family: small_delta_k_decoy
+    k: 1.03
+    A: 1.0
+    B: 0.5
+
+  - wave_id: wave_A_small_phase_shift_proxy
+    family: small_phase_drift_decoy
+    k: 1.0
+    A: 1.0
+    B: 0.5
+    phase_override: 0.15
+
+  - wave_id: wave_A_local_balance_shift
+    family: amplitude_preserved_perturbation
+    k: 1.0
+    A: 0.92
+    B: 0.65
+
+  - wave_id: wave_A_combined_decoy
+    family: combined_near_duplicate_decoy
+    k: 1.02
+    A: 0.96
+    B: 0.58
+    phase_override: 0.10
+
+  - wave_id: wave_B_label_shuffled_proxy
+    family: label_shuffle
+    k: 1.35
+    A: 0.7
+    B: 1.1
+    phase_override: 0.45
+
+  - wave_id: wave_C_kernel_proxy
+    family: kernel_node_label_shuffle_proxy
+    k: 0.72
+    A: 1.25
+    B: 0.2
+    phase_override: -0.80
+
+  - wave_id: wave_D_stronger_shuffle
+    family: stronger_label_shuffle
+    k: 1.75
+    A: 0.35
+    B: 1.45
+    phase_override: 1.20
+
+  - wave_id: wave_E_phase_randomized
+    family: phase_randomized_control
+    k: 1.0
+    A: 1.0
+    B: 0.5
+    phase_override: 2.40
+
+  - wave_id: wave_F_spectrum_matched
+    family: spectrum_matched_control
+    k: 1.0
+    A: 0.55
+    B: 1.2
+    phase_override: 0.65
+
+  - wave_id: wave_G_amplitude_matched
+    family: amplitude_matched_control
+    k: 1.42
+    A: 1.0
+    B: 0.5
+    phase_override: -0.35
+
+  - wave_id: wave_H_slope_intercept_matched
+    family: slope_intercept_matched_control
+    k: 0.5
+    A: 1.0
+    B: 1.0
+    phase_override: 0.75
+
+  - wave_id: wave_I_residual_matched
+    family: residual_matched_decoy
+    k: 1.02
+    A: 0.98
+    B: 0.57
+    phase_override: 0.08
+
+  - wave_id: wave_J_adversarial_near
+    family: adversarial_near_duplicate
+    k: 1.015
+    A: 1.03
+    B: 0.47
+    phase_override: -0.04
+
+  - wave_id: wave_K_random_parameter
+    family: random_parameter_control
+    k: 0.38
+    A: 1.6
+    B: -0.4
+    phase_override: -1.70
+
+pair_definitions:
+  - pair_id: exact_duplicate_001
+    control_family: exact_duplicate
+    wave_id_i: wave_A
+    wave_id_j: wave_A_duplicate
+
+  - pair_id: simple_near_duplicate_001
+    control_family: simple_near_duplicate
+    wave_id_i: wave_A
+    wave_id_j: wave_A_simple_near
+
+  - pair_id: small_delta_k_decoy_001
+    control_family: small_delta_k_decoy
+    wave_id_i: wave_A
+    wave_id_j: wave_A_small_k_shift
+
+  - pair_id: small_phase_drift_decoy_001
+    control_family: small_phase_drift_decoy
+    wave_id_i: wave_A
+    wave_id_j: wave_A_small_phase_shift_proxy
+
+  - pair_id: amplitude_preserved_perturbation_001
+    control_family: amplitude_preserved_perturbation
+    wave_id_i: wave_A
+    wave_id_j: wave_A_local_balance_shift
+
+  - pair_id: combined_near_duplicate_decoy_001
+    control_family: combined_near_duplicate_decoy
+    wave_id_i: wave_A
+    wave_id_j: wave_A_combined_decoy
+
+  - pair_id: label_shuffle_001
+    control_family: label_shuffle
+    wave_id_i: wave_A
+    wave_id_j: wave_B_label_shuffled_proxy
+
+  - pair_id: kernel_node_label_shuffle_proxy_001
+    control_family: kernel_node_label_shuffle_proxy
+    wave_id_i: wave_A
+    wave_id_j: wave_C_kernel_proxy
+
+  - pair_id: stronger_label_shuffle_001
+    control_family: stronger_label_shuffle
+    wave_id_i: wave_A
+    wave_id_j: wave_D_stronger_shuffle
+
+  - pair_id: phase_randomized_control_001
+    control_family: phase_randomized_control
+    wave_id_i: wave_A
+    wave_id_j: wave_E_phase_randomized
+
+  - pair_id: spectrum_matched_control_001
+    control_family: spectrum_matched_control
+    wave_id_i: wave_A
+    wave_id_j: wave_F_spectrum_matched
+
+  - pair_id: amplitude_matched_control_001
+    control_family: amplitude_matched_control
+    wave_id_i: wave_A
+    wave_id_j: wave_G_amplitude_matched
+
+  - pair_id: slope_intercept_matched_control_001
+    control_family: slope_intercept_matched_control
+    wave_id_i: wave_A
+    wave_id_j: wave_H_slope_intercept_matched
+
+  - pair_id: residual_matched_decoy_001
+    control_family: residual_matched_decoy
+    wave_id_i: wave_A
+    wave_id_j: wave_I_residual_matched
+
+  - pair_id: adversarial_near_duplicate_001
+    control_family: adversarial_near_duplicate
+    wave_id_i: wave_A
+    wave_id_j: wave_J_adversarial_near
+
+  - pair_id: random_parameter_control_001
+    control_family: random_parameter_control
+    wave_id_i: wave_A
+    wave_id_j: wave_K_random_parameter
+
+weight_sets:
+  - weight_set_id: equal_weights
+    spectral_component: 0.3333333333
+    phase_component: 0.3333333333
+    local_component: 0.3333333333
+
+  - weight_set_id: spectral_dominant
+    spectral_component: 0.60
+    phase_component: 0.20
+    local_component: 0.20
+
+  - weight_set_id: phase_dominant
+    spectral_component: 0.20
+    phase_component: 0.60
+    local_component: 0.20
+
+  - weight_set_id: local_dominant
+    spectral_component: 0.20
+    phase_component: 0.20
+    local_component: 0.60
+
+  - weight_set_id: spectral_off
+    spectral_component: 0.00
+    phase_component: 0.50
+    local_component: 0.50
+
+  - weight_set_id: phase_off
+    spectral_component: 0.50
+    phase_component: 0.00
+    local_component: 0.50
+
+  - weight_set_id: local_off
+    spectral_component: 0.50
+    phase_component: 0.50
+    local_component: 0.00
+
+audit:
+  include_all_pairwise_wave_pairs: false
+  exact_duplicate_family: exact_duplicate
+  near_duplicate_reference_families:
+    - simple_near_duplicate
+    - small_delta_k_decoy
+    - small_phase_drift_decoy
+    - amplitude_preserved_perturbation
+    - combined_near_duplicate_decoy
+  control_families:
+    - label_shuffle
+    - kernel_node_label_shuffle_proxy
+    - stronger_label_shuffle
+    - phase_randomized_control
+    - spectrum_matched_control
+    - amplitude_matched_control
+    - slope_intercept_matched_control
+    - residual_matched_decoy
+    - adversarial_near_duplicate
+    - random_parameter_control
