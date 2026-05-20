@@ -1,0 +1,195 @@
+block_id: QSB-ST-COMP01D1F
+run_id: collision_aware_profile_robustness_sweep_open
+random_seed: 20260520
+output_dir: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+
+normalization:
+  epsilon: 1.0e-12
+  angular_wrap_mode: principal_interval_minus_pi_pi
+  profile_distance_norm: euclidean
+  collision_distance_threshold: 1.0e-6
+  residual_collision_threshold: 1.0e-6
+  near_duplicate_overlap_multiplier: 1.0
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic collision-aware profile robustness sweep only
+
+base_wave:
+  wave_id: wave_A
+  family: reference
+  k: 1.0
+  A: 1.0
+  B: 0.5
+  phase_override: 0.0
+
+sweep_seeds:
+  - 20260520
+  - 20260521
+  - 20260522
+  - 20260523
+  - 20260524
+
+kernel_sizes:
+  - kernel_size_label: kernel_size_8
+    kernel_size: 8
+    synthetic_scale_factor: 1.0
+  - kernel_size_label: kernel_size_16
+    kernel_size: 16
+    synthetic_scale_factor: 1.15
+  - kernel_size_label: kernel_size_32
+    kernel_size: 32
+    synthetic_scale_factor: 1.30
+
+parameter_levels:
+  - parameter_sweep_family: small
+    k_shift: 0.01
+    phase_drift: 0.05
+    amplitude_perturbation: 0.02
+    slope_perturbation: 0.02
+    noise_level: 0.0
+  - parameter_sweep_family: medium
+    k_shift: 0.03
+    phase_drift: 0.15
+    amplitude_perturbation: 0.08
+    slope_perturbation: 0.10
+    noise_level: 0.01
+  - parameter_sweep_family: large
+    k_shift: 0.08
+    phase_drift: 0.35
+    amplitude_perturbation: 0.18
+    slope_perturbation: 0.22
+    noise_level: 0.02
+
+profile_weight_sets:
+  - profile_weight_set_id: equal_profile_weights
+    coordinate_profile: 0.20
+    angular_phase_profile: 0.15
+    local_response_profile: 0.15
+    residual_weight_profile: 0.15
+    rank_stability_profile: 0.10
+    collision_profile: 0.15
+    control_response_profile: 0.10
+
+  - profile_weight_set_id: coordinate_dominant
+    coordinate_profile: 0.40
+    angular_phase_profile: 0.10
+    local_response_profile: 0.10
+    residual_weight_profile: 0.10
+    rank_stability_profile: 0.10
+    collision_profile: 0.10
+    control_response_profile: 0.10
+
+  - profile_weight_set_id: angular_phase_dominant
+    coordinate_profile: 0.10
+    angular_phase_profile: 0.40
+    local_response_profile: 0.10
+    residual_weight_profile: 0.10
+    rank_stability_profile: 0.10
+    collision_profile: 0.10
+    control_response_profile: 0.10
+
+  - profile_weight_set_id: local_response_dominant
+    coordinate_profile: 0.10
+    angular_phase_profile: 0.10
+    local_response_profile: 0.40
+    residual_weight_profile: 0.10
+    rank_stability_profile: 0.10
+    collision_profile: 0.10
+    control_response_profile: 0.10
+
+  - profile_weight_set_id: collision_penalty_dominant
+    coordinate_profile: 0.10
+    angular_phase_profile: 0.10
+    local_response_profile: 0.10
+    residual_weight_profile: 0.10
+    rank_stability_profile: 0.10
+    collision_profile: 0.35
+    control_response_profile: 0.15
+
+  - profile_weight_set_id: control_response_dominant
+    coordinate_profile: 0.10
+    angular_phase_profile: 0.10
+    local_response_profile: 0.10
+    residual_weight_profile: 0.10
+    rank_stability_profile: 0.10
+    collision_profile: 0.15
+    control_response_profile: 0.35
+
+  - profile_weight_set_id: collision_penalty_off
+    coordinate_profile: 0.25
+    angular_phase_profile: 0.20
+    local_response_profile: 0.20
+    residual_weight_profile: 0.20
+    rank_stability_profile: 0.15
+    collision_profile: 0.00
+    control_response_profile: 0.00
+
+penalty_weight_sets:
+  - penalty_weight_set_id: default_penalties
+    profile_collision_penalty: 0.20
+    residual_collision_penalty: 0.20
+    delta_vector_collision_penalty: 0.20
+    ambiguity_penalty: 0.15
+    control_mimicry_penalty: 0.15
+    residual_matched_penalty: 0.05
+    adversarial_penalty: 0.05
+
+  - penalty_weight_set_id: strong_collision_penalties
+    profile_collision_penalty: 0.30
+    residual_collision_penalty: 0.30
+    delta_vector_collision_penalty: 0.25
+    ambiguity_penalty: 0.20
+    control_mimicry_penalty: 0.20
+    residual_matched_penalty: 0.10
+    adversarial_penalty: 0.10
+
+  - penalty_weight_set_id: penalties_off
+    profile_collision_penalty: 0.00
+    residual_collision_penalty: 0.00
+    delta_vector_collision_penalty: 0.00
+    ambiguity_penalty: 0.00
+    control_mimicry_penalty: 0.00
+    residual_matched_penalty: 0.00
+    adversarial_penalty: 0.00
+
+decoy_families:
+  - decoy_family: exact_duplicate
+    role: sanity
+  - decoy_family: simple_near_duplicate
+    role: near_duplicate_reference
+  - decoy_family: residual_matched_decoy_sweep
+    role: harder_decoy
+  - decoy_family: adversarial_near_duplicate_sweep
+    role: harder_decoy
+  - decoy_family: profile_matched_decoy
+    role: harder_decoy
+  - decoy_family: rank_stability_matched_decoy
+    role: harder_decoy
+  - decoy_family: collision_penalty_evading_decoy
+    role: harder_decoy
+  - decoy_family: angular_phase_matched_decoy
+    role: harder_decoy
+  - decoy_family: local_response_matched_decoy
+    role: harder_decoy
+  - decoy_family: multi_component_matched_decoy
+    role: harder_decoy
+
+null_families:
+  - null_family: random_parameter_null
+  - null_family: distribution_matched_null
+  - null_family: spectrum_matched_null
+  - null_family: phase_randomized_null
+  - null_family: amplitude_preserved_null
+  - null_family: label_shuffle_null
+  - null_family: profile_shuffle_null
+  - null_family: control_family_permutation_null
+
+reference_thresholds:
+  d1c_control_mimicry_warnings_count: 68
+  d1d_residual_collision_count: 47
+  d1d_delta_vector_collision_count: 47
+  d1e_control_profile_mimicry_warnings_count: 0
+  d1e_residual_collision_count: 2
+  d1e_delta_vector_collision_count: 0
+  warning_reduction_stability_max_multiplier_vs_d1e: 2.0
