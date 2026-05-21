@@ -1,0 +1,128 @@
+block_id: QSB-ST-COMP01D1I
+run_id: cyclic_phase_source_validation_overstrictness_audit_open
+input_dir_d1f: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+input_dir_d1g: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open
+input_dir_d1h: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open
+output_dir: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic cyclic-phase source validation and overstrictness audit only
+  does_not_rerun_d1f: true
+  does_not_modify_d1g_outputs: true
+  does_not_modify_d1h_outputs: true
+  does_not_introduce_physical_phase: true
+  does_not_introduce_physical_manifold: true
+  does_not_introduce_new_identity_score: true
+
+input_files:
+  d1f_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/summary.json
+  d1f_case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  d1g_summary: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/summary.json
+  d1g_decision_table_case_classification: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/decision_table_case_classification.csv
+  d1h_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/summary.json
+  d1h_cyclic_region_case_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_region_case_summary.csv
+  d1h_cyclic_vs_current_region_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_vs_current_region_summary.csv
+  d1h_impostor_exclusion_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/impostor_exclusion_summary.csv
+  d1h_decision_table_cyclic_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/decision_table_cyclic_summary.csv
+  d1h_kernel_size_cyclic_sensitivity_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/kernel_size_cyclic_sensitivity_summary.csv
+
+d1h_reference:
+  case_count: 9450
+  specificity_established: false
+  cyclic_phase_source: cyclic_phase_proxy
+  current_false_accept_warning_count: 4901
+  cyclic_false_accept_warning_count: 992
+  exclusion_success_count: 4750
+  exclusion_failure_count: 151
+  exclusion_success_rate: 0.9691899612324015
+  exclusion_failure_rate: 0.030810038767598448
+  stable_candidate_current_count: 2067
+  stable_candidate_cyclic_count: 7907
+  fragile_candidate_current_count: 7383
+  fragile_candidate_cyclic_count: 1543
+  mean_warning_count_current: 2.866243386243386
+  mean_warning_count_cyclic: 0.3453968253968254
+  mean_warning_delta_current_to_cyclic: -2.520846560846561
+  spectrum_matched_null_intrusion_count: 141
+  adversarial_near_duplicate_intrusion_count: 106
+  local_response_dominant_warning_count: 146
+  cosmetic_penalty_lock_warning_count: 104
+  kernel_size_8_artifact_warning_count: 344
+  cyclic_region_overstrict_warning_count: 302
+
+proxy_variants:
+  - proxy_variant_id: baseline_d1h_proxy
+    description: Reuse D1h cyclic_phase_distance and cyclic_acceptance_distance.
+    mode: reuse_d1h
+
+  - proxy_variant_id: proxy_hash_phase_v1
+    description: Deterministic hash-only phase proxy.
+    mode: hash_only
+    phase_weight: 0.45
+
+  - proxy_variant_id: proxy_distance_modulated_v1
+    description: Hash phase plus profile-distance modulation.
+    mode: distance_modulated
+    phase_weight: 0.45
+
+  - proxy_variant_id: proxy_decoy_family_modulated_v1
+    description: Hash phase plus decoy-family modulation.
+    mode: decoy_family_modulated
+    phase_weight: 0.45
+
+  - proxy_variant_id: proxy_null_family_modulated_v1
+    description: Hash phase plus null-family modulation.
+    mode: null_family_modulated
+    phase_weight: 0.45
+
+  - proxy_variant_id: proxy_random_seeded_control_v1
+    description: Deterministic seeded control proxy.
+    mode: seeded_control
+    phase_weight: 0.45
+
+threshold_variants:
+  - threshold_variant_id: baseline_d1h_threshold
+    cyclic_acceptance_distance_threshold: 0.20
+    cyclic_phase_small: 0.10
+    profile_distance_low: 0.08
+    overstrict_stable_loss_rate_threshold: 0.20
+
+  - threshold_variant_id: stricter_acceptance
+    cyclic_acceptance_distance_threshold: 0.15
+    cyclic_phase_small: 0.08
+    profile_distance_low: 0.06
+    overstrict_stable_loss_rate_threshold: 0.15
+
+  - threshold_variant_id: looser_acceptance
+    cyclic_acceptance_distance_threshold: 0.25
+    cyclic_phase_small: 0.12
+    profile_distance_low: 0.10
+    overstrict_stable_loss_rate_threshold: 0.25
+
+  - threshold_variant_id: phase_stricter
+    cyclic_acceptance_distance_threshold: 0.20
+    cyclic_phase_small: 0.06
+    profile_distance_low: 0.08
+    overstrict_stable_loss_rate_threshold: 0.20
+
+  - threshold_variant_id: phase_looser
+    cyclic_acceptance_distance_threshold: 0.20
+    cyclic_phase_small: 0.15
+    profile_distance_low: 0.08
+    overstrict_stable_loss_rate_threshold: 0.20
+
+targeted_intrusion_families:
+  spectrum_matched_null: spectrum_matched_null
+  adversarial_near_duplicate: adversarial_near_duplicate_sweep
+  local_response_dominant: local_response_dominant
+  strong_collision_penalties: strong_collision_penalties
+  kernel_size_8: kernel_size_8
+
+audit_thresholds:
+  proxy_dependence_warning_delta_rate: 0.20
+  threshold_sensitivity_warning_delta_rate: 0.20
+  stable_candidate_loss_warning_rate: 0.10
+  overstrictness_warning_rate: 0.20
+  remaining_intrusion_warning_rate: 0.10
+  minimum_joined_case_count: 9000
