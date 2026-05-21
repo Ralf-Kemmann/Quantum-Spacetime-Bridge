@@ -1,0 +1,98 @@
+block_id: QSB-ST-COMP01D1K
+run_id: deterministic_synthetic_phase_field_exposure_open
+input_dir_d1f: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+input_dir_d1h: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open
+input_dir_d1i: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open
+input_dir_d1j: runs/QSB-ST-COMP01D1J/explicit_phase_field_exposure_cyclic_recheck_open
+output_dir: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic deterministic phase-field exposure extension only
+  does_not_rerun_d1f: true
+  does_not_modify_d1f_outputs: true
+  does_not_modify_d1h_outputs: true
+  does_not_modify_d1i_outputs: true
+  does_not_modify_d1j_outputs: true
+  does_not_introduce_physical_phase: true
+  does_not_introduce_physical_manifold: true
+  does_not_introduce_new_identity_score: true
+  does_not_implement_mastermind: true
+
+input_files:
+  d1f_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/summary.json
+  d1f_case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  d1h_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/summary.json
+  d1h_cyclic_region_case_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_region_case_summary.csv
+  d1i_summary: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open/summary.json
+  d1j_summary: runs/QSB-ST-COMP01D1J/explicit_phase_field_exposure_cyclic_recheck_open/summary.json
+  d1j_explicit_phase_source_inventory: runs/QSB-ST-COMP01D1J/explicit_phase_field_exposure_cyclic_recheck_open/explicit_phase_source_inventory.csv
+
+d1j_reference:
+  case_count: 9450
+  specificity_established: false
+  explicit_phase_source_available: false
+  detected_phase_columns: []
+  detected_proxy_phase_columns:
+    - cyclic_phase_distance
+    - cyclic_phase_source
+  explicit_phase_recheck_possible: false
+  deterministic_synthetic_phase_extension_needed: true
+  baseline_cyclic_phase_source: cyclic_phase_proxy
+  baseline_proxy_false_accept_warning_count: 992
+  baseline_proxy_exclusion_success_rate: 0.9691899612324015
+  baseline_proxy_stable_candidate_count: 7907
+  phase_source_label: cyclic_phase_proxy_with_generator_phase_text_mentions
+  phase_exposure_mode: reconstructed_from_existing_synthetic_parameters_candidate
+  phase_source_decision_status: explicit_phase_source_missing_warning
+  cyclic_geometry_recheck_decision_status: explicit_phase_recheck_not_possible
+  mastermind_status: parked_not_implemented
+
+phase_exposure:
+  phase_exposure_mode: deterministic_synthetic_phase_extension
+  phase_source_label: diagnostic_synthetic_phase_extension_v1
+  phase_construction_rule: deterministic_atan2_from_available_diagnostic_components
+  phase_is_synthetic_diagnostic: true
+  phase_is_physical: false
+  angular_unit: radians
+  principal_interval: "(-pi, pi]"
+  prefer_component_pairs:
+    - [profile_distance_raw, control_overlap_rate]
+    - [profile_distance_collision_penalized, decoy_success_rate]
+    - [penalty_gap, profile_distance_raw]
+  fallback_hash_allowed: false
+  fallback_if_missing_components: stop_with_phase_field_exposure_missing_warning
+
+cyclic_recheck:
+  cyclic_acceptance_distance_threshold: 0.20
+  cyclic_phase_weight: 0.45
+  profile_distance_weight: 0.35
+  control_overlap_weight: 0.10
+  decoy_success_weight: 0.10
+  stable_candidate_loss_warning_rate: 0.10
+  overstrictness_warning_rate: 0.20
+  remaining_intrusion_warning_rate: 0.10
+
+targeted_intrusion_families:
+  spectrum_matched_null: spectrum_matched_null
+  adversarial_near_duplicate: adversarial_near_duplicate_sweep
+  local_response_dominant: local_response_dominant
+  strong_collision_penalties: strong_collision_penalties
+  kernel_size_8: kernel_size_8
+
+decision_labels:
+  phase_field_exposure_supported_candidate: phase_field_exposure_supported_candidate
+  phase_field_exposure_missing_warning: phase_field_exposure_missing_warning
+  deterministic_synthetic_phase_extension_supported_candidate: deterministic_synthetic_phase_extension_supported_candidate
+  deterministic_synthetic_phase_extension_needed: deterministic_synthetic_phase_extension_needed
+  exposed_phase_geometry_reduces_false_accept_candidate: exposed_phase_geometry_reduces_false_accept_candidate
+  exposed_phase_geometry_no_improvement_warning: exposed_phase_geometry_no_improvement_warning
+  exposed_phase_overstrictness_warning: exposed_phase_overstrictness_warning
+  proxy_vs_exposed_phase_mismatch_warning: proxy_vs_exposed_phase_mismatch_warning
+  exposed_phase_remaining_intrusion_warning: exposed_phase_remaining_intrusion_warning
+  stable_retention_supported_candidate: stable_retention_supported_candidate
+  cos_sin_embedding_supported_candidate: cos_sin_embedding_supported_candidate
+  wrapped_scalar_supported_candidate: wrapped_scalar_supported_candidate
+  mastermind_parked_not_implemented: mastermind_parked_not_implemented
+  inconclusive: inconclusive
+  failed_input_consistency_check: failed_input_consistency_check
