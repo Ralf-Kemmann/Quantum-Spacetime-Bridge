@@ -1,0 +1,183 @@
+block_id: QSB-ST-COMP01-WIFM01
+route_name: Wave Identity Fingerprint Metric
+metric_version: wifm01_minimal_circular_phase_metric_v1
+run_id: minimal_metric_open
+output_dir: runs/QSB-ST-COMP01-WIFM01/minimal_metric_open
+input_mode: inline_synthetic_cases
+phase_period: 6.283185307179586
+
+coordinate_scales:
+  delta_k: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+weights:
+  delta_k: 1.0
+  delta_phase: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+thresholds:
+  near_zero_distance: 1.0e-9
+  noncompact_separation_min: 0.1
+  ambiguity_min_distance: 0.1
+  ambiguity_max_distance: 1.5
+
+toy_fingerprints:
+  - fingerprint_id: same_relational_identity_left
+    case_family: same_relational_identity
+    case_role: left
+    delta_k: 0.10
+    delta_phase: 1.20
+    slope_diff: 0.05
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: metric_equivalent_expected
+    notes: Identical relational fingerprint sanity row.
+  - fingerprint_id: same_relational_identity_right
+    case_family: same_relational_identity
+    case_role: right
+    delta_k: 0.10
+    delta_phase: 1.20
+    slope_diff: 0.05
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: metric_equivalent_expected
+    notes: Identical relational fingerprint sanity row.
+  - fingerprint_id: phase_wrap_equivalent_left
+    case_family: phase_wrap_equivalent
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 0.01
+    slope_diff: 0.04
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: phase_wrap_corrected_by_circular_metric
+    notes: Phase near zero boundary.
+  - fingerprint_id: phase_wrap_equivalent_right
+    case_family: phase_wrap_equivalent
+    case_role: right
+    delta_k: 0.20
+    delta_phase: 6.273185307179586
+    slope_diff: 0.04
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: phase_wrap_corrected_by_circular_metric
+    notes: Phase near two-pi boundary.
+  - fingerprint_id: same_looking_not_same_delta_k_left
+    case_family: same_looking_not_same_delta_k
+    case_role: left
+    delta_k: 0.10
+    delta_phase: 1.00
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: noncompact_difference_preserved
+    notes: Similar phase with low delta_k.
+  - fingerprint_id: same_looking_not_same_delta_k_right
+    case_family: same_looking_not_same_delta_k
+    case_role: right
+    delta_k: 0.80
+    delta_phase: 1.02
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: noncompact_difference_preserved
+    notes: Similar phase with higher delta_k.
+  - fingerprint_id: same_looking_not_same_slope_intercept_left
+    case_family: same_looking_not_same_slope_intercept
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 2.00
+    slope_diff: 0.01
+    intercept_diff: 0.01
+    amplitude_diff: 0.01
+    expected_relation: local_shape_difference_preserved
+    notes: Similar phase and k with low local terms.
+  - fingerprint_id: same_looking_not_same_slope_intercept_right
+    case_family: same_looking_not_same_slope_intercept
+    case_role: right
+    delta_k: 0.20
+    delta_phase: 2.02
+    slope_diff: 0.55
+    intercept_diff: 0.45
+    amplitude_diff: 0.01
+    expected_relation: local_shape_difference_preserved
+    notes: Similar phase and k with shifted local terms.
+  - fingerprint_id: mixed_ambiguity_case_left
+    case_family: mixed_ambiguity_case
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 3.00
+    slope_diff: 0.20
+    intercept_diff: 0.10
+    amplitude_diff: 0.10
+    expected_relation: mixed_ambiguity_preserved
+    notes: Moderate mixed compact and non-compact differences.
+  - fingerprint_id: mixed_ambiguity_case_right
+    case_family: mixed_ambiguity_case
+    case_role: right
+    delta_k: 0.35
+    delta_phase: 3.35
+    slope_diff: 0.35
+    intercept_diff: 0.25
+    amplitude_diff: 0.25
+    expected_relation: mixed_ambiguity_preserved
+    notes: Moderate mixed compact and non-compact differences.
+
+toy_pairs:
+  - pair_id: same_relational_identity_pair
+    left_fingerprint_id: same_relational_identity_left
+    right_fingerprint_id: same_relational_identity_right
+    case_family: same_relational_identity
+    expected_relation: metric_equivalent_expected
+  - pair_id: phase_wrap_equivalent_pair
+    left_fingerprint_id: phase_wrap_equivalent_left
+    right_fingerprint_id: phase_wrap_equivalent_right
+    case_family: phase_wrap_equivalent
+    expected_relation: phase_wrap_corrected_by_circular_metric
+  - pair_id: same_looking_not_same_delta_k_pair
+    left_fingerprint_id: same_looking_not_same_delta_k_left
+    right_fingerprint_id: same_looking_not_same_delta_k_right
+    case_family: same_looking_not_same_delta_k
+    expected_relation: noncompact_difference_preserved
+  - pair_id: same_looking_not_same_slope_intercept_pair
+    left_fingerprint_id: same_looking_not_same_slope_intercept_left
+    right_fingerprint_id: same_looking_not_same_slope_intercept_right
+    case_family: same_looking_not_same_slope_intercept
+    expected_relation: local_shape_difference_preserved
+  - pair_id: mixed_ambiguity_case_pair
+    left_fingerprint_id: mixed_ambiguity_case_left
+    right_fingerprint_id: mixed_ambiguity_case_right
+    case_family: mixed_ambiguity_case
+    expected_relation: mixed_ambiguity_preserved
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  physical_metric_established: false
+  physical_compact_dimensions_established: false
+  hilbert_space_reconstruction: false
+  bridge_confirmation: false
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase_reconstruction: true
+  no_physical_spacetime_geometry: true
+  no_lorentzian_metric: true
+  no_pauli_spin_statistics_claim: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  fingerprint_input_table_csv: fingerprint_input_table.csv
+  pair_metric_comparison_csv: pair_metric_comparison.csv
+  case_family_summary_csv: case_family_summary.csv
+  metric_component_summary_csv: metric_component_summary.csv
+  naive_vs_circular_phase_summary_csv: naive_vs_circular_phase_summary.csv
+  resolved_config_json: resolved_config.json
