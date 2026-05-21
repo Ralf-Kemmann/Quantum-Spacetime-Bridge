@@ -1,0 +1,93 @@
+block_id: QSB-ST-COMP01D1J
+run_id: explicit_phase_field_exposure_cyclic_recheck_open
+output_dir: runs/QSB-ST-COMP01D1J/explicit_phase_field_exposure_cyclic_recheck_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic explicit phase-field exposure and cyclic geometry recheck only
+  current_commit_anchor: f1f8252 Add QSB-ST COMP01D1j explicit phase field exposure plan
+  mastermind_status: parked_not_implemented
+
+input_files:
+  plan_doc: docs/QSB_ST_COMP01D1J_EXPLICIT_PHASE_FIELD_EXPOSURE_CYCLIC_GEOMETRY_RECHECK_PLAN.md
+  d1i_summary: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open/summary.json
+  d1i_readout: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open/readout.md
+  d1i_phase_source_comparison: runs/QSB-ST-COMP01D1I/cyclic_phase_source_validation_overstrictness_audit_open/phase_source_comparison_summary.csv
+  d1h_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/summary.json
+  d1h_cyclic_region_cases: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_region_case_summary.csv
+  d1h_cyclic_vs_current: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_vs_current_region_summary.csv
+  d1g_decision_table_cases: runs/QSB-ST-COMP01D1G/warning_driver_decomposition_open/decision_table_case_classification.csv
+  d1f_case_profiles: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  d1f_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/summary.json
+  d1f_runner: scripts/run_qsb_st_comp01d1f_collision_aware_profile_robustness_sweep.py
+  d1f_config: data/qsb_st_comp01d1f_collision_aware_profile_robustness_sweep_config.yaml
+
+phase_like_fields_to_search:
+  - phi_i
+  - phi_j
+  - phase_i
+  - phase_j
+  - theta_i
+  - theta_j
+  - delta_phi
+  - delta_phi_wrapped
+  - wrapped_delta_phi_abs
+  - cos_delta_phi
+  - sin_delta_phi
+  - angular_phase_profile
+  - phase_source_label
+  - phase_like_source
+  - cyclic_phase_source
+  - cyclic_phase_proxy
+  - cyclic_phase_distance
+  - angular_phase_distance
+  - phase_distance
+
+explicit_phase_column_sets:
+  - label: phi_pair
+    item_i: phi_i
+    item_j: phi_j
+  - label: phase_pair
+    item_i: phase_i
+    item_j: phase_j
+  - label: theta_pair
+    item_i: theta_i
+    item_j: theta_j
+
+explicit_distance_columns:
+  - delta_phi_wrapped
+  - wrapped_delta_phi_abs
+  - cos_delta_phi
+  - sin_delta_phi
+  - angular_phase_distance
+  - phase_distance
+
+proxy_phase_columns:
+  - cyclic_phase_source
+  - cyclic_phase_proxy
+  - cyclic_phase_distance
+
+text_hint_terms:
+  - phase_override
+  - phase_drift
+  - angular_phase_profile
+  - angular_phase_component
+  - phi
+  - phi_wrapped
+  - phase_randomized_null
+  - angular_phase_matched_decoy
+
+recheck_thresholds:
+  normalized_angular_acceptance_distance_max: 0.35
+  stable_candidate_loss_warning_rate: 0.10
+
+planned_outputs:
+  - summary.json
+  - readout.md
+  - explicit_phase_source_inventory.csv
+  - phase_field_exposure_summary.csv
+  - explicit_phase_cyclic_recheck_summary.csv
+  - proxy_vs_explicit_phase_comparison.csv
+  - explicit_phase_overstrictness_summary.csv
+  - explicit_phase_remaining_intrusion_summary.csv
+  - resolved_config.json
