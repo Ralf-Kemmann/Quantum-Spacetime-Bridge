@@ -1,0 +1,136 @@
+block_id: QSB-ST-COMP01D1L
+run_id: synthetic_phase_leakage_tautology_audit_open
+input_dir_d1f: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open
+input_dir_d1h: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open
+input_dir_d1k: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open
+output_dir: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open
+
+metadata:
+  specificity_established: false
+  claim_boundary: synthetic diagnostic phase leakage and tautology audit only
+  does_not_rerun_d1f: true
+  does_not_modify_d1f_outputs: true
+  does_not_modify_d1h_outputs: true
+  does_not_modify_d1k_outputs: true
+  does_not_introduce_physical_phase: true
+  does_not_introduce_physical_manifold: true
+  does_not_introduce_new_identity_score: true
+  does_not_implement_mastermind: true
+
+input_files:
+  d1f_case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+  d1h_cyclic_region_case_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_region_case_summary.csv
+  d1h_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/summary.json
+  d1k_summary: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/summary.json
+  d1k_phase_exposed_case_profile_summary: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/phase_exposed_case_profile_summary.csv
+  d1k_phase_construction_audit: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/phase_construction_audit.csv
+  d1k_proxy_vs_exposed_phase_comparison: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/proxy_vs_exposed_phase_comparison.csv
+
+d1k_reference:
+  case_count: 9450
+  specificity_established: false
+  phase_source_label: diagnostic_synthetic_phase_extension_v1
+  phase_exposure_mode: deterministic_synthetic_phase_extension
+  phase_construction_rule: deterministic_atan2_from_available_diagnostic_components
+  phase_is_synthetic_diagnostic: true
+  phase_is_physical: false
+  phase_field_exposure_supported: true
+  false_accept_warning_exposed_count: 0
+  exclusion_success_exposed_rate: 1.0
+  stable_candidate_exposed_count: 9450
+  fragile_candidate_exposed_count: 0
+  stable_candidate_loss_rate_exposed: 0.0
+  remaining_intrusion_warning_count: 0
+  proxy_vs_exposed_phase_mismatch_rate: 0.16328042328042328
+  cyclic_geometry_recheck_decision_status: exposed_phase_geometry_reduces_false_accept_candidate
+  mastermind_status: parked_not_implemented
+
+audit_families:
+  construction_variants:
+    - baseline_d1k_construction
+    - alternate_pair_1_profile_vs_control
+    - alternate_pair_2_penalty_vs_decoy
+    - alternate_pair_3_collision_vs_profile
+    - swapped_phi_i_phi_j_construction
+    - sign_flipped_component_construction
+    - normalized_rank_component_construction
+    - zscore_component_construction
+    - monotone_transform_component_construction
+    - noise_jittered_component_construction
+
+  component_ablations:
+    - remove_profile_distance_raw
+    - remove_control_overlap_rate
+    - remove_profile_distance_collision_penalized
+    - remove_decoy_success_rate
+    - remove_penalty_gap
+    - remove_all_direct_acceptance_components
+    - use_phase_components_not_used_in_acceptance_distance
+
+  shuffled_inputs:
+    - shuffle_phi_i_source_component
+    - shuffle_phi_j_source_component
+    - shuffle_A_component_within_family
+    - shuffle_B_component_within_family
+    - shuffle_components_across_families
+    - permute_case_id_alignment
+    - preserve_marginal_distribution_shuffle
+    - preserve_family_distribution_shuffle
+
+  family_blind:
+    - build_without_decoy_family
+    - build_without_null_family
+    - build_without_profile_weight_set_id
+    - build_without_penalty_weight_set_id
+    - build_without_kernel_size_label
+    - build_without_any_control_family_identity_field
+
+threshold_weight_sweep:
+  cyclic_acceptance_distance_thresholds: [0.10, 0.15, 0.20, 0.25, 0.30]
+  cyclic_phase_weights: [0.25, 0.35, 0.45, 0.55, 0.65]
+  profile_distance_weight_mode: paired_compensation
+  stable_candidate_loss_warning_rates: [0.05, 0.10, 0.20]
+
+targeted_intrusion_families:
+  spectrum_matched_null: spectrum_matched_null
+  adversarial_near_duplicate: adversarial_near_duplicate_sweep
+  local_response_dominant: local_response_dominant
+  strong_collision_penalties: strong_collision_penalties
+  kernel_size_8: kernel_size_8
+  impostor_overlap_warning: impostor_overlap_warning
+  cosmetic_penalty_lock: cosmetic_penalty_lock
+  phase_randomized_null: phase_randomized_null
+  phase_jittered_decoy: phase_jittered_decoy
+
+thresholds:
+  leakage_warning_mismatch_rate_low: 0.02
+  leakage_warning_mismatch_rate_high: 0.80
+  overclean_false_accept_count: 0
+  overclean_intrusion_count: 0
+  overclean_stable_rate: 1.0
+  construction_dependence_delta_threshold: 0.20
+  ablation_failure_false_accept_increase_threshold: 0.10
+  shuffle_survival_suspicion_rate: 0.95
+
+decision_labels:
+  leakage_audit_supported_candidate: leakage_audit_supported_candidate
+  direct_feature_leakage_warning: direct_feature_leakage_warning
+  label_leakage_warning: label_leakage_warning
+  proxy_leakage_warning: proxy_leakage_warning
+  target_family_leakage_warning: target_family_leakage_warning
+  threshold_leakage_warning: threshold_leakage_warning
+  construction_feedback_leakage_warning: construction_feedback_leakage_warning
+  tautology_warning: tautology_warning
+  overclean_result_warning: overclean_result_warning
+  construction_dependence_warning: construction_dependence_warning
+  component_ablation_failure_warning: component_ablation_failure_warning
+  shuffled_input_failure_warning: shuffled_input_failure_warning
+  family_blind_failure_warning: family_blind_failure_warning
+  decoy_blind_supported_candidate: decoy_blind_supported_candidate
+  null_family_blind_supported_candidate: null_family_blind_supported_candidate
+  stable_retention_supported_candidate: stable_retention_supported_candidate
+  exposed_phase_survives_hostile_controls_candidate: exposed_phase_survives_hostile_controls_candidate
+  exposed_phase_fails_hostile_controls_warning: exposed_phase_fails_hostile_controls_warning
+  mastermind_parked_not_implemented: mastermind_parked_not_implemented
+  inconclusive: inconclusive
+  failed_input_consistency_check: failed_input_consistency_check
