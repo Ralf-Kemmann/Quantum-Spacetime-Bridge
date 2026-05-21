@@ -1,0 +1,68 @@
+block_id: QSB-ST-COMP01D1M
+run_id: multi_channel_synthetic_phase_identity_profile_open
+output_dir: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open
+
+input_paths:
+  d1j_summary: runs/QSB-ST-COMP01D1J/explicit_phase_field_exposure_cyclic_recheck_open/summary.json
+  d1k_summary: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/summary.json
+  d1k_case_profile: runs/QSB-ST-COMP01D1K/deterministic_synthetic_phase_field_exposure_open/phase_exposed_case_profile_summary.csv
+  d1l_summary: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/summary.json
+  d1l_leakage_taxonomy: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/leakage_taxonomy_summary.csv
+  d1l_construction_variants: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/construction_variant_summary.csv
+  d1l_component_ablation: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/component_ablation_summary.csv
+  d1l_shuffled_input: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/shuffled_input_summary.csv
+  d1l_family_blind: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/family_blind_summary.csv
+  d1l_threshold_weight_sweep: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/threshold_weight_sweep_summary.csv
+  d1l_proxy_exposed_mismatch: runs/QSB-ST-COMP01D1L/synthetic_phase_leakage_tautology_audit_open/proxy_exposed_mismatch_localization.csv
+  d1h_cyclic_case_summary: runs/QSB-ST-COMP01D1H/cyclic_coordinate_acceptance_region_open/cyclic_region_case_summary.csv
+  d1f_case_profile_summary: runs/QSB-ST-COMP01D1F/collision_aware_profile_robustness_sweep_open/case_profile_summary.csv
+
+join:
+  primary_key: case_id
+  allow_row_order_fallback: false
+  missing_key_behavior: aggregate_only_with_warning
+
+profile:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+channels:
+  - phase_exposure
+  - phase_leakage
+  - residual_mimicry
+  - duplicate_sanity
+  - near_duplicate_control
+  - component_ablation
+  - shuffled_input_sanity
+  - family_blind_sanity
+  - threshold_weight_robustness
+  - channel_specific_separability
+
+decision_labels:
+  - diagnostic_profile_candidate
+  - diagnostic_profile_candidate_with_warnings
+  - untrusted_single_channel_profile
+  - input_incomplete_profile_only
+  - not_interpretable
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  profile_case_summary_csv: profile_case_summary.csv
+  channel_summary_csv: channel_summary.csv
+  control_family_summary_csv: control_family_summary.csv
+  warning_taxonomy_summary_csv: warning_taxonomy_summary.csv
+  resolved_config_json: resolved_config.json
+
+claim_boundary:
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase: true
+  no_physical_wavefunction: true
+  no_physical_spacetime_geometry: true
+  no_diagnostic_specificity: true
+  no_bridge_confirmation: true
