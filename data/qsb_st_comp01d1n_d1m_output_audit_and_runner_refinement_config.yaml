@@ -1,0 +1,50 @@
+block_id: QSB-ST-COMP01D1N
+run_id: d1m_output_audit_and_runner_refinement_open
+output_dir: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open
+
+input_paths:
+  d1n_plan: docs/QSB_ST_COMP01D1N_D1M_OUTPUT_AUDIT_AND_RUNNER_REFINEMENT_PLAN.md
+  d1m_result_note: docs/QSB_ST_COMP01D1M_MULTI_CHANNEL_SYNTHETIC_PHASE_IDENTITY_PROFILE_RESULT_NOTE.md
+  d1m_runner_spec: docs/QSB_ST_COMP01D1M_MULTI_CHANNEL_SYNTHETIC_PHASE_IDENTITY_PROFILE_RUNNER_SPEC.md
+  d1m_config: data/qsb_st_comp01d1m_multi_channel_synthetic_phase_identity_profile_config.yaml
+  d1m_runner: scripts/run_qsb_st_comp01d1m_multi_channel_synthetic_phase_identity_profile.py
+  d1m_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/summary.json
+  d1m_readout: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/readout.md
+  d1m_profile_case_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/profile_case_summary.csv
+  d1m_channel_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/channel_summary.csv
+  d1m_control_family_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/control_family_summary.csv
+  d1m_warning_taxonomy_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/warning_taxonomy_summary.csv
+  d1m_resolved_config: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/resolved_config.json
+
+audit:
+  classify_warning_origin: true
+  classify_warning_granularity: true
+  audit_channel_semantics: true
+  audit_dominance_semantics: true
+  audit_output_tracking_policy: true
+  do_not_modify_d1m_outputs: true
+  do_not_rerun_d1m: true
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase: true
+  no_physical_wavefunction: true
+  no_physical_spacetime_geometry: true
+  no_diagnostic_specificity: true
+  no_bridge_confirmation: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  warning_origin_summary_csv: warning_origin_summary.csv
+  channel_semantics_audit_csv: channel_semantics_audit.csv
+  dominance_semantics_audit_csv: dominance_semantics_audit.csv
+  output_tracking_policy_md: output_tracking_policy.md
+  resolved_config_json: resolved_config.json
