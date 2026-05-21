@@ -1,0 +1,61 @@
+block_id: QSB-ST-COMP01D1P
+run_id: d1o_refined_output_audit_regression_open
+output_dir: runs/QSB-ST-COMP01D1P/d1o_refined_output_audit_regression_open
+audit_version: d1p_d1o_regression_check_v1
+
+input_paths:
+  d1o_result_note: docs/QSB_ST_COMP01D1O_D1M_REFINED_MULTI_CHANNEL_PROFILE_RESULT_NOTE.md
+  d1o_spec: docs/QSB_ST_COMP01D1O_D1M_RUNNER_REFINEMENT_SPECIFICATION.md
+  d1o_config: data/qsb_st_comp01d1o_d1m_refined_multi_channel_profile_config.yaml
+  d1o_runner: scripts/run_qsb_st_comp01d1o_d1m_refined_multi_channel_profile.py
+  d1m_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/summary.json
+  d1m_profile_case_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/profile_case_summary.csv
+  d1m_channel_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/channel_summary.csv
+  d1m_warning_taxonomy_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/warning_taxonomy_summary.csv
+  d1o_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/summary.json
+  d1o_readout: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/readout.md
+  d1o_profile_case_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/profile_case_summary.csv
+  d1o_channel_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/channel_summary.csv
+  d1o_warning_taxonomy_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/warning_taxonomy_summary.csv
+  d1o_dominance_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/dominance_summary.csv
+  d1o_refinement_comparison_summary: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/refinement_comparison_summary.csv
+  d1o_resolved_config: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open/resolved_config.json
+
+audit:
+  do_not_rerun_d1m: true
+  do_not_rerun_d1o: true
+  preserve_existing_outputs: true
+  compare_row_counts: true
+  compare_case_ids: true
+  compare_decision_labels: true
+  compare_warning_counts: true
+  compare_core_flags: true
+  audit_schema_extensions: true
+  audit_dominance_share_distribution: true
+  audit_output_tracking_policy: true
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase: true
+  no_physical_wavefunction: true
+  no_physical_spacetime_geometry: true
+  no_diagnostic_specificity: true
+  no_bridge_confirmation: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  d1m_d1o_regression_summary_csv: d1m_d1o_regression_summary.csv
+  schema_extension_summary_csv: schema_extension_summary.csv
+  decision_label_regression_csv: decision_label_regression.csv
+  warning_count_regression_csv: warning_count_regression.csv
+  dominance_share_distribution_csv: dominance_share_distribution.csv
+  output_tracking_recommendation_md: output_tracking_recommendation.md
+  resolved_config_json: resolved_config.json
