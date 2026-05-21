@@ -1,0 +1,54 @@
+block_id: QSB-ST-COMP01D1O
+run_id: d1m_refined_multi_channel_profile_open
+output_dir: runs/QSB-ST-COMP01D1O/d1m_refined_multi_channel_profile_open
+runner_refinement_version: d1o_refined_semantics_v1
+
+input_paths:
+  d1o_spec: docs/QSB_ST_COMP01D1O_D1M_RUNNER_REFINEMENT_SPECIFICATION.md
+  d1n_result_note: docs/QSB_ST_COMP01D1N_D1M_OUTPUT_AUDIT_AND_RUNNER_REFINEMENT_RESULT_NOTE.md
+  d1n_summary: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open/summary.json
+  d1n_warning_origin_summary: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open/warning_origin_summary.csv
+  d1n_channel_semantics_audit: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open/channel_semantics_audit.csv
+  d1n_dominance_semantics_audit: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open/dominance_semantics_audit.csv
+  d1n_output_tracking_policy: runs/QSB-ST-COMP01D1N/d1m_output_audit_and_runner_refinement_open/output_tracking_policy.md
+  d1m_original_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/summary.json
+  d1m_original_profile_case_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/profile_case_summary.csv
+  d1m_original_channel_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/channel_summary.csv
+  d1m_original_control_family_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/control_family_summary.csv
+  d1m_original_warning_taxonomy_summary: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/warning_taxonomy_summary.csv
+  d1m_original_resolved_config: runs/QSB-ST-COMP01D1M/multi_channel_synthetic_phase_identity_profile_open/resolved_config.json
+
+refinement:
+  preserve_original_d1m_outputs: true
+  do_not_rerun_d1m: true
+  add_warning_origin_metadata: true
+  add_warning_granularity_metadata: true
+  add_dominance_share_metadata: true
+  add_aggregate_broadcast_metadata: true
+  add_output_tracking_policy: true
+  single_channel_dominance_threshold: 0.80
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase: true
+  no_physical_wavefunction: true
+  no_physical_spacetime_geometry: true
+  no_diagnostic_specificity: true
+  no_bridge_confirmation: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  profile_case_summary_csv: profile_case_summary.csv
+  channel_summary_csv: channel_summary.csv
+  warning_taxonomy_summary_csv: warning_taxonomy_summary.csv
+  dominance_summary_csv: dominance_summary.csv
+  refinement_comparison_summary_csv: refinement_comparison_summary.csv
+  resolved_config_json: resolved_config.json
