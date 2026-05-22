@@ -1,0 +1,262 @@
+block_id: QSB-ST-COMP01-WIFM01C
+route_name: Wave Identity Fingerprint Metric
+stress_version: wifm01c_adversarial_ambiguity_stress_v1
+run_id: adversarial_ambiguity_stress_open
+output_dir: runs/QSB-ST-COMP01-WIFM01C/adversarial_ambiguity_stress_open
+input_mode: inline_adversarial_synthetic_cases
+phase_period: 6.283185307179586
+
+baseline_source:
+  wifm01_result_note: docs/QSB_ST_COMP01_WIFM01_MINIMAL_METRIC_RESULT_NOTE.md
+  wifm01b_result_note: docs/QSB_ST_COMP01_WIFM01B_MINIMAL_METRIC_SENSITIVITY_SWEEP_RESULT_NOTE.md
+  wifm01_config: data/qsb_st_comp01_wifm01_minimal_metric_config.yaml
+  wifm01b_config: data/qsb_st_comp01_wifm01b_minimal_metric_sensitivity_sweep_config.yaml
+  wifm01_summary: runs/QSB-ST-COMP01-WIFM01/minimal_metric_open/summary.json
+  wifm01_pair_metrics: runs/QSB-ST-COMP01-WIFM01/minimal_metric_open/pair_metric_comparison.csv
+  wifm01b_summary: runs/QSB-ST-COMP01-WIFM01B/minimal_metric_sensitivity_sweep_open/summary.json
+
+coordinate_scales:
+  delta_k: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+weights:
+  delta_k: 1.0
+  delta_phase: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+stress_thresholds:
+  near_zero_distance: 1.0e-9
+  strong_channel_conflict_min: 0.5
+  moderate_channel_difference_min: 0.1
+  cumulative_warning_distance_min: 0.25
+  cumulative_warning_distance_max: 1.5
+  ambiguity_min_distance: 0.1
+  ambiguity_max_distance: 1.5
+  overcleaning_conflict_min: 0.5
+
+stress_fingerprints:
+  - fingerprint_id: phase_agrees_delta_k_conflicts_left
+    case_family: phase_agrees_delta_k_conflicts
+    case_role: left
+    delta_k: 0.10
+    delta_phase: 1.00
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: adversarial_phase_agreement_noncompact_conflict
+    adversarial_intent: phase agreement should not erase strong delta_k conflict
+    notes: compact phase agrees, noncompact delta_k conflicts
+  - fingerprint_id: phase_agrees_delta_k_conflicts_right
+    case_family: phase_agrees_delta_k_conflicts
+    case_role: right
+    delta_k: 0.85
+    delta_phase: 1.01
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: adversarial_phase_agreement_noncompact_conflict
+    adversarial_intent: phase agreement should not erase strong delta_k conflict
+    notes: strong delta_k conflict
+  - fingerprint_id: phase_wrap_agrees_shape_conflicts_left
+    case_family: phase_wrap_agrees_shape_conflicts
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 0.01
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.01
+    expected_relation: adversarial_wrap_with_shape_conflict
+    adversarial_intent: phase wrap correction should not hide local-shape conflict
+    notes: phase near zero boundary with low local shape terms
+  - fingerprint_id: phase_wrap_agrees_shape_conflicts_right
+    case_family: phase_wrap_agrees_shape_conflicts
+    case_role: right
+    delta_k: 0.20
+    delta_phase: 6.273185307179586
+    slope_diff: 0.75
+    intercept_diff: 0.65
+    amplitude_diff: 0.01
+    expected_relation: adversarial_wrap_with_shape_conflict
+    adversarial_intent: phase wrap correction should not hide local-shape conflict
+    notes: phase near two-pi boundary with strong local-shape conflict
+  - fingerprint_id: many_small_differences_accumulate_left
+    case_family: many_small_differences_accumulate
+    case_role: left
+    delta_k: 0.10
+    delta_phase: 2.00
+    slope_diff: 0.10
+    intercept_diff: 0.10
+    amplitude_diff: 0.10
+    expected_relation: cumulative_small_difference_warning
+    adversarial_intent: multiple moderate differences accumulate into diagnostic warning
+    notes: low side of distributed weak-difference construction
+  - fingerprint_id: many_small_differences_accumulate_right
+    case_family: many_small_differences_accumulate
+    case_role: right
+    delta_k: 0.28
+    delta_phase: 2.18
+    slope_diff: 0.28
+    intercept_diff: 0.28
+    amplitude_diff: 0.28
+    expected_relation: cumulative_small_difference_warning
+    adversarial_intent: multiple moderate differences accumulate into diagnostic warning
+    notes: moderate shifts across all diagnostic channels
+  - fingerprint_id: amplitude_conflict_phase_agrees_left
+    case_family: amplitude_conflict_phase_agrees
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 1.50
+    slope_diff: 0.05
+    intercept_diff: 0.05
+    amplitude_diff: 0.05
+    expected_relation: amplitude_shape_conflict_warning
+    adversarial_intent: phase agreement should not erase amplitude/local-channel conflict
+    notes: compact and k coordinates nearly agree
+  - fingerprint_id: amplitude_conflict_phase_agrees_right
+    case_family: amplitude_conflict_phase_agrees
+    case_role: right
+    delta_k: 0.22
+    delta_phase: 1.51
+    slope_diff: 0.12
+    intercept_diff: 0.12
+    amplitude_diff: 0.85
+    expected_relation: amplitude_shape_conflict_warning
+    adversarial_intent: phase agreement should not erase amplitude/local-channel conflict
+    notes: strong amplitude conflict with mild local shifts
+  - fingerprint_id: ambiguous_balanced_conflict_left
+    case_family: ambiguous_balanced_conflict
+    case_role: left
+    delta_k: 0.20
+    delta_phase: 3.00
+    slope_diff: 0.20
+    intercept_diff: 0.20
+    amplitude_diff: 0.20
+    expected_relation: ambiguous_multi_channel_review
+    adversarial_intent: balanced compact/noncompact signals should remain ambiguous/review-like
+    notes: balanced mixed-channel left row
+  - fingerprint_id: ambiguous_balanced_conflict_right
+    case_family: ambiguous_balanced_conflict
+    case_role: right
+    delta_k: 0.38
+    delta_phase: 3.20
+    slope_diff: 0.38
+    intercept_diff: 0.12
+    amplitude_diff: 0.32
+    expected_relation: ambiguous_multi_channel_review
+    adversarial_intent: balanced compact/noncompact signals should remain ambiguous/review-like
+    notes: balanced mixed-channel right row
+  - fingerprint_id: overcleaning_probe_left
+    case_family: overcleaning_probe
+    case_role: left
+    delta_k: 0.10
+    delta_phase: 0.02
+    slope_diff: 0.02
+    intercept_diff: 0.02
+    amplitude_diff: 0.02
+    expected_relation: overcleaning_risk_detected
+    adversarial_intent: phase wrap is corrected but noncompact conflict should trigger overcleaning risk
+    notes: phase near zero boundary with low noncompact terms
+  - fingerprint_id: overcleaning_probe_right
+    case_family: overcleaning_probe
+    case_role: right
+    delta_k: 0.75
+    delta_phase: 6.263185307179586
+    slope_diff: 0.72
+    intercept_diff: 0.02
+    amplitude_diff: 0.02
+    expected_relation: overcleaning_risk_detected
+    adversarial_intent: phase wrap is corrected but noncompact conflict should trigger overcleaning risk
+    notes: phase-wrap agreement combined with strong noncompact conflict
+  - fingerprint_id: near_identity_control_left
+    case_family: near_identity_control
+    case_role: left
+    delta_k: 0.1000000000
+    delta_phase: 2.2000000000
+    slope_diff: 0.0500000000
+    intercept_diff: 0.0200000000
+    amplitude_diff: 0.0100000000
+    expected_relation: metric_equivalent_expected
+    adversarial_intent: near identity sanity control should remain equivalent
+    notes: tiny left-side diagnostic coordinates
+  - fingerprint_id: near_identity_control_right
+    case_family: near_identity_control
+    case_role: right
+    delta_k: 0.1000000001
+    delta_phase: 2.2000000001
+    slope_diff: 0.0500000001
+    intercept_diff: 0.0200000001
+    amplitude_diff: 0.0100000001
+    expected_relation: metric_equivalent_expected
+    adversarial_intent: near identity sanity control should remain equivalent
+    notes: tiny right-side diagnostic offsets
+
+stress_pairs:
+  - pair_id: phase_agrees_delta_k_conflicts_pair
+    left_fingerprint_id: phase_agrees_delta_k_conflicts_left
+    right_fingerprint_id: phase_agrees_delta_k_conflicts_right
+    case_family: phase_agrees_delta_k_conflicts
+    expected_relation: adversarial_phase_agreement_noncompact_conflict
+  - pair_id: phase_wrap_agrees_shape_conflicts_pair
+    left_fingerprint_id: phase_wrap_agrees_shape_conflicts_left
+    right_fingerprint_id: phase_wrap_agrees_shape_conflicts_right
+    case_family: phase_wrap_agrees_shape_conflicts
+    expected_relation: adversarial_wrap_with_shape_conflict
+  - pair_id: many_small_differences_accumulate_pair
+    left_fingerprint_id: many_small_differences_accumulate_left
+    right_fingerprint_id: many_small_differences_accumulate_right
+    case_family: many_small_differences_accumulate
+    expected_relation: cumulative_small_difference_warning
+  - pair_id: amplitude_conflict_phase_agrees_pair
+    left_fingerprint_id: amplitude_conflict_phase_agrees_left
+    right_fingerprint_id: amplitude_conflict_phase_agrees_right
+    case_family: amplitude_conflict_phase_agrees
+    expected_relation: amplitude_shape_conflict_warning
+  - pair_id: ambiguous_balanced_conflict_pair
+    left_fingerprint_id: ambiguous_balanced_conflict_left
+    right_fingerprint_id: ambiguous_balanced_conflict_right
+    case_family: ambiguous_balanced_conflict
+    expected_relation: ambiguous_multi_channel_review
+  - pair_id: overcleaning_probe_pair
+    left_fingerprint_id: overcleaning_probe_left
+    right_fingerprint_id: overcleaning_probe_right
+    case_family: overcleaning_probe
+    expected_relation: overcleaning_risk_detected
+  - pair_id: near_identity_control_pair
+    left_fingerprint_id: near_identity_control_left
+    right_fingerprint_id: near_identity_control_right
+    case_family: near_identity_control
+    expected_relation: metric_equivalent_expected
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  physical_metric_established: false
+  physical_compact_dimensions_established: false
+  hilbert_space_reconstruction: false
+  bridge_confirmation: false
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase_reconstruction: true
+  no_physical_spacetime_geometry: true
+  no_lorentzian_metric: true
+  no_pauli_spin_statistics_claim: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  stress_fingerprint_input_table_csv: stress_fingerprint_input_table.csv
+  stress_pair_metric_comparison_csv: stress_pair_metric_comparison.csv
+  case_family_stress_summary_csv: case_family_stress_summary.csv
+  label_stress_summary_csv: label_stress_summary.csv
+  overcleaning_risk_summary_csv: overcleaning_risk_summary.csv
+  adversarial_channel_conflict_summary_csv: adversarial_channel_conflict_summary.csv
+  baseline_replay_summary_csv: baseline_replay_summary.csv
+  resolved_config_json: resolved_config.json
