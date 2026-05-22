@@ -1,0 +1,228 @@
+block_id: QSB-ST-COMP01-WIFM01B
+route_name: Wave Identity Fingerprint Metric
+sweep_version: wifm01b_weight_scale_sensitivity_v1
+run_id: minimal_metric_sensitivity_sweep_open
+output_dir: runs/QSB-ST-COMP01-WIFM01B/minimal_metric_sensitivity_sweep_open
+curated_variants_only: true
+phase_period: 6.283185307179586
+
+baseline_source:
+  block_id: QSB-ST-COMP01-WIFM01
+  config_path: data/qsb_st_comp01_wifm01_minimal_metric_config.yaml
+  output_summary: runs/QSB-ST-COMP01-WIFM01/minimal_metric_open/summary.json
+  output_pair_metrics: runs/QSB-ST-COMP01-WIFM01/minimal_metric_open/pair_metric_comparison.csv
+
+stability_thresholds:
+  near_zero_distance: 1.0e-9
+  noncompact_separation_min: 0.1
+  ambiguity_min_distance: 0.1
+  ambiguity_max_distance: 1.5
+
+base_coordinate_scales:
+  delta_k: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+base_weights:
+  delta_k: 1.0
+  delta_phase: 1.0
+  slope_diff: 1.0
+  intercept_diff: 1.0
+  amplitude_diff: 1.0
+
+weight_variants:
+  - variant_id: baseline_equal_weights
+    variant_family: weight
+    variant_description: Baseline equal diagnostic weights.
+    weights:
+      delta_k: 1.0
+      delta_phase: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: phase_low_weight
+    variant_family: weight
+    variant_description: Lower compact phase contribution.
+    weights:
+      delta_k: 1.0
+      delta_phase: 0.25
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: phase_high_weight
+    variant_family: weight
+    variant_description: Higher compact phase contribution.
+    weights:
+      delta_k: 1.0
+      delta_phase: 4.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: delta_k_low_weight
+    variant_family: weight
+    variant_description: Lower delta_k contribution.
+    weights:
+      delta_k: 0.25
+      delta_phase: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: delta_k_high_weight
+    variant_family: weight
+    variant_description: Higher delta_k contribution.
+    weights:
+      delta_k: 4.0
+      delta_phase: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: local_shape_low_weight
+    variant_family: weight
+    variant_description: Lower slope/intercept local-shape contribution.
+    weights:
+      delta_k: 1.0
+      delta_phase: 1.0
+      slope_diff: 0.25
+      intercept_diff: 0.25
+      amplitude_diff: 1.0
+  - variant_id: local_shape_high_weight
+    variant_family: weight
+    variant_description: Higher slope/intercept local-shape contribution.
+    weights:
+      delta_k: 1.0
+      delta_phase: 1.0
+      slope_diff: 4.0
+      intercept_diff: 4.0
+      amplitude_diff: 1.0
+  - variant_id: amplitude_high_weight
+    variant_family: weight
+    variant_description: Higher amplitude diagnostic contribution.
+    weights:
+      delta_k: 1.0
+      delta_phase: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 4.0
+  - variant_id: balanced_noncompact_high
+    variant_family: weight
+    variant_description: Higher noncompact diagnostic contribution.
+    weights:
+      delta_k: 2.0
+      delta_phase: 1.0
+      slope_diff: 2.0
+      intercept_diff: 2.0
+      amplitude_diff: 2.0
+  - variant_id: compact_dominant
+    variant_family: weight
+    variant_description: Compact phase-dominant diagnostic weighting.
+    weights:
+      delta_k: 0.5
+      delta_phase: 8.0
+      slope_diff: 0.5
+      intercept_diff: 0.5
+      amplitude_diff: 0.5
+
+scale_variants:
+  - variant_id: baseline_scales
+    variant_family: scale
+    variant_description: Baseline equal explicit toy scales.
+    coordinate_scales:
+      delta_k: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: delta_k_tight_scale
+    variant_family: scale
+    variant_description: Tighter delta_k toy scale.
+    coordinate_scales:
+      delta_k: 0.5
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: delta_k_loose_scale
+    variant_family: scale
+    variant_description: Looser delta_k toy scale.
+    coordinate_scales:
+      delta_k: 2.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 1.0
+  - variant_id: local_shape_tight_scale
+    variant_family: scale
+    variant_description: Tighter slope/intercept toy scales.
+    coordinate_scales:
+      delta_k: 1.0
+      slope_diff: 0.5
+      intercept_diff: 0.5
+      amplitude_diff: 1.0
+  - variant_id: local_shape_loose_scale
+    variant_family: scale
+    variant_description: Looser slope/intercept toy scales.
+    coordinate_scales:
+      delta_k: 1.0
+      slope_diff: 2.0
+      intercept_diff: 2.0
+      amplitude_diff: 1.0
+  - variant_id: amplitude_tight_scale
+    variant_family: scale
+    variant_description: Tighter amplitude toy scale.
+    coordinate_scales:
+      delta_k: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 0.5
+  - variant_id: amplitude_loose_scale
+    variant_family: scale
+    variant_description: Looser amplitude toy scale.
+    coordinate_scales:
+      delta_k: 1.0
+      slope_diff: 1.0
+      intercept_diff: 1.0
+      amplitude_diff: 2.0
+  - variant_id: combined_loose_noncompact_scale
+    variant_family: scale
+    variant_description: Looser all noncompact toy scales.
+    coordinate_scales:
+      delta_k: 2.0
+      slope_diff: 2.0
+      intercept_diff: 2.0
+      amplitude_diff: 2.0
+  - variant_id: combined_tight_noncompact_scale
+    variant_family: scale
+    variant_description: Tighter all noncompact toy scales.
+    coordinate_scales:
+      delta_k: 0.5
+      slope_diff: 0.5
+      intercept_diff: 0.5
+      amplitude_diff: 0.5
+
+claim_boundary:
+  specificity_established: false
+  phase_is_physical: false
+  phase_is_synthetic_diagnostic: true
+  physical_metric_established: false
+  physical_compact_dimensions_established: false
+  hilbert_space_reconstruction: false
+  bridge_confirmation: false
+  no_real_data: true
+  no_physical_model_validation: true
+  no_physical_phase_reconstruction: true
+  no_physical_spacetime_geometry: true
+  no_lorentzian_metric: true
+  no_pauli_spin_statistics_claim: true
+  mastermind_status: parked_not_implemented
+  knuth_status: parked_not_implemented
+  manifold_status: parked_not_implemented
+
+output_files:
+  summary_json: summary.json
+  readout_md: readout.md
+  sweep_variant_summary_csv: sweep_variant_summary.csv
+  pair_metric_sweep_long_csv: pair_metric_sweep_long.csv
+  case_family_stability_summary_csv: case_family_stability_summary.csv
+  label_stability_summary_csv: label_stability_summary.csv
+  phase_wrap_stability_summary_csv: phase_wrap_stability_summary.csv
+  noncompact_separation_stability_summary_csv: noncompact_separation_stability_summary.csv
+  ambiguity_stability_summary_csv: ambiguity_stability_summary.csv
+  resolved_config_json: resolved_config.json
