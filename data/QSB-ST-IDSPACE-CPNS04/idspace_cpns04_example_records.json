@@ -1,0 +1,524 @@
+{
+  "record_set_id": "QSB-ST-IDSPACE-CPNS04-example-records",
+  "record_set_status": "illustrative_synthetic_examples_only",
+  "note": "These records are illustrative documentation examples only and are not numerical results.",
+  "claim_boundary_flags": {
+    "bridge_confirmation": false,
+    "diagnostic_specificity_claim": false,
+    "physical_validation": false,
+    "wifm01e_opened": false,
+    "wifm02_opened": false,
+    "bridge_nature_02_opened": false
+  },
+  "examples": [
+    {
+      "example_id": "EX_SAME_IDENTITY_CANDIDATE",
+      "example_role": "same_identity_candidate example",
+      "identity_space_records": [
+        {
+          "identity_object_id": "ID_EX_SAME_A",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_same_family",
+            "identity_marker": "same_marker"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "label_like"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative same-identity candidate only."
+        },
+        {
+          "identity_object_id": "ID_EX_SAME_B",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_same_family",
+            "identity_marker": "same_marker"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "label_like"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative relabeled candidate only."
+        }
+      ],
+      "fingerprint_object_records": [
+        {
+          "fingerprint_object_id": "FP_EX_SAME_A",
+          "identity_object_id": "ID_EX_SAME_A",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "same_pattern_a"
+          },
+          "phase_like_coordinates": [
+            "phase_like_placeholder"
+          ],
+          "noncompact_coordinates": {
+            "noncompact_placeholder": "same"
+          },
+          "diagnostic_labels": [
+            "illustrative_only"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": false,
+          "status": "draft"
+        },
+        {
+          "fingerprint_object_id": "FP_EX_SAME_B",
+          "identity_object_id": "ID_EX_SAME_B",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "same_pattern_b"
+          },
+          "phase_like_coordinates": [
+            "phase_like_placeholder"
+          ],
+          "noncompact_coordinates": {
+            "noncompact_placeholder": "same"
+          },
+          "diagnostic_labels": [
+            "illustrative_only",
+            "label_like_transform"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": false,
+          "status": "draft"
+        }
+      ],
+      "transform_class_records": [
+        {
+          "transform_class_id": "TR_EX_LABEL_LIKE",
+          "transform_class": "label_like",
+          "transform_description": "Illustrative relabeling transform.",
+          "expected_identity_effect": "preserve",
+          "requires_justification": false,
+          "allowed_for_identity_object_ids": [
+            "ID_EX_SAME_A",
+            "ID_EX_SAME_B"
+          ],
+          "status": "draft"
+        }
+      ],
+      "equivalence_decision_record": {
+        "decision_id": "DEC_EX_SAME",
+        "identity_object_a_id": "ID_EX_SAME_A",
+        "identity_object_b_id": "ID_EX_SAME_B",
+        "fingerprint_object_a_id": "FP_EX_SAME_A",
+        "fingerprint_object_b_id": "FP_EX_SAME_B",
+        "equivalence_relation_id": "EQ_EX_MINIMAL",
+        "transform_class_ids": [
+          "TR_EX_LABEL_LIKE"
+        ],
+        "decision_state": "same_identity_candidate",
+        "ambiguity_class_id": null,
+        "decision_note": "Illustrative same-identity candidate under a declared label-like transform."
+      },
+      "cpns_degeneracy_record": {
+        "cpns_record_id": "CPNS_EX_SAME_PLACEHOLDER",
+        "constraint_set_id": "CSET_EX_MINIMAL",
+        "candidate_family_id": "CFAM_EX_SAME",
+        "null_family_id": null,
+        "alternative_definition_id": "ALTDEF_EX_IDSPACE01",
+        "alternative_count": null,
+        "degeneracy_lower_bound": null,
+        "degeneracy_upper_bound": null,
+        "degeneracy_status": "unresolved_degeneracy",
+        "maxent_constraint_set_id": null,
+        "entropy_value": null,
+        "target_smuggling_check": "not_applicable"
+      },
+      "ambiguity_class_record": null,
+      "claim_boundary_flags": {
+        "bridge_confirmation": false,
+        "diagnostic_specificity_claim": false,
+        "physical_validation": false,
+        "wifm01e_opened": false,
+        "wifm02_opened": false,
+        "bridge_nature_02_opened": false
+      }
+    },
+    {
+      "example_id": "EX_DIFFERENT_IDENTITY_CANDIDATE",
+      "example_role": "different_identity_candidate example",
+      "identity_space_records": [
+        {
+          "identity_object_id": "ID_EX_DIFF_A",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_difference_family",
+            "identity_marker": "marker_a"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "identity_relevant"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative different-identity candidate only."
+        },
+        {
+          "identity_object_id": "ID_EX_DIFF_B",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_difference_family",
+            "identity_marker": "marker_b"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "identity_relevant"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative different-identity candidate only."
+        }
+      ],
+      "fingerprint_object_records": [
+        {
+          "fingerprint_object_id": "FP_EX_DIFF_A",
+          "identity_object_id": "ID_EX_DIFF_A",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "pattern_a"
+          },
+          "phase_like_coordinates": [],
+          "noncompact_coordinates": {
+            "identity_relevant_placeholder": "a"
+          },
+          "diagnostic_labels": [
+            "illustrative_only"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": false,
+          "status": "draft"
+        },
+        {
+          "fingerprint_object_id": "FP_EX_DIFF_B",
+          "identity_object_id": "ID_EX_DIFF_B",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "pattern_b"
+          },
+          "phase_like_coordinates": [],
+          "noncompact_coordinates": {
+            "identity_relevant_placeholder": "b"
+          },
+          "diagnostic_labels": [
+            "illustrative_only",
+            "identity_relevant_difference"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": false,
+          "status": "draft"
+        }
+      ],
+      "transform_class_records": [
+        {
+          "transform_class_id": "TR_EX_IDENTITY_RELEVANT",
+          "transform_class": "identity_relevant",
+          "transform_description": "Illustrative identity-relevant marker change.",
+          "expected_identity_effect": "change",
+          "requires_justification": true,
+          "allowed_for_identity_object_ids": [
+            "ID_EX_DIFF_A",
+            "ID_EX_DIFF_B"
+          ],
+          "status": "draft"
+        }
+      ],
+      "equivalence_decision_record": {
+        "decision_id": "DEC_EX_DIFFERENT",
+        "identity_object_a_id": "ID_EX_DIFF_A",
+        "identity_object_b_id": "ID_EX_DIFF_B",
+        "fingerprint_object_a_id": "FP_EX_DIFF_A",
+        "fingerprint_object_b_id": "FP_EX_DIFF_B",
+        "equivalence_relation_id": "EQ_EX_MINIMAL",
+        "transform_class_ids": [
+          "TR_EX_IDENTITY_RELEVANT"
+        ],
+        "decision_state": "different_identity_candidate",
+        "ambiguity_class_id": null,
+        "decision_note": "Illustrative different-identity candidate under a declared identity-relevant difference."
+      },
+      "cpns_degeneracy_record": {
+        "cpns_record_id": "CPNS_EX_DIFFERENT_PLACEHOLDER",
+        "constraint_set_id": "CSET_EX_MINIMAL",
+        "candidate_family_id": "CFAM_EX_DIFFERENT",
+        "null_family_id": null,
+        "alternative_definition_id": "ALTDEF_EX_IDSPACE01",
+        "alternative_count": null,
+        "degeneracy_lower_bound": null,
+        "degeneracy_upper_bound": null,
+        "degeneracy_status": "unresolved_degeneracy",
+        "maxent_constraint_set_id": null,
+        "entropy_value": null,
+        "target_smuggling_check": "not_applicable"
+      },
+      "ambiguity_class_record": null,
+      "claim_boundary_flags": {
+        "bridge_confirmation": false,
+        "diagnostic_specificity_claim": false,
+        "physical_validation": false,
+        "wifm01e_opened": false,
+        "wifm02_opened": false,
+        "bridge_nature_02_opened": false
+      }
+    },
+    {
+      "example_id": "EX_AMBIGUOUS_UNRESOLVED",
+      "example_role": "ambiguous_unresolved example",
+      "identity_space_records": [
+        {
+          "identity_object_id": "ID_EX_AMB_A",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_ambiguity_family",
+            "identity_marker": "unresolved_marker_a"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "representation_preserving",
+            "ambiguity_preserving"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative unresolved candidate only."
+        },
+        {
+          "identity_object_id": "ID_EX_AMB_B",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_ambiguity_family",
+            "identity_marker": "unresolved_marker_b"
+          },
+          "identity_relevant_fields": [
+            "identity_marker"
+          ],
+          "allowed_transform_classes": [
+            "representation_preserving",
+            "ambiguity_preserving"
+          ],
+          "equivalence_relation_id": "EQ_EX_MINIMAL",
+          "status": "draft",
+          "source_note": "Illustrative unresolved candidate only."
+        }
+      ],
+      "fingerprint_object_records": [
+        {
+          "fingerprint_object_id": "FP_EX_AMB_A",
+          "identity_object_id": "ID_EX_AMB_A",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "same_looking_pattern"
+          },
+          "phase_like_coordinates": [
+            "same_looking_phase_placeholder"
+          ],
+          "noncompact_coordinates": {
+            "noncompact_placeholder": "same_looking"
+          },
+          "diagnostic_labels": [
+            "illustrative_only",
+            "same_looking"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": true,
+          "status": "draft"
+        },
+        {
+          "fingerprint_object_id": "FP_EX_AMB_B",
+          "identity_object_id": "ID_EX_AMB_B",
+          "fingerprint_coordinates": {
+            "placeholder_coordinate": "same_looking_pattern"
+          },
+          "phase_like_coordinates": [
+            "same_looking_phase_placeholder"
+          ],
+          "noncompact_coordinates": {
+            "noncompact_placeholder": "same_looking"
+          },
+          "diagnostic_labels": [
+            "illustrative_only",
+            "same_looking"
+          ],
+          "representation_map_id": "RM_EX_MINIMAL",
+          "observation_map_id": "OM_EX_MINIMAL",
+          "same_looking_not_resolved": true,
+          "status": "draft"
+        }
+      ],
+      "transform_class_records": [
+        {
+          "transform_class_id": "TR_EX_REPRESENTATION_PRESERVING",
+          "transform_class": "representation_preserving",
+          "transform_description": "Illustrative same-looking representation that does not resolve identity.",
+          "expected_identity_effect": "unresolved",
+          "requires_justification": true,
+          "allowed_for_identity_object_ids": [
+            "ID_EX_AMB_A",
+            "ID_EX_AMB_B"
+          ],
+          "status": "draft"
+        }
+      ],
+      "equivalence_decision_record": {
+        "decision_id": "DEC_EX_AMBIGUOUS",
+        "identity_object_a_id": "ID_EX_AMB_A",
+        "identity_object_b_id": "ID_EX_AMB_B",
+        "fingerprint_object_a_id": "FP_EX_AMB_A",
+        "fingerprint_object_b_id": "FP_EX_AMB_B",
+        "equivalence_relation_id": "EQ_EX_MINIMAL",
+        "transform_class_ids": [
+          "TR_EX_REPRESENTATION_PRESERVING"
+        ],
+        "decision_state": "ambiguous_unresolved",
+        "ambiguity_class_id": "AMB_EX_FINGERPRINT_COORDINATE",
+        "decision_note": "Illustrative ambiguity where same-looking fingerprints do not resolve identity."
+      },
+      "cpns_degeneracy_record": {
+        "cpns_record_id": "CPNS_EX_AMBIGUOUS_PLACEHOLDER",
+        "constraint_set_id": "CSET_EX_MINIMAL",
+        "candidate_family_id": "CFAM_EX_AMBIGUOUS",
+        "null_family_id": "NFAM_EX_AMBIGUITY_PRESERVING",
+        "alternative_definition_id": "ALTDEF_EX_IDSPACE01",
+        "alternative_count": null,
+        "degeneracy_lower_bound": null,
+        "degeneracy_upper_bound": null,
+        "degeneracy_status": "unresolved_degeneracy",
+        "maxent_constraint_set_id": "MAXENT_CSET_EX_MINIMAL",
+        "entropy_value": null,
+        "target_smuggling_check": "not_applicable"
+      },
+      "ambiguity_class_record": {
+        "ambiguity_class_id": "AMB_EX_FINGERPRINT_COORDINATE",
+        "ambiguity_class": "fingerprint_coordinate_ambiguity",
+        "linked_decision_ids": [
+          "DEC_EX_AMBIGUOUS"
+        ],
+        "linked_cpns_record_ids": [
+          "CPNS_EX_AMBIGUOUS_PLACEHOLDER"
+        ],
+        "resolution_status": "valid_unresolved_result",
+        "ambiguity_note": "Illustrative valid unresolved result."
+      },
+      "claim_boundary_flags": {
+        "bridge_confirmation": false,
+        "diagnostic_specificity_claim": false,
+        "physical_validation": false,
+        "wifm01e_opened": false,
+        "wifm02_opened": false,
+        "bridge_nature_02_opened": false
+      }
+    },
+    {
+      "example_id": "EX_INVALID_OUTSIDE_SCOPE",
+      "example_role": "invalid_outside_scope example",
+      "identity_space_records": [
+        {
+          "identity_object_id": "ID_EX_INVALID_A",
+          "identity_layer": "operational_synthetic_diagnostic",
+          "identity_attributes": {
+            "family": "illustrative_invalid_family",
+            "outside_scope_reason": "missing_required_definition"
+          },
+          "identity_relevant_fields": [],
+          "allowed_transform_classes": [],
+          "equivalence_relation_id": "EQ_EX_UNDEFINED",
+          "status": "invalid_outside_scope",
+          "source_note": "Illustrative invalid outside-scope candidate only."
+        }
+      ],
+      "fingerprint_object_records": [
+        {
+          "fingerprint_object_id": "FP_EX_INVALID_A",
+          "identity_object_id": "ID_EX_INVALID_A",
+          "fingerprint_coordinates": {},
+          "phase_like_coordinates": [],
+          "noncompact_coordinates": {},
+          "diagnostic_labels": [
+            "illustrative_only",
+            "outside_scope"
+          ],
+          "representation_map_id": "RM_EX_UNDEFINED",
+          "observation_map_id": "OM_EX_UNDEFINED",
+          "same_looking_not_resolved": true,
+          "status": "invalid_outside_scope"
+        }
+      ],
+      "transform_class_records": [
+        {
+          "transform_class_id": "TR_EX_INVALID",
+          "transform_class": "ambiguity_preserving",
+          "transform_description": "Illustrative outside-scope transform placeholder.",
+          "expected_identity_effect": "invalid",
+          "requires_justification": true,
+          "allowed_for_identity_object_ids": [
+            "ID_EX_INVALID_A"
+          ],
+          "status": "invalid_outside_scope"
+        }
+      ],
+      "equivalence_decision_record": {
+        "decision_id": "DEC_EX_INVALID",
+        "identity_object_a_id": "ID_EX_INVALID_A",
+        "identity_object_b_id": "ID_EX_INVALID_B",
+        "fingerprint_object_a_id": "FP_EX_INVALID_A",
+        "fingerprint_object_b_id": null,
+        "equivalence_relation_id": "EQ_EX_UNDEFINED",
+        "transform_class_ids": [
+          "TR_EX_INVALID"
+        ],
+        "decision_state": "invalid_outside_scope",
+        "ambiguity_class_id": "AMB_EX_OUTSIDE_SCOPE",
+        "decision_note": "Illustrative invalid decision because required definitions are missing."
+      },
+      "cpns_degeneracy_record": {
+        "cpns_record_id": "CPNS_EX_INVALID_PLACEHOLDER",
+        "constraint_set_id": "CSET_EX_UNDEFINED",
+        "candidate_family_id": "CFAM_EX_INVALID",
+        "null_family_id": null,
+        "alternative_definition_id": "ALTDEF_EX_UNDEFINED",
+        "alternative_count": null,
+        "degeneracy_lower_bound": null,
+        "degeneracy_upper_bound": null,
+        "degeneracy_status": "invalid_degeneracy_measurement",
+        "maxent_constraint_set_id": null,
+        "entropy_value": null,
+        "target_smuggling_check": "fail"
+      },
+      "ambiguity_class_record": {
+        "ambiguity_class_id": "AMB_EX_OUTSIDE_SCOPE",
+        "ambiguity_class": "outside_scope_ambiguity",
+        "linked_decision_ids": [
+          "DEC_EX_INVALID"
+        ],
+        "linked_cpns_record_ids": [
+          "CPNS_EX_INVALID_PLACEHOLDER"
+        ],
+        "resolution_status": "invalid_outside_scope",
+        "ambiguity_note": "Illustrative outside-scope result."
+      },
+      "claim_boundary_flags": {
+        "bridge_confirmation": false,
+        "diagnostic_specificity_claim": false,
+        "physical_validation": false,
+        "wifm01e_opened": false,
+        "wifm02_opened": false,
+        "bridge_nature_02_opened": false
+      }
+    }
+  ]
+}

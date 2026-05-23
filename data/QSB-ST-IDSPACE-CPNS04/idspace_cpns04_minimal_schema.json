@@ -1,0 +1,414 @@
+{
+  "schema_id": "QSB-ST-IDSPACE-CPNS04-minimal-schema-scaffold",
+  "schema_status": "minimal_auditable_scaffold",
+  "schema_scope": "diagnostic_schema_only",
+  "object_groups": {
+    "identity_space_record": {
+      "description": "Operational synthetic diagnostic identity-space record.",
+      "fields": {
+        "identity_object_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable candidate identity-object identifier."
+        },
+        "identity_layer": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "operational_synthetic_diagnostic"
+          ],
+          "description": "Identity layer; physical interpretation is outside this scaffold."
+        },
+        "identity_attributes": {
+          "type": "object",
+          "required": true,
+          "description": "Declared attributes used for identity comparison."
+        },
+        "identity_relevant_fields": {
+          "type": "array",
+          "required": true,
+          "description": "Fields that may change identity under the equivalence relation."
+        },
+        "allowed_transform_classes": {
+          "type": "array",
+          "required": true,
+          "description": "Transform classes allowed for this identity object."
+        },
+        "equivalence_relation_id": {
+          "type": "string",
+          "required": true,
+          "description": "Declared equivalence relation identifier."
+        },
+        "status": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "draft",
+            "accepted_for_test",
+            "invalid_outside_scope"
+          ],
+          "description": "Record status."
+        },
+        "source_note": {
+          "type": "string",
+          "required": false,
+          "description": "Short auditable note."
+        }
+      }
+    },
+    "fingerprint_object_record": {
+      "description": "Diagnostic fingerprint-object record.",
+      "fields": {
+        "fingerprint_object_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable diagnostic fingerprint-object identifier."
+        },
+        "identity_object_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "Linked candidate identity object, if assigned."
+        },
+        "fingerprint_coordinates": {
+          "type": "object",
+          "required": true,
+          "description": "Full diagnostic coordinate record."
+        },
+        "phase_like_coordinates": {
+          "type": "array",
+          "required": true,
+          "description": "Compact or circular diagnostic coordinates."
+        },
+        "noncompact_coordinates": {
+          "type": "object",
+          "required": true,
+          "description": "Non-compact diagnostic coordinates."
+        },
+        "diagnostic_labels": {
+          "type": "array",
+          "required": true,
+          "description": "Warning, conflict, or ambiguity labels."
+        },
+        "representation_map_id": {
+          "type": "string",
+          "required": true,
+          "description": "Map from identity object to fingerprint object."
+        },
+        "observation_map_id": {
+          "type": "string",
+          "required": true,
+          "description": "Map from fingerprint object to observable record."
+        },
+        "same_looking_not_resolved": {
+          "type": "boolean",
+          "required": true,
+          "description": "True when same-looking fingerprints are not identity-resolved."
+        },
+        "status": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "draft",
+            "accepted_for_test",
+            "invalid_outside_scope"
+          ],
+          "description": "Record status."
+        }
+      }
+    },
+    "transform_class_record": {
+      "description": "Declared transform-class record.",
+      "fields": {
+        "transform_class_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable transform-class identifier."
+        },
+        "transform_class": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "label_like",
+            "gauge_like",
+            "representation_preserving",
+            "identity_relevant",
+            "ambiguity_preserving"
+          ],
+          "description": "Transform class."
+        },
+        "transform_description": {
+          "type": "string",
+          "required": true,
+          "description": "Plain description of the transform."
+        },
+        "expected_identity_effect": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "preserve",
+            "change",
+            "unresolved",
+            "invalid"
+          ],
+          "description": "Expected effect on identity decision."
+        },
+        "requires_justification": {
+          "type": "boolean",
+          "required": true,
+          "description": "Whether this transform requires explicit justification."
+        },
+        "allowed_for_identity_object_ids": {
+          "type": "array",
+          "required": false,
+          "description": "Identity objects for which the transform is allowed."
+        },
+        "status": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "draft",
+            "accepted_for_test",
+            "invalid_outside_scope"
+          ],
+          "description": "Record status."
+        }
+      }
+    },
+    "equivalence_decision_record": {
+      "description": "Pairwise diagnostic identity-decision record.",
+      "fields": {
+        "decision_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable decision identifier."
+        },
+        "identity_object_a_id": {
+          "type": "string",
+          "required": true,
+          "description": "First candidate identity object."
+        },
+        "identity_object_b_id": {
+          "type": "string",
+          "required": true,
+          "description": "Second candidate identity object."
+        },
+        "fingerprint_object_a_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "First fingerprint object, if used."
+        },
+        "fingerprint_object_b_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "Second fingerprint object, if used."
+        },
+        "equivalence_relation_id": {
+          "type": "string",
+          "required": true,
+          "description": "Declared equivalence rule."
+        },
+        "transform_class_ids": {
+          "type": "array",
+          "required": true,
+          "description": "Transform classes considered in the decision."
+        },
+        "decision_state": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "same_identity_candidate",
+            "different_identity_candidate",
+            "ambiguous_unresolved",
+            "invalid_outside_scope"
+          ],
+          "description": "Diagnostic decision state."
+        },
+        "ambiguity_class_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "Linked ambiguity class if unresolved."
+        },
+        "decision_note": {
+          "type": "string",
+          "required": false,
+          "description": "Short auditable explanation."
+        }
+      }
+    },
+    "cpns_degeneracy_record": {
+      "description": "CPNS / MaxEnt diagnostic degeneracy scaffold record.",
+      "fields": {
+        "cpns_record_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable CPNS / MaxEnt record identifier."
+        },
+        "constraint_set_id": {
+          "type": "string",
+          "required": true,
+          "description": "Declared constraint set."
+        },
+        "candidate_family_id": {
+          "type": "string",
+          "required": true,
+          "description": "Candidate family being counted or bounded."
+        },
+        "null_family_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "Null family identifier, if applicable."
+        },
+        "alternative_definition_id": {
+          "type": "string",
+          "required": true,
+          "description": "IDSPACE-01 definition of what counts as an alternative."
+        },
+        "alternative_count": {
+          "type": "integer_or_null",
+          "required": true,
+          "description": "Exact count if available; placeholder null in this scaffold."
+        },
+        "degeneracy_lower_bound": {
+          "type": "integer_or_null",
+          "required": true,
+          "description": "Lower bound if available; placeholder null in this scaffold."
+        },
+        "degeneracy_upper_bound": {
+          "type": "integer_or_null",
+          "required": true,
+          "description": "Upper bound if available; placeholder null in this scaffold."
+        },
+        "degeneracy_status": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "low_degeneracy",
+            "high_degeneracy",
+            "unresolved_degeneracy",
+            "invalid_degeneracy_measurement"
+          ],
+          "description": "Diagnostic degeneracy status, not a physical result."
+        },
+        "maxent_constraint_set_id": {
+          "type": "string_or_null",
+          "required": true,
+          "description": "MaxEnt constraint set, if used."
+        },
+        "entropy_value": {
+          "type": "number_or_null",
+          "required": true,
+          "description": "Entropy readout if later computed; placeholder null in this scaffold."
+        },
+        "target_smuggling_check": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "pass",
+            "warning",
+            "fail",
+            "not_applicable"
+          ],
+          "description": "Check that constraints do not smuggle in the target identity."
+        }
+      }
+    },
+    "ambiguity_class_record": {
+      "description": "Ambiguity class record for unresolved diagnostic cases.",
+      "fields": {
+        "ambiguity_class_id": {
+          "type": "string",
+          "required": true,
+          "description": "Stable ambiguity-class identifier."
+        },
+        "ambiguity_class": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "label_ambiguity",
+            "gauge_like_ambiguity",
+            "fingerprint_coordinate_ambiguity",
+            "identity_relevance_ambiguity",
+            "constraint_insufficiency_ambiguity",
+            "candidate_family_ambiguity",
+            "outside_scope_ambiguity"
+          ],
+          "description": "Type of unresolved ambiguity."
+        },
+        "linked_decision_ids": {
+          "type": "array",
+          "required": false,
+          "description": "Decision records assigned to this ambiguity class."
+        },
+        "linked_cpns_record_ids": {
+          "type": "array",
+          "required": false,
+          "description": "CPNS records assigned to this ambiguity class."
+        },
+        "resolution_status": {
+          "type": "enum",
+          "required": true,
+          "allowed_values": [
+            "valid_unresolved_result",
+            "resolved_by_definition",
+            "invalid_outside_scope"
+          ],
+          "description": "Resolution status."
+        },
+        "ambiguity_note": {
+          "type": "string",
+          "required": false,
+          "description": "Short auditable explanation."
+        }
+      }
+    },
+    "claim_boundary_flags": {
+      "description": "Required false claim-boundary flags.",
+      "fields": {
+        "bridge_confirmation": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No Bridge confirmation."
+        },
+        "diagnostic_specificity_claim": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No diagnostic specificity claim."
+        },
+        "physical_validation": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No physical validation."
+        },
+        "wifm01e_opened": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No WIFM01E default or opening."
+        },
+        "wifm02_opened": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No WIFM02 opening."
+        },
+        "bridge_nature_02_opened": {
+          "type": "boolean",
+          "required": true,
+          "required_value": false,
+          "description": "No BRIDGE-NATURE-02 opening."
+        }
+      }
+    }
+  },
+  "claim_boundary_flags": {
+    "bridge_confirmation": false,
+    "diagnostic_specificity_claim": false,
+    "physical_validation": false,
+    "wifm01e_opened": false,
+    "wifm02_opened": false,
+    "bridge_nature_02_opened": false
+  }
+}
