@@ -1,0 +1,91 @@
+{
+  "ambiguity_valid_state": true,
+  "block_id": "QSB-ST-IDSPACE-CPNS06",
+  "boundary_flags_status": {
+    "bridge_confirmation": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    },
+    "bridge_nature_02_opened": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    },
+    "diagnostic_specificity_claim": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    },
+    "physical_validation": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    },
+    "wifm01e_opened": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    },
+    "wifm02_opened": {
+      "all_false": true,
+      "occurrence_count": 5,
+      "present": true
+    }
+  },
+  "bridge_confirmation": false,
+  "bridge_nature_02_opened": false,
+  "checks": {
+    "ambiguity_valid_state": true,
+    "boundary_flags_present_and_false": true,
+    "decision_states_match_schema": true,
+    "each_example_has_equivalence_decision_record": true,
+    "examples_json_parse": true,
+    "examples_list_present": true,
+    "invalid_outside_scope_handled_as_non_success": true,
+    "no_measured_real_degeneracy": true,
+    "object_group_fields_complete": true,
+    "required_decision_states_present": true,
+    "required_object_groups_present": true,
+    "schema_has_object_groups": true,
+    "schema_json_parse": true
+  },
+  "claim_boundary": [
+    "schema_example_consistency_only",
+    "no_physical_results",
+    "no_real_degeneracy_quantification",
+    "no_bridge_confirmation",
+    "no_diagnostic_specificity_claim",
+    "no_physical_validation",
+    "no_wifm01e_default",
+    "no_wifm02_opening",
+    "no_bridge_nature_02_opening"
+  ],
+  "decision_states_found": [
+    "ambiguous_unresolved",
+    "different_identity_candidate",
+    "invalid_outside_scope",
+    "same_identity_candidate"
+  ],
+  "degeneracy_measurement_status": "placeholder_status_only",
+  "diagnostic_specificity_claim": false,
+  "failed_checks": [],
+  "inputs": [
+    "data/QSB-ST-IDSPACE-CPNS04/idspace_cpns04_minimal_schema.json",
+    "data/QSB-ST-IDSPACE-CPNS04/idspace_cpns04_example_records.json"
+  ],
+  "invalid_outside_scope_handled_as_non_success": true,
+  "outputs": [
+    "runs/QSB-ST-IDSPACE-CPNS06/minimal_schema_validation_open/summary.json",
+    "runs/QSB-ST-IDSPACE-CPNS06/minimal_schema_validation_open/readout.md"
+  ],
+  "passed": true,
+  "physical_validation": false,
+  "run_id": "minimal_schema_validation_open",
+  "runner_name": "run_qsb_st_idspace_cpns06_minimal_schema_validation.py",
+  "warning_checks": [
+    "degeneracy_readouts_are_placeholders_only:not_real_degeneracy_measurements"
+  ],
+  "wifm01e_opened": false,
+  "wifm02_opened": false
+}
