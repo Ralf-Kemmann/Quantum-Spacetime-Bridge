@@ -59,7 +59,7 @@ Boundary: this draft figure supports sequence and orientation only; it does not 
 
 ### Figure 2. Fingerprint-Raum and Identitaets-Raum
 
-![Figure 2. Fingerprint-Raum and Identitaets-Raum](../figures/public01_figure02_fingerprint_vs_identity_space.png)
+![Figure 2. Fingerprint-Raum and Identitaets-Raum](../figures/public01_figure02_fingerprint_identity_magazine_v1.png)
 
 Figure 2. Fingerprint-Raum is the diagnostic space in which relational fingerprints may become readable. Identitaets-Raum is the operational layer where identity candidates are compared. The passage from one layer to the other requires declared maps, equivalence rules, and ambiguity handling.
 
@@ -69,7 +69,7 @@ Boundary: this draft figure does not turn a geometric-looking diagnostic space i
 
 ### Figure 3. Same-looking fingerprints and unresolved ambiguity
 
-![Figure 3. Same-looking fingerprints and unresolved ambiguity](../figures/public01_figure03_unresolved_ambiguity.png)
+![Figure 3. Same-looking fingerprints and unresolved ambiguity](../figures/public01_figure03_unresolved_ambiguity_magazine_v1.png)
 
 Figure 3. Same-looking or near-looking fingerprints may remain unresolved. In QSB-ST, ambiguity is kept as a valid state until identity definitions and CPNS constraints determine what alternatives remain possible.
 
@@ -79,7 +79,7 @@ Boundary: this draft figure does not make unresolved cases evidence for or again
 
 ### Figure 4. CPNS06 validation card
 
-![Figure 4. CPNS06 validation card](../figures/public01_figure04_cpns06_validation_card.png)
+![Figure 4. CPNS06 validation card](../figures/public01_figure04_cpns06_validation_card_magazine_v1.png)
 
 Figure 4. CPNS06 validates the CPNS04 schema and illustrative examples for internal consistency. The run passed its schema checks, but the degeneracy fields remain placeholders and all claim-boundary flags remain false.
 
