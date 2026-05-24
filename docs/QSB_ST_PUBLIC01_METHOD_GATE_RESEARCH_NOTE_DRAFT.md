@@ -49,7 +49,7 @@ The following draft figures are included as visual handrails for the reader. The
 
 ### Figure 1. Red thread through the method gate
 
-![Figure 1. Red thread through the method gate](../figures/public01_figure01_red_thread_flow.png)
+![Figure 1. Red thread through the method gate](../figures/public01_figure01_method_route_magazine_v1.png)
 
 Figure 1. The current QSB-ST method-gate route. WIFM01-D closes the minimal synthetic diagnostic line; BRIDGE-NATURE-01B prevents automatic escalation; IDSPACE and CPNS then introduce identity-space and ambiguity safeguards before CPNS04 and CPNS06 make the schema scaffold auditable.
 
