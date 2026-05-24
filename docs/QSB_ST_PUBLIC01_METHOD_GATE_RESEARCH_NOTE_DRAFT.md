@@ -4,7 +4,11 @@
 Ralf Kemmann  
 ORCID: 0009-0008-9932-3745
 
-Version note: Draft prepared from repository state ending at commit 188c388 / later to be updated before release if needed.
+Version note: Working draft with PUBLIC01 draft figures and opening visual integrated. Final repository commit anchor should be updated before public release.
+
+![Opening visual: QSB-ST method-gate orientation](../figures/public01_eyecatcher_method_gate.png)
+
+*Opening visual. Conceptual orientation for the QSB-ST method-gate note: relational diagnostic patterns may become readable, but readability is not yet identity resolution. IDSPACE and CPNS act as methodological safeguards before stronger interpretation.*
 
 ## Abstract
 
@@ -41,57 +45,47 @@ IDSPACE and CPNS are introduced as safeguards against that over-reading. IDSPACE
 
 ## Visual guide for the public note
 
-The figures should act like handrails for the reader. They should not decorate the argument or make the method look more complete than it is. Each figure should help a reader keep the red thread in view: diagnostic readability is interesting, but identity-level interpretation needs its own safeguards.
+The following draft figures are included as visual handrails for the reader. They are meant to make the red thread visible without making the method look more complete than it is. Each image should help the reader keep one distinction in view: diagnostic readability is interesting, but identity-level interpretation needs its own safeguards.
 
 ### Figure 1. Red thread through the method gate
 
-Visual brief: A clean left-to-right flow diagram with five stations: WIFM01-D closure -> BRIDGE-NATURE-01B gate -> IDSPACE/CPNS definitions -> CPNS04 schema scaffold -> CPNS06 validator. The visual should feel like a route map, not a success ladder. Each station can have one short phrase: "minimal diagnostic route closed", "gate held", "identity and degeneracy defined", "schema scaffold", "schema/example validation".
+![Figure 1. Red thread through the method gate](../figures/public01_figure01_red_thread_flow.png)
 
-Caption text: Figure 1. The current QSB-ST method-gate route. WIFM01-D closes the minimal synthetic diagnostic line; BRIDGE-NATURE-01B prevents automatic escalation; IDSPACE and CPNS then introduce identity-space and ambiguity safeguards before CPNS04 and CPNS06 make the schema scaffold auditable.
+Figure 1. The current QSB-ST method-gate route. WIFM01-D closes the minimal synthetic diagnostic line; BRIDGE-NATURE-01B prevents automatic escalation; IDSPACE and CPNS then introduce identity-space and ambiguity safeguards before CPNS04 and CPNS06 make the schema scaffold auditable.
 
-Allowed support: The figure may support the public red thread and the sequence of method gates.
+The figure reads as a route map rather than a ladder of discoveries. It shows how the project moves from a closed diagnostic line into explicit safeguards before a narrow validator is allowed to check schema/example consistency.
 
-Must not imply: The figure must not imply physical validation, Bridge confirmation, diagnostic specificity, or a discovery pipeline.
+Boundary: this draft figure supports sequence and orientation only; it does not imply physical validation, Bridge confirmation, diagnostic specificity, or a discovery pipeline.
 
 ### Figure 2. Fingerprint-Raum and Identitaets-Raum
 
-Visual brief: A two-layer conceptual diagram. The lower layer is Fingerprint-Raum, showing geometrically readable diagnostic points, distances, and neighborhoods. The upper layer is Identitaets-Raum, shown as a separate decision layer with same, different, ambiguous, and outside-scope states. A visible gap or filter between the layers should make clear that readability below does not automatically become identity resolution above.
+![Figure 2. Fingerprint-Raum and Identitaets-Raum](../figures/public01_figure02_fingerprint_vs_identity_space.png)
 
-Caption text: Figure 2. Fingerprint-Raum is the diagnostic space in which relational fingerprints may become readable. Identitaets-Raum is the operational layer where identity candidates are compared. The passage from one layer to the other requires declared maps, equivalence rules, and ambiguity handling.
+Figure 2. Fingerprint-Raum is the diagnostic space in which relational fingerprints may become readable. Identitaets-Raum is the operational layer where identity candidates are compared. The passage from one layer to the other requires declared maps, equivalence rules, and ambiguity handling.
 
-Allowed support: The figure may support the distinction between diagnostic structure and identity-level interpretation.
+The image makes the main conceptual guardrail visible: a diagnostic pattern can be readable below without being identity-resolved above. The gap between the layers is where IDSPACE definitions and CPNS ambiguity controls matter.
 
-Must not imply: The figure must not imply that a geometric-looking diagnostic space is already a physical space or already resolves identity.
+Boundary: this draft figure does not turn a geometric-looking diagnostic space into physical space, and it does not turn readability into identity resolution.
 
 ### Figure 3. Same-looking fingerprints and unresolved ambiguity
 
-Visual brief: Show two or more fingerprints that are visually close or nearly identical in the diagnostic layer. Connect them to an unresolved decision marker until IDSPACE and CPNS constraints are declared. The visual should make ambiguity feel like a disciplined result state, not a failure icon.
+![Figure 3. Same-looking fingerprints and unresolved ambiguity](../figures/public01_figure03_unresolved_ambiguity.png)
 
-Caption text: Figure 3. Same-looking or near-looking fingerprints may remain unresolved. In QSB-ST, ambiguity is kept as a valid state until identity definitions and CPNS constraints determine what alternatives remain possible.
+Figure 3. Same-looking or near-looking fingerprints may remain unresolved. In QSB-ST, ambiguity is kept as a valid state until identity definitions and CPNS constraints determine what alternatives remain possible.
 
-Allowed support: The figure may support the idea that `ambiguous_unresolved` is a valid diagnostic result state.
+The figure gives ambiguity a calm visual role. It is not a warning sign or a failed check; it is the disciplined result state used when current observables do not separate the alternatives.
 
-Must not imply: The figure must not imply that unresolved cases are evidence for or against a physical interpretation.
+Boundary: this draft figure does not make unresolved cases evidence for or against a physical interpretation.
 
 ### Figure 4. CPNS06 validation card
 
-Visual brief: A compact validation card with four rows: `passed=true`, `failed_checks=[]`, `warning=placeholder degeneracy only`, and `all boundary flags=false`. Use a sober visual tone, like a small instrument panel. The card should be visibly labeled "schema/example consistency only".
+![Figure 4. CPNS06 validation card](../figures/public01_figure04_cpns06_validation_card.png)
 
-Caption text: Figure 4. CPNS06 validates the CPNS04 schema and illustrative examples for internal consistency. The run passed its schema checks, but the degeneracy fields remain placeholders and all claim-boundary flags remain false.
+Figure 4. CPNS06 validates the CPNS04 schema and illustrative examples for internal consistency. The run passed its schema checks, but the degeneracy fields remain placeholders and all claim-boundary flags remain false.
 
-Allowed support: The figure may support the narrow CPNS06 result: schema/example consistency validation.
+The card is deliberately narrow. Its useful message is that the scaffold can be checked for internal consistency while the scientific claim flags remain closed.
 
-Must not imply: The figure must not imply real degeneracy measurement, physical validation, Bridge confirmation, or diagnostic specificity.
-
-### Optional Figure 5. The guardrail
-
-Visual brief: A visually accessible guardrail illustration. On the left, show diagnostic readability: structured fingerprints, distances, or neighborhoods. On the right, show identity claims. Between them, place IDSPACE/CPNS as the guardrail that requires definitions, constraints, and ambiguity checks before crossing. The style should be simple and explanatory rather than dramatic.
-
-Caption text: Figure 5. IDSPACE/CPNS acts as a methodological guardrail between readable diagnostic fingerprints and stronger identity-level claims. Its purpose is to slow down interpretation until alternatives and ambiguity have been made explicit.
-
-Allowed support: The figure may support the central public message that safeguards are part of the method, not an afterthought.
-
-Must not imply: The figure must not imply that crossing the guardrail has already happened or that identity claims are currently established.
+Boundary: this draft figure supports the CPNS06 schema/example consistency result only; it does not imply real degeneracy measurement, physical validation, Bridge confirmation, or diagnostic specificity.
 
 ## Method-gate lineage
 
@@ -303,7 +297,7 @@ Commit anchors currently named in the planning line:
 | Commit | Meaning |
 | --- | --- |
 | `162097e` | WIFM01-D consolidation gate note anchor |
-| `188c388` | Draft-preparation repository endpoint to be updated before release if needed |
+| `97b83cc` | Current local/public draft preparation endpoint before this visual integration |
 
 ## Literature/context policy
 
@@ -321,14 +315,11 @@ The literature section should therefore separate:
 
 ## Next steps
 
-Before any public release, this draft should receive a claim-risk review and a citation/context pass.
+Before any public release:
 
-Recommended next steps:
-
-1. Check the draft against the current repository state and update the commit reference if needed.
-2. Add a compact literature/context section with comparison-only wording.
-3. Turn the figure slots into final publication graphics only after claim-risk review.
-4. Re-run the forbidden-claim wording checks.
-5. Only after explicit approval, prepare a release version or PDF.
-
-The next technical project step remains separate from this public draft. Any future CPNS work must keep ambiguity valid, quantify degeneracy only when definitions and controls are fixed, and preserve the current claim boundaries.
+- visually inspect the draft figures in the intended PDF or web context
+- decide whether the opening visual remains a draft eyecatcher or is replaced by a cleaner text-overlaid version
+- update the repository commit anchor to the final release commit
+- run a final claim-risk grep
+- produce a release PDF only after review
+- decide separately whether to upload to Academia.edu, Zenodo, or both
