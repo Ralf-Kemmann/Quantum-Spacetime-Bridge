@@ -10,19 +10,6 @@ Version note: Working draft with PUBLIC01 publication draft figures and opening 
 
 *Opening visual. Conceptual orientation for the QSB-ST method-gate note: relational diagnostic patterns may become readable, but readability is not yet identity resolution. IDSPACE and CPNS act as methodological safeguards before stronger interpretation.*
 
-## List of Figures
-
-- Opening visual. QSB-ST method-gate orientation
-- Figure 1. Red thread through the method gate
-- Figure 2. Fingerprint Space and Identity Space
-- Figure 3. Same-looking fingerprints and unresolved ambiguity
-- Figure 4. CPNS06 validation card
-
-## List of Tables
-
-- Table 1. Repository anchors for the PUBLIC01 method source trail
-- Table 2. Commit anchors for release-preparation tracking
-
 
 ## Abstract
 
@@ -338,6 +325,21 @@ AI-assisted drafting, editorial structuring, preview generation, and generated e
 References and repository-internal source documents are intentionally kept close to the method trail in this draft. The repository-anchor table above names the internal QSB-ST documents and run outputs that support the draft's method history.
 
 External literature references will be finalized before public release. No external citation is used here as a source for the QSB-ST mechanism.
+
+## Document apparatus
+
+### List of Figures
+
+- Opening visual. QSB-ST method-gate orientation
+- Figure 1. Red thread through the method gate
+- Figure 2. Fingerprint Space and Identity Space
+- Figure 3. Same-looking fingerprints and unresolved ambiguity
+- Figure 4. CPNS06 validation card
+
+### List of Tables
+
+- Table 1. Repository anchors for the PUBLIC01 method source trail
+- Table 2. Commit anchors for release-preparation tracking
 
 ## Next steps
 
