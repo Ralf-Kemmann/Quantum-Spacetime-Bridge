@@ -6,7 +6,7 @@ ORCID: 0009-0008-9932-3745
 
 Version note: Working draft with PUBLIC01 publication draft figures and opening visual integrated. Final repository commit anchor should be updated before public release.
 
-![Opening visual: QSB-ST method-gate orientation](../figures/public01_eyecatcher_method_gate.png)
+![Opening visual: QSB-ST method-gate orientation](../figures/public01_eyecatcher_method_gate_en_v2.png)
 
 *Opening visual. Conceptual orientation for the QSB-ST method-gate note: relational diagnostic patterns may become readable, but readability is not yet identity resolution. IDSPACE and CPNS act as methodological safeguards before stronger interpretation.*
 
