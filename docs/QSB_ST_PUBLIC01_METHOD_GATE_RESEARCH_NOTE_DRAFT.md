@@ -1,7 +1,7 @@
 # From Diagnostic Fingerprints to Identity-Space Safeguards:
 # A Method-Gate Note on QSB-ST WIFM, IDSPACE, and CPNS
 
-Ralf Kemmann  
+Ralf Kemmann<br>
 ORCID: 0009-0008-9932-3745
 
 Version note: Working draft with PUBLIC01 publication draft figures and opening visual integrated. Final repository commit anchor should be updated before public release.
@@ -76,6 +76,10 @@ The image makes the main conceptual guardrail visible: a diagnostic pattern can 
 
 Boundary: this draft figure does not turn a geometric-looking diagnostic space into physical space, and it does not turn readability into identity resolution.
 
+**Theory note — Diagnostic readability is not identity resolution.**
+
+A readable structure in fingerprint space means that the chosen observables preserve enough relational order to compare cases. It does not, by itself, define what counts as the same object. IDSPACE supplies that missing operational layer: it asks which maps, equivalence rules, and admissible transformations must be declared before a fingerprint comparison can be treated as an identity-space statement.
+
 ### Figure 3. Same-looking fingerprints and unresolved ambiguity
 
 ![Figure 3. Same-looking fingerprints and unresolved ambiguity](../figures/public01_figure03_unresolved_ambiguity_magazine_v1.png)
@@ -85,6 +89,10 @@ Figure 3. Same-looking or near-looking fingerprints may remain unresolved. In QS
 The figure gives ambiguity a calm visual role. It is not a warning sign or a failed check; it is the disciplined result state used when current observables do not separate the alternatives.
 
 Boundary: this draft figure does not make unresolved cases evidence for or against a physical interpretation.
+
+**Theory note — Ambiguity is a protected state, not a failure.**
+
+In this method line, an unresolved comparison is not forced into a yes/no identity decision. If the current observables do not separate alternatives, `ambiguous_unresolved` keeps that limitation visible. This prevents the diagnostic from silently converting insufficient information into a stronger claim.
 
 ### Figure 4. CPNS06 validation card
 
