@@ -4,11 +4,25 @@
 Ralf Kemmann  
 ORCID: 0009-0008-9932-3745
 
-Version note: Working draft with PUBLIC01 draft figures and opening visual integrated. Final repository commit anchor should be updated before public release.
+Version note: Working draft with PUBLIC01 publication draft figures and opening visual integrated. Final repository commit anchor should be updated before public release.
 
 ![Opening visual: QSB-ST method-gate orientation](../figures/public01_eyecatcher_method_gate.png)
 
 *Opening visual. Conceptual orientation for the QSB-ST method-gate note: relational diagnostic patterns may become readable, but readability is not yet identity resolution. IDSPACE and CPNS act as methodological safeguards before stronger interpretation.*
+
+## List of Figures
+
+- Opening visual. QSB-ST method-gate orientation
+- Figure 1. Red thread through the method gate
+- Figure 2. Fingerprint Space and Identity Space
+- Figure 3. Same-looking fingerprints and unresolved ambiguity
+- Figure 4. CPNS06 validation card
+
+## List of Tables
+
+- Table 1. Repository anchors for the PUBLIC01 method source trail
+- Table 2. Commit anchors for release-preparation tracking
+
 
 ## Abstract
 
@@ -45,7 +59,7 @@ IDSPACE and CPNS are introduced as safeguards against that over-reading. IDSPACE
 
 ## Visual guide for the public note
 
-The following draft figures are included as visual handrails for the reader. They are meant to make the red thread visible without making the method look more complete than it is. Each image should help the reader keep one distinction in view: diagnostic readability is interesting, but identity-level interpretation needs its own safeguards.
+The following publication draft figures are included as visual handrails for the reader. They are meant to make the red thread visible without making the method look more complete than it is. Each image should help the reader keep one distinction in view: diagnostic readability is interesting, but identity-level interpretation needs its own safeguards.
 
 ### Figure 1. Red thread through the method gate
 
@@ -57,11 +71,11 @@ The figure reads as a route map rather than a ladder of discoveries. It shows ho
 
 Boundary: this draft figure supports sequence and orientation only; it does not imply physical validation, Bridge confirmation, diagnostic specificity, or a discovery pipeline.
 
-### Figure 2. Fingerprint-Raum and Identitaets-Raum
+### Figure 2. Fingerprint Space and Identity Space
 
-![Figure 2. Fingerprint-Raum and Identitaets-Raum](../figures/public01_figure02_fingerprint_identity_magazine_v1.png)
+![Figure 2. Fingerprint Space and Identity Space](../figures/public01_figure02_fingerprint_identity_magazine_v1.png)
 
-Figure 2. Fingerprint-Raum is the diagnostic space in which relational fingerprints may become readable. Identitaets-Raum is the operational layer where identity candidates are compared. The passage from one layer to the other requires declared maps, equivalence rules, and ambiguity handling.
+Figure 2. Fingerprint-Raum / Fingerprint Space is the diagnostic space in which relational fingerprints may become readable. Identitaets-Raum / Identity Space is the operational layer where identity candidates are compared. The passage from one layer to the other requires declared maps, equivalence rules, and ambiguity handling.
 
 The image makes the main conceptual guardrail visible: a diagnostic pattern can be readable below without being identity-resolved above. The gap between the layers is where IDSPACE definitions and CPNS ambiguity controls matter.
 
@@ -159,7 +173,7 @@ CPNS05 plans a minimal validation runner. Its scope is deliberately narrow: vali
 
 CPNS06 implements that minimal validation runner. It validates the CPNS04 schema and example records only. It does not compute physical results and does not quantify real degeneracy.
 
-## Fingerprint-Raum versus Identitaets-Raum
+## Fingerprint-Raum / Fingerprint Space versus Identitaets-Raum / Identity Space
 
 Fingerprint-Raum is the diagnostic space. It may contain compact phase-like coordinates, non-compact coordinate differences, local-form diagnostics, labels, warning flags, and ambiguity flags.
 
@@ -313,11 +327,23 @@ The literature section should therefore separate:
 - background analogy
 - open physical question
 
+## Figure and AI transparency
+
+The figures in this draft are explanatory visualizations for orientation. They are not empirical data, not numerical validation outputs, and not evidence for QSB-ST claims.
+
+AI-assisted drafting, editorial structuring, preview generation, and generated explanatory figures were used as support tools. Scientific responsibility, conceptual decisions, claim boundaries, and final review remain with the author.
+
+## References
+
+References and repository-internal source documents are intentionally kept close to the method trail in this draft. The repository-anchor table above names the internal QSB-ST documents and run outputs that support the draft's method history.
+
+External literature references will be finalized before public release. No external citation is used here as a source for the QSB-ST mechanism.
+
 ## Next steps
 
 Before any public release:
 
-- visually inspect the draft figures in the intended PDF or web context
+- visually inspect the publication draft figures in the intended PDF or web context
 - decide whether the opening visual remains a draft eyecatcher or is replaced by a cleaner text-overlaid version
 - update the repository commit anchor to the final release commit
 - run a final claim-risk grep
