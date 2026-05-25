@@ -44,6 +44,14 @@ That language is useful, but it can overreach. A fingerprint may be same-looking
 
 IDSPACE and CPNS are introduced as safeguards against that over-reading. IDSPACE asks what an identity object would mean in this synthetic diagnostic setting. CPNS asks how many alternatives remain compatible with the same constraints. Together they keep a readable fingerprint from being treated as identity resolution by default.
 
+## Repository
+
+The working repository for this project is:
+
+https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge
+
+This note is written as a public orientation document, but the method trail remains close to the repository: internal document names, run outputs, and commit anchors are kept visible so that the path can be checked rather than merely asserted.
+
 ## Visual guide for the public note
 
 The following publication draft figures are included as visual handrails for the reader. They are meant to make the red thread visible without making the method look more complete than it is. Each image should help the reader keep one distinction in view: diagnostic readability is interesting, but identity-level interpretation needs its own safeguards.
