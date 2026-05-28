@@ -1,0 +1,356 @@
+{
+  "block_id": "QSB-ST-SHAPIROINFO04",
+  "run_id": "toy_comparator_minimal_open",
+  "config_format_note": "YAML-compatible JSON document; parsed with Python stdlib json to avoid external dependencies.",
+  "anchor_commit": "7102e13 Add QSB-ST ShapiroInfo toy comparator plan",
+  "output_dir": "runs/QSB-ST-SHAPIROINFO04/toy_comparator_minimal_open",
+  "schema_target": "docs/QSB_ST_SHAPIROINFO02_MINIMAL_SIGNAL_RECORD_SCHEMA_SPEC.md",
+  "plan_source": "docs/QSB_ST_SHAPIROINFO03_TOY_COMPARATOR_PLAN.md",
+  "scope": {
+    "synthetic_only": true,
+    "real_shapiro_data": false,
+    "empirical_claim": false,
+    "physical_validation": false,
+    "standard_shapiro_modification": false,
+    "bridge_confirmation": false
+  },
+  "decision_thresholds": {
+    "normalized_within_uncertainty_max": 1.0,
+    "candidate_min_repeat_count": 2
+  },
+  "claim_boundary": [
+    "no derivation of c",
+    "no explanation of the numerical value of c",
+    "no Bridge confirmation",
+    "no spacetime emergence claim",
+    "no replacement of relativity or quantum mechanics",
+    "no Shapiro modification claim",
+    "no evidence claim from toy run alone"
+  ],
+  "toy_variants": [
+    {
+      "variant_id": "V0_identity_control",
+      "variant_name": "Identity control",
+      "signal_class": "timing-only toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "bounded_noise": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": true,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": false,
+        "reproducible_count": 3,
+        "resolution_ok": true,
+        "comparison_stability": "stable"
+      },
+      "expected_residual_status": ["no_residual"],
+      "purpose": "Identity control; B equals A."
+    },
+    {
+      "variant_id": "V1_known_delay_only",
+      "variant_name": "Known delay only",
+      "signal_class": "timing-only toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 3.0e-7,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "bounded_noise": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": true,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": false,
+        "reproducible_count": 3,
+        "resolution_ok": true,
+        "comparison_stability": "stable"
+      },
+      "expected_residual_status": ["no_residual"],
+      "purpose": "Known delay is removed by the correction layer."
+    },
+    {
+      "variant_id": "V2_known_delay_plus_noise",
+      "variant_name": "Known delay plus bounded noise",
+      "signal_class": "timing-only toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 3.0e-7,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "bounded_noise": {
+        "timing_s": 1.2e-9,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": true,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": false,
+        "reproducible_count": 1,
+        "resolution_ok": false,
+        "comparison_stability": "unstable"
+      },
+      "expected_residual_status": ["no_residual", "inconclusive"],
+      "purpose": "Bounded noise exercises uncertainty-dominated decision behavior."
+    },
+    {
+      "variant_id": "V3_known_artifact",
+      "variant_name": "Known standard artifact",
+      "signal_class": "phase toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 3.0e-7,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 4.0e-9,
+        "phase_rad": 3.0e-6,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "bounded_noise": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": false,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": true,
+        "reproducible_count": 3,
+        "resolution_ok": true,
+        "comparison_stability": "stable"
+      },
+      "expected_residual_status": ["artifact_likely", "no_residual"],
+      "purpose": "Known artifact should block candidate wording."
+    },
+    {
+      "variant_id": "V4_hidden_residual_candidate",
+      "variant_name": "Hidden residual candidate",
+      "signal_class": "modulation/fingerprint toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 3.0e-7,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "bounded_noise": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 8.0e-9,
+        "phase_rad": 4.0e-6,
+        "frequency_hz": 0.004,
+        "fingerprint_score": 0.2
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": true,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": false,
+        "reproducible_count": 3,
+        "resolution_ok": true,
+        "comparison_stability": "stable"
+      },
+      "expected_residual_status": ["candidate_residual"],
+      "purpose": "Unexplained reproducible synthetic residual pattern exercises candidate status."
+    },
+    {
+      "variant_id": "V5_false_positive_control",
+      "variant_name": "False positive control",
+      "signal_class": "frequency toy",
+      "A_reference": {
+        "arrival_time_s": 1000.0,
+        "phase_rad": 0.0,
+        "frequency_shift_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "known_delay_component": {
+        "timing_s": 3.0e-7,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "standard_artifact": {
+        "timing_s": 8.0e-9,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.004,
+        "fingerprint_score": 0.2
+      },
+      "bounded_noise": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "candidate_residual": {
+        "timing_s": 0.0,
+        "phase_rad": 0.0,
+        "frequency_hz": 0.0,
+        "fingerprint_score": 0.0
+      },
+      "correction_applied": {
+        "known_delay_component": true,
+        "standard_artifact": false,
+        "bounded_noise": false
+      },
+      "uncertainty": {
+        "timing_s": 1.0e-9,
+        "phase_rad": 1.0e-6,
+        "frequency_hz": 1.0e-3,
+        "fingerprint_score": 0.05
+      },
+      "control_assessment": {
+        "artifact_or_control_explains": true,
+        "reproducible_count": 3,
+        "resolution_ok": true,
+        "comparison_stability": "stable"
+      },
+      "expected_residual_status": ["artifact_likely"],
+      "purpose": "Residual-like artifact should remain artifact language, not candidate language."
+    }
+  ]
+}
