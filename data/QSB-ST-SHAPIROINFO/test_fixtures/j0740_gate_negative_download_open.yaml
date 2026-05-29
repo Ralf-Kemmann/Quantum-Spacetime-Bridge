@@ -1,0 +1,66 @@
+# QSB-ST-SHAPIROINFO26B artificial negative gate fixture.
+# This is not a real J0740 manifest.
+# It must never be used as the J0740 operational manifest.
+# Purpose: download_allowed is intentionally true so the gate checker fails closed.
+
+fixture_id: "SHAPIROINFO26B_NEGATIVE_DOWNLOAD_OPEN"
+fixture_kind: "artificial_negative_test_data"
+fixture_scope: "gate_checker_only_no_real_data"
+never_use_as_operational_manifest: true
+
+manifest_schema_version: "SHAPIROINFO26B_NEGATIVE_FIXTURE"
+manifest_record_id: "J0740_6620_MANUAL_REVIEW_DRAFT_NO_DOWNLOAD"
+manifest_gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+download_allowed: true
+sidecar_population_allowed: false
+dry_run_preview_allowed: false
+
+candidate_context:
+  candidate_label: "ARTIFICIAL TEST FIXTURE ONLY - NANOGrav J0740+6620 label copied for gate shape"
+  public_source_review_status: "SOURCE_REVIEW_PARTIAL_PASS"
+  citation_gate_status: "CITATION_IDENTITY_PASS"
+  data_use_review_status: "DATA_USE_REVIEW_PARTIAL"
+  citation_policy_context_status: "CITATION_POLICY_CONTEXT_IDENTIFIED"
+  readme_release_inspection_result_status: "RELEASE_CONTEXT_PARTIAL"
+  link_label_context_status: "LINK_LABELS_IDENTIFIED"
+  file_level_documentation_status: "FILE_LEVEL_DOCUMENTATION_UNRESOLVED"
+  data_use_license_status: "DATA_USE_LICENSE_UNRESOLVED"
+  correction_context_status: "CORRECTION_CONTEXT_UNRESOLVED"
+  no_dataset_selected_for_download: true
+
+download_plan:
+  no_download_until_gate_passed: true
+  manual_review_required_before_download: true
+  download_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+  raw_data_tracking_status: "BLOCKED_RAW_DATA_TRACKING"
+  download_items:
+    - label: "artificial timing-data fixture row"
+      downloaded: false
+    - label: "artificial parameter-file fixture row"
+      downloaded: false
+  downloaded_files: []
+
+downstream_gate:
+  sidecar_gate_status: "BLOCKED_BEFORE_SIDECAR_DRAFT"
+  adapter_gate_status: "BLOCKED_BEFORE_ADAPTER"
+  dry_run_gate_status: "BLOCKED_BEFORE_DRY_RUN"
+  allowed_next_action: "negative_fixture_check_only"
+  blocked_actions:
+    - "file_download"
+    - ".par_inspection"
+    - ".tim_inspection"
+    - "dataset_specific_sidecar_population"
+    - "adapter_dry_run"
+    - "residual_preview"
+
+claim_flags:
+  bridge_confirmation_flag: false
+  physical_validation_flag: false
+  new_shapiro_effect_claim_flag: false
+  gr_incomplete_claim_flag: false
+  residual_implies_qsb_flag: false
+  dataset_specific_evidence_claim_flag: false
+  real_data_result_claim_flag: false
+  candidate_residual_claim_flag: false
+  derivation_of_c_claim_flag: false
+  numerical_c_explanation_claim_flag: false
