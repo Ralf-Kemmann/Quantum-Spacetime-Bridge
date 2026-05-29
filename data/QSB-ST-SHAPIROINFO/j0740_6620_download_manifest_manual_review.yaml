@@ -20,11 +20,17 @@ candidate_context:
   source_review_reference: "docs/QSB_ST_SHAPIROINFO13_CANDIDATE_SOURCE_REVIEW_J0740_6620.md"
   manual_source_review_result_reference: "docs/QSB_ST_SHAPIROINFO16_J0740_MANUAL_SOURCE_REVIEW_RESULT.md"
   data_use_review_note_reference: "docs/QSB_ST_SHAPIROINFO18_J0740_DATA_USE_AND_LICENSE_REVIEW_NOTE.md"
+  readme_release_inspection_result_reference: "docs/QSB_ST_SHAPIROINFO21_J0740_README_RELEASE_NOTE_INSPECTION_RESULT.md"
   template_reference: "data/QSB-ST-SHAPIROINFO/public_source_download_manifest_template.yaml"
   public_source_review_status: "SOURCE_REVIEW_PARTIAL_PASS"
   citation_gate_status: "CITATION_IDENTITY_PASS"
   data_use_review_status: "DATA_USE_REVIEW_PARTIAL"
   citation_policy_context_status: "CITATION_POLICY_CONTEXT_IDENTIFIED"
+  readme_release_inspection_result_status: "RELEASE_CONTEXT_PARTIAL"
+  link_label_context_status: "LINK_LABELS_IDENTIFIED"
+  file_level_documentation_status: "FILE_LEVEL_DOCUMENTATION_UNRESOLVED"
+  data_use_license_status: "DATA_USE_LICENSE_UNRESOLVED"
+  correction_context_status: "CORRECTION_CONTEXT_UNRESOLVED"
   no_dataset_selected_for_download: true
 
 public_source_gate:
@@ -39,6 +45,9 @@ public_source_gate:
   doi_or_stable_identifier_status: "reviewed_known_documented_for_paper_doi_dataset_identifier_manual_review_required"
   data_access_method: "NANOGrav source page lists download entries; not used in SHAPIROINFO15"
   data_access_method_status: "reviewed_known_documented"
+  source_page_text_status: "reviewed_known_documented"
+  download_link_labels_status: "reviewed_known_documented"
+  readme_or_release_notes_status: "reviewed_missing_or_not_visible_at_page_level"
   data_use_or_license_note: "manual_review_required; dataset-specific license/reuse note not yet resolved"
   data_use_or_license_note_status: "manual_review_required"
   publication_policy_context_status: "reviewed_known_documented"
@@ -57,6 +66,7 @@ file_expectations:
     expected_format: ".par_or_equivalent"
     observed_status: "reviewed_known_documented"
     review_note: "expected file listed by source page; not downloaded or inspected"
+    link_context_status: "reviewed_known_documented"
     content_inspected: false
     downloaded: false
   expected_timing_observation_file:
@@ -64,12 +74,14 @@ file_expectations:
     expected_format: ".tim_or_equivalent"
     observed_status: "reviewed_known_documented"
     review_note: "expected file listed by source page; not downloaded or inspected"
+    link_context_status: "reviewed_known_documented"
     content_inspected: false
     downloaded: false
   expected_readme_or_release_notes:
     expected_label: "manual_review_required"
     expected_format: "README_or_release_notes_or_paper_context"
-    observed_status: "manual_review_required"
+    observed_status: "reviewed_missing_or_not_visible_at_page_level"
+    review_note: "no separate README/release-note text confirmed at page level in SHAPIROINFO21"
     content_inspected: false
     downloaded: false
   expected_clock_or_ephemeris_context:
@@ -82,6 +94,11 @@ file_expectations:
     observed_status: "unknown"
     content_inspected: false
     downloaded: false
+  file_format_notes_status: "reviewed_known_documented_at_data_index_level"
+  tempo_tempo2_compatibility_note_status: "reviewed_known_documented_at_data_index_level"
+  binary_model_context_status: "reviewed_partial"
+  version_or_date_context_status: "reviewed_partial"
+  contact_or_project_policy_context_status: "reviewed_partial"
 
 download_plan:
   no_download_until_gate_passed: true
