@@ -21,6 +21,7 @@ candidate_context:
   manual_source_review_result_reference: "docs/QSB_ST_SHAPIROINFO16_J0740_MANUAL_SOURCE_REVIEW_RESULT.md"
   data_use_review_note_reference: "docs/QSB_ST_SHAPIROINFO18_J0740_DATA_USE_AND_LICENSE_REVIEW_NOTE.md"
   readme_release_inspection_result_reference: "docs/QSB_ST_SHAPIROINFO21_J0740_README_RELEASE_NOTE_INSPECTION_RESULT.md"
+  file_link_metadata_review_reference: "data/QSB-ST-SHAPIROINFO/j0740_6620_file_link_metadata_review.yaml"
   template_reference: "data/QSB-ST-SHAPIROINFO/public_source_download_manifest_template.yaml"
   public_source_review_status: "SOURCE_REVIEW_PARTIAL_PASS"
   citation_gate_status: "CITATION_IDENTITY_PASS"
@@ -31,6 +32,8 @@ candidate_context:
   file_level_documentation_status: "FILE_LEVEL_DOCUMENTATION_UNRESOLVED"
   data_use_license_status: "DATA_USE_LICENSE_UNRESOLVED"
   correction_context_status: "CORRECTION_CONTEXT_UNRESOLVED"
+  file_link_metadata_review_status: "FILE_LINK_METADATA_REVIEW_PARTIAL"
+  download_allowed_after_metadata_review: false
   no_dataset_selected_for_download: true
 
 public_source_gate:
@@ -67,6 +70,16 @@ file_expectations:
     observed_status: "reviewed_known_documented"
     review_note: "expected file listed by source page; not downloaded or inspected"
     link_context_status: "reviewed_known_documented"
+    link_target_url: "https://data.nanograv.org/static/data/J0740+6620.par"
+    link_target_review_status: "headers_reviewed_no_body"
+    http_status_code: 200
+    content_type: "application/octet-stream"
+    content_length_bytes: 14306
+    last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+    etag: "\"5e97161a-37e2\""
+    filename: "J0740+6620.par"
+    file_extension: ".par"
+    download_allowed_after_metadata_review: false
     content_inspected: false
     downloaded: false
   expected_timing_observation_file:
@@ -75,6 +88,16 @@ file_expectations:
     observed_status: "reviewed_known_documented"
     review_note: "expected file listed by source page; not downloaded or inspected"
     link_context_status: "reviewed_known_documented"
+    link_target_url: "https://data.nanograv.org/static/data/J0740+6620.cfr+19.tim"
+    link_target_review_status: "headers_reviewed_no_body"
+    http_status_code: 200
+    content_type: "application/octet-stream"
+    content_length_bytes: 3660990
+    last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+    etag: "\"5e97161a-37dcbe\""
+    filename: "J0740+6620.cfr+19.tim"
+    file_extension: ".tim"
+    download_allowed_after_metadata_review: false
     content_inspected: false
     downloaded: false
   expected_readme_or_release_notes:
@@ -108,16 +131,34 @@ download_plan:
   download_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
   raw_data_tracking_status: "BLOCKED_RAW_DATA_TRACKING"
   download_method: "manual_review_required"
+  file_link_metadata_review_status: "FILE_LINK_METADATA_REVIEW_PARTIAL"
+  download_allowed_after_metadata_review: false
   source_urls_checked:
     - "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
   download_items:
     - label: "J0740+6620 timing data"
       source_page_lists_item: true
+      link_target_url: "https://data.nanograv.org/static/data/J0740+6620.cfr+19.tim"
+      link_target_review_status: "headers_reviewed_no_body"
+      http_status_code: 200
+      content_type: "application/octet-stream"
+      content_length_bytes: 3660990
+      last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+      etag: "\"5e97161a-37dcbe\""
+      download_allowed_after_metadata_review: false
       downloaded: false
       local_path: "not_applicable"
       checksum: "not_applicable"
     - label: "J0740+6620 parameter file"
       source_page_lists_item: true
+      link_target_url: "https://data.nanograv.org/static/data/J0740+6620.par"
+      link_target_review_status: "headers_reviewed_no_body"
+      http_status_code: 200
+      content_type: "application/octet-stream"
+      content_length_bytes: 14306
+      last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+      etag: "\"5e97161a-37e2\""
+      download_allowed_after_metadata_review: false
       downloaded: false
       local_path: "not_applicable"
       checksum: "not_applicable"
