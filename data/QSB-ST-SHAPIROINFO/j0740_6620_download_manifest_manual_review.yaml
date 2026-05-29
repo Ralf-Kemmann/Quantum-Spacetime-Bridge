@@ -19,9 +19,12 @@ candidate_context:
   candidate_class: "targeted_binary_pulsar_package"
   source_review_reference: "docs/QSB_ST_SHAPIROINFO13_CANDIDATE_SOURCE_REVIEW_J0740_6620.md"
   manual_source_review_result_reference: "docs/QSB_ST_SHAPIROINFO16_J0740_MANUAL_SOURCE_REVIEW_RESULT.md"
+  data_use_review_note_reference: "docs/QSB_ST_SHAPIROINFO18_J0740_DATA_USE_AND_LICENSE_REVIEW_NOTE.md"
   template_reference: "data/QSB-ST-SHAPIROINFO/public_source_download_manifest_template.yaml"
   public_source_review_status: "SOURCE_REVIEW_PARTIAL_PASS"
   citation_gate_status: "CITATION_IDENTITY_PASS"
+  data_use_review_status: "DATA_USE_REVIEW_PARTIAL"
+  citation_policy_context_status: "CITATION_POLICY_CONTEXT_IDENTIFIED"
   no_dataset_selected_for_download: true
 
 public_source_gate:
@@ -36,9 +39,17 @@ public_source_gate:
   doi_or_stable_identifier_status: "reviewed_known_documented_for_paper_doi_dataset_identifier_manual_review_required"
   data_access_method: "NANOGrav source page lists download entries; not used in SHAPIROINFO15"
   data_access_method_status: "reviewed_known_documented"
-  data_use_or_license_note: "manual_review_required"
+  data_use_or_license_note: "manual_review_required; dataset-specific license/reuse note not yet resolved"
+  data_use_or_license_note_status: "manual_review_required"
+  publication_policy_context_status: "reviewed_known_documented"
+  publication_policy_context_url: "https://nanograv.org/resources/members/publication-policy"
+  publication_policy_context_note: "NANOGrav Publication Policy context identified; not a download or reuse authorization"
+  required_acknowledgement_or_citation_status: "manual_review_required"
+  download_terms_status: "manual_review_required"
+  repository_publication_risk_status: "needs_manual_review"
+  redistribution_policy_status: "unknown"
   gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
-  gate_reason: "source/citation identity partial pass; data-use note, exact release metadata, dataset identifier, storage plan, checksum plan, and provenance manifest remain unresolved"
+  gate_reason: "source/citation identity and policy context partial pass; dataset-specific license/reuse note, acknowledgement wording, file-level download terms, raw-data tracking policy, exact release metadata, storage plan, checksum plan, and provenance manifest remain unresolved"
 
 file_expectations:
   expected_timing_model_file:
@@ -75,8 +86,10 @@ file_expectations:
 download_plan:
   no_download_until_gate_passed: true
   no_files_downloaded_in_shapiroinfo15: true
+  no_files_downloaded_in_shapiroinfo19: true
   manual_review_required_before_download: true
-  download_gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+  download_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+  raw_data_tracking_status: "BLOCKED_RAW_DATA_TRACKING"
   download_method: "manual_review_required"
   source_urls_checked:
     - "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
@@ -119,6 +132,7 @@ provenance_requirements:
 downstream_gate:
   sidecar_gate_status: "BLOCKED_BEFORE_SIDECAR_DRAFT"
   adapter_gate_status: "BLOCKED_BEFORE_ADAPTER"
+  dry_run_gate_status: "BLOCKED_BEFORE_DRY_RUN"
   allowed_next_action: "manual_review_only"
   blocked_actions:
     - "file_download"
