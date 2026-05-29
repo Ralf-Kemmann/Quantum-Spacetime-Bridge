@@ -1,0 +1,132 @@
+# QSB-ST-SHAPIROINFO15 J0740+6620 download manifest draft.
+# Manual review draft only: no files downloaded in SHAPIROINFO15.
+# No .par/.tim ingestion, no parsing, no sidecar population, no dry-run preview.
+
+manifest_schema_version: "SHAPIROINFO15_MANUAL_REVIEW_DRAFT"
+manifest_record_id: "J0740_6620_MANUAL_REVIEW_DRAFT_NO_DOWNLOAD"
+manifest_gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+download_allowed: false
+sidecar_population_allowed: false
+dry_run_preview_allowed: false
+current_anchor: "0f24462 Add QSB-ST ShapiroInfo public source download manifest template"
+created_by: "manual_review_required"
+created_date_utc: "manual_review_required"
+review_status: "manual_review_required"
+review_notes: "manual_review_required"
+
+candidate_context:
+  candidate_label: "NANOGrav J0740+6620"
+  candidate_class: "targeted_binary_pulsar_package"
+  source_review_reference: "docs/QSB_ST_SHAPIROINFO13_CANDIDATE_SOURCE_REVIEW_J0740_6620.md"
+  template_reference: "data/QSB-ST-SHAPIROINFO/public_source_download_manifest_template.yaml"
+  public_source_review_status: "PASS_FOR_SOURCE_REVIEW_ONLY"
+  no_dataset_selected_for_download: true
+
+public_source_gate:
+  source_page_url: "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
+  dataset_or_release_name: "Timing Data for the Binary Parameters of J0740+6620"
+  release_version_or_date: "manual_review_required"
+  citation_reference: "Cromartie et al. 2020, Nature Astronomy, as referenced by the NANOGrav source page"
+  doi_or_stable_identifier: "manual_review_required"
+  data_access_method: "NANOGrav source page lists download entries; not used in SHAPIROINFO15"
+  data_use_or_license_note: "manual_review_required"
+  gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+  gate_reason: "source page identified, but data-use note, exact release metadata, DOI/stable identifier, storage plan, checksum plan, and provenance manifest remain unresolved"
+
+file_expectations:
+  expected_timing_model_file:
+    expected_label: "J0740+6620 parameter file"
+    expected_format: ".par_or_equivalent"
+    observed_status: "known_documented_from_source_page"
+    content_inspected: false
+    downloaded: false
+  expected_timing_observation_file:
+    expected_label: "J0740+6620 timing data"
+    expected_format: ".tim_or_equivalent"
+    observed_status: "known_documented_from_source_page"
+    content_inspected: false
+    downloaded: false
+  expected_readme_or_release_notes:
+    expected_label: "manual_review_required"
+    expected_format: "README_or_release_notes_or_paper_context"
+    observed_status: "manual_review_required"
+    content_inspected: false
+    downloaded: false
+  expected_clock_or_ephemeris_context:
+    expected_label: "manual_review_required"
+    observed_status: "unknown"
+    content_inspected: false
+    downloaded: false
+  expected_noise_or_correction_context:
+    expected_label: "manual_review_required"
+    observed_status: "unknown"
+    content_inspected: false
+    downloaded: false
+
+download_plan:
+  no_download_until_gate_passed: true
+  no_files_downloaded_in_shapiroinfo15: true
+  manual_review_required_before_download: true
+  download_gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+  download_method: "manual_review_required"
+  source_urls_checked:
+    - "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
+  download_items:
+    - label: "J0740+6620 timing data"
+      source_page_lists_item: true
+      downloaded: false
+      local_path: "not_applicable"
+      checksum: "not_applicable"
+    - label: "J0740+6620 parameter file"
+      source_page_lists_item: true
+      downloaded: false
+      local_path: "not_applicable"
+      checksum: "not_applicable"
+  downloaded_files: []
+
+local_storage_plan:
+  local_storage_status: "manual_review_required"
+  local_storage_root: "manual_review_required"
+  overwrite_policy: "manual_review_required"
+  local_files: []
+  local_file_manifest_id: "manual_review_required"
+
+integrity_plan:
+  checksum_or_integrity_plan: "manual_review_required"
+  checksum_algorithm: "manual_review_required"
+  expected_checksums: []
+  observed_checksums: []
+  file_size_records: []
+  integrity_gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
+
+provenance_requirements:
+  provenance_manifest_required: true
+  correction_state_sidecar_required: true
+  window_definition_sidecar_required: true
+  provenance_manifest_status: "manual_review_required"
+  correction_state_sidecar_status: "manual_review_required"
+  window_definition_sidecar_status: "manual_review_required"
+
+downstream_gate:
+  sidecar_gate_status: "BLOCKED_BEFORE_SIDECAR_DRAFT"
+  adapter_gate_status: "BLOCKED_BEFORE_ADAPTER"
+  allowed_next_action: "manual_review_only"
+  blocked_actions:
+    - "file_download"
+    - ".par_inspection"
+    - ".tim_inspection"
+    - "dataset_specific_sidecar_population"
+    - "adapter_dry_run"
+    - "residual_preview"
+
+claim_flags:
+  bridge_confirmation_flag: false
+  physical_validation_flag: false
+  new_shapiro_effect_claim_flag: false
+  gr_incomplete_claim_flag: false
+  residual_implies_qsb_flag: false
+  dataset_specific_evidence_claim_flag: false
+  real_data_result_claim_flag: false
+  candidate_residual_claim_flag: false
+  derivation_of_c_claim_flag: false
+  numerical_c_explanation_claim_flag: false
