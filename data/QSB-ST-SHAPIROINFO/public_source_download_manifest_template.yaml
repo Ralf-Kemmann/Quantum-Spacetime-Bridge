@@ -1,0 +1,112 @@
+# QSB-ST-SHAPIROINFO14 public source download manifest template.
+# Empty template only: no checked URLs, no downloaded files, no local files,
+# no checksums, no ingestion, no parsing, no result.
+# This template is blocking by default.
+
+manifest_schema_version: "SHAPIROINFO14"
+manifest_record_id: "manual_review_required"
+manifest_status: "template_blocked"
+current_anchor: "1110646 Add QSB-ST ShapiroInfo J0740 source review"
+created_by: "manual_review_required"
+created_date_utc: "manual_review_required"
+review_status: "manual_review_required"
+review_notes: "manual_review_required"
+
+candidate_context:
+  candidate_label: "manual_review_required"
+  candidate_class: "targeted_binary_pulsar_package"
+  source_review_reference: "manual_review_required"
+  public_source_review_status: "manual_review_required"
+  no_dataset_selected_for_download: true
+
+public_source_gate:
+  source_page_url: "manual_review_required"
+  dataset_or_release_name: "unknown"
+  release_version_or_date: "unknown"
+  citation_reference: "manual_review_required"
+  doi_or_stable_identifier: "unknown"
+  data_access_method: "manual_review_required"
+  data_use_or_license_note: "manual_review_required"
+  gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+  gate_reason: "empty template; public source, citation, use, storage, and integrity fields are not populated"
+
+file_expectations:
+  expected_timing_model_file:
+    expected_label: "manual_review_required"
+    expected_format: ".par_or_equivalent"
+    observed_status: "manual_review_required"
+    content_inspected: false
+  expected_timing_observation_file:
+    expected_label: "manual_review_required"
+    expected_format: ".tim_or_equivalent"
+    observed_status: "manual_review_required"
+    content_inspected: false
+  expected_readme_or_release_notes:
+    expected_label: "manual_review_required"
+    expected_format: "README_or_release_notes_or_paper_context"
+    observed_status: "manual_review_required"
+    content_inspected: false
+  expected_clock_or_ephemeris_context:
+    expected_label: "manual_review_required"
+    observed_status: "unknown"
+    content_inspected: false
+  expected_noise_or_correction_context:
+    expected_label: "manual_review_required"
+    observed_status: "unknown"
+    content_inspected: false
+
+download_plan:
+  no_download_until_gate_passed: true
+  manual_review_required_before_download: true
+  download_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+  download_method: "manual_review_required"
+  source_urls_checked: []
+  download_items: []
+  downloaded_files: []
+
+local_storage_plan:
+  local_storage_status: "manual_review_required"
+  local_storage_root: "manual_review_required"
+  overwrite_policy: "manual_review_required"
+  local_files: []
+  local_file_manifest_id: "manual_review_required"
+
+integrity_plan:
+  checksum_or_integrity_plan: "manual_review_required"
+  checksum_algorithm: "manual_review_required"
+  expected_checksums: []
+  observed_checksums: []
+  file_size_records: []
+  integrity_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+
+provenance_requirements:
+  provenance_manifest_required: true
+  correction_state_sidecar_required: true
+  window_definition_sidecar_required: true
+  provenance_manifest_status: "manual_review_required"
+  correction_state_sidecar_status: "manual_review_required"
+  window_definition_sidecar_status: "manual_review_required"
+
+downstream_gate:
+  sidecar_gate_status: "BLOCKED_BEFORE_SIDECAR_DRAFT"
+  adapter_gate_status: "BLOCKED_BEFORE_ADAPTER"
+  allowed_next_action: "manual_source_review_only"
+  blocked_actions:
+    - "file_download"
+    - ".par_inspection"
+    - ".tim_inspection"
+    - "dataset_specific_sidecar_population"
+    - "adapter_dry_run"
+    - "residual_preview"
+
+claim_flags:
+  bridge_confirmation_flag: false
+  physical_validation_flag: false
+  new_shapiro_effect_claim_flag: false
+  gr_incomplete_claim_flag: false
+  residual_implies_qsb_flag: false
+  dataset_specific_evidence_claim_flag: false
+  real_data_result_claim_flag: false
+  candidate_residual_claim_flag: false
+  derivation_of_c_claim_flag: false
+  numerical_c_explanation_claim_flag: false
