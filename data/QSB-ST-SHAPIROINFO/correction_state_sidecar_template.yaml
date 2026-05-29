@@ -1,0 +1,123 @@
+# QSB-ST-SHAPIROINFO11 correction-state sidecar template.
+# Empty template only: no real dataset, no ingestion, no parsing, no result.
+# Replace placeholder markers only after documented review.
+# Correction-State is not metadata decoration.
+# Correction-State is a blocking interpretability layer.
+
+correction_state_schema_version: "SHAPIROINFO10"
+correction_state_record_id: "manual_review_required"
+dataset_family: "manual_review_required"
+dataset_name: "manual_review_required"
+dataset_version: "unknown"
+source_url: "manual_review_required"
+citation_reference: "manual_review_required"
+retrieval_date_utc: "manual_review_required"
+local_file_manifest_id: "manual_review_required"
+provenance_notes: "manual_review_required"
+data_use_note: "manual_review_required"
+created_by: "manual_review_required"
+created_date_utc: "manual_review_required"
+review_status: "manual_review_required"
+review_notes: "manual_review_required"
+
+timing_model_file_present: "unknown"
+timing_model_file_name: "unknown"
+timing_model_format: "unknown"
+timing_model_software_context: "unknown"
+timing_model_version_or_release: "unknown"
+timing_model_parameter_state: "unknown"
+timing_model_fit_state: "unknown"
+timing_model_notes: "manual_review_required"
+
+binary_model_present: "unknown"
+binary_model_name: "unknown"
+binary_model_parameter_state: "unknown"
+binary_model_shapiro_terms_present: "unknown"
+binary_model_shapiro_terms_state: "unknown"
+binary_model_orbital_phase_available: "unknown"
+binary_model_notes: "manual_review_required"
+
+clock_correction_state: "unknown"
+clock_file_present: "unknown"
+clock_file_name: "unknown"
+clock_timescale: "unknown"
+clock_version_or_release: "unknown"
+clock_application_state: "unknown"
+clock_notes: "manual_review_required"
+
+ephemeris_state: "unknown"
+solar_system_ephemeris_name: "unknown"
+ephemeris_version: "unknown"
+barycentering_state: "unknown"
+observatory_position_state: "unknown"
+spacecraft_or_orbit_state: "not_applicable"
+ephemeris_notes: "manual_review_required"
+
+dm_ism_state: "unknown"
+dm_model_present: "unknown"
+dm_value_or_series_state: "unknown"
+wideband_dm_state: "unknown"
+ism_scattering_state: "unknown"
+plasma_correction_state: "unknown"
+chromatic_control_available: "unknown"
+dm_ism_notes: "manual_review_required"
+
+solar_wind_state: "unknown"
+solar_wind_model_name: "unknown"
+solar_elongation_available: "unknown"
+solar_wind_correction_applied: "unknown"
+solar_wind_notes: "manual_review_required"
+
+backend_instrument_state: "unknown"
+observatory_id_state: "unknown"
+receiver_band_state: "unknown"
+backend_id_state: "unknown"
+instrument_jump_state: "unknown"
+calibration_state: "unknown"
+instrument_notes: "manual_review_required"
+
+noise_model_state: "unknown"
+white_noise_model_state: "unknown"
+red_noise_model_state: "unknown"
+efac_state: "unknown"
+equad_state: "unknown"
+ecorr_state: "unknown"
+covariance_model_state: "unknown"
+whitening_state: "unknown"
+noise_model_notes: "manual_review_required"
+
+qc_state: "unknown"
+outlier_policy_state: "unknown"
+flagged_toa_state: "unknown"
+quality_flags_available: "unknown"
+excluded_records_state: "unknown"
+qc_notes: "manual_review_required"
+
+window_definition_state: "unknown"
+a_reference_window_state: "unknown"
+b_model_relevant_window_state: "unknown"
+negative_control_window_state: "unknown"
+shuffle_control_state: "unknown"
+backend_homogeneous_window_state: "unknown"
+dm_control_window_state: "unknown"
+window_notes: "manual_review_required"
+
+shapiroinfo02_mapping_state: "unknown"
+directly_mapped_field_count: "unknown"
+sidecar_mapped_field_count: "unknown"
+blocked_field_count: "unknown"
+unavailable_field_count: "unknown"
+adapter_readiness_label: "blocked_missing_correction_state"
+go_no_go_status: "NO_GO"
+go_no_go_reason: "empty template; central correction-state fields are unknown"
+
+bridge_confirmation_flag: false
+physical_validation_flag: false
+new_shapiro_effect_claim_flag: false
+gr_incomplete_claim_flag: false
+residual_implies_qsb_flag: false
+dataset_specific_evidence_claim_flag: false
+real_data_result_claim_flag: false
+candidate_residual_claim_flag: false
+derivation_of_c_claim_flag: false
+numerical_c_explanation_claim_flag: false
