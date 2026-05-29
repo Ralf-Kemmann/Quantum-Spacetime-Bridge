@@ -18,32 +18,41 @@ candidate_context:
   candidate_label: "NANOGrav J0740+6620"
   candidate_class: "targeted_binary_pulsar_package"
   source_review_reference: "docs/QSB_ST_SHAPIROINFO13_CANDIDATE_SOURCE_REVIEW_J0740_6620.md"
+  manual_source_review_result_reference: "docs/QSB_ST_SHAPIROINFO16_J0740_MANUAL_SOURCE_REVIEW_RESULT.md"
   template_reference: "data/QSB-ST-SHAPIROINFO/public_source_download_manifest_template.yaml"
-  public_source_review_status: "PASS_FOR_SOURCE_REVIEW_ONLY"
+  public_source_review_status: "SOURCE_REVIEW_PARTIAL_PASS"
+  citation_gate_status: "CITATION_IDENTITY_PASS"
   no_dataset_selected_for_download: true
 
 public_source_gate:
   source_page_url: "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
+  source_page_url_status: "reviewed_known_documented"
   dataset_or_release_name: "Timing Data for the Binary Parameters of J0740+6620"
+  dataset_or_release_name_status: "reviewed_known_documented"
   release_version_or_date: "manual_review_required"
-  citation_reference: "Cromartie et al. 2020, Nature Astronomy, as referenced by the NANOGrav source page"
-  doi_or_stable_identifier: "manual_review_required"
+  citation_reference: "Cromartie et al. 2020, Nature Astronomy 4, 72-76; DOI 10.1038/s41550-019-0880-2"
+  citation_reference_status: "reviewed_known_documented"
+  doi_or_stable_identifier: "paper DOI 10.1038/s41550-019-0880-2; dataset-specific DOI/identifier manual_review_required"
+  doi_or_stable_identifier_status: "reviewed_known_documented_for_paper_doi_dataset_identifier_manual_review_required"
   data_access_method: "NANOGrav source page lists download entries; not used in SHAPIROINFO15"
+  data_access_method_status: "reviewed_known_documented"
   data_use_or_license_note: "manual_review_required"
   gate_status: "BLOCKED_MANUAL_REVIEW_REQUIRED"
-  gate_reason: "source page identified, but data-use note, exact release metadata, DOI/stable identifier, storage plan, checksum plan, and provenance manifest remain unresolved"
+  gate_reason: "source/citation identity partial pass; data-use note, exact release metadata, dataset identifier, storage plan, checksum plan, and provenance manifest remain unresolved"
 
 file_expectations:
   expected_timing_model_file:
     expected_label: "J0740+6620 parameter file"
     expected_format: ".par_or_equivalent"
-    observed_status: "known_documented_from_source_page"
+    observed_status: "reviewed_known_documented"
+    review_note: "expected file listed by source page; not downloaded or inspected"
     content_inspected: false
     downloaded: false
   expected_timing_observation_file:
     expected_label: "J0740+6620 timing data"
     expected_format: ".tim_or_equivalent"
-    observed_status: "known_documented_from_source_page"
+    observed_status: "reviewed_known_documented"
+    review_note: "expected file listed by source page; not downloaded or inspected"
     content_inspected: false
     downloaded: false
   expected_readme_or_release_notes:
