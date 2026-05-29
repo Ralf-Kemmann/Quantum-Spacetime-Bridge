@@ -1,0 +1,119 @@
+# QSB-ST-SHAPIROINFO29 file-link metadata review for J0740+6620.
+# Metadata-only review: no file bodies saved, no .par/.tim ingestion, no parsing.
+# File-link metadata is not data ingestion.
+# Header metadata is not .par/.tim parsing.
+# Visible link labels are not file inspection.
+
+metadata_review_schema_version: "SHAPIROINFO29_FILE_LINK_METADATA_REVIEW_V1"
+metadata_review_record_id: "J0740_6620_FILE_LINK_METADATA_REVIEW_NO_DOWNLOAD"
+metadata_review_status: "FILE_LINK_METADATA_REVIEW_PARTIAL"
+current_anchor: "21d34b6 Add QSB-ST ShapiroInfo file-link metadata review plan"
+candidate_label: "NANOGrav J0740+6620"
+
+scope:
+  metadata_only: true
+  no_download: true
+  no_file_body_retrieval: true
+  no_file_body_saved: true
+  no_linked_timing_data_file_opened: true
+  no_linked_parameter_file_opened: true
+  no_dataset_ingestion: true
+  no_par_tim_ingestion: true
+  no_pint_tempo2_execution: true
+  no_residual_calculation: true
+  no_real_data_result: true
+
+source_page:
+  source_page_url: "https://nanograv.org/science/data/timing-data-binary-parameters-j07406620"
+  source_page_review_status: "reviewed_public_page_text_only"
+  page_title_observed: "Timing Data for the Binary Parameters of J0740+6620"
+  visible_download_labels:
+    - "J0740+6620 timing data"
+    - "J0740+6620 parameter file"
+  reference_observed: "H.T. Cromartie et al., Relativistic Shapiro delay measurements of an extremely massive millisecond pulsar, Nature Astronomy 4, 72 (2020)"
+  source_page_body_saved: false
+
+metadata_method:
+  source_page_method: "public source page text and visible href inspection"
+  header_method: "curl --head --location --max-time 20"
+  get_body_download_performed: false
+  timing_data_body_saved: false
+  parameter_file_body_saved: false
+  file_content_inspected: false
+  checksum_from_downloaded_file: false
+  metadata_review_timestamp_utc: "2026-05-29T21:42:11Z"
+  timestamp_note: "Timestamp is bounded by observed HTTP Date headers from the metadata-only HEAD checks."
+
+link_records:
+  - link_label: "J0740+6620 timing data"
+    expected_file_role: "timing_observation_file"
+    expected_format_family: "TEMPO/TEMPO2-compatible timing data"
+    link_target_url: "https://data.nanograv.org/static/data/J0740+6620.cfr+19.tim"
+    link_target_review_status: "headers_reviewed_no_body"
+    http_status_code: 200
+    content_type: "application/octet-stream"
+    content_length_bytes: 3660990
+    last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+    etag: "\"5e97161a-37dcbe\""
+    accept_ranges: "bytes"
+    server: "nginx/1.14.1"
+    response_date: "Fri, 29 May 2026 21:42:11 GMT"
+    source_provided_checksum: "not_observed"
+    filename: "J0740+6620.cfr+19.tim"
+    file_extension: ".tim"
+    redirect_chain_recorded: false
+    redirect_chain_note: "No redirect hop was visible in the HEAD output."
+    retrieval_method_planned: "header-only metadata review already performed; no GET body"
+    local_target_path_planned: "data/QSB-ST-SHAPIROINFO/public_sources/j0740_6620/raw/J0740+6620.cfr+19.tim"
+    download_allowed_after_metadata_review: false
+    claim_boundary_note: "Header metadata only; not timing-data parsing."
+  - link_label: "J0740+6620 parameter file"
+    expected_file_role: "timing_model_file"
+    expected_format_family: "TEMPO/TEMPO2-compatible parameter file"
+    link_target_url: "https://data.nanograv.org/static/data/J0740+6620.par"
+    link_target_review_status: "headers_reviewed_no_body"
+    http_status_code: 200
+    content_type: "application/octet-stream"
+    content_length_bytes: 14306
+    last_modified: "Wed, 15 Apr 2020 14:11:38 GMT"
+    etag: "\"5e97161a-37e2\""
+    accept_ranges: "bytes"
+    server: "nginx/1.14.1"
+    response_date: "Fri, 29 May 2026 21:42:00 GMT"
+    source_provided_checksum: "not_observed"
+    filename: "J0740+6620.par"
+    file_extension: ".par"
+    redirect_chain_recorded: false
+    redirect_chain_note: "No redirect hop was visible in the HEAD output."
+    retrieval_method_planned: "header-only metadata review already performed; no GET body"
+    local_target_path_planned: "data/QSB-ST-SHAPIROINFO/public_sources/j0740_6620/raw/J0740+6620.par"
+    download_allowed_after_metadata_review: false
+    claim_boundary_note: "Header metadata only; not timing-model parsing."
+
+gate_statuses_after_review:
+  file_link_metadata_review_status: "FILE_LINK_METADATA_REVIEW_PARTIAL"
+  download_gate_status: "BLOCKED_BEFORE_DOWNLOAD"
+  raw_data_tracking_status: "BLOCKED_RAW_DATA_TRACKING"
+  sidecar_gate_status: "BLOCKED_BEFORE_SIDECAR_DRAFT"
+  dry_run_gate_status: "BLOCKED_BEFORE_DRY_RUN"
+  download_allowed_after_metadata_review: false
+
+remaining_blockers:
+  - "data-use/license terms still unresolved"
+  - "file body not downloaded"
+  - "no source-provided checksum observed"
+  - "no checksum from downloaded file because no download occurred"
+  - "no Correction-State sidecar population"
+  - "no adapter gate opened"
+
+claim_flags:
+  bridge_confirmation_flag: false
+  physical_validation_flag: false
+  new_shapiro_effect_claim_flag: false
+  gr_incomplete_claim_flag: false
+  residual_implies_qsb_flag: false
+  dataset_specific_evidence_claim_flag: false
+  real_data_result_claim_flag: false
+  candidate_residual_claim_flag: false
+  derivation_of_c_claim_flag: false
+  numerical_c_explanation_claim_flag: false
