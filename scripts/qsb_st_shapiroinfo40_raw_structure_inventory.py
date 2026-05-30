@@ -272,6 +272,7 @@ def write_outputs(
         for record in records
         if record["parse_status"] == "parse_failed" or record["parse_error"]
     ]
+    total_records = len(records)
 
     config = {
         "input_root": input_root.as_posix(),
@@ -297,7 +298,11 @@ def write_outputs(
         "stop_reasons": stop_reasons,
         "input_root": input_root.as_posix(),
         "output_root": output_root.as_posix(),
-        "total_records": len(records),
+        "total_records": total_records,
+        "file_count": total_records,
+        "parsed_file_count": status_counts.get("parsed", 0),
+        "metadata_only_count": status_counts.get("metadata_only", 0),
+        "unsupported_count": status_counts.get("unsupported", 0),
         "parse_status_counts": dict(sorted(status_counts.items())),
         "extension_counts": dict(sorted(extension_counts.items())),
         "parse_failure_count": len(parse_failures),
