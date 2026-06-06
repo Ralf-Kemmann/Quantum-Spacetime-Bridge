@@ -39,3 +39,25 @@ __pycache__/
 
 # local/generated run outputs
 runs/
+
+# Local external/raw research data
+data/QSB-ST-SHAPIROINFO/public_sources/**/raw/*
+
+# Archived third-party evidence kept local
+data/QSB-ST-SHAPIROINFO/manual_evidence/**/*.pdf
+data/QSB-ST-SHAPIROINFO/manual_evidence/ell1_geometric_phase_mapping/pint_1_1_5_binary_ell1.py
+data/QSB-ST-SHAPIROINFO/manual_evidence/ell1_geometric_phase_mapping/pint_1_1_5_stand_alone_ELL1_model.py
+data/QSB-ST-SHAPIROINFO/manual_evidence/ell1_geometric_phase_mapping/pint_1_1_5_timing_model.py
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+
+# SQLite transient and backup files
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.bak.db
+*.backup.db
