@@ -1,0 +1,5 @@
+relation_id,fixation_definition,uses_threshold,continuation_invariant,context_dependent,arbitrary_parameter_risk,supports_direction,supports_acyclicity,status,main_gap,notes
+F1,f_ij in F(X) iff d_ij(X) <= d_fix,yes,conditional,yes,high,no,conditional_only,bedingt geeignet,Die Schwellenwahl ist willkürlich,Eine praktische, aber nicht eindeutige Fixierungsregel.
+F2,"d_ij(X) in [a_ij,b_ij]",yes,conditional,yes,high,no,conditional_only,bedingt geeignet,Intervalle erfordern eine externe Kalibrierung,Nützlich für beschränkte Zulässigkeit.
+F3,d_ij(X) < d_ik(X),no,conditional,yes,medium,no,conditional_only,bedingt geeignet,Die Ordnung ist nur relativ und nicht absolut,Dies kann Rangfolge stützen, aber keine eindeutige Richtung.
+F4,Eine Distanzrelation gilt als fixiert, wenn sie in allen zulässigen Fortsetzungen erhalten bleibt,no,yes,yes,medium,no,conditional_only,bedingt geeignet,Der Fortsetzungsraum ist nicht spezifiziert,Dies ist die formal sauberste, aber noch unvollständige Idee.

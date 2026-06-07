@@ -1,0 +1,4 @@
+role_id,distance_role,tau_relation,creates_direction,measures_direction,requires_background_time,relation_to_proper_time,status,limitation,notes
+T1,Nachbarschaftsfilter,tau_{ij} kann d_ij als lokale Gewichtung verwenden,no,no,no,no,bedingt geeignet,Die Distanz erzeugt allein keine Richtung,Sie kann Übergänge filtern oder gewichten.
+T2,Zulässigkeitsbedingung,tau_{ij} kann durch ein Distanzband beschränkt werden,no,no,no,no,bedingt geeignet,Ein Distanzband ist keine Zeitgesetzlichkeit,Es begrenzt nur den zulässigen Relationsraum.
+T3,Latenz- oder Pfadkostenbeitrag,tau_{ij} kann d_ij als Kostenproxy nutzen,no,only_after_direction_is_defined,conditional,no,nicht hinreichend,Die Distanz allein erzeugt keine Richtung,\tau wird erst einer bereits gerichteten zulässigen Relation zugeordnet.

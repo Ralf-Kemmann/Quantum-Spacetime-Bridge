@@ -1,0 +1,4 @@
+candidate_id,definition,distance_role,time_free,local,preserves_fixations,hidden_time_risk,preferred_frame_risk,operationalizability,status,main_gap,notes
+C1,Nur Paare in N_i(\delta) dürfen aktualisiert werden,Nachbarschaftsbedingung,yes,yes,conditional,low,low,high,bedingt geeignet,Es gibt keine globale Garantie zulässiger Übergänge,Eine lokale Regel ist einfach, aber möglicherweise zu schwach.
+C2,|d_ij(Y)-d_ij(X)|<=\eta,begrenzte Distanzänderung,yes,conditional,conditional,medium,low,medium,bedingt geeignet,Ein fester Eta-Wert kodiert keine strukturelle Kausalität,Dies ist ein weicher Stabilitätstest.
+C3,Relationen mit Fixierung bleiben innerhalb ihres zulässigen Bandes,Fixierungsverträglichkeit,yes,conditional,yes,medium,low,medium,bedingt geeignet,Es wird eine explizite Fixierungsmenge F(X) benötigt,Dies ist das konservativste Zulässigkeitsformat.

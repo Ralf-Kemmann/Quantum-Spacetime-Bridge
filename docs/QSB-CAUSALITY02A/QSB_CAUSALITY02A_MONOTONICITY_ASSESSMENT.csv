@@ -1,0 +1,6 @@
+measure_id,transition_assumption,can_increase,can_decrease,can_remain_equal,counterexample_status,strict_monotonicity_status,acyclicity_support,interpretation,notes
+M1,Eine neue Fixierung verkürzt eine Kante und verlängert eine andere,yes,yes,yes,yes,not_guaranteed,conditional_only,Aggregatsummen können sich in beide Richtungen bewegen,Lokale Verkürzung impliziert keine globale Ordnung.
+M2,Eine neue Fixierung verändert den mittleren Kontrast,yes,yes,yes,yes,not_guaranteed,conditional_only,Der Mittelwert reagiert empfindlich auf Systemgröße und Schwellen,Dies reicht nicht für ein striktes Ordnungsmaß.
+M3,Die maximale Paardistanz wird aktualisiert,yes,yes,yes,yes,not_guaranteed,conditional_only,Extremwerte reagieren empfindlich auf einzelne Ausreißer,Es gibt keine robuste Richtungsgarantie.
+M4,Die Fixierungsmenge ändert sich,yes,yes,yes,yes,not_guaranteed,conditional_only,Die Gewichtung kann die Richtung verzerren,Es braucht eine feste Regel für F(X).
+M5,Die Konzentration wird nach Fixierungsänderung neu berechnet,yes,yes,yes,yes,not_guaranteed,conditional_only,Konzentration kann sich gegenläufig zur Distanzänderung verhalten,Die Richtung hängt von der Konvention ab.
