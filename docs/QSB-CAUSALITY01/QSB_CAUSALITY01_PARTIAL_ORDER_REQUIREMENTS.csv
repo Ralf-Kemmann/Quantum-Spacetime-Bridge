@@ -1,0 +1,6 @@
+requirement_id,requirement_name,formal_condition,necessary_or_optional,current_status,evidence_basis,failure_mode,required_follow_up,notes
+R01,irreflexivity,i nprec i,necessary,partially addressed,conceptual definition only,cycle at single node,define update rule that forbids self-dependence,No self-causation assumed.
+R02,antisymmetry,if i prec j then j prec i is not the same causal relation,necessary,partially addressed,relational ordering language only,hidden symmetric interpretation,define asymmetric admissibility,Direction must not be merely naming.
+R03,transitivity or controlled composition,i prec j and j prec k => i prec k,necessary,unresolved,working hypothesis only,non-local composition loop,add local composition rule,Weak form may be sufficient.
+R04,acyclicity,i prec j prec k prec i forbidden,necessary,unresolved,conceptual demand only,causal loop,add stability or record constraint,This is the main open gate.
+R05,locality,updates are constrained by local context,necessary,partially addressed,compatibility language only,hidden non-local update,document admissibility domain,No global background time assumed.

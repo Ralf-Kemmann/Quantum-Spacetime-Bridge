@@ -1,0 +1,7 @@
+tau_role,definition,fundamental,derived,context_dependent,requires_background_time,can_create_direction,can_measure_direction,relation_to_proper_time,current_status,main_risk,notes
+fundamental_clock,an absolute timing parameter,no,yes,no,yes,no,yes,no,not recommended,hidden background time,Not consistent with project preference.
+derived_correlation_latency,latency of stable relational update,no,yes,yes,no,possible,yes,no,provisional,may only label pre-existing order,Preferred working hypothesis.
+statistical_waiting_parameter,ensemble delay estimate,no,yes,yes,no,no,yes,no,conceptually_possible,can be descriptive only,Not sufficient for causal direction.
+context_dependent_formation_time,local update time tied to context,no,yes,yes,possible,possible,yes,no,conceptually_possible,context dependence may hide time assumptions,Needs explicit operational definition.
+effective_path_parameter,parameter along a path of relational updates,no,yes,yes,no,possible,yes,no,effective_only,path dependence ambiguity,Could support bookkeeping, not proof.
+proper_time_candidate,possible analogue of elapsed proper time,no,yes,yes,no,no,yes,possible,unresolved,confusing tau with proper time,Do not equate these.

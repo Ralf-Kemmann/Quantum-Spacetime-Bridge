@@ -1,0 +1,6 @@
+definition_id,term,proposed_definition,formal_symbol,role,background_time_required,directionality_present,operational_status,ambiguity,claim_status,notes
+D01,relational compatibility,stable overlap or compatibility between local states,K_ij or C_ij,foundational,no,no,conceptually_possible,moderate,conservative,No spacetime interpretation yet.
+D02,relational distance,candidate logarithmic measure derived from compatibility,d_ij = -ell_0 log |K_ij|,diagnostic,no,no,conceptually_possible,high,conservative,Do not equate with physical distance.
+D03,relational event,local update or stable record formation associated with a compatibility change,epsilon_ij or event_i,working_label,no,possible,conceptually_possible,high,provisional,Event definition remains open.
+D04,directed formation relation,local dependency ordering where j requires admissible prior condition at i,i prec j,working_hypothesis,no,yes,promising_but_unresolved,moderate,provisional,Needs explicit acyclicity rule.
+D05,local causal order,partial ordering over admissible updates,(V,prec),architectural,no,yes,conceptually_possible,moderate,provisional,No global total order assumed.

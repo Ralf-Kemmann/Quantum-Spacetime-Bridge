@@ -1,0 +1,6 @@
+mechanism_id,mechanism_name,minimal_form,creates_direction,only_measures_direction,background_time_risk,acyclicity_support,locality_status,lorentz_risk,operationalizability,current_assessment,main_gap,notes
+M01,finite correlation-formation latency,tau_ij ~ latency of stable update,possible,possible,medium,partial,local,medium,medium,promising_but_unresolved,needs explicit causal semantics,Latency may help label direction but not alone define it.
+M02,irreversible record formation,record at j becomes stable only after admissible prior condition at i,possible,no,low,partial,local,low,medium,conceptually_possible,requires formal update rule,Good candidate for asymmetry.
+M03,local consistency constraints,compatibility update must satisfy local admissibility,possible,no,low,strong,local,low,medium,conceptually_possible,needs compositional rule,Can support a partial order.
+M04,retarded admissibility,condition becomes available only after prior update,possible,no,medium,strong,local,medium,medium,promising_but_unresolved,needs an acyclicity argument,Direction may emerge from update scheduling.
+M05,stability selection,only stable correlations persist,possible,no,low,partial,local,low,low,effective_only,not sufficient alone,Useful filter but not a full causal law.
