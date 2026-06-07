@@ -1,0 +1,6 @@
+problem_id,problem,why_it_matters,required_evidence
+P1,Infinite continuation spaces need a termination or regularization rule,Unbounded spaces can hide circularity.,A finite or well-ordered admissibility measure.
+P2,Fixations may be removable or only effectively irreversible,The distinction affects invariance claims.,A formal rule for deletion versus irreversibility.
+P3,Well-foundedness is not yet shown,Strict inclusion does not exclude infinite descending chains.,A local finiteness condition or rank function.
+P4,Preferred frame or reference bias may enter through the admissibility gate,This would undermine the timeless claim.,An explicit gauge-invariant formulation.
+P5,The role of tau remains auxiliary only,The framework must not smuggle in Eigenzeit.,A separate definition of tau as latency, not as time.

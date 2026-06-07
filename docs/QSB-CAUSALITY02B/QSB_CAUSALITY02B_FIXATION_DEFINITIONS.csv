@@ -1,0 +1,5 @@
+fixation_id,definition,kind,status,notes
+F1,"f in F0(X) iff for all Y in Omega0(X), P_f(Y)=1",base fixation,provisional,This removes the circular self-reference from the old definition.
+F2,"P_f(X) in {0,1} is an independent property predicate",base predicate,yes,The predicate is defined before any fixation claim.
+F3,"Stability is not identical to fixation",distinction,yes,Stability can hold locally without fixing the whole continuation space.
+F4,"Refined admissibility may require F0(X) subseteq F0(Y)",layer 5 refinement,provisional,This is an additional constraint on admissible continuations.

@@ -1,0 +1,7 @@
+rule_id,condition,role,status,notes
+A1,Local deviation only,primitive admissibility edge,provisional,The edge is defined by local compatibility and finite change.
+A2,Compatibility with relational structure,consistency gate,provisional,No external time variable is used in the gate.
+A3,No fixation assumption in A0,layer guard,yes,Primitive admissibility A0 must not presuppose F0.
+A4,No hidden time parameter,definition guard,yes,The admissibility rule is stated in a timeless manner.
+A5,Distance only as neighborhood filter,auxiliary constraint,yes,The CAUSALITY02A distance is not a direction source.
+A6,Refined admissibility may require F0(X) subseteq F0(Y),layer 5 condition,provisional,This is a refinement step and not a definition of time.

@@ -1,0 +1,5 @@
+analysis_id,construct,formal_status,cycle_risk,notes
+C1,Omega0(X) = {Y | X rightsquigarrow0* Y},yes,conditional,The definition is transitive but not yet proven acyclic.
+C2,Primitive edge X rightsquigarrow0 Y,yes,no_hidden_time,This edge is local and compatibility-based and does not assume fixation.
+C3,Refined space Omega1(Y) subsetneq Omega1(X),yes,conditional,Strict reduction supports a direction candidate but does not by itself prove well-foundedness.
+C4,Fixation via P_f and F0,yes,no_circularity,This removes the old recursive definition.

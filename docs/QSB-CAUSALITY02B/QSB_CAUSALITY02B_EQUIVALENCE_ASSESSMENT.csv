@@ -1,0 +1,4 @@
+claim_id,claim,assessment,assumptions,notes
+E1,"Omega1(Y) subsetneq Omega1(X) is equivalent to F0(X) subsetneq F0(Y)",conditional,completeness_and_effectiveness,The equivalence requires completeness, effectiveness, nonredundancy and separability of the fixation inventory.
+E2,"Local admissibility guarantees global consistency",conditional,restricted continuation class,Local admissibility helps, but global consistency still needs a separate invariant check.
+E3,"Strict reduction implies acyclicity",yes_under_strict_inclusion,strict_inclusion_only,Finite directed cycles are excluded under strict inclusion; well-foundedness remains open.
