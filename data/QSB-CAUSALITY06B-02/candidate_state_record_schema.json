@@ -1,0 +1,786 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qsb.local/schemas/QSB-CAUSALITY06B-02/candidate_state_record_schema.json",
+  "title": "QSB-CAUSALITY06B-02 Inner-Sphere ET Candidate-State Records",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "record_type",
+    "records"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "QSB-CAUSALITY06B-02_candidate_state_record_schema"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.0\\.0$"
+    },
+    "record_type": {
+      "const": "inner_sphere_et_candidate_state_records"
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/candidate_state_record"
+      }
+    }
+  },
+  "$defs": {
+    "candidate_state_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "case_id",
+        "state_id",
+        "state_representation_status",
+        "chemical_features",
+        "species_status",
+        "pathway_evidence",
+        "descriptive_metadata",
+        "reference_order_metadata",
+        "source_metadata",
+        "leakage_controls"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string"
+        },
+        "case_id": {
+          "const": "classical_cobalt_chromium_chloride_transfer"
+        },
+        "state_id": {
+          "enum": [
+            "IS01_S0",
+            "IS01_S1",
+            "IS01_S2",
+            "IS01_S3",
+            "IS01_S4"
+          ]
+        },
+        "state_representation_status": {
+          "enum": [
+            "required_reference_state",
+            "optional_formal_state",
+            "reduced_path_compatible_state"
+          ]
+        },
+        "chemical_features": {
+          "$ref": "#/$defs/chemical_features"
+        },
+        "species_status": {
+          "$ref": "#/$defs/species_status"
+        },
+        "pathway_evidence": {
+          "$ref": "#/$defs/pathway_evidence"
+        },
+        "descriptive_metadata": {
+          "$ref": "#/$defs/descriptive_metadata"
+        },
+        "reference_order_metadata": {
+          "$ref": "#/$defs/reference_order_metadata"
+        },
+        "source_metadata": {
+          "$ref": "#/$defs/source_metadata"
+        },
+        "optional_state_controls": {
+          "$ref": "#/$defs/optional_state_controls"
+        },
+        "product_relaxation_caveat": {
+          "type": "string"
+        },
+        "leakage_controls": {
+          "$ref": "#/$defs/leakage_controls"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "shared_chloride_bridge_status": {
+                    "const": "present"
+                  }
+                },
+                "required": [
+                  "shared_chloride_bridge_status"
+                ]
+              }
+            },
+            "required": [
+              "chemical_features"
+            ]
+          },
+          "then": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "co_chloride_bond_status": {
+                    "const": "retained_in_bridged_configuration"
+                  },
+                  "cr_chloride_bond_status": {
+                    "const": "bridge_coordination_present"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "electron_transfer_balance": {
+                    "const": "transferred_Cr_to_Co"
+                  }
+                },
+                "required": [
+                  "electron_transfer_balance"
+                ]
+              }
+            },
+            "required": [
+              "chemical_features"
+            ]
+          },
+          "then": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "co_oxidation_state": {
+                    "const": "+2"
+                  },
+                  "cr_oxidation_state": {
+                    "const": "+3"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "ligand_transfer_balance": {
+                    "const": "chloride_on_Cr"
+                  }
+                },
+                "required": [
+                  "ligand_transfer_balance"
+                ]
+              }
+            },
+            "required": [
+              "chemical_features"
+            ]
+          },
+          "then": {
+            "properties": {
+              "chemical_features": {
+                "properties": {
+                  "cr_chloride_bond_status": {
+                    "enum": [
+                      "bound_terminal_product",
+                      "bridge_coordination_present"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "species_status": {
+                "properties": {
+                  "classification": {
+                    "const": "candidate_configuration"
+                  }
+                },
+                "required": [
+                  "classification"
+                ]
+              }
+            },
+            "required": [
+              "species_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "species_status": {
+                "properties": {
+                  "separately_isolated": {
+                    "not": {
+                      "const": "yes"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "pathway_evidence": {
+                "properties": {
+                  "pathway_evidence_class": {
+                    "const": "P5_directly_resolved_in_reaction_context"
+                  }
+                },
+                "required": [
+                  "pathway_evidence_class"
+                ]
+              }
+            },
+            "required": [
+              "pathway_evidence"
+            ]
+          },
+          "then": {
+            "properties": {
+              "pathway_evidence": {
+                "properties": {
+                  "directly_resolved_in_reaction_context": {
+                    "const": true
+                  }
+                }
+              },
+              "species_status": {
+                "properties": {
+                  "directly_resolved_in_reaction_context": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state_id": {
+                "const": "IS01_S2"
+              }
+            },
+            "required": [
+              "state_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "state_representation_status": {
+                "const": "required_reference_state"
+              },
+              "chemical_features": {
+                "properties": {
+                  "co_chloride_bond_status": {
+                    "const": "retained_in_bridged_configuration"
+                  },
+                  "cr_chloride_bond_status": {
+                    "const": "bridge_coordination_present"
+                  },
+                  "shared_chloride_bridge_status": {
+                    "const": "present"
+                  }
+                }
+              },
+              "species_status": {
+                "properties": {
+                  "classification": {
+                    "const": "candidate_configuration"
+                  }
+                }
+              },
+              "pathway_evidence": {
+                "properties": {
+                  "pathway_evidence_class": {
+                    "const": "P2_mechanistically_inferred"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state_id": {
+                "const": "IS01_S3"
+              }
+            },
+            "required": [
+              "state_id"
+            ]
+          },
+          "then": {
+            "required": [
+              "optional_state_controls"
+            ],
+            "properties": {
+              "state_representation_status": {
+                "const": "optional_formal_state"
+              },
+              "descriptive_metadata": {
+                "properties": {
+                  "is_optional_in_minimal_path": {
+                    "const": true
+                  }
+                }
+              },
+              "reference_order_metadata": {
+                "properties": {
+                  "included_in_full_reference_path": {
+                    "const": true
+                  },
+                  "included_in_minimal_reference_path": {
+                    "const": false
+                  }
+                }
+              },
+              "optional_state_controls": {
+                "properties": {
+                  "IS01_S3_required_as_discrete_species": {
+                    "const": false
+                  },
+                  "post_et_bridge_persistence_required": {
+                    "const": false
+                  },
+                  "IS01_S3_optional_in_minimal_path_representation": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state_id": {
+                "const": "IS01_S4"
+              }
+            },
+            "required": [
+              "state_id"
+            ]
+          },
+          "then": {
+            "required": [
+              "product_relaxation_caveat"
+            ],
+            "properties": {
+              "species_status": {
+                "properties": {
+                  "classification": {
+                    "const": "product_species_documented"
+                  }
+                }
+              },
+              "pathway_evidence": {
+                "properties": {
+                  "pathway_evidence_class": {
+                    "const": "P4_tracer_supported"
+                  }
+                }
+              },
+              "chemical_features": {
+                "properties": {
+                  "co_oxidation_state": {
+                    "const": "+2"
+                  },
+                  "cr_oxidation_state": {
+                    "const": "+3"
+                  },
+                  "ligand_transfer_balance": {
+                    "const": "chloride_on_Cr"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "chemical_features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "co_oxidation_state",
+        "cr_oxidation_state",
+        "co_chloride_bond_status",
+        "cr_chloride_bond_status",
+        "shared_chloride_bridge_status",
+        "cr_coordination_vacancy_or_substitution_readiness",
+        "metal_pair_association_status",
+        "electron_transfer_balance",
+        "ligand_transfer_balance",
+        "co_coordination_environment",
+        "cr_coordination_environment",
+        "product_separation_status",
+        "substitution_lability_class"
+      ],
+      "properties": {
+        "co_oxidation_state": {
+          "enum": [
+            "+3",
+            "+2",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "cr_oxidation_state": {
+          "enum": [
+            "+2",
+            "+3",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "co_chloride_bond_status": {
+          "enum": [
+            "bound_terminal",
+            "retained_in_bridged_configuration",
+            "released",
+            "absent",
+            "unknown"
+          ]
+        },
+        "cr_chloride_bond_status": {
+          "enum": [
+            "absent",
+            "approaching_or_substitution_ready",
+            "bridge_coordination_present",
+            "bound_terminal_product",
+            "unknown"
+          ]
+        },
+        "shared_chloride_bridge_status": {
+          "enum": [
+            "absent",
+            "possible",
+            "present",
+            "not_required_as_discrete_state",
+            "unknown"
+          ]
+        },
+        "cr_coordination_vacancy_or_substitution_readiness": {
+          "enum": [
+            "substitution_ready",
+            "vacancy_available_or_exchange_accessible",
+            "not_available",
+            "not_assessed",
+            "unknown"
+          ]
+        },
+        "metal_pair_association_status": {
+          "enum": [
+            "separated",
+            "encounter_associated",
+            "bridged",
+            "dissociating",
+            "product_separated",
+            "unknown"
+          ]
+        },
+        "electron_transfer_balance": {
+          "enum": [
+            "not_transferred",
+            "transfer_candidate",
+            "transferred_Cr_to_Co",
+            "not_assessed",
+            "unknown"
+          ]
+        },
+        "ligand_transfer_balance": {
+          "enum": [
+            "chloride_on_Co",
+            "shared_bridge",
+            "chloride_transfer_candidate",
+            "chloride_on_Cr",
+            "not_assessed",
+            "unknown"
+          ]
+        },
+        "co_coordination_environment": {
+          "type": "string"
+        },
+        "cr_coordination_environment": {
+          "type": "string"
+        },
+        "product_separation_status": {
+          "enum": [
+            "not_applicable",
+            "not_separated",
+            "partially_separating",
+            "separated",
+            "unknown"
+          ]
+        },
+        "substitution_lability_class": {
+          "enum": [
+            "CrII_labile",
+            "CrIII_inert",
+            "CoIII_inert",
+            "CoII_labile",
+            "mixed_or_state_dependent",
+            "not_assessed"
+          ]
+        }
+      }
+    },
+    "species_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classification",
+        "directly_documented_species",
+        "directly_resolved_in_reaction_context",
+        "separately_isolated"
+      ],
+      "properties": {
+        "classification": {
+          "enum": [
+            "reference_species_documented",
+            "product_species_documented",
+            "candidate_configuration",
+            "not_separately_resolved",
+            "not_applicable"
+          ]
+        },
+        "directly_documented_species": {
+          "type": "boolean"
+        },
+        "directly_resolved_in_reaction_context": {
+          "type": "boolean"
+        },
+        "separately_isolated": {
+          "enum": [
+            "yes",
+            "no",
+            "partially_characterized",
+            "not_applicable",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "pathway_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pathway_evidence_class",
+        "mechanistically_inferred",
+        "experimentally_traced",
+        "product_supported",
+        "kinetically_supported",
+        "directly_resolved_in_reaction_context",
+        "evidence_note"
+      ],
+      "properties": {
+        "pathway_evidence_class": {
+          "enum": [
+            "P0_formal_candidate_only",
+            "P1_chemically_plausible",
+            "P2_mechanistically_inferred",
+            "P3_kinetically_or_product_supported",
+            "P4_tracer_supported",
+            "P5_directly_resolved_in_reaction_context",
+            "not_applicable"
+          ]
+        },
+        "mechanistically_inferred": {
+          "type": "boolean"
+        },
+        "experimentally_traced": {
+          "type": "boolean"
+        },
+        "product_supported": {
+          "type": "boolean"
+        },
+        "kinetically_supported": {
+          "enum": [
+            true,
+            false,
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "directly_resolved_in_reaction_context": {
+          "type": "boolean"
+        },
+        "evidence_note": {
+          "type": "string"
+        }
+      }
+    },
+    "descriptive_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_role",
+        "plain_language_description",
+        "documented_reference_position",
+        "is_optional_in_minimal_path"
+      ],
+      "properties": {
+        "state_role": {
+          "enum": [
+            "separated_reactant_configuration",
+            "encounter_and_substitution_ready_configuration",
+            "chloride_bridged_pre_electron_transfer_candidate",
+            "chloride_bridged_post_electron_transfer_candidate",
+            "separated_primary_product_configuration"
+          ]
+        },
+        "plain_language_description": {
+          "type": "string"
+        },
+        "documented_reference_position": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "is_optional_in_minimal_path": {
+          "type": "boolean"
+        }
+      }
+    },
+    "reference_order_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reference_order_index",
+        "reference_order_type",
+        "reference_order_allowed_as_direction_feature",
+        "included_in_full_reference_path",
+        "included_in_minimal_reference_path"
+      ],
+      "properties": {
+        "reference_order_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "reference_order_type": {
+          "const": "documented_mechanistic_reference_decomposition"
+        },
+        "reference_order_allowed_as_direction_feature": {
+          "const": false
+        },
+        "included_in_full_reference_path": {
+          "type": "boolean"
+        },
+        "included_in_minimal_reference_path": {
+          "type": "boolean"
+        }
+      }
+    },
+    "source_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_basis",
+        "source_reference_ids",
+        "source_role",
+        "provenance_note"
+      ],
+      "properties": {
+        "source_basis": {
+          "type": "string"
+        },
+        "source_reference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_role": {
+          "enum": [
+            "historical_reference",
+            "mechanistic_reference",
+            "schema_example",
+            "boundary_note"
+          ]
+        },
+        "provenance_note": {
+          "type": "string"
+        }
+      }
+    },
+    "optional_state_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "post_et_bridge_persistence_required",
+        "IS01_S3_required_as_discrete_species",
+        "IS01_S3_optional_in_minimal_path_representation"
+      ],
+      "properties": {
+        "post_et_bridge_persistence_required": {
+          "type": "boolean"
+        },
+        "IS01_S3_required_as_discrete_species": {
+          "type": "boolean"
+        },
+        "IS01_S3_optional_in_minimal_path_representation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "leakage_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_id_as_direction_feature_allowed",
+        "state_role_as_direction_feature_allowed",
+        "reference_order_index_as_direction_feature_allowed",
+        "source_document_order_as_direction_feature_allowed",
+        "species_status_as_direction_feature_allowed",
+        "pathway_evidence_class_as_direction_feature_allowed",
+        "known_mechanism_name_as_direction_feature_allowed",
+        "chemical_features_as_future_direction_inputs_potentially_allowed",
+        "future_use_requires_separate_admissibility_specification"
+      ],
+      "properties": {
+        "state_id_as_direction_feature_allowed": {
+          "const": false
+        },
+        "state_role_as_direction_feature_allowed": {
+          "const": false
+        },
+        "reference_order_index_as_direction_feature_allowed": {
+          "const": false
+        },
+        "source_document_order_as_direction_feature_allowed": {
+          "const": false
+        },
+        "species_status_as_direction_feature_allowed": {
+          "const": false
+        },
+        "pathway_evidence_class_as_direction_feature_allowed": {
+          "const": false
+        },
+        "known_mechanism_name_as_direction_feature_allowed": {
+          "const": false
+        },
+        "chemical_features_as_future_direction_inputs_potentially_allowed": {
+          "const": true
+        },
+        "future_use_requires_separate_admissibility_specification": {
+          "const": true
+        }
+      }
+    }
+  }
+}

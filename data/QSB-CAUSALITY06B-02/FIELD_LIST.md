@@ -1,0 +1,72 @@
+# QSB-CAUSALITY06B-02 Field List
+
+| Field Path | Type | Required | Allowed Values / Format | Description | Direction-Feature Eligibility |
+|---|---|---:|---|---|---|
+| schema_id | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| schema_version | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| record_type | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].record_id | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].case_id | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].state_id | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].state_representation_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].chemical_features | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].chemical_features.co_oxidation_state | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.cr_oxidation_state | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.co_chloride_bond_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.cr_chloride_bond_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.shared_chloride_bridge_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.cr_coordination_vacancy_or_substitution_readiness | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.metal_pair_association_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.electron_transfer_balance | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.ligand_transfer_balance | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.co_coordination_environment | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.cr_coordination_environment | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.product_separation_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].chemical_features.substitution_lability_class | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | potentially_allowed_in_future_admissibility_rule |
+| records[].species_status | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].species_status.classification | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].species_status.directly_documented_species | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].species_status.directly_resolved_in_reaction_context | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].species_status.separately_isolated | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].pathway_evidence.pathway_evidence_class | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.mechanistically_inferred | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.experimentally_traced | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.product_supported | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.kinetically_supported | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.directly_resolved_in_reaction_context | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].pathway_evidence.evidence_note | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].descriptive_metadata | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].descriptive_metadata.state_role | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].descriptive_metadata.plain_language_description | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].descriptive_metadata.documented_reference_position | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].descriptive_metadata.is_optional_in_minimal_path | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].reference_order_metadata | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].reference_order_metadata.reference_order_index | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].reference_order_metadata.reference_order_type | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].reference_order_metadata.reference_order_allowed_as_direction_feature | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].reference_order_metadata.included_in_full_reference_path | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].reference_order_metadata.included_in_minimal_reference_path | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].source_metadata | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].source_metadata.source_basis | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].source_metadata.source_reference_ids | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].source_metadata.source_role | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].source_metadata.provenance_note | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].optional_state_controls | object/array/string/enum/boolean/integer | conditional | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].optional_state_controls.post_et_bridge_persistence_required | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].optional_state_controls.IS01_S3_required_as_discrete_species | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].optional_state_controls.IS01_S3_optional_in_minimal_path_representation | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].product_relaxation_caveat | object/array/string/enum/boolean/integer | conditional | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | not_applicable |
+| records[].leakage_controls.state_id_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.state_role_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.reference_order_index_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.source_document_order_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.species_status_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.pathway_evidence_class_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.known_mechanism_name_as_direction_feature_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.chemical_features_as_future_direction_inputs_potentially_allowed | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+| records[].leakage_controls.future_use_requires_separate_admissibility_specification | object/array/string/enum/boolean/integer | yes | See JSON Schema controlled vocabularies | Schema field path | forbidden_as_direction_feature |
+
+Only `records[].chemical_features.*` fields are marked `potentially_allowed_in_future_admissibility_rule`. This means only that a later, separate admissibility specification may consider them as candidate inputs.
