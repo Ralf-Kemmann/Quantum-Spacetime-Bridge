@@ -1,0 +1,99 @@
+{
+  "language_code": "de",
+  "view_name": "causality06b04_transition_results_de",
+  "canonical_field_names_remain_language_neutral": true,
+  "localized_aliases_used_as_logic_inputs": false,
+  "schema_change_required_for_new_language": false,
+  "aliases": [
+    {
+      "canonical_field_name": "transition_id",
+      "display_alias": "Uebergangs-ID",
+      "display_description": "Kanonische Kennung des geprueften Uebergangskandidaten."
+    },
+    {
+      "canonical_field_name": "source_state_id",
+      "display_alias": "Quellzustand",
+      "display_description": "Kanonische Zustandskennung des Ausgangsrecords."
+    },
+    {
+      "canonical_field_name": "target_state_id",
+      "display_alias": "Zielzustand",
+      "display_description": "Kanonische Zustandskennung des Zielrecords."
+    },
+    {
+      "canonical_field_name": "redox_consistent",
+      "display_alias": "Redoxbilanz konsistent",
+      "display_description": "Gibt an, ob die Redoxmerkmale unter den deklarierten Regeln konsistent sind."
+    },
+    {
+      "canonical_field_name": "redox_reason",
+      "display_alias": "Redoxbegruendung",
+      "display_description": "Kurze Begruendung fuer die Redoxpruefung."
+    },
+    {
+      "canonical_field_name": "chloride_bridge_consistent",
+      "display_alias": "Chlorid- und Brueckenstatus konsistent",
+      "display_description": "Gibt an, ob Chlorid-, Bindungs- und Brueckenmerkmale konsistent sind."
+    },
+    {
+      "canonical_field_name": "chloride_bridge_reason",
+      "display_alias": "Chlorid-/Brueckenbegruendung",
+      "display_description": "Kurze Begruendung fuer die Chlorid- und Brueckenpruefung."
+    },
+    {
+      "canonical_field_name": "coordination_consistent",
+      "display_alias": "Koordinations- und Assoziationsstatus konsistent",
+      "display_description": "Gibt an, ob Koordinationszugang und Assoziation konsistent sind."
+    },
+    {
+      "canonical_field_name": "coordination_reason",
+      "display_alias": "Koordinationsbegruendung",
+      "display_description": "Kurze Begruendung fuer die Koordinationspruefung."
+    },
+    {
+      "canonical_field_name": "state_change_coherent",
+      "display_alias": "Zustandsaenderung kohaerent",
+      "display_description": "Gibt an, ob mindestens ein reales chemisches Merkmal kohaerent geaendert wurde."
+    },
+    {
+      "canonical_field_name": "state_change_reason",
+      "display_alias": "Zustandsaenderungsbegruendung",
+      "display_description": "Kurze Begruendung fuer die State-Change-Pruefung."
+    },
+    {
+      "canonical_field_name": "forward_admissible",
+      "display_alias": "Vorwaertsuebergang zulaessig",
+      "display_description": "Formaler Vorwaertsstatus unter den vier chemischen Regeln."
+    },
+    {
+      "canonical_field_name": "reverse_admissible",
+      "display_alias": "Rueckwaertsuebergang zulaessig",
+      "display_description": "Formaler Rueckwaertsstatus unter denselben vier chemischen Regeln."
+    },
+    {
+      "canonical_field_name": "reverse_requires_external_conditions",
+      "display_alias": "Rückweg erfordert externe Bedingungen",
+      "display_description": "Gibt an, ob der formale Rueckweg externe Bedingungen ausserhalb der verglichenen chemischen Features erfordert."
+    },
+    {
+      "canonical_field_name": "reverse_external_condition_reasons",
+      "display_alias": "Gründe für erforderliche externe Rückwegbedingungen",
+      "display_description": "Kontrollierte, feature-basierte Gruende fuer erforderliche externe Rueckwegbedingungen."
+    },
+    {
+      "canonical_field_name": "forward_transition_status",
+      "display_alias": "Status des Vorwaertsuebergangs",
+      "display_description": "Kanonischer Status des geprueften Vorwaertsuebergangs."
+    },
+    {
+      "canonical_field_name": "direction_comparison_class",
+      "display_alias": "Klasse des Richtungsvergleichs",
+      "display_description": "Kanonische Vergleichsklasse aus Vorwaerts- und Rueckwaertspruefung."
+    },
+    {
+      "canonical_field_name": "reverse_assessment",
+      "display_alias": "Rueckwaertsbeurteilung",
+      "display_description": "Kanonische Einordnung der Gegenrichtungspruefung."
+    }
+  ]
+}

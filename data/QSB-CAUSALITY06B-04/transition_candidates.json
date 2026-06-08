@@ -1,0 +1,52 @@
+{
+  "transition_candidate_bundle_id": "QSB-CAUSALITY06B-04_transition_candidates",
+  "transition_candidate_bundle_role": "source_bound_run_input",
+  "reference_order_metadata_only": true,
+  "transition_candidates": [
+    {
+      "transition_id": "T01",
+      "source_state_id": "IS01_S0",
+      "target_state_id": "IS01_S1",
+      "candidate_role": "reactant_separation_to_encounter_candidate",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": true,
+      "reference_order_metadata_only": true
+    },
+    {
+      "transition_id": "T02",
+      "source_state_id": "IS01_S1",
+      "target_state_id": "IS01_S2",
+      "candidate_role": "encounter_to_chloride_bridge_candidate",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": true,
+      "reference_order_metadata_only": true
+    },
+    {
+      "transition_id": "T03",
+      "source_state_id": "IS01_S2",
+      "target_state_id": "IS01_S3",
+      "candidate_role": "bridged_pre_et_to_optional_post_et_resolution",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": false,
+      "reference_order_metadata_only": true
+    },
+    {
+      "transition_id": "T04",
+      "source_state_id": "IS01_S3",
+      "target_state_id": "IS01_S4",
+      "candidate_role": "optional_post_et_resolution_to_primary_products",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": false,
+      "reference_order_metadata_only": true
+    },
+    {
+      "transition_id": "T05",
+      "source_state_id": "IS01_S2",
+      "target_state_id": "IS01_S4",
+      "candidate_role": "minimal_path_bridged_pre_et_to_primary_products",
+      "included_in_full_reference_path": false,
+      "included_in_minimal_reference_path": true,
+      "reference_order_metadata_only": true
+    }
+  ]
+}

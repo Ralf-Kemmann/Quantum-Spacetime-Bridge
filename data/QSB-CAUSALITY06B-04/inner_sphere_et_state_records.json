@@ -1,0 +1,381 @@
+{
+  "data_status": "curated_source_bound_candidate_state_data",
+  "directly_time_resolved_trajectory": false,
+  "mechanistic_reference_decomposition": true,
+  "raw_experimental_measurement_data": false,
+  "record_bundle_role": "source_bound_run_input",
+  "record_caveat_classes": {
+    "IS01_S0": "documented_species",
+    "IS01_S1": "mechanistically_inferred_configuration",
+    "IS01_S2": "mechanistically_inferred_configuration",
+    "IS01_S3": "optional_formal_resolution",
+    "IS01_S4": "documented_species"
+  },
+  "record_type": "inner_sphere_et_candidate_state_records",
+  "records": [
+    {
+      "case_id": "classical_cobalt_chromium_chloride_transfer",
+      "chemical_features": {
+        "co_chloride_bond_status": "bound_terminal",
+        "co_coordination_environment": "CoIII ammine chloride reactant complex",
+        "co_oxidation_state": "+3",
+        "cr_chloride_bond_status": "absent",
+        "cr_coordination_environment": "CrII aquo reactant complex",
+        "cr_coordination_vacancy_or_substitution_readiness": "not_assessed",
+        "cr_oxidation_state": "+2",
+        "electron_transfer_balance": "not_transferred",
+        "ligand_transfer_balance": "chloride_on_Co",
+        "metal_pair_association_status": "separated",
+        "product_separation_status": "not_applicable",
+        "shared_chloride_bridge_status": "absent",
+        "substitution_lability_class": "mixed_or_state_dependent"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 0,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "separated reactant configuration",
+        "state_role": "separated_reactant_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_future_direction_inputs_potentially_allowed": true,
+        "future_use_requires_separate_admissibility_specification": true,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_document_order_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Reference reactant state; not a path-resolved intermediate.",
+        "experimentally_traced": false,
+        "kinetically_supported": "not_applicable",
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "not_applicable",
+        "product_supported": false
+      },
+      "record_id": "IS01_record_S0",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 0,
+        "reference_order_type": "documented_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Source-bound run input for QSB-CAUSALITY06B-04; not a directly observed frame-by-frame trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-01 source-bound state specification plus QSB-CAUSALITY06B-02 schema example",
+        "source_reference_ids": [
+          "SRC_TAUBE_1953",
+          "SRC_TAUBE_NOBEL_1983",
+          "SRC_NOBEL_BACKGROUND_1983",
+          "SRC_FORD_2006"
+        ],
+        "source_role": "mechanistic_reference"
+      },
+      "species_status": {
+        "classification": "reference_species_documented",
+        "directly_documented_species": true,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "not_applicable"
+      },
+      "state_id": "IS01_S0",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "classical_cobalt_chromium_chloride_transfer",
+      "chemical_features": {
+        "co_chloride_bond_status": "bound_terminal",
+        "co_coordination_environment": "CoIII ammine chloride environment retained",
+        "co_oxidation_state": "+3",
+        "cr_chloride_bond_status": "approaching_or_substitution_ready",
+        "cr_coordination_environment": "CrII aquo environment with access for substitution or bridge approach",
+        "cr_coordination_vacancy_or_substitution_readiness": "vacancy_available_or_exchange_accessible",
+        "cr_oxidation_state": "+2",
+        "electron_transfer_balance": "not_transferred",
+        "ligand_transfer_balance": "chloride_on_Co",
+        "metal_pair_association_status": "encounter_associated",
+        "product_separation_status": "not_separated",
+        "shared_chloride_bridge_status": "possible",
+        "substitution_lability_class": "CrII_labile"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 1,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "encounter and substitution ready configuration",
+        "state_role": "encounter_and_substitution_ready_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_future_direction_inputs_potentially_allowed": true,
+        "future_use_requires_separate_admissibility_specification": true,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_document_order_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Encounter/readiness candidate required only as a chemically plausible schema state.",
+        "experimentally_traced": false,
+        "kinetically_supported": "unknown",
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "P1_chemically_plausible",
+        "product_supported": false
+      },
+      "record_id": "IS01_record_S1",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 1,
+        "reference_order_type": "documented_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Source-bound run input for QSB-CAUSALITY06B-04; not a directly observed frame-by-frame trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-01 source-bound state specification plus QSB-CAUSALITY06B-02 schema example",
+        "source_reference_ids": [
+          "SRC_TAUBE_1953",
+          "SRC_TAUBE_NOBEL_1983",
+          "SRC_NOBEL_BACKGROUND_1983",
+          "SRC_FORD_2006"
+        ],
+        "source_role": "mechanistic_reference"
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "IS01_S1",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "classical_cobalt_chromium_chloride_transfer",
+      "chemical_features": {
+        "co_chloride_bond_status": "retained_in_bridged_configuration",
+        "co_coordination_environment": "CoIII chloride retained while chloride bridges",
+        "co_oxidation_state": "+3",
+        "cr_chloride_bond_status": "bridge_coordination_present",
+        "cr_coordination_environment": "CrII center additionally coordinated by chloride bridge",
+        "cr_coordination_vacancy_or_substitution_readiness": "vacancy_available_or_exchange_accessible",
+        "cr_oxidation_state": "+2",
+        "electron_transfer_balance": "transfer_candidate",
+        "ligand_transfer_balance": "shared_bridge",
+        "metal_pair_association_status": "bridged",
+        "product_separation_status": "not_separated",
+        "shared_chloride_bridge_status": "present",
+        "substitution_lability_class": "mixed_or_state_dependent"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 2,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "chloride bridged pre electron transfer candidate",
+        "state_role": "chloride_bridged_pre_electron_transfer_candidate"
+      },
+      "leakage_controls": {
+        "chemical_features_as_future_direction_inputs_potentially_allowed": true,
+        "future_use_requires_separate_admissibility_specification": true,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_document_order_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Co-Cl bond retained while chloride additionally coordinates CrII; bridge is mechanistically inferred, not directly isolated.",
+        "experimentally_traced": false,
+        "kinetically_supported": "unknown",
+        "mechanistically_inferred": true,
+        "pathway_evidence_class": "P2_mechanistically_inferred",
+        "product_supported": false
+      },
+      "record_id": "IS01_record_S2",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 2,
+        "reference_order_type": "documented_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Source-bound run input for QSB-CAUSALITY06B-04; not a directly observed frame-by-frame trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-01 source-bound state specification plus QSB-CAUSALITY06B-02 schema example",
+        "source_reference_ids": [
+          "SRC_TAUBE_1953",
+          "SRC_TAUBE_NOBEL_1983",
+          "SRC_NOBEL_BACKGROUND_1983",
+          "SRC_FORD_2006"
+        ],
+        "source_role": "mechanistic_reference"
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "IS01_S2",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "classical_cobalt_chromium_chloride_transfer",
+      "chemical_features": {
+        "co_chloride_bond_status": "released",
+        "co_coordination_environment": "CoII-containing product environment not overfixed",
+        "co_oxidation_state": "+2",
+        "cr_chloride_bond_status": "bridge_coordination_present",
+        "cr_coordination_environment": "CrIII chloride coordination emerging",
+        "cr_coordination_vacancy_or_substitution_readiness": "not_available",
+        "cr_oxidation_state": "+3",
+        "electron_transfer_balance": "transferred_Cr_to_Co",
+        "ligand_transfer_balance": "chloride_transfer_candidate",
+        "metal_pair_association_status": "dissociating",
+        "product_separation_status": "partially_separating",
+        "shared_chloride_bridge_status": "not_required_as_discrete_state",
+        "substitution_lability_class": "mixed_or_state_dependent"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 3,
+        "is_optional_in_minimal_path": true,
+        "plain_language_description": "chloride bridged post electron transfer candidate",
+        "state_role": "chloride_bridged_post_electron_transfer_candidate"
+      },
+      "leakage_controls": {
+        "chemical_features_as_future_direction_inputs_potentially_allowed": true,
+        "future_use_requires_separate_admissibility_specification": true,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_document_order_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "optional_state_controls": {
+        "IS01_S3_optional_in_minimal_path_representation": true,
+        "IS01_S3_required_as_discrete_species": false,
+        "post_et_bridge_persistence_required": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Optional formal post-ET resolution; post-ET bridge persistence is not required.",
+        "experimentally_traced": false,
+        "kinetically_supported": "unknown",
+        "mechanistically_inferred": true,
+        "pathway_evidence_class": "P2_mechanistically_inferred",
+        "product_supported": false
+      },
+      "record_id": "IS01_record_S3",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": false,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 3,
+        "reference_order_type": "documented_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Source-bound run input for QSB-CAUSALITY06B-04; not a directly observed frame-by-frame trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-01 source-bound state specification plus QSB-CAUSALITY06B-02 schema example",
+        "source_reference_ids": [
+          "SRC_TAUBE_1953",
+          "SRC_TAUBE_NOBEL_1983",
+          "SRC_NOBEL_BACKGROUND_1983",
+          "SRC_FORD_2006"
+        ],
+        "source_role": "mechanistic_reference"
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "IS01_S3",
+      "state_representation_status": "optional_formal_state"
+    },
+    {
+      "case_id": "classical_cobalt_chromium_chloride_transfer",
+      "chemical_features": {
+        "co_chloride_bond_status": "released",
+        "co_coordination_environment": "CoII-containing primary products, not overfixed",
+        "co_oxidation_state": "+2",
+        "cr_chloride_bond_status": "bound_terminal_product",
+        "cr_coordination_environment": "CrIII(H2O)5Cl product-side coordination",
+        "cr_coordination_vacancy_or_substitution_readiness": "not_available",
+        "cr_oxidation_state": "+3",
+        "electron_transfer_balance": "transferred_Cr_to_Co",
+        "ligand_transfer_balance": "chloride_on_Cr",
+        "metal_pair_association_status": "product_separated",
+        "product_separation_status": "separated",
+        "shared_chloride_bridge_status": "absent",
+        "substitution_lability_class": "mixed_or_state_dependent"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 4,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "separated primary product configuration",
+        "state_role": "separated_primary_product_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_future_direction_inputs_potentially_allowed": true,
+        "future_use_requires_separate_admissibility_specification": true,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_document_order_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Product and tracer support chloride transfer to Cr; this does not provide a frame-by-frame path.",
+        "experimentally_traced": true,
+        "kinetically_supported": "unknown",
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "P4_tracer_supported",
+        "product_supported": true
+      },
+      "product_relaxation_caveat": "Subsequent CoII ligand exchange or relaxation is not equated with the primary ET/chloride-transfer event.",
+      "record_id": "IS01_record_S4",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 4,
+        "reference_order_type": "documented_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Source-bound run input for QSB-CAUSALITY06B-04; not a directly observed frame-by-frame trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-01 source-bound state specification plus QSB-CAUSALITY06B-02 schema example",
+        "source_reference_ids": [
+          "SRC_TAUBE_1953",
+          "SRC_TAUBE_NOBEL_1983",
+          "SRC_NOBEL_BACKGROUND_1983",
+          "SRC_FORD_2006"
+        ],
+        "source_role": "mechanistic_reference"
+      },
+      "species_status": {
+        "classification": "product_species_documented",
+        "directly_documented_species": true,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "not_applicable"
+      },
+      "state_id": "IS01_S4",
+      "state_representation_status": "reduced_path_compatible_state"
+    }
+  ],
+  "schema_id": "QSB-CAUSALITY06B-02_candidate_state_record_schema",
+  "schema_validation_note": "The records array is validated against the CAUSALITY06B-02 candidate-state record schema; run-only bundle metadata is not used as transition logic input.",
+  "schema_version": "1.0.0"
+}
