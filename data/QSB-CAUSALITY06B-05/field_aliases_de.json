@@ -1,0 +1,107 @@
+{
+  "language_code": "de",
+  "view_name": "causality06b05_robustness_results_de",
+  "localized_aliases_used_as_logic_inputs": false,
+  "aliases": [
+    {
+      "canonical_field_name": "test_case_id",
+      "display_alias": "Testfall-ID",
+      "display_description": "Kanonische Kennung des Robustheits- oder Negativkontrollfalls."
+    },
+    {
+      "canonical_field_name": "test_case_class",
+      "display_alias": "Testfallklasse",
+      "display_description": "Kanonische Klasse des Testfalls."
+    },
+    {
+      "canonical_field_name": "expected_forward_admissible",
+      "display_alias": "Erwartete Vorwaertszulaessigkeit",
+      "display_description": "Erwarteter formaler Vorwaertswert."
+    },
+    {
+      "canonical_field_name": "actual_forward_admissible",
+      "display_alias": "Tatsaechliche Vorwaertszulaessigkeit",
+      "display_description": "Tatsaechlicher formaler Vorwaertswert aus der Regelpruefung."
+    },
+    {
+      "canonical_field_name": "expectation_matched",
+      "display_alias": "Erwartung erfuellt",
+      "display_description": "Gibt an, ob Erwartung und Ergebnis uebereinstimmen."
+    },
+    {
+      "canonical_field_name": "failure_origin",
+      "display_alias": "Fehlerursprung",
+      "display_description": "Trennt Validierungsablehnung, fachliche Regelbewertung und fehlerfreie Faelle."
+    },
+    {
+      "canonical_field_name": "redox_consistent",
+      "display_alias": "Redoxbilanz konsistent",
+      "display_description": "Ergebnis der Redox-Konsistenzregel."
+    },
+    {
+      "canonical_field_name": "chloride_bridge_consistent",
+      "display_alias": "Chlorid- und Brueckenstatus konsistent",
+      "display_description": "Ergebnis der Chlorid- und Brueckenregel."
+    },
+    {
+      "canonical_field_name": "coordination_consistent",
+      "display_alias": "Koordinations- und Assoziationsstatus konsistent",
+      "display_description": "Ergebnis der Koordinationsregel."
+    },
+    {
+      "canonical_field_name": "state_change_coherent",
+      "display_alias": "Zustandsaenderung kohaerent",
+      "display_description": "Ergebnis der Zustandsaenderungsregel."
+    },
+    {
+      "canonical_field_name": "failed_rule_groups",
+      "display_alias": "Fehlgeschlagene Regelgruppen",
+      "display_description": "Kanonische Liste der fehlgeschlagenen Regelgruppen."
+    },
+    {
+      "canonical_field_name": "rule_evaluation_performed",
+      "display_alias": "Fachliche Regelbewertung durchgeführt",
+      "display_description": "Gibt an, ob die vier chemischen Regelgruppen nach bestandener Validierung ausgewertet wurden."
+    },
+    {
+      "canonical_field_name": "expected_rule_failures",
+      "display_alias": "Erwartete Regelverletzungen",
+      "display_description": "Vollstaendige erwartete Liste kanonischer Regelverletzungen."
+    },
+    {
+      "canonical_field_name": "actual_rule_failures",
+      "display_alias": "Tatsächliche Regelverletzungen",
+      "display_description": "Tatsaechlich beobachtete kanonische Regelverletzungen."
+    },
+    {
+      "canonical_field_name": "missing_expected_rule_failures",
+      "display_alias": "Fehlende erwartete Regelverletzungen",
+      "display_description": "Erwartete Regelverletzungen, die in der Auswertung nicht auftraten."
+    },
+    {
+      "canonical_field_name": "unexpected_rule_failures",
+      "display_alias": "Unerwartete zusätzliche Regelverletzungen",
+      "display_description": "Zusaetzliche Regelverletzungen, die nicht erwartet waren."
+    },
+    {
+      "canonical_field_name": "expected_rule_failures_subset_matched",
+      "display_alias": "Erwartete Regelverletzungen vollstaendig enthalten",
+      "display_description": "Gibt an, ob keine erwartete Regelverletzung fehlt."
+    },
+    {
+      "canonical_field_name": "exact_rule_failure_match",
+      "display_alias": "Exakte Übereinstimmung der Regelverletzungen",
+      "display_description": "Gibt an, ob erwartete und tatsaechliche Regelverletzungen exakt uebereinstimmen."
+    },
+    {
+      "canonical_field_name": "validation_failed",
+      "display_alias": "Validierung fehlgeschlagen",
+      "display_description": "Gibt an, ob die interne Run-Critical-Subset-Validierung fehlgeschlagen ist."
+    },
+    {
+      "canonical_field_name": "validation_failure_reason",
+      "display_alias": "Validierungsfehlergrund",
+      "display_description": "Kurze Begruendung fuer einen Validierungsfehler."
+    }
+  ]
+}
