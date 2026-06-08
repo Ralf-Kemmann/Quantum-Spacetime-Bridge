@@ -1,0 +1,373 @@
+{
+  "data_status": "curated_source_bound_candidate_state_data",
+  "directly_time_resolved_trajectory": false,
+  "mechanistic_reference_decomposition": true,
+  "raw_experimental_measurement_data": false,
+  "record_bundle_id": "QSB-CAUSALITY06B-06_oxalate_case_state_records",
+  "record_bundle_role": "source_bound_run_input",
+  "records": [
+    {
+      "case_id": "oxalate_cobalt_tetraamine_inner_sphere_et",
+      "chemical_features": {
+        "acceptor_bridge_bond_status": "bound_terminal_or_chelated_acceptor",
+        "acceptor_coordination_environment": "tris_oxalato_cobaltate_III_acceptor_complex",
+        "bridge_ligand_identity": "oxalate",
+        "bridge_ligand_transfer_balance": "oxalate_on_acceptor",
+        "bridge_mode": "absent",
+        "center_pair_association_status": "separated",
+        "donor_bridge_bond_status": "absent",
+        "donor_coordination_accessibility": "not_assessed",
+        "donor_coordination_environment": "CoII_tetraamine_diaqua_reductant_complex",
+        "electron_acceptor_oxidation_state": "+3",
+        "electron_donor_oxidation_state": "+2",
+        "electron_transfer_balance": "not_transferred",
+        "product_separation_status": "not_applicable",
+        "shared_bridge_status": "absent",
+        "substitution_lability_pattern": "donor_CoII_aqua_labile_acceptor_CoIII_oxalate_inert"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 0,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "separated reactant configuration",
+        "state_role": "separated_reactant_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_direction_inputs_allowed": true,
+        "known_case_name_as_direction_feature_allowed": false,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "localized_alias_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_metadata_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Separated reactants documented as source-bound reference state.",
+        "kinetically_supported": false,
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "not_applicable",
+        "product_supported": false
+      },
+      "record_id": "OX01_S0_record",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 0,
+        "reference_order_type": "curated_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Curated candidate-state record, not a directly time-resolved trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-06 curated source-bound oxalate case records",
+        "source_reference_ids": [
+          "SRC_SHEU_SHANG_LAPPIN_1996",
+          "SRC_LIBRETEXTS_INNER_SPHERE_ET"
+        ]
+      },
+      "species_status": {
+        "classification": "reference_species_documented",
+        "directly_documented_species": true,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "not_applicable"
+      },
+      "state_id": "OX01_S0",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "oxalate_cobalt_tetraamine_inner_sphere_et",
+      "chemical_features": {
+        "acceptor_bridge_bond_status": "bound_terminal_or_chelated_acceptor",
+        "acceptor_coordination_environment": "tris_oxalato_cobaltate_III_acceptor_complex",
+        "bridge_ligand_identity": "oxalate",
+        "bridge_ligand_transfer_balance": "oxalate_on_acceptor",
+        "bridge_mode": "encounter_accessible",
+        "center_pair_association_status": "encounter_associated",
+        "donor_bridge_bond_status": "approaching_or_chelation_ready",
+        "donor_coordination_accessibility": "aqua_sites_available_or_exchange_accessible",
+        "donor_coordination_environment": "CoII_tetraamine_diaqua_reductant_complex",
+        "electron_acceptor_oxidation_state": "+3",
+        "electron_donor_oxidation_state": "+2",
+        "electron_transfer_balance": "not_transferred",
+        "product_separation_status": "not_separated",
+        "shared_bridge_status": "possible",
+        "substitution_lability_pattern": "donor_CoII_aqua_labile_acceptor_CoIII_oxalate_inert"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 1,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "encounter and chelation ready configuration",
+        "state_role": "encounter_and_chelation_ready_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_direction_inputs_allowed": true,
+        "known_case_name_as_direction_feature_allowed": false,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "localized_alias_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_metadata_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Encounter and chelation readiness candidate.",
+        "kinetically_supported": false,
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "P1_chemically_plausible",
+        "product_supported": false
+      },
+      "record_id": "OX01_S1_record",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 1,
+        "reference_order_type": "curated_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Curated candidate-state record, not a directly time-resolved trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-06 curated source-bound oxalate case records",
+        "source_reference_ids": [
+          "SRC_SHEU_SHANG_LAPPIN_1996",
+          "SRC_LIBRETEXTS_INNER_SPHERE_ET"
+        ]
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "OX01_S1",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "oxalate_cobalt_tetraamine_inner_sphere_et",
+      "chemical_features": {
+        "acceptor_bridge_bond_status": "retained_in_doubly_chelated_bridge",
+        "acceptor_coordination_environment": "tris_oxalato_cobaltate_III_acceptor_complex",
+        "bridge_ligand_identity": "oxalate",
+        "bridge_ligand_transfer_balance": "shared_oxalate_bridge",
+        "bridge_mode": "doubly_chelated_bridge",
+        "center_pair_association_status": "bridged",
+        "donor_bridge_bond_status": "doubly_chelated_bridge_coordination_present",
+        "donor_coordination_accessibility": "aqua_sites_available_or_exchange_accessible",
+        "donor_coordination_environment": "CoII_tetraamine_diaqua_reductant_complex",
+        "electron_acceptor_oxidation_state": "+3",
+        "electron_donor_oxidation_state": "+2",
+        "electron_transfer_balance": "transfer_candidate",
+        "product_separation_status": "not_separated",
+        "shared_bridge_status": "present",
+        "substitution_lability_pattern": "donor_CoII_aqua_labile_acceptor_CoIII_oxalate_inert"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 2,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "doubly chelated oxalate bridged pre ET candidate",
+        "state_role": "doubly_chelated_oxalate_bridged_pre_ET_candidate"
+      },
+      "leakage_controls": {
+        "chemical_features_as_direction_inputs_allowed": true,
+        "known_case_name_as_direction_feature_allowed": false,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "localized_alias_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_metadata_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Doubly chelated oxalate bridge candidate supported mechanistically and kinetically, not separately promoted to a directly observed trajectory frame.",
+        "kinetically_supported": true,
+        "mechanistically_inferred": true,
+        "pathway_evidence_class": "P3_mechanistically_and_kinetically_supported",
+        "product_supported": false
+      },
+      "record_id": "OX01_S2_record",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 2,
+        "reference_order_type": "curated_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Curated candidate-state record, not a directly time-resolved trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-06 curated source-bound oxalate case records",
+        "source_reference_ids": [
+          "SRC_SHEU_SHANG_LAPPIN_1996",
+          "SRC_LIBRETEXTS_INNER_SPHERE_ET"
+        ]
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "OX01_S2",
+      "state_representation_status": "required_reference_state"
+    },
+    {
+      "case_id": "oxalate_cobalt_tetraamine_inner_sphere_et",
+      "chemical_features": {
+        "acceptor_bridge_bond_status": "released_or_reduced_acceptor_side",
+        "acceptor_coordination_environment": "reduced_former_tris_oxalato_acceptor_environment_not_overfixed",
+        "bridge_ligand_identity": "oxalate",
+        "bridge_ligand_transfer_balance": "oxalate_transfer_candidate",
+        "bridge_mode": "not_required_as_discrete_state",
+        "center_pair_association_status": "dissociating",
+        "donor_bridge_bond_status": "product_chelate_coordination_present",
+        "donor_coordination_accessibility": "not_available_after_donor_oxidation",
+        "donor_coordination_environment": "CoIII_tetraamine_oxalate_product_environment_emerging",
+        "electron_acceptor_oxidation_state": "+2",
+        "electron_donor_oxidation_state": "+3",
+        "electron_transfer_balance": "transferred_donor_to_acceptor",
+        "product_separation_status": "partially_separating",
+        "shared_bridge_status": "not_required_as_discrete_state",
+        "substitution_lability_pattern": "post_ET_mixed_or_state_dependent"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 3,
+        "is_optional_in_minimal_path": true,
+        "plain_language_description": "oxalate bridged post ET candidate",
+        "state_role": "oxalate_bridged_post_ET_candidate"
+      },
+      "leakage_controls": {
+        "chemical_features_as_direction_inputs_allowed": true,
+        "known_case_name_as_direction_feature_allowed": false,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "localized_alias_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_metadata_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "optional_state_controls": {
+        "OX01_S3_optional_in_minimal_path_representation": true,
+        "OX01_S3_required_as_discrete_species": false,
+        "post_ET_bridge_persistence_required": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Optional formal post-ET bridge resolution; persistence is not required.",
+        "kinetically_supported": false,
+        "mechanistically_inferred": true,
+        "pathway_evidence_class": "P2_mechanistically_inferred",
+        "product_supported": false
+      },
+      "record_id": "OX01_S3_record",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": false,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 3,
+        "reference_order_type": "curated_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Curated candidate-state record, not a directly time-resolved trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-06 curated source-bound oxalate case records",
+        "source_reference_ids": [
+          "SRC_SHEU_SHANG_LAPPIN_1996",
+          "SRC_LIBRETEXTS_INNER_SPHERE_ET"
+        ]
+      },
+      "species_status": {
+        "classification": "candidate_configuration",
+        "directly_documented_species": false,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "no"
+      },
+      "state_id": "OX01_S3",
+      "state_representation_status": "optional_formal_state"
+    },
+    {
+      "case_id": "oxalate_cobalt_tetraamine_inner_sphere_et",
+      "chemical_features": {
+        "acceptor_bridge_bond_status": "released_or_reduced_acceptor_side",
+        "acceptor_coordination_environment": "reduced_former_tris_oxalato_acceptor_product_side_not_overfixed",
+        "bridge_ligand_identity": "oxalate",
+        "bridge_ligand_transfer_balance": "oxalate_on_donor_product",
+        "bridge_mode": "product_chelate",
+        "center_pair_association_status": "product_separated",
+        "donor_bridge_bond_status": "product_chelate_coordination_present",
+        "donor_coordination_accessibility": "not_available_after_donor_oxidation",
+        "donor_coordination_environment": "characterized_oxalate_bound_CoIII_tetraamine_primary_product",
+        "electron_acceptor_oxidation_state": "+2",
+        "electron_donor_oxidation_state": "+3",
+        "electron_transfer_balance": "transferred_donor_to_acceptor",
+        "product_separation_status": "separated",
+        "shared_bridge_status": "absent",
+        "substitution_lability_pattern": "CoIII_product_chelate_inert_relative_to_CoII_aqua_reactant"
+      },
+      "descriptive_metadata": {
+        "documented_reference_position": 4,
+        "is_optional_in_minimal_path": false,
+        "plain_language_description": "separated or product chelated primary product configuration",
+        "state_role": "separated_or_product_chelated_primary_product_configuration"
+      },
+      "leakage_controls": {
+        "chemical_features_as_direction_inputs_allowed": true,
+        "known_case_name_as_direction_feature_allowed": false,
+        "known_mechanism_name_as_direction_feature_allowed": false,
+        "localized_alias_as_direction_feature_allowed": false,
+        "pathway_evidence_class_as_direction_feature_allowed": false,
+        "reference_order_index_as_direction_feature_allowed": false,
+        "source_metadata_as_direction_feature_allowed": false,
+        "species_status_as_direction_feature_allowed": false,
+        "state_id_as_direction_feature_allowed": false,
+        "state_role_as_direction_feature_allowed": false
+      },
+      "pathway_evidence": {
+        "directly_resolved_in_reaction_context": false,
+        "evidence_note": "Oxalate-containing CoIII tetraamine primary products provide product support without resolving every intermediate.",
+        "kinetically_supported": false,
+        "mechanistically_inferred": false,
+        "pathway_evidence_class": "P4_product_supported",
+        "product_supported": true
+      },
+      "record_id": "OX01_S4_record",
+      "reference_order_metadata": {
+        "included_in_full_reference_path": true,
+        "included_in_minimal_reference_path": true,
+        "reference_order_allowed_as_direction_feature": false,
+        "reference_order_index": 4,
+        "reference_order_type": "curated_mechanistic_reference_decomposition"
+      },
+      "source_metadata": {
+        "provenance_note": "Curated candidate-state record, not a directly time-resolved trajectory.",
+        "source_basis": "QSB-CAUSALITY06B-06 curated source-bound oxalate case records",
+        "source_reference_ids": [
+          "SRC_SHEU_SHANG_LAPPIN_1996",
+          "SRC_LIBRETEXTS_INNER_SPHERE_ET"
+        ]
+      },
+      "species_status": {
+        "classification": "product_species_documented",
+        "directly_documented_species": true,
+        "directly_resolved_in_reaction_context": false,
+        "separately_isolated": "not_applicable"
+      },
+      "state_id": "OX01_S4",
+      "state_representation_status": "reduced_path_compatible_state"
+    }
+  ],
+  "reference_system": {
+    "bridge_mode": "doubly_chelated_oxalate_bridge",
+    "bridging_ligand": "oxalate",
+    "electron_transfer_direction": "reductant_CoII_to_oxidant_CoIII",
+    "oxidant_center": "CoIII_in_tris_oxalato_cobaltate",
+    "primary_product_support": "oxalate_bound_CoIII_tetraamine_products",
+    "reductant_center": "CoII_in_tetraamine_diaqua_complex"
+  }
+}

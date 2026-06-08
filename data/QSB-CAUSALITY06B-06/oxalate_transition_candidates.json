@@ -1,0 +1,56 @@
+{
+  "reference_order_metadata_only": true,
+  "transition_candidate_bundle_id": "QSB-CAUSALITY06B-06_oxalate_transition_candidates",
+  "transition_candidates": [
+    {
+      "candidate_role": "reactants_to_encounter_chelation_ready",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": true,
+      "minimal_path_without_discrete_S3": false,
+      "reference_order_metadata_only": true,
+      "source_state_id": "OX01_S0",
+      "target_state_id": "OX01_S1",
+      "transition_id": "OX_T01"
+    },
+    {
+      "candidate_role": "encounter_to_doubly_chelated_bridge",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": true,
+      "minimal_path_without_discrete_S3": false,
+      "reference_order_metadata_only": true,
+      "source_state_id": "OX01_S1",
+      "target_state_id": "OX01_S2",
+      "transition_id": "OX_T02"
+    },
+    {
+      "candidate_role": "bridged_pre_ET_to_optional_post_ET",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": false,
+      "minimal_path_without_discrete_S3": false,
+      "reference_order_metadata_only": true,
+      "source_state_id": "OX01_S2",
+      "target_state_id": "OX01_S3",
+      "transition_id": "OX_T03"
+    },
+    {
+      "candidate_role": "optional_post_ET_to_primary_product",
+      "included_in_full_reference_path": true,
+      "included_in_minimal_reference_path": false,
+      "minimal_path_without_discrete_S3": false,
+      "reference_order_metadata_only": true,
+      "source_state_id": "OX01_S3",
+      "target_state_id": "OX01_S4",
+      "transition_id": "OX_T04"
+    },
+    {
+      "candidate_role": "minimal_path_bridged_pre_ET_to_primary_product",
+      "included_in_full_reference_path": false,
+      "included_in_minimal_reference_path": true,
+      "minimal_path_without_discrete_S3": true,
+      "reference_order_metadata_only": true,
+      "source_state_id": "OX01_S2",
+      "target_state_id": "OX01_S4",
+      "transition_id": "OX_T05"
+    }
+  ]
+}

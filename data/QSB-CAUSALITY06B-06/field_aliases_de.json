@@ -1,0 +1,102 @@
+{
+  "language_code": "de",
+  "view_name": "causality06b06_oxalate_transition_results_de",
+  "localized_aliases_used_as_logic_inputs": false,
+  "aliases": [
+    {
+      "canonical_field_name": "transition_id",
+      "display_alias": "Uebergangs-ID",
+      "display_description": "Kanonische Kennung des Oxalat-Uebergangskandidaten."
+    },
+    {
+      "canonical_field_name": "source_state_id",
+      "display_alias": "Quellzustand",
+      "display_description": "Kanonische Kennung des Ausgangszustands."
+    },
+    {
+      "canonical_field_name": "target_state_id",
+      "display_alias": "Zielzustand",
+      "display_description": "Kanonische Kennung des Zielzustands."
+    },
+    {
+      "canonical_field_name": "redox_consistent",
+      "display_alias": "Redoxbilanz konsistent",
+      "display_description": "Formale Redox-Konsistenz auf Donor-/Akzeptor-Rollenebene."
+    },
+    {
+      "canonical_field_name": "bridging_ligand_consistent",
+      "display_alias": "Brueckenligand konsistent",
+      "display_description": "Formale Konsistenz der Oxalat-Bruecken- und Produktbindungsmerkmale."
+    },
+    {
+      "canonical_field_name": "coordination_consistent",
+      "display_alias": "Koordination konsistent",
+      "display_description": "Formale Konsistenz von Assoziation und Koordinationszugaenglichkeit."
+    },
+    {
+      "canonical_field_name": "state_change_coherent",
+      "display_alias": "Zustandsaenderung kohaerent",
+      "display_description": "Mindestens ein kanonisches Chemiefeld aendert sich kohaerent."
+    },
+    {
+      "canonical_field_name": "forward_admissible",
+      "display_alias": "Vorwaertsuebergang zulaessig",
+      "display_description": "Formale Vorwaertszulaessigkeit unter den vier Regeln."
+    },
+    {
+      "canonical_field_name": "reverse_admissible",
+      "display_alias": "Rueckwaertsuebergang zulaessig",
+      "display_description": "Formale Rueckwaertszulaessigkeit unter denselben Regeln."
+    },
+    {
+      "canonical_field_name": "forward_transition_status",
+      "display_alias": "Status des Vorwaertsuebergangs",
+      "display_description": "Kanonischer Vorwaertsstatus."
+    },
+    {
+      "canonical_field_name": "direction_comparison_class",
+      "display_alias": "Klasse des Richtungsvergleichs",
+      "display_description": "Kanonische Vergleichsklasse aus Vorwaerts- und Rueckwaertspruefung."
+    },
+    {
+      "canonical_field_name": "transfer_class",
+      "display_alias": "Transferklasse",
+      "display_description": "Kanonische Klasse der Regeluebertragung."
+    },
+    {
+      "canonical_field_name": "case_specific_patch_required",
+      "display_alias": "Fallspezifische Ergaenzung erforderlich",
+      "display_description": "Gibt an, ob die Regelgruppe eine fallspezifische Ergaenzung benoetigt."
+    },
+    {
+      "canonical_field_name": "shared_core_description",
+      "display_alias": "Beschreibung des gemeinsamen Regelkerns",
+      "display_description": "Beschreibt den zwischen Chlorid- und Oxalatfall geteilten Regelkern."
+    },
+    {
+      "canonical_field_name": "case_specific_extension_description",
+      "display_alias": "Beschreibung der fallspezifischen Erweiterung",
+      "display_description": "Beschreibt ausdrueckliche Oxalat- oder Chelaterweiterungen."
+    },
+    {
+      "canonical_field_name": "classification_basis",
+      "display_alias": "Grundlage der Klassifikation",
+      "display_description": "Dokumentiert, worauf die Transferklassifikation beruht."
+    },
+    {
+      "canonical_field_name": "cross_case_comparison_mode",
+      "display_alias": "Modus des fallübergreifenden Vergleichs",
+      "display_description": "Kanonischer Modus des Cross-Case-Vergleichs."
+    },
+    {
+      "canonical_field_name": "automatic_rule_equivalence_analysis_performed",
+      "display_alias": "Automatische Regeläquivalenzanalyse durchgeführt",
+      "display_description": "Gibt an, ob eine automatische Regeläquivalenzanalyse durchgeführt wurde."
+    },
+    {
+      "canonical_field_name": "formal_rule_equivalence_proven",
+      "display_alias": "Formale Regeläquivalenz nachgewiesen",
+      "display_description": "Gibt an, ob formale Regeläquivalenz nachgewiesen wurde."
+    }
+  ]
+}
