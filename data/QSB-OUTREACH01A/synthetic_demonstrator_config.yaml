@@ -1,0 +1,76 @@
+{
+  "run_id": "QSB-OUTREACH01A-06_synthetic_demonstrator_v1",
+  "runner_version": "0.1.2",
+  "model_run_id": "outreach01a_synth_model_run_v1",
+  "model_version": "synthetic_similarity_v1",
+  "random_seed": 20260609,
+  "sequence_length": 40,
+  "window_length": 12,
+  "window_overlap": 6,
+  "tested_lags": [1, 2, 3, 4],
+  "noise_strength": 0.035,
+  "missing_observation_fraction": 0.2,
+  "minimum_valid_pairs": 4,
+  "minimal_lag_difference": 0.08,
+  "minimal_stable_window_fraction": 0.6,
+  "minimum_observed_fraction": 0.75,
+  "minimum_valid_window_fraction": 0.6,
+  "t_like_min_lag1_similarity": 0.85,
+  "t_like_max_lag_decay": 0.02,
+  "transformation_version": "outreach01a_synthetic_transform_v1",
+  "source_type": "synthetic",
+  "source_checksum_algorithm": "sha256",
+  "weights": {
+    "observable_value": 1.0
+  },
+  "cases": [
+    {
+      "case_id": "T_CONTROL",
+      "prompt_case_id": "T_PERIODIC_CONTROL",
+      "case_role": "t_periodic_control",
+      "expected_detection_family": "t_like_recurrence_supported",
+      "expected_control_outcome": "control_pass",
+      "history_representation_type": "finite_history_features"
+    },
+    {
+      "case_id": "T2_STABLE",
+      "prompt_case_id": "TWO_T_PERIODIC",
+      "case_role": "two_t_positive_control",
+      "expected_detection_family": "two_t_like_recurrence_supported",
+      "expected_control_outcome": "control_pass",
+      "history_representation_type": "finite_history_features"
+    },
+    {
+      "case_id": "T2_NOISY",
+      "prompt_case_id": "TWO_T_NOISY_STABLE",
+      "case_role": "two_t_noisy_positive_control",
+      "expected_detection_family": "two_t_like_recurrence_supported",
+      "expected_control_outcome": "control_pass",
+      "history_representation_type": "finite_history_features"
+    },
+    {
+      "case_id": "DRIFT_CONTROL",
+      "prompt_case_id": "DRIFT_CONTROL",
+      "case_role": "drift_control",
+      "expected_detection_family": "non_two_t_pattern",
+      "expected_control_outcome": "control_pass",
+      "history_representation_type": "finite_history_features"
+    },
+    {
+      "case_id": "MISSING_OBSERVATIONS",
+      "prompt_case_id": "MISSING_OBSERVATIONS",
+      "case_role": "missing_observation_control",
+      "expected_detection_family": "two_t_like_recurrence_supported",
+      "expected_control_outcome": "control_pass_with_missing_data_warning",
+      "history_representation_type": "finite_history_features"
+    },
+    {
+      "case_id": "FALSE_RECURRENCE_CONTROL",
+      "prompt_case_id": "FALSE_RECURRENCE_CONTROL",
+      "case_role": "false_recurrence_control",
+      "expected_detection_family": "non_two_t_pattern",
+      "expected_control_outcome": "control_pass",
+      "history_representation_type": "finite_history_features"
+    }
+  ]
+}
