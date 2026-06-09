@@ -1,0 +1,58 @@
+canonical_field_name,language_code,sql_alias,display_label,description,review_status
+event_instance_id,en,event_instance_id,Event instance ID,Unique historical event or state-instance identifier,reviewed
+event_instance_id,de,ereignisinstanz_id,Ereignisinstanz-ID,Eindeutige historische Ereignis- oder Zustandsinstanzkennung,reviewed
+event_instance_id,ca,identificador_instancia_esdeveniment,Identificador de la instància d’esdeveniment,Identificador unic de la instancia historica d'esdeveniment o estat,not_yet_reviewed
+state_descriptor_id,en,state_descriptor_id,State descriptor ID,Identifier for the represented state description,reviewed
+state_descriptor_id,de,zustandsbeschreibung_id,Zustandsbeschreibungs-ID,Kennung der dargestellten Zustandsbeschreibung,reviewed
+state_descriptor_id,ca,identificador_descriptor_estat,Identificador del descriptor d’estat,Identificador del descriptor d'estat representat,not_yet_reviewed
+state_id,en,state_id,State ID,Stable state identifier retained for compatibility,reviewed
+state_id,de,zustands_id,Zustands-ID,Stabile Zustandskennung zur Scaffold-Kompatibilitaet,reviewed
+state_id,ca,identificador_estat,Identificador d’estat,Identificador estable de l'estat,not_yet_reviewed
+source_record_id,en,source_record_id,Source record ID,Source observation identifier,reviewed
+source_record_id,de,quell_datensatz_id,Quelldatensatz-ID,Kennung des Quelldatensatzes,reviewed
+source_record_id,ca,identificador_registre_origen,Identificador del registre d’origen,Identificador del registre d'origen,not_yet_reviewed
+forcing_cycle_index,en,forcing_cycle_index,Forcing-cycle index,External forcing-cycle index,reviewed
+forcing_cycle_index,de,anregungszyklus_index,Anregungszyklus-Index,Index des aeusseren Anregungszyklus,reviewed
+forcing_cycle_index,ca,index_cicle_excitacio,Índex del cicle d’excitació,Index del cicle d'excitacio extern,not_yet_reviewed
+forcing_phase,en,forcing_phase,Forcing phase,External forcing phase,reviewed
+forcing_phase,de,anregungsphase,Anregungsphase,Phase der aeusseren Anregung,reviewed
+forcing_phase,ca,fase_excitacio,Fase d’excitació,Fase d'excitacio externa,not_yet_reviewed
+response_phase_class,en,response_phase_class,Response phase class,Response phase class,reviewed
+response_phase_class,de,antwortphasenklasse,Antwortphasenklasse,Klasse der Antwortphase,reviewed
+response_phase_class,ca,classe_fase_resposta,Classe de fase de resposta,Classe de fase de resposta,not_yet_reviewed
+observable_recurrence_class,en,observable_recurrence_class,Observable recurrence class,Observable recurrence class,reviewed
+observable_recurrence_class,de,beobachtbare_wiederkehrklasse,Beobachtbare Wiederkehrklasse,Klasse beobachtbarer Wiederkehr,reviewed
+observable_recurrence_class,ca,classe_recurrencia_observable,Classe de recurrència observable,Classe de recurrencia observable,not_yet_reviewed
+full_state_equivalence_class,en,full_state_equivalence_class,Descriptor equivalence class,Declared descriptor equivalence class,reviewed
+full_state_equivalence_class,de,vollzustands_aequivalenzklasse,Vollzustands-Aequivalenzklasse,Deklarierte Aequivalenzklasse der Zustandsbeschreibung,reviewed
+full_state_equivalence_class,ca,classe_equivalencia_estat_complet,Classe d’equivalència d’estat complet,Classe d'equivalencia de l'estat complet,not_yet_reviewed
+domain_label,en,domain_label,Domain label,Temporal domain label,reviewed
+domain_label,de,domaenenbezeichnung,Domaenenbezeichnung,Bezeichnung der zeitlichen Domaene,reviewed
+domain_label,ca,etiqueta_domini,Etiqueta del domini,Etiqueta del domini temporal,not_yet_reviewed
+background_state_type,en,background_state_type,Background state type,Operational background-state representation type,reviewed
+background_state_type,de,hintergrundzustand_typ,Hintergrundzustand-Typ,Operationale Repräsentationsart des Hintergrundzustands,reviewed
+background_state_type,ca,tipus_estat_fons,Tipus d’estat de fons,Tipus operacional de representacio de l'estat de fons,not_yet_reviewed
+background_state_json,en,background_state_json,Background state JSON,JSON payload for background or resource-state descriptor,reviewed
+background_state_json,de,hintergrundzustand_json,Hintergrundzustand-JSON,JSON-Nutzlast fuer Hintergrund- oder Ressourcenzustand,reviewed
+background_state_json,ca,json_estat_fons,JSON d’estat de fons,Carrega JSON per al descriptor d'estat de fons o recurs,not_yet_reviewed
+history_representation_type,en,history_representation_type,History representation type,Declared history representation type,reviewed
+history_representation_type,de,historienrepraesentation_typ,Historienrepraesentation-Typ,Deklarierte Art der Historiendarstellung,reviewed
+history_representation_type,ca,tipus_representacio_historia,Tipus de representació de la història,Tipus declarat de representacio de la historia,not_yet_reviewed
+history_descriptor_json,en,history_descriptor_json,History descriptor JSON,JSON payload for compressed or windowed history descriptor,reviewed
+history_descriptor_json,de,historiendeskriptor_json,Historiendeskriptor-JSON,JSON-Nutzlast fuer komprimierte oder gefensterte Historie,reviewed
+history_descriptor_json,ca,json_descriptor_historia,JSON del descriptor d’història,Carrega JSON per al descriptor comprimit o amb finestra de la historia,not_yet_reviewed
+history_window_start,en,history_window_start,History window start,Start of history window relative to event time,reviewed
+history_window_start,de,historienfenster_start,Historienfenster-Start,Start des Historienfensters relativ zur Ereigniszeit,reviewed
+history_window_start,ca,inici_finestra_historia,Inici de la finestra d’història,Inici de la finestra d'historia relativa al temps de l'esdeveniment,not_yet_reviewed
+history_window_end,en,history_window_end,History window end,End of history window relative to event time,reviewed
+history_window_end,de,historienfenster_ende,Historienfenster-Ende,Ende des Historienfensters relativ zur Ereigniszeit,reviewed
+history_window_end,ca,final_finestra_historia,Final de la finestra d’història,Final de la finestra d'historia relativa al temps de l'esdeveniment,not_yet_reviewed
+history_embedding_method,en,history_embedding_method,History embedding method,History embedding method if applicable,reviewed
+history_embedding_method,de,historienembedding_methode,Historienembedding-Methode,Historienembedding-Methode falls anwendbar,reviewed
+history_embedding_method,ca,metode_incrustacio_historia,Mètode d’incrustació d’història,Metode d'incrustacio d'historia si escau,not_yet_reviewed
+history_embedding_version,en,history_embedding_version,History embedding version,History embedding version if applicable,reviewed
+history_embedding_version,de,historienembedding_version,Historienembedding-Version,Historienembedding-Version falls anwendbar,reviewed
+history_embedding_version,ca,versio_incrustacio_historia,Versió d’incrustació d’història,Versio d'incrustacio d'historia si escau,not_yet_reviewed
+transformation_version,en,transformation_version,Transformation version,Applied transformation version,reviewed
+transformation_version,de,transformationsversion,Transformationsversion,Angewandte Transformationsversion,reviewed
+transformation_version,ca,versio_transformacio,Versió de la transformació,Versio de transformacio aplicada,not_yet_reviewed

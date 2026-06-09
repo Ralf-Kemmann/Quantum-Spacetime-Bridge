@@ -1,0 +1,62 @@
+{
+  "schema_name": "qsb_outreach01a",
+  "version": "0.2.0-draft",
+  "dwh_alignment": {
+    "repository_dwh_engine": "sqlite",
+    "source_scaffold_engine": "postgresql_oriented_draft",
+    "migration_execution_status": "not_executed",
+    "data_route": [
+      "raw",
+      "staging",
+      "harmonized",
+      "relational",
+      "analytical",
+      "presentation"
+    ],
+    "pair_logic": "symmetric_canonical_order",
+    "case_integrity_rule": "relational pairs carry outreach_case_id and use composite foreign keys to model_run and both states"
+  },
+  "enum_values": {
+    "history_representation_type": [
+      "none",
+      "finite_history_features",
+      "delay_window",
+      "embedded_history_vector"
+    ],
+    "pair_logic": [
+      "symmetric_canonical_order"
+    ],
+    "review_status": [
+      "reviewed",
+      "not_yet_reviewed"
+    ]
+  },
+  "raw_fields": [
+    {"name": "source_checksum", "type": "text", "description": "Source payload checksum, if available"},
+    {"name": "source_checksum_algorithm", "type": "text", "description": "Algorithm used for source_checksum, if available"}
+  ],
+  "state_view_fields": [
+    {"name": "event_instance_id", "type": "text", "description": "Unique historical event or state-instance identifier"},
+    {"name": "state_descriptor_id", "type": "text", "description": "Identifier for the represented state description"},
+    {"name": "state_id", "type": "text", "description": "Stable state identifier retained for compatibility with initial scaffold"},
+    {"name": "source_record_id", "type": "text", "description": "Lineage pointer to source observation"},
+    {"name": "forcing_cycle_index", "type": "integer", "description": "Index of external forcing cycle"},
+    {"name": "forcing_phase", "type": "real", "description": "External forcing phase"},
+    {"name": "response_phase_class", "type": "text", "description": "Assigned response/subharmonic phase class"},
+    {"name": "observable_recurrence_class", "type": "text", "description": "Equivalence class under selected observables"},
+    {"name": "full_state_equivalence_class", "type": "text", "description": "Declared descriptor equivalence class, if supported"},
+    {"name": "domain_label", "type": "text", "description": "Temporal domain or region label"},
+    {"name": "background_state_type", "type": "text", "description": "Operational background-state representation type"},
+    {"name": "background_state_json", "type": "text", "description": "JSON payload for background or resource-state descriptor"},
+    {"name": "history_representation_type", "type": "text", "description": "Declared history representation type"},
+    {"name": "history_descriptor_json", "type": "text", "description": "JSON payload for compressed or windowed history descriptor"},
+    {"name": "history_window_start", "type": "real", "description": "Start of history window relative to event time, if applicable"},
+    {"name": "history_window_end", "type": "real", "description": "End of history window relative to event time, if applicable"},
+    {"name": "history_embedding_method", "type": "text", "description": "History embedding method, if applicable"},
+    {"name": "history_embedding_version", "type": "text", "description": "History embedding version, if applicable"},
+    {"name": "transformation_version", "type": "text", "description": "Applied transformation version"}
+  ],
+  "model_run_fields": [
+    {"name": "model_version", "type": "text", "description": "Applied analytical model version stored at model-run level"}
+  ]
+}
