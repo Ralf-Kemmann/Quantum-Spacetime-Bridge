@@ -1,0 +1,54 @@
+{
+  "block_id": "QSB-CAUSALITY07-02",
+  "phase_rules_version": "state_space_angle_quantile_v1",
+  "phase_classification_mode": "heuristic_state_space_sector_classification",
+  "chemical_phase_identity_validated": false,
+  "phase_labels_are_functional_working_aliases": true,
+  "phase_regions": {
+    "BZ01_P0": "bromide_inhibited_region",
+    "BZ01_P1": "inhibitor_depletion_and_activation_region",
+    "BZ01_P2": "autocatalytic_oxidation_region",
+    "BZ01_P3": "oxidized_catalyst_and_recovery_region",
+    "BZ01_P4": "inhibitor_regeneration_region"
+  },
+  "phase_classification_feature_set": [
+    "robust_scaled_x",
+    "robust_scaled_z",
+    "state_space_angle_xz",
+    "local_x_minimum_angle_anchor"
+  ],
+  "unused_available_features_not_used_for_phase_classification": [
+    "y_inhibitor",
+    "dx_dt",
+    "dy_dt",
+    "dz_dt"
+  ],
+  "classification_method": {
+    "summary": "Post-transient x_activator and z_oxidized_catalyst samples are robustly centered and scaled. A local state-space angle is computed from the scaled x-z plane. The first post-transient local x minimum provides the angular anchor. Five equal angular sectors define heuristic functional working aliases, with confidence reduced near sector boundaries.",
+    "center_statistics": "post_transient_median",
+    "scale_statistics": "post_transient_interquartile_range",
+    "angle_variables": [
+      "x_activator",
+      "z_oxidized_catalyst"
+    ],
+    "orientation_source": "median_local_unwrapped_angle_increment",
+    "anchor_source": "local_x_minimum_angle_anchor",
+    "sector_count": 5,
+    "uses_fixed_time_windows": false,
+    "uses_cycle_index": false,
+    "uses_known_reference_order_as_truth": false
+  },
+  "guards": {
+    "phase_labels_used_as_direction_input": false,
+    "reference_cycle_order_used_as_direction_input": false,
+    "reference_cycle_order_used_for_cycle_segmentation": true,
+    "independent_cycle_order_reconstruction_performed": false,
+    "cycle_detection_scope": "reference_sequence_conditioned",
+    "cycle_index_used_as_direction_input": false,
+    "time_window_labels_used_as_phase_truth": false
+  },
+  "stable_segment_rules": {
+    "minimum_phase_dwell_samples_from_config": true,
+    "short_segments_are_merged_with_adjacent_longer_neighbor": true
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "block_id": "QSB-CAUSALITY07-02",
+  "canonical_field_names_remain_language_neutral": true,
+  "localized_aliases_used_as_logic_inputs": false,
+  "schema_change_required_for_new_language": false,
+  "aliases": {
+    "time": "Zeit",
+    "phase_region": "Zyklusphase",
+    "phase_confidence": "Vertrauen der Phasenzuordnung",
+    "cycle_index": "Zyklusnummer",
+    "cycle_duration": "Zyklusdauer",
+    "observable_state_similarity": "Beobachtbare Zustandsähnlichkeit",
+    "state_vector_distance": "Abstand des Modellzustandsvektors",
+    "resource_proxy_shift": "Verschiebung des Ressourcenindikators",
+    "return_to_recurrent_state_region": "Rückkehr in wiederkehrende Zustandsregion",
+    "full_chemical_state_identity": "Vollständige chemische Zustandsidentität",
+    "cycle_complete": "Zyklus vollständig",
+    "phase_classification_mode": "Modus der Phasenklassifikation",
+    "chemical_phase_identity_validated": "Chemische Phasenidentität validiert",
+    "phase_labels_are_functional_working_aliases": "Phasenbezeichnungen sind funktionelle Arbeitsaliase",
+    "normalized_state_distance_threshold": "Grenzwert des normierten Modellzustandsabstands",
+    "cycle_detection_scope": "Modus der Zykluserkennung",
+    "reference_cycle_order_used_for_cycle_segmentation": "Referenzzyklusfolge für Zyklussegmentierung verwendet",
+    "independent_cycle_order_reconstruction_performed": "Unabhängige Zyklusordnungsrekonstruktion durchgeführt"
+  }
+}
