@@ -1,0 +1,76 @@
+{
+  "language_code": "en",
+  "language_name": "English",
+  "field_aliases": {
+    "record_id": "Record ID",
+    "record_type": "Record type",
+    "state_class": "State class",
+    "dynamic_equivalence_class": "Dynamic equivalence class",
+    "temporal_phase_offset": "Temporal phase offset",
+    "drive_period_units": "Shift in drive periods",
+    "domain_id": "Domain ID",
+    "boundary_role": "Boundary role",
+    "observable_signature": "Observable signature",
+    "observable_similarity": "Observable similarity",
+    "full_state_identity": "Full-state identity",
+    "equivalence_basis": "Equivalence basis",
+    "uncertainty_status": "Uncertainty status",
+    "evidence_status": "Evidence status"
+  },
+  "value_aliases": {
+    "record_type": {
+      "state_configuration": "State configuration",
+      "boundary_configuration": "Boundary configuration"
+    },
+    "state_class": {
+      "DTC_EQUIVALENT_PAIR": "Dynamically equivalent state pair",
+      "DTC_BOUNDARY_CLASS": "Boundary-structure class"
+    },
+    "dynamic_equivalence_class": {
+      "DTC_EQ_CLASS_01": "Dynamic equivalence class 01",
+      "not_applicable": "Not applicable"
+    },
+    "temporal_phase_offset": {
+      "not_applicable": "Not applicable"
+    },
+    "drive_period_units": {
+      "not_applicable": "Not applicable"
+    },
+    "boundary_role": {
+      "none": "None",
+      "interface_between_equivalent_phase_shifted_domains": "Interface between equivalent phase-shifted domains"
+    },
+    "observable_similarity": {
+      "equivalent_class_with_phase_shift": "Same equivalence class with a phase shift",
+      "not_applicable": "Not applicable"
+    },
+    "full_state_identity": {
+      "self_identical_only": "Identical only to itself",
+      "distinct_record_not_identical_to_DTC_A": "Distinct record, not identical to DTC_A",
+      "distinct_boundary_record": "Distinct boundary record",
+      "not_assessed": "Not assessed"
+    },
+    "equivalence_basis": {
+      "declared_subharmonic_shift_equivalence": "Declared subharmonic shift equivalence",
+      "not_applicable": "Not applicable"
+    },
+    "uncertainty_status": {
+      "synthetic_definition_only": "Synthetic definition only",
+      "representation_choice_open": "Representation choice remains open",
+      "not_assessed": "Not assessed"
+    },
+    "evidence_status": {
+      "not_experimental": "Not experimental"
+    }
+  },
+  "presentation_metadata": {
+    "canonical_field_names_remain_language_neutral": true,
+    "canonical_controlled_values_remain_language_neutral": true,
+    "localized_field_aliases_used_as_logic_inputs": false,
+    "localized_value_aliases_used_as_logic_inputs": false,
+    "localized_aliases_used_as_keys": false,
+    "localized_aliases_used_in_joins": false,
+    "schema_change_required_for_new_language": false,
+    "logic_change_required_for_new_language": false
+  }
+}

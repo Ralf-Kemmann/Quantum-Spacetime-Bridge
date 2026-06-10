@@ -1,0 +1,76 @@
+{
+  "language_code": "es",
+  "language_name": "Spanish",
+  "field_aliases": {
+    "record_id": "ID del registro",
+    "record_type": "Tipo de registro",
+    "state_class": "Clase de estado",
+    "dynamic_equivalence_class": "Clase de equivalencia dinámica",
+    "temporal_phase_offset": "Desfase temporal",
+    "drive_period_units": "Desplazamiento en períodos de excitación",
+    "domain_id": "ID del dominio",
+    "boundary_role": "Función de la frontera",
+    "observable_signature": "Firma observable",
+    "observable_similarity": "Similitud observable",
+    "full_state_identity": "Identidad completa del estado",
+    "equivalence_basis": "Base de la equivalencia",
+    "uncertainty_status": "Estado de incertidumbre",
+    "evidence_status": "Estado de evidencia"
+  },
+  "value_aliases": {
+    "record_type": {
+      "state_configuration": "Configuración de estado",
+      "boundary_configuration": "Configuración de frontera"
+    },
+    "state_class": {
+      "DTC_EQUIVALENT_PAIR": "Par de estados dinámicamente equivalentes",
+      "DTC_BOUNDARY_CLASS": "Clase de estructura de frontera"
+    },
+    "dynamic_equivalence_class": {
+      "DTC_EQ_CLASS_01": "Clase de equivalencia dinámica 01",
+      "not_applicable": "No aplicable"
+    },
+    "temporal_phase_offset": {
+      "not_applicable": "No aplicable"
+    },
+    "drive_period_units": {
+      "not_applicable": "No aplicable"
+    },
+    "boundary_role": {
+      "none": "Ninguna",
+      "interface_between_equivalent_phase_shifted_domains": "Interfaz entre dominios equivalentes con desfase"
+    },
+    "observable_similarity": {
+      "equivalent_class_with_phase_shift": "Misma clase de equivalencia con desfase",
+      "not_applicable": "No aplicable"
+    },
+    "full_state_identity": {
+      "self_identical_only": "Idéntico únicamente a sí mismo",
+      "distinct_record_not_identical_to_DTC_A": "Registro distinto, no idéntico a DTC_A",
+      "distinct_boundary_record": "Registro de frontera independiente",
+      "not_assessed": "No evaluado"
+    },
+    "equivalence_basis": {
+      "declared_subharmonic_shift_equivalence": "Equivalencia subarmónica declarada por desplazamiento",
+      "not_applicable": "No aplicable"
+    },
+    "uncertainty_status": {
+      "synthetic_definition_only": "Definición sintética únicamente",
+      "representation_choice_open": "La elección de representación permanece abierta",
+      "not_assessed": "No evaluado"
+    },
+    "evidence_status": {
+      "not_experimental": "No experimental"
+    }
+  },
+  "presentation_metadata": {
+    "canonical_field_names_remain_language_neutral": true,
+    "canonical_controlled_values_remain_language_neutral": true,
+    "localized_field_aliases_used_as_logic_inputs": false,
+    "localized_value_aliases_used_as_logic_inputs": false,
+    "localized_aliases_used_as_keys": false,
+    "localized_aliases_used_in_joins": false,
+    "schema_change_required_for_new_language": false,
+    "logic_change_required_for_new_language": false
+  }
+}
