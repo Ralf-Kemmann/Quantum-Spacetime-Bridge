@@ -1,0 +1,73 @@
+{
+  "demonstrator_id": "OUTREACH01A_DTC_DEMO01",
+  "canonical_field_names_remain_language_neutral": true,
+  "canonical_controlled_values_remain_language_neutral": true,
+  "localized_field_aliases_used_as_logic_inputs": false,
+  "localized_value_aliases_used_as_logic_inputs": false,
+  "localized_aliases_used_as_logic_inputs": false,
+  "localized_aliases_used_as_keys": false,
+  "localized_aliases_used_in_joins": false,
+  "schema_change_required_for_new_language": false,
+  "aliases": {
+    "record_id": "Record-ID",
+    "record_type": "Record-Typ",
+    "state_class": "Zustandsklasse",
+    "dynamic_equivalence_class": "Klasse der dynamischen Äquivalenz",
+    "temporal_phase_offset": "Zeitliche Phasenverschiebung",
+    "drive_period_units": "Verschiebung in Antriebsperioden",
+    "domain_id": "Domänen-ID",
+    "boundary_role": "Rolle der Grenzstruktur",
+    "observable_signature": "Beobachtbare Signatur",
+    "observable_similarity": "Beobachtbare Ähnlichkeit",
+    "full_state_identity": "Vollständige Zustandsidentität",
+    "equivalence_basis": "Grundlage der Äquivalenz",
+    "uncertainty_status": "Unsicherheitsstatus",
+    "evidence_status": "Evidenzstatus"
+  },
+  "value_aliases": {
+    "record_type": {
+      "state_configuration": "Zustandskonfiguration",
+      "boundary_configuration": "Grenzkonfiguration"
+    },
+    "state_class": {
+      "DTC_EQUIVALENT_PAIR": "Paar dynamisch äquivalenter Zustände",
+      "DTC_BOUNDARY_CLASS": "Grenzstrukturklasse"
+    },
+    "dynamic_equivalence_class": {
+      "DTC_EQ_CLASS_01": "Dynamische Äquivalenzklasse 01",
+      "not_applicable": "nicht anwendbar"
+    },
+    "temporal_phase_offset": {
+      "not_applicable": "nicht anwendbar"
+    },
+    "drive_period_units": {
+      "not_applicable": "nicht anwendbar"
+    },
+    "boundary_role": {
+      "none": "keine",
+      "interface_between_equivalent_phase_shifted_domains": "Grenze zwischen äquivalenten phasenverschobenen Domänen"
+    },
+    "observable_similarity": {
+      "equivalent_class_with_phase_shift": "gleiche Äquivalenzklasse mit Phasenverschiebung",
+      "not_applicable": "nicht anwendbar"
+    },
+    "full_state_identity": {
+      "self_identical_only": "nur mit sich selbst identisch",
+      "distinct_record_not_identical_to_DTC_A": "eigener Record, nicht identisch mit DTC_A",
+      "distinct_boundary_record": "eigenständiger Grenzrecord",
+      "not_assessed": "nicht bewertet"
+    },
+    "equivalence_basis": {
+      "declared_subharmonic_shift_equivalence": "deklarierte subharmonische Verschiebungsäquivalenz",
+      "not_applicable": "nicht anwendbar"
+    },
+    "uncertainty_status": {
+      "synthetic_definition_only": "ausschließlich synthetisch definiert",
+      "representation_choice_open": "Repräsentationswahl offen",
+      "not_assessed": "nicht bewertet"
+    },
+    "evidence_status": {
+      "not_experimental": "nicht experimentell"
+    }
+  }
+}

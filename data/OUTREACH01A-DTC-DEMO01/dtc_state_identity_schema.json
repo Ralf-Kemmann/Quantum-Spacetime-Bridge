@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qsb.local/schemas/outreach01a-dtc-demo01-state-identity.schema.json",
+  "title": "OUTREACH01A-DTC-DEMO01 synthetic state identity records",
+  "type": "object",
+  "required": [
+    "demonstrator_id",
+    "data_status",
+    "models_reported_laser_experiment",
+    "experimental_data_used",
+    "physical_prediction_present",
+    "time_crystal_mechanism_explained",
+    "contact_message_present",
+    "contact_sent",
+    "records"
+  ],
+  "properties": {
+    "demonstrator_id": { "const": "OUTREACH01A_DTC_DEMO01" },
+    "data_status": { "const": "synthetic_method_demonstrator" },
+    "models_reported_laser_experiment": { "const": false },
+    "experimental_data_used": { "const": false },
+    "physical_prediction_present": { "const": false },
+    "time_crystal_mechanism_explained": { "const": false },
+    "contact_message_present": { "const": false },
+    "contact_sent": { "const": false },
+    "observable_similarity_implies_full_state_identity": { "const": false },
+    "dynamic_equivalence_implies_record_identity": { "const": false },
+    "phase_shifted_equivalence_implies_same_domain": { "const": false },
+    "records": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/dtc_state_identity_record" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "controls": {
+      "type": "object",
+      "required": [
+        "synthetic_record",
+        "real_system_equivalence_claimed",
+        "experimental_support_claimed",
+        "physical_prediction_present",
+        "used_as_contact_question_carrier"
+      ],
+      "properties": {
+        "synthetic_record": { "const": true },
+        "real_system_equivalence_claimed": { "const": false },
+        "experimental_support_claimed": { "const": false },
+        "physical_prediction_present": { "const": false },
+        "used_as_contact_question_carrier": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "dtc_state_identity_record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "record_type",
+        "state_class",
+        "dynamic_equivalence_class",
+        "temporal_phase_offset",
+        "drive_period_units",
+        "domain_id",
+        "boundary_role",
+        "observable_signature",
+        "observable_similarity",
+        "full_state_identity",
+        "equivalence_basis",
+        "uncertainty_status",
+        "evidence_status",
+        "demonstrator_controls"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "enum": ["DTC_A", "DTC_B", "BOUNDARY_AB"]
+        },
+        "record_type": {
+          "type": "string",
+          "enum": ["state_configuration", "boundary_configuration"]
+        },
+        "state_class": { "type": "string" },
+        "dynamic_equivalence_class": { "type": "string" },
+        "temporal_phase_offset": {
+          "oneOf": [{ "type": "number" }, { "const": "not_applicable" }]
+        },
+        "drive_period_units": {
+          "oneOf": [{ "type": "number" }, { "const": "not_applicable" }]
+        },
+        "domain_id": { "type": "string" },
+        "boundary_role": { "type": "string" },
+        "observable_signature": { "type": "string" },
+        "observable_similarity": {
+          "type": "string",
+          "enum": ["equivalent_class_with_phase_shift", "not_applicable"]
+        },
+        "full_state_identity": {
+          "type": "string",
+          "enum": [
+            "self_identical_only",
+            "distinct_record_not_identical_to_DTC_A",
+            "distinct_boundary_record",
+            "not_assessed"
+          ]
+        },
+        "equivalence_basis": { "type": "string" },
+        "uncertainty_status": {
+          "type": "string",
+          "enum": ["synthetic_definition_only", "representation_choice_open", "not_assessed"]
+        },
+        "evidence_status": {
+          "type": "string",
+          "enum": ["not_experimental"]
+        },
+        "demonstrator_controls": { "$ref": "#/$defs/controls" }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": { "record_type": { "const": "state_configuration" } },
+            "required": ["record_type"]
+          },
+          "then": {
+            "properties": {
+              "boundary_role": { "const": "none" },
+              "temporal_phase_offset": { "type": "number" },
+              "drive_period_units": { "type": "number" }
+            },
+            "not": {
+              "properties": { "dynamic_equivalence_class": { "const": "not_applicable" } },
+              "required": ["dynamic_equivalence_class"]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "record_type": { "const": "boundary_configuration" } },
+            "required": ["record_type"]
+          },
+          "then": {
+            "properties": {
+              "temporal_phase_offset": { "const": "not_applicable" },
+              "drive_period_units": { "const": "not_applicable" },
+              "dynamic_equivalence_class": { "const": "not_applicable" }
+            },
+            "not": {
+              "properties": { "boundary_role": { "const": "none" } },
+              "required": ["boundary_role"]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "record_id": { "const": "DTC_A" } },
+            "required": ["record_id"]
+          },
+          "then": {
+            "properties": {
+              "temporal_phase_offset": { "const": 0 },
+              "drive_period_units": { "const": 0 },
+              "domain_id": { "const": "DOMAIN_A" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "record_id": { "const": "DTC_B" } },
+            "required": ["record_id"]
+          },
+          "then": {
+            "properties": {
+              "temporal_phase_offset": { "const": 1 },
+              "drive_period_units": { "const": 1 },
+              "domain_id": { "const": "DOMAIN_B" },
+              "dynamic_equivalence_class": { "const": "DTC_EQ_CLASS_01" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "record_id": { "const": "BOUNDARY_AB" } },
+            "required": ["record_id"]
+          },
+          "then": {
+            "properties": {
+              "domain_id": { "const": "DOMAIN_A__DOMAIN_B" },
+              "boundary_role": { "const": "interface_between_equivalent_phase_shifted_domains" },
+              "uncertainty_status": { "const": "representation_choice_open" }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "demonstrator_id": "OUTREACH01A_DTC_DEMO01",
+  "data_status": "synthetic_method_demonstrator",
+  "models_reported_laser_experiment": false,
+  "experimental_data_used": false,
+  "physical_prediction_present": false,
+  "time_crystal_mechanism_explained": false,
+  "contact_message_present": false,
+  "contact_sent": false,
+  "observable_similarity_implies_full_state_identity": false,
+  "dynamic_equivalence_implies_record_identity": false,
+  "phase_shifted_equivalence_implies_same_domain": false,
+  "records": [
+    {
+      "record_id": "DTC_A",
+      "record_type": "state_configuration",
+      "state_class": "DTC_EQUIVALENT_PAIR",
+      "dynamic_equivalence_class": "DTC_EQ_CLASS_01",
+      "temporal_phase_offset": 0,
+      "drive_period_units": 0,
+      "domain_id": "DOMAIN_A",
+      "boundary_role": "none",
+      "observable_signature": "SYNTHETIC_SIGNATURE_A",
+      "observable_similarity": "equivalent_class_with_phase_shift",
+      "full_state_identity": "self_identical_only",
+      "equivalence_basis": "declared_subharmonic_shift_equivalence",
+      "uncertainty_status": "synthetic_definition_only",
+      "evidence_status": "not_experimental",
+      "demonstrator_controls": {
+        "synthetic_record": true,
+        "real_system_equivalence_claimed": false,
+        "experimental_support_claimed": false,
+        "physical_prediction_present": false,
+        "used_as_contact_question_carrier": true
+      }
+    },
+    {
+      "record_id": "DTC_B",
+      "record_type": "state_configuration",
+      "state_class": "DTC_EQUIVALENT_PAIR",
+      "dynamic_equivalence_class": "DTC_EQ_CLASS_01",
+      "temporal_phase_offset": 1,
+      "drive_period_units": 1,
+      "domain_id": "DOMAIN_B",
+      "boundary_role": "none",
+      "observable_signature": "SYNTHETIC_SIGNATURE_B",
+      "observable_similarity": "equivalent_class_with_phase_shift",
+      "full_state_identity": "distinct_record_not_identical_to_DTC_A",
+      "equivalence_basis": "declared_subharmonic_shift_equivalence",
+      "uncertainty_status": "synthetic_definition_only",
+      "evidence_status": "not_experimental",
+      "demonstrator_controls": {
+        "synthetic_record": true,
+        "real_system_equivalence_claimed": false,
+        "experimental_support_claimed": false,
+        "physical_prediction_present": false,
+        "used_as_contact_question_carrier": true
+      }
+    },
+    {
+      "record_id": "BOUNDARY_AB",
+      "record_type": "boundary_configuration",
+      "state_class": "DTC_BOUNDARY_CLASS",
+      "dynamic_equivalence_class": "not_applicable",
+      "temporal_phase_offset": "not_applicable",
+      "drive_period_units": "not_applicable",
+      "domain_id": "DOMAIN_A__DOMAIN_B",
+      "boundary_role": "interface_between_equivalent_phase_shifted_domains",
+      "observable_signature": "SYNTHETIC_BOUNDARY_SIGNATURE",
+      "observable_similarity": "not_applicable",
+      "full_state_identity": "distinct_boundary_record",
+      "equivalence_basis": "not_applicable",
+      "uncertainty_status": "representation_choice_open",
+      "evidence_status": "not_experimental",
+      "demonstrator_controls": {
+        "synthetic_record": true,
+        "real_system_equivalence_claimed": false,
+        "experimental_support_claimed": false,
+        "physical_prediction_present": false,
+        "used_as_contact_question_carrier": true
+      }
+    }
+  ],
+  "method_statements": [
+    "DTC_A and DTC_B share one dynamic equivalence class.",
+    "DTC_A and DTC_B are not the same record.",
+    "DTC_A and DTC_B differ by one drive period in temporal phase offset.",
+    "DTC_A and DTC_B belong to different domains.",
+    "BOUNDARY_AB is represented as a separate boundary record.",
+    "The boundary representation is a modelling choice, not an experimentally validated ontology."
+  ],
+  "leakage_controls": {
+    "target_group_identity_used_as_logic_input": false,
+    "localized_aliases_used_as_logic_inputs": false,
+    "preferred_boundary_representation_forced": false
+  }
+}
