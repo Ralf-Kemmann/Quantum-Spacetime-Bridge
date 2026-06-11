@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Figura sintética de identidad de estado para DTC_A, DTC_B y BOUNDARY_AB</title>
+  <desc id="desc">DTC_A y DTC_B comparten una clase de equivalencia dinámica declarada y siguen siendo registros distintos con posiciones de fase y dominios diferentes. BOUNDARY_AB se muestra como opción abierta de representación de frontera.</desc>
+  <rect x="1" y="1" width="1198" height="618" fill="#f7f7f4" stroke="#333333" stroke-width="2"/>
+  <text x="600" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#1f2933">Clase de equivalencia dinámica declarada: DTC_EQ_CLASS_01</text>
+  <rect x="90" y="70" width="1020" height="385" rx="16" fill="#ffffff" stroke="#4b5563" stroke-width="3"/>
+  <text x="600" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#374151">clase compartida, registros distintos, fases y dominios diferentes</text>
+
+  <rect x="145" y="155" width="300" height="215" rx="12" fill="#e8f0f2" stroke="#2f4f5f" stroke-width="3"/>
+  <text x="295" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2933">DTC_A</text>
+  <text x="295" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Identidad: DTC_A</text>
+  <text x="295" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Posición de fase: 0T</text>
+  <text x="295" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Dominio: DOMAIN_A</text>
+  <text x="295" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#4b5563">configuración de estado</text>
+
+  <rect x="755" y="155" width="300" height="215" rx="12" fill="#f0ece4" stroke="#6b5b2e" stroke-width="3"/>
+  <text x="905" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2933">DTC_B</text>
+  <text x="905" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Identidad: DTC_B</text>
+  <text x="905" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Posición de fase: 1T</text>
+  <text x="905" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Dominio: DOMAIN_B</text>
+  <text x="905" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#4b5563">configuración de estado</text>
+
+  <rect x="500" y="175" width="200" height="175" rx="6" fill="#ece8f2" stroke="#4c3f63" stroke-width="3" stroke-dasharray="9 7"/>
+  <text x="600" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2933">BOUNDARY_AB</text>
+  <text x="600" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#1f2933">entre dominios</text>
+  <text x="600" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2933">no está en</text>
+  <text x="600" y="294" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1f2933">DTC_EQ_CLASS_01</text>
+  <text x="600" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4c3f63">opción abierta</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4c3f63">de representación</text>
+
+  <line x1="445" y1="260" x2="500" y2="260" stroke="#6b7280" stroke-width="3"/>
+  <line x1="700" y1="260" x2="755" y2="260" stroke="#6b7280" stroke-width="3"/>
+
+  <text x="600" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1f2933">Lectura: equivalencia compartida → registros distintos → fases 0T/1T → dominios → frontera abierta</text>
+  <text x="600" y="548" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#4b5563">Demostrador sintético; sin datos experimentales, sin modelo láser, sin predicción física.</text>
+</svg>

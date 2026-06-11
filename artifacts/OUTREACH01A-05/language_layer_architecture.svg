@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Language-layer architecture over one canonical dataset</title>
+  <desc id="desc">One canonical dataset feeds English and Spanish presentation views. Both use the same records, canonical values, logic and validation; only human-readable labels differ.</desc>
+  <rect x="1" y="1" width="898" height="428" fill="#f8f8f5" stroke="#333333" stroke-width="2"/>
+  <rect x="315" y="40" width="270" height="74" rx="10" fill="#ffffff" stroke="#374151" stroke-width="2"/>
+  <text x="450" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1f2933">One canonical dataset</text>
+  <text x="450" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">DTC_A · DTC_B · BOUNDARY_AB</text>
+  <line x1="450" y1="114" x2="450" y2="160" stroke="#4b5563" stroke-width="2"/>
+  <line x1="275" y1="160" x2="625" y2="160" stroke="#4b5563" stroke-width="2"/>
+  <line x1="275" y1="160" x2="275" y2="205" stroke="#4b5563" stroke-width="2"/>
+  <line x1="625" y1="160" x2="625" y2="205" stroke="#4b5563" stroke-width="2"/>
+  <rect x="120" y="205" width="310" height="82" rx="10" fill="#e8f0f2" stroke="#2f4f5f" stroke-width="2"/>
+  <text x="275" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#1f2933">English presentation view</text>
+  <text x="275" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">field and value aliases only</text>
+  <rect x="470" y="205" width="310" height="82" rx="10" fill="#f0ece4" stroke="#6b5b2e" stroke-width="2"/>
+  <text x="625" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#1f2933">Spanish presentation view</text>
+  <text x="625" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#4b5563">field and value aliases only</text>
+  <rect x="155" y="330" width="590" height="58" rx="8" fill="#ffffff" stroke="#6b7280" stroke-width="2"/>
+  <text x="450" y="354" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#1f2933">same records · same canonical values · same logic · same validation</text>
+  <text x="450" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#1f2933">different human-readable labels only</text>
+</svg>

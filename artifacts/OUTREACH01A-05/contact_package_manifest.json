@@ -1,0 +1,119 @@
+{
+  "package_id": "OUTREACH01A_CONTACT_PACKAGE_V1",
+  "outreach_id": "OUTREACH01A-05",
+  "package_title": "Visible Contact Figure and Contact-Package Assembly",
+  "package_status": "assembled_not_released",
+  "canonical_source_dataset": "data/OUTREACH01A-DTC-DEMO01/dtc_state_identity_records.json",
+  "canonical_source_validation": "data/OUTREACH01A-DTC-DEMO01/dtc_state_identity_records.schema.json",
+  "language_variants": [
+    "en",
+    "es"
+  ],
+  "primary_language": "en",
+  "secondary_language": "es",
+  "visible_figure_files": [
+    "artifacts/OUTREACH01A-05/contact_figure_en.svg",
+    "artifacts/OUTREACH01A-05/contact_figure_es.svg",
+    "artifacts/OUTREACH01A-05/language_layer_architecture.svg"
+  ],
+  "technical_note_files": [
+    "artifacts/OUTREACH01A-05/technical_note_en.md",
+    "artifacts/OUTREACH01A-05/technical_note_es.md"
+  ],
+  "compact_table_files": [
+    "artifacts/OUTREACH01A-05/compact_table_en.md",
+    "artifacts/OUTREACH01A-05/compact_table_es.md"
+  ],
+  "preview_files": [
+    "artifacts/OUTREACH01A-05/preview_en.md",
+    "artifacts/OUTREACH01A-05/preview_es.md"
+  ],
+  "contact_message_present": false,
+  "contact_message_drafting_allowed": false,
+  "contact_send_allowed": false,
+  "user_release_required_before_send": true,
+  "red_team_review_required": true,
+  "package_ready_for_red_team": true,
+  "package_ready_for_send": false,
+  "models_reported_laser_experiment": false,
+  "experimental_data_used": false,
+  "physical_prediction_present": false,
+  "time_crystal_mechanism_explained": false,
+  "boundary_representation_status": "open_modelling_option",
+  "personal_style_reference_applied": true,
+  "style_reference_scope": "rhythm_transitions_human_tone_explanatory_flow",
+  "source_content_from_style_reference_used": false,
+  "automatic_generic_phrase_scan_performed": true,
+  "manual_style_review_required": false,
+  "generic_ai_pattern_review_performed": true,
+  "generic_ai_pattern_hits_en": [],
+  "generic_ai_pattern_hits_es": [],
+  "generic_ai_pattern_hits_readme": [],
+  "style_localization_changes_canonical_content": false,
+  "style_localization_changes_claim_boundaries": false,
+  "style_localization_changes_technical_questions": false,
+  "manual_visual_review_performed": true,
+  "manual_visual_review_passed": true,
+  "manual_visual_review_required": false,
+  "visual_review_attestation_id": "OUTREACH01A05_VISUAL_REVIEW_REAL_001",
+  "style_review_attestation_id": "OUTREACH01A05_STYLE_REVIEW_REAL_001",
+  "visual_review_attestation_external": true,
+  "style_review_attestation_external": true,
+  "file_hashes": {
+    "contact_figure_en.svg": "d6492f5cd3a4c469d6c2b93e579def244ec4ff4afaabe03a4e4a26b0662ef7d0",
+    "contact_figure_es.svg": "2a15d9087015aaf08c879311d4d4b64f0c2b26b8ae61da42ab6bc3c3b1c99a61",
+    "language_layer_architecture.svg": "da89bdd850096ac5e445f276eb9acc2828ac8d62befcade6578be2a4503d9c3a",
+    "technical_note_en.md": "e089871266029b420e17578069b69333ba372030b2bb2533f3a1e79ccd24e366",
+    "technical_note_es.md": "ceae4f67fe4aa4ced83e965aee38afaa478951e7cfbd3389131c52ec39d1cbdf",
+    "compact_table_en.md": "105b6bb4cb30d0d0a09fe3ae9ee5cb3a736d2377f3f5efb12aacd16b123a37bf",
+    "compact_table_es.md": "419a4f88864b9e7c5fdf7438f89e6413d39777550917094ce79026d26b853773"
+  },
+  "visible_artifacts": [
+    {
+      "path": "artifacts/OUTREACH01A-05/contact_figure_en.svg",
+      "type": "svg",
+      "role": "main_state_identity_figure_en",
+      "sha256": "d6492f5cd3a4c469d6c2b93e579def244ec4ff4afaabe03a4e4a26b0662ef7d0"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/contact_figure_es.svg",
+      "type": "svg",
+      "role": "main_state_identity_figure_es",
+      "sha256": "2a15d9087015aaf08c879311d4d4b64f0c2b26b8ae61da42ab6bc3c3b1c99a61"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/language_layer_architecture.svg",
+      "type": "svg",
+      "role": "cross_language_architecture_figure",
+      "sha256": "da89bdd850096ac5e445f276eb9acc2828ac8d62befcade6578be2a4503d9c3a"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/technical_note_en.md",
+      "type": "markdown",
+      "role": "full_two_page_technical_note",
+      "source": "reviewed_OUTREACH01A_04_note",
+      "sha256": "e089871266029b420e17578069b69333ba372030b2bb2533f3a1e79ccd24e366"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/technical_note_es.md",
+      "type": "markdown",
+      "role": "full_two_page_technical_note",
+      "source": "reviewed_OUTREACH01A_04_note",
+      "sha256": "ceae4f67fe4aa4ced83e965aee38afaa478951e7cfbd3389131c52ec39d1cbdf"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/compact_table_en.md",
+      "type": "markdown",
+      "role": "compact_three_record_table_en",
+      "sha256": "105b6bb4cb30d0d0a09fe3ae9ee5cb3a736d2377f3f5efb12aacd16b123a37bf"
+    },
+    {
+      "path": "artifacts/OUTREACH01A-05/compact_table_es.md",
+      "type": "markdown",
+      "role": "compact_three_record_table_es",
+      "sha256": "419a4f88864b9e7c5fdf7438f89e6413d39777550917094ce79026d26b853773"
+    }
+  ],
+  "final_status": "visible_contact_figure_and_contact_package_assembled",
+  "claim_boundary": "The package is a synthetic contact demonstrator view. Visual elements summarize only the declared canonical records and add no experimental, causal, predictive, or physical-emergence claim."
+}
