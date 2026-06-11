@@ -1,0 +1,41 @@
+[
+  {
+    "profile_id": "GITHUB_PROFILE",
+    "profile_type": "GitHub",
+    "display_name": "Ralf-Kemmann",
+    "url": "https://github.com/Ralf-Kemmann",
+    "publicly_accessible": true,
+    "identity_match_status": "confirmed",
+    "content_relevance": "public_code_repository_and_reproducible_project_structure",
+    "direct_url_used": true,
+    "generic_homepage_used": false,
+    "last_checked_date": "2026-06-11",
+    "source_note": "Direct public GitHub profile URL used as contact-package context."
+  },
+  {
+    "profile_id": "GITHUB_QSB_REPOSITORY",
+    "profile_type": "GitHubRepository",
+    "display_name": "Ralf-Kemmann/Quantum-Spacetime-Bridge",
+    "url": "https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge",
+    "publicly_accessible": true,
+    "identity_match_status": "confirmed",
+    "content_relevance": "primary_public_repository_for_QSB_code_specs_and_run_oriented_documentation",
+    "direct_url_used": true,
+    "generic_homepage_used": false,
+    "last_checked_date": "2026-06-11",
+    "source_note": "Direct public QSB repository URL was checked and shows the project structure, scripts, data, docs and run-oriented repository layout."
+  },
+  {
+    "profile_id": "ACADEMIA_PROFILE",
+    "profile_type": "Academia",
+    "display_name": "Ralf M. Kemmann",
+    "url": "https://independent.academia.edu/RalfKemmann",
+    "publicly_accessible": true,
+    "identity_match_status": "confirmed",
+    "content_relevance": "public_research_notes_and_author_context",
+    "direct_url_used": true,
+    "generic_homepage_used": false,
+    "last_checked_date": "2026-06-11",
+    "source_note": "Direct public Academia profile URL was checked and retained as a publication and author-context trace."
+  }
+]
