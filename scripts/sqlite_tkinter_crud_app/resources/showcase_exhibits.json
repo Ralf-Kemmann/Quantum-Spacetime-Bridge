@@ -1,0 +1,349 @@
+{
+  "version": "QSB-GUI01G",
+  "default_exhibit_id": "causality07_reaction_cycle",
+  "overview": {
+    "tab_title": {"de": "Überblick", "en": "Overview"},
+    "title": {"de": "QSB Research Data Browser", "en": "QSB Research Data Browser"},
+    "subtitle": {
+      "de": "Forschungsdaten, Metadaten und Herkunftsnachweise",
+      "en": "Research data, metadata, and provenance"
+    },
+    "introduction": {
+      "de": "QSB-CAUSALITY07 untersucht strukturierte Reihenfolge, Rückkopplung und kontrollierte Dynamik an einem nichtlinearen Reaktionsmodell.",
+      "en": "QSB-CAUSALITY07 examines structured order, feedback, and controlled dynamics in a nonlinear reaction model."
+    },
+    "image_resource": "qsb_causality07_exhibition_overview.png",
+    "image_caption": {
+      "de": "Visueller Einstieg in die fünf CAUSALITY07-Exponate.",
+      "en": "Visual entry point into the five CAUSALITY07 exhibits."
+    },
+    "fallback_text": {
+      "de": "Die visuelle Übersicht ist in dieser Installation nicht verfügbar.",
+      "en": "The visual overview is not available in this installation."
+    },
+    "exhibit_card_order": [
+      "causality07_reaction_cycle",
+      "cycle_control_runs",
+      "results_boundaries",
+      "physical_quantities",
+      "open_questions"
+    ],
+    "status_strip_fields": [
+      "mart",
+      "work_packages",
+      "snapshot_status",
+      "read_only",
+      "creation_timestamp",
+      "checksum_match"
+    ],
+    "status_labels": {
+      "mart": {"de": "Datamart", "en": "Datamart"},
+      "work_packages": {"de": "Arbeitspakete", "en": "Work packages"},
+      "snapshot_status": {"de": "Snapshot geprüft", "en": "Snapshot verified"},
+      "read_only": {"de": "Nur Lesen", "en": "Read-only"},
+      "creation_timestamp": {"de": "Snapshot-Zeit", "en": "Snapshot time"},
+      "checksum_match": {"de": "Checksumme", "en": "Checksum"}
+    },
+    "status_values": {
+      "read_only": {"de": "aktiv", "en": "active"},
+      "checksum_match_true": {"de": "Quelle und Snapshot stimmen überein", "en": "source and snapshot match"},
+      "checksum_match_false": {"de": "Prüfung offen", "en": "check open"}
+    },
+    "expert_navigation_target": "Fachprüfung"
+  },
+  "empty_state": {
+    "de": "Für dieses Exponat sind im aktuellen Snapshot noch keine geeigneten Daten registriert.",
+    "en": "The current snapshot does not yet contain suitable data for this exhibit."
+  },
+  "reaction_empty_state": {
+    "de": "Für CAUSALITY07 ist im aktuellen Snapshot noch keine quellenbelegte Reaktionsgleichung oder kein quellenbelegtes Reaktionsschema registriert.",
+    "en": "The current snapshot does not yet contain a source-supported reaction equation or reaction scheme for CAUSALITY07."
+  },
+  "group_labels": {
+    "supported": {"de": "Gestützt", "en": "Supported"},
+    "qualified": {"de": "Qualifiziert", "en": "Qualified"},
+    "limited": {"de": "Begrenzt", "en": "Limited"},
+    "contradictory": {"de": "Widersprechend", "en": "Contradictory"},
+    "unresolved": {"de": "Ungeklärt", "en": "Unresolved"},
+    "context": {"de": "Kontext", "en": "Context"}
+  },
+  "exhibits": [
+    {
+      "id": "causality07_reaction_cycle",
+      "title": {"de": "CAUSALITY07 — Reaktionszyklus", "en": "CAUSALITY07 — Reaction Cycle"},
+      "subtitle": {"de": "Phasenfolge, Zyklusbefund und aktueller Evidenzstatus des registrierten Falls.", "en": "Phase sequence, cycle finding, and current evidence status of the registered case."},
+      "visual_panel": {
+        "image_resource": "exhibits/causality_07_reaktionszyklus.png",
+        "image_alt_de": "Poster zum CAUSALITY07-Reaktionszyklus.",
+        "image_alt_en": "Poster for the CAUSALITY07 reaction cycle.",
+        "caption_de": "Vom Reaktionsmodell über den strukturierten Zyklus bis zur möglichen QSB-Interface-Deutung.",
+        "caption_en": "From the reaction model through the structured cycle to a possible QSB interface interpretation.",
+        "preferred_layout": "responsive",
+        "image_fit_mode": "contain",
+        "image_max_width": 760,
+        "image_max_height": 520,
+        "fallback_text_de": "Das Poster zum Reaktionszyklus ist in dieser Installation nicht verfügbar.",
+        "fallback_text_en": "The reaction-cycle poster is not available in this installation.",
+        "crop_mode": "contain",
+        "caption": {
+          "de": "Vom Reaktionsmodell über den strukturierten Zyklus bis zur möglichen QSB-Interface-Deutung.",
+          "en": "From the reaction model through the structured cycle to a possible QSB interface interpretation."
+        },
+        "fallback_caption": {
+          "de": "Das Poster zum Reaktionszyklus ist in dieser Installation nicht verfügbar.",
+          "en": "The reaction-cycle poster is not available in this installation."
+        },
+        "preferred_layout_mode": "responsive"
+      },
+      "museum_label": {
+        "inventory_number": "QSB-EXH-C07-01",
+        "object_type": {"de": "Nichtlineares Reaktionsmodell", "en": "Nonlinear reaction model"},
+        "physical_domain": {"de": "Chemische Nichtgleichgewichtsdynamik", "en": "Chemical non-equilibrium dynamics"},
+        "model_system": {"de": "Oregonator-Typ", "en": "Oregonator type"},
+        "data_state": {"de": "Snapshot-abhängiger Metadatenstand", "en": "Snapshot-dependent metadata state"},
+        "qsb_interface_relation": {
+          "de": "Dieses Exponat macht die strukturierte Sequenz-, Wiederkehr- und Kontrolllogik des CAUSALITY07-Falls lesbar, soweit sie im geöffneten Snapshot registriert ist.",
+          "en": "This exhibit makes the structured sequence, recurrence, and control logic of the CAUSALITY07 case readable where it is registered in the opened snapshot."
+        },
+        "preferred_status_fields": ["evidence_status", "validation_status", "human_review_state"],
+        "preferred_evidence_fields": ["evidence_class", "evidence_status"],
+        "preferred_provenance_fields": ["sequence_definition_source", "source_reference"],
+        "preferred_open_question_fields": ["issue", "question", "human_review_state"],
+        "omitted_fields": ["unit_status", "dimension_status"]
+      },
+      "preferred_sources": ["v_de_causality07_reaktionszyklus", "cycle_progression", "meta_result_record"],
+      "fallback_sources": ["v_de_ergebnis_claim_beziehungen", "v_de_validierungsergebnisse", "meta_claim"],
+      "preferred_fields": ["mart_code", "work_package_code", "case_description", "reaction_scheme", "reaction_equation", "model_equations", "phase_sequence", "phase_label", "phase_index", "detected_complete_cycle_count", "cycle_duration_status", "sequence_definition_source", "evidence_status", "human_review_state"],
+      "reaction_scheme": {
+        "label": {"de": "Reaktionsschema", "en": "Reaction scheme"},
+        "status": {"de": "Modellreaktionsschema", "en": "Model reaction scheme"},
+        "representation_type": "model_reaction_scheme",
+        "rendering_mode": "plain_text",
+        "source_path": "data/QSB-CAUSALITY07-02/oregonator_config.json",
+        "json_path": ["model_equations"],
+        "legend_json_path": ["dimensionless_variables"],
+        "plain_text_fallback": "",
+        "evidence_reference": "data/QSB-CAUSALITY07-02/source_inventory.md#SRC_OREGONATOR_1974"
+      },
+      "chart_presets": [],
+      "claim_theme_mappings": ["recurrence", "cycle", "causality07"],
+      "boundary_theme_mappings": ["predefined_sequence", "recurrence_not_physical_causality", "recurrence_not_emergent_time"],
+      "expert_targets": ["Validierungen", "Herkunft / Lineage", "Claims und Ergebnisse"]
+    },
+    {
+      "id": "cycle_control_runs",
+      "title": {"de": "Zyklus und Kontrollläufe", "en": "Cycle and Control Runs"},
+      "subtitle": {"de": "Vergleich von Baseline und registrierten Negativkontrollen.", "en": "Comparison of baseline and registered negative controls."},
+      "visual_panel": {
+        "image_resource": "exhibits/causality_07_zyklus_und_kontrolllaeufe.png",
+        "image_alt_de": "Poster zum Vergleich von Baseline, umgekehrter Folge und verwürfelter Kontrolle.",
+        "image_alt_en": "Poster comparing baseline, reversed sequence, and scrambled control.",
+        "caption_de": "Baseline, umgekehrte Folge und verwürfelte Kontrolle im direkten Vergleich.",
+        "caption_en": "Direct comparison of baseline, reversed sequence, and scrambled control.",
+        "preferred_layout": "responsive",
+        "image_fit_mode": "contain",
+        "image_max_width": 760,
+        "image_max_height": 520,
+        "fallback_text_de": "Das Poster zu Zyklus und Kontrollläufen ist in dieser Installation nicht verfügbar.",
+        "fallback_text_en": "The cycle and control-runs poster is not available in this installation.",
+        "crop_mode": "contain",
+        "caption": {
+          "de": "Baseline, umgekehrte Folge und verwürfelte Kontrolle im direkten Vergleich.",
+          "en": "Direct comparison of baseline, reversed sequence, and scrambled control."
+        },
+        "fallback_caption": {
+          "de": "Das Poster zu Zyklus und Kontrollläufen ist in dieser Installation nicht verfügbar.",
+          "en": "The cycle and control-runs poster is not available in this installation."
+        },
+        "preferred_layout_mode": "responsive"
+      },
+      "museum_label": {
+        "inventory_number": "QSB-EXH-C07-02",
+        "object_type": {"de": "Vergleichendes Kontrollexponat", "en": "Comparative control exhibit"},
+        "physical_domain": {"de": "Modellierte Reaktionsdynamik", "en": "Modeled reaction dynamics"},
+        "model_system": {"de": "Baseline und Negativkontrollen", "en": "Baseline and negative controls"},
+        "data_state": {"de": "Kontrollvergleich aus Snapshot-Relationen", "en": "Control comparison from snapshot relations"},
+        "qsb_interface_relation": {
+          "de": "Dieses Label ordnet die Baseline- und Kontrollläufe als Prüfung strukturierter Ordnung und Kontrollsensitivität ein.",
+          "en": "This label frames baseline and control runs as a check of structured ordering and control sensitivity."
+        },
+        "preferred_status_fields": ["control_status", "validation_status", "threshold_status", "calibration_status"],
+        "preferred_evidence_fields": ["validation_status", "evidence_class"],
+        "preferred_provenance_fields": ["sequence_definition_source", "source_reference"],
+        "preferred_open_question_fields": ["human_review_state", "review_priority", "current_status"],
+        "omitted_fields": ["unit_status", "dimension_status"]
+      },
+      "preferred_sources": ["control_cycle_counts", "v_de_causality07_kontrolllaeufe", "cycle_progression"],
+      "fallback_sources": ["v_de_validierungsergebnisse", "meta_validation_result"],
+      "preferred_fields": ["control_id", "control_type", "detected_complete_cycle_count", "mean_cycle_duration", "model_time_duration", "control_status", "validation_status", "sequence_definition_source", "threshold_status", "calibration_status"],
+      "chart_presets": [
+        {
+          "id": "baseline_control_cycle_counts",
+          "type": "bar",
+          "x_field": "control_id",
+          "y_field": "detected_complete_cycle_count",
+          "y_quantity_kind": "count",
+          "title": {"de": "Vollständige Zyklen je Lauf", "en": "Complete cycles by run"}
+        }
+      ],
+      "claim_theme_mappings": ["baseline", "control", "negative_control"],
+      "boundary_theme_mappings": ["threshold_heuristic", "threshold_not_empirically_calibrated", "reduced_model_outputs"],
+      "expert_targets": ["Diagramme", "Validierungen", "Herkunft / Lineage"]
+    },
+    {
+      "id": "results_boundaries",
+      "title": {"de": "Ergebnisse und Grenzen", "en": "Results and Boundaries"},
+      "subtitle": {"de": "Resultate zusammen mit Qualifizierungen, Grenzen und offenen Gegenbefunden.", "en": "Results shown together with qualifications, boundaries, and unresolved counterevidence."},
+      "visual_panel": {
+        "image_resource": "exhibits/causality_07_ergebnisse_und_grenzen.png",
+        "image_alt_de": "Poster zu Ergebnissen, Evidenzgrenzen und Aussagebereichen.",
+        "image_alt_en": "Poster for results, evidence boundaries, and claim domains.",
+        "caption_de": "Messbare Ergebnisse, Evidenzgrenzen und klar getrennte Aussagebereiche.",
+        "caption_en": "Measured results, evidence boundaries, and clearly separated claim domains.",
+        "preferred_layout": "responsive",
+        "image_fit_mode": "contain",
+        "image_max_width": 760,
+        "image_max_height": 520,
+        "fallback_text_de": "Das Poster zu Ergebnissen und Grenzen ist in dieser Installation nicht verfügbar.",
+        "fallback_text_en": "The results and boundaries poster is not available in this installation.",
+        "crop_mode": "contain",
+        "caption": {
+          "de": "Messbare Ergebnisse, Evidenzgrenzen und klar getrennte Aussagebereiche.",
+          "en": "Measured results, evidence boundaries, and clearly separated claim domains."
+        },
+        "fallback_caption": {
+          "de": "Das Poster zu Ergebnissen und Grenzen ist in dieser Installation nicht verfügbar.",
+          "en": "The results and boundaries poster is not available in this installation."
+        },
+        "preferred_layout_mode": "responsive"
+      },
+      "museum_label": {
+        "inventory_number": "QSB-EXH-C07-03",
+        "object_type": {"de": "Evidenz- und Claim-Boundary-Exponat", "en": "Evidence and claim-boundary exhibit"},
+        "physical_domain": {"de": "Theoretische Physik / Modellinterpretation", "en": "Theoretical physics / model interpretation"},
+        "model_system": {"de": "CAUSALITY07 Ergebnis-Claim-Beziehungen", "en": "CAUSALITY07 result-claim relations"},
+        "data_state": {"de": "Claim- und Ergebnisrelationen aus dem Snapshot", "en": "Claim and result relations from the snapshot"},
+        "qsb_interface_relation": {
+          "de": "Dieses Exponat zeigt, welche Beiträge der Fall leisten kann und welche Grenzen im Katalog erhalten bleiben.",
+          "en": "This exhibit shows what the case can contribute and which boundaries remain preserved in the catalog."
+        },
+        "preferred_status_fields": ["validation_status", "human_review_state"],
+        "preferred_evidence_fields": ["evidence_class", "relation_type"],
+        "preferred_provenance_fields": ["linked_result", "work_package_code"],
+        "preferred_open_question_fields": ["limitation_text", "human_review_state"],
+        "omitted_fields": ["unit_status", "dimension_status"]
+      },
+      "preferred_sources": ["v_de_ergebnis_claim_beziehungen", "meta_claim_result_link", "meta_claim"],
+      "fallback_sources": ["meta_result_record", "v_de_validierungsergebnisse"],
+      "preferred_fields": ["claim_text", "relation_type", "evidence_class", "linked_result", "validation_status", "work_package_code", "human_review_state", "limitation_text"],
+      "chart_presets": [],
+      "claim_theme_mappings": ["supported", "qualified", "limited", "contradictory", "unresolved", "context"],
+      "boundary_theme_mappings": ["predefined_sequence", "threshold_heuristic", "reduced_model_outputs", "recurrence_not_complete_chemical_identity", "recurrence_not_physical_causality", "recurrence_not_emergent_time"],
+      "expert_targets": ["Claims und Ergebnisse", "Validierungen", "Herkunft / Lineage"]
+    },
+    {
+      "id": "physical_quantities",
+      "title": {"de": "Physikalische Größen", "en": "Physical Quantities"},
+      "subtitle": {"de": "Registrierte Größen, Einheiten, Dimensionen und offene Zuordnungen.", "en": "Registered quantities, units, dimensions, and unresolved mappings."},
+      "visual_panel": {
+        "image_resource": "exhibits/causality_07_physikalische_groessen.png",
+        "image_alt_de": "Poster zu physikalischen Größen, Einheiten, Dimensionen und SI-Normalisierung.",
+        "image_alt_en": "Poster for physical quantities, units, dimensions, and SI normalization.",
+        "caption_de": "Physikalische Größen, Einheiten, Dimensionen und SI-Normalisierung.",
+        "caption_en": "Physical quantities, units, dimensions, and SI normalization.",
+        "preferred_layout": "responsive",
+        "image_fit_mode": "contain",
+        "image_max_width": 760,
+        "image_max_height": 520,
+        "fallback_text_de": "Das Poster zu physikalischen Größen ist in dieser Installation nicht verfügbar.",
+        "fallback_text_en": "The physical-quantities poster is not available in this installation.",
+        "crop_mode": "contain",
+        "caption": {
+          "de": "Physikalische Größen, Einheiten, Dimensionen und SI-Normalisierung.",
+          "en": "Physical quantities, units, dimensions, and SI normalization."
+        },
+        "fallback_caption": {
+          "de": "Das Poster zu physikalischen Größen ist in dieser Installation nicht verfügbar.",
+          "en": "The physical-quantities poster is not available in this installation."
+        },
+        "preferred_layout_mode": "responsive"
+      },
+      "museum_label": {
+        "inventory_number": "QSB-EXH-C07-04",
+        "object_type": {"de": "Einheiten- und Dimensionsexponat", "en": "Units and dimensions exhibit"},
+        "physical_domain": {"de": "Größen-, Einheiten- und Dimensionsprüfung", "en": "Quantity, unit, and dimension review"},
+        "model_system": {"de": "CAUSALITY07 Größenkatalog", "en": "CAUSALITY07 quantity catalog"},
+        "data_state": {"de": "Registrierte Größen aus dem Snapshot", "en": "Registered quantities from the snapshot"},
+        "qsb_interface_relation": {
+          "de": "Dieses Exponat prüft, welche Größen vergleichbar sind und wo Modell- oder SI-Zuordnungen offen bleiben.",
+          "en": "This exhibit checks which quantities are comparable and where model or SI mappings remain open."
+        },
+        "preferred_status_fields": ["unit_status", "dimension_status"],
+        "preferred_evidence_fields": ["evidence_class", "validation_status"],
+        "preferred_unit_status_fields": ["unit_status"],
+        "preferred_dimension_status_fields": ["dimension_status"],
+        "preferred_provenance_fields": ["conversion_rule_id", "source_object"],
+        "preferred_open_question_fields": ["unit_status", "dimension_status"],
+        "omitted_fields": []
+      },
+      "preferred_sources": ["v_de_physikalische_groessen", "meta_field"],
+      "fallback_sources": ["v_de_validierungsergebnisse"],
+      "preferred_fields": ["quantity_kind", "value_original", "unit_original", "value_calculation", "unit_calculation", "value_display", "unit_display", "dimension_vector", "unit_status", "dimension_status", "conversion_rule_id"],
+      "chart_presets": [],
+      "claim_theme_mappings": ["quantity", "unit", "dimension"],
+      "boundary_theme_mappings": ["model_unit_unmapped", "unresolved_unit", "unresolved_dimension"],
+      "expert_targets": ["Diagramme", "Forschungsansichten", "Datenbankinfo"]
+    },
+    {
+      "id": "open_questions",
+      "title": {"de": "Offene Fragen", "en": "Open Questions"},
+      "subtitle": {"de": "Aktuelle Forschungsagenda aus offenen Prüf-, Evidenz- und Metadateneinträgen.", "en": "Current research agenda from open review, evidence, and metadata entries."},
+      "visual_panel": {
+        "image_resource": "exhibits/causality_07_offene_fragen.png",
+        "image_alt_de": "Poster zu offenen Fragen als strukturierter Forschungsagenda.",
+        "image_alt_en": "Poster for open questions as a structured research agenda.",
+        "caption_de": "Offene Fragen als strukturierte Forschungsagenda für die nächsten Prüfschritte.",
+        "caption_en": "Open questions as a structured research agenda for the next validation steps.",
+        "preferred_layout": "responsive",
+        "image_fit_mode": "contain",
+        "image_max_width": 760,
+        "image_max_height": 520,
+        "fallback_text_de": "Das Poster zu offenen Fragen ist in dieser Installation nicht verfügbar.",
+        "fallback_text_en": "The open-questions poster is not available in this installation.",
+        "crop_mode": "contain",
+        "caption": {
+          "de": "Offene Fragen als strukturierte Forschungsagenda für die nächsten Prüfschritte.",
+          "en": "Open questions as a structured research agenda for the next validation steps."
+        },
+        "fallback_caption": {
+          "de": "Das Poster zu offenen Fragen ist in dieser Installation nicht verfügbar.",
+          "en": "The open-questions poster is not available in this installation."
+        },
+        "preferred_layout_mode": "responsive"
+      },
+      "museum_label": {
+        "inventory_number": "QSB-EXH-C07-05",
+        "object_type": {"de": "Aktive Forschungsagenda", "en": "Active research agenda"},
+        "physical_domain": {"de": "Prüf-, Evidenz- und Metadatenstatus", "en": "Review, evidence, and metadata status"},
+        "model_system": {"de": "Offene CAUSALITY07 Prüfpunkte", "en": "Open CAUSALITY07 review items"},
+        "data_state": {"de": "Offene Punkte aus dem Snapshot", "en": "Open items from the snapshot"},
+        "qsb_interface_relation": {
+          "de": "Dieses Exponat sammelt die nächsten belegten Evidenzanforderungen, ohne neue Forschungsschritte zu erfinden.",
+          "en": "This exhibit gathers the next documented evidence requirements without inventing new research steps."
+        },
+        "preferred_status_fields": ["current_status", "human_review_state"],
+        "preferred_evidence_fields": ["evidence_reference", "evidence_class"],
+        "preferred_provenance_fields": ["work_package_code", "affected_object"],
+        "preferred_open_question_fields": ["issue", "question", "review_priority"],
+        "omitted_fields": ["unit_status", "dimension_status"]
+      },
+      "preferred_sources": ["v_de_offene_pruefpunkte", "meta_validation_result"],
+      "fallback_sources": ["v_de_physikalische_groessen", "v_de_ergebnis_claim_beziehungen"],
+      "preferred_fields": ["question", "issue", "affected_object", "field_name", "review_priority", "current_status", "human_review_state", "evidence_reference", "work_package_code", "suggested_next_action"],
+      "chart_presets": [],
+      "claim_theme_mappings": ["open", "review", "unresolved"],
+      "boundary_theme_mappings": ["missing_calibration", "incomplete_lineage", "unresolved_comparability", "open_validation"],
+      "expert_targets": ["Offene Prüfpunkte", "Validierungen", "Datenbankinfo"]
+    }
+  ]
+}
