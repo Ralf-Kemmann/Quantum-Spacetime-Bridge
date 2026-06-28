@@ -1,0 +1,21 @@
+{
+  "candidate_edge_count": 161,
+  "claim_boundary": "Visualization-only structural graph-theoretic review layer. No claim is made about physical geometry, spacetime, metric structure, gravitation, causality, dynamics, experimental validation, or physical emergence.",
+  "closure_summary_source": "runs/QSB-MATRIX-TOPOLOGY-CLOSURE-TEST/04_closure_summary.json",
+  "component_count": 6,
+  "component_ordered_heatmap_file": "08_candidate_adjacency_heatmap_component_ordered.png",
+  "component_sizes": [
+    12,
+    10,
+    8,
+    6,
+    4,
+    2
+  ],
+  "global_closure_ratio": 1.0,
+  "node_count": 42,
+  "run_id": "QSB-MATRIX-TOPOLOGY-CLOSURE-VIZ",
+  "sorted_heatmap_file": "05_candidate_adjacency_heatmap_sorted.png",
+  "source_edge_file": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+  "triangle_count": 420
+}
