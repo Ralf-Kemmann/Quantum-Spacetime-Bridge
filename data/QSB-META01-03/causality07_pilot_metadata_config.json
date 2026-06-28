@@ -1,0 +1,96 @@
+{
+  "config_id": "QSB-META01-03-causality07-pilot-metadata-config",
+  "config_version": "0.1-draft",
+  "mart_code": "QSB-CAUSALITY07",
+  "mart_namespace": "qsb.causality.07",
+  "schema_path": "data/QSB-META01-02/canonical_metadata_schema.sql",
+  "controlled_vocabulary_path": "data/QSB-META01-02/controlled_vocabularies.json",
+  "unit_dimension_registry_path": "data/QSB-META01-02/unit_dimension_registry.json",
+  "mapping_path": "data/QSB-META01-03/causality07_metadata_mapping.json",
+  "artifact_include_tokens": [
+    "QSB-CAUSALITY07",
+    "QSB_CAUSALITY07",
+    "CAUSALITY07",
+    "07-01",
+    "07-02",
+    "07-03"
+  ],
+  "artifact_roots": [
+    "docs",
+    "data",
+    "scripts",
+    "runs"
+  ],
+  "work_packages": [
+    {
+      "work_package_code": "QSB-CAUSALITY07-01",
+      "work_package_namespace": "qsb.causality.07.01",
+      "work_package_name": "Oscillatory reaction state cycle case definition"
+    },
+    {
+      "work_package_code": "QSB-CAUSALITY07-02",
+      "work_package_namespace": "qsb.causality.07.02",
+      "work_package_name": "First oscillatory state cycle data and runner"
+    },
+    {
+      "work_package_code": "QSB-CAUSALITY07-03",
+      "work_package_namespace": "qsb.causality.07.03",
+      "work_package_name": "Cycle semantics hardening and negative controls"
+    }
+  ],
+  "required_output_files": [
+    "resolved_pilot_config.json",
+    "canonical_object_registry.csv",
+    "canonical_field_registry.csv",
+    "lineage_edge_registry.csv",
+    "record_lineage_registry.csv",
+    "validation_result_registry.csv",
+    "result_claim_link_registry.csv",
+    "qsb_metadata_catalog.sqlite",
+    "run_summary.json",
+    "readout.md"
+  ],
+  "dimension_vector_order": ["L", "M", "T", "I", "Theta", "N", "J"],
+  "metadata_status_values": [
+    "explicit_source",
+    "rule_derived",
+    "human_curated_mapping",
+    "unresolved",
+    "not_applicable"
+  ],
+  "confidence_class_values": [
+    "high",
+    "medium",
+    "low",
+    "not_applicable"
+  ],
+  "record_lineage_policy": {
+    "result_rows": "materialized",
+    "control_rows": "materialized",
+    "explicit_exclusions": "materialized",
+    "deterministic_one_to_one": "reconstructable",
+    "aggregations": "aggregate_membership",
+    "schema_and_documentation": "not_applicable"
+  },
+  "required_vocabulary_domains": [
+    "object_type",
+    "table_role",
+    "chain_stage",
+    "derivation_class",
+    "lineage_mode",
+    "validation_layer",
+    "validation_status",
+    "evidence_class",
+    "comparability_status",
+    "unit_status",
+    "dimension_status",
+    "claim_relation_type"
+  ],
+  "required_german_views": [
+    "v_de_physikalische_groessen",
+    "v_de_lineage",
+    "v_de_validierungsergebnisse",
+    "v_de_ergebnis_claim_beziehungen",
+    "v_de_offene_pruefpunkte"
+  ]
+}

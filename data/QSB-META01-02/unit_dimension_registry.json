@@ -1,0 +1,32 @@
+{
+  "registry_version": "0.2-draft",
+  "dimension_vector_order": ["L", "M", "T", "I", "Theta", "N", "J"],
+  "mandatory_german_aliases": {
+    "quantity_kind": "Groessenart",
+    "value_original": "Originalwert",
+    "unit_original": "Originaleinheit",
+    "value_calculation": "Berechnungswert",
+    "unit_calculation": "Berechnungseinheit",
+    "value_display": "Anzeigewert",
+    "unit_display": "Anzeigeeinheit",
+    "dimension_vector": "Dimensionsvektor",
+    "conversion_rule_id": "Umrechnungsregel-ID",
+    "unit_status": "Einheitenstatus",
+    "dimension_status": "Dimensionsstatus"
+  },
+  "units": [
+    {"unit_id": "UNIT_S", "unit_symbol": "s", "unit_name": "second", "german_label": "Sekunde", "unit_system": "SI", "si_prefix": "", "scale_to_coherent_si": 1.0, "offset_to_coherent_si": 0.0, "coherent_si_unit_id": "UNIT_S", "is_coherent_si": true, "unit_status": "active"},
+    {"unit_id": "UNIT_MS", "unit_symbol": "ms", "unit_name": "millisecond", "german_label": "Millisekunde", "unit_system": "SI_prefixed", "si_prefix": "milli", "scale_to_coherent_si": 0.001, "offset_to_coherent_si": 0.0, "coherent_si_unit_id": "UNIT_S", "is_coherent_si": false, "unit_status": "active"},
+    {"unit_id": "UNIT_M", "unit_symbol": "m", "unit_name": "metre", "german_label": "Meter", "unit_system": "SI", "si_prefix": "", "scale_to_coherent_si": 1.0, "offset_to_coherent_si": 0.0, "coherent_si_unit_id": "UNIT_M", "is_coherent_si": true, "unit_status": "active"},
+    {"unit_id": "UNIT_NM", "unit_symbol": "nm", "unit_name": "nanometre", "german_label": "Nanometer", "unit_system": "SI_prefixed", "si_prefix": "nano", "scale_to_coherent_si": 1e-9, "offset_to_coherent_si": 0.0, "coherent_si_unit_id": "UNIT_M", "is_coherent_si": false, "unit_status": "active"},
+    {"unit_id": "UNIT_ONE", "unit_symbol": "1", "unit_name": "dimensionless one", "german_label": "dimensionslos", "unit_system": "dimensionless", "si_prefix": "", "scale_to_coherent_si": 1.0, "offset_to_coherent_si": 0.0, "coherent_si_unit_id": "UNIT_ONE", "is_coherent_si": true, "unit_status": "active"},
+    {"unit_id": "UNIT_MODEL_TIME", "unit_symbol": "model_time", "unit_name": "unmapped model time", "german_label": "Modellzeit", "unit_system": "model", "si_prefix": "", "scale_to_coherent_si": null, "offset_to_coherent_si": null, "coherent_si_unit_id": null, "is_coherent_si": false, "unit_status": "model_unit_unmapped"}
+  ],
+  "quantity_kinds": [
+    {"quantity_kind_id": "QK_TIME", "quantity_kind": "time", "german_label": "Zeit", "dimension_vector": [0, 0, 1, 0, 0, 0, 0], "dimension_status": "resolved"},
+    {"quantity_kind_id": "QK_LENGTH", "quantity_kind": "length", "german_label": "Laenge", "dimension_vector": [1, 0, 0, 0, 0, 0, 0], "dimension_status": "resolved"},
+    {"quantity_kind_id": "QK_RATIO", "quantity_kind": "ratio", "german_label": "Verhaeltnis", "dimension_vector": [0, 0, 0, 0, 0, 0, 0], "dimension_status": "dimensionless_resolved"},
+    {"quantity_kind_id": "QK_PHASE", "quantity_kind": "phase", "german_label": "Phase", "dimension_vector": [0, 0, 0, 0, 0, 0, 0], "dimension_status": "dimensionless_resolved"},
+    {"quantity_kind_id": "QK_MODEL_TIME", "quantity_kind": "model_time", "german_label": "Modellzeit", "dimension_vector": null, "dimension_status": "model_dimension_unmapped"}
+  ]
+}

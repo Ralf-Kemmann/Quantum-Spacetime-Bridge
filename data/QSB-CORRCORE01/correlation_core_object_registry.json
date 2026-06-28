@@ -1,0 +1,23 @@
+{
+  "registry_id": "QSB-CORRCORE01-object-registry",
+  "objects": [
+    {"object_id": "correlation_matrix_Kij", "canonical_name": "K_ij(tau)", "object_type": "central_mathematical_object", "source_role": "theoretical_origin_kinematic_core", "claim_boundary": "correlation_geometry_not_physical_spacetime_validation"},
+    {"object_id": "correlation_magnitude_abs_Kij", "canonical_name": "|K_ij|", "object_type": "derived_quantity_object", "source_role": "effective_distance_input", "claim_boundary": "dimension_pending_not_unitless_by_default"},
+    {"object_id": "correlation_phase_arg_Kij", "canonical_name": "arg(K_ij)", "object_type": "derived_quantity_object", "source_role": "phase_diagnostic_context", "claim_boundary": "model_phase_not_physical_phase_by_default"},
+    {"object_id": "effective_distance_dij", "canonical_name": "d_ij", "object_type": "effective_distance_candidate", "source_role": "emergent_geometry_candidate", "claim_boundary": "correlation_geometry_not_physical_spacetime_validation"},
+    {"object_id": "correlation_action_S_of_K", "canonical_name": "S[K]", "object_type": "formal_action_functional", "source_role": "formal_dynamics_context", "claim_boundary": "dimension_pending_not_unitless_by_default"},
+    {"object_id": "correlation_potential_V_of_K", "canonical_name": "V[K]", "object_type": "formal_potential", "source_role": "formal_dynamics_context", "claim_boundary": "dimension_pending_not_unitless_by_default"},
+    {"object_id": "correlation_eom_Kij", "canonical_name": "equation_of_motion_for_K_ij", "object_type": "formal_equation_of_motion", "source_role": "formal_dynamics_context", "claim_boundary": "no_physical_validation_claim"},
+    {"object_id": "string_mode_psi_i", "canonical_name": "psi_i(tau)", "object_type": "mode_symbol", "source_role": "string_mode_input", "claim_boundary": "model_object_not_physical_wavefunction_by_default"},
+    {"object_id": "ensemble_hilbert_space_C", "canonical_name": "ensemble Hilbert space C", "object_type": "formal_space", "source_role": "correlation_inner_product_context", "claim_boundary": "formal_space_not_reconstructed_physical_hilbert_space"},
+    {"object_id": "fingerprint_space", "canonical_name": "Fingerprint-Raum", "object_type": "diagnostic_space", "source_role": "method_gate", "claim_boundary": "diagnostic_readability_not_identity_resolution"},
+    {"object_id": "identity_space", "canonical_name": "Identitaets-Raum", "object_type": "diagnostic_identity_space", "source_role": "method_gate", "claim_boundary": "diagnostic_readability_not_identity_resolution"},
+    {"object_id": "constraint_preserving_null_space_CPNS", "canonical_name": "Constraint-Preserving Null Space", "object_type": "ambiguity_degeneracy_safeguard", "source_role": "method_gate", "claim_boundary": "schema_validation_not_real_degeneracy_measurement"},
+    {"object_id": "ambiguity_state_ambiguous_unresolved", "canonical_name": "ambiguous_unresolved", "object_type": "protected_decision_state", "source_role": "method_gate", "claim_boundary": "ambiguity_is_valid_not_failure"},
+    {"object_id": "claim_boundary_flag", "canonical_name": "claim boundary flag", "object_type": "metadata_guard", "source_role": "claim_control", "claim_boundary": "no_bridge_confirmation_claim"},
+    {"object_id": "dwell_time_operational_projection", "canonical_name": "dwell-time operational projection", "object_type": "operational_projection", "source_role": "relational_time_scale_context", "claim_boundary": "model_time_not_physical_time"},
+    {"object_id": "hartman_time_operational_projection", "canonical_name": "Hartman-type operational projection", "object_type": "operational_projection", "source_role": "relational_time_scale_context", "claim_boundary": "model_time_not_physical_time"},
+    {"object_id": "ensemble_average_projection", "canonical_name": "ensemble average projection", "object_type": "operational_projection", "source_role": "relational_time_scale_context", "claim_boundary": "model_time_not_physical_time"},
+    {"object_id": "string_theory_emergent_gravitation_context", "canonical_name": "string-theory emergent gravitation context", "object_type": "context_alignment_source", "source_role": "context_alignment_not_evidence", "claim_boundary": "conceptual_alignment_not_evidence_transfer"}
+  ]
+}

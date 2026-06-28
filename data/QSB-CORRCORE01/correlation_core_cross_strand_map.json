@@ -1,0 +1,11 @@
+{
+  "registry_id": "QSB-CORRCORE01-cross-strand-map",
+  "links": [
+    {"link_id": "CORRCORE01_to_QSB_ST_STRINGMODES", "source_strand": "CORRCORE01", "target_strand": "QSB-ST-STRINGMODES", "relation": "theoretical origin / kinematic core", "claim_boundary": "conceptual_model_registration_only"},
+    {"link_id": "CORRCORE01_to_QSB_ST_TUNNELING", "source_strand": "CORRCORE01", "target_strand": "QSB-ST-TUNNELING", "relation": "operational time-scale projection from correlation dynamics", "claim_boundary": "model_time_not_physical_time"},
+    {"link_id": "CORRCORE01_to_QSB_ST_IDSPACE_CPNS", "source_strand": "CORRCORE01", "target_strand": "QSB-ST-IDSPACE-CPNS", "relation": "method gate for diagnostic readability and identity safeguards", "claim_boundary": "diagnostic_readability_not_identity_resolution"},
+    {"link_id": "CORRCORE01_to_QSB_CAUSALITY07", "source_strand": "CORRCORE01", "target_strand": "QSB-CAUSALITY07", "relation": "later causal/directional structure calibration can be compared to correlation-core time/dependence concepts", "claim_boundary": "comparison_only_no_physical_causality_claim"},
+    {"link_id": "CORRCORE01_to_META01", "source_strand": "CORRCORE01", "target_strand": "META01", "relation": "metadata catalog and DWH integration", "claim_boundary": "metadata_integration_only"},
+    {"link_id": "CORRCORE01_to_STRING_EMERGENT_GRAVITATION_DISCUSSION", "source_strand": "CORRCORE01", "target_strand": "STRING-EMERGENT-GRAVITATION-DISCUSSION", "relation": "context/alignment source, not evidence transfer", "claim_boundary": "conceptual_alignment_not_evidence_transfer"}
+  ]
+}

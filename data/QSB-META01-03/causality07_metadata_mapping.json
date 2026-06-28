@@ -1,0 +1,102 @@
+{
+  "mapping_id": "QSB-META01-03-causality07-human-curated-mapping",
+  "mapping_version": "0.1-draft",
+  "mapping_status": "human_curated_mapping",
+  "confidence_class": "medium",
+  "german_aliases": {
+    "quantity_kind": "Groessenart",
+    "value_original": "Originalwert",
+    "unit_original": "Originaleinheit",
+    "value_calculation": "Berechnungswert",
+    "unit_calculation": "Berechnungseinheit",
+    "value_display": "Anzeigewert",
+    "unit_display": "Anzeigeeinheit",
+    "dimension_vector": "Dimensionsvektor",
+    "conversion_rule_id": "Umrechnungsregel-ID",
+    "unit_status": "Einheitenstatus",
+    "dimension_status": "Dimensionsstatus"
+  },
+  "field_quantity_rules": [
+    {
+      "contains": ["time", "duration"],
+      "quantity_kind_id": "QK_MODEL_TIME",
+      "unit_original_id": "UNIT_MODEL_TIME",
+      "unit_calculation_id": "UNIT_MODEL_TIME",
+      "unit_display_id": "UNIT_MODEL_TIME",
+      "dimension_vector": null,
+      "unit_status": "model_unit_unmapped",
+      "dimension_status": "model_dimension_unmapped",
+      "note": "CAUSALITY07 model time has no explicit SI mapping in the audited artifacts."
+    },
+    {
+      "contains": ["cycle_index", "count", "detected_complete_cycle_count"],
+      "quantity_kind_id": "QK_COUNT",
+      "unit_original_id": "UNIT_ONE",
+      "unit_calculation_id": "UNIT_ONE",
+      "unit_display_id": "UNIT_ONE",
+      "dimension_vector": [0, 0, 0, 0, 0, 0, 0],
+      "unit_status": "dimensionless_count",
+      "dimension_status": "dimensionless_resolved",
+      "note": "Counts and ordinal indices are dimensionless counts, not physical times."
+    },
+    {
+      "contains": ["phase", "sequence", "label"],
+      "quantity_kind_id": "QK_PHASE",
+      "unit_original_id": "UNIT_ONE",
+      "unit_calculation_id": "UNIT_ONE",
+      "unit_display_id": "UNIT_ONE",
+      "dimension_vector": [0, 0, 0, 0, 0, 0, 0],
+      "unit_status": "not_applicable",
+      "dimension_status": "dimensionless_resolved",
+      "note": "Phase labels and sequences are categorical presentation or classification fields."
+    },
+    {
+      "contains": ["distance", "drift", "threshold"],
+      "quantity_kind_id": "QK_UNRESOLVED",
+      "unit_original_id": "UNIT_ONE",
+      "unit_calculation_id": "UNIT_ONE",
+      "unit_display_id": "UNIT_ONE",
+      "dimension_vector": null,
+      "unit_status": "unresolved",
+      "dimension_status": "dimension_unmapped",
+      "note": "Reduced-state distance, drift proxy, and threshold 0.08 are not promoted to physical SI quantities."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CLAIM_CAUSALITY07_RECURRENCE_PREDEFINED_SEQUENCE",
+      "claim_text": "The CAUSALITY07 reduced model output contains recurrence under the predefined phase sequence.",
+      "claim_scope": "QSB-CAUSALITY07 reduced Oregonator runner outputs only",
+      "claim_status": "bounded",
+      "boundary_statement": "This does not establish full chemical-state identity, physical causality, emergent time, or laboratory validation."
+    },
+    {
+      "claim_id": "CLAIM_CAUSALITY07_CONTROL_SELECTIVITY",
+      "claim_text": "The reverse and scrambled control sequences were not accepted as complete cycles in the same classified time series.",
+      "claim_scope": "QSB-CAUSALITY07-03 detector behavior controls",
+      "claim_status": "bounded",
+      "boundary_statement": "The controls test detector selectivity only and do not validate physical direction."
+    },
+    {
+      "claim_id": "CLAIM_CAUSALITY07_NON_IDENTITY_BOUNDARY",
+      "claim_text": "Reduced-state recurrence is not complete chemical-state identity.",
+      "claim_scope": "QSB-CAUSALITY07-02 and QSB-CAUSALITY07-03 result boundaries",
+      "claim_status": "bounded",
+      "boundary_statement": "The model records recurrence in a reduced representation, not a whole-chemistry restart."
+    },
+    {
+      "claim_id": "CLAIM_CAUSALITY07_NO_INDEPENDENT_GLOBAL_ORDER",
+      "claim_text": "The global cycle order is predefined rather than independently reconstructed.",
+      "claim_scope": "QSB-CAUSALITY07 phase sequence semantics",
+      "claim_status": "bounded",
+      "boundary_statement": "The predefined sequence is a segmentation condition and is not evidence of global uniqueness."
+    },
+    {
+      "claim_id": "CLAIM_CAUSALITY07_THRESHOLD_UNCALIBRATED",
+      "claim_text": "The state-vector distance threshold is explicit but not empirically calibrated in CAUSALITY07-03.",
+      "claim_scope": "QSB-CAUSALITY07-03 threshold metadata",
+      "claim_status": "bounded",
+      "boundary_statement": "The threshold is a heuristic runner parameter, not a physical validation."
+    }
+  ]
+}

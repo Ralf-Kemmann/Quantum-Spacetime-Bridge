@@ -1,0 +1,19 @@
+{
+  "registry_id": "QSB-META02-join-status-registry",
+  "join_statuses": [
+    {"join_status_id": "validated_exact_key_match", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": true, "requires_review": false, "description": "Exact key match under a declared local contract."},
+    {"join_status_id": "validated_transformed_key_match", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": false, "requires_review": true, "description": "Transformed key match with semantic caveat and review."},
+    {"join_status_id": "unit_converted_match", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": false, "requires_review": true, "description": "Explicit unit conversion with dimension preservation."},
+    {"join_status_id": "dimension_compatible_match", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Dimension compatible but not same quantity by itself."},
+    {"join_status_id": "technical_match_only", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "SQL/technical join possible only."},
+    {"join_status_id": "semantic_match_pending", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Semantic compatibility not yet validated."},
+    {"join_status_id": "identity_match_pending", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Identity compatibility pending."},
+    {"join_status_id": "ambiguous_match", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Ambiguous relation retained without forced decision."},
+    {"join_status_id": "rejected_match", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Rejected mapping."},
+    {"join_status_id": "out_of_scope", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": false, "description": "Placeholder or currently outside active registry scope."},
+    {"join_status_id": "blocked_missing_unit_rule", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Blocked because unit conversion rule is absent."},
+    {"join_status_id": "blocked_missing_dimension_rule", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Blocked because dimension compatibility is absent."},
+    {"join_status_id": "blocked_missing_identity_rule", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Blocked because identity rule is absent."},
+    {"join_status_id": "blocked_claim_boundary_conflict", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Blocked because claim boundaries conflict."}
+  ]
+}

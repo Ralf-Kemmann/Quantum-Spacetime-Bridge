@@ -1,0 +1,90 @@
+{
+  "vocabulary_registry_version": "0.2-draft",
+  "status": "draft_requires_human_review",
+  "auto_detected_terms_policy": "proposed_terms_remain_draft_until_human_review",
+  "vocabularies": [
+    {
+      "vocabulary_name": "object_type",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "mart", "english_label": "mart", "german_alias": "Datamart", "definition": "Subject-level metadata mart.", "status": "active"},
+        {"canonical_code": "work_package", "english_label": "work package", "german_alias": "Arbeitspaket", "definition": "Task-level package inside a mart.", "status": "active"},
+        {"canonical_code": "source", "english_label": "source", "german_alias": "Quelle", "definition": "Raw source or source citation.", "status": "active"},
+        {"canonical_code": "field", "english_label": "field", "german_alias": "Feld", "definition": "Canonical technical field.", "status": "active"},
+        {"canonical_code": "result_record", "english_label": "result record", "german_alias": "Ergebnisdatensatz", "definition": "Result row preserved for evidence and claim linkage.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "chain_stage",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "raw_source", "english_label": "raw source", "german_alias": "Rohquelle", "definition": "Source before import or normalization.", "status": "active"},
+        {"canonical_code": "coherent_si_conversion", "english_label": "coherent SI conversion", "german_alias": "SI-Umrechnung", "definition": "Conversion into coherent SI units for calculation.", "status": "active"},
+        {"canonical_code": "unit_validation", "english_label": "unit validation", "german_alias": "Einheitenvalidierung", "definition": "Validation of unit conversion and unit algebra.", "status": "active"},
+        {"canonical_code": "scientific_claim", "english_label": "scientific claim", "german_alias": "wissenschaftliche Aussage", "definition": "Bounded claim connected to result evidence.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "derivation_class",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "direct_copy", "english_label": "direct copy", "german_alias": "Direktkopie", "definition": "Target field is copied without semantic transformation.", "status": "active"},
+        {"canonical_code": "renamed_copy", "english_label": "renamed copy", "german_alias": "umbenannte Kopie", "definition": "Target field is copied with a canonical name change.", "status": "active"},
+        {"canonical_code": "unit_conversion", "english_label": "unit conversion", "german_alias": "Einheitenumrechnung", "definition": "Target field is converted between documented units.", "status": "active"},
+        {"canonical_code": "normalized_value", "english_label": "normalized value", "german_alias": "normalisierter Wert", "definition": "Target field is normalized by a declared rule.", "status": "active"},
+        {"canonical_code": "derived_expression", "english_label": "derived expression", "german_alias": "abgeleiteter Ausdruck", "definition": "Target field is calculated from declared dependencies.", "status": "active"},
+        {"canonical_code": "constant_with_rule", "english_label": "constant with rule", "german_alias": "Konstante mit Regel", "definition": "Target field is a constant justified by a rule.", "status": "active"},
+        {"canonical_code": "lookup_mapping", "english_label": "lookup mapping", "german_alias": "Nachschlagezuordnung", "definition": "Target field is mapped through an explicit lookup.", "status": "active"},
+        {"canonical_code": "aggregation", "english_label": "aggregation", "german_alias": "Aggregation", "definition": "Target field summarizes multiple source records.", "status": "active"},
+        {"canonical_code": "classification", "english_label": "classification", "german_alias": "Klassifikation", "definition": "Target field assigns a controlled category.", "status": "active"},
+        {"canonical_code": "presentation_alias", "english_label": "presentation alias", "german_alias": "Anzeigealias", "definition": "Presentation-only label for a canonical field.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "lineage_mode",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "materialized", "english_label": "materialized", "german_alias": "materialisiert", "definition": "Record membership is explicitly stored.", "status": "active"},
+        {"canonical_code": "reconstructable", "english_label": "reconstructable", "german_alias": "rekonstruierbar", "definition": "Record mapping can be reproduced from source key, target key, run and rule.", "status": "active"},
+        {"canonical_code": "aggregate_membership", "english_label": "aggregate membership", "german_alias": "Aggregatmitgliedschaft", "definition": "Aggregation membership or reproducible selection predicate is stored.", "status": "active"},
+        {"canonical_code": "not_applicable", "english_label": "not applicable", "german_alias": "nicht anwendbar", "definition": "Allowed only for schema, vocabulary or documentation objects.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "validation_layer",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "schema", "english_label": "schema", "german_alias": "Schema", "definition": "Structural schema validation.", "status": "active"},
+        {"canonical_code": "syntax", "english_label": "syntax", "german_alias": "Syntax", "definition": "Syntax and parse validation.", "status": "active"},
+        {"canonical_code": "unit_conversion", "english_label": "unit conversion", "german_alias": "Einheitenumrechnung", "definition": "Conversion rule validation.", "status": "active"},
+        {"canonical_code": "unit_algebra", "english_label": "unit algebra", "german_alias": "Einheitenalgebra", "definition": "Algebraic unit compatibility validation.", "status": "active"},
+        {"canonical_code": "dimension", "english_label": "dimension", "german_alias": "Dimension", "definition": "Dimension-vector consistency validation.", "status": "active"},
+        {"canonical_code": "formal_mathematics", "english_label": "formal mathematics", "german_alias": "formale Mathematik", "definition": "Formal mathematical validity validation.", "status": "active"},
+        {"canonical_code": "physical_plausibility", "english_label": "physical plausibility", "german_alias": "physikalische Plausibilitaet", "definition": "Physical plausibility validation distinct from formal validity.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "evidence_class",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "supports", "english_label": "supports", "german_alias": "stuetzt", "definition": "Result supports the bounded claim.", "status": "active"},
+        {"canonical_code": "neutral", "english_label": "neutral", "german_alias": "neutral", "definition": "Result is relevant but neutral.", "status": "active"},
+        {"canonical_code": "contradicts", "english_label": "contradicts", "german_alias": "widerspricht", "definition": "Result contradicts the bounded claim.", "status": "active"},
+        {"canonical_code": "inconclusive", "english_label": "inconclusive", "german_alias": "nicht entscheidend", "definition": "Result is inconclusive.", "status": "active"},
+        {"canonical_code": "not_comparable", "english_label": "not comparable", "german_alias": "nicht vergleichbar", "definition": "Result cannot be compared under the declared contract.", "status": "active"},
+        {"canonical_code": "invalidated", "english_label": "invalidated", "german_alias": "ungueltig", "definition": "Result is invalidated or rejected.", "status": "active"}
+      ]
+    },
+    {
+      "vocabulary_name": "claim_relation_type",
+      "namespace_owner": "qsb.meta",
+      "entries": [
+        {"canonical_code": "supports", "english_label": "supports", "german_alias": "stuetzt", "definition": "Linked result supports the claim.", "status": "active"},
+        {"canonical_code": "contradicts", "english_label": "contradicts", "german_alias": "widerspricht", "definition": "Linked result contradicts the claim.", "status": "active"},
+        {"canonical_code": "qualifies", "english_label": "qualifies", "german_alias": "qualifiziert", "definition": "Linked result qualifies claim scope.", "status": "active"},
+        {"canonical_code": "limits", "english_label": "limits", "german_alias": "begrenzt", "definition": "Linked result limits claim scope.", "status": "active"},
+        {"canonical_code": "context_only", "english_label": "context only", "german_alias": "nur Kontext", "definition": "Linked result provides context only.", "status": "active"}
+      ]
+    }
+  ]
+}

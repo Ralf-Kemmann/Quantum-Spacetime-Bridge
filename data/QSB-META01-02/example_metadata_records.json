@@ -1,0 +1,80 @@
+{
+  "example_set_id": "QSB-META01-02_EXAMPLE_RECORDS",
+  "status": "schema_skeleton_examples_only",
+  "records": {
+    "meta_mart": [
+      {"mart_id": "mart_qsb_meta_01", "mart_code": "QSB-META01", "canonical_namespace": "qsb.meta.01", "mart_name": "QSB metadata architecture", "scope_status": "draft", "schema_version": "0.2-draft"}
+    ],
+    "meta_work_package": [
+      {"work_package_id": "wp_qsb_meta_01_02", "mart_id": "mart_qsb_meta_01", "work_package_code": "QSB-META01-02", "canonical_namespace": "qsb.meta.01.02", "work_package_name": "Canonical metadata contract", "status": "draft"}
+    ],
+    "meta_source": [
+      {"source_id": "src_meta01_01_inventory", "mart_id": "mart_qsb_meta_01", "source_type": "inventory_run_output", "source_reference": "runs/QSB-META01-01/repository_metadata_inventory/canonical_metadata_contract_draft.json", "source_record_id_status": "not_applicable"}
+    ],
+    "meta_object": [
+      {"object_id": "obj_meta_contract", "mart_id": "mart_qsb_meta_01", "work_package_id": "wp_qsb_meta_01_02", "object_code": "canonical_metadata_contract", "object_type": "schema", "canonical_name": "canonical metadata contract", "repository_path": "data/QSB-META01-02/canonical_metadata_schema.sql", "status": "draft"}
+    ],
+    "meta_object_version": [
+      {"object_version_id": "objv_meta_contract_0_2", "object_id": "obj_meta_contract", "object_version": "0.2-draft", "schema_version": "0.2-draft", "content_checksum": "example_checksum_not_for_identity", "status": "draft"}
+    ],
+    "meta_transformation_rule": [
+      {"transformation_rule_id": "rule_time_ms_to_s", "rule_name": "TIME_MS_TO_S_001", "rule_type": "unit_conversion", "input_semantics": "time in milliseconds", "output_semantics": "time in seconds", "expression": "value_calculation = value_original * 0.001", "source_unit_id": "UNIT_MS", "calculation_unit_id": "UNIT_S", "dimension_vector": "[0,0,1,0,0,0,0]"}
+    ],
+    "meta_field": [
+      {"field_id": "field_cycle_duration_seconds", "object_id": "obj_meta_contract", "canonical_field_name": "cycle_duration_seconds", "data_type": "REAL", "nullable": 0, "key_role": "none", "derivation_class": "unit_conversion", "dependency_status": "declared", "source_object_ids": "src_meta01_01_inventory", "source_field_ids": "cycle_duration_ms", "transformation_rule_id": "rule_time_ms_to_s", "quantity_kind_id": "QK_TIME", "unit_original_id": "UNIT_MS", "unit_calculation_id": "UNIT_S", "unit_display_id": "UNIT_MS", "dimension_vector": "[0,0,1,0,0,0,0]", "unit_status": "resolved", "dimension_status": "resolved"}
+    ],
+    "meta_key": [
+      {"key_id": "key_obj_meta_contract_pk", "object_id": "obj_meta_contract", "key_name": "object_id_pk", "key_type": "primary", "field_order": "object_id", "referenced_object_id": null, "identity_scope": "logical_object"}
+    ],
+    "meta_etl_run": [
+      {"run_id": "run_meta01_02_example", "work_package_id": "wp_qsb_meta_01_02", "runner_path": "scripts/run_qsb_meta01_02_canonical_metadata_contract.py", "run_status": "example_passed", "execution_identity_note": "Execution identity is separate from logical object identity."}
+    ],
+    "meta_unit": [
+      {"unit_id": "UNIT_S", "unit_symbol": "s", "unit_name": "second", "unit_system": "SI", "scale_to_coherent_si": 1.0, "coherent_si_unit_id": "UNIT_S", "is_coherent_si": 1, "unit_status": "active"},
+      {"unit_id": "UNIT_MS", "unit_symbol": "ms", "unit_name": "millisecond", "unit_system": "SI_prefixed", "scale_to_coherent_si": 0.001, "coherent_si_unit_id": "UNIT_S", "is_coherent_si": 0, "unit_status": "active"},
+      {"unit_id": "UNIT_ONE", "unit_symbol": "1", "unit_name": "dimensionless one", "unit_system": "dimensionless", "scale_to_coherent_si": 1.0, "coherent_si_unit_id": "UNIT_ONE", "is_coherent_si": 1, "unit_status": "active"},
+      {"unit_id": "UNIT_MODEL_TIME", "unit_symbol": "model_time", "unit_name": "unmapped model time", "unit_system": "model", "scale_to_coherent_si": null, "coherent_si_unit_id": null, "is_coherent_si": 0, "unit_status": "model_unit_unmapped"}
+    ],
+    "meta_quantity_kind": [
+      {"quantity_kind_id": "QK_TIME", "quantity_kind": "time", "german_label": "Zeit", "dimension_vector": "[0,0,1,0,0,0,0]", "dimension_status": "resolved"},
+      {"quantity_kind_id": "QK_RATIO", "quantity_kind": "ratio", "german_label": "Verhaeltnis", "dimension_vector": "[0,0,0,0,0,0,0]", "dimension_status": "dimensionless_resolved"},
+      {"quantity_kind_id": "QK_MODEL_TIME", "quantity_kind": "model_time", "german_label": "Modellzeit", "dimension_vector": null, "dimension_status": "model_dimension_unmapped"}
+    ],
+    "meta_validation_rule": [
+      {"validation_rule_id": "vr_unit_conversion_explicit", "validation_layer": "unit_conversion", "rule_name": "calculation unit must be explicit", "expected_condition": "unit_calculation is set or unit_status is model_unit_unmapped", "severity": "error"}
+    ],
+    "meta_validation_result": [
+      {"validation_result_id": "vrs_example_unit_conversion", "validation_rule_id": "vr_unit_conversion_explicit", "run_id": "run_meta01_02_example", "object_id": "obj_meta_contract", "field_id": "field_cycle_duration_seconds", "record_id": null, "status": "passed", "observed_value": "UNIT_S", "expected_value": "calculation unit present", "severity": "info", "message": "Example field has explicit calculation unit.", "reviewer_type": "automated_contract_check", "human_review_state": "not_required_for_example"}
+    ],
+    "meta_lineage": [
+      {"lineage_id": "lin_field_cycle_duration", "mart_id": "mart_qsb_meta_01", "source_object_id": "src_meta01_01_inventory", "target_object_id": "obj_meta_contract", "source_field_id": "cycle_duration_ms", "target_field_id": "field_cycle_duration_seconds", "run_id": "run_meta01_02_example", "transformation_rule_id": "rule_time_ms_to_s", "lineage_scope": "field", "lineage_status": "available"}
+    ],
+    "meta_record_lineage": [
+      {"record_lineage_id": "rl_result_record_example", "lineage_id": "lin_field_cycle_duration", "lineage_mode": "materialized", "source_record_key": "META01_01_SUMMARY", "target_record_key": "res_meta01_02_contract", "selection_predicate": null, "membership_checksum": "example_membership_checksum"}
+    ],
+    "meta_result_table": [
+      {"result_table_id": "rt_meta01_02_contract_validation", "mart_id": "mart_qsb_meta_01", "object_id": "obj_meta_contract", "table_role": "contract_validation", "record_lineage_mode": "materialized", "status": "draft"}
+    ],
+    "meta_result_record": [
+      {"result_record_id": "res_meta01_02_contract", "result_table_id": "rt_meta01_02_contract_validation", "mart_id": "mart_qsb_meta_01", "source_result_key": "contract_validation_checks", "result_class": "supports", "comparability_status": "comparable", "formal_validation_status": "passed", "physical_validation_status": "not_applicable", "evidence_class": "supports"}
+    ],
+    "meta_claim": [
+      {"claim_id": "claim_meta01_02_contract_ready_for_review", "mart_id": "mart_qsb_meta_01", "claim_text": "The contract skeleton is ready for human review.", "claim_scope": "metadata architecture", "claim_status": "draft", "boundary_statement": "No mart migration or physical validation is established."}
+    ],
+    "meta_claim_result_link": [
+      {"claim_result_link_id": "crl_meta01_02_support", "claim_id": "claim_meta01_02_contract_ready_for_review", "result_record_id": "res_meta01_02_contract", "relation_type": "supports", "link_status": "draft"}
+    ],
+    "meta_vocabulary": [
+      {"vocabulary_id": "voc_derivation_class", "vocabulary_name": "derivation_class", "namespace_owner": "qsb.meta", "vocabulary_version": "0.2-draft", "status": "draft"}
+    ],
+    "meta_vocabulary_entry": [
+      {"vocabulary_entry_id": "voc_derivation_class_unit_conversion", "vocabulary_id": "voc_derivation_class", "canonical_code": "unit_conversion", "english_label": "unit conversion", "german_alias": "Einheitenumrechnung", "definition": "Target field is converted between documented units.", "entry_status": "active", "introduced_version": "0.2-draft", "human_review_status": "reviewed_for_contract_draft"}
+    ],
+    "meta_alias": [
+      {"alias_id": "alias_quantity_kind_de", "canonical_object_type": "field", "canonical_object_id": "quantity_kind", "language_code": "de", "alias_text": "Groessenart", "presentation_scope": "physical_quantity_view"}
+    ]
+  },
+  "invalid_examples": {
+    "derived_field_without_dependencies": {"field_id": "field_invalid", "object_id": "obj_meta_contract", "canonical_field_name": "invalid_derived", "data_type": "REAL", "nullable": 0, "key_role": "none", "derivation_class": "derived_expression", "dependency_status": "missing", "source_object_ids": null, "source_field_ids": null, "transformation_rule_id": null, "quantity_kind_id": "QK_RATIO", "unit_original_id": "UNIT_ONE", "unit_calculation_id": "UNIT_ONE", "unit_display_id": "UNIT_ONE", "dimension_vector": "[0,0,0,0,0,0,0]", "unit_status": "resolved", "dimension_status": "dimensionless_resolved"}
+  }
+}

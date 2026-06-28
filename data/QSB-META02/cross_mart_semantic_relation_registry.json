@@ -1,0 +1,19 @@
+{
+  "registry_id": "QSB-META02-semantic-relation-registry",
+  "semantic_relations": [
+    {"semantic_relation_id": "same_canonical_identifier", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": true, "requires_review": false, "description": "Same canonical identifier under an accepted local contract."},
+    {"semantic_relation_id": "same_normalized_identifier", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Same after normalization; semantic compatibility still needs review."},
+    {"semantic_relation_id": "same_quantity_kind", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Quantity kind matches, but dimension/unit/value context still required."},
+    {"semantic_relation_id": "same_dimension_vector", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Dimension vector matches; this is not same quantity by itself."},
+    {"semantic_relation_id": "same_unit_after_conversion", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": false, "requires_review": true, "description": "Units can be made coherent after explicit conversion and dimension check."},
+    {"semantic_relation_id": "same_phase_label", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Same phase label only; not same state instance or identity."},
+    {"semantic_relation_id": "same_phase_class", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Same phase class; recurrence and identity rules remain separate."},
+    {"semantic_relation_id": "same_state_instance", "technical_join_allowed": true, "scientific_join_allowed": true, "evidence_allowed": true, "requires_review": true, "description": "Same state instance only after instance identity rule validates it."},
+    {"semantic_relation_id": "same_fingerprint_key", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Same diagnostic fingerprint key; identity resolution not implied."},
+    {"semantic_relation_id": "same_identity_candidate", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Same identity candidate pending IDSPACE/CPNS validation."},
+    {"semantic_relation_id": "diagnostic_similarity_only", "technical_join_allowed": true, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Diagnostic similarity only; no identity evidence."},
+    {"semantic_relation_id": "conceptual_context_only", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Context alignment only; no evidence transfer."},
+    {"semantic_relation_id": "ambiguous_semantic_relation", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Ambiguous relation retained as valid unresolved state."},
+    {"semantic_relation_id": "rejected_false_friend", "technical_join_allowed": false, "scientific_join_allowed": false, "evidence_allowed": false, "requires_review": true, "description": "Surface similarity rejected as semantic false friend."}
+  ]
+}

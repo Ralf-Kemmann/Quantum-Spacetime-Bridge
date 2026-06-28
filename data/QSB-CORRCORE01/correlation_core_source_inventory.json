@@ -1,0 +1,83 @@
+{
+  "inventory_id": "QSB-CORRCORE01-source-inventory",
+  "source_presence_policy": "Use repository/local copies if present; if missing, retain expected source reference and mark presence explicitly.",
+  "sources": [
+    {
+      "source_id": "SRC_CORRCORE01_STRING_MODES",
+      "file_name": "Emergent_Spacetime_from_Correlated_One_D.pdf",
+      "expected_paths": [
+        "Emergent_Spacetime_from_Correlated_One_D.pdf",
+        "../Emergent_Spacetime_from_Correlated_One_D.pdf",
+        "/home/ralf-kemmann/Downloads/Emergent_Spacetime_from_Correlated_One_D.pdf"
+      ],
+      "source_role": "theoretical_origin_kinematic_core",
+      "preserved_facts": [
+        "K_ij(tau) inner-product correlation matrix",
+        "d_ij = -ell_0 log(|K_ij|)",
+        "formal action, potential, and equation-of-motion line"
+      ],
+      "claim_boundary": "conceptual_model_registration_only_no_physical_spacetime_validation"
+    },
+    {
+      "source_id": "SRC_CORRCORE01_RELATIONAL_DYNAMICS",
+      "file_name": "Relational_Correlation_Dynamics_A_Wave_B.pdf",
+      "expected_paths": [
+        "Relational_Correlation_Dynamics_A_Wave_B.pdf",
+        "../Relational_Correlation_Dynamics_A_Wave_B.pdf",
+        "/home/ralf-kemmann/Downloads/Relational_Correlation_Dynamics_A_Wave_B.pdf"
+      ],
+      "source_role": "relational_tunneling_operational_time_scale_context",
+      "preserved_facts": [
+        "correlations treated as fundamental dynamical objects",
+        "dwell-time and Hartman-type response as operational projections",
+        "conceptual/numerical demonstration only"
+      ],
+      "claim_boundary": "numerical_demonstration_not_experimental_prediction"
+    },
+    {
+      "source_id": "SRC_CORRCORE01_IDSPACE_CPNS",
+      "file_name": "From_Diagnostic_Fingerprints_to_Identity.pdf",
+      "expected_paths": [
+        "From_Diagnostic_Fingerprints_to_Identity.pdf",
+        "../From_Diagnostic_Fingerprints_to_Identity.pdf",
+        "/home/ralf-kemmann/Downloads/From_Diagnostic_Fingerprints_to_Identity.pdf"
+      ],
+      "source_role": "method_gate_identity_space_cpns_safeguards",
+      "preserved_facts": [
+        "diagnostic fingerprint readability is not identity-space resolution",
+        "ambiguity is a protected valid state",
+        "CPNS/MaxEnt safeguards ambiguity and degeneracy"
+      ],
+      "claim_boundary": "diagnostic_readability_not_identity_resolution"
+    },
+    {
+      "source_id": "SRC_CORRCORE01_EMERGENT_GRAVITATION_CONTEXT",
+      "file_name": "Discussion_Paper_Emergent_Gravitation_fr.pdf",
+      "expected_paths": [
+        "Discussion_Paper_Emergent_Gravitation_fr.pdf",
+        "../Discussion_Paper_Emergent_Gravitation_fr.pdf",
+        "/home/ralf-kemmann/Downloads/Discussion_Paper_Emergent_Gravitation_fr.pdf"
+      ],
+      "source_role": "context_alignment_not_evidence",
+      "preserved_facts": [
+        "conceptual comparison",
+        "vocabulary alignment",
+        "effective-action and falsifiability-language context"
+      ],
+      "claim_boundary": "emergent_gravitation_context_not_qsb_validation"
+    }
+  ],
+  "related_repository_search_terms": [
+    "QSB_ST",
+    "WIFM01",
+    "BRIDGE-NATURE-01B",
+    "IDSPACE",
+    "CPNS",
+    "Kij",
+    "K_ij",
+    "correlation matrix",
+    "fingerprint",
+    "identity_space",
+    "ambiguous_unresolved"
+  ]
+}
