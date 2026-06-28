@@ -1,0 +1,201 @@
+{
+  "run_id": "QSB-MATRIX-TOPOLOGY-COMPARATIVE-REVIEW",
+  "source_basis": {
+    "curated_primary_sources": "runs/QSB-MATRIX-TOPOLOGY-COMPARATIVE-REVIEW/source_scout/10_curated_primary_sources_final.txt",
+    "existence_check": "runs/QSB-MATRIX-TOPOLOGY-COMPARATIVE-REVIEW/source_scout/11_curated_primary_sources_existence_check.csv",
+    "raw_profile": "runs/QSB-MATRIX-TOPOLOGY-COMPARATIVE-REVIEW/source_scout/12_profile_extraction_raw.txt"
+  },
+  "d1k": {
+    "bridge": {
+      "run_id": "QSB-RELALG-SYNTH-D1K-BRIDGE",
+      "validation_status": "pass",
+      "row_counts": {
+        "d1f_rows": 9450,
+        "d1k_rows": 9450,
+        "matched": 9450,
+        "missing": 0
+      },
+      "claim_boundary": [
+        "synthetic diagnostic only",
+        "not REAL01 evidence",
+        "not a physical phase source",
+        "not a physical C-layer source",
+        "no physical Bridge validation",
+        "no spacetime, metric, gravity, or causal claim"
+      ],
+      "next_authorized_step": "QSB-RELALG-SYNTH-D1K-LOOP-MIN"
+    },
+    "loop_min": {
+      "run_id": "QSB-RELALG-SYNTH-D1K-LOOP-MIN",
+      "validation_status": "pass",
+      "topology_status": "completed_no_closed_source_native_triples",
+      "topology_counts": {
+        "blocked_loop_count": 9450,
+        "directed_edge_count": 9450,
+        "duplicate_directed_edge_count": 0,
+        "self_edge_count": 0,
+        "source_native_closed_triple_count": 0,
+        "unique_A_count": 1,
+        "unique_B_count": 9450,
+        "unique_node_count": 9451,
+        "valid_loop_count": 0
+      },
+      "blocked_reason_counts": {
+        "missing_BC_relation": 9450
+      },
+      "warnings": {
+        "missing_BC_edge_warning": true,
+        "missing_CA_edge_warning": false,
+        "star_like_topology_warning": true
+      },
+      "derived_reverse_edges_allowed": false
+    },
+    "matrix_topology_summary_flat": {
+      "blocked_steps": "QSB-RELALG-REAL01-MIN-STAGING; QSB-RELALG-REAL01-EXECUTION; QSB-RELALG-REAL01-INTERPRETATION; QSB-RELALG-PHYSICS-CLAIM; QSB-RELALG-SYNTH-D1K-LOOP-PHASE-INTERPRETATION",
+      "claim_boundary": "synthetic diagnostic matrix/topology audit only; not REAL01 evidence; not a physical phase source; not a physical C-layer source; no physical Bridge validation; no spacetime, metric, gravity, or causal claim; no inferred edges; no fabricated loops",
+      "edge_node_matrix_counts.density": 1.0,
+      "edge_node_matrix_counts.edge_count": 9450,
+      "edge_node_matrix_counts.matrix_shape": "1 x 9450",
+      "edge_node_matrix_counts.unique_A_count": 1,
+      "edge_node_matrix_counts.unique_B_count": 9450,
+      "edge_node_matrix_counts.unique_node_count": 9451,
+      "family_block_summary_status.matched_edge_count": 9450,
+      "family_block_summary_status.status": "present",
+      "family_block_summary_status.unmatched_edge_count": 0,
+      "input_row_count": 9450,
+      "loop_min_consistency.directed_edge_count": 9450,
+      "loop_min_consistency.source_native_closed_triple_count": 0,
+      "loop_min_consistency.status": "present",
+      "loop_min_consistency.valid_loop_count": 0,
+      "metadata_sync_awareness": "QSB-META-RELALG-SYNC-MIN artifacts exist; this new matrix-topology run is not necessarily synchronized until a later metadata sync updates the catalog.",
+      "next_authorized_step": "QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-REVIEW",
+      "run_id": "QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN",
+      "timestamp_utc": "2026-06-28T06:29:25+00:00",
+      "topology.component_count": 1,
+      "topology.component_topology_classes": "single_star_component",
+      "topology.inferred_edge_count": 0,
+      "topology.missing_BC_relation_count": 9450,
+      "topology.missing_reverse_relation_count": 9450,
+      "topology.overall_topology_class": "single_star_topology",
+      "topology.source_native_closed_triple_count": 0,
+      "topology.source_native_reverse_edge_count": 0,
+      "topology.star_topology_score": 1.0,
+      "topology.valid_loop_count_from_topology": 0,
+      "validation_status": "pass"
+    },
+    "source_topology_limit_summary_flat": {
+      "claim_boundary": "synthetic diagnostic source-topology limit note only; not REAL01 evidence; not a physical phase source; not a physical C-layer source; no physical Bridge validation; no spacetime, metric, gravity, or causal claim; no inferred edges; no fabricated loops; no source-native loop phase authorization from D1K",
+      "density_warning_present": true,
+      "evidence_row_count": 15,
+      "key_metrics.component_topology_class": "single_star_component",
+      "key_metrics.inferred_edge_count": 0,
+      "key_metrics.input_rows_or_edges": 9450,
+      "key_metrics.matrix_shape": "1 x 9450",
+      "key_metrics.source_native_closed_triple_count": 0,
+      "key_metrics.star_topology_score": 1.0,
+      "key_metrics.unique_A_id": 1,
+      "key_metrics.unique_B_id": 9450,
+      "key_metrics.valid_loop_count": 0,
+      "main_conclusion": "D1K supports synthetic C-layer export and matrix/topology diagnostics, but not source-native loop phase analysis.",
+      "next_step_gate": "QSB-RELALG-SYNTH-D1K-SOURCE-TOPOLOGY-LIMIT-NOTE-REVIEW; QSB-META-RELALG-SYNC-D1K-LIMIT-NOTE",
+      "run_id": "QSB-RELALG-SYNTH-D1K-SOURCE-TOPOLOGY-LIMIT-NOTE",
+      "timestamp_utc": "2026-06-28T07:08:14+00:00",
+      "upstream_artifacts_used.bridge_summary": "runs/QSB-RELALG-SYNTH-D1K-BRIDGE/qsb_relalg_synth_d1k_bridge_summary.json",
+      "upstream_artifacts_used.bridge_validation": "runs/QSB-RELALG-SYNTH-D1K-BRIDGE/qsb_relalg_synth_d1k_bridge_validation_report.json",
+      "upstream_artifacts_used.component_summary": "runs/QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN/qsb_relalg_synth_d1k_matrix_topology_component_summary.csv",
+      "upstream_artifacts_used.loop_summary": "runs/QSB-RELALG-SYNTH-D1K-LOOP-MIN/qsb_relalg_synth_d1k_loop_min_summary.json",
+      "upstream_artifacts_used.loop_validation": "runs/QSB-RELALG-SYNTH-D1K-LOOP-MIN/qsb_relalg_synth_d1k_loop_min_validation_report.json",
+      "upstream_artifacts_used.matrix_claim_boundary": "runs/QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN/qsb_relalg_synth_d1k_matrix_topology_claim_boundary.md",
+      "upstream_artifacts_used.matrix_profile": "runs/QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN/qsb_relalg_synth_d1k_matrix_topology_matrix_profile.csv",
+      "upstream_artifacts_used.matrix_summary": "runs/QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN/qsb_relalg_synth_d1k_matrix_topology_summary.json",
+      "upstream_artifacts_used.matrix_validation": "runs/QSB-RELALG-SYNTH-D1K-MATRIX-TOPOLOGY-MIN/qsb_relalg_synth_d1k_matrix_topology_validation_report.json",
+      "validation_status": "pass"
+    }
+  },
+  "extract03": {
+    "matrix_profiles": [
+      {
+        "path": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv",
+        "rows_total": 1765,
+        "header_columns": 4,
+        "data_rows": 1764,
+        "numeric_cols": 1,
+        "matrix_shape": "1764x1",
+        "numeric_value_count": 1764,
+        "nonzero_count": 1764,
+        "nonzero_density": 1.0,
+        "min": -1.0,
+        "max": 1.0000000000000002,
+        "mean": 8.917501405985083e-18,
+        "symmetric_numeric_matrix": null
+      },
+      {
+        "path": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/13_distance_cost_matrix.csv",
+        "rows_total": 1765,
+        "header_columns": 4,
+        "data_rows": 1764,
+        "numeric_cols": 1,
+        "matrix_shape": "1764x1",
+        "numeric_value_count": 1764,
+        "nonzero_count": 1400,
+        "nonzero_density": 0.7936507936507936,
+        "min": 0.0,
+        "max": 4.971009837813531,
+        "mean": 1.6612545296821892,
+        "symmetric_numeric_matrix": null
+      },
+      {
+        "path": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/14_shortest_path_D_matrix.csv",
+        "rows_total": 1765,
+        "header_columns": 4,
+        "data_rows": 1764,
+        "numeric_cols": 1,
+        "matrix_shape": "1764x1",
+        "numeric_value_count": 1764,
+        "nonzero_count": 1400,
+        "nonzero_density": 0.7936507936507936,
+        "min": 0.0,
+        "max": 4.103312807406363,
+        "mean": 1.628639083874455,
+        "symmetric_numeric_matrix": null
+      },
+      {
+        "path": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/15_strength_matrix.csv",
+        "rows_total": 1765,
+        "header_columns": 4,
+        "data_rows": 1764,
+        "numeric_cols": 1,
+        "matrix_shape": "1764x1",
+        "numeric_value_count": 1764,
+        "nonzero_count": 1764,
+        "nonzero_density": 1.0,
+        "min": 0.006936140120339703,
+        "max": 1.0,
+        "mean": 0.33867477618341363,
+        "symmetric_numeric_matrix": null
+      },
+      {
+        "path": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+        "rows_total": 862,
+        "header_columns": 8,
+        "data_rows": 861,
+        "numeric_cols": 4,
+        "matrix_shape": "861x4",
+        "numeric_value_count": 3444,
+        "nonzero_count": 1883,
+        "nonzero_density": 0.5467479674796748,
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.2523841906485978,
+        "symmetric_numeric_matrix": null
+      }
+    ],
+    "viz01_available": true,
+    "viz02_available": true,
+    "component_order_summary_available": true
+  },
+  "claim_boundary_seed": {
+    "d1k": "synthetic diagnostic / topology-limit control case; no physical phase, bridge, spacetime, metric, gravity, or causal claim",
+    "extract03": "relational matrix structure candidate; topology review eligible; no geometry or physics claim from visualization alone"
+  }
+}
