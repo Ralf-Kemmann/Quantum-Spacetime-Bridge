@@ -1,0 +1,23 @@
+{
+  "candidate_edge_count": 161,
+  "candidate_edge_density": 0.18699186991869918,
+  "claim_boundary": "Purely structural graph-theoretic closure test. No claim is made about physical geometry, spacetime, metric structure, gravitation, causality, dynamics, experimental validation, or physical emergence.",
+  "closed_triple_count": 1260,
+  "closure_status": "closed_triples_detected",
+  "component_count": 6,
+  "connected_triple_count": 1260,
+  "degree_max": 11,
+  "degree_mean": 7.666666666666667,
+  "degree_min": 1,
+  "edge_candidate_rows_total": 861,
+  "global_closure_ratio": 1.0,
+  "largest_component_size": 12,
+  "node_count": 42,
+  "non_candidate_edge_count": 700,
+  "open_wedge_count": 0,
+  "possible_undirected_edges": 861,
+  "run_id": "QSB-MATRIX-TOPOLOGY-CLOSURE-TEST",
+  "source_file": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+  "triangle_count": 420,
+  "triangle_participating_node_count": 40
+}
