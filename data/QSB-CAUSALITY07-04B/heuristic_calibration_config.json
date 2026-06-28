@@ -1,0 +1,106 @@
+{
+  "block_id": "QSB-CAUSALITY07-04B",
+  "calibration_scope": "heuristic_reconstruction_parameter_sensitivity",
+  "source_block": "QSB-CAUSALITY07-04A",
+  "source_method": "label_blind_scaled_xz_angle_sector_transition_scoring_v1",
+  "input_artifacts": {
+    "classified_phase_series": "runs/QSB-CAUSALITY07-02/first_oscillatory_state_cycle/classified_phase_series.csv",
+    "causality07_04_directed_graph": "runs/QSB-CAUSALITY07-04/controlled_causal_structure/directed_transition_graph.csv",
+    "causality07_04a_pairwise_score_matrix": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/pairwise_transition_score_matrix.csv",
+    "causality07_04a_predecessor_ranking_matrix": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/predecessor_ranking_matrix.csv",
+    "causality07_04a_global_cycle_reconstruction": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/global_cycle_reconstruction.csv",
+    "causality07_04a_edge_ablation_control_matrix": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/edge_ablation_control_matrix.csv",
+    "causality07_04a_reconstruction_leakage_audit": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/reconstruction_leakage_audit.csv",
+    "causality07_04a_resolved_reconstruction_config": "runs/QSB-CAUSALITY07-04A/independent_transition_reconstruction/resolved_reconstruction_config.json",
+    "causality07_04a_rule_registry": "data/QSB-CAUSALITY07-04A/reconstruction_rule_registry.json",
+    "causality07_04a_runner": "scripts/run_qsb_causality07_04a_independent_transition_reconstruction.py"
+  },
+  "registered_positive_edges": [
+    "S0->S1",
+    "S1->S2",
+    "S2->S3",
+    "S3->S4",
+    "S4->S0"
+  ],
+  "critical_unsupported_edge": "S4->S1",
+  "candidate_state_count": 5,
+  "weight_grid": [
+    "0.0",
+    "0.1",
+    "0.2",
+    "0.3",
+    "0.4",
+    "0.5",
+    "0.6",
+    "0.7",
+    "0.8",
+    "0.9",
+    "1.0"
+  ],
+  "threshold_grid": [
+    "0.00",
+    "0.05",
+    "0.10",
+    "0.15",
+    "0.20",
+    "0.25",
+    "0.30",
+    "0.35",
+    "0.40",
+    "0.45",
+    "0.50"
+  ],
+  "current_working_point": {
+    "w_t": "0.7",
+    "w_d": "0.3",
+    "theta": "0.20"
+  },
+  "score_components": {
+    "temporal_transition_frequency_score": {
+      "formula": "transition_count(source,target) / max_transition_count",
+      "unit_status": "unitless_normalized_score",
+      "dimension_status": "dimensionless_after_documented_normalization"
+    },
+    "derivative_alignment_score": {
+      "formula": "0.5 * (1 + cosine(mean_derivative_source, centroid_target - centroid_source))",
+      "unit_status": "unitless_normalized_score",
+      "dimension_status": "dimensionless_after_documented_normalization"
+    }
+  },
+  "weighted_score_formula": "S = w_t * temporal_transition_frequency_score + w_d * derivative_alignment_score",
+  "unit_rules": {
+    "weights": "dimensionless_by_construction",
+    "threshold": "dimensionless_when_applied_to_documented_dimensionless_normalized_score",
+    "model_time": "model_unit_unmapped",
+    "conversion_to_seconds": "not_performed"
+  },
+  "grid_policy": {
+    "grid_is_predefined": true,
+    "post_hoc_grid_modification_allowed": false,
+    "secondary_refinement_sweep": "not_used"
+  },
+  "allowed_operating_region_classes": [
+    "exact_cycle_no_extra_edges",
+    "exact_cycle_with_extra_edges",
+    "partial_cycle",
+    "ambiguous_cycle",
+    "cycle_not_recovered",
+    "insufficient_information"
+  ],
+  "allowed_primary_calibration_classes": [
+    "stable_false_positive_free_operating_window_identified",
+    "stable_window_identified_with_residual_false_positives",
+    "narrow_or_fragile_operating_window",
+    "no_stable_operating_window",
+    "geometry_only_reconstruction_insufficient",
+    "temporal_component_required_for_reconstruction",
+    "calibration_blocked_by_score_definition"
+  ],
+  "claim_boundary": [
+    "no_physical_causality_claim",
+    "no_emergent_time_claim",
+    "no_universal_parameter_claim",
+    "no_laboratory_calibration_claim",
+    "valid_only_for_this_reduced_model_dataset_and_grid"
+  ]
+}

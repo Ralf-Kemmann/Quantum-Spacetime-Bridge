@@ -1,0 +1,106 @@
+{
+  "block_id": "QSB-CAUSALITY07-04",
+  "conditions": [
+    {
+      "condition_id": "C1",
+      "condition_name": "Ordered State Distinction",
+      "minimum_rule": "Assigned phase labels must be distinct and documented as reduced-model working aliases; failure blocks stronger conditions.",
+      "stronger_than": []
+    },
+    {
+      "condition_id": "C2",
+      "condition_name": "Directed Transition Admissibility",
+      "minimum_rule": "Each observed baseline edge must belong to the explicit allowed transition set; reverse and invalid edges are evaluated separately.",
+      "stronger_than": [
+        "C1"
+      ]
+    },
+    {
+      "condition_id": "C3",
+      "condition_name": "Predecessor Dependence",
+      "minimum_rule": "Target-state interpretation must depend on an admissible predecessor, not on target occurrence alone.",
+      "stronger_than": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "condition_id": "C4",
+      "condition_name": "Permutation Rejection",
+      "minimum_rule": "Reverse, scrambled, and deterministic non-baseline permutations must not be accepted as baseline cycles under the same detection rule.",
+      "stronger_than": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "condition_id": "C5",
+      "condition_name": "Control-Sensitive Recurrence",
+      "minimum_rule": "Baseline recurrence must be present while negative controls preserve zero detected cycles under the same detector.",
+      "stronger_than": [
+        "C1",
+        "C2",
+        "C4"
+      ]
+    },
+    {
+      "condition_id": "C6",
+      "condition_name": "Bounded Perturbation Robustness",
+      "minimum_rule": "Bounded perturbation robustness may pass only with explicit perturbation outputs; otherwise it is not evaluable from current outputs.",
+      "stronger_than": [
+        "C1",
+        "C2",
+        "C5"
+      ]
+    },
+    {
+      "condition_id": "C7",
+      "condition_name": "Closure Consistency",
+      "minimum_rule": "Terminal state must return to the registered entry condition under assigned-phase and reduced-state proximity rules, without equating recurrence with full identity.",
+      "stronger_than": [
+        "C1",
+        "C5"
+      ]
+    },
+    {
+      "condition_id": "C8",
+      "condition_name": "Causal Interpretation Gate",
+      "minimum_rule": "Final causal-structure class must follow reproducibly from C1-C7 and preserve unit, threshold, identity, and claim limitations.",
+      "stronger_than": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ]
+    }
+  ],
+  "final_class_rules": [
+    {
+      "final_class": "blocked_by_unresolved_transition_rule",
+      "rule": "C1 passes but C2 fails or is unresolved."
+    },
+    {
+      "final_class": "blocked_by_unresolved_identity_rule",
+      "rule": "C7 fails because recurrence is equated with full identity or identity rule is missing."
+    },
+    {
+      "final_class": "controlled_causal_structure_candidate",
+      "rule": "C1-C5 pass, C6 passes or is not evaluable, C7 passes at reduced-model level, and C8 passes with limitations explicit."
+    },
+    {
+      "final_class": "ordered_recurrence_with_control_selectivity",
+      "rule": "C1-C5 and C7 pass but C8 requires human review."
+    },
+    {
+      "final_class": "ordered_sequence_only",
+      "rule": "C1-C3 pass but C4 or C5 fails."
+    },
+    {
+      "final_class": "insufficient_evidence_for_causal_structure",
+      "rule": "Required evidence is missing before C1-C5 can be evaluated."
+    }
+  ]
+}

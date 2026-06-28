@@ -1,0 +1,52 @@
+{
+  "block_id": "QSB-CAUSALITY07-04A",
+  "rules": [
+    {
+      "rule_id": "R1_label_blind_state_preparation",
+      "status_rule": "Pass only if phase labels, predefined cycle order, registered transitions, and canonical predecessors are excluded from reconstruction inputs."
+    },
+    {
+      "rule_id": "R2_candidate_predecessor_set",
+      "status_rule": "Pass only if every non-self candidate predecessor is enumerated for every target."
+    },
+    {
+      "rule_id": "R3_predecessor_scoring",
+      "status_rule": "Pass only if all score formulas, weights, normalization rules, unit status, dimension status, and calibration status are explicit."
+    },
+    {
+      "rule_id": "R4_direction_reconstruction",
+      "status_rule": "Pass only if forward and reverse scores are computed and direction classes are assigned from explicit margins."
+    },
+    {
+      "rule_id": "R5_predecessor_ranking",
+      "status_rule": "Pass only if known predecessors are added after ranking and top-1, top-2, reciprocal-rank, tie, and ambiguity metrics are recorded."
+    },
+    {
+      "rule_id": "R6_label_blind_cycle_reconstruction",
+      "status_rule": "Pass only if the directed cycle is reconstructed before comparison with the known phase sequence."
+    },
+    {
+      "rule_id": "R7_edge_ablation_controls",
+      "status_rule": "Pass only if deterministic ablations degrade, break, or visibly change reconstruction outcomes."
+    },
+    {
+      "rule_id": "R8_label_permutation_leakage_control",
+      "status_rule": "Pass only if deterministic label permutation leaves reconstruction unchanged."
+    },
+    {
+      "rule_id": "R9_row_order_leakage_control",
+      "status_rule": "Pass only if deterministic row shuffle leaves reconstruction unchanged because explicit time sorting is used."
+    },
+    {
+      "rule_id": "R10_composite_independent_reconstruction_gate",
+      "status_rule": "Assign the strongest class only if R1-R9 pass, no unsupported unit assumption is used, and strongest unsupported physical-causality claims are rejected."
+    }
+  ],
+  "status_vocabulary": [
+    "passed",
+    "failed",
+    "not_evaluable_from_current_outputs",
+    "requires_human_review",
+    "not_applicable"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "block_id": "QSB-CAUSALITY07-04C",
+  "scope": "fine_calibration_refinement_around_04b_stable_region",
+  "source_block": "QSB-CAUSALITY07-04B",
+  "input_artifacts": {
+    "classified_phase_series": "runs/QSB-CAUSALITY07-02/first_oscillatory_state_cycle/classified_phase_series.csv",
+    "source_04a_config": "data/QSB-CAUSALITY07-04A/independent_transition_reconstruction_config.json",
+    "source_04b_weight_threshold_sweep": "runs/QSB-CAUSALITY07-04B/heuristic_calibration_sweep/weight_threshold_sweep.csv",
+    "source_04b_stable_operating_window": "runs/QSB-CAUSALITY07-04B/heuristic_calibration_sweep/stable_operating_window.csv",
+    "source_04b_decision_summary": "runs/QSB-CAUSALITY07-04B/heuristic_calibration_sweep/calibration_decision_summary.csv",
+    "source_04b_run_summary": "runs/QSB-CAUSALITY07-04B/heuristic_calibration_sweep/run_summary.json",
+    "source_04b_config": "data/QSB-CAUSALITY07-04B/heuristic_calibration_config.json",
+    "source_04b_metric_registry": "data/QSB-CAUSALITY07-04B/calibration_metric_registry.json",
+    "source_04b_runner": "scripts/run_qsb_causality07_04b_heuristic_calibration_sweep.py"
+  },
+  "registered_positive_edges": [
+    "S0->S1",
+    "S1->S2",
+    "S2->S3",
+    "S3->S4",
+    "S4->S0"
+  ],
+  "critical_unsupported_edge": "S4->S1",
+  "candidate_state_count": 5,
+  "primary_fine_grid": {
+    "w_t_min": "0.60",
+    "w_t_max": "0.80",
+    "w_t_step": "0.02",
+    "theta_min": "0.20",
+    "theta_max": "0.50",
+    "theta_step": "0.01"
+  },
+  "boundary_extension_grid": {
+    "w_t_values": [
+      "0.60",
+      "0.70",
+      "0.80"
+    ],
+    "theta_min": "0.51",
+    "theta_max": "0.80",
+    "theta_step": "0.01"
+  },
+  "reference_point": {
+    "w_t": "0.70",
+    "w_d": "0.30",
+    "theta": "0.35"
+  },
+  "grid_policy": {
+    "fine_grid_predefined": true,
+    "boundary_extension_grid_predefined": true,
+    "post_hoc_grid_modification_allowed": false
+  },
+  "score_formula": "S = w_t * temporal_transition_frequency_score + w_d * derivative_alignment_score",
+  "unit_rules": {
+    "weights": "dimensionless",
+    "thresholds": "dimensionless_when_applied_to_documented_normalized_dimensionless_scores",
+    "model_time": "model_unit_unmapped",
+    "seconds_conversion": "not_performed",
+    "mixed_unit_addition": "not_performed"
+  },
+  "allowed_final_classes": [
+    "robust_interior_operating_point_identified",
+    "stable_region_confirmed_but_no_robust_interior_point",
+    "narrow_stable_region",
+    "boundary_limited_region",
+    "false_positive_free_region_not_confirmed",
+    "fine_sweep_inconsistent_with_coarse_sweep",
+    "calibration_refinement_blocked"
+  ],
+  "allowed_final_status": [
+    "fine_calibration_sweep_completed",
+    "fine_calibration_sweep_completed_with_review_items",
+    "fine_calibration_sweep_blocked"
+  ],
+  "claim_boundary": [
+    "no_physical_causality_claim",
+    "no_emergent_time_claim",
+    "no_universal_parameter_claim",
+    "no_laboratory_calibration_claim",
+    "valid_only_for_this_dataset_score_and_grid"
+  ]
+}

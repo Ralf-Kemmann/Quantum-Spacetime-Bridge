@@ -1,0 +1,78 @@
+{
+  "block_id": "QSB-CAUSALITY07-04B",
+  "metric_groups": {
+    "edge_level": [
+      "true_positive_count",
+      "false_positive_count",
+      "true_negative_count",
+      "false_negative_count",
+      "precision",
+      "recall",
+      "specificity",
+      "balanced_accuracy",
+      "f1_score",
+      "ambiguity_count",
+      "unresolved_count"
+    ],
+    "cycle_level": [
+      "exact_five_edge_cycle_recovered",
+      "cycle_closed",
+      "extra_supported_edges_present",
+      "number_of_extra_supported_edges",
+      "cycle_class",
+      "registered_edge_coverage",
+      "cycle_uniqueness",
+      "alternative_cycle_count"
+    ],
+    "predecessor": [
+      "top1_recovery_rate",
+      "top2_recovery_rate",
+      "mean_reciprocal_rank",
+      "median_rank",
+      "number_of_ties",
+      "number_unresolved"
+    ],
+    "artefact": [
+      "s4_to_s1_supported",
+      "unsupported_edge_support_rate",
+      "observed_zero_transition_edge_support_count",
+      "geometry_only_false_support_count",
+      "time_dominance_indicator"
+    ],
+    "stability": [
+      "nearest_neighbor_parameter_consistency",
+      "contiguous_stable_window_size",
+      "classification_change_count",
+      "exact_cycle_plateau_width",
+      "false_positive_free_plateau_width"
+    ]
+  },
+  "undefined_numeric_policy": "record_null_value_with_status_field",
+  "positive_edge_definition": "the five registered S0->S1->S2->S3->S4->S0 cycle edges",
+  "negative_edge_definition": "all other directed non-self candidate edges",
+  "critical_artefact_monitor": "S4->S1",
+  "operating_region_class_rules": {
+    "exact_cycle_no_extra_edges": "all five registered edges supported, no unsupported directed edge supported, reconstructed best-edge cycle is the registered cycle, and no ambiguity prevents classification",
+    "exact_cycle_with_extra_edges": "registered best-edge cycle is recovered but at least one unsupported directed edge is also forward-supported",
+    "partial_cycle": "some but not all registered cycle edges are recovered as supported or selected",
+    "ambiguous_cycle": "direction ambiguity or tie structure prevents a unique cycle classification",
+    "cycle_not_recovered": "registered cycle is not recovered and ambiguity is not the primary reason",
+    "insufficient_information": "inputs or score definition do not permit the metric to be computed"
+  },
+  "stable_operating_window_rule": {
+    "required": [
+      "all_five_registered_edges_recovered",
+      "zero_unsupported_supported_edges",
+      "top1_predecessor_recovery_complete_or_explicitly_thresholded",
+      "cycle_unique",
+      "neighboring_parameter_points_same_classification",
+      "no_hidden_unit_or_dimension_assumption"
+    ],
+    "single_point_window_status": "rejected_as_stable_window"
+  },
+  "final_status_vocabulary": [
+    "heuristic_calibration_sweep_completed",
+    "heuristic_calibration_sweep_completed_with_review_items",
+    "heuristic_calibration_sweep_blocked"
+  ]
+}

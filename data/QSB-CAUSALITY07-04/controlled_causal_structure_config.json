@@ -1,0 +1,102 @@
+{
+  "additional_deterministic_permutation_sequence": [
+    "P0",
+    "P2",
+    "P1",
+    "P3",
+    "P4",
+    "P0"
+  ],
+  "allowed_final_classes": [
+    "controlled_causal_structure_candidate",
+    "ordered_recurrence_with_control_selectivity",
+    "ordered_sequence_only",
+    "insufficient_evidence_for_causal_structure",
+    "blocked_by_unresolved_identity_rule",
+    "blocked_by_unresolved_transition_rule"
+  ],
+  "allowed_transitions": [
+    [
+      "P0",
+      "P1"
+    ],
+    [
+      "P1",
+      "P2"
+    ],
+    [
+      "P2",
+      "P3"
+    ],
+    [
+      "P3",
+      "P4"
+    ],
+    [
+      "P4",
+      "P0"
+    ]
+  ],
+  "baseline_sequence": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P0"
+  ],
+  "block_id": "QSB-CAUSALITY07-04",
+  "condition_status_vocabulary": [
+    "passed",
+    "failed",
+    "not_evaluable_from_current_outputs",
+    "requires_human_review",
+    "not_applicable"
+  ],
+  "evidence_class_vocabulary": [
+    "explicit_source",
+    "direct_run_result",
+    "rule_derived",
+    "control_comparison",
+    "heuristic",
+    "insufficient",
+    "not_applicable"
+  ],
+  "input_artifacts": {
+    "causality07_01_case_definition": "docs/QSB_CAUSALITY07_01_OSCILLATORY_REACTION_STATE_CYCLE_CASE_DEFINITION.md",
+    "causality07_02_config": "data/QSB-CAUSALITY07-02/oregonator_config.json",
+    "causality07_02_phase_rules": "data/QSB-CAUSALITY07-02/cycle_phase_rules.json",
+    "causality07_02_run_summary": "runs/QSB-CAUSALITY07-02/first_oscillatory_state_cycle/run_summary.json",
+    "causality07_03_config": "data/QSB-CAUSALITY07-03/cycle_semantics_hardening_config.json",
+    "causality07_03_result_note": "docs/QSB_CAUSALITY07_03_FINAL_RESULT_NOTE.md",
+    "causality07_03_run_summary": "runs/QSB-CAUSALITY07-03/cycle_semantics_hardening/run_summary.json",
+    "causality07_03_spec": "docs/QSB_CAUSALITY07_03_CYCLE_SEMANTICS_HARDENING_NEGATIVE_CONTROLS_SPEC.md",
+    "source_inventory": "data/QSB-CAUSALITY07-02/source_inventory.md"
+  },
+  "intentionally_invalid_transition": [
+    "P0",
+    "P3"
+  ],
+  "reverse_control_sequence": [
+    "P0",
+    "P4",
+    "P3",
+    "P2",
+    "P1",
+    "P0"
+  ],
+  "scrambled_control_sequence": [
+    "P0",
+    "P1",
+    "P3",
+    "P2",
+    "P4",
+    "P0"
+  ],
+  "state_vector_distance_threshold": {
+    "calibration_status": "not_empirically_calibrated",
+    "dimension_status": "not_declared_dimensionless",
+    "unit_status": "documented_status_retained_from_source",
+    "value": 0.08
+  }
+}

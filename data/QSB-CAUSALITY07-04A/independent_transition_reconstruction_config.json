@@ -1,0 +1,80 @@
+{
+  "ablation_controls": [
+    "remove_one_supported_edge",
+    "replace_one_supported_edge_with_false_edge",
+    "swap_two_predecessor_assignments",
+    "remove_direction_information",
+    "bounded_score_component_perturbation"
+  ],
+  "allowed_direction_classes": [
+    "forward_supported",
+    "reverse_supported",
+    "bidirectionally_ambiguous",
+    "direction_unresolved",
+    "insufficient_data"
+  ],
+  "allowed_final_classes": [
+    "independent_transition_and_predecessor_reconstruction_supported",
+    "transition_direction_supported_predecessor_ambiguous",
+    "predecessor_ranking_supported_cycle_not_recovered",
+    "partial_independent_reconstruction",
+    "rule_consistency_only",
+    "blocked_by_label_leakage",
+    "blocked_by_row_order_leakage",
+    "insufficient_state_information"
+  ],
+  "baseline_sequence_for_posthoc_comparison_only": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P0"
+  ],
+  "block_id": "QSB-CAUSALITY07-04A",
+  "candidate_state_count": 5,
+  "direction_margin_threshold": 0.2,
+  "input_artifacts": {
+    "causality07_02_classified_phase_series": "runs/QSB-CAUSALITY07-02/first_oscillatory_state_cycle/classified_phase_series.csv",
+    "causality07_02_oregonator_time_series": "runs/QSB-CAUSALITY07-02/first_oscillatory_state_cycle/oregonator_time_series.csv",
+    "causality07_04_condition_evaluation": "runs/QSB-CAUSALITY07-04/controlled_causal_structure/causal_condition_evaluation.csv",
+    "causality07_04_directed_graph": "runs/QSB-CAUSALITY07-04/controlled_causal_structure/directed_transition_graph.csv",
+    "causality07_04_summary": "runs/QSB-CAUSALITY07-04/controlled_causal_structure/causal_structure_summary.csv"
+  },
+  "posthoc_known_predecessors": {
+    "P0": "P4",
+    "P1": "P0",
+    "P2": "P1",
+    "P3": "P2",
+    "P4": "P3"
+  },
+  "reconstruction_input_fields": [
+    "time",
+    "x_activator",
+    "y_inhibitor",
+    "z_oxidized_catalyst",
+    "dx_dt",
+    "dy_dt",
+    "dz_dt",
+    "post_transient"
+  ],
+  "reconstruction_method": "label_blind_scaled_xz_angle_sector_transition_scoring_v1",
+  "score_components": {
+    "derivative_alignment_score": {
+      "calibration_status": "heuristic",
+      "formula": "0.5 * (1 + cosine(mean_derivative_source, centroid_target - centroid_source))",
+      "weight": 0.3
+    },
+    "temporal_transition_frequency_score": {
+      "calibration_status": "heuristic",
+      "formula": "transition_count(source,target) / max_transition_count",
+      "weight": 0.7
+    }
+  },
+  "score_dimension_status": "dimensionless_after_documented_normalization",
+  "score_unit_status": "unitless_normalized_score",
+  "state_space_projection": [
+    "x_activator",
+    "z_oxidized_catalyst"
+  ]
+}

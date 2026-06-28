@@ -1,0 +1,64 @@
+{
+  "block_id": "QSB-CAUSALITY07-04C",
+  "edge_metrics": [
+    "true_positives",
+    "false_positives",
+    "true_negatives",
+    "false_negatives",
+    "precision",
+    "recall",
+    "specificity",
+    "balanced_accuracy",
+    "f1_score",
+    "unsupported_edge_count",
+    "zero_observation_supported_edge_count",
+    "s4_to_s1_supported"
+  ],
+  "cycle_metrics": [
+    "exact_cycle_recovered",
+    "cycle_closed",
+    "cycle_unique",
+    "extra_supported_edges",
+    "alternative_cycle_count",
+    "registered_edge_coverage",
+    "cycle_classification"
+  ],
+  "predecessor_metrics": [
+    "top1_recovery_rate",
+    "top2_recovery_rate",
+    "mean_reciprocal_rank",
+    "median_rank",
+    "tie_count",
+    "unresolved_count"
+  ],
+  "local_stability_metrics": [
+    "orthogonal_same_class_neighbor_count",
+    "diagonal_same_class_neighbor_count",
+    "total_same_class_neighbor_count",
+    "minimum_manhattan_distance_to_classification_change",
+    "minimum_euclidean_grid_distance_to_false_positive_point",
+    "minimum_distance_to_false_negative_point",
+    "minimum_distance_to_ambiguous_cycle_point",
+    "sweep_boundary_flag"
+  ],
+  "robust_interior_operating_point_rule": [
+    "exact_cycle_recovered",
+    "no_extra_supported_edges",
+    "top1_predecessor_recovery_equals_1",
+    "cycle_unique",
+    "not_on_grid_boundary",
+    "at_least_4_orthogonal_neighbors_share_classification_where_available",
+    "at_least_6_of_8_immediate_neighbors_share_classification",
+    "minimum_classification_change_distance_at_least_2_fine_grid_steps",
+    "no_unsupported_edge_appears_in_immediate_neighborhood",
+    "no_true_cycle_edge_disappears_in_immediate_neighborhood"
+  ],
+  "candidate_a_rule": "maximize boundary distance, then local stability fraction, then false-positive distance, then false-negative distance; tie-break by closeness to provisional point, lower threshold, lower time weight",
+  "candidate_b_rule": "among robust interior points, choose smallest w_t; tie-break by boundary distance, local stability fraction, and lower threshold",
+  "undefined_numeric_policy": "record empty numeric value with explicit status where needed",
+  "final_status_vocabulary": [
+    "fine_calibration_sweep_completed",
+    "fine_calibration_sweep_completed_with_review_items",
+    "fine_calibration_sweep_blocked"
+  ]
+}
