@@ -392,7 +392,8 @@ def formal_admissibility(states: Sequence[Dict[str, str]]) -> List[Dict[str, str
                 "source_state": "source_bmc08c_feature_table",
                 "target_state": first["state_id"],
                 "formal_admissible": "yes",
-                "relation_type": "analysis_construction_branch",
+                "relation_type": "",
+                "relation_scope": "analysis_construction_branch",
                 "is_adjacent_primitive_candidate": "no",
                 "parameter_order_used_in_admissibility": "yes",
                 "admissibility_source_path": str(PRIMARY_CONFIG),
@@ -416,10 +417,13 @@ def formal_admissibility(states: Sequence[Dict[str, str]]) -> List[Dict[str, str
                 adjacent = rank[dst["state_id"]] - rank[src["state_id"]] == 1
                 if adjacent:
                     relation_type = "adjacent_primitive_candidate"
+                    relation_scope = "formal_sweep_relation"
                 elif dst_param > src_param:
                     relation_type = "nonadjacent_monotone_skip_candidate"
+                    relation_scope = "formal_sweep_relation"
                 else:
-                    relation_type = "blocked_or_unadmissible_candidate"
+                    relation_type = ""
+                    relation_scope = "blocked_or_unadmissible_candidate"
                 rows.append(
                     {
                         "edge_id": f"adm_{src['state_id']}__{dst['state_id']}",
@@ -427,6 +431,7 @@ def formal_admissibility(states: Sequence[Dict[str, str]]) -> List[Dict[str, str
                         "target_state": dst["state_id"],
                         "formal_admissible": yes(admissible),
                         "relation_type": relation_type,
+                        "relation_scope": relation_scope,
                         "is_adjacent_primitive_candidate": yes(admissible and adjacent),
                         "parameter_order_used_in_admissibility": "yes",
                         "admissibility_source_path": str(PRIMARY_CONFIG),
@@ -441,10 +446,10 @@ def formal_admissibility(states: Sequence[Dict[str, str]]) -> List[Dict[str, str
 def graph_from_admissibility(rows: Sequence[Dict[str, str]], states: Sequence[Dict[str, str]]) -> Dict[str, Set[str]]:
     graph = {state["state_id"]: set() for state in states}
     for row in rows:
-        if row["formal_admissible"] == "yes" and row["relation_type"] in {
-            "analysis_construction_branch",
-            "adjacent_primitive_candidate",
-        }:
+        if row["formal_admissible"] == "yes" and (
+            row.get("relation_scope") == "analysis_construction_branch"
+            or row["relation_type"] == "adjacent_primitive_candidate"
+        ):
             graph[row["source_state"]].add(row["target_state"])
     return graph
 
@@ -494,6 +499,8 @@ def direction_candidates(
     for row in admissibility:
         if row["formal_admissible"] != "yes":
             continue
+        if row["relation_type"] != "adjacent_primitive_candidate":
+            continue
         src = row["source_state"]
         dst = row["target_state"]
         src_state = state_by_id[src]
@@ -504,7 +511,6 @@ def direction_candidates(
         strict_space_reduction = spaces[dst] < spaces[src]
         accepted = (
             strict_space_reduction
-            and row["relation_type"] == "adjacent_primitive_candidate"
             and component_drop
         )
         if accepted:
