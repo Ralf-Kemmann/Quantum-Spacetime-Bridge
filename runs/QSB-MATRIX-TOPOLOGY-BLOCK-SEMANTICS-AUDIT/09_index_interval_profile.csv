@@ -1,0 +1,2 @@
+min_index_global,max_index_global,index_count,indices_present,abs_delta_values_present,total_directed_non_diagonal_pairs_expected,total_pair_ids_observed,covers_all_directed_non_diagonal_pairs
+0,6,7,0;1;2;3;4;5;6,1;2;3;4;5;6,42,42,true

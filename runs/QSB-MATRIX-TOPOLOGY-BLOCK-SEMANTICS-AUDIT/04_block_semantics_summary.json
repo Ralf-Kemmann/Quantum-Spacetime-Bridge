@@ -1,0 +1,53 @@
+{
+  "run_id": "QSB-MATRIX-TOPOLOGY-BLOCK-SEMANTICS-AUDIT",
+  "source_edge_file": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+  "closure_component_source": "runs/QSB-MATRIX-TOPOLOGY-CLOSURE-TEST/06_component_summary.csv",
+  "block_structure_summary_source": "runs/QSB-MATRIX-TOPOLOGY-BLOCK-STRUCTURE-AUDIT/04_block_structure_summary.json",
+  "node_count": 42,
+  "component_count": 6,
+  "component_sizes": [
+    12,
+    10,
+    8,
+    6,
+    4,
+    2
+  ],
+  "min_index_global": 0,
+  "max_index_global": 6,
+  "index_count": 7,
+  "indices_present": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "abs_delta_values_present": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "covers_all_directed_non_diagonal_pairs": true,
+  "all_components_single_abs_delta": true,
+  "component_to_abs_delta_map": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6
+  },
+  "component_sizes_match_abs_delta_rule": true,
+  "all_components_match_distance_rule": true,
+  "all_unordered_pairs_orientation_symmetric": true,
+  "orientation_symmetric_pair_count": 21,
+  "orientation_asymmetry_count": 0,
+  "semantic_status": "blocks_correspond_to_directed_pair_index_distance_classes",
+  "claim_boundary": "Purely structural graph-theoretic and index-semantic audit. No claim is made about physical geometry, spacetime, metric structure, gravitation, causality, dynamics, experimental validation, or physical emergence."
+}
