@@ -1,0 +1,26 @@
+{
+  "run_id": "QSB-MATRIX-TOPOLOGY-BLOCK-STRUCTURE-AUDIT",
+  "source_edge_file": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+  "closure_summary_source": "runs/QSB-MATRIX-TOPOLOGY-CLOSURE-TEST/04_closure_summary.json",
+  "closure_viz_summary_source": "runs/QSB-MATRIX-TOPOLOGY-CLOSURE-VIZ/09_closure_viz_summary.json",
+  "node_count": 42,
+  "candidate_edge_count": 161,
+  "component_count": 6,
+  "component_sizes": [
+    12,
+    10,
+    8,
+    6,
+    4,
+    2
+  ],
+  "expected_total_clique_edges": 161,
+  "observed_total_candidate_edges": 161,
+  "all_components_complete_cliques": true,
+  "cross_component_candidate_edge_count": 0,
+  "expected_total_clique_triangles": 420,
+  "observed_total_triangles": 420,
+  "all_component_triangle_counts_match": true,
+  "block_structure_status": "complete_disjoint_clique_blocks_confirmed",
+  "claim_boundary": "Purely structural graph-theoretic block-structure audit. No claim is made about physical geometry, spacetime, metric structure, gravitation, causality, dynamics, experimental validation, or physical emergence."
+}

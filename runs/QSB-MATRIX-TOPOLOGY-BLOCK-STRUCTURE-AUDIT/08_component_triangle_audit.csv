@@ -1,0 +1,7 @@
+component_id,component_size,expected_triangles,observed_internal_triangles,triangle_count_matches_clique_expectation
+1,12,220,220,true
+2,10,120,120,true
+3,8,56,56,true
+4,6,20,20,true
+5,4,4,4,true
+6,2,0,0,true

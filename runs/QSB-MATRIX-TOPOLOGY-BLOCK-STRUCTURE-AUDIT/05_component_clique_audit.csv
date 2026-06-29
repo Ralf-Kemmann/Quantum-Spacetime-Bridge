@@ -1,0 +1,7 @@
+component_id,component_size,expected_internal_edges,observed_internal_candidate_edges,missing_internal_edges,is_complete_clique,missing_edge_list
+1,12,66,66,0,true,
+2,10,45,45,0,true,
+3,8,28,28,0,true,
+4,6,15,15,0,true,
+5,4,6,6,0,true,
+6,2,1,1,0,true,
