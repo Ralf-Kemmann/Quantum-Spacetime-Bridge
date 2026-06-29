@@ -1,0 +1,2 @@
+trial_count,observed_semantic_within_block_edge_count,observed_semantic_cross_block_edge_count,semantic_within_min,semantic_within_median,semantic_within_mean,semantic_within_max,semantic_cross_min,semantic_cross_median,semantic_cross_mean,semantic_cross_max,exact_semantic_block_match_count,empirical_p_exact_semantic_match,upper_bound_p_exact_semantic_match_if_zero_hits
+10000,161,0,19.0,29.0,30.0177,56.0,105.0,132.0,130.9823,142.0,0,9.999000099990002e-05,9.999000099990002e-05

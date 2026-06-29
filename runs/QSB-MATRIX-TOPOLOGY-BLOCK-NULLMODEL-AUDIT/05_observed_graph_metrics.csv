@@ -1,0 +1,2 @@
+node_count,possible_edge_count,edge_count,component_count,component_sizes_sorted_desc,largest_component_size,triangle_count,connected_triple_count,closed_triple_count,open_wedge_count,global_closure_ratio,all_components_are_cliques,component_sizes_match_observed_pattern,complete_disjoint_clique_blocks_confirmed,semantic_within_block_edge_count,semantic_cross_block_edge_count,all_candidate_edges_within_semantic_blocks,matches_exact_semantic_block_edge_set
+42,861,161,6,12;10;8;6;4;2,12,420,1260,1260,0,1.0,true,true,true,161,0,true,true
