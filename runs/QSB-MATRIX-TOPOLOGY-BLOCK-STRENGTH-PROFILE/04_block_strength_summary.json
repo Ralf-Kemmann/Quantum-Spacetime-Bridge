@@ -1,0 +1,82 @@
+{
+  "run_id": "QSB-MATRIX-TOPOLOGY-BLOCK-STRENGTH-PROFILE",
+  "source_edge_file": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv",
+  "closure_summary_source": "runs/QSB-MATRIX-TOPOLOGY-CLOSURE-TEST/04_closure_summary.json",
+  "block_structure_summary_source": "runs/QSB-MATRIX-TOPOLOGY-BLOCK-STRUCTURE-AUDIT/04_block_structure_summary.json",
+  "block_semantics_summary_source": "runs/QSB-MATRIX-TOPOLOGY-BLOCK-SEMANTICS-AUDIT/04_block_semantics_summary.json",
+  "node_count": 42,
+  "component_count": 6,
+  "component_sizes": [
+    12,
+    10,
+    8,
+    6,
+    4,
+    2
+  ],
+  "edge_rows_total": 861,
+  "candidate_edge_count": 161,
+  "non_candidate_edge_count": 700,
+  "within_block_edge_rows": 161,
+  "between_block_edge_rows": 700,
+  "within_block_candidate_edge_count": 161,
+  "within_block_non_candidate_edge_count": 0,
+  "between_block_candidate_edge_count": 0,
+  "between_block_non_candidate_edge_count": 700,
+  "all_within_block_edges_are_candidates": true,
+  "all_between_block_edges_are_non_candidates": true,
+  "threshold_margin_available": true,
+  "parsing_gap_count": 0,
+  "strength_global_min": 0.006936140120339703,
+  "strength_global_median": 0.2423545674493508,
+  "strength_global_mean": 0.3225448926756921,
+  "strength_global_max": 1.0,
+  "strength_within_min": 1.0,
+  "strength_within_median": 1.0,
+  "strength_within_mean": 1.0,
+  "strength_within_max": 1.0,
+  "strength_between_min": 0.006936140120339703,
+  "strength_between_median": 0.18664400870287967,
+  "strength_between_mean": 0.16673021799110121,
+  "strength_between_max": 0.34091958020143315,
+  "margin_within_min": 0.5,
+  "margin_within_median": 0.5,
+  "margin_within_mean": 0.5,
+  "margin_within_max": 0.5,
+  "margin_between_min": -0.4930638598796603,
+  "margin_between_median": -0.31335599129712033,
+  "margin_between_mean": -0.3332697820088988,
+  "margin_between_max": -0.15908041979856685,
+  "component_internal_strength_order_by_mean": [
+    {
+      "component_id": 1,
+      "strength_mean": 1.0
+    },
+    {
+      "component_id": 2,
+      "strength_mean": 1.0
+    },
+    {
+      "component_id": 3,
+      "strength_mean": 1.0
+    },
+    {
+      "component_id": 4,
+      "strength_mean": 1.0
+    },
+    {
+      "component_id": 5,
+      "strength_mean": 1.0
+    },
+    {
+      "component_id": 6,
+      "strength_mean": 1.0
+    }
+  ],
+  "strongest_internal_component": 1,
+  "weakest_internal_component": 6,
+  "top_cross_block_strength": 0.34091958020143315,
+  "top_cross_block_margin": -0.15908041979856685,
+  "strength_profile_status": "strength_profile_consistent_with_confirmed_block_structure",
+  "claim_boundary": "Purely structural graph-theoretic, index-semantic, and numerically descriptive strength profile. No claim is made about physical geometry, spacetime, metric structure, gravitation, causality, dynamics, experimental validation, or physical emergence."
+}
