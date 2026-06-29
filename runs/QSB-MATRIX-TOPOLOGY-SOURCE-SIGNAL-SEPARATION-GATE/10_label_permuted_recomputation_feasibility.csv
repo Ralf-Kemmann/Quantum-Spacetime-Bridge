@@ -1,0 +1,7 @@
+control_id,control_name,requires_source_generator,requires_source_features,requires_config,available_now,feasible_without_upstream_generator,expected_diagnostic_value,blocking_issue,next_action
+C01,posthoc_pair_label_permutation,false,false,false,true,true,tests label binding of current artifact only,,"use as sanity check, not source-signal proof"
+C02,recompute_after_pair_label_permutation,true,true,true,false,false,tests whether source values or labels drive the structure,upstream generator trace unresolved,resolve generator path and config
+C03,recompute_after_abs_delta_masking,true,true,true,false,false,tests whether abs_delta term is necessary,rule location unresolved,trace rule implementation
+C04,recompute_with_random_pair_ids_same_source_values,true,true,true,false,false,separates labels from source values,source-native values not independently certified,identify source-native matrix and generator
+C05,recompute_with_threshold_sweep,false,false,false,true,true,artifact-level candidate sensitivity from existing strength,does not test upstream strength recomputation,run artifact-level sweep now; upstream sweep after generator trace
+C06,recompute_with_rule_ablation_no_abs_delta,true,true,true,false,false,direct test of rule-induced origin,upstream rule/generator unresolved,run upstream generator trace resolution

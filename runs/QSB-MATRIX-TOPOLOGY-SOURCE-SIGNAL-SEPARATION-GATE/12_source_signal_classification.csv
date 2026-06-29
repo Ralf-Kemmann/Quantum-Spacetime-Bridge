@@ -1,0 +1,10 @@
+classification_id,applies,evidence,allowed_claim,forbidden_claim,next_gate
+rule_induced_structure,true,origin audit found edge_candidate_flag equivalent to same_abs_delta with mismatch_count=0,artifact-level rule-structured relational pattern,independent source-driven signal,rule ablation recompute
+label_induced_structure,true,same_abs_delta is derived from Pair-ID labels and explains candidate topology,label-derived structure in current artifact,label-invariant source structure,label-permuted recomputation
+threshold_induced_structure,true,edge_candidate_flag equivalent to strength >= theta_edge,threshold-selected candidate structure,threshold-independent candidate structure,threshold sweep
+source_supported_structure,unresolved,no independent source-native support certified under current artifacts,unresolved source support,source-supported structure,source-feature provenance resolution
+source_driven_structure,false,candidate topology is already fully explained by rule/label/threshold features,not established,source-driven structure,upstream recomputation controls
+mixed_origin_structure,unresolved,cross-block strength variation exists but is label-feature grouped; source component not certified,mixed origin unresolved,mixed source-rule claim,source residual audit after provenance resolution
+unresolved_source_signal,true,current artifacts do not support or exclude independent source signal after recompute controls,source signal unresolved under current artifacts,source signal supported or absent as final conclusion,upstream generator trace resolution
+source_signal_absent_after_controls,false,controls are not executable enough to exclude source signal fully,not established,source signal absent after all controls,execute recomputation controls
+source_signal_candidate_pending_recompute,false,source-native independent features are not certified; recompute pending,candidate not opened from current artifacts,source-signal candidate,identify independent source features

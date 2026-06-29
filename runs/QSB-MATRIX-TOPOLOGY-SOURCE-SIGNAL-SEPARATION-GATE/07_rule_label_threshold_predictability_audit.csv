@@ -1,0 +1,6 @@
+test_id,target,predictor_set,rows_tested,correct_count,incorrect_count,accuracy,perfect_prediction,interpretation
+P01,edge_candidate_flag,same_abs_delta,861,861,0,1.0,true,Candidate flag is tested against same Pair-ID abs_delta.
+P02,edge_candidate_flag,strength >= theta_edge,861,861,0,1.0,true,Candidate flag is tested against thresholded strength.
+P03,strength == 1.0,same_abs_delta,861,861,0,1.0,true,Unit strength is tested against same Pair-ID abs_delta.
+P04,strength group,abs_delta_gap,861,0,861,0.0,false,Checks whether abs_delta_gap alone determines strength exactly.
+P05,cross-block strength summarized by abs_delta pair,"unordered abs_delta_a,abs_delta_b",861,0,861,0.0,false,Checks whether unordered abs_delta pair determines strength exactly in the current artifact.
