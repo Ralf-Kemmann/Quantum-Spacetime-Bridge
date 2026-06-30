@@ -1,0 +1,7 @@
+field,value,notes
+table_name,MassModels,MRT table profile
+row_count,3392,Parsed data rows
+column_count,10,Parsed labels from byte-by-byte section
+columns,ID;D;R;Vobs;e_Vobs;Vgas;Vdisk;Vbul;SBdisk;SBbul,Header labels
+units,ID=---;D=Mpc;R=kpc;Vobs=km/s;e_Vobs=km/s;Vgas=km/s;Vdisk=km/s;Vbul=km/s;SBdisk=solLum/pc2;SBbul=solLum/pc2,Header units
+parser_warnings,,Parser fallback warnings

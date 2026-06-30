@@ -1,0 +1,7 @@
+field,value,notes
+table_name,SPARC_sample,MRT table profile
+row_count,239,Parsed data rows
+column_count,18,Parsed labels from byte-by-byte section
+columns,Galaxy;T;D;e_D;f_D;Inc;e_Inc;L[3.6];e_L[3.6];Reff;SBeff;Rdisk;SBdisk;MHI;RHI;Vflat;e_Vflat;Q,Header labels
+units,Galaxy=---;T=---;D=Mpc;e_D=Mpc;f_D=---;Inc=deg;e_Inc=deg;L[3.6]=10+9solLum;e_L[3.6]=10+9solLum;Reff=kpc;SBeff=solLum/pc2;Rdisk=kpc;SBdisk=solLum/pc2;MHI=10+9solMass;RHI=kpc;Vflat=km/s;e_Vflat=km/s;Q=---,Header units
+parser_warnings,fixed_width_fallback_to_whitespace,Parser fallback warnings

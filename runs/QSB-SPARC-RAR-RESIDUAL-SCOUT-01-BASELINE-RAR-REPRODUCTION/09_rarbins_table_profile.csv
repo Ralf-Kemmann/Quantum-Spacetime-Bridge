@@ -1,0 +1,7 @@
+field,value,notes
+table_name,RARbins,MRT table profile
+row_count,14,Parsed data rows
+column_count,4,Parsed labels from byte-by-byte section
+columns,gbar;gobs;sd;N,Header labels
+units,gbar=[m/s2];gobs=[m/s2];sd=[m/s2];N=--,Header units
+parser_warnings,,Parser fallback warnings

@@ -1,0 +1,5 @@
+diagnostic_item,status,value,notes
+standard_reference_curve_fit,not_performed,,No RAR fit or reference-function residual analysis was performed in this baseline parser run.
+direct_rar_table_profiled,completed,2693,Direct RAR rows parsed and written.
+massmodels_gobs_preparation,completed,3391,Standard g_obs conversion from Vobs and R only.
+massmodels_gbar_preparation,not_finalized,requires_ml_assumption,No final MassModels g_bar is asserted.

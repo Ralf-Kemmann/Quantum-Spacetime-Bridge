@@ -1,0 +1,4 @@
+metric,count,min,median,mean,max,notes
+direct_log10_gbar,2693,-12.08,-10.59,-10.49921277385815,-8.18,baseline distribution diagnostic only
+direct_log10_gobs,2693,-11.39,-10.15,-10.068711474192352,-8.15,baseline distribution diagnostic only
+massmodels_log10_gobs,3391,-12.09576437505865,-10.235853127162386,-10.147098993271985,-7.716369094877175,baseline distribution diagnostic only

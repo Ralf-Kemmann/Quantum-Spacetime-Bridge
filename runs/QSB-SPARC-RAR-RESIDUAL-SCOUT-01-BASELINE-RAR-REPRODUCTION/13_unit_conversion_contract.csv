@@ -1,0 +1,5 @@
+quantity,source,input_unit,conversion,performed
+direct_RAR_gbar_gobs,RAR.mrt,[m/s2] log10 per MRT header,10**log10_value for linear diagnostic output,true
+massmodels_gobs,MassModels_Lelli2016c.mrt,Vobs km/s; R kpc,g_obs = Vobs^2 / R * 1e6 / kpc_m,true
+massmodels_gbar,MassModels_Lelli2016c.mrt,Vgas/Vdisk/Vbul km/s,not finalized because disk/bulge M/L assumption is required,false
+rbci_v1,not_applicable,not_applicable,not evaluated in this run,false

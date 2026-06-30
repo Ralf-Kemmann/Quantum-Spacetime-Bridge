@@ -1,0 +1,6 @@
+readout_item,value,notes
+review_gate_input,approve_for_baseline_rar_reproduction,Data-contract review decision.
+direct_rar_rows_written,2693,Rows in 14_direct_rar_dataset.csv.
+massmodels_rows_written,3392,Rows in 15_massmodels_derived_baseline_quantities.csv.
+baseline_rar_reproduction_status,direct_rar_table_reproduced,Baseline-only status; no RBCI/QSB evaluation.
+recommended_next_run_id,QSB-SPARC-RAR-RESIDUAL-SCOUT-01-BASELINE-RAR-REVIEW,Standard baseline review before any formula freeze.

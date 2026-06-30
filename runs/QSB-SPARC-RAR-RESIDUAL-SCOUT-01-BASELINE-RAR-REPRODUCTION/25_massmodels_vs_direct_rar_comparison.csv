@@ -1,0 +1,2 @@
+comparison_item,status,notes,claim_boundary
+direct_RAR_vs_MassModels,not_matched_by_row,Direct RAR table lacks galaxy/radius identifiers in parsed labels; no row-level comparison performed.,baseline_parser_limitation_only

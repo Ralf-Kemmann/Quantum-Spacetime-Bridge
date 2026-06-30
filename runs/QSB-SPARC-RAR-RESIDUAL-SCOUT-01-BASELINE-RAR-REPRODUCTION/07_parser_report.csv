@@ -1,0 +1,5 @@
+file_name,parsed,row_count,label_count,labels,units,parser_warnings
+MassModels_Lelli2016c.mrt,true,3392,10,ID;D;R;Vobs;e_Vobs;Vgas;Vdisk;Vbul;SBdisk;SBbul,ID=---;D=Mpc;R=kpc;Vobs=km/s;e_Vobs=km/s;Vgas=km/s;Vdisk=km/s;Vbul=km/s;SBdisk=solLum/pc2;SBbul=solLum/pc2,
+RAR.mrt,true,2693,4,gbar;e_gbar;gobs;e_gobs,gbar=[m/s2];e_gbar=[m/s2];gobs=[m/s2];e_gobs=[m/s2],
+RARbins.mrt,true,14,4,gbar;gobs;sd;N,gbar=[m/s2];gobs=[m/s2];sd=[m/s2];N=--,
+SPARC_Lelli2016c.mrt,true,239,18,Galaxy;T;D;e_D;f_D;Inc;e_Inc;L[3.6];e_L[3.6];Reff;SBeff;Rdisk;SBdisk;MHI;RHI;Vflat;e_Vflat;Q,Galaxy=---;T=---;D=Mpc;e_D=Mpc;f_D=---;Inc=deg;e_Inc=deg;L[3.6]=10+9solLum;e_L[3.6]=10+9solLum;Reff=kpc;SBeff=solLum/pc2;Rdisk=kpc;SBdisk=solLum/pc2;MHI=10+9solMass;RHI=kpc;Vflat=km/s;e_Vflat=km/s;Q=---,fixed_width_fallback_to_whitespace
