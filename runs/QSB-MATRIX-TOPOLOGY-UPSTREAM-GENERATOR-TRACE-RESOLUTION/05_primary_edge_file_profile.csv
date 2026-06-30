@@ -1,0 +1,16 @@
+field,value,notes
+path_exists,True,primary edge artifact profile
+row_count,861,primary edge artifact profile
+column_count,8,primary edge artifact profile
+columns,pair_a;pair_b;strength;theta_edge;edge_candidate_flag;diagonal;claim_boundary;lineage_bundle_sha256,primary edge artifact profile
+pair_columns_detected,True,primary edge artifact profile
+strength_column_detected,True,primary edge artifact profile
+theta_edge_column_detected,True,primary edge artifact profile
+edge_candidate_flag_column_detected,True,primary edge artifact profile
+unique_theta_edge_values,0.5,primary edge artifact profile
+strength_min,0.006936140120339703,primary edge artifact profile
+strength_max,1.0,primary edge artifact profile
+candidate_count,161,primary edge artifact profile
+non_candidate_count,700,primary edge artifact profile
+sha256,453f9bd52bd8d1dece2934f2d1dc5e54ccda1993f703e1c22f1807531f6e0bfa,primary edge artifact profile
+file_size_bytes,102457,primary edge artifact profile

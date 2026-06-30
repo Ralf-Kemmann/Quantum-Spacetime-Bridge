@@ -1,0 +1,13 @@
+assessment_item,result,evidence,blocking_issue,next_action,claim_boundary
+primary_edge_file_profiled,yes,05_primary_edge_file_profile.csv,,none,trace_resolution_only_no_physics_claim
+direct_generator_script_found,yes,scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,,use for replay sanity check,trace_resolution_only_no_physics_claim
+direct_output_writer_found,yes,edge_rows plus write_csv(FILES[15]) in direct generator,,use direct writer evidence,trace_resolution_only_no_physics_claim
+strength_formula_resolved,yes,strength = np.exp(-d / ELL_0),,replay strength generation,trace_resolution_only_no_physics_claim
+theta_edge_origin_resolved,yes,THETA_EDGE = 0.5 plus HF-06 frozen decision check,,trace HF-06 provenance if needed,trace_resolution_only_no_physics_claim
+edge_candidate_flag_rule_resolved,yes,"edge = strength >= THETA_EDGE; edge_candidate_flag=int(edge[i,j])",,replay edge flags,trace_resolution_only_no_physics_claim
+lineage_hashes_resolved,yes,manifest lineage payload and 23_lineage_and_hash_audit.csv,,verify hashes before recompute,trace_resolution_only_no_physics_claim
+generator_replay_feasible,yes,direct script found; requires scipy/numpy runtime and guard-safe output path handling,script refuses overwrite of existing A-R1 output,create isolated replay sanity-check run,trace_resolution_only_no_physics_claim
+label_permuted_recompute_feasible_after_trace,partial,"generator found, but label-permutation control needs designed input mutation path",must not mutate upstream F3 or A-R1,design isolated label-permuted recompute,trace_resolution_only_no_physics_claim
+abs_delta_masking_feasible_after_trace,partial,"generator found, but no configurable abs_delta term exists; masking may require controlled code variant",avoid silent algorithm change,write explicit ablation protocol,trace_resolution_only_no_physics_claim
+rule_ablation_feasible_after_trace,partial,strength/edge rule found; ablation requires audited code fork or parameterized runner,no existing ablation config,create recompute-control design,trace_resolution_only_no_physics_claim
+source_signal_testing_feasible_after_trace,partial,source DB and generator lineage found,source-native feature independence still needs separate audit,run replay sanity check before source-signal tests,trace_resolution_only_no_physics_claim

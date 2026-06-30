@@ -1,0 +1,9 @@
+control_id,control_name,feasible_now,requires_direct_generator,requires_source_native_inputs,requires_config,available_evidence,blocking_issue,next_action
+C01,generator_replay_same_inputs,partial,true,true,true,direct generator found; original output path guard prevents blind rerun,needs isolated output path or dry-run clone,create replay sanity-check wrapper
+C02,label_permuted_recompute,partial,true,true,true,direct generator found,requires controlled label permutation before computation,design label-permuted isolated run
+C03,abs_delta_masked_recompute,partial,true,true,true,rule source found indirectly through strength generation,no existing config switch for masking labels,write explicit ablation protocol
+C04,rule_ablation_no_abs_delta,partial,true,true,true,strength/edge rule found,requires audited code variant,create rule-ablation recompute control
+C05,threshold_sweep_recompute,yes,false,false,false,strength matrix and theta rule found,artifact-level sweep possible; upstream recompute optional,run threshold sweep control if needed
+C06,source_native_feature_test,partial,true,true,true,F3 source DB lineage found,independent source-feature mapping not yet audited,audit source-native features
+C07,negative_source_control,partial,true,true,true,generator found,requires negative source input,define synthetic or negative source input
+C08,positive_synthetic_calibration,partial,true,true,true,generator found,requires synthetic source generator/input,define positive synthetic calibration

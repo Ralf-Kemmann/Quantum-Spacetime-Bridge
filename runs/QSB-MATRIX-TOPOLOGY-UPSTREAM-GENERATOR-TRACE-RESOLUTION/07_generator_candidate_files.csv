@@ -1,0 +1,14 @@
+candidate_path,file_type,exists,mentions_output_filename,mentions_edge_candidate_flag,mentions_theta_edge,mentions_relation_strength_or_strength,mentions_pair_columns,has_csv_writer_or_output_logic,has_formula_or_threshold_logic,evidence_strength,assessment
+runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/06_frozen_decision_carry_forward_review.csv,csv,true,false,false,true,true,false,false,false,weak_partial,requires_manual_review
+runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/15_strength_matrix.csv,csv,true,false,false,false,true,false,false,false,documentation_only,not_generator
+runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv,csv,true,false,true,true,true,true,false,false,weak_partial,requires_manual_review
+runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/20_result_mart_schema_executed.sql,sql,true,false,true,false,true,true,false,false,weak_partial,requires_manual_review
+runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/23_lineage_and_hash_audit.csv,csv,true,true,false,false,true,false,false,false,weak_partial,requires_manual_review
+scripts/qsb_extract03/prepare_execution_package.py,py,true,false,true,true,true,false,true,false,weak_partial,probable_contract_or_documentation
+scripts/qsb_extract03_viz01/matrix_heatmap_visualization.py,py,true,true,true,false,true,true,true,false,weak_partial,requires_manual_review
+scripts/qsb_extract03_viz02/topology_organized_relational_matrix.py,py,true,true,true,true,true,true,true,false,weak_partial,requires_manual_review
+scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,py,true,true,true,true,true,true,true,true,direct,probable_generator
+scripts/qsb_extract03b/result_review_human_summary.py,py,true,true,true,true,true,false,true,false,weak_partial,requires_manual_review
+scripts/qsb_extract03c1_r1/bootstrap_stability_run_under_c0_c0b.py,py,true,true,true,true,true,true,true,false,weak_partial,requires_manual_review
+scripts/qsb_extract03d/block_mechanism_review.py,py,true,true,true,false,true,true,true,false,weak_partial,requires_manual_review
+scripts/qsb_extract03e/perfection_origin_review.py,py,true,true,true,true,true,true,true,false,weak_partial,requires_manual_review
