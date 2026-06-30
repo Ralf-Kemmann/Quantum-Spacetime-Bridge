@@ -1,0 +1,12 @@
+dependency_name,dependency_type,path_or_value,resolved,notes
+generator_script,path,scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,true,Resolved direct generator from prior trace.
+primary_edge_file,path,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/16_edge_candidate_result.csv,true,Baseline artifact for posthoc label-permutation audit.
+THETA_EDGE,constant,0.5,true,Frozen HF-06 threshold in generator.
+ELL_0,constant,1.0,true,Strength formula scale.
+strength_formula,formula,strength = np.exp(-d / ELL_0),true,Resolved by upstream trace.
+edge_candidate_flag_rule,formula,"edge = strength >= THETA_EDGE; edge_candidate_flag = int(edge[i,j])",true,Resolved by upstream trace.
+fixed_output_paths_detected,guard,OUT = ROOT / runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum,true,Original script writes fixed A-R1 output path.
+overwrite_protection_detected,guard,if OUT.exists(): fail(... refusing to overwrite ...),true,Prevents blind replay in existing A-R1 run.
+safe_isolated_replay_feasible,assessment,partial,false,Requires wrapper/copy with altered output paths and full dependency audit.
+safe_label_permuted_recompute_feasible,assessment,partial,false,A source-native label permutation needs a frozen design for when labels are permuted before generator execution.
+prior_generator_rule_status,summary,generator_rule_reconstructable_from_repo_artifacts,true,Imported from upstream generator trace summary.

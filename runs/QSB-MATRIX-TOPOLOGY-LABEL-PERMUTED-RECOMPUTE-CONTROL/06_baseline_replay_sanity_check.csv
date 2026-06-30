@@ -1,0 +1,14 @@
+metric,value,notes
+edge_rows_total,861,baseline artifact sanity check; no upstream replay
+candidate_edge_count,161,baseline artifact sanity check; no upstream replay
+non_candidate_edge_count,700,baseline artifact sanity check; no upstream replay
+node_count_if_resolvable,42,baseline artifact sanity check; no upstream replay
+possible_undirected_edges_if_resolvable,861,baseline artifact sanity check; no upstream replay
+strength_min,0.006936140120339703,baseline artifact sanity check; no upstream replay
+strength_median,0.2423545674493508,baseline artifact sanity check; no upstream replay
+strength_mean,0.3225448926756921,baseline artifact sanity check; no upstream replay
+strength_max,1.0,baseline artifact sanity check; no upstream replay
+theta_edge_detected,0.5,baseline artifact sanity check; no upstream replay
+edge_flag_matches_strength_threshold,True,baseline artifact sanity check; no upstream replay
+same_abs_delta_equivalence_if_resolvable,True,baseline artifact sanity check; no upstream replay
+baseline_profile_status,baseline_artifact_sanity_check_completed,baseline artifact sanity check; no upstream replay

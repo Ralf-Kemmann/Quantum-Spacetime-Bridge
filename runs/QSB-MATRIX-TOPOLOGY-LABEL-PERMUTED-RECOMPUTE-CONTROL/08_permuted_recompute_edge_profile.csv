@@ -1,0 +1,9 @@
+metric,value,notes
+execution_scope,posthoc_reconstructed_rule_control_only,No source-native generator replay was executed.
+permuted_rule_candidate_edge_count,161,Rule reconstructed from pair-label absolute-delta classes after deterministic label permutation.
+original_candidate_edge_count,161,Baseline artifact candidate edges.
+edge_overlap_with_original,53,Intersection of original artifact edges and posthoc reconstructed permuted-rule edges.
+topology_changed_under_label_permutation,True,Set comparison at artifact node-pair level.
+component_count,6,Permuted-rule graph profile.
+component_sizes,12;10;8;6;4;2,Permuted-rule graph profile.
+all_components_cliques,True,Permuted-rule graph profile.

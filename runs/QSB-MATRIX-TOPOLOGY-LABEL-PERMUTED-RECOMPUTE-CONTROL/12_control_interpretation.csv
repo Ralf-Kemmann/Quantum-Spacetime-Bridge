@@ -1,0 +1,5 @@
+interpretation_item,result,evidence,claim_boundary
+baseline_rule_alignment,yes,Baseline candidate flags align with original abs_delta classes.,"methodological control only; no physics, spacetime, gravity, causality, or source-signal claim"
+posthoc_label_permutation_sensitivity,yes,Existing candidate edges do not fully align with permuted abs_delta classes.,"methodological control only; no physics, spacetime, gravity, causality, or source-signal claim"
+true_source_native_recompute,blocked,Original generator has fixed output paths; source-label permutation semantics require a separate frozen wrapper design.,"methodological control only; no physics, spacetime, gravity, causality, or source-signal claim"
+control_classification,posthoc_label_sensitivity_confirmed_recompute_blocked,Post-hoc label sensitivity is established; source-native recompute remains blocked.,"methodological control only; no physics, spacetime, gravity, causality, or source-signal claim"

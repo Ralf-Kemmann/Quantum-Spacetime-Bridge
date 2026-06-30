@@ -1,0 +1,7 @@
+Execution log:
+created baseline artifact profile
+created deterministic label permutation map
+created post-hoc abs-delta alignment audit
+created reconstructed permuted-rule comparison
+did not run original generator in place
+did not modify upstream artifacts

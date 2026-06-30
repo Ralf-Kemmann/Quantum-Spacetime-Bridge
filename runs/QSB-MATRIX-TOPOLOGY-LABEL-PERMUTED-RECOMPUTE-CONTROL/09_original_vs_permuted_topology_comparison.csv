@@ -1,0 +1,11 @@
+comparison_item,value,assessment
+original_candidate_edges,161,baseline artifact
+permuted_candidate_edges,161,posthoc reconstructed rule control
+candidate_edges_align_with_original_labels,True,baseline candidate flags are equivalent to original abs_delta classes
+candidate_edges_align_with_permuted_labels,False,false means the artifact topology is label-sensitive under deterministic permutation
+candidate_count_changed,False,count is expected to remain stable for a full bijection over labels 0..6
+component_structure_changed,False,component sizes remain clique-block-like but membership changes
+clique_block_structure_preserved,True,posthoc reconstructed permuted-rule graph preserves abs-delta clique-block form
+semantic_blocks_follow_permuted_labels,True,only within reconstructed label-rule control; no source-native semantic claim
+semantic_blocks_follow_original_labels,False,"under the reconstructed permuted-rule control, block membership follows the permuted labels"
+true_isolated_source_recompute_executed,False,blocked by fixed original output paths and need for separate controlled source-label design

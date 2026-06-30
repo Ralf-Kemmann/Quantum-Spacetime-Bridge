@@ -1,0 +1,8 @@
+original_label,permuted_label,seed,permutation_type,notes
+0,3,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+1,4,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+2,6,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+3,1,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+4,2,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+5,0,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
+6,5,20260630_label_permutation_control_v1,deterministic_nontrivial_bijection_over_pair_id_index_domain_0_6,Generated with Python random.Random fixed seed; no source artifact changed.
