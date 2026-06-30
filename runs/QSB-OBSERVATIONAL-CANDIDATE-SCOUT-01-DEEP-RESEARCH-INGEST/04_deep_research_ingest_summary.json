@@ -1,0 +1,29 @@
+{
+  "best_first_practical_run": "SPARC/RAR preregistered residual analysis",
+  "best_immediate_practical_candidate": "B_sparc_radial_acceleration_relation",
+  "candidate_field_count": 8,
+  "claim_boundary": [
+    "deep_research_ingest_only",
+    "observational_candidate_scout",
+    "methodological_prioritization",
+    "no_physics_claim",
+    "no_qsb_detection_claim",
+    "no_spacetime_claim",
+    "no_gravity_claim",
+    "no_causality_claim"
+  ],
+  "deep_research_citation_token_count": 152,
+  "deep_research_input_found": true,
+  "deep_research_input_path": "runs/QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01/input/deep_research_report.md",
+  "mechanistically_closest_candidate": "A_matterwave_interferometry",
+  "narrative_ranked_candidate_count": 8,
+  "narrative_top_candidate": "B_sparc_radial_acceleration_relation",
+  "notes": "Deep Research report ingested from local file only; citation tokens and URLs were inventoried but not independently verified.",
+  "ranking_score_narrative_mismatch_detected": true,
+  "recommended_next_run_id": "QSB-SPARC-RAR-RESIDUAL-SCOUT-01-PRECONTRACT",
+  "run_id": "QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01-DEEP-RESEARCH-INGEST",
+  "score_total_top_candidate": "B_sparc_radial_acceleration_relation",
+  "scored_candidate_count": 8,
+  "status": "deep_research_ingest_completed_with_warnings",
+  "url_count": 25
+}

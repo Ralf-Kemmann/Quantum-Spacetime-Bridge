@@ -1,0 +1,8 @@
+field,value,notes
+deep_research_input_found,True,Input report located in expected path.
+deep_research_input_path,runs/QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01/input/deep_research_report.md,Only local file was read.
+line_count,133,Report line count.
+file_size_bytes,30713,Input file size.
+sha256,6c9ac9f06a974ab62855c9e076730234d0da9a16e4a9312345535ac8d54dc2e3,Input file hash.
+url_count,25,URLs extracted by regex; not verified.
+deep_research_citation_token_count,152,turn/cite/filecite tokens extracted by regex.

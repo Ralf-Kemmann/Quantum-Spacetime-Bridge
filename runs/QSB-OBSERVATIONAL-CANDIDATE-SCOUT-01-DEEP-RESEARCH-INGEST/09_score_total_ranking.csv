@@ -1,0 +1,9 @@
+score_total_rank,candidate_id,candidate_name,score_total,narrative_rank,priority
+1,B_sparc_radial_acceleration_relation,SPARC / RAR,28,1,hoch
+2,A_matterwave_interferometry,Materiewellen / Interferometrie,25,2,hoch
+3,F_spectroscopy_fundamental_constants,Spektroskopie / Konstanten,25,5,mittel-hoch
+4,C_fast_radio_bursts,FRBs,23,3,mittel-hoch
+5,D_pulsar_timing_arrays,Pulsar Timing Arrays,22,4,mittel
+6,G_cmb_anomalies_large_scale_correlations,CMB-Anomalien,20,8,niedrig
+7,H_desi_bao_hubble_tension,DESI / BAO / Hubble,19,7,niedrig
+8,E_gravitational_lensing_substructure,Gravitationslinsen,18,6,mittel-niedrig

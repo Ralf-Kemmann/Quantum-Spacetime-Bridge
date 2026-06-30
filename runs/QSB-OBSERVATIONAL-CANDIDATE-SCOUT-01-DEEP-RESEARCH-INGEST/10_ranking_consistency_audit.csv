@@ -1,0 +1,4 @@
+audit_item,result,evidence,claim_boundary
+ranking_score_narrative_mismatch_detected,true,"Narrative ranking places lensing before DESI and CMB, while score totals place CMB/DESI above lensing.",ranking_audit_only
+score_total_top_candidate,B_sparc_radial_acceleration_relation,SPARC/RAR has score_total 28 in the report matrix.,ranking_audit_only
+narrative_top_candidate,B_sparc_radial_acceleration_relation,Report states SPARC/RAR is best immediate practical scout.,ranking_audit_only

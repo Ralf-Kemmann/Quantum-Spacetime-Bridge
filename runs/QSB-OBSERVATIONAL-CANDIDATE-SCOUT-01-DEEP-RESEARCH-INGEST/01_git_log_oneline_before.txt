@@ -1,0 +1,14 @@
+b3f252c Add QSB observational candidate scout scaffold
+8625754 Add QSB matrix topology label permuted recompute control
+8186fd8 Add QSB matrix topology upstream generator trace resolution
+ff191c1 Add QSB matrix topology source signal separation gate
+8defdba Add QSB matrix topology structure origin audit
+7d16fae Add QSB matrix topology block nullmodel audit
+41a2a3e Add QSB matrix topology block strength profile
+d868ac2 Add QSB matrix topology block semantics audit
+4475502 Add QSB matrix topology block structure audit
+8c241b2 Add QSB matrix topology closure visualizations
+e819fcc Add QSB matrix topology closure test
+60a95ba Add QSB matrix topology comparative review
+a5e8fb4 Refine Causality06 transition relation semantics
+f45fb49 Add remaining QSB Extract03 pipeline and visualization scripts

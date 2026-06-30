@@ -1,0 +1,9 @@
+candidate_id,candidate_name,score_qsb_mechanistic_proximity,score_data_accessibility,score_reproducibility,score_standard_physics_separability,score_overclaim_risk_control,score_minimal_test_effort,score_clear_observable_potential,score_total,priority,score_source,claim_boundary
+A_matterwave_interferometry,Materiewellen / Interferometrie,5,2,3,4,4,2,5,25,hoch,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+B_sparc_radial_acceleration_relation,SPARC / RAR,3,5,5,3,3,5,4,28,hoch,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+C_fast_radio_bursts,FRBs,4,4,4,2,2,3,4,23,mittel-hoch,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+D_pulsar_timing_arrays,Pulsar Timing Arrays,4,4,4,2,2,2,4,22,mittel,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+E_gravitational_lensing_substructure,Gravitationslinsen,3,3,3,2,2,2,3,18,mittel-niedrig,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+F_spectroscopy_fundamental_constants,Spektroskopie / Konstanten,3,3,4,5,5,3,2,25,mittel-hoch,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+G_cmb_anomalies_large_scale_correlations,CMB-Anomalien,2,5,5,1,1,4,2,20,niedrig,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement
+H_desi_bao_hubble_tension,DESI / BAO / Hubble,2,5,5,1,1,3,2,19,niedrig,deep_research_report_markdown_table,synthetic_score_from_report_not_measurement

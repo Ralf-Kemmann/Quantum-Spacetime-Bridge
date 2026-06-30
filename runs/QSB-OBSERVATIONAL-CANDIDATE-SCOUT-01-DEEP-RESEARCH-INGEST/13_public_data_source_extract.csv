@@ -1,0 +1,9 @@
+candidate_id,candidate_name,public_data_source_extract,verification_status,claim_boundary
+A_matterwave_interferometry,Materiewellen / Interferometrie,review/paper/supplement level; raw data and standardized open reanalysis less uniform than SPARC/NANOGrav,not_verified_no_internet_used,source_extract_only
+B_sparc_radial_acceleration_relation,SPARC / RAR,official SPARC data and RAR links as cited in the report,not_verified_no_internet_used,source_extract_only
+C_fast_radio_bursts,FRBs,"CHIME/FRB catalogs, alerts, TNS/public metadata as cited in the report",not_verified_no_internet_used,source_extract_only
+D_pulsar_timing_arrays,Pulsar Timing Arrays,NANOGrav and EPTA public releases as cited in the report,not_verified_no_internet_used,source_extract_only
+E_gravitational_lensing_substructure,Gravitationslinsen,CASTLES and object-level lensing data as cited in the report,not_verified_no_internet_used,source_extract_only
+F_spectroscopy_fundamental_constants,Spektroskopie / Konstanten,"ESPRESSO, quasar spectroscopy, and atomic-clock sources as cited in the report",not_verified_no_internet_used,source_extract_only
+G_cmb_anomalies_large_scale_correlations,CMB-Anomalien,Planck and later reanalysis sources as cited in the report,not_verified_no_internet_used,source_extract_only
+H_desi_bao_hubble_tension,DESI / BAO / Hubble,DESI DR1 and Hubble-tension context sources as cited in the report,not_verified_no_internet_used,source_extract_only
