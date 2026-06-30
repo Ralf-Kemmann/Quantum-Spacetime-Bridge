@@ -1,0 +1,17 @@
+file_id,file_path,sample_row_index,sample_text
+1,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,1,CamB          3.36   0.16   1.99  1.50   1.86   3.75   0.00   30.32     0.00
+1,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,2,CamB          3.36   0.41   4.84  1.50   4.24   9.47   0.00   23.77     0.00
+1,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,3,CamB          3.36   0.57   6.79  1.50   5.61  11.76   0.00   15.87     0.00
+1,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,4,CamB          3.36   0.73   8.87  1.50   6.77  13.72   0.00   12.40     0.00
+2,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,1,-11.23 0.04 -10.68 0.08
+2,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,2,-11.13 0.04 -10.59 0.07
+2,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,3,-11.19 0.04 -10.58 0.07
+2,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,4,-11.29 0.04 -10.59 0.06
+3,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,1,-11.69 -10.75 0.18  75
+3,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,2,-11.48 -10.70 0.16 191
+3,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,3,-11.26 -10.57 0.15 308
+3,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,4,-11.05 -10.43 0.14 323
+4,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,1,"0 = S0,  1 = Sa, 2 = Sab, 3 = Sb, 4 = Sbc, 5 = Sc,"
+4,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,2,"6 = Scd, 7 = Sd, 8 = Sdm, 9 = Sm, 10 = Im, 11 = BCD"
+4,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,3,1 = Hubble-Flow assuming H0=73 km/s/Mpc and correcting for Virgo-centric infall
+4,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,4,2 = Magnitude of the Tip of the Red Giant Branch

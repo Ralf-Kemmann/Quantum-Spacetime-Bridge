@@ -1,0 +1,2 @@
+observable_candidate_id,formula_feasibility_status,formula_finalized,radius_or_ordering_present,baryonic_profile_columns_present,units_to_freeze,computation_performed,claim_boundary
+RBCI_v1,partially_feasible_requires_component_derivation,false,true,true,radius units; velocity/acceleration units; baryonic component definitions; normalization,false,formula_feasibility_assessment_only

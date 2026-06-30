@@ -1,0 +1,3 @@
+# Preserve externally downloaded SPARC MRT input files byte-for-byte.
+# These source files contain original CRLF/trailing whitespace and must not be normalized.
+input/*.mrt -text -diff

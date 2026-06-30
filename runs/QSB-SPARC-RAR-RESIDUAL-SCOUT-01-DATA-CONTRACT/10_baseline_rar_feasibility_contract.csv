@@ -1,0 +1,2 @@
+contract_item,status,required_before_qsb_candidate,basis,computation_performed,failure_handling
+baseline_rar_feasibility_status,feasible_from_present_columns,true,"direct gobs/gbar columns, or Vobs plus baryonic components plus radius, if present",false,No QSB/RBCI interpretation if baseline cannot be reproduced.

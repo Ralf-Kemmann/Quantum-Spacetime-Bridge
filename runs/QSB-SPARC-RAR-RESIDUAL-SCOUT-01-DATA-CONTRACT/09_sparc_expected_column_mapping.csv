@@ -1,0 +1,26 @@
+expected_column_or_synonym,presence_status,matched_detected_column,role,notes
+Name,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Galaxy,present,Galaxy,SPARC/RAR column search helper,Presence is based only on local input headers.
+R,present,R,SPARC/RAR column search helper,Presence is based only on local input headers.
+Rad,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Radius,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Vobs,present,Vobs,SPARC/RAR column search helper,Presence is based only on local input headers.
+e_Vobs,present,e_Vobs,SPARC/RAR column search helper,Presence is based only on local input headers.
+Vgas,present,Vgas,SPARC/RAR column search helper,Presence is based only on local input headers.
+Vdisk,present,Vdisk,SPARC/RAR column search helper,Presence is based only on local input headers.
+Vbul,present,Vbul,SPARC/RAR column search helper,Presence is based only on local input headers.
+SBdisk,present,SBdisk,SPARC/RAR column search helper,Presence is based only on local input headers.
+SBbul,present,SBbul,SPARC/RAR column search helper,Presence is based only on local input headers.
+Lum,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+MHI,present,MHI,SPARC/RAR column search helper,Presence is based only on local input headers.
+gobs,present,gobs,SPARC/RAR column search helper,Presence is based only on local input headers.
+gbar,present,gbar,SPARC/RAR column search helper,Presence is based only on local input headers.
+gdag,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+loggobs,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+loggbar,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+D,present,D,SPARC/RAR column search helper,Presence is based only on local input headers.
+Dist,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Inc,present,Inc,SPARC/RAR column search helper,Presence is based only on local input headers.
+L,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Mstar,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.
+Mgas,missing_from_local_input,,SPARC/RAR column search helper,Presence is based only on local input headers.

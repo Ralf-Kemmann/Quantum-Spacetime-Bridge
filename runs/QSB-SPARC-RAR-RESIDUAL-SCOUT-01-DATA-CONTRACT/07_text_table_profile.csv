@@ -1,0 +1,5 @@
+file_path,read_status,line_count_if_text,detected_delimiter,header_detected,column_count,header_columns,notes
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,readable_mrt_text,3416,fixed_width_mrt,true,10,ID;D;R;Vobs;e_Vobs;Vgas;Vdisk;Vbul;SBdisk;SBbul,defensive text-table profile; no scientific analysis
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,readable_mrt_text,2706,fixed_width_mrt,true,4,gbar;e_gbar;gobs;e_gobs,defensive text-table profile; no scientific analysis
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,readable_mrt_text,27,fixed_width_mrt,true,4,gbar;gobs;sd;N,defensive text-table profile; no scientific analysis
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,readable_mrt_text,273,fixed_width_mrt,true,19,Galaxy;T;D;e_D;f_D;Inc;e_Inc;L[3.6];e_L[3.6];Reff;SBeff;Rdisk;SBdisk;MHI;RHI;Vflat;e_Vflat;Q;Ref.,defensive text-table profile; no scientific analysis

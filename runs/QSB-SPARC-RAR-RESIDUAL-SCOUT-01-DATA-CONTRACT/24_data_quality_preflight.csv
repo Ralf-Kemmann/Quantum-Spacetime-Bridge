@@ -1,0 +1,4 @@
+quality_item,status,observed,notes
+local_input_files_present,pass,4,Presence only; no science analysis.
+readable_text_tables,review,4,Manual review required.
+baseline_columns,feasible_from_present_columns,D;Galaxy;ID;Inc;L[3.6];MHI;N;Q;R;RHI;Rdisk;Ref.;Reff;SBbul;SBdisk;SBeff;T;Vbul;Vdisk;Vflat;Vgas;Vobs;e_D;e_Inc;e_L[3.6];e_Vflat;e_Vobs;e_gbar;e_gobs;f_D;gbar;gobs;sd,Feasibility only.
