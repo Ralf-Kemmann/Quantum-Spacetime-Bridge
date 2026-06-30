@@ -1,0 +1,26 @@
+{
+  "run_id": "QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01",
+  "deep_research_input_found": false,
+  "deep_research_input_path": null,
+  "input_candidates_checked": [
+    "runs/QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01/input/deep_research_report.md",
+    "runs/QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01/input/deep_research_report.txt",
+    "runs/QSB-OBSERVATIONAL-CANDIDATE-SCOUT-01/input/deep_research_report.json",
+    "docs/QSB_OBSERVATIONAL_CANDIDATE_SCOUT_01_DEEP_RESEARCH_REPORT.md",
+    "docs/QSB_OBSERVATIONAL_CANDIDATE_SCOUT_01_DEEP_RESEARCH_REPORT.txt"
+  ],
+  "ingest_mode": "simple_deterministic_scaffold",
+  "structured_json_detected": false,
+  "citation_like_items_detected": 0,
+  "status": "pending_deep_research_input",
+  "claim_boundary": [
+    "observational_candidate_scout",
+    "methodological_prioritization",
+    "observable_contract_preparation",
+    "no_physics_claim",
+    "no_qsb_detection_claim",
+    "no_spacetime_claim",
+    "no_gravity_claim",
+    "no_causality_claim"
+  ]
+}

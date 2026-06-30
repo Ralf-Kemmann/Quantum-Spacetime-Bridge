@@ -1,0 +1,9 @@
+rank,candidate_id,candidate_name,priority_seed,score_total,ranking_status,notes
+,A_matterwave_interferometry,Matter-wave / interferometry coherence fields,high_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,B_sparc_radial_acceleration_relation,SPARC / radial acceleration relation,high_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,C_fast_radio_bursts,Fast radio burst path-residual scout,medium_high_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,D_pulsar_timing_arrays,Pulsar timing array residual contracts,medium_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,E_gravitational_lensing_substructure,Gravitational lensing substructure residuals,medium_late_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,F_spectroscopy_fundamental_constants,Spectroscopy / fundamental-constant constraint fields,medium_seed_constraint_field,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,G_cmb_anomalies_large_scale_correlations,CMB anomalies / large-scale correlations,low_late_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
+,H_desi_bao_hubble_tension,DESI / BAO / Hubble-tension constraint field,low_late_seed,,not_ranked_without_deep_research_input,"Priority seed is a project-start hint, not an evidence-based result."
