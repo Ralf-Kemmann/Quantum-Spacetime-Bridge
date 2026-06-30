@@ -1,0 +1,5 @@
+unit_item,status,notes
+RAR.mrt gbar/gobs,documented_in_mrt_header,Unit labels available in MRT header; no computation performed.
+MassModels radius R,documented_in_mrt_header,Radius unit available in MRT header; needed by parser.
+MassModels velocity components,documented_in_mrt_header,Velocity component units available in MRT header; RBCI formula still not frozen.
+RBCI_v1 normalization,not_frozen,To be frozen after baseline reproduction / formula-freeze step.

@@ -1,0 +1,5 @@
+review_item,status,evidence,formula_finalized,claim_boundary
+radius_or_radial_ordering_present,true,R column present,false,formula_readiness_only
+galaxy_id_present,true,Galaxy or ID label present,false,formula_readiness_only
+baryonic_components_present,true,Vgas/Vdisk/Vbul or surface-brightness component labels,false,formula_readiness_only
+rbci_v1_definition_readiness,ready_with_component_derivation_requirements,RBCI remains formula-freeze task for later run,false,formula_readiness_only

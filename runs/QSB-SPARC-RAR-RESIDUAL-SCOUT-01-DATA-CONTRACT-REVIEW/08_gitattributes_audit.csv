@@ -1,0 +1,2 @@
+path,exists,required_rule,rule_present,status,notes
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/.gitattributes,true,input/*.mrt -text -diff,true,pass,Protects MRT raw files from text/diff normalization.

@@ -1,0 +1,4 @@
+decision_item,result,evidence,claim_boundary
+data_contract_frozen,true,"checksums, raw preservation, gitattributes, readiness, missing inputs",freeze_decision_only
+data_contract_review_decision,approve_for_baseline_rar_reproduction,no hard blocker,freeze_decision_only
+recommended_next_run_id,QSB-SPARC-RAR-RESIDUAL-SCOUT-01-BASELINE-RAR-REPRODUCTION,derived from freeze decision,planning_only

@@ -1,0 +1,17 @@
+artifact_id,path,exists,file_size_bytes,sha256,used_for
+REV-IN-01,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/.gitattributes,true,185,e3c11853e702f18961105579db0cee3ddb6f6c3ce8c58069e0fbdc61535b8742,data contract review
+REV-IN-02,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/04_sparc_rar_data_contract_summary.json,true,1400,a463d7707b96b097c240091db2a60550aa80f3245340802b971c48d594baa249,data contract review
+REV-IN-03,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/05_input_file_inventory.csv,true,1288,f351ea7835798fce409f0049d6ab220e9991a6dc020c1418ee26ead4768fd7c2,data contract review
+REV-IN-04,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/06_input_file_checksums.csv,true,720,2ff51052780a35482c39650f800732c46167e17a5be1ac6d4891bfd57455eed8,data contract review
+REV-IN-05,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/07_text_table_profile.csv,true,985,cc72a69d37c92ed4e1a1e298c5a35917a8a18ac3b292dc1d6e34015ccc028444,data contract review
+REV-IN-06,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/08_detected_column_inventory.csv,true,1642,83b509c43158e750ef7501519fb2e61745123986e151e3633c88aec6c792b9b9,data contract review
+REV-IN-07,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/09_sparc_expected_column_mapping.csv,true,2625,27006de806ef128526b358d77384589c400e9af05a7c4d9da9ba83ae19f8794a,data contract review
+REV-IN-08,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/10_baseline_rar_feasibility_contract.csv,true,315,8ef7a5158f12cd49d59f4f03a80030256eed229298f29ca4037c3a0ac4ff49af,data contract review
+REV-IN-09,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/11_rbci_v1_formula_feasibility_contract.csv,true,386,6ea70d391bb3cfcec0ffc40818cbe59d707fad82af448f542d49581eddc65806,data contract review
+REV-IN-10,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/12_source_reference_inventory.csv,true,2943,8398b67157a5096c464c63d333aade44e91c6ef93dc7509b203c53f16ec48007,data contract review
+REV-IN-11,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/13_data_lineage_contract.md,true,562,5579c6b9b12ef25f3dd944024c5f3bdb186444429b5827be6140becf3b15a4a2,data contract review
+REV-IN-12,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/14_unit_and_dimension_review_placeholder.md,true,530,3e2eea951051a4e8fab019f13c7e21d831ccedd83ef663b851b8932e664b528d,data contract review
+REV-IN-13,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/17_sparc_rar_data_contract_review_note.md,true,694,d06e7691dd87bb5775dcd163839587fc9fa1dff9102ea90c00e219ba1d31aff9,data contract review
+REV-IN-14,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/22_sample_rows_preview.csv,true,2023,85c4776002f0918f60ce78405ed973d4d305463ba8b9f5b650881b90a756c1c2,data contract review
+REV-IN-15,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/23_column_presence_matrix.csv,true,664,7bbc1b9828bb0d8bf350143e0bde4a11a525dd25a09a2a7caf4aa98e84354f9a,data contract review
+REV-IN-16,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/24_data_quality_preflight.csv,true,389,b17a1253ff4261378e7dd1b5ed24bcf2336911bf7a29aea62809d6bad7bc983e,data contract review

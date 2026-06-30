@@ -1,0 +1,5 @@
+file_path,mrt_header_present,byte_by_byte_description_present,data_rows_detected,column_labels_detected,sample_rows_plausible,read_status
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/MassModels_Lelli2016c.mrt,true,true,3391,ID;D;R;Vobs;e_Vobs;Vgas;Vdisk;Vbul;SBdisk;SBbul,true,readable_mrt_text
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RAR.mrt,true,true,2693,gbar;e_gbar;gobs;e_gobs,true,readable_mrt_text
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,true,true,14,gbar;gobs;sd;N,true,readable_mrt_text
+runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,true,true,183,Galaxy;T;D;e_D;f_D;Inc;e_Inc;L[3.6];e_L[3.6];Reff;SBeff;Rdisk;SBdisk;MHI;RHI;Vflat;e_Vflat;Q;Ref.,true,readable_mrt_text

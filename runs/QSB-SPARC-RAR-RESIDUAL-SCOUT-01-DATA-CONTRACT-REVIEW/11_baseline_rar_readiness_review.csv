@@ -1,0 +1,5 @@
+review_item,status,evidence,computation_performed,claim_boundary
+direct_RAR_table_present,true,RAR.mrt in input directory,false,readiness_only
+gobs_gbar_present,true,column presence matrix,false,readiness_only
+prior_baseline_feasibility,feasible_from_present_columns,prior data contract summary,false,readiness_only
+baseline_rar_reproduction_readiness,ready_for_baseline_rar_reproduction,"checksums, RAR.mrt, gbar/gobs, and prior contract",false,readiness_only

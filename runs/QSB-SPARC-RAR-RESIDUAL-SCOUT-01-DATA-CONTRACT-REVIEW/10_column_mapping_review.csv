@@ -1,0 +1,16 @@
+column_or_role,presence_status,review_assessment
+Galaxy,present,plausible_for_contract
+ID,present,plausible_for_contract
+R,present,plausible_for_contract
+Vobs,present,plausible_for_contract
+e_Vobs,present,plausible_for_contract
+Vgas,present,plausible_for_contract
+Vdisk,present,plausible_for_contract
+Vbul,present,plausible_for_contract
+SBdisk,present,plausible_for_contract
+SBbul,present,plausible_for_contract
+gbar,present,plausible_for_contract
+gobs,present,plausible_for_contract
+D,present,plausible_for_contract
+Inc,present,plausible_for_contract
+MHI,present,plausible_for_contract

@@ -1,0 +1,5 @@
+audit_item,result,expected,status,notes
+local_mrt_file_count,4,4,pass,Registered MRT raw input files.
+checksum_revalidation,4,4,pass,Recomputed SHA256 against data contract checksums.
+gitattributes_mrt_protection,true,true,pass,Requires input/*.mrt -text -diff.
+raw_data_preservation_status,preserved_and_checksum_matched,preserved_and_checksum_matched,pass,No raw data mutation performed by this review.
