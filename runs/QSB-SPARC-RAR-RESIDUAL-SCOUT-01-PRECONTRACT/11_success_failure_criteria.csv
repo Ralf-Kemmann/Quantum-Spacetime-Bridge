@@ -1,0 +1,6 @@
+outcome_id,condition,allowed_interpretation,next_action
+baseline_reproduction_failed,standard RAR baseline cannot be reproduced within declared tolerance,analysis blocked; no RBCI interpretation,repair data/baseline contract
+baseline_reproduced_no_residual_gain,baseline reproduces and RBCI_v1 adds no residual improvement,no candidate residual structure found under this contract,record negative/control result
+baseline_reproduced_in_sample_gain_only,RBCI_v1 improves only in-sample without penalty/out-of-sample support,overfit risk; no candidate residual structure claim,strengthen controls or stop
+baseline_reproduced_out_of_sample_gain_candidate,RBCI_v1 improves residuals out-of-sample or under complexity penalty,candidate residual structure only; no QSB detection,independent replication/robustness run
+analysis_blocked_by_data_contract,"SPARC columns, units, lineage, or formula feasibility cannot be frozen",blocked before residual analysis,complete data-contract remediation

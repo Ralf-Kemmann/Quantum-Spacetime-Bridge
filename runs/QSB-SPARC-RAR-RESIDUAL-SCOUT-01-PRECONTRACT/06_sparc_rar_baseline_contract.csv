@@ -1,0 +1,2 @@
+baseline_model_id,baseline_inputs,baseline_outputs,baseline_success_criteria,baseline_failure_handling,claim_boundary
+SPARC_RAR_BASELINE_REPRODUCTION_V1,public SPARC/RAR data package to be registered in the next data-contract run,standard_RAR_reproduction_table; baseline_fit_summary; residual_table_before_RBCI,public SPARC/RAR relation must be reproduced within declared tolerance before any RBCI candidate term is evaluated,"if baseline is not reproducible, stop and do not interpret any QSB Zusatzobservable result",baseline_reproduction_required_no_qsb_interpretation

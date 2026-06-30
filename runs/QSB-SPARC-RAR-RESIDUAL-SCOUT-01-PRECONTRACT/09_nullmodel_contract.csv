@@ -1,0 +1,7 @@
+nullmodel_id,nullmodel_name,purpose,execution_status,required_for_interpretation
+N0,baseline RAR only,establish baseline residuals before RBCI,not_executed_precontract_only,yes
+N1,shuffled RBCI labels within galaxy,test within-galaxy label dependence,not_executed_precontract_only,yes
+N2,shuffled RBCI labels across comparable radius bins,test radius-bin confounding,not_executed_precontract_only,yes
+N3,galaxy-wise bootstrap,test sample stability across galaxies,not_executed_precontract_only,yes
+N4,leave-one-galaxy-out / out-of-sample validation,test out-of-sample predictive behavior,not_executed_precontract_only,yes
+N5,complexity-penalized added-term test,guard against in-sample overfit,not_executed_precontract_only,yes

@@ -1,0 +1,7 @@
+column_role,required,status,notes
+galaxy_id,yes,to_define_after_sparc_profile,Stable galaxy identifier.
+radius,yes,to_define_after_sparc_profile,Radius coordinate; units must be frozen.
+observed_velocity_or_acceleration,yes,to_define_after_sparc_profile,Required for baseline RAR reproduction.
+baryonic_acceleration_or_components,yes,to_define_after_sparc_profile,Required for standard RAR and RBCI feasibility.
+uncertainties,preferred,to_define_after_sparc_profile,Required for weighted fits if available.
+quality_flags,preferred,to_define_after_sparc_profile,Required for exclusion policy if available.
