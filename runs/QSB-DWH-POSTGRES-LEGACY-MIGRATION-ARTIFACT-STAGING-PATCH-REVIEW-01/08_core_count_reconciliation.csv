@@ -1,0 +1,11 @@
+object,summary_value,db_value,match_or_explain,review_status,notes
+raw.source_artifact,9341,9341,match,ok,
+raw.raw_checksum,9328,9328,match,ok,
+staging.csv_row_json,100000,100000,match,ok,
+staging.json_document,1945,1945,match,ok,
+staging.json_key_value,50100,50100,match,ok,
+staging.markdown_document,2105,2105,match,ok,
+staging.sqlite_table_inventory,97,97,match,ok,
+staging.sqlite_row_count,,2570,informational_no_summary_value,info,
+metadata.meta_search_token,,97974,informational_no_summary_value,info,
+mart.v_qsb_global_search,107360,107360,match,ok,

@@ -1,0 +1,4 @@
+check_name,status,returncode,stdout_preview,stderr_preview,notes
+py_compile,ok,0,,,compile-only check
+metadata_server_check,ok,0,"{""global_search_rows"": ""107360"", ""status"": ""ok""}
+",,readiness check only; server not started persistently

@@ -1,0 +1,43 @@
+section,field_1,field_2,field_3,field_4,notes
+schema_table_type_counts,admin,BASE TABLE,7,,table_schema=admin; table_type=BASE TABLE; n=7
+schema_table_type_counts,canonical,BASE TABLE,23,,table_schema=canonical; table_type=BASE TABLE; n=23
+schema_table_type_counts,mart,VIEW,24,,table_schema=mart; table_type=VIEW; n=24
+schema_table_type_counts,metadata,BASE TABLE,8,,table_schema=metadata; table_type=BASE TABLE; n=8
+schema_table_type_counts,raw,BASE TABLE,6,,table_schema=raw; table_type=BASE TABLE; n=6
+schema_table_type_counts,server,BASE TABLE,2,,table_schema=server; table_type=BASE TABLE; n=2
+schema_table_type_counts,staging,BASE TABLE,16,,table_schema=staging; table_type=BASE TABLE; n=16
+schema_table_type_counts,validation,BASE TABLE,5,,table_schema=validation; table_type=BASE TABLE; n=5
+mart_views,mart,v_causality_overview,present,,table_schema=mart; table_name=v_causality_overview; status=present
+mart_views,mart,v_de_sparc_feldnamen,present,,table_schema=mart; table_name=v_de_sparc_feldnamen; status=present
+mart_views,mart,v_de_sparc_metadaten,present,,table_schema=mart; table_name=v_de_sparc_metadaten; status=present
+mart_views,mart,v_interface01_overview,present,,table_schema=mart; table_name=v_interface01_overview; status=present
+mart_views,mart,v_matrix_topology_overview,present,,table_schema=mart; table_name=v_matrix_topology_overview; status=present
+mart_views,mart,v_qsb_artifact_inventory,present,,table_schema=mart; table_name=v_qsb_artifact_inventory; status=present
+mart_views,mart,v_qsb_claim_boundaries,present,,table_schema=mart; table_name=v_qsb_claim_boundaries; status=present
+mart_views,mart,v_qsb_dataset_overview,present,,table_schema=mart; table_name=v_qsb_dataset_overview; status=present
+mart_views,mart,v_qsb_dwh_status,present,,table_schema=mart; table_name=v_qsb_dwh_status; status=present
+mart_views,mart,v_qsb_global_search,present,,table_schema=mart; table_name=v_qsb_global_search; status=present
+mart_views,mart,v_qsb_metadata_aliases_de,present,,table_schema=mart; table_name=v_qsb_metadata_aliases_de; status=present
+mart_views,mart,v_qsb_metadata_fields,present,,table_schema=mart; table_name=v_qsb_metadata_fields; status=present
+mart_views,mart,v_qsb_metadata_units,present,,table_schema=mart; table_name=v_qsb_metadata_units; status=present
+mart_views,mart,v_qsb_obs_search_sparc_rar,present,,table_schema=mart; table_name=v_qsb_obs_search_sparc_rar; status=present
+mart_views,mart,v_qsb_run_timeline,present,,table_schema=mart; table_name=v_qsb_run_timeline; status=present
+mart_views,mart,v_qsb_validation_status,present,,table_schema=mart; table_name=v_qsb_validation_status; status=present
+mart_views,mart,v_relalg_overview,present,,table_schema=mart; table_name=v_relalg_overview; status=present
+mart_views,mart,v_sparc_baseline_quantities,present,,table_schema=mart; table_name=v_sparc_baseline_quantities; status=present
+mart_views,mart,v_sparc_dataset_lineage,present,,table_schema=mart; table_name=v_sparc_dataset_lineage; status=present
+mart_views,mart,v_sparc_field_metadata,present,,table_schema=mart; table_name=v_sparc_field_metadata; status=present
+mart_views,mart,v_sparc_massmodels_gobs_points,present,,table_schema=mart; table_name=v_sparc_massmodels_gobs_points; status=present
+mart_views,mart,v_sparc_rar_direct_points,present,,table_schema=mart; table_name=v_sparc_rar_direct_points; status=present
+mart_views,mart,v_sparc_unit_metadata,present,,table_schema=mart; table_name=v_sparc_unit_metadata; status=present
+mart_views,mart,v_sparc_validation_status,present,,table_schema=mart; table_name=v_sparc_validation_status; status=present
+expected_mart_view_presence,v_qsb_dwh_status,present,1,,
+expected_mart_view_presence,v_qsb_dataset_overview,present,1,,
+expected_mart_view_presence,v_qsb_artifact_inventory,present,1,,
+expected_mart_view_presence,v_qsb_global_search,present,1,,
+expected_mart_view_presence,v_qsb_validation_status,present,1,,
+expected_mart_view_presence,v_qsb_claim_boundaries,present,1,,
+expected_mart_view_presence,v_matrix_topology_overview,present,1,,
+expected_mart_view_presence,v_interface01_overview,present,1,,
+expected_mart_view_presence,v_relalg_overview,present,1,,
+expected_mart_view_presence,v_causality_overview,present,1,,

@@ -1,0 +1,17 @@
+section,field_1,field_2,field_3,field_4,notes
+global_search_count,107360,,,,global_search_rows=107360
+global_search_domain_guess_counts,unknown,48930,,,domain_guess=unknown; n=48930
+global_search_domain_guess_counts,causality,29830,,,domain_guess=causality; n=29830
+global_search_domain_guess_counts,extract03,11008,,,domain_guess=extract03; n=11008
+global_search_domain_guess_counts,interface01,7580,,,domain_guess=interface01; n=7580
+global_search_domain_guess_counts,metadata,4297,,,domain_guess=metadata; n=4297
+global_search_domain_guess_counts,relalg,3212,,,domain_guess=relalg; n=3212
+global_search_domain_guess_counts,matrix_topology,1701,,,domain_guess=matrix_topology; n=1701
+global_search_domain_guess_counts,sparc_rar,802,,,domain_guess=sparc_rar; n=802
+global_search_record_type_counts,json_key,50100,,,record_type=json_key; n=50100
+global_search_record_type_counts,csv_column,33875,,,record_type=csv_column; n=33875
+global_search_record_type_counts,artifact,18648,,,record_type=artifact; n=18648
+global_search_record_type_counts,sqlite_table,2570,,,record_type=sqlite_table; n=2570
+global_search_record_type_counts,markdown_document,2105,,,record_type=markdown_document; n=2105
+global_search_record_type_counts,alias,62,,,record_type=alias; n=62
+review_note,search_scope,broad_artifact_text,,,Broadly filled search can include duplicates/noise; this is an infrastructure review only.

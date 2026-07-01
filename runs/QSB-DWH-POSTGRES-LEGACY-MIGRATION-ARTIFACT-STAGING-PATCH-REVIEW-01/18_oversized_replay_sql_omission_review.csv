@@ -1,0 +1,3 @@
+run_id,local_sql_exists,local_size_bytes,note_file_exists,note_size_bytes,note_sha256,sha256_matches_if_checkable,git_status_ignored,review_status,notes
+QSB-DWH-POSTGRES-LEGACY-MIGRATION-METADATA-SERVER-01,True,2983309074,True,519,340dc7b8cbc03452d388d129dc693bbf3602e61fcdf780da53785d59a1379097,not_checkable_without_declared_sql_hash,ignored,ok,Omission note is the Git-facing representation; local SQL may remain outside Git.
+QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01,True,356696421,True,525,7f96a40b535e91066ff55e867a5013fc1e0a6149ae871c2d9f45dc5568e18ca2,not_checkable_without_declared_sql_hash,ignored,ok,Omission note is the Git-facing representation; local SQL may remain outside Git.

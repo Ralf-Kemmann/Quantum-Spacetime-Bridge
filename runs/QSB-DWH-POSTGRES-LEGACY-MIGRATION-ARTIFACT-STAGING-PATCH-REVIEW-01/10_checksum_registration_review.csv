@@ -1,0 +1,5 @@
+section,field_1,field_2,field_3,field_4,notes
+checksum_algorithm_counts,query_error,"ERROR:  column ""checksum_algorithm"" does not exist
+LINE 1: SELECT checksum_algorithm, COUNT(*) AS n FROM raw.raw_checks...
+               ^",,,"SELECT checksum_algorithm, COUNT(*) AS n FROM raw.raw_checksum GROUP BY checksum_algorithm ORDER BY n DESC;"
+checksum_artifact_coverage,9324,9328,,,artifacts_with_checksum=9324; checksum_rows=9328

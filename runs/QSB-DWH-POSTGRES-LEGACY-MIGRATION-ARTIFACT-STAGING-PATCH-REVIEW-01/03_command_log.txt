@@ -1,0 +1,243 @@
+# Command Log
+
+Pre-script commands run manually:
+
+- `sed -n '1,240p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_LEGACY_MIGRATION_ARTIFACT_STAGING_PATCH_REVIEW_01_CODEX_PROMPT.md`
+- `sed -n '241,520p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_LEGACY_MIGRATION_ARTIFACT_STAGING_PATCH_REVIEW_01_CODEX_PROMPT.md`
+- `sed -n '521,920p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_LEGACY_MIGRATION_ARTIFACT_STAGING_PATCH_REVIEW_01_CODEX_PROMPT.md`
+- `mkdir -p runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01`
+- `git status --short --ignored | sed -n '1,200p' > runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/00_git_status_short_before.txt`
+- `git --no-pager log --oneline -30 > runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/01_git_log_oneline_before.txt`
+- `python -m json.tool runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01/04_artifact_staging_patch_summary.json`
+- `python -m json.tool runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-METADATA-SERVER-01/04_legacy_migration_summary.json`
+- `psql -d qsb_research_dwh -c "SELECT current_database(), current_user, version();"`
+- `python runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/30_generate_review_artifacts.py`
+
+Commands run by generator:
+
+- `psql -d qsb_research_dwh --csv -q -c SELECT current_database(), current_user, version();` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+        SELECT table_schema, table_type, COUNT(*) AS n
+        FROM information_schema.tables
+        WHERE table_schema IN ('admin','raw','staging','canonical','metadata','validation','mart','server')
+        GROUP BY table_schema, table_type
+        ORDER BY table_schema, table_type;
+        ` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+        SELECT table_schema, table_name, 'present' AS status
+        FROM information_schema.views
+        WHERE table_schema = 'mart'
+        ORDER BY table_name;
+        ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dwh_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dataset_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_artifact_inventory'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_global_search'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_validation_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_claim_boundaries'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_interface01_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_relalg_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_causality_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.raw_checksum` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM staging.csv_row_json` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM staging.json_document` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM staging.json_key_value` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM staging.markdown_document` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT relative_path) FROM staging.sqlite_table_inventory` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM staging.sqlite_row_count` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_search_token` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY domain_guess ORDER BY artifact_count DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT artifact_kind, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY artifact_kind ORDER BY artifact_count DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT suffix, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY suffix ORDER BY artifact_count DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT checksum_algorithm, COUNT(*) AS n FROM raw.raw_checksum GROUP BY checksum_algorithm ORDER BY n DESC;` -> rc=1
+  - stderr preview: `ERROR:  column "checksum_algorithm" does not exist
+LINE 1: SELECT checksum_algorithm, COUNT(*) AS n FROM raw.raw_checks...
+               ^
+`
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(DISTINCT artifact_id) AS artifacts_with_checksum, COUNT(*) AS checksum_rows FROM raw.raw_checksum;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(DISTINCT artifact_id) AS csv_files, COUNT(*) AS csv_rows FROM staging.csv_row_json;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, COUNT(*) AS rows_loaded FROM staging.csv_row_json GROUP BY relative_path ORDER BY rows_loaded DESC LIMIT 50;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT parse_status, COUNT(*) AS n FROM staging.json_document GROUP BY parse_status ORDER BY n DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, parse_status FROM staging.json_document WHERE parse_status <> 'parsed' LIMIT 100;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS json_key_values FROM staging.json_key_value;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS markdown_documents FROM staging.markdown_document;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, title, LEFT(body_preview, 200) AS preview FROM staging.markdown_document LIMIT 50;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(DISTINCT relative_path) AS sqlite_catalogs FROM staging.sqlite_table_inventory;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, COUNT(*) AS table_count FROM staging.sqlite_table_inventory GROUP BY relative_path ORDER BY table_count DESC LIMIT 100;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, table_name, row_count FROM staging.sqlite_row_count ORDER BY row_count DESC NULLS LAST LIMIT 100;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path, table_name, 'meta_table_detected' AS note FROM staging.sqlite_table_inventory WHERE table_name LIKE 'meta_%' ORDER BY relative_path, table_name LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, COUNT(*) AS n FROM raw.source_artifact GROUP BY domain_guess, artifact_kind ORDER BY domain_guess, n DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, relative_path FROM raw.source_artifact WHERE domain_guess IN ('matrix_topology','extract03','interface01','relalg','causality','sparc_rar','metadata') ORDER BY domain_guess, relative_path LIMIT 500;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS global_search_rows FROM mart.v_qsb_global_search;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, COUNT(*) AS n FROM mart.v_qsb_global_search GROUP BY domain_guess ORDER BY n DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT record_type, COUNT(*) AS n FROM mart.v_qsb_global_search GROUP BY record_type ORDER BY n DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "Beschleunigung" AS search_term, to_jsonb(g)::text AS row_json
+            FROM (
+                SELECT *
+                FROM mart.v_qsb_global_search
+                WHERE search_text ILIKE '%Beschleunigung%'
+                LIMIT 20
+            ) AS g;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "Beschleunigung" does not exist
+LINE 2:             SELECT "Beschleunigung" AS search_term, to_jsonb...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "delta_phi" AS search_term, to_jsonb(g)::text AS row_json
+            FROM (
+                SELECT *
+                FROM mart.v_qsb_global_search
+                WHERE search_text ILIKE '%delta_phi%'
+                LIMIT 20
+            ) AS g;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "delta_phi" does not exist
+LINE 2:             SELECT "delta_phi" AS search_term, to_jsonb(g)::...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "RAR" AS search_term, to_jsonb(g)::text AS row_json
+            FROM (
+                SELECT *
+                FROM mart.v_qsb_global_search
+                WHERE search_text ILIKE '%RAR%'
+                LIMIT 20
+            ) AS g;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "RAR" does not exist
+LINE 2:             SELECT "RAR" AS search_term, to_jsonb(g)::text A...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "RELALG" AS search_term, to_jsonb(g)::text AS row_json
+            FROM (
+                SELECT *
+                FROM mart.v_qsb_global_search
+                WHERE search_text ILIKE '%RELALG%'
+                LIMIT 20
+            ) AS g;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "RELALG" does not exist
+LINE 2:             SELECT "RELALG" AS search_term, to_jsonb(g)::tex...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "causality" AS search_term, to_jsonb(g)::text AS row_json
+            FROM (
+                SELECT *
+                FROM mart.v_qsb_global_search
+                WHERE search_text ILIKE '%causality%'
+                LIMIT 20
+            ) AS g;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "causality" does not exist
+LINE 2:             SELECT "causality" AS search_term, to_jsonb(g)::...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "matrix_topology" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'matrix_topology'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "matrix_topology" does not exist
+LINE 2:             SELECT "matrix_topology" AS domain_guess, to_jso...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "extract03" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'extract03'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "extract03" does not exist
+LINE 2:             SELECT "extract03" AS domain_guess, to_jsonb(a):...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "interface01" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'interface01'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "interface01" does not exist
+LINE 2:             SELECT "interface01" AS domain_guess, to_jsonb(a...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "relalg" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'relalg'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "relalg" does not exist
+LINE 2:             SELECT "relalg" AS domain_guess, to_jsonb(a)::te...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "causality" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'causality'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "causality" does not exist
+LINE 2:             SELECT "causality" AS domain_guess, to_jsonb(a):...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "sparc_rar" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'sparc_rar'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "sparc_rar" does not exist
+LINE 2:             SELECT "sparc_rar" AS domain_guess, to_jsonb(a):...
+                           ^
+`
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT "metadata" AS domain_guess, to_jsonb(a)::text AS row_json
+            FROM (
+                SELECT *
+                FROM raw.source_artifact
+                WHERE domain_guess = 'metadata'
+                ORDER BY relative_path
+                LIMIT 20
+            ) AS a;
+            ` -> rc=1
+  - stderr preview: `ERROR:  column "metadata" does not exist
+LINE 2:             SELECT "metadata" AS domain_guess, to_jsonb(a)::...
+                           ^
+`
+- `python -m py_compile scripts/qsb_metadata_server/qsb_metadata_server.py` -> rc=0
+- `python scripts/qsb_metadata_server/qsb_metadata_server.py --check` -> rc=0
+- `git check-ignore -q runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-METADATA-SERVER-01/36_legacy_ingest_upsert.sql` -> rc=0
+- `git check-ignore -q runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01/36_legacy_ingest_upsert.sql` -> rc=0

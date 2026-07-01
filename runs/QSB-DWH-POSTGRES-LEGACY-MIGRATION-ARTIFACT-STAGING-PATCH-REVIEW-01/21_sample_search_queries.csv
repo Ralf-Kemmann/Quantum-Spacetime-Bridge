@@ -1,0 +1,16 @@
+search_term,row_json,notes
+Beschleunigung,,"ERROR:  column ""Beschleunigung"" does not exist
+LINE 2:             SELECT ""Beschleunigung"" AS search_term, to_jsonb...
+                           ^"
+delta_phi,,"ERROR:  column ""delta_phi"" does not exist
+LINE 2:             SELECT ""delta_phi"" AS search_term, to_jsonb(g)::...
+                           ^"
+RAR,,"ERROR:  column ""RAR"" does not exist
+LINE 2:             SELECT ""RAR"" AS search_term, to_jsonb(g)::text A...
+                           ^"
+RELALG,,"ERROR:  column ""RELALG"" does not exist
+LINE 2:             SELECT ""RELALG"" AS search_term, to_jsonb(g)::tex...
+                           ^"
+causality,,"ERROR:  column ""causality"" does not exist
+LINE 2:             SELECT ""causality"" AS search_term, to_jsonb(g)::...
+                           ^"
