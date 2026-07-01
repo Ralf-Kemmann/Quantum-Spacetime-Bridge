@@ -1,0 +1,6 @@
+domain,artifacts_loaded,status
+sparc_rar,136,artifact_level_loaded
+matrix_topology,1428,artifact_level_loaded
+interface01,740,artifact_level_loaded
+relalg,301,artifact_level_loaded
+causality,2090,artifact_level_loaded

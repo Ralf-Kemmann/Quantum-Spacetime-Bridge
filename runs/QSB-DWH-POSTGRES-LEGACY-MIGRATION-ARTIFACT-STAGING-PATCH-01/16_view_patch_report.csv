@@ -1,0 +1,15 @@
+view_name,exists,query_status,row_count
+mart.v_qsb_dwh_status,true,passed,2
+mart.v_qsb_dataset_overview,true,passed,12
+mart.v_qsb_run_timeline,true,passed,278
+mart.v_qsb_artifact_inventory,true,passed,9324
+mart.v_qsb_metadata_fields,true,passed,29
+mart.v_qsb_metadata_units,true,passed,7
+mart.v_qsb_metadata_aliases_de,true,passed,62
+mart.v_qsb_validation_status,true,passed,12
+mart.v_qsb_claim_boundaries,true,passed,31
+mart.v_qsb_global_search,true,passed,107360
+mart.v_matrix_topology_overview,true,passed,1428
+mart.v_interface01_overview,true,passed,740
+mart.v_relalg_overview,true,passed,301
+mart.v_causality_overview,true,passed,2090

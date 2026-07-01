@@ -1,0 +1,7 @@
+-- QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01
+-- Additive compatibility patch for broad artifact staging.
+-- The executable SQL is generated and applied by:
+--   python scripts/qsb_dwh_pg/qsb_dwh_pg.py artifact-stage --patch legacy
+--
+-- No DROP statements are required for this patch. Existing tables are extended
+-- with ADD COLUMN IF NOT EXISTS inside the orchestrator's LEGACY_SCHEMA_SQL.

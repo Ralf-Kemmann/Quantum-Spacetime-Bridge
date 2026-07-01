@@ -1,0 +1,7 @@
+sqlite_table,postgres_target,status
+meta_alias,metadata.meta_alias,compatible_if_columns_match
+meta_field,metadata.meta_field,compatible_if_columns_match
+meta_unit,metadata.meta_unit,compatible_if_columns_match
+meta_lineage,metadata.meta_lineage,compatible_if_columns_match
+meta_validation_result,metadata.meta_validation_result,compatible_if_columns_match
+meta_claim,metadata.meta_claim,compatible_if_columns_match

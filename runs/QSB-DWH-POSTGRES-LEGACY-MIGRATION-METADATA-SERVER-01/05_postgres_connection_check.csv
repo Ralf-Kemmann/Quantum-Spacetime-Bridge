@@ -1,0 +1,2 @@
+check_name,connection_ok,returncode,stdout,stderr
+qsb_research_dwh_connection,true,0,qsb_research_dwh,

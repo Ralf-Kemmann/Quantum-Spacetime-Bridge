@@ -1,0 +1,5 @@
+staging_table,rows_loaded,status
+staging.csv_row_json,100000,loaded
+staging.json_document,1945,loaded
+staging.markdown_document,2105,loaded
+staging.sqlite_table_inventory,2570,loaded

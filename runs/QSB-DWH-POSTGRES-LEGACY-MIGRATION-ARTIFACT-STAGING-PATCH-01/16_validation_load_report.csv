@@ -1,0 +1,4 @@
+validation_table,rows_loaded,status
+validation.validation_result,12,loaded
+validation.claim_boundary,31,loaded
+validation.no_go_boundary,11,loaded

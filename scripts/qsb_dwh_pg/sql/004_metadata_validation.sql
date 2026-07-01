@@ -1,0 +1,1 @@
+-- Metadata and validation legacy tables are created in 002_raw_staging.sql for this additive migration.

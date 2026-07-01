@@ -1,0 +1,7 @@
+M scripts/qsb_dwh_pg/qsb_dwh_pg.py
+?? scripts/qsb_dwh_pg/sql/002_raw_staging.sql
+?? scripts/qsb_dwh_pg/sql/003_canonical.sql
+?? scripts/qsb_dwh_pg/sql/004_metadata_validation.sql
+?? scripts/qsb_dwh_pg/sql/005_views_mart.sql
+?? scripts/qsb_dwh_pg/sql/007_indexes.sql
+?? scripts/qsb_metadata_server/

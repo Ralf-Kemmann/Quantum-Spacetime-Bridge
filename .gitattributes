@@ -1,0 +1,3 @@
+# Treat very large generated PostgreSQL replay/audit SQL files as non-diffable.
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-METADATA-SERVER-01/36_legacy_ingest_upsert.sql -diff
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01/36_legacy_ingest_upsert.sql -diff

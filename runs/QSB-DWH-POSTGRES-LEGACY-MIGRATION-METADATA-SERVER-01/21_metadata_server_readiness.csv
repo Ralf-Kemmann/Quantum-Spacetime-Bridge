@@ -1,0 +1,4 @@
+check_name,status,detail
+server_files_created,passed,scripts/qsb_metadata_server
+read_only_policy,passed,SELECT endpoints only
+default_port,passed,8765

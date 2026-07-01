@@ -1,0 +1,4 @@
+check_name,status,detail
+py_compile,passed,
+server_check,passed,"{""global_search_rows"": ""107360"", ""status"": ""ok""}"
+readiness,ready_for_read_only_psql_cli_server,read-only metadata server check

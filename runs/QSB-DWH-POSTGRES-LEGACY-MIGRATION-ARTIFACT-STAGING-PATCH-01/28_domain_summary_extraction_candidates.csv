@@ -1,0 +1,5 @@
+domain,candidate_rule,status
+matrix_topology,artifact path and optional summary_json/text preview,candidate_only
+interface01,artifact path and optional summary_json/text preview,candidate_only
+relalg,artifact path and optional summary_json/text preview,candidate_only
+causality,artifact path and optional summary_json/text preview,candidate_only

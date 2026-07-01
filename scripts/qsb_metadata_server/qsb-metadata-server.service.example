@@ -1,0 +1,11 @@
+[Unit]
+Description=QSB read-only metadata server
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge
+ExecStart=/usr/bin/python3 /home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/scripts/qsb_metadata_server/qsb_metadata_server.py --host 127.0.0.1 --port 8765
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
