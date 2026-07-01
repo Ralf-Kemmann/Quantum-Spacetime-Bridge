@@ -1,0 +1,5 @@
+check_name,command,available,detail
+command_v_psql,command -v psql,true,/usr/bin/psql
+command_v_pg_isready,command -v pg_isready,true,/usr/bin/pg_isready
+psql_version,psql --version,true,psql (PostgreSQL) 16.14 (Ubuntu 16.14-0ubuntu0.24.04.1)
+pg_isready,pg_isready,true,/var/run/postgresql:5432 - accepting connections

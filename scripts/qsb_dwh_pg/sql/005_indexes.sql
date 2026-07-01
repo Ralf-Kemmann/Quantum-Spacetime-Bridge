@@ -1,0 +1,10 @@
+CREATE INDEX IF NOT EXISTS idx_raw_source_file_dataset ON raw.source_file(dataset_id);
+CREATE INDEX IF NOT EXISTS idx_canonical_source_file_dataset ON canonical.obs_source_file(dataset_id);
+CREATE INDEX IF NOT EXISTS idx_artifact_dataset ON canonical.obs_artifact(dataset_id);
+CREATE INDEX IF NOT EXISTS idx_rar_galaxy ON canonical.obs_rar_point(galaxy_id);
+CREATE INDEX IF NOT EXISTS idx_massmodel_galaxy ON canonical.obs_massmodel_point(galaxy_id);
+CREATE INDEX IF NOT EXISTS idx_quantity_kind ON canonical.obs_quantity_definition(quantity_kind);
+CREATE INDEX IF NOT EXISTS idx_meta_field_canonical_name ON metadata.meta_field(canonical_name);
+CREATE INDEX IF NOT EXISTS idx_meta_alias_canonical_name ON metadata.meta_alias(canonical_name);
+CREATE INDEX IF NOT EXISTS idx_validation_status ON validation.validation_result(validation_status);
+CREATE INDEX IF NOT EXISTS idx_claim_boundary_status ON validation.claim_boundary(claim_status);

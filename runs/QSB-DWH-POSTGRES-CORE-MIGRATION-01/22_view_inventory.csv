@@ -1,0 +1,12 @@
+view_name,column_count,columns,status
+mart.v_de_sparc_feldnamen,,,verified
+mart.v_de_sparc_metadaten,,,verified
+mart.v_qsb_dwh_status,,,verified
+mart.v_qsb_obs_search_sparc_rar,,,verified
+mart.v_sparc_baseline_quantities,,,verified
+mart.v_sparc_dataset_lineage,,,verified
+mart.v_sparc_field_metadata,,,verified
+mart.v_sparc_massmodels_gobs_points,,,verified
+mart.v_sparc_rar_direct_points,,,verified
+mart.v_sparc_unit_metadata,,,verified
+mart.v_sparc_validation_status,,,verified

@@ -1,0 +1,17 @@
+sqlite_object,postgres_object,migration_role
+qsb_run,admin.etl_run,run_status
+qsb_obs_source_file,raw.source_file;canonical.obs_source_file,source_registry
+qsb_obs_artifact,raw.source_artifact;canonical.obs_artifact,artifact_registry
+stg_sparc_rar,staging.sparc_rar_direct,staging_load
+stg_sparc_massmodels,staging.sparc_massmodels_baseline,staging_load
+qsb_obs_dataset,canonical.obs_dataset,canonical_dataset
+qsb_obs_galaxy,canonical.obs_galaxy,canonical_entity
+qsb_obs_rar_point,canonical.obs_rar_point,canonical_observation
+qsb_obs_massmodel_point,canonical.obs_massmodel_point,canonical_observation
+qsb_obs_baseline_quantity,canonical.obs_baseline_quantity,baseline_quantity
+meta_field,metadata.meta_field,metadata
+meta_unit,metadata.meta_unit,metadata
+meta_alias,metadata.meta_alias,metadata
+meta_lineage,metadata.meta_lineage,metadata
+meta_claim,metadata.meta_claim;validation.claim_boundary,claim_boundary
+meta_validation_result,validation.validation_result,validation

@@ -1,0 +1,3 @@
+step_name,status,rows_loaded,message
+bootstrap,not_executed,0,Schemas/tables/views/indexes/procedures applied when completed.
+ingest_sparc_rar,not_executed,12170,SPARC/RAR SQLite snapshot loaded idempotently when completed.

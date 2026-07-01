@@ -1,0 +1,6 @@
+validation_id,validation_status,observed_value,expected_value,notes
+postgres_available,passed,true,true,psql availability
+postgres_connection_ok,passed,true,true,psql -d postgres SELECT version
+sqlite_snapshot_integrity,passed,ok,ok,runs/QSB-SPARC-RAR-DWH-ETL-METADATA-REGISTRATION-01/sparc_rar_dwh.sqlite
+checksum_match_count,passed,4,4,raw SPARC inputs
+no_forbidden_analysis,passed,false,false,No residual/RBCI/QSB observable executed.

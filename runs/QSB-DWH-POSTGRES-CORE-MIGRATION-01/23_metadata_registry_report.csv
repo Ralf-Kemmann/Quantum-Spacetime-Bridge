@@ -1,0 +1,7 @@
+registry,sqlite_snapshot_count,postgres_loaded_count,status
+metadata_field,29,29,loaded
+metadata_unit,7,7,loaded
+metadata_alias,29,29,loaded
+metadata_lineage,21,21,loaded
+metadata_validation,12,12,loaded
+metadata_claim,16,16,loaded

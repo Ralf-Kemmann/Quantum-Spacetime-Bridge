@@ -1,0 +1,5 @@
+psql not found in PATH
+
+
+psql not found in PATH
+pg_isready not found in PATH
