@@ -1,0 +1,13 @@
+validation_id,validation_scope,validation_rule,validation_status,observed_value,expected_value,notes
+checksum_match_count,raw_inputs,checksum_match_count,passed,4,4,
+checksum_mismatch_count,raw_inputs,checksum_mismatch_count,passed,0,0,
+raw_data_preserved,raw_inputs,preserved_byte_exact,passed,true,true,
+data_contract_frozen,review,freeze_decision_registered,passed,true,true,
+baseline_completed,baseline,baseline_summary_status,passed,sparc_rar_baseline_reproduction_completed,sparc_rar_baseline_reproduction_completed,
+rar_table_parsed,baseline,rar_table_parsed,passed,true,true,
+massmodels_parsed,baseline,massmodels_table_parsed,passed,true,true,
+massmodels_gbar_not_computed,baseline,massmodels_gbar_computed,passed,false,false,M/L assumption required.
+mass_to_light_required,baseline,mass_to_light_assumption_required,passed,true,true,
+no_qsb_evaluation,scope,qsb_observable_evaluated,passed,false,false,
+no_rbci_evaluation,scope,rbci_v1_evaluated,passed,false,false,
+dwh_row_counts_consistent,dwh,loaded_row_counts,passed,rar=2693;massmodels=3392,rar=2693;massmodels=3392,

@@ -1,0 +1,7 @@
+canonical_table,rows_loaded,status
+qsb_obs_rar_point,2693,loaded_from_baseline_direct_rar
+qsb_obs_massmodel_point,3392,loaded_from_baseline_massmodels
+qsb_obs_baseline_quantity,6085,loaded_from_baseline_quantities
+qsb_obs_galaxy,175,registered_from_numeric_massmodels_rows
+qsb_obs_quantity_definition,29,registered
+qsb_obs_measurement,0,schema_ready_not_populated_separately

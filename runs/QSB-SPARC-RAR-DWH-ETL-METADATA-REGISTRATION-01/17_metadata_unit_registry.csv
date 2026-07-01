@@ -1,0 +1,8 @@
+unit_symbol,quantity_kind,dimension_vector,conversion_rule_id
+kpc,length,[L],kpc_to_m
+Mpc,length,[L],Mpc_to_m
+km/s,velocity,[L T^-1],km_s_to_m_s
+m/s^2,acceleration,[L T^-2],gobs_from_vobs2_over_radius
+solLum/pc2,surface_brightness,[surface_brightness_luminosity_area^-1],raw_value_passthrough
+dex,dimensionless_log_quantity,[dimensionless],log10_quantity_passthrough
+log10 dimensionless,dimensionless_log_quantity,[dimensionless],log10_quantity_passthrough

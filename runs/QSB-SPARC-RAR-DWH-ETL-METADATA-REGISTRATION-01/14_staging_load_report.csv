@@ -1,0 +1,5 @@
+staging_table,source,rows_loaded,status
+stg_sparc_rar,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-BASELINE-RAR-REPRODUCTION/14_direct_rar_dataset.csv,2693,loaded
+stg_sparc_massmodels,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-BASELINE-RAR-REPRODUCTION/15_massmodels_derived_baseline_quantities.csv,3392,loaded
+stg_sparc_rarbins,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/RARbins.mrt,27,raw_text_preview_loaded
+stg_sparc_sample,runs/QSB-SPARC-RAR-RESIDUAL-SCOUT-01-DATA-CONTRACT/input/SPARC_Lelli2016c.mrt,200,raw_text_preview_loaded

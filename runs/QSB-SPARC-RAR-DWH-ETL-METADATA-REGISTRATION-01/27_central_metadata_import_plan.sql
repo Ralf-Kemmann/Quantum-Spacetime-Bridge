@@ -1,0 +1,11 @@
+-- Optionaler Merge-Plan; nicht automatisch ausfuehren.
+-- Ziel: meta_alias, meta_claim, meta_field, meta_lineage, meta_unit, meta_validation_result aus der run-lokalen DB in einen kompatiblen zentralen Catalog importieren.
+-- Vorbedingung: Attach beider DBs read/write nur nach menschlicher Freigabe.
+-- Beispiel:
+-- ATTACH DATABASE 'runs/QSB-SPARC-RAR-DWH-ETL-METADATA-REGISTRATION-01/sparc_rar_dwh.sqlite' AS sparc_run;
+-- INSERT OR IGNORE INTO main.meta_field SELECT * FROM sparc_run.meta_field;
+-- INSERT OR IGNORE INTO main.meta_alias SELECT * FROM sparc_run.meta_alias;
+-- INSERT OR IGNORE INTO main.meta_unit SELECT * FROM sparc_run.meta_unit;
+-- INSERT OR IGNORE INTO main.meta_lineage SELECT * FROM sparc_run.meta_lineage;
+-- INSERT OR IGNORE INTO main.meta_validation_result SELECT * FROM sparc_run.meta_validation_result;
+-- INSERT OR IGNORE INTO main.meta_claim SELECT * FROM sparc_run.meta_claim;

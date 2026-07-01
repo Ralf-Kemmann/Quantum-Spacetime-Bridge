@@ -1,0 +1,30 @@
+canonical_name,display_label_de,language,alias_status
+dataset_id,Datensatz-ID,de,registered
+source_file_id,Quelldatei-ID,de,registered
+source_artifact_id,Quellartefakt-ID,de,registered
+run_id,Lauf-ID,de,registered
+galaxy_id,Galaxien-ID,de,registered
+radius_kpc,Radius (kpc),de,registered
+distance_mpc,Entfernung (Mpc),de,registered
+vobs_km_s,beobachtete Rotationsgeschwindigkeit,de,registered
+vobs_error_km_s,Unsicherheit der beobachteten Rotationsgeschwindigkeit,de,registered
+vgas_km_s,Gas-Geschwindigkeitsbeitrag,de,registered
+vdisk_km_s,Scheiben-Geschwindigkeitsbeitrag,de,registered
+vbul_km_s,Bulge-Geschwindigkeitsbeitrag,de,registered
+sbdisk_solLum_pc2,Scheiben-Oberflächenhelligkeit,de,registered
+sbbul_solLum_pc2,Bulge-Oberflächenhelligkeit,de,registered
+gobs_m_s2,beobachtete Beschleunigung,de,registered
+gbar_m_s2,baryonische Beschleunigung,de,registered
+log_gobs,Log beobachtete Beschleunigung,de,registered
+log_gbar,Log baryonische Beschleunigung,de,registered
+rar_point_id,RAR-Punkt-ID,de,registered
+massmodel_point_id,MassModel-Punkt-ID,de,registered
+unit_original,Originaleinheit,de,registered
+unit_calculation,Berechnungseinheit,de,registered
+unit_display,Anzeigeeinheit,de,registered
+dimension_vector,Dimensionsvektor,de,registered
+conversion_rule_id,Umrechnungsregel-ID,de,registered
+lineage_hash,Lineage-Hash,de,registered
+source_sha256,Quellen-SHA256,de,registered
+validation_status,Validierungsstatus,de,registered
+claim_boundary,Claim-Grenze,de,registered
