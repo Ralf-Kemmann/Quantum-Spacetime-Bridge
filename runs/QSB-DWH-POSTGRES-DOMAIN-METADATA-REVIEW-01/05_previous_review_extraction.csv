@@ -1,0 +1,11 @@
+source,key,value,review_status,notes
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,review_decision,"""approved_with_warnings_for_domain_specific_metadata_review""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,postgres_connection_ok,true,ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,summary_json_valid,true,ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,db_counts_reconciled,true,ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,global_search_review_status,"""global_search_operational_with_noise_warning""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,metadata_server_review_status,"""ready_for_read_only_psql_cli_server""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,oversized_replay_sql_omission_review_status,"""omission_notes_present""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,claim_boundary_status,"""no_physical_claims""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json,recommended_next_run_id,"""QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01""",ok,previous review summary extraction
+runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/23_review_decision.md,decision_md_contains_expected_status,True,ok,previous review decision markdown

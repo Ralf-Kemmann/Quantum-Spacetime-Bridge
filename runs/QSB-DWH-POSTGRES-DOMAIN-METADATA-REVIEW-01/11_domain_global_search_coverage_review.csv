@@ -1,0 +1,40 @@
+section,field_1,field_2,field_3,field_4,notes
+global_search_schema,token_id,text,,,column_name=token_id; data_type=text
+global_search_schema,record_type,text,,,column_name=record_type; data_type=text
+global_search_schema,record_id,text,,,column_name=record_id; data_type=text
+global_search_schema,search_text,text,,,column_name=search_text; data_type=text
+global_search_schema,domain_guess,text,,,column_name=domain_guess; data_type=text
+domain_guess_counts,unknown,48930,,,domain_guess=unknown; n=48930
+domain_guess_counts,causality,29830,,,domain_guess=causality; n=29830
+domain_guess_counts,extract03,11008,,,domain_guess=extract03; n=11008
+domain_guess_counts,interface01,7580,,,domain_guess=interface01; n=7580
+domain_guess_counts,metadata,4297,,,domain_guess=metadata; n=4297
+domain_guess_counts,relalg,3212,,,domain_guess=relalg; n=3212
+domain_guess_counts,matrix_topology,1701,,,domain_guess=matrix_topology; n=1701
+domain_guess_counts,sparc_rar,802,,,domain_guess=sparc_rar; n=802
+record_type_counts,json_key,50100,,,record_type=json_key; n=50100
+record_type_counts,csv_column,33875,,,record_type=csv_column; n=33875
+record_type_counts,artifact,18648,,,record_type=artifact; n=18648
+record_type_counts,sqlite_table,2570,,,record_type=sqlite_table; n=2570
+record_type_counts,markdown_document,2105,,,record_type=markdown_document; n=2105
+record_type_counts,alias,62,,,record_type=alias; n=62
+term_hits,RAR,876,,,search_text ILIKE term
+term_hits,SPARC,802,,,search_text ILIKE term
+term_hits,MOND,27,,,search_text ILIKE term
+term_hits,LambdaCDM,16,,,search_text ILIKE term
+term_hits,delta_phi,1683,,,search_text ILIKE term
+term_hits,INTERFACE01,4521,,,search_text ILIKE term
+term_hits,M33,4016,,,search_text ILIKE term
+term_hits,matrix,6593,,,search_text ILIKE term
+term_hits,topology,2600,,,search_text ILIKE term
+term_hits,EXTRACT03,11072,,,search_text ILIKE term
+term_hits,RELALG,3158,,,search_text ILIKE term
+term_hits,causality,7135,,,search_text ILIKE term
+term_hits,Taube,2,,,search_text ILIKE term
+term_hits,metadata,6342,,,search_text ILIKE term
+term_hits,claim,3296,,,search_text ILIKE term
+term_hits,validation,5091,,,search_text ILIKE term
+term_hits,dimension,1323,,,search_text ILIKE term
+term_hits,unit,1289,,,search_text ILIKE term
+term_hits,alias,711,,,search_text ILIKE term
+review_note,global_search_scope,broad_index,,,Search visibility is not evidence quality or physical interpretation.

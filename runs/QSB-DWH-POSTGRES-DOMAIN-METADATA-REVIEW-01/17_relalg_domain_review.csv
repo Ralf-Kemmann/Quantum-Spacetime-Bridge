@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+relalg,301,46860,present,301,0,0,31,partial_ready_requires_semantic_loader_review,RELALG remains methodology/structure artifact review only.

@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+matrix_extract03,1428,33106,present,1428,0,0,31,partial_ready_requires_semantic_loader_review,Matrix/EXTRACT03 artifacts and overview view visible; semantic loader review still required.

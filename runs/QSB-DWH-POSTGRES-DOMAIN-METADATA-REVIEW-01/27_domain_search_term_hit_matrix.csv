@@ -1,0 +1,20 @@
+term,hits,review_status,notes
+RAR,876,visible,search_text ILIKE term
+SPARC,802,visible,search_text ILIKE term
+MOND,27,visible,search_text ILIKE term
+LambdaCDM,16,visible,search_text ILIKE term
+delta_phi,1683,visible,search_text ILIKE term
+INTERFACE01,4521,visible,search_text ILIKE term
+M33,4016,visible,search_text ILIKE term
+matrix,6593,visible,search_text ILIKE term
+topology,2600,visible,search_text ILIKE term
+EXTRACT03,11072,visible,search_text ILIKE term
+RELALG,3158,visible,search_text ILIKE term
+causality,7135,visible,search_text ILIKE term
+Taube,2,visible,search_text ILIKE term
+metadata,6342,visible,search_text ILIKE term
+claim,3296,visible,search_text ILIKE term
+validation,5091,visible,search_text ILIKE term
+dimension,1323,visible,search_text ILIKE term
+unit,1289,visible,search_text ILIKE term
+alias,711,visible,search_text ILIKE term

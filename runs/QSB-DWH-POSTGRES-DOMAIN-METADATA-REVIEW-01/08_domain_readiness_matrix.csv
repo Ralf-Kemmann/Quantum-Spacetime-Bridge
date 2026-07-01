@@ -1,0 +1,10 @@
+domain,artifact_registered,checksum_covered,generic_csv_visible,json_visible,markdown_visible,sqlite_catalog_visible,global_search_visible,metadata_fields_visible,aliases_visible,validation_entries_visible,claim_boundaries_visible,mart_view_visible,semantic_loader_status,readiness_status,notes
+sparc_rar,138,138,0,5,52,1,802,29,62,12,31,present,domain_specific_metadata_and_views_present_no_physics_claim,ready_for_domain_specific_precontract,Conservative readiness classification; no physical interpretation.
+matrix_topology,186,186,0,16,78,0,1701,0,0,0,31,present,artifact_derived_overview_view_present,partial_ready_requires_semantic_loader_review,Conservative readiness classification; no physical interpretation.
+extract03,1242,1242,0,119,176,4,11008,0,0,0,31,present,artifact_derived_overview_view_present,partial_ready_requires_semantic_loader_review,Conservative readiness classification; no physical interpretation.
+interface01,740,740,15,70,87,5,7580,0,0,0,31,present,artifact_derived_overview_view_present,partial_ready_requires_semantic_loader_review,Conservative readiness classification; no physical interpretation.
+relalg,301,301,0,84,69,1,3212,0,0,0,31,present,artifact_derived_overview_view_present,partial_ready_requires_semantic_loader_review,Conservative readiness classification; no physical interpretation.
+causality,2090,2090,294,777,300,1,29830,0,0,0,31,present,artifact_derived_overview_view_present,partial_ready_requires_semantic_loader_review,Conservative readiness classification; no physical interpretation.
+metadata,361,361,2,108,34,62,4297,29,62,0,31,present,metadata_model_visible,ready_for_domain_specific_precontract,Conservative readiness classification; no physical interpretation.
+qsb_meta,4866,4866,126,764,1055,97,4297,29,62,0,31,present,metadata_model_visible,ready_for_domain_specific_precontract,Conservative readiness classification; no physical interpretation.
+unknown,4285,4268,77,766,1309,23,48930,0,0,0,31,not_applicable,none_noise_bucket,not_applicable_or_noise_bucket,unknown bucket has no expected mart view

@@ -1,0 +1,400 @@
+# Command Log
+
+Pre-script commands run manually:
+
+- `sed -n '1,240p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_DOMAIN_METADATA_REVIEW_01_CODEX_PROMPT.md`
+- `sed -n '241,520p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_DOMAIN_METADATA_REVIEW_01_CODEX_PROMPT.md`
+- `sed -n '521,900p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_DOMAIN_METADATA_REVIEW_01_CODEX_PROMPT.md`
+- `sed -n '901,1220p' /home/ralf-kemmann/Downloads/QSB_DWH_POSTGRES_DOMAIN_METADATA_REVIEW_01_CODEX_PROMPT.md`
+- `mkdir -p runs/QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01`
+- `git status --short --ignored | sed -n '1,250p' > runs/QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01/00_git_status_short_before.txt`
+- `git --no-pager log --oneline -40 > runs/QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01/01_git_log_oneline_before.txt`
+- `psql -d qsb_research_dwh --csv -c "SELECT table_schema, table_name, column_name, data_type FROM information_schema.columns WHERE table_schema IN ('raw','staging','metadata','validation','mart') ORDER BY table_schema, table_name, ordinal_position;"`
+- `python -m json.tool runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-REVIEW-01/04_artifact_staging_patch_review_summary.json`
+- `python runs/QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01/30_generate_domain_metadata_review_artifacts.py`
+
+Commands run by generator:
+
+- `psql -d qsb_research_dwh --csv -q -c SELECT current_database(), current_user, version();` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY domain_guess ORDER BY artifact_count DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY domain_guess, artifact_kind ORDER BY domain_guess NULLS LAST, artifact_count DESC;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, suffix, COUNT(*) AS artifact_count FROM raw.source_artifact GROUP BY domain_guess, suffix ORDER BY domain_guess NULLS LAST, artifact_count DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT table_schema, table_name FROM information_schema.views WHERE table_schema='mart' ORDER BY table_name;` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_causality_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_causality_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_de_sparc_feldnamen'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_de_sparc_feldnamen` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_de_sparc_metadaten'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_de_sparc_metadaten` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_interface01_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_interface01_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_matrix_topology_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_artifact_inventory'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_artifact_inventory` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_claim_boundaries'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dataset_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_dataset_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dwh_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_dwh_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_global_search'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_aliases_de'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_aliases_de` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_fields'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_fields` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_units'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_units` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_obs_search_sparc_rar'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_obs_search_sparc_rar` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_run_timeline'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_run_timeline` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_validation_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_validation_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_relalg_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_relalg_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_baseline_quantities'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_baseline_quantities` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_dataset_lineage'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_dataset_lineage` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_field_metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_field_metadata` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_massmodels_gobs_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_massmodels_gobs_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_rar_direct_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_rar_direct_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_unit_metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_unit_metadata` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_validation_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_validation_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dwh_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_dwh_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_dataset_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_dataset_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_artifact_inventory'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_artifact_inventory` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_global_search'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_validation_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_validation_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_claim_boundaries'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_matrix_topology_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_interface01_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_interface01_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_relalg_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_relalg_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_causality_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_causality_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_rar_direct_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_rar_direct_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_massmodels_gobs_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_massmodels_gobs_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_field_metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_field_metadata` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_validation_status'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_validation_status` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'SPARC' || '%' OR relative_path ILIKE '%' || 'SPARC' || '%' OR domain_guess ILIKE '%' || 'RAR' || '%' OR relative_path ILIKE '%' || 'RAR' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'matrix' || '%' OR relative_path ILIKE '%' || 'matrix' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'extract03' || '%' OR relative_path ILIKE '%' || 'extract03' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'interface01' || '%' OR relative_path ILIKE '%' || 'interface01' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'delta_phi' || '%' OR relative_path ILIKE '%' || 'delta_phi' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'relalg' || '%' OR relative_path ILIKE '%' || 'relalg' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'causality' || '%' OR relative_path ILIKE '%' || 'causality' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'metadata' || '%' OR relative_path ILIKE '%' || 'metadata' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, artifact_kind, suffix, relative_path FROM raw.source_artifact WHERE domain_guess ILIKE '%' || 'qsb' || '%' OR relative_path ILIKE '%' || 'qsb' || '%' ORDER BY relative_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT column_name, data_type FROM information_schema.columns WHERE table_schema='mart' AND table_name='v_qsb_global_search' ORDER BY ordinal_position;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT domain_guess, COUNT(*) AS n FROM mart.v_qsb_global_search GROUP BY domain_guess ORDER BY n DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT record_type, COUNT(*) AS n FROM mart.v_qsb_global_search GROUP BY record_type ORDER BY n DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'RAR' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'RAR' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'RAR' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'SPARC' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'SPARC' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'SPARC' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'MOND' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'MOND' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'MOND' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'LambdaCDM' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'LambdaCDM' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'LambdaCDM' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'delta_phi' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'delta_phi' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'delta_phi' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'INTERFACE01' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'INTERFACE01' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'INTERFACE01' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'M33' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'M33' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'M33' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'matrix' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'matrix' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'matrix' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'topology' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'topology' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'topology' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'EXTRACT03' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'EXTRACT03' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'EXTRACT03' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'RELALG' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'RELALG' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'RELALG' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'causality' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'causality' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'causality' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'Taube' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'Taube' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'Taube' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'metadata' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'metadata' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'metadata' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'claim' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'claim' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'claim' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'validation' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'validation' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'validation' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'dimension' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'dimension' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'dimension' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'unit' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'unit' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'unit' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'alias' || '%'` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c
+            SELECT 'alias' AS term, domain_guess, record_type, record_id, LEFT(search_text, 300) AS sample
+            FROM mart.v_qsb_global_search
+            WHERE search_text ILIKE '%' || 'alias' || '%'
+            LIMIT 25;
+            ` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS meta_field_count FROM metadata.meta_field;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS meta_alias_count FROM metadata.meta_alias;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT table_name, column_name, data_type FROM information_schema.columns WHERE table_schema='metadata' AND table_name IN ('meta_field','meta_alias','meta_lineage','meta_claim') ORDER BY table_name, ordinal_position;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT canonical_name, quantity_kind, dimension_vector, display_label_de, validation_status, claim_boundary FROM metadata.meta_field ORDER BY canonical_name LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT canonical_name, display_label_de, language, alias_status FROM metadata.meta_alias ORDER BY canonical_name LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT dataset_id, source_path, lineage_role, validation_status FROM metadata.meta_lineage ORDER BY dataset_id, source_path LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT claim_boundary, claim_status FROM metadata.meta_claim ORDER BY claim_boundary LIMIT 200;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) AS validation_result_count FROM validation.validation_result;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT * FROM mart.v_qsb_validation_status LIMIT 500;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT * FROM mart.v_qsb_claim_boundaries LIMIT 500;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT no_go_text, no_go_status FROM validation.no_go_boundary LIMIT 500;` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE (domain_guess='sparc_rar' OR relative_path ILIKE '%SPARC%' OR relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE (a.domain_guess='sparc_rar' OR a.relative_path ILIKE '%SPARC%' OR a.relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE (a.domain_guess='sparc_rar' OR a.relative_path ILIKE '%SPARC%' OR a.relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE (a.domain_guess='sparc_rar' OR a.relative_path ILIKE '%SPARC%' OR a.relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE (a.domain_guess='sparc_rar' OR a.relative_path ILIKE '%SPARC%' OR a.relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE (a.domain_guess='sparc_rar' OR a.relative_path ILIKE '%SPARC%' OR a.relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='sparc_rar'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_field` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_alias` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_validation_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_rar_direct_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_rar_direct_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'matrix' || '%' OR notes ILIKE '%' || 'matrix' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_matrix_topology_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'extract03' || '%' OR notes ILIKE '%' || 'extract03' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_matrix_topology_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'interface01' || '%' OR notes ILIKE '%' || 'interface01' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_interface01_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_interface01_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'relalg' || '%' OR notes ILIKE '%' || 'relalg' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_relalg_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_relalg_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'causality' || '%' OR notes ILIKE '%' || 'causality' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_causality_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_causality_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE a.domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE a.domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE a.domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE a.domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE a.domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_field` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_alias` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'metadata' || '%' OR notes ILIKE '%' || 'metadata' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_fields'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_fields` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE (domain_guess='metadata' OR relative_path ILIKE '%qsb%' OR relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE (a.domain_guess='metadata' OR a.relative_path ILIKE '%qsb%' OR a.relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE (a.domain_guess='metadata' OR a.relative_path ILIKE '%qsb%' OR a.relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE (a.domain_guess='metadata' OR a.relative_path ILIKE '%qsb%' OR a.relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE (a.domain_guess='metadata' OR a.relative_path ILIKE '%qsb%' OR a.relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE (a.domain_guess='metadata' OR a.relative_path ILIKE '%qsb%' OR a.relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_field` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_alias` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'qsb' || '%' OR notes ILIKE '%' || 'qsb' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_fields'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_fields` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE (domain_guess IS NULL OR domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT a.artifact_id) FROM raw.source_artifact a JOIN raw.raw_checksum c ON c.artifact_id=a.artifact_id WHERE (a.domain_guess IS NULL OR a.domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT c.artifact_id) FROM staging.csv_row_json c JOIN raw.source_artifact a ON a.artifact_id=c.artifact_id WHERE (a.domain_guess IS NULL OR a.domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT j.artifact_id) FROM staging.json_document j JOIN raw.source_artifact a ON a.artifact_id=j.artifact_id WHERE (a.domain_guess IS NULL OR a.domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT m.artifact_id) FROM staging.markdown_document m JOIN raw.source_artifact a ON a.artifact_id=m.artifact_id WHERE (a.domain_guess IS NULL OR a.domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(DISTINCT s.artifact_id) FROM staging.sqlite_table_inventory s JOIN raw.source_artifact a ON a.artifact_id=s.artifact_id WHERE (a.domain_guess IS NULL OR a.domain_guess='unknown')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE domain_guess='unknown'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'unknown' || '%' OR notes ILIKE '%' || 'unknown' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE (domain_guess='sparc_rar' OR relative_path ILIKE '%SPARC%' OR relative_path ILIKE '%RAR%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'SPARC' || '%' OR search_text ILIKE '%' || 'RAR' || '%' OR search_text ILIKE '%' || 'residual' || '%' OR search_text ILIKE '%' || 'acceleration' || '%' OR search_text ILIKE '%' || 'Beschleunigung' || '%' OR search_text ILIKE '%' || 'MOND' || '%' OR search_text ILIKE '%' || 'LambdaCDM' || '%' OR search_text ILIKE '%' || 'massmodel' || '%' OR search_text ILIKE '%' || 'galaxy' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_sparc_rar_direct_points'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_rar_direct_points` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_field WHERE canonical_name ILIKE '%' || 'SPARC' || '%' OR canonical_name ILIKE '%' || 'RAR' || '%' OR canonical_name ILIKE '%' || 'residual' || '%' OR canonical_name ILIKE '%' || 'acceleration' || '%' OR canonical_name ILIKE '%' || 'Beschleunigung' || '%' OR canonical_name ILIKE '%' || 'MOND' || '%' OR canonical_name ILIKE '%' || 'LambdaCDM' || '%' OR canonical_name ILIKE '%' || 'massmodel' || '%' OR canonical_name ILIKE '%' || 'galaxy' || '%' OR display_label_de ILIKE '%' || 'SPARC' || '%' OR display_label_de ILIKE '%' || 'RAR' || '%' OR display_label_de ILIKE '%' || 'residual' || '%' OR display_label_de ILIKE '%' || 'acceleration' || '%' OR display_label_de ILIKE '%' || 'Beschleunigung' || '%' OR display_label_de ILIKE '%' || 'MOND' || '%' OR display_label_de ILIKE '%' || 'LambdaCDM' || '%' OR display_label_de ILIKE '%' || 'massmodel' || '%' OR display_label_de ILIKE '%' || 'galaxy' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_sparc_validation_status` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='matrix_topology'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='extract03'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'matrix' || '%' OR search_text ILIKE '%' || 'topology' || '%' OR search_text ILIKE '%' || 'EXTRACT03' || '%' OR search_text ILIKE '%' || 'D1K' || '%' OR search_text ILIKE '%' || 'edge' || '%' OR search_text ILIKE '%' || 'node' || '%' OR search_text ILIKE '%' || 'loop' || '%' OR search_text ILIKE '%' || 'graph' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_matrix_topology_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_matrix_topology_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'matrix' || '%' OR validation_scope ILIKE '%' || 'topology' || '%' OR validation_scope ILIKE '%' || 'EXTRACT03' || '%' OR validation_scope ILIKE '%' || 'D1K' || '%' OR validation_scope ILIKE '%' || 'edge' || '%' OR validation_scope ILIKE '%' || 'node' || '%' OR validation_scope ILIKE '%' || 'loop' || '%' OR validation_scope ILIKE '%' || 'graph' || '%' OR notes ILIKE '%' || 'matrix' || '%' OR notes ILIKE '%' || 'topology' || '%' OR notes ILIKE '%' || 'EXTRACT03' || '%' OR notes ILIKE '%' || 'D1K' || '%' OR notes ILIKE '%' || 'edge' || '%' OR notes ILIKE '%' || 'node' || '%' OR notes ILIKE '%' || 'loop' || '%' OR notes ILIKE '%' || 'graph' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='interface01'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'INTERFACE01' || '%' OR search_text ILIKE '%' || 'delta_phi' || '%' OR search_text ILIKE '%' || 'M33' || '%' OR search_text ILIKE '%' || 'phase_pair_stats' || '%' OR search_text ILIKE '%' || 'interference_kernel' || '%' OR search_text ILIKE '%' || 'pair' || '%' OR search_text ILIKE '%' || 'wrapping' || '%' OR search_text ILIKE '%' || 'diagonal' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_interface01_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_interface01_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'INTERFACE01' || '%' OR validation_scope ILIKE '%' || 'delta_phi' || '%' OR validation_scope ILIKE '%' || 'M33' || '%' OR validation_scope ILIKE '%' || 'phase_pair_stats' || '%' OR validation_scope ILIKE '%' || 'interference_kernel' || '%' OR validation_scope ILIKE '%' || 'pair' || '%' OR validation_scope ILIKE '%' || 'wrapping' || '%' OR validation_scope ILIKE '%' || 'diagonal' || '%' OR notes ILIKE '%' || 'INTERFACE01' || '%' OR notes ILIKE '%' || 'delta_phi' || '%' OR notes ILIKE '%' || 'M33' || '%' OR notes ILIKE '%' || 'phase_pair_stats' || '%' OR notes ILIKE '%' || 'interference_kernel' || '%' OR notes ILIKE '%' || 'pair' || '%' OR notes ILIKE '%' || 'wrapping' || '%' OR notes ILIKE '%' || 'diagonal' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='relalg'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'RELALG' || '%' OR search_text ILIKE '%' || 'D1K' || '%' OR search_text ILIKE '%' || 'bridge' || '%' OR search_text ILIKE '%' || 'loop' || '%' OR search_text ILIKE '%' || 'matrix' || '%' OR search_text ILIKE '%' || 'topology' || '%' OR search_text ILIKE '%' || 'synthetic' || '%' OR search_text ILIKE '%' || 'edge' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_relalg_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_relalg_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'RELALG' || '%' OR validation_scope ILIKE '%' || 'D1K' || '%' OR validation_scope ILIKE '%' || 'bridge' || '%' OR validation_scope ILIKE '%' || 'loop' || '%' OR validation_scope ILIKE '%' || 'matrix' || '%' OR validation_scope ILIKE '%' || 'topology' || '%' OR validation_scope ILIKE '%' || 'synthetic' || '%' OR validation_scope ILIKE '%' || 'edge' || '%' OR notes ILIKE '%' || 'RELALG' || '%' OR notes ILIKE '%' || 'D1K' || '%' OR notes ILIKE '%' || 'bridge' || '%' OR notes ILIKE '%' || 'loop' || '%' OR notes ILIKE '%' || 'matrix' || '%' OR notes ILIKE '%' || 'topology' || '%' OR notes ILIKE '%' || 'synthetic' || '%' OR notes ILIKE '%' || 'edge' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='causality'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'causality' || '%' OR search_text ILIKE '%' || 'Taube' || '%' OR search_text ILIKE '%' || 'electron transfer' || '%' OR search_text ILIKE '%' || 'admissibility' || '%' OR search_text ILIKE '%' || 'cycle' || '%' OR search_text ILIKE '%' || 'negative control' || '%' OR search_text ILIKE '%' || 'IS01' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_causality_overview'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_causality_overview` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'causality' || '%' OR validation_scope ILIKE '%' || 'Taube' || '%' OR validation_scope ILIKE '%' || 'electron transfer' || '%' OR validation_scope ILIKE '%' || 'admissibility' || '%' OR validation_scope ILIKE '%' || 'cycle' || '%' OR validation_scope ILIKE '%' || 'negative control' || '%' OR validation_scope ILIKE '%' || 'IS01' || '%' OR notes ILIKE '%' || 'causality' || '%' OR notes ILIKE '%' || 'Taube' || '%' OR notes ILIKE '%' || 'electron transfer' || '%' OR notes ILIKE '%' || 'admissibility' || '%' OR notes ILIKE '%' || 'cycle' || '%' OR notes ILIKE '%' || 'negative control' || '%' OR notes ILIKE '%' || 'IS01' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess='metadata'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE (domain_guess='metadata' OR relative_path ILIKE '%qsb%' OR relative_path ILIKE '%metadata%')` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_global_search WHERE search_text ILIKE '%' || 'metadata' || '%' OR search_text ILIKE '%' || 'meta_field' || '%' OR search_text ILIKE '%' || 'meta_alias' || '%' OR search_text ILIKE '%' || 'lineage' || '%' OR search_text ILIKE '%' || 'validation' || '%' OR search_text ILIKE '%' || 'claim' || '%' OR search_text ILIKE '%' || 'unit' || '%' OR search_text ILIKE '%' || 'dimension' || '%' OR search_text ILIKE '%' || 'conversion_rule' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM information_schema.views WHERE table_schema='mart' AND table_name='v_qsb_metadata_fields'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_metadata_fields` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM metadata.meta_field WHERE canonical_name ILIKE '%' || 'metadata' || '%' OR canonical_name ILIKE '%' || 'meta_field' || '%' OR canonical_name ILIKE '%' || 'meta_alias' || '%' OR canonical_name ILIKE '%' || 'lineage' || '%' OR canonical_name ILIKE '%' || 'validation' || '%' OR canonical_name ILIKE '%' || 'claim' || '%' OR canonical_name ILIKE '%' || 'unit' || '%' OR canonical_name ILIKE '%' || 'dimension' || '%' OR canonical_name ILIKE '%' || 'conversion_rule' || '%' OR display_label_de ILIKE '%' || 'metadata' || '%' OR display_label_de ILIKE '%' || 'meta_field' || '%' OR display_label_de ILIKE '%' || 'meta_alias' || '%' OR display_label_de ILIKE '%' || 'lineage' || '%' OR display_label_de ILIKE '%' || 'validation' || '%' OR display_label_de ILIKE '%' || 'claim' || '%' OR display_label_de ILIKE '%' || 'unit' || '%' OR display_label_de ILIKE '%' || 'dimension' || '%' OR display_label_de ILIKE '%' || 'conversion_rule' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM validation.validation_result WHERE validation_scope ILIKE '%' || 'metadata' || '%' OR validation_scope ILIKE '%' || 'meta_field' || '%' OR validation_scope ILIKE '%' || 'meta_alias' || '%' OR validation_scope ILIKE '%' || 'lineage' || '%' OR validation_scope ILIKE '%' || 'validation' || '%' OR validation_scope ILIKE '%' || 'claim' || '%' OR validation_scope ILIKE '%' || 'unit' || '%' OR validation_scope ILIKE '%' || 'dimension' || '%' OR validation_scope ILIKE '%' || 'conversion_rule' || '%' OR notes ILIKE '%' || 'metadata' || '%' OR notes ILIKE '%' || 'meta_field' || '%' OR notes ILIKE '%' || 'meta_alias' || '%' OR notes ILIKE '%' || 'lineage' || '%' OR notes ILIKE '%' || 'validation' || '%' OR notes ILIKE '%' || 'claim' || '%' OR notes ILIKE '%' || 'unit' || '%' OR notes ILIKE '%' || 'dimension' || '%' OR notes ILIKE '%' || 'conversion_rule' || '%'` -> rc=0
+- `psql -d qsb_research_dwh -At -q -c SELECT COUNT(*) FROM mart.v_qsb_claim_boundaries` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT COUNT(*) FROM raw.source_artifact WHERE domain_guess IS NULL OR domain_guess = 'unknown';` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT artifact_kind, suffix, COUNT(*) AS n FROM raw.source_artifact WHERE domain_guess IS NULL OR domain_guess = 'unknown' GROUP BY artifact_kind, suffix ORDER BY n DESC NULLS LAST;` -> rc=0
+- `psql -d qsb_research_dwh --csv -q -c SELECT relative_path FROM raw.source_artifact WHERE domain_guess IS NULL OR domain_guess = 'unknown' ORDER BY relative_path LIMIT 500;` -> rc=0

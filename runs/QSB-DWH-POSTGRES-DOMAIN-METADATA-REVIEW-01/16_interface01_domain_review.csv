@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+interface01,740,13040,present,740,0,0,31,partial_ready_requires_semantic_loader_review,INTERFACE01 gate artifacts are visible; delta_phi is not physically released by this review.

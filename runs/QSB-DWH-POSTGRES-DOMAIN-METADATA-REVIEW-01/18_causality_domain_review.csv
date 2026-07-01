@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+causality,2090,7434,present,2090,0,0,31,partial_ready_requires_semantic_loader_review,Causality artifacts are visible; no causality claim is made.

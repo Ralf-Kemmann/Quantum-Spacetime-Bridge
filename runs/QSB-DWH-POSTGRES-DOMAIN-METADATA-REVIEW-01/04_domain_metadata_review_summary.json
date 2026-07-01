@@ -1,0 +1,41 @@
+{
+  "run_id": "QSB-DWH-POSTGRES-DOMAIN-METADATA-REVIEW-01",
+  "status": "domain_metadata_review_completed_partial_readiness",
+  "target_database": "qsb_research_dwh",
+  "postgres_connection_ok": true,
+  "previous_review_decision": "approved_with_warnings_for_domain_specific_metadata_review",
+  "review_scope": "domain_metadata_readiness_only_no_physical_claims",
+  "domains_reviewed": [
+    "sparc_rar",
+    "matrix_topology",
+    "extract03",
+    "interface01",
+    "relalg",
+    "causality",
+    "metadata",
+    "qsb_meta",
+    "unknown"
+  ],
+  "global_search_rows_reference": 107360,
+  "artifact_count_reference": 9341,
+  "claim_boundary_status": "no_physical_claims",
+  "residual_analysis_executed": false,
+  "rbci_v1_evaluated": false,
+  "qsb_observable_evaluated": false,
+  "domain_readiness_summary": {
+    "sparc_rar": "ready_for_domain_specific_precontract",
+    "matrix_extract03": "partial_ready_requires_semantic_loader_review",
+    "interface01": "partial_ready_requires_semantic_loader_review",
+    "relalg": "partial_ready_requires_semantic_loader_review",
+    "causality": "partial_ready_requires_semantic_loader_review",
+    "qsb_meta": "ready_for_domain_specific_precontract",
+    "unknown": "not_applicable_or_noise_bucket"
+  },
+  "unknown_bucket_review_status": "large_routing_review_recommended",
+  "global_search_domain_routing_status": "visible_with_large_unknown_bucket",
+  "metadata_field_alias_review_status": "metadata_fields_aliases_lineage_claims_visible",
+  "validation_claim_boundary_review_status": "claim_boundaries_visible_no_physical_claims",
+  "review_decision": "domain_metadata_review_completed_partial_readiness",
+  "recommended_next_run_id": "QSB-DWH-POSTGRES-DOMAIN-ROUTING-PATCH-02",
+  "notes": "No physical interpretation was performed."
+}

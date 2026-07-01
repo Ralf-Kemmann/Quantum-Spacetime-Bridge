@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+sparc_rar,138,1460,present,2693,7,12,31,ready_for_domain_specific_precontract,SPARC/RAR has domain-specific staging and mart views; no residual/MOND/LambdaCDM interpretation performed.

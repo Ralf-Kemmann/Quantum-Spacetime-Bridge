@@ -1,0 +1,2 @@
+domain,artifact_count,global_search_hits,view_present,view_row_count,metadata_fields,validation_entries,claim_boundaries,readiness_status,notes
+qsb_meta,5227,18734,present,29,8,0,31,ready_for_domain_specific_precontract,"Metadata model fields, aliases, lineage, validation, and claim boundaries are visible at metadata level."
