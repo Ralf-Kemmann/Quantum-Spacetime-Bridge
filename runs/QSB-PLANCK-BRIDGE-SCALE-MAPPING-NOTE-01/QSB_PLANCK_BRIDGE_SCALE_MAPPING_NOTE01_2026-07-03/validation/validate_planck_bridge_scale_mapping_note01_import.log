@@ -1,0 +1,31 @@
+BEGIN
+DELETE 0
+INSERT 0 6
+COMMIT
+                        run_id                        |              work_package               | mapping_definition_count | actual_mapping_count | variable_count | actual_variable_count | special_case_count | actual_special_case_count | claim_boundary_count | actual_claim_boundary_count | dimensional_check_count | actual_dimensional_check_count |  physical_claim_release  |              review_status               |                                            claim_boundary                                            
+------------------------------------------------------+-----------------------------------------+--------------------------+----------------------+----------------+-----------------------+--------------------+---------------------------+----------------------+-----------------------------+-------------------------+--------------------------------+--------------------------+------------------------------------------+------------------------------------------------------------------------------------------------------
+ QSB-DWH-PLANCK-BRIDGE-SCALE-MAPPING-NOTE01-IMPORT-01 | QSB-PLANCK-BRIDGE-SCALE-MAPPING-NOTE-01 |                        2 |                    2 |             14 |                    14 |                  3 |                         3 |                    4 |                           4 |                       7 |                              7 | blocked_no_physics_claim | requires_dimensional_and_physical_review | Scale mappings mark a formal bridge zone; they do not prove a Planck-Bridge-Resonator or redefine c.
+(1 row)
+
+   validation_scope   |                check_name                 |        expected_value         |       actual_value       | passed | severity 
+----------------------+-------------------------------------------+-------------------------------+--------------------------+--------+----------
+ claim_boundary       | claim_boundary_count_matches_manifest     | 4                             | 4                        | t      | error
+ claim_boundary       | all_rows_claim_blocked                    | blocked_no_physics_claim only | blocked_no_physics_claim | t      | error
+ dimensional_analysis | all_dimensional_checks_passed             | all pass                      | pass                     | t      | error
+ source_import        | mapping_definition_count_matches_manifest | 2                             | 2                        | t      | error
+ source_import        | special_case_count_matches_manifest       | 3                             | 3                        | t      | error
+ source_import        | variable_count_matches_manifest           | 14                            | 14                       | t      | error
+(6 rows)
+
+ mapping_id  | mapping_level |                  mapping_name                   |   dimensional_status   |      claim_status       |  physical_claim_release  |              review_status               
+-------------+---------------+-------------------------------------------------+------------------------+-------------------------+--------------------------+------------------------------------------
+ MAP-BETA-01 |             1 | direct_compton_schwarzschild_scale_ratio_beta_B | dimensionless_verified | scale_mapping_candidate | blocked_no_physics_claim | requires_dimensional_and_physical_review
+ MAP-XI-01   |             2 | two_sided_speed_matching_Xi_CS                  | dimensionless_verified | scale_mapping_candidate | blocked_no_physics_claim | requires_dimensional_and_physical_review
+(2 rows)
+
+ mapping_id  | mapping_level |                  mapping_name                   |                                       mapping_formula                                       |                              mapping_condition                              |                                        qsb_interpretation                                        |   dimensional_status   |      claim_status       |  physical_claim_release  |              review_status               |                                    allowed_claim                                    |                          forbidden_claim                          
+-------------+---------------+-------------------------------------------------+---------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------------------------+-------------------------+--------------------------+------------------------------------------+-------------------------------------------------------------------------------------+-------------------------------------------------------------------
+ MAP-BETA-01 |             1 | direct_compton_schwarzschild_scale_ratio_beta_B | beta_B = r_s / lambda_C = 2 * G * m^2 / (hbar * c)                                          | beta_B approximately 1 marks the Compton-Schwarzschild scale gate           | Measures how close the Compton localization scale and Schwarzschild radius scale are.            | dimensionless_verified | scale_mapping_candidate | blocked_no_physics_claim | requires_dimensional_and_physical_review | beta_B can be used as a dimensionless length-scale proximity parameter.             | beta_B does not imply that Planck length is a proven space pixel.
+ MAP-XI-01   |             2 | two_sided_speed_matching_Xi_CS                  | Xi_CS = c_comp^2 / c_schwarz^2 = hbar^2 * r_s / (2 * G * m_schwarz * m_comp^2 * lambda_C^2) | Xi_CS = 1 marks algebraic consistency of the two reconstructed speed scales | Separates Compton-side and Schwarzschild-side origin indices before checking bridge consistency. | dimensionless_verified | scale_mapping_candidate | blocked_no_physics_claim | requires_dimensional_and_physical_review | Xi_CS can test algebraic consistency between separately reconstructed speed scales. | Xi_CS does not redefine the physical speed of light.
+(2 rows)
+

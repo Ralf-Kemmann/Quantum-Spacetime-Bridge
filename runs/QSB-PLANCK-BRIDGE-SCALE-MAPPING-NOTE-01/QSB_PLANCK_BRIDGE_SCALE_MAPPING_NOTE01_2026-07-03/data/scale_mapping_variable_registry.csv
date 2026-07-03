@@ -1,0 +1,15 @@
+variable_key,label,dimension_vector,definition_formula,qsb_role
+lambda_C,Compton scale / reduced Compton wavelength,L,hbar / (m * c),length scale on quantum localization side
+r_s,Schwarzschild radius,L,2 * G * m / c^2,length scale on gravitational radius side
+m,single mass parameter,M,m,mass used in direct ratio mapping
+m_comp,Compton-side mass marker,M,m_comp,mass indexed to the Compton-side reconstruction
+m_schwarz,Schwarzschild-side mass marker,M,m_schwarz,mass indexed to the Schwarzschild-side reconstruction
+c,physical speed of light / reference speed,L T^-1,c,reference constant; not redefined
+c_comp,Compton-side reconstructed speed scale,L T^-1,hbar / (m_comp * lambda_C),algebraic speed scale reconstructed from Compton side
+c_schwarz,Schwarzschild-side reconstructed speed scale,L T^-1,sqrt(2 * G * m_schwarz / r_s),algebraic speed scale reconstructed from Schwarzschild side
+beta_B,direct scale gate parameter,1,r_s / lambda_C,dimensionless proximity of length scales
+Xi_CS,two-sided speed matching parameter,1,c_comp^2 / c_schwarz^2,dimensionless consistency of reconstructed speeds
+L_B,bridge length special-case marker,L,hbar^2 / (2 * G * m_schwarz * m_comp^2),length when lambda_C = r_s in two-sided mapping
+m_B,bridge mass special-case marker,M,sqrt(hbar * c / (2 * G)),mass at exact direct scale matching
+hbar,reduced Planck constant,M L^2 T^-1,hbar,fundamental constant
+G,Newton gravitational constant,L^3 M^-1 T^-2,G,fundamental constant

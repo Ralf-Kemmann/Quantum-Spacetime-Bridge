@@ -1,0 +1,8 @@
+check_id,expression,expected_dimension,actual_dimension,status
+DIM-LAMBDA-C,lambda_C = hbar / (m*c),L,L,pass
+DIM-R-S,r_s = 2*G*m/c^2,L,L,pass
+DIM-BETA-B,beta_B = r_s / lambda_C,1,1,pass
+DIM-C-COMP,c_comp = hbar/(m_comp*lambda_C),L T^-1,L T^-1,pass
+DIM-C-SCHWARZ,c_schwarz = sqrt(2*G*m_schwarz/r_s),L T^-1,L T^-1,pass
+DIM-XI-CS,Xi_CS = c_comp^2 / c_schwarz^2,1,1,pass
+DIM-L-B,L_B = hbar^2/(2*G*m_schwarz*m_comp^2),L,L,pass

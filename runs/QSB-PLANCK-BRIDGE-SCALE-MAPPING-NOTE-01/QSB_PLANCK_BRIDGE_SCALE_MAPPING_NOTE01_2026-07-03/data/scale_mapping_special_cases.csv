@@ -1,0 +1,4 @@
+special_case_id,assumption,derived_expression,qsb_interpretation,physical_claim_release
+SC-EQUAL-LENGTH,lambda_C = r_s = L_B,L_B = hbar^2 / (2 * G * m_schwarz * m_comp^2),"Bridge length depends on mass pair (m_comp, m_schwarz).",blocked_no_physics_claim
+SC-EQUAL-MASS,m_comp = m_schwarz = m,L_B = hbar^2 / (2 * G * m^3),Collapses the two-origin mass mapping to a single-mass special case.,blocked_no_physics_claim
+SC-PLANCK-MATCHING,lambda_C = r_s and c is the physical reference speed,m_B = sqrt(hbar * c / (2 * G)) = m_P / sqrt(2),Recovers Planck-near matching condition up to the Schwarzschild factor 2.,blocked_no_physics_claim

@@ -1,0 +1,7 @@
+PASS | lambda_C = hbar/(m*c) | actual=L | expected=L
+PASS | r_s = 2*G*m/c^2 | actual=L | expected=L
+PASS | beta_B = r_s/lambda_C | actual=1 | expected=1
+PASS | c_comp = hbar/(m_comp*lambda_C) | actual=L T^-1 | expected=L T^-1
+PASS | c_schwarz = sqrt(2*G*m_schwarz/r_s) | actual=L T^-1 | expected=L T^-1
+PASS | Xi_CS = c_comp^2/c_schwarz^2 | actual=1 | expected=1
+PASS | L_B = hbar^2/(2*G*m_schwarz*m_comp^2) | actual=L | expected=L
