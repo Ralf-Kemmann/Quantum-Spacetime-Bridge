@@ -1,0 +1,15 @@
+{
+  "integration_run_id": "QSB-DWH-PLANCK-BRIDGE-LITNOTE01-METADATA-INTEGRATION-01",
+  "source_run_id": "QSB-DWH-PLANCK-BRIDGE-LITNOTE01-IMPORT-01",
+  "created_at": "2026-07-03T00:00:00+02:00",
+  "work_package": "QSB-PLANCK-BRIDGE-RESONATOR-LITERATURE-NOTE-01",
+  "artifact_kind": "metadata_integration_patch",
+  "source_schema": "qsb_literature",
+  "target_schema": "qsb_metadata",
+  "metadata_scope": "literature_note_01_bibliography_claim_mapping",
+  "physical_claim_status": "blocked_no_physics_claim",
+  "review_status": "registered_requires_human_literature_review",
+  "claim_boundary": "Metadata integration registers literature provenance and claim boundaries only; it does not release physics claims.",
+  "expected_objects": 4,
+  "expected_claim_boundaries_min": 5
+}
