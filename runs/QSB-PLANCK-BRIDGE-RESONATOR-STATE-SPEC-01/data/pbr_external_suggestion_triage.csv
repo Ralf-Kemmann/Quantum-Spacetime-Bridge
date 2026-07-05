@@ -1,0 +1,9 @@
+run_id,source_label,item,triage_status,rationale,qsb_action
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,phase_mode_dependent_coupling,keep_as_abstract_idea,"Compatible with QSB if stripped of theory-specific imports.","Represent as K_ij(gamma)=<Phi_i,C_ij(gamma)Phi_j>."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,graph_nodes_phases_modes,toy_model_candidate,"Potential later synthetic test structure.","Defer to QSB-PLANCK-BRIDGE-RESONATOR-TOYMODEL-01."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,LQG_spin_labels,reject_for_core_spec,"Imports LQG-specific ontology and risks identity confusion.","Do not include in PBR core definition."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,LQG_area_formula,reject_for_core_spec,"Unreleased LQG-specific area spectrum import.","Keep only as possible external analogy under claim boundary."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,CDT_simplices,reject_for_core_spec,"Imports CDT-specific discretization assumptions.","Do not include in minimal object."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,metric_expectation_formula,reject_pending_dimensional_review,"Dimensional, gauge and signature status not reviewed.","Place in virtual discard / rejected candidate registry."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,Einstein_Hilbert_limit_claim,reject_forbidden_claim,"Would assert a major unproven continuum limit.","Blocked no physics claim."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Grok_sketch,reuse_beta_B_Xi_CS,reject_symbol_collision,"beta_B and Xi_CS are reserved scale-mapping quantities in QSB.","Use b_i or A_i_bridge for amplitudes if needed."

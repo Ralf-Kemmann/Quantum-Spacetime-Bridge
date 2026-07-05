@@ -1,0 +1,26 @@
+check_name,result,detail
+file_exists:README.md,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/README.md
+file_exists:QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01.md,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01.md
+file_exists:RUN_COMMANDS_PBR_STATE_SPEC01.md,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/RUN_COMMANDS_PBR_STATE_SPEC01.md
+file_exists:data/state_spec_manifest.json,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/state_spec_manifest.json
+file_exists:data/pbr_minimal_object_definition.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_minimal_object_definition.csv
+file_exists:data/pbr_field_registry.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_field_registry.csv
+file_exists:data/pbr_concept_definition.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_concept_definition.csv
+file_exists:data/pbr_admissibility_gates.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_admissibility_gates.csv
+file_exists:data/pbr_psd_gate_spec.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_psd_gate_spec.csv
+file_exists:data/pbr_claim_boundaries.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_claim_boundaries.csv
+file_exists:data/pbr_external_suggestion_triage.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_external_suggestion_triage.csv
+file_exists:data/pbr_redteam_action_items.csv,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/data/pbr_redteam_action_items.csv
+file_exists:sql/001_create_qsb_pbr_state_spec.sql,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/sql/001_create_qsb_pbr_state_spec.sql
+file_exists:sql/002_insert_qsb_pbr_state_spec.sql,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/sql/002_insert_qsb_pbr_state_spec.sql
+file_exists:sql/003_validation_queries.sql,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/sql/003_validation_queries.sql
+file_exists:scripts/psd_gate_template.py,pass,runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01/scripts/psd_gate_template.py
+manifest_run_id,pass,QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01
+manifest_claim_blocked,pass,blocked_no_physics_claim
+manifest_primary_gate_psd,pass,PSD admissibility gate for minimal Gram interpretation
+required_local_fields,pass,"H_i,K_ij,M_i,Phi_i,gamma_i,sigma_i"
+psd_gate_present,pass,"GATE-COUPLING-01,GATE-LOCAL-OBJECT-01,GATE-MODE-01,GATE-PHASE-01,GATE-PSD-01"
+psd_required_fields,pass,"admissibility_result,is_hermitian,is_square,lambda_max,lambda_min,matrix_id,matrix_source,max_hermitian_deviation,min_diagonal,n,negative_eigenvalue_count,negative_eigenvalue_mass,psd_pass,tolerance"
+blocked_claims_present,pass,5
+allowed_claims_present,pass,3
+blocked_claims_release_status,pass,unsafe=0

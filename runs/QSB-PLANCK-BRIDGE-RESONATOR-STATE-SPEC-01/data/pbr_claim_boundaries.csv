@@ -1,0 +1,9 @@
+run_id,boundary_id,boundary_type,claim_text,release_status,rationale
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,ALLOW-001,allowed_claim,"B_i is defined as a formal QSB-internal interface candidate.",released_formal_definition,"This is a definition of a candidate object, not a physical existence claim."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,ALLOW-002,allowed_claim,"The minimal Gram interpretation of K_ij implies Hermitian and PSD admissibility conditions.",released_formal_implication,"This follows from the mathematical properties of Gram matrices."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,ALLOW-003,allowed_claim,"PSD-pass means the minimal Gram interpretation is not formally excluded.",released_formal_interpretation,"PSD-pass is only an admissibility result."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,BLOCK-001,blocked_claim,"PBRs physically exist.",blocked_no_physics_claim,"No empirical or theoretical derivation establishes existence."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,BLOCK-002,blocked_claim,"Spacetime consists of PBRs.",blocked_no_physics_claim,"Network-level emergence is not established."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,BLOCK-003,blocked_claim,"PSD-pass validates QSB as a physical theory.",blocked_no_physics_claim,"PSD-pass is a formal gate only."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,BLOCK-004,blocked_claim,"PSD-fail refutes QSB as a whole.",blocked_no_physics_claim,"PSD-fail rejects only the minimal Gram interpretation."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,BLOCK-005,blocked_claim,"The PBR is an LQG spin-network link, a CDT simplex, a string or a space pixel.",blocked_no_equivalence_claim,"External theory analogies are not identities."

@@ -1,0 +1,20 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01",
+  "work_package": "QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01",
+  "created_date": "2026-07-05",
+  "artifact_type": "formal_state_spec_candidate",
+  "physical_claim_release": "blocked_no_physics_claim",
+  "review_status": "requires_human_formal_review",
+  "purpose": "Define a minimal formal Planck-Bridge-Resonator candidate and a Gram/PSD admissibility gate.",
+  "core_object": "B_i = (H_i, Phi_i, M_i, gamma_i, sigma_i)",
+  "relational_coupling_general": "K_ij(gamma) = <Phi_i, C_ij(gamma) Phi_j>",
+  "relational_coupling_minimal": "K_ij = <Phi_i, Phi_j>",
+  "primary_gate": "PSD admissibility gate for minimal Gram interpretation",
+  "forbidden_claims": [
+    "PBRs physically exist.",
+    "Spacetime consists of PBRs.",
+    "PSD-pass validates QSB.",
+    "PSD-fail refutes QSB as a whole."
+  ],
+  "recommended_next_work_package": "QSB-PLANCK-BRIDGE-RESONATOR-PSD-TEST-01"
+}

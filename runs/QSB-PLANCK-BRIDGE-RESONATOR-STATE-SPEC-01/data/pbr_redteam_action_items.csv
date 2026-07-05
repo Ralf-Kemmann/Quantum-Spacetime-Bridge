@@ -1,0 +1,6 @@
+run_id,issue_id,issue_class,severity,redteam_finding,required_action,status
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,RT-001,terminology_precision,high,"PBR positive definition was softer than negative disclaimers.","Define phase-bearing, moded and coupling-capable formally.",addressed_in_state_spec
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,RT-002,formal_admissibility,high,"PBR needs a fail-capable mathematical gate.","Introduce Gram hypothesis and PSD admissibility gate.",addressed_in_state_spec
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,RT-003,literature_scope,medium,"External QG analogies can import unsupported meaning.","Keep PBR definition independent from LQG/CDT/String identifiers.",addressed_in_state_spec
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,RT-004,dwh_content_enforcement,medium,"DWH should record claim boundaries and downstream use.","Create claim boundary and gate registry; downstream usage log reserved for next integration.",partially_addressed
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,RT-005,matrix_test_next_step,high,"PSD gate should be run against existing K candidate matrix.","Prepare QSB-PLANCK-BRIDGE-RESONATOR-PSD-TEST-01 using confirmed matrix source.",pending_next_work_package

@@ -1,0 +1,5 @@
+run_id,object_symbol,object_definition,claim_status,physical_claim_release,notes
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,B_i,"B_i = (H_i, Phi_i, M_i, gamma_i, sigma_i)",formal_state_spec_candidate,blocked_no_physics_claim,"Local formal interface candidate only; no physical existence claim."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,K_ij(gamma),"K_ij(gamma) = <Phi_i, C_ij(gamma) Phi_j>",relational_coupling_candidate,blocked_no_physics_claim,"Relational quantity between candidates; not part of one local object alone."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,K_ij_minimal,"K_ij = <Phi_i, Phi_j>",minimal_gram_interpretation,blocked_no_physics_claim,"Minimal Gram reading implies Hermitian and PSD conditions."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,G_B,"G_B = (V, E, W)",network_candidate,blocked_no_physics_claim,"Network of admitted relations; not automatically spacetime."

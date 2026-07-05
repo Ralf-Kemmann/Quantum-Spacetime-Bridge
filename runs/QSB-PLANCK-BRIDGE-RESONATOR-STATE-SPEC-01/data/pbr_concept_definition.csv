@@ -1,0 +1,6 @@
+run_id,concept,definition,allowed_interpretation,blocked_interpretation
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,phase-bearing,"Relative phase information can be formed and enters a registered coupling, transition or stability rule.","Operational relative phase candidate.","Absolute phase is physically real by assertion."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,moded,"State Phi_i admits decomposition with respect to a registered operator M_i.","Spectral decomposition of a formal state.","Planck-scale oscillators exist."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,coupling-capable,"At least one registered relational quantity K_ij exists and affects a model decision.","Decision-relevant relation candidate.","Coupling is physical merely because a symbol is written."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,gram-hypothesis,"Minimal interpretation K_ij = <Phi_i, Phi_j>.","Formal candidate reading with PSD gate.","Empirical validation of QSB."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,network-level,"Admitted relations can form a weighted graph G_B.","Graph candidate for downstream structure tests.","Graph is already spacetime."

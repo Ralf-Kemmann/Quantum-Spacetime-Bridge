@@ -1,0 +1,10 @@
+run_id,field_symbol,canonical_name,field_role,definition,required,claim_boundary
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,H_i,internal_state_space,local_object_field,"Complex internal state space for candidate B_i.",yes,"Formal object field only; no physical substrate claim."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,Phi_i,candidate_state,local_object_field,"Candidate state Phi_i in H_i.",yes,"Formal state only; physical origin not claimed."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,M_i,mode_operator,local_object_field,"Registered mode or structure operator on H_i.",yes,"Modes are spectral components of a registered operator, not asserted Planck oscillators."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,gamma_i,boundary_condition,local_object_field,"Geometric or field-like boundary condition / test context.",yes,"Boundary condition is a parameter, not established geometry."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,sigma_i,scale_gate_status,local_object_field,"Registered scale-gate status for the candidate.",yes,"Scale-gate status is a review state, not evidence of existence."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,C_ij_gamma,coupling_operator,relational_field,"Registered comparison/coupling operator under gamma.",conditional,"Allowed only if registered and used in a model decision."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,K_ij,coupling_matrix_entry,relational_field,"Relational candidate coupling between B_i and B_j.",yes,"Must not be interpreted as physical spacetime relation without downstream gates."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,S_K,strength_function,decision_field,"Registered strength or stability functional applied to K_ij.",conditional,"Decision function must be registered before use."
+QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,theta,edge_threshold,decision_field,"Registered threshold for edge admission.",conditional,"Threshold must be declared; no retrofitting after observing desired result."
