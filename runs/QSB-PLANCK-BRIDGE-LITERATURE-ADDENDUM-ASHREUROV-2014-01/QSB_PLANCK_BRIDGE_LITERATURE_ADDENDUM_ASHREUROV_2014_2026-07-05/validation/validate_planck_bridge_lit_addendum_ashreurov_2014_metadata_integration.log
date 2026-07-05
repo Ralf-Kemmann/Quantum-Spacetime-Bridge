@@ -1,0 +1,36 @@
+BEGIN
+DELETE 0
+INSERT 0 6
+UPDATE 1
+COMMIT
+                            integration_run_id                             |                    source_run_id                     |                      work_package                       |       created_at       |                          metadata_scope                           | object_count | field_count | lineage_edge_count | claim_boundary_count | validation_result_count |  physical_claim_status   |                review_status                | all_metadata_validations_passed |                                                   claim_boundary                                                    
+---------------------------------------------------------------------------+------------------------------------------------------+---------------------------------------------------------+------------------------+-------------------------------------------------------------------+--------------+-------------+--------------------+----------------------+-------------------------+--------------------------+---------------------------------------------+---------------------------------+---------------------------------------------------------------------------------------------------------------------
+ QSB-DWH-PLANCK-BRIDGE-LIT-ADDENDUM-ASHREUROV-2014-METADATA-INTEGRATION-01 | QSB-DWH-PLANCK-BRIDGE-LIT-ADDENDUM-ASHREUROV-2014-01 | QSB-PLANCK-BRIDGE-LITERATURE-ADDENDUM-ASHREUROV-2014-01 | 2026-07-05 00:00:00+02 | literature_addendum_ashreurov_2014_dynamic_geometry_planck_regime |            4 |          65 |                  4 |                    4 |                       6 | blocked_no_physics_claim | registered_requires_human_literature_review | t                               | Metadata integration registers literature provenance and claim boundaries only; it does not release physics claims.
+(1 row)
+
+ validation_scope |            check_name            |        expected_value         |       actual_value       | passed | severity 
+------------------+----------------------------------+-------------------------------+--------------------------+--------+----------
+ claim_boundary   | all_metadata_claims_blocked      | blocked_no_physics_claim only | blocked_no_physics_claim | t      | error
+ metadata_catalog | catalog_objects_registered       | 4                             | 4                        | t      | error
+ metadata_fields  | fields_registered                | > 0                           | 65                       | t      | error
+ metadata_lineage | lineage_edges_registered         | 4                             | 4                        | t      | error
+ source_import    | claim_map_count_matches_manifest | 1                             | 1                        | t      | error
+ source_import    | source_count_matches_manifest    | 1                             | 1                        | t      | error
+(6 rows)
+
+ metadata_scope | rows 
+----------------+------
+ catalog_object |    4
+ claim_boundary |    4
+ field          |   65
+ lineage        |    4
+(4 rows)
+
+  scope_type  |                        scope_key                        |  physical_claim_release  |                review_status                
+--------------+---------------------------------------------------------+--------------------------+---------------------------------------------
+ concept      | lqg_polymer_like_geometry_quanta                        | blocked_no_physics_claim | registered_requires_human_literature_review
+ concept      | planck_regime_first_gate                                | blocked_no_physics_claim | registered_requires_human_literature_review
+ source       | ashtekar_reuter_rovelli2014_from_gr_to_quantum_gravity  | blocked_no_physics_claim | registered_requires_human_literature_review
+ work_package | QSB-PLANCK-BRIDGE-LITERATURE-ADDENDUM-ASHREUROV-2014-01 | blocked_no_physics_claim | registered_requires_human_literature_review
+(4 rows)
+
