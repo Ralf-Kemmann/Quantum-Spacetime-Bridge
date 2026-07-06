@@ -1,0 +1,9 @@
+metric,value
+n,42
+lambda_min,-3.875342732446317e-15
+lambda_max,15.365708440598711
+negative_eigenvalue_count,0
+negative_eigenvalue_mass,0.0
+tolerance,1e-10
+psd_pass,True
+admissibility_result,pass_with_numerical_tolerance

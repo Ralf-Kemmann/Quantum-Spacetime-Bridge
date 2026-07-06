@@ -1,0 +1,8 @@
+claim_id,claim_type,claim_text,release_status,rationale
+PSD-ALLOW-01,allowed,"The existing K_candidate matrix satisfies the minimal Gram/PSD admissibility gate within numerical tolerance.",released_formal_admissibility_only,"Supported by prior validation and recomputation script; formal matrix property only."
+PSD-ALLOW-02,allowed,"The minimal Gram interpretation is not formally excluded by this matrix.",released_formal_admissibility_only,"PSD pass is an admissibility statement, not a physics validation."
+PSD-BLOCK-01,blocked,"This PSD result validates QSB as a physical theory.",blocked_no_physics_claim,"PSD is a formal matrix property, not empirical validation."
+PSD-BLOCK-02,blocked,"This PSD result proves that Planck-Bridge-Resonators exist.",blocked_no_physics_claim,"Existence of PBRs is not inferred from a matrix admissibility gate."
+PSD-BLOCK-03,blocked,"This PSD result proves that spacetime emerges from PBRs.",blocked_no_physics_claim,"No emergence, metric, causal, or physical spacetime claim is tested here."
+PSD-BLOCK-04,blocked,"This PSD result establishes the physical origin of Phi_i.",blocked_no_physics_claim,"The Hilbert-vector reading remains a formal interpretation."
+PSD-BLOCK-05,blocked,"This PSD result releases a quantum-gravity claim.",blocked_no_physics_claim,"The run is formal admissibility only."

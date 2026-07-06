@@ -1,0 +1,7 @@
+validation_id,validation_layer,check_name,status,severity,observed_value,expected_value,blocking,lineage_bundle_sha256
+E03A-V-07,K,finite_values,pass,error,True,True,yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+E03A-V-08,K,shape,pass,error,"(42, 42)","(42, 42)",yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+E03A-V-09,K,symmetry_tolerance,pass,error,0.0,<=1e-12,yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+E03A-V-10,K,diagonal_close_to_one,pass,error,0.0,<=1e-12,yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+E03A-V-11,K,PSD_lower_tolerance,pass,error,-3.875342732446317e-15,>=-1e-10,yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+E03A-V-12,K,range_sanity,pass,error,2.220446049250313e-16,<=1e-12,yes,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
