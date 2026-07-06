@@ -1,0 +1,44 @@
+validation_id,check_name,status,severity,observed_value,expected_value,message,blocking
+SR-VAL-001,file_exists:README.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/README.md,exists,Required package file check.,yes
+SR-VAL-002,file_exists:QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01.md,exists,Required package file check.,yes
+SR-VAL-003,file_exists:RUN_COMMANDS_PBR_SPECTRAL_READOUT01.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/RUN_COMMANDS_PBR_SPECTRAL_READOUT01.md,exists,Required package file check.,yes
+SR-VAL-004,file_exists:data/input_lineage.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/input_lineage.csv,exists,Required package file check.,yes
+SR-VAL-005,file_exists:data/spectral_readout_result.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/spectral_readout_result.csv,exists,Required package file check.,yes
+SR-VAL-006,file_exists:data/eigenvalue_mass_report.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/eigenvalue_mass_report.csv,exists,Required package file check.,yes
+SR-VAL-007,file_exists:data/lag_class_summary.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/lag_class_summary.csv,exists,Required package file check.,yes
+SR-VAL-008,file_exists:data/parallel_antiparallel_counts.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/parallel_antiparallel_counts.csv,exists,Required package file check.,yes
+SR-VAL-009,file_exists:data/claim_boundaries.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/claim_boundaries.csv,exists,Required package file check.,yes
+SR-VAL-010,file_exists:data/spectral_readout_manifest.json,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/data/spectral_readout_manifest.json,exists,Required package file check.,yes
+SR-VAL-011,file_exists:results/eigenvalue_spectrum.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/results/eigenvalue_spectrum.csv,exists,Required package file check.,yes
+SR-VAL-012,file_exists:results/lag_class_membership.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/results/lag_class_membership.csv,exists,Required package file check.,yes
+SR-VAL-013,file_exists:results/parallel_pairs.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/results/parallel_pairs.csv,exists,Required package file check.,yes
+SR-VAL-014,file_exists:results/antiparallel_pairs.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/results/antiparallel_pairs.csv,exists,Required package file check.,yes
+SR-VAL-015,file_exists:results/effective_lag_axis_gram.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/results/effective_lag_axis_gram.csv,exists,Required package file check.,yes
+SR-VAL-016,file_exists:docs/PBR_SPECTRAL_READOUT_SUMMARY_DE.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/docs/PBR_SPECTRAL_READOUT_SUMMARY_DE.md,exists,Required package file check.,yes
+SR-VAL-017,file_exists:scripts/run_pbr_spectral_readout.py,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/scripts/run_pbr_spectral_readout.py,exists,Required package file check.,yes
+SR-VAL-018,file_exists:scripts/validate_pbr_spectral_readout.py,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/scripts/validate_pbr_spectral_readout.py,exists,Required package file check.,yes
+SR-VAL-019,file_exists:sql/001_create_qsb_pbr_spectral_readout.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/sql/001_create_qsb_pbr_spectral_readout.sql,exists,Required package file check.,yes
+SR-VAL-020,file_exists:sql/002_insert_qsb_pbr_spectral_readout.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/sql/002_insert_qsb_pbr_spectral_readout.sql,exists,Required package file check.,yes
+SR-VAL-021,file_exists:sql/003_validation_queries.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01/sql/003_validation_queries.sql,exists,Required package file check.,yes
+SR-VAL-022,no_blank_rows:data/input_lineage.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-023,no_blank_rows:data/spectral_readout_result.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-024,no_blank_rows:data/eigenvalue_mass_report.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-025,no_blank_rows:data/lag_class_summary.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-026,no_blank_rows:data/parallel_antiparallel_counts.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-027,no_blank_rows:data/claim_boundaries.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-028,no_blank_rows:results/eigenvalue_spectrum.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-029,no_blank_rows:results/lag_class_membership.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-030,no_blank_rows:results/parallel_pairs.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-031,no_blank_rows:results/antiparallel_pairs.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-032,no_blank_rows:results/effective_lag_axis_gram.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+SR-VAL-033,input_matrix_sha256,pass,error,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,Input matrix hash must match registered value.,yes
+SR-VAL-034,rank_tol_1e_10,pass,error,6,6,Rank must match directed lag-class expectation.,yes
+SR-VAL-035,nullity,pass,error,36,36,Nullity must match 42 minus rank 6.,yes
+SR-VAL-036,trace,pass,error,42,42,Trace must match matrix dimension.,yes
+SR-VAL-037,parallel_count,pass,error,70,70,Parallel count must match expected combinatorics.,yes
+SR-VAL-038,antiparallel_count,pass,error,91,91,Antiparallel count must match expected combinatorics.,yes
+SR-VAL-039,physical_claim_release,pass,error,blocked_no_physics_claim,blocked_no_physics_claim,Physics claims must remain blocked.,yes
+SR-VAL-040,no_forbidden_markdown_text:README.md,pass,error,none,none,Markdown must not contain forbidden claim text.,yes
+SR-VAL-041,no_forbidden_markdown_text:QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01.md,pass,error,none,none,Markdown must not contain forbidden claim text.,yes
+SR-VAL-042,no_forbidden_markdown_text:RUN_COMMANDS_PBR_SPECTRAL_READOUT01.md,pass,error,none,none,Markdown must not contain forbidden claim text.,yes
+SR-VAL-043,no_forbidden_markdown_text:docs/PBR_SPECTRAL_READOUT_SUMMARY_DE.md,pass,error,none,none,Markdown must not contain forbidden claim text.,yes

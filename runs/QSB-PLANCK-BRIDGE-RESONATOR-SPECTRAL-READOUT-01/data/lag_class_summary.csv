@@ -1,0 +1,7 @@
+run_id,lag_axis,abs_lag,positive_direction_count,negative_direction_count,total_count,expected_positive_count,expected_negative_count,expected_total_count,class_size_check
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L1,1,6,6,12,6,6,12,true
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L2,2,5,5,10,5,5,10,true
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L3,3,4,4,8,4,4,8,true
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L4,4,3,3,6,3,3,6,true
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L5,5,2,2,4,2,2,4,true
+QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,L6,6,1,1,2,1,1,2,true
