@@ -1,0 +1,8 @@
+review_run_id,test_id,test_key,test_class,recommendation,next_gate
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-001,nullmodel_design_review,recommended next test,Design nullmodels before external use.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-002,robustness_under_perturbation_noise,recommended next test,Check robustness under perturbation/noise.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-003,label_permutation_controls,recommended next test,Run label permutation controls.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-004,alternative_matrix_construction_check,recommended next test,Compare alternative matrix construction choices.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-005,lineage_audit_k_candidate_construction,recommended next test,Audit the K_candidate construction lineage.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-006,rank6_inevitability_check,recommended next test,Check whether rank-6 is inevitable from pair construction.,nullmodel_design_required
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,NEXT-007,randomized_directed_pair_gram_baselines,recommended next test,Compare to randomized directed-pair Gram baselines.,nullmodel_design_required

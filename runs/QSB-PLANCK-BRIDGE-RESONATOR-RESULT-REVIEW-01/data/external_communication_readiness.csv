@@ -1,0 +1,5 @@
+review_run_id,item_id,communication_item,readiness,wording_or_rationale
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,COMM-001,internal_methods_note,allowed,Internal methods note is allowed with formal-only wording.
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,COMM-002,external_physics_claim,blocked,External physics claim remains blocked.
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,COMM-003,external_technical_methodological_statement,conditional,Careful methods wording only; no physical release.
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,COMM-004,recommended_wording,allowed,A formal candidate matrix passes a PSD gate and shows construction-consistent rank-6 lag-class structure; physics claims remain blocked.

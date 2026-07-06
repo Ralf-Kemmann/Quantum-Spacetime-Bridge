@@ -1,0 +1,6 @@
+review_run_id,blocked_claim_id,blocked_claim_key,claim_text,physical_claim_release,release_status
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,BLOCK-001,physical_validation_qsb_blocked,Physical validation of QSB is blocked.,blocked_no_physics_claim,blocked
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,BLOCK-002,pbr_physical_existence_blocked,Physical existence of PBRs is blocked.,blocked_no_physics_claim,blocked
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,BLOCK-003,spacetime_emergence_proof_blocked,Spacetime-emergence proof is blocked.,blocked_no_physics_claim,blocked
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,BLOCK-004,empirical_validation_blocked,Empirical validation is blocked.,blocked_no_physics_claim,blocked
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,BLOCK-005,lag_axes_physical_dimensions_blocked,Interpretation of lag axes as physical dimensions is blocked.,blocked_no_physics_claim,blocked

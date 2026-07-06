@@ -1,0 +1,6 @@
+review_run_id,finding_id,finding_class,finding_text,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,CONSTR-001,construction-bound result,Rank-6 structure is consistent with directed lag classes.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,CONSTR-002,construction-bound result,42 pair-features arise from 7 * 6 directed pairs.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,CONSTR-003,construction-bound result,+k and -k are antiparallel in the formal readout.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,CONSTR-004,lineage-dependent result,The result may depend on the K_candidate construction and lineage.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01,CONSTR-005,blocked physical claim,This is not yet a physics result.,blocked_no_physics_claim

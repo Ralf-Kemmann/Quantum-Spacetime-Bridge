@@ -1,0 +1,42 @@
+validation_id,check_name,status,severity,observed_value,expected_value,message,blocking
+RR-VAL-001,file_exists:README.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/README.md,exists,Required file exists.,yes
+RR-VAL-002,file_exists:QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01.md,exists,Required file exists.,yes
+RR-VAL-003,file_exists:RUN_COMMANDS_PBR_RESULT_REVIEW01.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/RUN_COMMANDS_PBR_RESULT_REVIEW01.md,exists,Required file exists.,yes
+RR-VAL-004,file_exists:data/input_run_lineage.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/input_run_lineage.csv,exists,Required file exists.,yes
+RR-VAL-005,file_exists:data/result_review_summary.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/result_review_summary.csv,exists,Required file exists.,yes
+RR-VAL-006,file_exists:data/formal_findings.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/formal_findings.csv,exists,Required file exists.,yes
+RR-VAL-007,file_exists:data/construction_bound_findings.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/construction_bound_findings.csv,exists,Required file exists.,yes
+RR-VAL-008,file_exists:data/blocked_claims.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/blocked_claims.csv,exists,Required file exists.,yes
+RR-VAL-009,file_exists:data/recommended_next_tests.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/recommended_next_tests.csv,exists,Required file exists.,yes
+RR-VAL-010,file_exists:data/external_communication_readiness.csv,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/external_communication_readiness.csv,exists,Required file exists.,yes
+RR-VAL-011,file_exists:data/result_review_manifest.json,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/result_review_manifest.json,exists,Required file exists.,yes
+RR-VAL-012,file_exists:docs/PBR_RESULT_REVIEW_SUMMARY_DE.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/docs/PBR_RESULT_REVIEW_SUMMARY_DE.md,exists,Required file exists.,yes
+RR-VAL-013,file_exists:docs/PBR_RESULT_REVIEW_CLAIM_BOUNDARY_DE.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/docs/PBR_RESULT_REVIEW_CLAIM_BOUNDARY_DE.md,exists,Required file exists.,yes
+RR-VAL-014,file_exists:docs/PBR_RESULT_REVIEW_NEXT_STEPS_DE.md,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/docs/PBR_RESULT_REVIEW_NEXT_STEPS_DE.md,exists,Required file exists.,yes
+RR-VAL-015,file_exists:scripts/run_pbr_result_review.py,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/scripts/run_pbr_result_review.py,exists,Required file exists.,yes
+RR-VAL-016,file_exists:scripts/validate_pbr_result_review.py,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/scripts/validate_pbr_result_review.py,exists,Required file exists.,yes
+RR-VAL-017,file_exists:sql/001_create_qsb_pbr_result_review.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/sql/001_create_qsb_pbr_result_review.sql,exists,Required file exists.,yes
+RR-VAL-018,file_exists:sql/002_insert_qsb_pbr_result_review.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/sql/002_insert_qsb_pbr_result_review.sql,exists,Required file exists.,yes
+RR-VAL-019,file_exists:sql/003_validation_queries.sql,pass,error,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/sql/003_validation_queries.sql,exists,Required file exists.,yes
+RR-VAL-020,no_blank_rows:data/input_run_lineage.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-021,no_blank_rows:data/result_review_summary.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-022,no_blank_rows:data/formal_findings.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-023,no_blank_rows:data/construction_bound_findings.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-024,no_blank_rows:data/blocked_claims.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-025,no_blank_rows:data/recommended_next_tests.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-026,no_blank_rows:data/external_communication_readiness.csv,pass,error,none,none,CSV must not contain blank rows.,yes
+RR-VAL-027,prior_run_exists:QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,pass,error,/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/runs/QSB-PLANCK-BRIDGE-RESONATOR-STATE-SPEC-01,exists,Prior run directory exists.,yes
+RR-VAL-028,prior_run_exists:QSB-PLANCK-BRIDGE-RESONATOR-PSD-TEST-01,pass,error,/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/runs/QSB-PLANCK-BRIDGE-RESONATOR-PSD-TEST-01,exists,Prior run directory exists.,yes
+RR-VAL-029,prior_run_exists:QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,pass,error,/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,exists,Prior run directory exists.,yes
+RR-VAL-030,summary_single_row,pass,error,1,1,Review summary must have exactly one row.,yes
+RR-VAL-031,physical_claim_release_blocked,pass,error,blocked_no_physics_claim,blocked_no_physics_claim,Physics claims remain blocked.,yes
+RR-VAL-032,claim_status_result_review_only,pass,error,result_review_only,result_review_only,Claim status is review only.,yes
+RR-VAL-033,next_gate_nullmodel,pass,error,nullmodel_design_required,nullmodel_design_required,Next gate is nullmodel design.,yes
+RR-VAL-034,required_blocked_claims,pass,error,"empirical_validation_blocked,lag_axes_physical_dimensions_blocked,pbr_physical_existence_blocked,physical_validation_qsb_blocked,spacetime_emergence_proof_blocked","empirical_validation_blocked,lag_axes_physical_dimensions_blocked,pbr_physical_existence_blocked,physical_validation_qsb_blocked,spacetime_emergence_proof_blocked",Required blocked claims are present.,yes
+RR-VAL-035,required_next_tests,pass,error,"alternative_matrix_construction_check,label_permutation_controls,lineage_audit_k_candidate_construction,nullmodel_design_review,randomized_directed_pair_gram_baselines,rank6_inevitability_check,robustness_under_perturbation_noise","label_permutation_controls,lineage_audit_k_candidate_construction,nullmodel_design_review,robustness_under_perturbation_noise",Required next tests are present.,yes
+RR-VAL-036,no_forbidden_markdown_text:README.md,pass,error,none,none,Markdown claim hygiene.,yes
+RR-VAL-037,no_forbidden_markdown_text:QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01.md,pass,error,none,none,Markdown claim hygiene.,yes
+RR-VAL-038,no_forbidden_markdown_text:RUN_COMMANDS_PBR_RESULT_REVIEW01.md,pass,error,none,none,Markdown claim hygiene.,yes
+RR-VAL-039,no_forbidden_markdown_text:docs/PBR_RESULT_REVIEW_SUMMARY_DE.md,pass,error,none,none,Markdown claim hygiene.,yes
+RR-VAL-040,no_forbidden_markdown_text:docs/PBR_RESULT_REVIEW_CLAIM_BOUNDARY_DE.md,pass,error,none,none,Markdown claim hygiene.,yes
+RR-VAL-041,no_forbidden_markdown_text:docs/PBR_RESULT_REVIEW_NEXT_STEPS_DE.md,pass,error,none,none,Markdown claim hygiene.,yes
