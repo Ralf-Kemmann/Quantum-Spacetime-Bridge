@@ -1,0 +1,138 @@
+validation_id,check_name,status,severity,observed_value,expected_value,message,blocking
+NM-VAL-001,file_exists:README.md,pass,error,README.md,exists,Required file exists.,yes
+NM-VAL-002,file_exists:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,pass,error,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,exists,Required file exists.,yes
+NM-VAL-003,file_exists:RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,pass,error,RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,exists,Required file exists.,yes
+NM-VAL-004,file_exists:data/nullmodel_design_summary.csv,pass,error,data/nullmodel_design_summary.csv,exists,Required file exists.,yes
+NM-VAL-005,file_exists:data/nullmodel_family_spec.csv,pass,error,data/nullmodel_family_spec.csv,exists,Required file exists.,yes
+NM-VAL-006,file_exists:data/claim_boundaries.csv,pass,error,data/claim_boundaries.csv,exists,Required file exists.,yes
+NM-VAL-007,file_exists:data/input_artifact_requirements.csv,pass,error,data/input_artifact_requirements.csv,exists,Required file exists.,yes
+NM-VAL-008,file_exists:data/gate_decision.csv,pass,error,data/gate_decision.csv,exists,Required file exists.,yes
+NM-VAL-009,file_exists:data/nullmodel_diagnostics_required.csv,pass,error,data/nullmodel_diagnostics_required.csv,exists,Required file exists.,yes
+NM-VAL-010,file_exists:data/nullmodel_failure_modes.csv,pass,error,data/nullmodel_failure_modes.csv,exists,Required file exists.,yes
+NM-VAL-011,file_exists:data/nullmodel_execution_authorization.csv,pass,error,data/nullmodel_execution_authorization.csv,exists,Required file exists.,yes
+NM-VAL-012,file_exists:data/nullmodel_design_manifest.json,pass,error,data/nullmodel_design_manifest.json,exists,Required file exists.,yes
+NM-VAL-013,file_exists:docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,pass,error,docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,exists,Required file exists.,yes
+NM-VAL-014,file_exists:docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,pass,error,docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,exists,Required file exists.,yes
+NM-VAL-015,file_exists:docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,pass,error,docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,exists,Required file exists.,yes
+NM-VAL-016,file_exists:scripts/run_pbr_nullmodel_design.py,pass,error,scripts/run_pbr_nullmodel_design.py,exists,Required file exists.,yes
+NM-VAL-017,file_exists:scripts/validate_pbr_nullmodel_design.py,pass,error,scripts/validate_pbr_nullmodel_design.py,exists,Required file exists.,yes
+NM-VAL-018,file_exists:sql/001_create_qsb_pbr_nullmodel_design.sql,pass,error,sql/001_create_qsb_pbr_nullmodel_design.sql,exists,Required file exists.,yes
+NM-VAL-019,file_exists:sql/002_insert_qsb_pbr_nullmodel_design.sql,pass,error,sql/002_insert_qsb_pbr_nullmodel_design.sql,exists,Required file exists.,yes
+NM-VAL-020,file_exists:sql/003_validation_queries.sql,pass,error,sql/003_validation_queries.sql,exists,Required file exists.,yes
+NM-VAL-021,file_exists:validation/validation_results.csv,pass,error,validation/validation_results.csv,exists,Required file exists.,yes
+NM-VAL-022,utf8:README.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-023,lf_only:README.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-024,single_final_lf:README.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-025,no_trailing_whitespace:README.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-026,utf8:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-027,lf_only:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-028,single_final_lf:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-029,no_trailing_whitespace:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-030,utf8:RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-031,lf_only:RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-032,single_final_lf:RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-033,no_trailing_whitespace:RUN_COMMANDS_PBR_NULLMODEL_DESIGN01.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-034,utf8:data/nullmodel_design_summary.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-035,lf_only:data/nullmodel_design_summary.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-036,single_final_lf:data/nullmodel_design_summary.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-037,no_trailing_whitespace:data/nullmodel_design_summary.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-038,utf8:data/nullmodel_family_spec.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-039,lf_only:data/nullmodel_family_spec.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-040,single_final_lf:data/nullmodel_family_spec.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-041,no_trailing_whitespace:data/nullmodel_family_spec.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-042,utf8:data/claim_boundaries.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-043,lf_only:data/claim_boundaries.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-044,single_final_lf:data/claim_boundaries.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-045,no_trailing_whitespace:data/claim_boundaries.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-046,utf8:data/input_artifact_requirements.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-047,lf_only:data/input_artifact_requirements.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-048,single_final_lf:data/input_artifact_requirements.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-049,no_trailing_whitespace:data/input_artifact_requirements.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-050,utf8:data/gate_decision.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-051,lf_only:data/gate_decision.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-052,single_final_lf:data/gate_decision.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-053,no_trailing_whitespace:data/gate_decision.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-054,utf8:data/nullmodel_diagnostics_required.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-055,lf_only:data/nullmodel_diagnostics_required.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-056,single_final_lf:data/nullmodel_diagnostics_required.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-057,no_trailing_whitespace:data/nullmodel_diagnostics_required.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-058,utf8:data/nullmodel_failure_modes.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-059,lf_only:data/nullmodel_failure_modes.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-060,single_final_lf:data/nullmodel_failure_modes.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-061,no_trailing_whitespace:data/nullmodel_failure_modes.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-062,utf8:data/nullmodel_execution_authorization.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-063,lf_only:data/nullmodel_execution_authorization.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-064,single_final_lf:data/nullmodel_execution_authorization.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-065,no_trailing_whitespace:data/nullmodel_execution_authorization.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-066,utf8:data/nullmodel_design_manifest.json,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-067,lf_only:data/nullmodel_design_manifest.json,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-068,single_final_lf:data/nullmodel_design_manifest.json,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-069,no_trailing_whitespace:data/nullmodel_design_manifest.json,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-070,utf8:docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-071,lf_only:docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-072,single_final_lf:docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-073,no_trailing_whitespace:docs/PBR_NULLMODEL_DESIGN_SUMMARY_DE.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-074,utf8:docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-075,lf_only:docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-076,single_final_lf:docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-077,no_trailing_whitespace:docs/PBR_NULLMODEL_DESIGN_CLAIM_BOUNDARY_DE.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-078,utf8:docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-079,lf_only:docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-080,single_final_lf:docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-081,no_trailing_whitespace:docs/PBR_NULLMODEL_DESIGN_NEXT_GATE_DE.md,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-082,utf8:scripts/run_pbr_nullmodel_design.py,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-083,lf_only:scripts/run_pbr_nullmodel_design.py,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-084,single_final_lf:scripts/run_pbr_nullmodel_design.py,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-085,no_trailing_whitespace:scripts/run_pbr_nullmodel_design.py,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-086,utf8:scripts/validate_pbr_nullmodel_design.py,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-087,lf_only:scripts/validate_pbr_nullmodel_design.py,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-088,single_final_lf:scripts/validate_pbr_nullmodel_design.py,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-089,no_trailing_whitespace:scripts/validate_pbr_nullmodel_design.py,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-090,utf8:sql/001_create_qsb_pbr_nullmodel_design.sql,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-091,lf_only:sql/001_create_qsb_pbr_nullmodel_design.sql,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-092,single_final_lf:sql/001_create_qsb_pbr_nullmodel_design.sql,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-093,no_trailing_whitespace:sql/001_create_qsb_pbr_nullmodel_design.sql,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-094,utf8:sql/002_insert_qsb_pbr_nullmodel_design.sql,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-095,lf_only:sql/002_insert_qsb_pbr_nullmodel_design.sql,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-096,single_final_lf:sql/002_insert_qsb_pbr_nullmodel_design.sql,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-097,no_trailing_whitespace:sql/002_insert_qsb_pbr_nullmodel_design.sql,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-098,utf8:sql/003_validation_queries.sql,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-099,lf_only:sql/003_validation_queries.sql,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-100,single_final_lf:sql/003_validation_queries.sql,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-101,no_trailing_whitespace:sql/003_validation_queries.sql,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-102,utf8:validation/validation_results.csv,pass,error,utf-8,utf-8,Generated text file is UTF-8.,yes
+NM-VAL-103,lf_only:validation/validation_results.csv,pass,error,lf_only,lf_only,Generated text file uses LF line endings.,yes
+NM-VAL-104,single_final_lf:validation/validation_results.csv,pass,error,one_lf,one_lf,Generated text file ends with exactly one LF.,yes
+NM-VAL-105,no_trailing_whitespace:validation/validation_results.csv,pass,error,none,none,Generated text file has no trailing whitespace.,yes
+NM-VAL-106,csv_lf:data/nullmodel_design_summary.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-107,csv_lf:data/nullmodel_family_spec.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-108,csv_lf:data/claim_boundaries.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-109,csv_lf:data/input_artifact_requirements.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-110,csv_lf:data/gate_decision.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-111,csv_lf:data/nullmodel_diagnostics_required.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-112,csv_lf:data/nullmodel_failure_modes.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-113,csv_lf:data/nullmodel_execution_authorization.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-114,csv_lf:validation/validation_results.csv,pass,error,lf_only,lf_only,CSV file uses LF line endings.,yes
+NM-VAL-115,summary_single_row,pass,error,1,1,Summary has exactly one row.,yes
+NM-VAL-116,run_id_consistency_summary,pass,error,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,Run ID is consistent.,yes
+NM-VAL-117,execution_status_design_only,pass,error,design_only_not_executed,design_only_not_executed,Execution status is design only.,yes
+NM-VAL-118,physical_claim_release_blocked,pass,error,blocked_no_physics_claim,blocked_no_physics_claim,Physical claim release is blocked.,yes
+NM-VAL-119,external_readiness_internal_only,pass,error,internal_only,internal_only,External readiness is internal only.,yes
+NM-VAL-120,next_gate_allowed,pass,error,nullmodel_execution_required,nullmodel_execution_required or nullmodel_design_revision_required,Next gate is allowed.,yes
+NM-VAL-121,all_families_present_exactly_once,pass,error,"directed_pair_rewire_null,label_permutation_null,lag_preserving_shuffle_null,random_gram_psd_null,sign_flip_antiparallel_null","directed_pair_rewire_null,label_permutation_null,lag_preserving_shuffle_null,random_gram_psd_null,sign_flip_antiparallel_null",All five nullmodel families are present exactly once.,yes
+NM-VAL-122,family_execution_design_only,pass,error,checked,design_only_not_executed,Each family is design-only.,yes
+NM-VAL-123,family_required_columns,pass,error,"nullmodel_id,nullmodel_key,purpose,preserved_quantities,randomized_quantities,expected_diagnostic_outputs,admissibility_criteria,failure_modes,required_input_artifacts,execution_authorization_status,claim_boundary,next_gate_implication","admissibility_criteria,claim_boundary,execution_authorization_status,expected_diagnostic_outputs,failure_modes,next_gate_implication,nullmodel_id,nullmodel_key,preserved_quantities,purpose,randomized_quantities,required_input_artifacts",Family spec includes required fields.,yes
+NM-VAL-124,gate_execution_design_only,pass,error,design_only_not_executed,design_only_not_executed,Gate records design-only status.,yes
+NM-VAL-125,gate_next_gate_allowed,pass,error,nullmodel_execution_required,nullmodel_execution_required or nullmodel_design_revision_required,Gate next step is allowed.,yes
+NM-VAL-126,manifest_run_id,pass,error,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,Manifest run ID is consistent.,yes
+NM-VAL-127,manifest_no_execution,pass,error,design_only_not_executed,design_only_not_executed,Manifest records no execution.,yes
+NM-VAL-128,no_nullmodel_execution_output_claimed,pass,error,pattern_absent,pattern_absent,No nullmodel execution outputs are claimed.,yes
+NM-VAL-129,forbidden_phrase_context:QSB is physically validated,pass,error,allowed_context_only,allowed_context_only,Forbidden phrases occur only in blocked/prohibited/claim-boundary contexts.,yes
+NM-VAL-130,forbidden_phrase_context:PBR exists physically,pass,error,allowed_context_only,allowed_context_only,Forbidden phrases occur only in blocked/prohibited/claim-boundary contexts.,yes
+NM-VAL-131,forbidden_phrase_context:The six lag axes are spacetime dimensions,pass,error,allowed_context_only,allowed_context_only,Forbidden phrases occur only in blocked/prohibited/claim-boundary contexts.,yes
+NM-VAL-132,forbidden_phrase_context:Spacetime emergence is proven,pass,error,allowed_context_only,allowed_context_only,Forbidden phrases occur only in blocked/prohibited/claim-boundary contexts.,yes
+NM-VAL-133,forbidden_phrase_context:Empirical validation exists,pass,error,allowed_context_only,allowed_context_only,Forbidden phrases occur only in blocked/prohibited/claim-boundary contexts.,yes
+NM-VAL-134,csv_writer_lineterminator,pass,error,present,"lineterminator=""\n""",CSV writer uses LF lineterminator.,yes
+NM-VAL-135,json_indent_ensure_ascii_false,pass,error,present,indent=2 and ensure_ascii=False,JSON writer uses required options.,yes
+NM-VAL-136,git_diff_check,pass,error,ok,ok,git diff --check passes.,yes
+NM-VAL-137,no_files_outside_run_package_modified,pass,error,none,none,No files outside the run package are modified.,yes

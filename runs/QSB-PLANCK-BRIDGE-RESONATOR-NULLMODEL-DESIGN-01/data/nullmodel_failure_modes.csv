@@ -1,0 +1,18 @@
+run_id,nullmodel_key,failure_mode_id,failure_mode,mitigation_status
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,label_permutation_null,NM-001-FM-01,Permutation zerstoert erforderliche Paarstruktur,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,label_permutation_null,NM-001-FM-02,nicht-bijektive Labelabbildung,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,label_permutation_null,NM-001-FM-03,zufaellige Ordnung nicht dokumentiert,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,label_permutation_null,NM-001-FM-04,Rangvergleich ohne Toleranzangabe.,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,lag_preserving_shuffle_null,NM-002-FM-01,Lag-Grenzen werden verletzt,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,lag_preserving_shuffle_null,NM-002-FM-02,blockinterne Randomisierung ist nicht reproduzierbar,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,lag_preserving_shuffle_null,NM-002-FM-03,PSD-Reparatur veraendert das Nullmodell unprotokolliert.,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,random_gram_psd_null,NM-003-FM-01,Trace passt nicht,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,random_gram_psd_null,NM-003-FM-02,Rangzwang dominiert Ergebnis,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,random_gram_psd_null,NM-003-FM-03,numerische PSD-Projektion verschleiert Konstruktion,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,random_gram_psd_null,NM-003-FM-04,Seedanzahl zu klein.,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,directed_pair_rewire_null,NM-004-FM-01,Rewire erzeugt unzulaessige Selbstpaare,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,directed_pair_rewire_null,NM-004-FM-02,Mehrfachkanten werden falsch behandelt,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,directed_pair_rewire_null,NM-004-FM-03,Lag-Begriffe werden nach Rewire uneindeutig.,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,sign_flip_antiparallel_null,NM-005-FM-01,Flip-Regel vermischt Vorzeichen und Labelpermutation,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,sign_flip_antiparallel_null,NM-005-FM-02,PSD-Verlust wird nicht berichtet,must_be_handled_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,sign_flip_antiparallel_null,NM-005-FM-03,Orientierungsaenderung ist nicht reversibel.,must_be_handled_before_execution

@@ -1,0 +1,2 @@
+run_id,gate_id,gate_name,gate_decision,execution_status,physical_claim_release,external_readiness,next_gate,revision_trigger
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,GATE-001,nullmodel_design_gate,passed_design_only,design_only_not_executed,blocked_no_physics_claim,internal_only,nullmodel_execution_required,"nullmodel_design_revision_required if any required family, input artifact, diagnostic output, or claim boundary is missing"

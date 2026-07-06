@@ -1,0 +1,7 @@
+run_id,boundary_id,claim_key,status,claim_boundary_text
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-001,formal_matrix_structure_only,allowed,Erlaubt ist nur der formale Matrixstruktur-Befund zur PSD-Toleranz und Rang-6-Lag-Klassen-Gramstruktur.
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-002,qsb_physical_validation,blocked,Die Aussage 'QSB is physically validated' ist als affirmative Aussage gesperrt.
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-003,pbr_physical_existence,blocked,Die Aussage 'PBR exists physically' ist als affirmative Aussage gesperrt.
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-004,six_lag_axes_as_spacetime_dimensions,blocked,Die Aussage 'The six lag axes are spacetime dimensions' ist als affirmative Aussage gesperrt.
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-005,spacetime_emergence_proof,blocked,Die Aussage 'Spacetime emergence is proven' ist als affirmative Aussage gesperrt.
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,CB-006,empirical_validation,blocked,Die Aussage 'Empirical validation exists' ist als affirmative Aussage gesperrt.

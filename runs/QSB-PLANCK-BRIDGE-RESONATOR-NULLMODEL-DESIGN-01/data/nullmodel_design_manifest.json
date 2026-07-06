@@ -1,0 +1,28 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01",
+  "previous_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01",
+  "previous_git_chain": [
+    "71a69d8",
+    "7a8cbc2",
+    "3a486ca",
+    "0d74576",
+    "38aa3ae",
+    "8dd7a1e"
+  ],
+  "schema": "qsb_planck_bridge",
+  "design_status": "nullmodel_design_completed_execution_required",
+  "execution_status": "design_only_not_executed",
+  "claim_status": "nullmodel_design_only",
+  "physical_claim_release": "blocked_no_physics_claim",
+  "external_readiness": "internal_only",
+  "next_gate": "nullmodel_execution_required",
+  "nullmodel_families": [
+    "label_permutation_null",
+    "lag_preserving_shuffle_null",
+    "random_gram_psd_null",
+    "directed_pair_rewire_null",
+    "sign_flip_antiparallel_null"
+  ],
+  "validation_results": "runs/QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01/validation/validation_results.csv",
+  "claim_boundary": "No physical claims are released. Forbidden physics phrases are allowed only in blocked, prohibited, or claim-boundary contexts."
+}

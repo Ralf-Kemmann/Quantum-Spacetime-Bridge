@@ -1,0 +1,7 @@
+run_id,artifact_id,artifact_key,required_path,required_for,status
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-001,result_review_summary,runs/QSB-PLANCK-BRIDGE-RESONATOR-RESULT-REVIEW-01/data/result_review_summary.csv,lineage_reference,required_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-002,k_candidate_matrix,prior PBR matrix artifact path to be resolved before execution,all_nullmodels,required_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-003,pair_id_table,pair_id table with i|j directed pairs,label_permutation_null;directed_pair_rewire_null,required_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-004,lag_assignment_table,lag table with lag=j-i and +k/-k relations,lag_preserving_shuffle_null;sign_flip_antiparallel_null,required_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-005,spectral_readout_config,spectral readout tolerance and diagnostic config,all_nullmodels,required_before_execution
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,IN-006,seed_plan,future execution seed manifest,all_nullmodels,not_created_in_design_run
