@@ -1,0 +1,25 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01",
+  "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01",
+  "design_only": true,
+  "lag_mechanism_tests_executed": false,
+  "nullmodels_executed": false,
+  "summary": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01",
+    "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01",
+    "design_status": "lag_mechanism_design_completed_execution_required",
+    "execution_status": "design_only_not_executed",
+    "claim_status": "lag_mechanism_design_only",
+    "physical_claim_release": "blocked_no_physics_claim",
+    "input_specificity_classification": "no_specificity",
+    "input_critical_nullmodel": "lag_preserving_shuffle_null",
+    "input_critical_reproduction_rate": "1.0",
+    "next_gate": "lag_mechanism_execution_required",
+    "secondary_next_gate": "nullmodel_operationalization_review_required",
+    "created_at_utc": "2026-07-08T09:33:49+00:00",
+    "git_commit": "db46ae0"
+  },
+  "test_family_count": 7,
+  "decision_case_count": 3,
+  "parked_theory_impulse": "Planck-Raum / Planck-Wirkungsquantum / E=mc²; future note only, not executed or expanded."
+}

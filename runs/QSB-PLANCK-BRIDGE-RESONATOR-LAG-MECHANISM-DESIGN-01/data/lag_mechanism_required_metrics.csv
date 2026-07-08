@@ -1,0 +1,8 @@
+run_id,test_key,required_metrics,metric_status
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,index_relabeling_test,Rang; Lag-Struktur-Distanz; Reproduktionsrate unter Relabeling,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,order_scrambling_test,Lag-Klassen-Reproduktion; Rang; Antiparallelität; Eigenprofilabstand,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,independent_lag_variable_test,Übereinstimmung unabhängiger Klassen mit Lag-Klassen; Clusterreinheit; Distanzmatrix-Korrelation,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,shift_operator_test,Orbit-Kohärenz; Klassenstabilität; Kommutator-/Invarianzdiagnostik,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,toeplitz_dependency_test,Lag-only-Fit; Residuen; Toeplitz-Distanz; positionsabhängige Reststruktur,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,physical_proxy_test,Proxy-Lag-Korrelation; Klassenreinheit; Robustheit gegen alternative Proxies,defined_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,nullmodel_operationalization_review,Erhaltungsgrad; Hypothesenbezug; Reproduktionszwang,defined_not_executed

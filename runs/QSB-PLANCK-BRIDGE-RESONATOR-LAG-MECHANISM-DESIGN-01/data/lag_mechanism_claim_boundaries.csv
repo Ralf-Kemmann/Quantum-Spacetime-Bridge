@@ -1,0 +1,10 @@
+run_id,claim_key,claim_text,status,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-001,QSB is physically validated,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-002,PBR exists physically,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-003,six lag axes are spacetime dimensions,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-004,spacetime emergence is proven,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-005,empirical validation exists,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-006,lag classes are physical dimensions,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-007,lag mechanism is physically proven,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-008,no_specificity disproves QSB,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,BLOCK-009,no_specificity proves QSB,blocked,blocked_no_physics_claim

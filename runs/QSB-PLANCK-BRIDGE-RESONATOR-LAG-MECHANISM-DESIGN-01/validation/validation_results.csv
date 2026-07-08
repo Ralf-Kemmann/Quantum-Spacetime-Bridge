@@ -1,0 +1,46 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:README.md,pass,README.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01.md,pass,QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:RUN_COMMANDS_PBR_LAG_MECHANISM_DESIGN01.md,pass,RUN_COMMANDS_PBR_LAG_MECHANISM_DESIGN01.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_design_summary.csv,pass,data/lag_mechanism_design_summary.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_test_family_spec.csv,pass,data/lag_mechanism_test_family_spec.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_decision_cases.csv,pass,data/lag_mechanism_decision_cases.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_required_inputs.csv,pass,data/lag_mechanism_required_inputs.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_required_metrics.csv,pass,data/lag_mechanism_required_metrics.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_claim_boundaries.csv,pass,data/lag_mechanism_claim_boundaries.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_next_gate_decision.csv,pass,data/lag_mechanism_next_gate_decision.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_failure_modes.csv,pass,data/lag_mechanism_failure_modes.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:data/lag_mechanism_design_manifest.json,pass,data/lag_mechanism_design_manifest.json
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:docs/PBR_LAG_MECHANISM_DESIGN_SUMMARY_DE.md,pass,docs/PBR_LAG_MECHANISM_DESIGN_SUMMARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:docs/PBR_LAG_MECHANISM_DESIGN_TESTS_DE.md,pass,docs/PBR_LAG_MECHANISM_DESIGN_TESTS_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:docs/PBR_LAG_MECHANISM_DESIGN_CLAIM_BOUNDARY_DE.md,pass,docs/PBR_LAG_MECHANISM_DESIGN_CLAIM_BOUNDARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:docs/PBR_LAG_MECHANISM_DESIGN_NEXT_GATE_DE.md,pass,docs/PBR_LAG_MECHANISM_DESIGN_NEXT_GATE_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:scripts/run_pbr_lag_mechanism_design.py,pass,scripts/run_pbr_lag_mechanism_design.py
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:scripts/validate_pbr_lag_mechanism_design.py,pass,scripts/validate_pbr_lag_mechanism_design.py
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:sql/001_create_qsb_pbr_lag_mechanism_design.sql,pass,sql/001_create_qsb_pbr_lag_mechanism_design.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:sql/002_insert_qsb_pbr_lag_mechanism_design.sql,pass,sql/002_insert_qsb_pbr_lag_mechanism_design.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:sql/003_validation_queries.sql,pass,sql/003_validation_queries.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,exists:validation/validation_results.csv,pass,validation/validation_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,run_id_consistency,pass,QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,design_only_execution_status,pass,design_only_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,no_tests_executed,pass,manifest flags
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,all_seven_test_families_once,pass,"['independent_lag_variable_test', 'index_relabeling_test', 'nullmodel_operationalization_review', 'order_scrambling_test', 'physical_proxy_test', 'shift_operator_test', 'toeplitz_dependency_test']"
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,all_three_decision_cases_once,pass,"['formal_lag_mechanism_candidate', 'physical_proxy_candidate', 'pure_index_construction']"
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,input_specificity_no_specificity,pass,no_specificity
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,input_critical_nullmodel,pass,lag_preserving_shuffle_null
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,input_critical_reproduction_rate,pass,1.0
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,physical_claim_release_blocked,pass,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,next_gate,pass,lag_mechanism_execution_required
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,secondary_next_gate,pass,nullmodel_operationalization_review_required
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,blocked_claims_present,pass,[]
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,forbidden_context:QSB is physically validated,pass,QSB is physically validated
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,forbidden_context:PBR exists physically,pass,PBR exists physically
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,forbidden_context:six lag axes are spacetime dimensions,pass,six lag axes are spacetime dimensions
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,forbidden_context:spacetime emergence is proven,pass,spacetime emergence is proven
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,forbidden_context:empirical validation exists,pass,empirical validation exists
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,sql_copy_column_lists_match_rows,pass,COPY TSV blocks
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,csv_lf_line_endings,pass,9 CSV files
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,csv_lineterminator_declared,pass,csv.DictWriter lineterminator
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,utf8_text_files_readable,pass,22 files
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,git_diff_check,pass,ok
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,no_files_outside_run_package_modified,pass,ok

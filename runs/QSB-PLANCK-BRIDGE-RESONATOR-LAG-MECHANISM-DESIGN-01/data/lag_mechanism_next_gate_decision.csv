@@ -1,0 +1,2 @@
+run_id,next_gate,secondary_next_gate,execution_authorization,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,lag_mechanism_execution_required,nullmodel_operationalization_review_required,not_authorized_in_this_design_run,blocked_no_physics_claim

@@ -1,0 +1,4 @@
+run_id,case_id,lag_structure_status,meaning_de,allowed_conclusion_de,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,CASE-001,pure_index_construction,Lag-Klassen entstehen nur durch Kanalnummerierung und pair_id-Lagdefinition.,"Die Lag-Klassenstruktur ist formal vorhanden, aber nicht als unabhängiger Mechanismus belegt.",blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,CASE-002,formal_lag_mechanism_candidate,Lag-Klassen können aus unabhängiger formaler Struktur abgeleitet werden.,Die Lag-Klassenstruktur ist Kandidat eines unabhängigen formalen Mechanismus.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,CASE-003,physical_proxy_candidate,Lag-Klassen korrelieren mit vorab definierter physikalisch motivierter Proxy-Größe.,Die Lag-Klassenstruktur ist Kandidat einer physikalisch motivierbaren Ordnungsrelation; Interpretation bleibt gate-pflichtig.,blocked_no_physics_claim
