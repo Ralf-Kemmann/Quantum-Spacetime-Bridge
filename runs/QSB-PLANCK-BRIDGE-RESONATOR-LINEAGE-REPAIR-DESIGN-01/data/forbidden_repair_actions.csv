@@ -1,0 +1,10 @@
+run_id,forbidden_action,reason,claim_boundary
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,execute_lineage_repair_in_design_run,This run is design-only,no_repair_executed
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,upgrade_candidate_in_design_run,Repair design cannot change admissibility class,no_candidate_upgrade
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,rerun_admissibility_checks,This run only defines repair requirements,admissibility_checks_rerun_false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,execute_lag_mechanism_tests,No candidate is admissible for mechanism testing,no_lag_mechanism_tests
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,execute_nullmodels,Nullmodels are not authorized,no_nullmodels
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,use_deep_research_as_internal_evidence,Deep Research is criteria context only,internal_lineage_required
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,treat_literature_only_proxy_as_evidence,Literature-only proxies do not establish current matrix lineage,no_proxy_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,fabricate_missing_values,Missing values must remain missing until sourced,no_hidden_calculation
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,derive_candidate_from_lag_pair_id_or_index_order,That would create an alias rather than independent lineage,no_independent_lag_claim

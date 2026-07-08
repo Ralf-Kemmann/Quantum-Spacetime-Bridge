@@ -1,0 +1,10 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,lineage_repair_candidate_count,PASS,lineage_repair_candidate_count=2
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,candidate_upgrade_count,PASS,candidate_upgrade_count=0
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,mechanism_tests_executed,PASS,mechanism_tests_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,nullmodels_executed,PASS,nullmodels_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,admissibility_checks_rerun,PASS,admissibility_checks_rerun=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,physical_claim_release,PASS,physical_claim_release=blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,recommended_next_run,PASS,recommended_next_run=QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,deep_research_not_internal_evidence,PASS,Deep Research remains criteria context only
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,literature_only_proxy_not_evidence,PASS,literature-only proxies are not treated as current matrix evidence

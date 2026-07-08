@@ -1,0 +1,9 @@
+run_id,claim_key,claim_text,status,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-001,lineage repair design upgrades candidate,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-002,lineage repair design proves independent lag variable,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-003,lineage repair design proves physical proxy,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-004,Deep Research can replace internal lineage,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-005,literature-only proxy establishes current matrix evidence,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-006,QSB is physically validated,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-007,PBR exists physically,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,BLOCK-008,lag mechanism is physically proven,blocked,blocked_no_physics_claim

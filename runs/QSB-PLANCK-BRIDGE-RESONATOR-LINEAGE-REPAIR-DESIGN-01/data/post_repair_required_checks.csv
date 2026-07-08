@@ -1,0 +1,8 @@
+run_id,check_key,check_purpose,required_before_candidate_reconsideration,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,source_lineage_audit,Verify source artifact generator transformation chain and non-lag derivation,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,deterministic_alias_check,Check candidate against lag abs_lag pair_id i j and index order,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,pair_mapping_audit,Verify mapping to 42 directed pair-features without using lag or pair_id as value source,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,pre_pair_existence_review,Confirm source exists before or independently of pair construction,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,version_hash_integrity_check,Record file hash commit hash and generator/schema version,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,information_gain_feasibility_check,Assess whether value series can support later information gain tests,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-DESIGN-01,admissibility_rerun,Only after repair artifacts exist rerun admissibility in a separate execution run,true,blocked_no_physics_claim
