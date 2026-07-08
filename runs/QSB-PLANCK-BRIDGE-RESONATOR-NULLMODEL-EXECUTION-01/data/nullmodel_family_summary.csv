@@ -1,0 +1,6 @@
+run_id,nullmodel_family,sample_count,complete_reproduction_count,partial_reproduction_count,null_reproduction_rate,rank6_rate,psd_and_rank_rate,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,label_permutation_null,1000,0,1000,0.0,1.0,1.0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,lag_preserving_shuffle_null,1000,1000,0,1.0,1.0,1.0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,random_gram_psd_null,1000,0,1000,0.0,1.0,1.0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,directed_pair_rewire_null,1000,0,1000,0.0,1.0,1.0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,sign_flip_antiparallel_null,1000,0,1000,0.0,1.0,1.0,blocked_no_physics_claim

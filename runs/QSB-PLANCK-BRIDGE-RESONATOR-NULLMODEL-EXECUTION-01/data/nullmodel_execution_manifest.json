@@ -1,0 +1,86 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01",
+  "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01",
+  "matrix_source": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv",
+  "samples_per_family": 1000,
+  "base_seed": 2026070801,
+  "seeds": {
+    "label_permutation_null": {
+      "first": 2027070802,
+      "last": 2027071801,
+      "count": 1000
+    },
+    "lag_preserving_shuffle_null": {
+      "first": 2028070802,
+      "last": 2028071801,
+      "count": 1000
+    },
+    "random_gram_psd_null": {
+      "first": 2029070802,
+      "last": 2029071801,
+      "count": 1000
+    },
+    "directed_pair_rewire_null": {
+      "first": 2030070802,
+      "last": 2030071801,
+      "count": 1000
+    },
+    "sign_flip_antiparallel_null": {
+      "first": 2031070802,
+      "last": 2031071801,
+      "count": 1000
+    }
+  },
+  "nullmodel_families": [
+    "label_permutation_null",
+    "lag_preserving_shuffle_null",
+    "random_gram_psd_null",
+    "directed_pair_rewire_null",
+    "sign_flip_antiparallel_null"
+  ],
+  "observed_reference": {
+    "psd_pass": "true",
+    "lambda_min": "-3.8753427324463167e-15",
+    "lambda_max": "15.365708440598711",
+    "eigenvalue_tolerance": "1e-10",
+    "rank_tol_1e_10": "6",
+    "rank_tolerance": "1e-10",
+    "nullity": "36",
+    "trace": "42",
+    "eigenvalue_profile": "[0.36585020096663595, 0.23829047120429656, 0.15729278427881205, 0.11125987323197174, 0.08981847225842209, 0.0374881980598617, 9e-17, 8e-17, 6e-17, 6e-17, 5e-17, 4e-17, 3e-17, 3e-17, 3e-17, 2e-17, 2e-17, 2e-17, 1e-17, 1e-17, 1e-17, 1e-17, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "eigen_profile_distance": "0",
+    "spectral_gap_distance": "0",
+    "rank6_preserved": "true",
+    "psd_and_rank_preserved": "true",
+    "directed_pair_feature_count": "42",
+    "lag_class_count": "12",
+    "lag_class_structure_preserved": "true",
+    "lag_axis_collapse_score": "1",
+    "within_lag_similarity": "1",
+    "between_lag_separation": "0.73740688673442367",
+    "directed_pair_consistency": "1",
+    "plus_minus_k_antiparallel_score": "-0.99999999999999989",
+    "antiparallelity_preserved": "true",
+    "lag_structure_distance": "0",
+    "lag_structure_reproduction_class": "vollständig",
+    "complete_structure_reproduction": "true",
+    "partial_structure_reproduction": "false",
+    "parallel_count": "70",
+    "antiparallel_count": "91"
+  },
+  "specificity_classification": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01",
+    "specificity_classification": "no_specificity",
+    "specificity_label_de": "keine formale Spezifität",
+    "specificity_reason": "Mindestens ein geprüftes Nullmodell reproduziert die vollständige Struktur regelmäßig.",
+    "critical_nullmodel": "lag_preserving_shuffle_null",
+    "strengthening_nullmodel": "label_permutation_null",
+    "formal_claim_status": "nullmodel_execution_only",
+    "physical_claim_release": "blocked_no_physics_claim",
+    "next_gate": "result_review_required",
+    "external_readiness": "internal_only",
+    "reviewer_risk": "hoch_bei_lag_erhaltendem_nullmodell",
+    "red_team_status": "required"
+  },
+  "physical_claim_release": "blocked_no_physics_claim"
+}

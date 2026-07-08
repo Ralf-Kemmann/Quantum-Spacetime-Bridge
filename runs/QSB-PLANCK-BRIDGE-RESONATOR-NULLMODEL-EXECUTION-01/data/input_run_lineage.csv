@@ -1,0 +1,4 @@
+run_id,source_run_id,input_id,source_path,sha256,lineage_bundle_sha256
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01,K_candidate_matrix,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,spectral_readout_run,runs/QSB-PLANCK-BRIDGE-RESONATOR-SPECTRAL-READOUT-01,directory_reference,not_applicable
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-PSD-TEST-01,K_validation_results,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/12_K_validation_results.csv,a0137b42013e3191657d8b3e0b53c28015cb1eb63e5b6371fc96c4e144bbec27,not_applicable
