@@ -1,0 +1,7 @@
+run_id,claim_key,status,claim_text,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,formal_review_scope,allowed_formal_only,Die Nullmodell-Ausführung wird nur formal reviewt.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,lag_mechanism,allowed_formal_only,Die Lag-Klassenstruktur erscheint in der aktuellen Operationalisierung als tragender formaler Mechanismus des Befunds.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,qsb_physical_validation,blocked,Eine physische QSB-Validierungsbehauptung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,pbr_physical_existence,blocked,Eine physische PBR-Existenzbehauptung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,lag_axes_physical_dimensions,blocked,Eine Deutung der Lag-Klassen als physische Dimensionen ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,proof_or_disproof,blocked,Das Nullmodell-Resultat beweist oder widerlegt QSB nicht.,blocked_no_physics_claim

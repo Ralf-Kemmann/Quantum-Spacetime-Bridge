@@ -1,0 +1,46 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:README.md,pass,README.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01.md,pass,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:RUN_COMMANDS_PBR_NULLMODEL_EXECUTION_RESULT_REVIEW01.md,pass,RUN_COMMANDS_PBR_NULLMODEL_EXECUTION_RESULT_REVIEW01.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/input_run_lineage.csv,pass,data/input_run_lineage.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/nullmodel_execution_review_summary.csv,pass,data/nullmodel_execution_review_summary.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/nullmodel_family_review.csv,pass,data/nullmodel_family_review.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/critical_nullmodel_findings.csv,pass,data/critical_nullmodel_findings.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/specificity_interpretation.csv,pass,data/specificity_interpretation.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/claim_boundaries.csv,pass,data/claim_boundaries.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/next_gate_decision.csv,pass,data/next_gate_decision.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/recommended_next_work.csv,pass,data/recommended_next_work.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:data/review_manifest.json,pass,data/review_manifest.json
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_SUMMARY_DE.md,pass,docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_SUMMARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_CLAIM_BOUNDARY_DE.md,pass,docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_CLAIM_BOUNDARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_NEXT_GATE_DE.md,pass,docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_NEXT_GATE_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_LAG_MECHANISM_DE.md,pass,docs/PBR_NULLMODEL_EXECUTION_RESULT_REVIEW_LAG_MECHANISM_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:scripts/run_pbr_nullmodel_execution_result_review.py,pass,scripts/run_pbr_nullmodel_execution_result_review.py
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:scripts/validate_pbr_nullmodel_execution_result_review.py,pass,scripts/validate_pbr_nullmodel_execution_result_review.py
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:sql/001_create_qsb_pbr_nullmodel_execution_result_review.sql,pass,sql/001_create_qsb_pbr_nullmodel_execution_result_review.sql
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:sql/002_insert_qsb_pbr_nullmodel_execution_result_review.sql,pass,sql/002_insert_qsb_pbr_nullmodel_execution_result_review.sql
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:sql/003_validation_queries.sql,pass,sql/003_validation_queries.sql
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,exists:validation/validation_results.csv,pass,validation/validation_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,run_id_consistency,pass,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,input_execution_run_referenced,pass,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,all_families_reviewed,pass,"directed_pair_rewire_null,label_permutation_null,lag_preserving_shuffle_null,random_gram_psd_null,sign_flip_antiparallel_null"
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,critical_nullmodel,pass,lag_preserving_shuffle_null
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,critical_reproduction_1000_of_1000,pass,1000/1000
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,specificity_no_specificity,pass,no_specificity
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,review_outcome,pass,no_specificity_confirmed_for_current_operationalization
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,physical_claim_release_blocked,pass,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,no_nullmodels_executed_in_review,pass,review manifest
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,next_gate,pass,lag_mechanism_required
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,secondary_next_gate,pass,nullmodel_operationalization_review_required
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,external_readiness_internal_only,pass,internal_only
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,forbidden_context:QSB is physically validated,pass,QSB is physically validated
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,forbidden_context:PBR exists physically,pass,PBR exists physically
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,forbidden_context:The six lag axes are spacetime dimensions,pass,The six lag axes are spacetime dimensions
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,forbidden_context:Spacetime emergence is proven,pass,Spacetime emergence is proven
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,forbidden_context:Empirical validation exists,pass,Empirical validation exists
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,sql_copy_column_lists_match_rows,pass,COPY TSV blocks
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,csv_lf_line_endings,pass,9 CSV files
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,csv_lineterminator_declared,pass,csv.DictWriter lineterminator
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,utf8_text_files_readable,pass,22 files
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,git_diff_check,pass,ok
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,no_files_outside_run_package_modified,pass,ok

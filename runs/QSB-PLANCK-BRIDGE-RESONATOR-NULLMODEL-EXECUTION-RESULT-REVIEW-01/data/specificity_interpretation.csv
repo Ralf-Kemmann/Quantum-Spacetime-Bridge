@@ -1,0 +1,2 @@
+run_id,input_run_id,specificity_classification,specificity_de_label,specificity_reason,formal_claim_status,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,no_specificity,keine formale Spezifität,lag_preserving_shuffle_null_reproduced_complete_structure_1000_of_1000,no_stronger_specificity_claim,blocked_no_physics_claim

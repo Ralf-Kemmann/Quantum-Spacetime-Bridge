@@ -1,0 +1,51 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01",
+  "input_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01",
+  "created_at_utc": "2026-07-08T08:54:57+00:00",
+  "review_outcome": "no_specificity_confirmed_for_current_operationalization",
+  "nullmodels_executed_in_this_review_run": false,
+  "input_execution_summary": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01",
+    "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01",
+    "matrix_id": "QSB-EXTRACT03A-R1_K_candidate",
+    "matrix_source": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv",
+    "execution_status": "executed",
+    "executed_at_utc": "2026-07-08T08:43:22+00:00",
+    "samples_per_family": "1000",
+    "nullmodel_family_count": "5",
+    "sample_total": "5000",
+    "specificity_classification": "no_specificity",
+    "specificity_reason": "Mindestens ein geprüftes Nullmodell reproduziert die vollständige Struktur regelmäßig.",
+    "claim_status": "nullmodel_execution_only",
+    "physical_claim_release": "blocked_no_physics_claim",
+    "next_gate": "result_review_required",
+    "git_commit": "6553d3e"
+  },
+  "input_specificity": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01",
+    "specificity_classification": "no_specificity",
+    "specificity_label_de": "keine formale Spezifität",
+    "specificity_reason": "Mindestens ein geprüftes Nullmodell reproduziert die vollständige Struktur regelmäßig.",
+    "critical_nullmodel": "lag_preserving_shuffle_null",
+    "strengthening_nullmodel": "label_permutation_null",
+    "formal_claim_status": "nullmodel_execution_only",
+    "physical_claim_release": "blocked_no_physics_claim",
+    "next_gate": "result_review_required",
+    "external_readiness": "internal_only",
+    "reviewer_risk": "hoch_bei_lag_erhaltendem_nullmodell",
+    "red_team_status": "required"
+  },
+  "critical_nullmodel": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01",
+    "critical_nullmodel": "lag_preserving_shuffle_null",
+    "complete_reproduction_count": "1000",
+    "samples_total": "1000",
+    "complete_reproduction_rate": "1.0",
+    "interpretation": "structure_fully_reproduced_when_lag_classes_preserved",
+    "claim_implication": "no_specificity_beyond_lag_preserving_construction",
+    "physical_claim_release": "blocked_no_physics_claim"
+  },
+  "physical_claim_release": "blocked_no_physics_claim",
+  "next_gate": "lag_mechanism_required",
+  "secondary_next_gate": "nullmodel_operationalization_review_required"
+}

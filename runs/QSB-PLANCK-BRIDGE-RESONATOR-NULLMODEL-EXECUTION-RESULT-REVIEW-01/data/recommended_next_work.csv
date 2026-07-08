@@ -1,0 +1,4 @@
+run_id,work_item_id,work_item,priority,description
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,NW-001,lag_mechanism_review,primary,"Pruefen, ob die Lag-Klassenstruktur unabhaengig formal motiviert werden kann."
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,NW-002,nullmodel_operationalization_review,secondary,"Pruefen, ob das lag-erhaltende Shuffle-Nullmodell passend, zu permissiv oder uebererhaltend ist."
+QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01,NW-003,no_external_claim_release,boundary,Keine externe Claim-Freigabe ohne zusaetzliche Gates.
