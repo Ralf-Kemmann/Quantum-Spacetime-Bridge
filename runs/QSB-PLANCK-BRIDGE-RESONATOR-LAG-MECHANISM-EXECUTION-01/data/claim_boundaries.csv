@@ -1,0 +1,8 @@
+run_id,claim_key,status,claim_text,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,formal_lag_diagnostic,allowed_formal_only,Die Lag-Diagnostik ist ein formaler Befund ohne physikalische Freigabe.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,qsb_physical_validation,blocked,Eine physische QSB-Validierungsbehauptung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,pbr_physical_existence,blocked,Eine physische PBR-Existenzbehauptung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,lag_axes_dimensions,blocked,Eine Deutung der sechs Lag-Achsen als Raumzeitdimensionen ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,spacetime_emergence,blocked,Ein Beweis für Raumzeit-Entstehung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,empirical_validation,blocked,Empirische Validierung ist nicht freigegeben.,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,lag_mechanism_physical_proof,blocked,Ein physischer Beweis des Lag-Mechanismus ist nicht freigegeben.,blocked_no_physics_claim

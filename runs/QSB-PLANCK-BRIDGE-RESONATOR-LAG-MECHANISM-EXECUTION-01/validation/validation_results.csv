@@ -1,0 +1,48 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:README.md,pass,README.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01.md,pass,QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:RUN_COMMANDS_PBR_LAG_MECHANISM_EXECUTION01.md,pass,RUN_COMMANDS_PBR_LAG_MECHANISM_EXECUTION01.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/lag_mechanism_execution_summary.csv,pass,data/lag_mechanism_execution_summary.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/lag_mechanism_test_results.csv,pass,data/lag_mechanism_test_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/index_relabeling_results.csv,pass,data/index_relabeling_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/order_scrambling_results.csv,pass,data/order_scrambling_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/independent_lag_variable_results.csv,pass,data/independent_lag_variable_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/shift_operator_results.csv,pass,data/shift_operator_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/toeplitz_dependency_results.csv,pass,data/toeplitz_dependency_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/physical_proxy_results.csv,pass,data/physical_proxy_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/nullmodel_operationalization_review.csv,pass,data/nullmodel_operationalization_review.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/lag_mechanism_decision.csv,pass,data/lag_mechanism_decision.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/claim_boundaries.csv,pass,data/claim_boundaries.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/input_run_lineage.csv,pass,data/input_run_lineage.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:data/lag_mechanism_execution_manifest.json,pass,data/lag_mechanism_execution_manifest.json
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:docs/PBR_LAG_MECHANISM_EXECUTION_SUMMARY_DE.md,pass,docs/PBR_LAG_MECHANISM_EXECUTION_SUMMARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:docs/PBR_LAG_MECHANISM_EXECUTION_TEST_RESULTS_DE.md,pass,docs/PBR_LAG_MECHANISM_EXECUTION_TEST_RESULTS_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:docs/PBR_LAG_MECHANISM_EXECUTION_CLAIM_BOUNDARY_DE.md,pass,docs/PBR_LAG_MECHANISM_EXECUTION_CLAIM_BOUNDARY_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:docs/PBR_LAG_MECHANISM_EXECUTION_NEXT_GATE_DE.md,pass,docs/PBR_LAG_MECHANISM_EXECUTION_NEXT_GATE_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:docs/PBR_LAG_MECHANISM_EXECUTION_INTERPRETATION_DE.md,pass,docs/PBR_LAG_MECHANISM_EXECUTION_INTERPRETATION_DE.md
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:scripts/run_pbr_lag_mechanism_execution.py,pass,scripts/run_pbr_lag_mechanism_execution.py
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:scripts/validate_pbr_lag_mechanism_execution.py,pass,scripts/validate_pbr_lag_mechanism_execution.py
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:sql/001_create_qsb_pbr_lag_mechanism_execution.sql,pass,sql/001_create_qsb_pbr_lag_mechanism_execution.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:sql/002_insert_qsb_pbr_lag_mechanism_execution.sql,pass,sql/002_insert_qsb_pbr_lag_mechanism_execution.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:sql/003_validation_queries.sql,pass,sql/003_validation_queries.sql
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,exists:validation/validation_results.csv,pass,validation/validation_results.csv
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,run_id_consistency,pass,QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,lineage_includes_design_and_review,pass,"QSB-EXTRACT03A-R1,QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-EXECUTION-RESULT-REVIEW-01"
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,all_seven_test_families,pass,"independent_lag_variable_test,index_relabeling_test,nullmodel_operationalization_review,order_scrambling_test,physical_proxy_test,shift_operator_test,toeplitz_dependency_test"
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,valid_execution_status_each_test,pass,status set
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,final_decision_allowed,pass,inconclusive_requires_more_inputs
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,physical_claim_release_blocked,pass,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,physical_proxy_candidate_requires_source,pass,not_available
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,missing_proxy_no_proxy_candidate,pass,inconclusive_requires_more_inputs
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:QSB is physically validated,pass,QSB is physically validated
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:PBR exists physically,pass,PBR exists physically
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:six lag axes are spacetime dimensions,pass,six lag axes are spacetime dimensions
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:spacetime emergence is proven,pass,spacetime emergence is proven
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:empirical validation exists,pass,empirical validation exists
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,forbidden_context:lag mechanism is physically proven,pass,lag mechanism is physically proven
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,sql_copy_column_lists_match_rows,pass,COPY TSV blocks
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,csv_lf_line_endings,pass,13 CSV files
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,csv_lineterminator_declared,pass,csv.DictWriter lineterminator
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,utf8_text_files_readable,pass,27 files
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,git_diff_check,pass,ok
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01,no_files_outside_run_package_modified,pass,ok

@@ -1,0 +1,110 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+  "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-DESIGN-01",
+  "matrix_source": "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv",
+  "lineage_bundle_sha256": [
+    "9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a"
+  ],
+  "tests": {
+    "index_relabeling_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "index_relabeling_test",
+      "execution_status": "executed",
+      "label_permutation_count": 1000,
+      "structure_preserved_under_relabeling": true,
+      "rank_preserved_rate": 1.0,
+      "lag_structure_preserved_rate": 1.0,
+      "label_dependence_score": 0.0,
+      "decision_signal": "labels_alone_not_mechanism"
+    },
+    "order_scrambling_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "order_scrambling_test",
+      "execution_status": "executed",
+      "order_scramble_sample_count": 1000,
+      "rank6_preserved_rate": 1.0,
+      "lag_structure_preserved_rate": 0.001,
+      "collapse_score_mean": 0.337910745360059,
+      "collapse_score_std": 0.07038556638914052,
+      "antiparallelity_preserved_rate": 0.001,
+      "order_dependence_score": 0.999,
+      "decision_signal": "lag_structure_order_dependent"
+    },
+    "independent_lag_variable_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "independent_lag_variable_test",
+      "execution_status": "blocked_missing_required_input",
+      "independent_variable_available": false,
+      "independent_variable_name": "phase_response_raw_range_assessed_as_lag_alias",
+      "lag_reconstruction_accuracy": 0.0,
+      "lag_proxy_correlation": 1.0,
+      "lag_proxy_rank_correlation": 1.0,
+      "lag_proxy_mutual_information_or_group_score": 1.0,
+      "decision_signal": "candidate_variable_present_but_alias_of_abs_lag"
+    },
+    "shift_operator_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "shift_operator_test",
+      "execution_status": "executed",
+      "shift_operator_constructed": true,
+      "shift_orbit_consistency": 0.0,
+      "shift_commutator_norm": 15.407299555733353,
+      "shift_class_reproduction_score": 0.24681707126788255,
+      "translation_invariance_score": 0.24681707126788255,
+      "decision_signal": "cyclic_shift_operator_diagnostic_executed"
+    },
+    "toeplitz_dependency_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "toeplitz_dependency_test",
+      "execution_status": "executed",
+      "toeplitz_fit_score": 1.0,
+      "within_lag_variance_mean": 2.5399476761595057e-33,
+      "between_lag_variance": 0.1930328739481814,
+      "lag_explained_variance_ratio": 1.0,
+      "toeplitz_residual_norm": 2.1361427427109544e-15,
+      "scrambled_toeplitz_fit_score_mean": 0.15194353256412516,
+      "decision_signal": "strong_lag_class_dependence_relative_to_scrambled_order"
+    },
+    "physical_proxy_test": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "physical_proxy_test",
+      "execution_status": "blocked_missing_physical_proxy_input",
+      "physical_proxy_available": false,
+      "physical_proxy_name": "not_available",
+      "physical_proxy_source_artifact": "not_available",
+      "proxy_lag_correlation": 0.0,
+      "proxy_lag_monotonicity_score": 0.0,
+      "proxy_group_reproduction_rate": 0.0,
+      "proxy_independence_assessment": "no_independent_physical_proxy_input_found",
+      "proxy_status": "not_available",
+      "claim_implication": "no_physical_proxy_claim",
+      "decision_signal": "physical_proxy_test_blocked_no_source_data"
+    },
+    "nullmodel_operationalization_review": {
+      "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+      "test_key": "nullmodel_operationalization_review",
+      "execution_status": "executed",
+      "lag_preserving_nullmodel_role": "preserves_hypothesized_lag_class_mechanism",
+      "overpreservation_risk": "high",
+      "hypothesis_preservation_score": 1.0,
+      "nullmodel_appropriateness_class": "hypothesis_preserving_control",
+      "review_conclusion": "1000_of_1000_reproduction_is_expected_if_lag_class_membership_is_the_target_mechanism",
+      "decision_signal": "nullmodel_preserves_target_mechanism_not_sufficient_for_physical_or_independent_claim",
+      "critical_reproduction_rate": 1.0
+    }
+  },
+  "final_decision": {
+    "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01",
+    "final_decision_class": "inconclusive_requires_more_inputs",
+    "decision_rationale": "Lag-/Toeplitz- und Ordnungsdiagnostik zeigen starke formale Lag-Abhängigkeit, aber unabhängige Lag-Variablen und physische Proxy-Daten fehlen.",
+    "order_dependence_score": 0.999,
+    "toeplitz_fit_score": 1.0,
+    "shift_class_reproduction_score": 0.24681707126788255,
+    "independent_variable_available": "false",
+    "physical_proxy_available": "false",
+    "claim_status": "lag_mechanism_execution_only",
+    "physical_claim_release": "blocked_no_physics_claim",
+    "next_gate": "input_artifact_enrichment_required"
+  },
+  "physical_claim_release": "blocked_no_physics_claim"
+}
