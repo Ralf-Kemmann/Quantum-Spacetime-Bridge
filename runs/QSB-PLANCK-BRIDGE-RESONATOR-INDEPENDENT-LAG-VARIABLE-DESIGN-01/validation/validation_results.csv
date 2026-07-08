@@ -1,0 +1,32 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,run_directory_exact,PASS,/home/ralf-kemmann/Downloads/deBroglie_Kaster_Theorie/quantum-spacetime-bridge/runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,required_files_exist,PASS,all_required_files_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,utf8_lf_text_files,PASS,all_required_text_files_utf8_lf
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,run_id_exact,PASS,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,run_type,PASS,independent_lag_variable_design
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,execution_status_design_only,PASS,design_only_not_executed
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,physical_claim_release_blocked,PASS,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,input_scout_referenced_or_blocked,PASS,available
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,next_gate_design_completed,PASS,independent_lag_variable_admissibility_execution_required
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,all_required_independence_criteria_present,PASS,criterion_rows=8
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,criteria_definition_no_confirmation,PASS,criteria_claim_implications_checked
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,all_required_alias_flags_present,PASS,all_alias_flags_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,phase_response_special_alias_rule_present,PASS,phase_response_abs_lag_alias
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,all_required_candidate_classes_present,PASS,all_classes_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,no_class_confirms_independence_or_physical_proxy,PASS,no_confirming_classes
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,all_required_test_designs_present,PASS,all_test_designs_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,no_tests_executed,PASS,test_design_only
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,all_required_decision_classes_present,PASS,all_decisions_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,decision_logic_claim_release_blocked,PASS,all_decisions_block_physical_claims
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,phase_response_special_rule_file_present,PASS,phase_response_abs_lag_alias
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,deep_research_questions_only,PASS,question_rows=5
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,manifest_target_run_id,PASS,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,manifest_no_tests_no_nullmodels,PASS,tests=True nullmodels=True
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,no_nullmodels_executed,PASS,true
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,claim_boundaries_blocked,PASS,claim_rows=15
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,german_view_created,PASS,view_name_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,sql_copy_tables_present,PASS,required_copy_tables_present
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,forbidden_phrases_only_blocked_context,PASS,no_unblocked_forbidden_phrase_hits
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,no_files_outside_run_package_modified,PASS,no_outside_changes
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,pre_existing_modifications_recorded,PASS,
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,git_diff_check_passes,PASS,git diff --check

@@ -1,0 +1,4 @@
+run_id,requirement_key,requirement_text,blocking_if_missing,claim_implication
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,directed_pair_coverage,Coverage für 42 gerichtete Pair-Features muss messbar sein.,true,pair_mapping_required_before_testing
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,mapping_key_separation,Mapping-Schlüssel darf nicht zugleich Wertquelle sein.,true,pair_mapping_required_before_testing
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,missing_pair_report,Fehlende Paare müssen explizit gelistet werden.,true,pair_mapping_required_before_testing

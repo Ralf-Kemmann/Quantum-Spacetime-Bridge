@@ -1,0 +1,2 @@
+run_id,input_scout_run_id,input_file,input_status,input_scout_decision,candidate_count,alias_high_count,proxy_family_count,gap_count,lineage_commit_status,claim_implication
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,data/scout_summary.csv,available,candidate_artifacts_found_but_alias_risk_high,260,51,8,5,committed_or_no_local_delta_detected,input_scout_used_for_design_only_no_independence_claim

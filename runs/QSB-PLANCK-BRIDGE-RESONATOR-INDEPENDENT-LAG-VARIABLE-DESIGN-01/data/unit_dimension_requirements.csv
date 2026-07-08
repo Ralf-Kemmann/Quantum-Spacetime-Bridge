@@ -1,0 +1,5 @@
+run_id,requirement_key,requirement_text,blocking_if_missing,claim_implication
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,unit_present,"Einheit muss vorhanden sein, wenn Kandidat physikalisch/proxy-artig ist.",true,metadata_required_for_proxy_review
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,dimension_vector_present,Dimensionsvektor oder dimensionslose Begründung muss vorhanden sein.,true,metadata_required_for_proxy_review
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,conversion_rule_present,"Konversionsregel muss dokumentiert sein, falls Werte transformiert wurden.",true,metadata_required_for_proxy_review
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,dimensionless_reason_present,"Dimensionslosigkeit muss begründet sein, falls keine Einheit vorliegt.",conditional,metadata_required_for_proxy_review

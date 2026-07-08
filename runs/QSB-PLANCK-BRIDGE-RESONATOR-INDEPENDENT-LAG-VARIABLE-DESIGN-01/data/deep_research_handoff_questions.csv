@@ -1,0 +1,6 @@
+run_id,question_id,handoff_question,evidence_status
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,DRQ-001,Welche mathematischen Nicht-Alias-Kriterien sind für lag-dominierte Matrizen geeignet?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,DRQ-002,Welche Informationsmaße eignen sich zur Trennung von Kandidatenvariable und lag/|lag|?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,DRQ-003,Welche formalen Kriterien unterscheiden unabhängige Ordnungsvariablen von Indexsurrogaten?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,DRQ-004,"Welche Reviewer-Einwände entstehen bei Kandidatenvariablen, die hoch mit |lag| korrelieren?",question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,DRQ-005,"Welche Proxy-Kriterien sind in Moden-, Phasen-, Energie- und Impulsstrukturen methodisch zulässig?",question_only_no_deep_research_answer

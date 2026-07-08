@@ -1,0 +1,11 @@
+run_id,candidate_class,class_definition,allowed_status,claim_implication,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,admissible_independent_lag_variable_candidate,Alle Designkriterien scheinen erfüllbar; spätere Ausführung erforderlich.,candidate_class_defined,candidate_class_only_no_confirmation,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,formal_independent_variable_candidate_requires_execution,Formal plausibler Kandidat mit offener Testausführung.,candidate_class_defined,requires_execution,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,physical_proxy_candidate_requires_source_review,"Proxy-artiger Kandidat mit Source-, Einheiten- und Dimensionsreview-Bedarf.",candidate_class_defined,no_physical_proxy_claim,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,alias_of_abs_lag_or_lag,Kandidat ist oder wirkt wie lag/|lag|-Alias.,candidate_class_defined,reject_for_independent_lag_gate,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,alias_of_pair_id_or_index_order,"Kandidat folgt pair_id, i/j oder Kanalordnung.",candidate_class_defined,reject_or_repair_lineage,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,lineage_incomplete_requires_repair,Source-Lineage reicht nicht aus.,candidate_class_defined,repair_before_use,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,not_pair_mappable,Mapping auf 42 gerichtete Pair-Features fehlt.,candidate_class_defined,cannot_enter_lag_mechanism_test,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,unit_or_dimension_missing_requires_metadata,Einheiten-/Dimensionsmetadaten fehlen bei proxy-artigem Kandidat.,candidate_class_defined,metadata_repair_required,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,excluded_not_relevant,Nicht relevant für unabhängige Lag-Variable.,candidate_class_defined,exclude_from_gate,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,unknown_requires_review,Befund unklar.,candidate_class_defined,manual_review_required,blocked_no_physics_claim

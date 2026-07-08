@@ -1,0 +1,5 @@
+run_id,requirement_key,requirement_text,blocking_if_missing,claim_implication
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,generating_run,Generating Run oder Datenquelle muss eindeutig angegeben sein.,true,lineage_required_before_admissibility
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,source_file_or_table,Quell-Datei oder DWH-Tabelle muss angegeben sein.,true,lineage_required_before_admissibility
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,transformation_rule,Transformationsregel muss vollständig dokumentiert sein.,true,lineage_required_before_admissibility
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,not_derived_from_forbidden_basis,"Nicht-Ableitung aus lag, |j-i|, pair_id oder Indexordnung muss belegbar sein.",true,lineage_required_before_admissibility

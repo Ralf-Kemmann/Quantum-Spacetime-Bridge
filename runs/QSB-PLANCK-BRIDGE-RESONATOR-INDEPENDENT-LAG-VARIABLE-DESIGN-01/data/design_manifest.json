@@ -1,0 +1,24 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01",
+  "target_run_id_verified": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01",
+  "run_type": "independent_lag_variable_design",
+  "design_only": true,
+  "no_tests_executed": true,
+  "no_nullmodels_executed": true,
+  "input_scout_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01",
+  "input_scout_status": "available",
+  "lineage_commit_status": "committed_or_no_local_delta_detected",
+  "required_candidate_classes": [
+    "admissible_independent_lag_variable_candidate",
+    "formal_independent_variable_candidate_requires_execution",
+    "physical_proxy_candidate_requires_source_review",
+    "alias_of_abs_lag_or_lag",
+    "alias_of_pair_id_or_index_order",
+    "lineage_incomplete_requires_repair",
+    "not_pair_mappable",
+    "unit_or_dimension_missing_requires_metadata",
+    "excluded_not_relevant",
+    "unknown_requires_review"
+  ],
+  "physical_claim_release": "blocked_no_physics_claim"
+}
