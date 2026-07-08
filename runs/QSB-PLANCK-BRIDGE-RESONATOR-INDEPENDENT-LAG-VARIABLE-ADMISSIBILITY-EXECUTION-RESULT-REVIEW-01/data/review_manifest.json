@@ -1,0 +1,11 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-RESULT-REVIEW-01",
+  "target_run_id_verified": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-RESULT-REVIEW-01",
+  "source_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01",
+  "pre_existing_modified_files_detected": false,
+  "pre_existing_modified_files": [],
+  "no_admissibility_checks_executed_in_review_run": true,
+  "no_lag_mechanism_tests_executed": true,
+  "no_nullmodels_executed": true,
+  "physical_claim_release": "blocked_no_physics_claim"
+}
