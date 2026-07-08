@@ -1,0 +1,4 @@
+run_id,recommended_run_id,recommendation_rank,purpose
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-RESULT-REVIEW-01,QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DESIGN-01,primary,Define enrichment package for independent lag variables and proxy sources.
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-RESULT-REVIEW-01,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,secondary,Define criteria for independent lag variable admissibility.
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-RESULT-REVIEW-01,QSB-PLANCK-BRIDGE-RESONATOR-PHYSICAL-PROXY-SOURCE-REVIEW-01,tertiary,Review possible physical proxy source systems without releasing physical claims.
