@@ -1,0 +1,7 @@
+run_id,candidate_id,gap_key,gap_status,review_interpretation
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0127,pre_pair_existence,not_established,current artifacts do not show candidate existence before pair construction
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0127,transformation_lineage,not_reconstructable_from_available_artifacts,no generator or transformation chain available beyond source template
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0127,pair_mapping_evidence,missing,no independent pair-mapping evidence found
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0128,pre_pair_existence,not_established,current artifacts do not show candidate existence before pair construction
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0128,transformation_lineage,not_reconstructable_from_available_artifacts,no generator or transformation chain available beyond source template
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0128,pair_mapping_evidence,missing,no independent pair-mapping evidence found

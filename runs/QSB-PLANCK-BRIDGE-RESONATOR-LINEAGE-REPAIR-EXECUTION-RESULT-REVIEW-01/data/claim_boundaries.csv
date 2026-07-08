@@ -1,0 +1,8 @@
+run_id,claim_key,claim_text,status,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-001,lineage repair review upgrades candidate,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-002,lineage repair review proves independent lag variable,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-003,lineage repair review proves physical proxy,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-004,not repairable proves QSB false,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-005,QSB is physically validated,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-006,PBR exists physically,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,BLOCK-007,lag mechanism is physically proven,blocked,blocked_no_physics_claim

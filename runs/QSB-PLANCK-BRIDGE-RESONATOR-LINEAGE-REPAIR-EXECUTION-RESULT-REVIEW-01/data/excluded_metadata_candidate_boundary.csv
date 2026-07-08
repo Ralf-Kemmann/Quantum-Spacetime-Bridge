@@ -1,0 +1,2 @@
+run_id,candidate_id,reason,evaluated_in_lineage_repair_review,boundary
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,CAND-0091,metadata_repair_required_not_lineage_repair_required,false,CAND-0091 belongs to metadata repair triage not lineage repair closure

@@ -1,0 +1,13 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,reviewed_target_candidate_count,PASS,reviewed_target_candidate_count=2
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,reviewed_candidates,PASS,reviewed_candidates=CAND-0127,CAND-0128
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,excluded_candidate,PASS,excluded_candidate=CAND-0091
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,candidate_upgrade_count,PASS,candidate_upgrade_count=0
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,closed_not_repairable_candidate_count,PASS,closed_not_repairable_candidate_count=2
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,further_lineage_repair_recommended,PASS,further_lineage_repair_recommended=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,admissibility_checks_rerun,PASS,admissibility_checks_rerun=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,mechanism_tests_executed,PASS,mechanism_tests_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,nullmodels_executed,PASS,nullmodels_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,deep_research_used_as_internal_evidence,PASS,deep_research_used_as_internal_evidence=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,physical_claim_release,PASS,physical_claim_release=blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01,recommended_next_run,PASS,recommended_next_run=QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01
