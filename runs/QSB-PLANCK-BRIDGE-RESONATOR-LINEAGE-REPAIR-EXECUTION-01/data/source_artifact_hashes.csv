@@ -1,0 +1,3 @@
+run_id,candidate_id,candidate_name,source_artifact_path,sha256,line_count,git_origin_commit,git_origin_subject,source_artifact_exists,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0127,candidate_term_match,data/bmc01/bmc01_baseline_relational_table_template.csv,be10af36c6da4971122a0080e5795f47704efb737e9d3598d471d31eb8d11816,13,c89be08,Add BMC-01 and BMC-04 input templates,true,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0128,candidate_term_match,data/bmc04/bmc04_baseline_relational_table_template.csv,8e66ddb6ef83b11cdd1d452ecdf4eb70afb183b4941e31ac9777c1f671ac4f0a,13,c89be08,Add BMC-01 and BMC-04 input templates,true,blocked_no_physics_claim

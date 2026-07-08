@@ -1,0 +1,11 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,target_candidate_count,PASS,target_candidate_count=2
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,cand_0091_excluded,PASS,CAND-0091 excluded because metadata_repair_required
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,source_hashes_computed,PASS,CAND-0127 and CAND-0128 sha256 recorded
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,candidate_upgrade_count,PASS,candidate_upgrade_count=0
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,admissibility_checks_rerun,PASS,admissibility_checks_rerun=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,lag_mechanism_tests_executed,PASS,lag_mechanism_tests_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,nullmodels_executed,PASS,nullmodels_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,physical_claim_release,PASS,physical_claim_release=blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,deep_research_not_internal_evidence,PASS,Deep Research was not used as internal evidence
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,recommended_next_run,PASS,recommended_next_run=QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01

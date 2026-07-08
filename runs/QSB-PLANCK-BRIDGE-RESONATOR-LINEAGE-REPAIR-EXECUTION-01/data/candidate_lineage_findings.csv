@@ -1,0 +1,7 @@
+run_id,candidate_id,field_observed,field_value,interpretation,repair_implication
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0127,csv_columns,pair_id|endpoint_a|endpoint_b|weight|local_group|shell_label,pair-like template fields present,does_not_establish_pre_pair_existence
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0128,csv_columns,pair_id|endpoint_a|endpoint_b|weight|shell_label|local_group,pair-like template fields present,does_not_establish_pre_pair_existence
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0127,git_origin,c89be08,source file version origin found,version_hash_partially_repaired
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0128,git_origin,c89be08,source file version origin found,version_hash_partially_repaired
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0127,pair_mapping_evidence,not_found_in_available_artifact,no independent 42 directed pair-feature mapping evidence found,pair_mapping_remains_missing
+QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-01,CAND-0128,pair_mapping_evidence,not_found_in_available_artifact,no independent 42 directed pair-feature mapping evidence found,pair_mapping_remains_missing
