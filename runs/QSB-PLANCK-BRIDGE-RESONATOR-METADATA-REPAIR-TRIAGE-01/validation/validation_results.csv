@@ -1,0 +1,14 @@
+run_id,check_name,status,detail
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,metadata_repair_candidate_count,PASS,metadata_repair_candidate_count=1
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,metadata_repair_candidate,PASS,metadata_repair_candidate=CAND-0091
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,lineage_candidates_reopened,PASS,lineage_candidates_reopened=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,closed_lineage_candidate_count,PASS,closed_lineage_candidate_count=2
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,candidate_upgrade_count,PASS,candidate_upgrade_count=0
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,metadata_repair_executed,PASS,metadata_repair_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,admissibility_checks_rerun,PASS,admissibility_checks_rerun=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,mechanism_tests_executed,PASS,mechanism_tests_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,nullmodels_executed,PASS,nullmodels_executed=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,deep_research_used_as_internal_evidence,PASS,deep_research_used_as_internal_evidence=false
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,physical_claim_release,PASS,physical_claim_release=blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,exactly_one_triage_decision,PASS,triage_decision=metadata_repair_not_recommended_close_candidate
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,recommended_next_run,PASS,recommended_next_run=QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01

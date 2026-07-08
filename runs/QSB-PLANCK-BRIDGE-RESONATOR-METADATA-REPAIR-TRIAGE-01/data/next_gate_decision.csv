@@ -1,0 +1,2 @@
+run_id,triage_decision,recommended_next_run,metadata_repair_design_recommended,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,metadata_repair_not_recommended_close_candidate,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01,false,blocked_no_physics_claim

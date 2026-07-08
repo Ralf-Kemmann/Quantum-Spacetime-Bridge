@@ -1,0 +1,3 @@
+run_id,candidate_id,lineage_status,reopened_in_this_run,boundary
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,CAND-0127,closed_not_repairable_as_independent_lag_variable_from_available_artifacts,false,closed lineage candidates are not reopened by metadata triage
+QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01,CAND-0128,closed_not_repairable_as_independent_lag_variable_from_available_artifacts,false,closed lineage candidates are not reopened by metadata triage
