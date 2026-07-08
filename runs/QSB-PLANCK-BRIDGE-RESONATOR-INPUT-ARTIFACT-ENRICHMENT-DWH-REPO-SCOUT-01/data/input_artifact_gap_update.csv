@@ -1,0 +1,6 @@
+run_id,gap_key,gap_status,why_needed,update_note
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,independent_lag_variable_artifact,open_candidate_scout_completed,Need non-alias lag variable with lineage.,candidate_artifacts_require_review
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,physical_proxy_source_artifact,open_candidate_scout_completed,Need mappable physical proxy source values.,candidate_sources_require_mapping_review
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,proxy_independence_criteria,open_requires_design,Need criteria distinguishing proxy from lag alias.,deep_research_or_design_criteria_required
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,phase_response_alias_review,high_priority,Phase response appears alias-like against abs_lag.,alias_review_required
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,source_lineage_for_candidate_variables,open_requires_lineage_review,Need source lineage for candidate variables.,lineage_repair_or_review_required

@@ -1,0 +1,6 @@
+run_id,question_id,handoff_question,evidence_status
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,DRQ-001,Welche formalen Kriterien unterscheiden eine unabhängige Lag-Variable von einem Alias von |j-i|?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,DRQ-002,Welche mathematischen Strukturen sind für lag-dominierte Matrizen relevant?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,DRQ-003,Welche Kriterien gelten für Shift-/Translations-/Toeplitz-Strukturen?,question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,DRQ-004,"Welche physikalischen Proxy-Größen wären bei Moden-, Phasen-, Energie- oder Impulsstrukturen methodisch zulässig?",question_only_no_deep_research_answer
+QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,DRQ-005,Welche Reviewer-Einwände entstehen bei Proxy-Korrelationen?,question_only_no_deep_research_answer
