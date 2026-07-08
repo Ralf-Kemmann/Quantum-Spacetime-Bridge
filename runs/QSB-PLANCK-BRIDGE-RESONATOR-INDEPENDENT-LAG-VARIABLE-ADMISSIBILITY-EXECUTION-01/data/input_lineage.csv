@@ -1,0 +1,3 @@
+run_id,input_run_id,input_kind,input_status,input_decision,lineage_commit_status
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01,scout,available,candidate_artifacts_found_but_alias_risk_high,committed_or_no_local_delta_detected
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01,design,available,independent_lag_variable_design_completed_execution_required,committed_or_no_local_delta_detected

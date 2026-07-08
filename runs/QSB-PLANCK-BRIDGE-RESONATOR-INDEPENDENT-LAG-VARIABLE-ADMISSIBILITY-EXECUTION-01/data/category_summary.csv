@@ -1,0 +1,4 @@
+run_id,category,count_total,count_admissible_for_testing,count_rejected,count_repair_required,count_red_team_review,dominant_blocker
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,frequency_proxy,112,0,112,0,0,candidate_rejected_not_pair_mappable
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,phase_proxy,51,0,50,1,0,candidate_rejected_not_pair_mappable
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,unknown,97,0,95,2,0,candidate_rejected_not_pair_mappable

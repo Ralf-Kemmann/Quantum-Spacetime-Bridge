@@ -1,0 +1,11 @@
+{
+  "run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01",
+  "target_run_id_verified": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01",
+  "input_scout_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INPUT-ARTIFACT-ENRICHMENT-DWH-REPO-SCOUT-01",
+  "input_design_run_id": "QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-DESIGN-01",
+  "pre_existing_modified_files_detected": false,
+  "pre_existing_modified_files": [],
+  "no_lag_mechanism_tests_executed": true,
+  "no_nullmodels_executed": true,
+  "physical_claim_release": "blocked_no_physics_claim"
+}

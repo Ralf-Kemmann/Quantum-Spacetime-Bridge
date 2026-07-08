@@ -1,0 +1,2 @@
+run_id,next_gate,secondary_next_gate,execution_authorization,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,lineage_repair_required,physical_proxy_source_review_required,admissibility_execution_completed_no_lag_mechanism_test,blocked_no_physics_claim

@@ -1,0 +1,16 @@
+run_id,claim_key,claim_text,status,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-001,QSB is physically validated,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-002,PBR exists physically,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-003,six lag axes are spacetime dimensions,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-004,spacetime emergence is proven,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-005,empirical validation exists,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-006,lag classes are physical dimensions,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-007,lag mechanism is physically proven,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-008,candidate artifact proves independent lag mechanism,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-009,candidate artifact proves physical proxy,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-010,admissible candidate confirms independent lag variable,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-011,admissible candidate releases physical claim,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-012,DWH presence alone proves independence,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-013,repo presence alone proves independence,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-014,literature note alone proves proxy for current matrix,blocked,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,BLOCK-015,phase-response values are independent lag variables despite alias assessment,blocked,blocked_no_physics_claim

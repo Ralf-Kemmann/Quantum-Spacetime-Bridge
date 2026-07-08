@@ -1,0 +1,9 @@
+run_id,admissibility_decision_class,candidate_count,physical_claim_release
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_admissible_for_lag_mechanism_testing,0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_admissible_only_after_lineage_repair,2,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_admissible_only_after_metadata_repair,1,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_rejected_alias_of_lag,0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_rejected_alias_of_pair_or_index,0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_rejected_not_pair_mappable,257,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_rejected_not_independent,0,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01,candidate_requires_red_team_review,0,blocked_no_physics_claim
