@@ -94,12 +94,48 @@
     );
 
     CREATE TABLE IF NOT EXISTS qsb_planck_bridge.pbr_nullmodel_validation_results (
-        validation_id text PRIMARY KEY,
+        run_id text NOT NULL,
+        validation_id text NOT NULL,
         check_name text NOT NULL,
         status text NOT NULL,
         severity text NOT NULL,
         observed_value text NOT NULL,
         expected_value text NOT NULL,
         message text NOT NULL,
-        blocking text NOT NULL
+        blocking text NOT NULL,
+        PRIMARY KEY (run_id, validation_id)
     );
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_design_summary
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_family_spec
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_family_spec
+        ADD COLUMN IF NOT EXISTS next_gate_implication text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_claim_boundaries
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_input_artifact_requirements
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_gate_decision
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_diagnostics_required
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_failure_modes
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_execution_authorization
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE qsb_planck_bridge.pbr_nullmodel_validation_results
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    UPDATE qsb_planck_bridge.pbr_nullmodel_validation_results
+    SET run_id = 'QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01'
+    WHERE run_id IS NULL;

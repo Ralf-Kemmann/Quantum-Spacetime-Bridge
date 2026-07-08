@@ -120,7 +120,10 @@ def main() -> int:
     docs_dir = run_dir / "docs"
     sql_dir = run_dir / "sql"
 
-    families = nullmodels()
+    families = [
+        {"run_id": RUN_ID, **family, "next_gate_implication": NEXT_GATE}
+        for family in nullmodels()
+    ]
     summary = {
         "run_id": RUN_ID,
         "previous_run_id": PREVIOUS_RUN,
@@ -338,10 +341,13 @@ def main() -> int:
     ## Optional DWH import
 
     ```bash
+    RUN_DIR="runs/{RUN_ID}"
     psql -d qsb_research_dwh -f runs/{RUN_ID}/sql/001_create_qsb_pbr_nullmodel_design.sql
     psql -d qsb_research_dwh -f runs/{RUN_ID}/sql/002_insert_qsb_pbr_nullmodel_design.sql
     psql -d qsb_research_dwh -f runs/{RUN_ID}/sql/003_validation_queries.sql
     ```
+
+    The import is repeatable for this run package. The insert script clears rows for `{RUN_ID}` using table-specific keys and runs inside one transaction.
 
     ## Local checks
 
@@ -522,15 +528,51 @@ def main() -> int:
     );
 
     CREATE TABLE IF NOT EXISTS {SCHEMA}.pbr_nullmodel_validation_results (
-        validation_id text PRIMARY KEY,
+        run_id text NOT NULL,
+        validation_id text NOT NULL,
         check_name text NOT NULL,
         status text NOT NULL,
         severity text NOT NULL,
         observed_value text NOT NULL,
         expected_value text NOT NULL,
         message text NOT NULL,
-        blocking text NOT NULL
+        blocking text NOT NULL,
+        PRIMARY KEY (run_id, validation_id)
     );
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_design_summary
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_family_spec
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_family_spec
+        ADD COLUMN IF NOT EXISTS next_gate_implication text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_claim_boundaries
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_input_artifact_requirements
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_gate_decision
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_diagnostics_required
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_failure_modes
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_execution_authorization
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    ALTER TABLE {SCHEMA}.pbr_nullmodel_validation_results
+        ADD COLUMN IF NOT EXISTS run_id text;
+
+    UPDATE {SCHEMA}.pbr_nullmodel_validation_results
+    SET run_id = '{RUN_ID}'
+    WHERE run_id IS NULL;
     """
     write_text(sql_dir / "001_create_qsb_pbr_nullmodel_design.sql", create_sql)
 
@@ -538,15 +580,30 @@ def main() -> int:
     -- Import CSV artifacts for {RUN_ID}.
     -- Run from repository root after 001_create_qsb_pbr_nullmodel_design.sql.
 
-    \\copy {SCHEMA}.pbr_nullmodel_design_summary FROM 'runs/{RUN_ID}/data/nullmodel_design_summary.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_family_spec FROM 'runs/{RUN_ID}/data/nullmodel_family_spec.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_claim_boundaries FROM 'runs/{RUN_ID}/data/claim_boundaries.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_input_artifact_requirements FROM 'runs/{RUN_ID}/data/input_artifact_requirements.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_gate_decision FROM 'runs/{RUN_ID}/data/gate_decision.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_diagnostics_required FROM 'runs/{RUN_ID}/data/nullmodel_diagnostics_required.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_failure_modes FROM 'runs/{RUN_ID}/data/nullmodel_failure_modes.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_execution_authorization FROM 'runs/{RUN_ID}/data/nullmodel_execution_authorization.csv' WITH (FORMAT csv, HEADER true)
-    \\copy {SCHEMA}.pbr_nullmodel_validation_results FROM 'runs/{RUN_ID}/validation/validation_results.csv' WITH (FORMAT csv, HEADER true)
+    \\set ON_ERROR_STOP on
+    BEGIN;
+
+    DELETE FROM {SCHEMA}.pbr_nullmodel_validation_results WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_execution_authorization WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_failure_modes WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_diagnostics_required WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_gate_decision WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_input_artifact_requirements WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_claim_boundaries WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_family_spec WHERE run_id = '{RUN_ID}';
+    DELETE FROM {SCHEMA}.pbr_nullmodel_design_summary WHERE run_id = '{RUN_ID}';
+
+    \\copy {SCHEMA}.pbr_nullmodel_design_summary (run_id, previous_run_id, design_status, execution_status, claim_status, physical_claim_release, external_readiness, next_gate, schema_name, nullmodel_family_count, formal_reference_finding) FROM 'runs/{RUN_ID}/data/nullmodel_design_summary.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_family_spec (run_id, nullmodel_id, nullmodel_key, purpose, preserved_quantities, randomized_quantities, expected_diagnostic_outputs, admissibility_criteria, failure_modes, required_input_artifacts, execution_authorization_status, claim_boundary, next_gate_implication) FROM 'runs/{RUN_ID}/data/nullmodel_family_spec.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_claim_boundaries (run_id, boundary_id, claim_key, status, claim_boundary_text) FROM 'runs/{RUN_ID}/data/claim_boundaries.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_input_artifact_requirements (run_id, artifact_id, artifact_key, required_path, required_for, status) FROM 'runs/{RUN_ID}/data/input_artifact_requirements.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_gate_decision (run_id, gate_id, gate_name, gate_decision, execution_status, physical_claim_release, external_readiness, next_gate, revision_trigger) FROM 'runs/{RUN_ID}/data/gate_decision.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_diagnostics_required (run_id, nullmodel_key, diagnostic_key, required, execution_status, output_claim_status) FROM 'runs/{RUN_ID}/data/nullmodel_diagnostics_required.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_failure_modes (run_id, nullmodel_key, failure_mode_id, failure_mode, mitigation_status) FROM 'runs/{RUN_ID}/data/nullmodel_failure_modes.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_execution_authorization (run_id, nullmodel_key, execution_authorization_status, authorization_note, required_before_execution) FROM 'runs/{RUN_ID}/data/nullmodel_execution_authorization.csv' WITH (FORMAT csv, HEADER true)
+    \\copy {SCHEMA}.pbr_nullmodel_validation_results (run_id, validation_id, check_name, status, severity, observed_value, expected_value, message, blocking) FROM 'runs/{RUN_ID}/validation/validation_results.csv' WITH (FORMAT csv, HEADER true)
+
+    COMMIT;
     """
     write_text(sql_dir / "002_insert_qsb_pbr_nullmodel_design.sql", insert_sql)
 
@@ -565,8 +622,13 @@ def main() -> int:
 
     SELECT status, count(*) AS checks
     FROM {SCHEMA}.pbr_nullmodel_validation_results
+    WHERE run_id = '{RUN_ID}'
     GROUP BY status
     ORDER BY status;
+
+    SELECT physical_claim_release, next_gate
+    FROM {SCHEMA}.pbr_nullmodel_gate_decision
+    WHERE run_id = '{RUN_ID}';
 
     SELECT *
     FROM {SCHEMA}.pbr_nullmodel_claim_boundaries

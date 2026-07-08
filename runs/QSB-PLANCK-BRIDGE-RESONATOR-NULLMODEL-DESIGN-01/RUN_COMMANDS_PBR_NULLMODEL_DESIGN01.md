@@ -15,10 +15,13 @@
     ## Optional DWH import
 
     ```bash
+    RUN_DIR="runs/QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01"
     psql -d qsb_research_dwh -f runs/QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01/sql/001_create_qsb_pbr_nullmodel_design.sql
     psql -d qsb_research_dwh -f runs/QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01/sql/002_insert_qsb_pbr_nullmodel_design.sql
     psql -d qsb_research_dwh -f runs/QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01/sql/003_validation_queries.sql
     ```
+
+    The import is repeatable for this run package. The insert script clears rows for `QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01` using table-specific keys and runs inside one transaction.
 
     ## Local checks
 

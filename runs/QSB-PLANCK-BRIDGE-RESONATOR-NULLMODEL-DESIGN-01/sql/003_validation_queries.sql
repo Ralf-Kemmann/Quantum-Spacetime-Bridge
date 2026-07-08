@@ -12,8 +12,13 @@
 
     SELECT status, count(*) AS checks
     FROM qsb_planck_bridge.pbr_nullmodel_validation_results
+    WHERE run_id = 'QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01'
     GROUP BY status
     ORDER BY status;
+
+    SELECT physical_claim_release, next_gate
+    FROM qsb_planck_bridge.pbr_nullmodel_gate_decision
+    WHERE run_id = 'QSB-PLANCK-BRIDGE-RESONATOR-NULLMODEL-DESIGN-01';
 
     SELECT *
     FROM qsb_planck_bridge.pbr_nullmodel_claim_boundaries
