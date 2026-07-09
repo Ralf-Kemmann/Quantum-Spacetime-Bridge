@@ -1,0 +1,12 @@
+criterion_id,criterion,required_status_for_unblock
+FUC-01,A standalone matrix construction contract exists with contract_id and source hash,required_pass
+FUC-02,All K input paths and hashes are pinned,required_pass
+FUC-03,Pair ID, endpoint, pair policy, duplicate, missing, order, and diagonal policies are explicit,required_pass
+FUC-04,Lag value/class derivation and join policy are explicit,required_pass
+FUC-05,K entry formula, weighting, normalization, symmetry, and diagonal policies are explicit,required_pass
+FUC-06,PSD/eigen/rank/tolerance requirements are explicit or explicitly non-required,required_pass
+FUC-07,A K-only reconstruction command/function is specified,required_pass
+FUC-08,Expected K output hash and validation checks are specified,required_pass
+FUC-09,Randomization eligibility and forbidden downstream use are explicit,required_pass
+FUC-10,Claim boundary preserves blocked physical and mechanism releases,required_pass
+

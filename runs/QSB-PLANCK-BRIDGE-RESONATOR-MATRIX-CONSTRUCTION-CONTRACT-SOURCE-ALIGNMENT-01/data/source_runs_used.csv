@@ -1,0 +1,7 @@
+source_id,source_run_or_artifact,path,sha256,role,access_mode,status
+SRC-01,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,not_rehashed_in_this_alignment,blocked execution context,read-only,used
+SRC-02,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,not_rehashed_in_this_alignment,sufficiency design context,read-only,used
+SRC-03,QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01,not_rehashed_in_this_alignment,closure review context,read-only,used
+SRC-04,QSB-EXTRACT03A-R1,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum,see_source_artifact_hashes,primary K source lineage,read-only,used
+SRC-05,EXTRACT03A-R1 runner,scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,283aa9295d76c1243398550e0da4447072628989c21f3d987c4b5e8ca1649c06,executable reconstruction source candidate,read-only,used
+

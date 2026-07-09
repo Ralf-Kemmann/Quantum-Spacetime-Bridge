@@ -1,0 +1,3 @@
+k_export_id,path,sha256,line_count,row_count_estimate,columns,matrix_shape,lineage_bundle_sha256,export_status
+KEXP-01,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,1765,1764,"row_pair_id,column_pair_id,K_candidate,lineage_bundle_sha256","42x42",9b242d40f34d864e4c521d873e94b3bea8f07b573386e99d617cd320d483646a,found_read_only
+

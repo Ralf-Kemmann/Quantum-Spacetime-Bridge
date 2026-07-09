@@ -1,0 +1,3 @@
+run_id,alignment_status,k_export_found,standalone_contract_found,sufficiency_unblocked,physical_claim_release,mechanism_claim_release,summary
+QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01,partial_contract_found_requires_design_review,yes,no,no,blocked_no_physics_claim,blocked_no_mechanism_claim,"Executable K construction source and lineage were found, but no complete standalone matrix construction contract was found."
+

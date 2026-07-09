@@ -1,0 +1,8 @@
+gap_id,gap,impact_on_sufficiency_unblock,blocking,recommended_resolution
+GAP-01,No standalone matrix construction contract artifact,Future sufficiency execution would still rely on code reading and inference,yes,Create a reviewed MATRIX_CONSTRUCTION_CONTRACT-DESIGN artifact before rerun.
+GAP-02,No explicit duplicate and missing pair policy packaged in contract,Reconstruction audit cannot distinguish intended rejection behavior from incidental script behavior,yes,Specify duplicate/missing pair rejection or canonicalization policy.
+GAP-03,No lag-class policy tying K rows/columns to sufficiency lag variables,The lag-class sufficiency arm cannot be cleanly linked to K construction inputs,yes,Document lag value/class derivation and allowed join keys.
+GAP-04,Rank requirement absent,PSD/eigen checks exist but rank admissibility is not contractually defined,yes,Add rank/eigen/tolerance requirements or explicitly mark rank as non-required.
+GAP-05,No standalone reconstruction command for K-only reproduction,Future reviewer cannot reproduce K without invoking historical EXTRACT03A-R1 runner context,yes,Provide a K-only reconstruction command/function with pinned input paths and expected hash.
+GAP-06,Reuse limitations not written for PBR lag-class sufficiency,Claim boundary and reuse scope are ambiguous for the blocked execution,yes,Add explicit limitations and forbidden downstream claims.
+

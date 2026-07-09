@@ -1,0 +1,11 @@
+precondition_id,precondition,status,evidence_or_requirement,blocking_if_missing
+PRE-01,F3 SQLite source available,found,runs/QSB-INTERFACE01F3/authorized_delta_phi_export_staging_preflight/09_delta_phi_staging_preflight.sqlite,yes
+PRE-02,Canonical ordered non-diagonal pair basis available,found,runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv,yes
+PRE-03,Phase vectors use wrapped_delta_phi_ij_x over x_index,found,runs/QSB-EXTRACT02A/input/human_freeze_decisions.json and EXTRACT03A-R1 script,yes
+PRE-04,L2 normalization per vector documented,found,runs/QSB-EXTRACT02A/input/human_freeze_decisions.json,yes
+PRE-05,Zero-norm rejection documented,found,runs/QSB-EXTRACT02A/input/human_freeze_decisions.json and EXTRACT03A-R1 validation,yes
+PRE-06,K formula documented,found,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/09_tensor_schema_runtime_mapping.csv,yes
+PRE-07,K-only reconstruction command documented,missing,Required for future unblock,yes
+PRE-08,Expected K output hash specified,partial,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d found in lineage,yes
+PRE-09,Lag-class join policy documented,missing,Required for PBR Lag-Class Sufficiency reuse,yes
+

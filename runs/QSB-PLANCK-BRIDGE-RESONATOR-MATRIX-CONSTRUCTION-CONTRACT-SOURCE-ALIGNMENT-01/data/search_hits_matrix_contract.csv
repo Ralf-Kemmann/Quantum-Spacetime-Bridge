@@ -1,0 +1,7 @@
+hit_id,path,hit_summary,classification
+HIT-01,scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,"Computes normalized wrapped phase-response vectors, K=normalized@normalized.T, symmetrizes K, sets diagonal to 1.0.",primary_partial_contract_source
+HIT-02,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/09_tensor_schema_runtime_mapping.csv,"States K_candidate source/formula as normalized_vector_a dot normalized_vector_b.",supporting_mapping
+HIT-03,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/12_K_validation_results.csv,"Records K finite, shape, symmetry, diagonal, PSD lower tolerance, and range checks.",supporting_validation
+HIT-04,runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv,"Defines canonical pair ID, ordered non-diagonal pairs, pair count, and numeric ordering.",supporting_pair_basis
+HIT-05,runs/QSB-EXTRACT02A/input/human_freeze_decisions.json,"Freezes phase-response vector family, L2 normalization, uniform x_index weights, and K_from_phase_response_vectors mode.",supporting_human_freeze
+

@@ -1,0 +1,5 @@
+action_id,priority,recommended_action,reason,creates_or_modifies_existing
+RNA-01,1,Run QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01,Convert partial code-lineage findings into a standalone reviewed contract,new_run_only
+RNA-02,2,After design review run a K-only reconstruction validation,Confirm that the documented contract reproduces the existing K hash without guessing,new_run_only
+RNA-03,3,Only then reconsider the blocked Lag-Class Sufficiency execution,Current alignment does not unblock sufficiency,new_run_only
+

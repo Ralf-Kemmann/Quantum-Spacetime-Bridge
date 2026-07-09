@@ -1,0 +1,6 @@
+boundary_id,claim_type,status,statement
+CB-01,physical_claim_release,blocked_no_physics_claim,"No physical emergence, spacetime emergence, gravity, Lorentz, or dynamics claim is made."
+CB-02,mechanism_claim_release,blocked_no_mechanism_claim,"No mechanistic sufficiency or causal mechanism claim is made."
+CB-03,sufficiency_execution,blocked,"The Lag-Class Sufficiency execution remains blocked."
+CB-04,alignment_claim,allowed_bounded,"The bounded finding is only that an executable K source lineage exists but is not a complete standalone contract."
+
