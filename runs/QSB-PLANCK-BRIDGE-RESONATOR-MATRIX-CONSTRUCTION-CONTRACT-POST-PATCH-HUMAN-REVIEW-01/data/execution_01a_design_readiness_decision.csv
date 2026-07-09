@@ -1,0 +1,3 @@
+decision_id,post_patch_human_review_status,execution_01a_design_readiness,authorize_execution_01a,recommended_next_run,decision_reason
+DEC-01,approved_with_nonblocking_notes,ready_after_nonblocking_notes,false,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-DESIGN-UPDATE-01,"All essential post-patch review items are accepted or accepted_with_note; unresolved placeholders block execution but not a scoped design/update run."
+

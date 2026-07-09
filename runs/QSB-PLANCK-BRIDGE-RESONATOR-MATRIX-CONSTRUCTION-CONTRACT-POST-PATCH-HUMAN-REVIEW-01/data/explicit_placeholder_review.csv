@@ -1,0 +1,17 @@
+placeholder_id,artifact,field_name,status_in_source,review_decision,evidence_confidence,blocks_execution_01a_design,blocks_execution_01a_execution,required_action,notes
+PH001,contract_field_export.csv,lag_class_column,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Design update can define the column requirement without executing."
+PH002,contract_field_export.csv,duplicate_pair_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Policy must be fixed before execution."
+PH003,contract_field_export.csv,missing_pair_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Policy must be fixed before execution."
+PH004,contract_field_export.csv,lag_class_definition,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Definition must be supplied before execution."
+PH005,contract_field_export.csv,lag_sort_order,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Sort order must be supplied before execution."
+PH006,contract_field_export.csv,missing_value_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Missing values must not be inferred."
+PH007,contract_field_export.csv,rank_check_rule,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Rank check must be declared or explicitly disabled."
+PH008,contract_field_export.csv,eigenvalue_threshold_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Threshold policy must be explicit."
+PH009,contract_field_export.csv,numerical_rank_threshold,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Threshold value must be explicit if rank is used."
+PH010,contract_field_export.csv,equal_cardinality_partition_eligibility,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Control eligibility must be reviewed."
+PH011,contract_field_export.csv,random_seed_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Seed policy can be designed now but must be fixed before execution."
+PH012,contract_field_export.csv,trial_count_policy,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Trial count can be designed now but must be fixed before execution."
+PH013,lag_class_handoff.csv,lag_value_column,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Lag value source must be declared."
+PH014,lag_class_handoff.csv,lag_class_cardinality_export,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Cardinality export must be defined before execution."
+PH015,control_policy_export.csv,randomization_manifest_schema,requires_human_value,accepted_with_note,high,false,true,resolve_in_design_update,"Manifest schema must be fixed before randomization controls."
+

@@ -1,0 +1,6 @@
+note_id,scope,note,required_action
+NB001,post_patch_design_readiness,"The implementation review carried nonblocking notes; this run preserves them as design-update requirements.",carry_forward
+NB002,explicit_placeholders,"Placeholders are acceptable declaration points for design but unresolved values for execution.",resolve_in_design_update
+NB003,generated_artifact_state,"The existing implementation validation_summary.csv is modified in the working tree by validation output line endings; this review does not edit it.",user_decision_or_future_cleanup
+NB004,execution_boundary,"Execution 01A remains unauthorized even though a design/update run is recommended.",preserve
+

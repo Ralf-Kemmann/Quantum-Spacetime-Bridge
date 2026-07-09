@@ -1,0 +1,5 @@
+blocker_id,scope,blocking_status,description,required_action,next_run_impact
+RB001,execution_01a_design,not_blocking,"No remaining blocker was identified for a design/update run.",preserve_scope,design_update_allowed
+RB002,execution_01a_execution,blocking,"Lag class values, sort order, duplicate/missing policies, rank thresholds, random seed, and trial count remain unresolved.",resolve_before_execution,execution_not_allowed
+RB003,claim_boundary,not_blocking,"Claim boundaries remain explicit and blocked.",preserve,design_update_allowed
+

@@ -1,0 +1,15 @@
+dimension_id,dimension_name,review_decision,evidence_confidence,blocking_issue_count,nonblocking_issue_count,required_action,review_summary
+D0_authorization_boundary,Authorization boundary,accepted,high,0,0,preserve,"Execution 01A remains explicitly unauthorized."
+D1_post_patch_contract_completeness,Post-patch contract completeness,accepted_with_note,high,0,1,carry_placeholders_to_design_update,"Core contract exports exist; unresolved fields remain explicit."
+D2_explicit_placeholder_acceptability,Explicit placeholder acceptability,accepted_with_note,high,0,1,design_update_must_resolve_execution_values,"Placeholders are acceptable for design planning but not for execution."
+D3_k_only_callable_contract_status,K-only callable contract status,accepted,high,0,0,preserve,"Scoped CLI is reviewed as contract/export/validation infrastructure only."
+D4_pair_duplicate_missing_policy_status,Pair duplicate missing policy status,accepted_with_note,high,0,1,resolve_before_execution,"Duplicate and missing pair policies are explicit declaration points."
+D5_lag_class_handoff_status,Lag-class handoff status,accepted_with_note,high,0,1,resolve_in_design_update,"Lag handoff artifact lists required fields without inventing values."
+D6_matrix_rule_numerical_policy_status,Matrix rule numerical policy status,accepted_with_note,high,0,1,resolve_rank_thresholds_before_execution,"K shape, formula, normalization, hash, PSD baseline are documented; rank threshold details remain placeholders."
+D7_randomization_control_policy_status,Randomization control policy status,accepted_with_note,high,0,1,resolve_controls_in_design_update,"Seed, trial count, and randomization eligibility are explicit placeholders."
+D8_validation_harness_status,Validation harness status,accepted,high,0,0,preserve,"Validation summary reports 11 checks and 0 blocking failures."
+D9_generated_artifact_status,Generated artifact status,accepted_with_note,high,0,1,preserve_and_review_line_endings,"Generated artifacts exist; validation_summary was re-written with CRLF during validation and is reported as a nonblocking repository-state note."
+D10_remaining_blocker_status,Remaining blocker status,accepted_with_note,high,0,1,track_execution_blockers,"No blockers remain for design update; blockers remain for actual execution until values are reviewed."
+D11_execution_01a_design_readiness,Execution 01A design readiness,accepted_with_note,high,0,1,start_design_update_only,"Ready for design/update with nonblocking notes; not ready for execution."
+D12_claim_boundary_integrity,Claim boundary integrity,accepted,high,0,0,preserve,"Physical and mechanism claims remain blocked."
+

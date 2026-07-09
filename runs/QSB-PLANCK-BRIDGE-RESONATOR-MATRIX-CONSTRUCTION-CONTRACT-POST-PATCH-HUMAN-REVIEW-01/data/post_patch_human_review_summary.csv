@@ -1,0 +1,3 @@
+run_id,post_patch_human_review_status,execution_01a_design_readiness,recommended_next_run,execution_01a_authorized,physical_claim_release,mechanism_claim_release,summary
+QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-POST-PATCH-HUMAN-REVIEW-01,approved_with_nonblocking_notes,ready_after_nonblocking_notes,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-DESIGN-UPDATE-01,false,blocked_no_physics_claim,blocked_no_mechanism_claim,"Post-patch contract infrastructure is explicit and reviewable enough for a future Execution-01A design/update run; unresolved values remain nonblocking for design but blocking for any execution."
+

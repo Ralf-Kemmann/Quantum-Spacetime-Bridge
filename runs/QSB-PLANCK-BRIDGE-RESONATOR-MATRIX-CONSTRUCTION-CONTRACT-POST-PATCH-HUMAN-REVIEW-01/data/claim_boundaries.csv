@@ -1,0 +1,7 @@
+boundary_id,boundary_name,value,status,notes
+CB001,physical_claim_release,blocked_no_physics_claim,preserved,"No physical interpretation or emergence claim is made."
+CB002,mechanism_claim_release,blocked_no_mechanism_claim,preserved,"No mechanism claim is made."
+CB003,execution_01a_authorized,false,preserved,"This run recommends only a future design/update run."
+CB004,matrix_recomputation_executed,false,preserved,"K_candidate was not recomputed."
+CB005,lag_class_sufficiency_executed,false,preserved,"No sufficiency execution was run."
+

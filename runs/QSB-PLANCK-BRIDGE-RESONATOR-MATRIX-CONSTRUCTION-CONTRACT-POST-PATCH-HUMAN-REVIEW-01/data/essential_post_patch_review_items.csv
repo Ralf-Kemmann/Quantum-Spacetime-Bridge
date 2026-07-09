@@ -1,0 +1,18 @@
+item_id,item_name,review_decision,evidence_confidence,blocking_reason_if_any,nonblocking_note_if_any,required_action
+E001,implementation_review_status_accepted,accepted_with_note,high,none,"Implementation review was approved_with_nonblocking_notes.",preserve
+E002,contract_export_exists,accepted,high,none,none,preserve
+E003,validation_harness_exists,accepted,high,none,none,preserve
+E004,execution_01a_authorized_false,accepted,high,none,none,preserve
+E005,claim_boundaries_preserved,accepted,high,none,none,preserve
+E006,explicit_placeholders_listed,accepted_with_note,high,none,"Placeholders remain unresolved for execution.",resolve_in_design_update
+E007,remaining_blockers_listed,accepted_with_note,high,none,"No design blockers; execution blockers remain.",track
+E008,K_only_callable_interface_reviewed,accepted,high,none,none,preserve
+E009,lag_class_handoff_reviewed,accepted_with_note,high,none,"Handoff is declaration-only until design update resolves values.",resolve_in_design_update
+E010,randomization_control_policy_reviewed,accepted_with_note,high,none,"Randomization controls remain declaration-only.",resolve_in_design_update
+E011,validation_summary_reviewed,accepted,high,none,none,preserve
+E012,no_source_modification_in_review,accepted,high,none,none,preserve
+E013,no_sufficiency_execution,accepted,high,none,none,preserve
+E014,no_nullmodel_execution,accepted,high,none,none,preserve
+E015,no_physics_or_mechanism_claim,accepted,high,none,none,preserve
+E016,future_design_scope_limited_to_execution_01a_design,accepted_with_note,high,none,"Next run must remain design/update only.",enforce_next_scope
+

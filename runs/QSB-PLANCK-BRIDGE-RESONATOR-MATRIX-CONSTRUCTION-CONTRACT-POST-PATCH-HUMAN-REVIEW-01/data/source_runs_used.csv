@@ -1,0 +1,11 @@
+source_run_id,path,detected,role_in_review,summary
+implementation_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-REVIEW-01,true,primary_gate_input,"Reported approved_with_nonblocking_notes and ready_after_nonblocking_notes."
+implementation,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,true,implemented_artifacts,"Provides generated contract exports and validation summary."
+source_patch_design_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-REVIEW-01,true,design_review_input,"Approved implementation readiness with notes."
+source_patch_design,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01,true,design_input,"Defines patch scope and placeholders."
+human_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01,true,prior_gate_input,"Blocked earlier review pending source patch."
+contract_design,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01,true,contract_design_input,"Drafted matrix construction contract fields."
+source_alignment,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01,true,evidence_alignment_input,"Established partial contract found requiring design review."
+lag_class_execution_01,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,true,boundary_input,"Earlier execution remained blocked and does not authorize 01A."
+lag_class_design_01,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,true,boundary_input,"Earlier design context only."
+

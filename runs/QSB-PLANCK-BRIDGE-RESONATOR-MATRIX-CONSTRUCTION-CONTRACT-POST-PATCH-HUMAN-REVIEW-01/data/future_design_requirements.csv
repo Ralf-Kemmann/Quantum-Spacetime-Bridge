@@ -1,0 +1,9 @@
+requirement_id,required_for,requirement,source,status
+REQ001,execution_01a_design_update,"Define lag class source column, class definition, sort order, and cardinality export requirements.",lag_class_handoff.csv,required
+REQ002,execution_01a_design_update,"Resolve duplicate_pair_policy and missing_pair_policy without inferred defaults.",contract_field_export.csv,required
+REQ003,execution_01a_design_update,"Resolve missing_value_policy for matrix construction inputs.",contract_field_export.csv,required
+REQ004,execution_01a_design_update,"Define rank check rule, eigenvalue threshold policy, and numerical rank threshold or explicitly mark them not required.",contract_field_export.csv,required
+REQ005,execution_01a_design_update,"Define random seed policy and trial count policy for any control or explicitly disable the control.",control_policy_export.csv,required
+REQ006,execution_01a_design_update,"Keep Execution 01A unauthorized unless a later explicit execution authorization run is created.",claim_boundary,required
+REQ007,execution_01a_design_update,"Do not convert placeholders to values by inference; require documented source or human decision.",review_boundary,required
+

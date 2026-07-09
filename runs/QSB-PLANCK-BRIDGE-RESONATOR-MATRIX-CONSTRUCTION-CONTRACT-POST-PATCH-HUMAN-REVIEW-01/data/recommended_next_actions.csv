@@ -1,0 +1,5 @@
+action_id,priority,next_run_or_action,rationale
+ACT001,1,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-DESIGN-UPDATE-01,"Prepare a scoped design/update run that resolves remaining values and still does not execute Execution 01A."
+ACT002,2,"Review working-tree state of generated validation_summary.csv line endings","The file is modified by validation output line endings and should be handled deliberately by the user or a later cleanup task."
+ACT003,3,"Preserve claim boundaries in all downstream notes","No physics or mechanism claim is supported by this review."
+
