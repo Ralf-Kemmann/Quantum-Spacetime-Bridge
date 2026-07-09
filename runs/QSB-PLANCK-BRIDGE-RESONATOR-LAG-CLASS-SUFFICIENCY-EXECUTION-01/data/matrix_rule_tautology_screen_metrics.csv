@@ -1,0 +1,6 @@
+metric_name,metric_status,value,detail
+arm_status,not_executed_blocked_preflight,,Arm G requires documented matrix construction rule; missing.
+matrix_rule_tautology_result,not_computable_from_available_artifacts,,No degenerate/synthetic/random matrix-rule controls executed.
+rank_tautology_indicator,not_computable_from_available_artifacts,,No matrix-rule-only construction available.
+PSD_tautology_indicator,not_computable_from_available_artifacts,,No matrix-rule-only construction available.
+spectrum_tautology_indicator,not_computable_from_available_artifacts,,No matrix-rule-only construction available.

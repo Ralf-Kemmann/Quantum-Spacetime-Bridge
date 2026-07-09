@@ -1,0 +1,7 @@
+metric_name,metric_status,value,detail
+arm_status,not_executed_blocked_preflight,,Arm B blocked because matrix construction contract is missing.
+rank,not_computable_from_available_artifacts,,No minimal model matrix constructed.
+PSD_status,not_computable_from_available_artifacts,,No minimal model matrix constructed.
+eigenvalue_spectrum_similarity_to_baseline,not_computable_from_available_artifacts,,No baseline/minimal model comparison.
+nullspace_dimension,not_computable_from_available_artifacts,,No minimal model rank computation.
+lag_class_coherence,not_computable_from_available_artifacts,,No coherence metric computed.

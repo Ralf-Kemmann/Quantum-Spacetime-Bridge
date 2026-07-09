@@ -1,0 +1,16 @@
+risk_id,risk_status,evidence_from_execution,mitigation_or_next_action,claim_boundary
+matrix_rule_tautology,not_evaluable_blocked_preflight,"Arm G not executed because matrix construction contract is missing.","Create matrix construction contract/source-alignment run.",no mechanism claim
+class_projector_triviality,not_evaluable_blocked_preflight,"Arm H not executed.","Formalize P_l before execution.",no projector claim
+partition_cardinality_artifact,not_evaluable_blocked_preflight,"Arm C not executed.","Resolve matrix construction contract, then run equal-cardinality controls.",no lag specificity claim
+class_count_artifact,not_evaluable_blocked_preflight,"Arm D not executed.","Resolve matrix construction contract, then run different-cardinality controls.",no class-count claim
+index_order_leakage,not_evaluable_blocked_preflight,"Pipeline-order variants not executed by prompt design.","Handoff to Structure-Birth Audit.",no physical non-commutativity claim
+lag_alias_leakage,not_evaluable_blocked_preflight,"No metric execution.","Require explicit lag policy and label/value audit.",no lag causality claim
+diagonal_policy_artifact,open_preflight_risk,"Diagonal entries visible in matrix but separate diagonal policy contract not isolated.","Document diagonal policy in matrix construction contract.",no PSD interpretation
+symmetry_constraint_artifact,open_preflight_risk,"Directed pair universe visible; separate pair symmetry policy not isolated.","Document pair symmetry policy before execution.",no specificity claim
+pipeline_order_dependency,not_evaluable_blocked_preflight,"Arm I handoff only.","Run Structure-Birth Audit after contract resolution.",no mechanism claim
+metric_selection_bias,open_preflight_risk,"Design metrics exist but thresholds remain uncalibrated.","Predeclare thresholds or baseline calibration procedure.",no post-hoc metric claim
+random_seed_instability,not_evaluable_blocked_preflight,"Seeds defined but no random trials executed.","Use manifest after preflight passes.",no cherry-picked seed claim
+post_hoc_interpretation,mitigated_by_block,"No results interpreted.","Keep decision tree fixed before future execution.",no retroactive validation
+area_language_overclaim,mitigated_by_boundary,"Relational area language not used as evidence.","Maintain mapping boundary.",no physical area claim
+geometry_quanta_overclaim,mitigated_by_boundary,"No LQG physical mapping used.","Maintain mapping boundary.",no geometry quanta claim
+physical_storytelling,mitigated_by_boundary,"Execution blocked and no physics result stated.","Preserve physical_claim_release=blocked_no_physics_claim.",blocked_no_physics_claim

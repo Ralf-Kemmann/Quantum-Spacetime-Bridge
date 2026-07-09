@@ -1,0 +1,7 @@
+metric_name,metric_status,value,detail
+arm_status,not_executed_blocked_preflight,,Arm H blocked because P_l definitions and K construction alignment are not executable from available contract.
+idempotence_like_error,not_computable_from_available_artifacts,,No P_l operators constructed.
+orthogonality_or_overlap,not_computable_from_available_artifacts,,No P_l operators constructed.
+sum_over_classes_coverage,not_computable_from_available_artifacts,,No P_l operators constructed.
+rank_contribution_per_class,not_computable_from_available_artifacts,,No P_l operators constructed.
+PSD_or_Gram_implication_if_formalizable,not_computable_from_available_artifacts,,No formalization executed.

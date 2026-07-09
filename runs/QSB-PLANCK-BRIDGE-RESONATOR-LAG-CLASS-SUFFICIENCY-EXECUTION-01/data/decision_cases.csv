@@ -1,0 +1,7 @@
+case_id,case_name,case_status,allowed_result,detail,next_action
+Case1,Generic partition result,not_evaluable_blocked_preflight,structure_generic_to_partition_cardinality_and_matrix_construction,Arm B/C not executed.,Resolve matrix construction contract first.
+Case2,Lag-specific sufficiency,not_evaluable_blocked_preflight,lag_class_membership_sufficient_as_mathematical_construction_property,Arm B/C/D/G not executed.,Resolve matrix construction contract first.
+Case3,Lag-class insufficiency,not_evaluable_blocked_preflight,lag_class_membership_alone_insufficient,Arm B not executed.,Resolve matrix construction contract first.
+Case4,Matrix tautology,not_evaluable_blocked_preflight,structure_is_matrix_rule_construction_property,Arm G not executed because construction contract missing.,Create source-alignment or matrix construction contract run.
+Case5,Projector representation viable,not_evaluable_blocked_preflight,projector_operator_formalization_viable_as_mathematical_description,Arm H not executed.,Formalize P_l and K alignment before execution.
+Mixed,mixed_requires_review,not_applicable,execution_result=mixed_requires_review,No mixed result because no execution occurred.,No result review until executable inputs exist.

@@ -1,0 +1,5 @@
+metric_name,metric_status,value,detail
+arm_status,not_executed_blocked_preflight,,Arm E blocked before relabeling invariance check.
+label_relabeling_invariance,not_computable_from_available_artifacts,,No model matrix constructed.
+rank_preservation,not_computable_from_available_artifacts,,No computation executed.
+spectrum_preservation,not_computable_from_available_artifacts,,No computation executed.

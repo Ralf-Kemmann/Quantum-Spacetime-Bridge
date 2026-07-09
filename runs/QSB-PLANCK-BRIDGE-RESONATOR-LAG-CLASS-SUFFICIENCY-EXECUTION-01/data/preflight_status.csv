@@ -1,0 +1,12 @@
+check_name,status,detail,essential,stop_reason_if_failed
+design_run_present,PASS,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01 detected,true,
+closure_review_present,PASS,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01 detected,true,
+documented_matrix_construction_available,FAIL,"No standalone documented construction contract found for recomputing K_candidate from pair/lag membership alone.",true,blocked_missing_matrix_construction_contract
+documented_baseline_structure_available,PASS,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv detected,true,
+pair_identifier_available,PASS,row_pair_id and column_pair_id available in K_candidate matrix,true,
+lag_class_membership_available,PASS,"lag_class derivable from documented pair_id parse convention in prior lag mechanism execution script; no separate membership table found.",true,
+diagonal_policy_available,PASS,"Matrix contains explicit row_pair_id=column_pair_id entries; diagonal policy is present in matrix data but not as separate contract.",true,
+pair_symmetry_policy_available,PASS,"Directed pair_id universe visible in matrix; explicit pair policy contract not separately isolated.",true,
+source_artifact_hashable,PASS,K_candidate matrix and source docs hashable,true,
+randomization_seed_manifest_defined,PASS,base_seed=20260709 and planned trials recorded,true,
+metric_definitions_available_or_calibrated,FAIL,"Design metrics exist, but thresholds remain requires_prior_baseline_calibration; no execution calibration performed because matrix construction contract is missing.",true,blocked_missing_matrix_construction_contract

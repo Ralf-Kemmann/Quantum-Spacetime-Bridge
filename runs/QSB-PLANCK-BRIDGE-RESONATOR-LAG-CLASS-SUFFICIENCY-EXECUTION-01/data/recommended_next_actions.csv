@@ -1,0 +1,4 @@
+action_id,recommended_next_run,reason,status
+N01,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01,"Resolve missing documented matrix construction contract before sufficiency execution.",recommended_not_started
+N02,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01-RERUN,"Rerun only after matrix construction contract, baseline thresholds, diagonal policy, and pair policy are fixed.",conditional_not_started
+N03,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,"Pipeline-order questions remain handoff-only.",optional_not_started

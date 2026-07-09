@@ -1,0 +1,11 @@
+run_id,field,value
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,execution_status,blocked_missing_matrix_construction_contract
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,sufficiency_decision,blocked_no_execution
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,preflight_passed,false
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,blocking_reason,"Documented K_candidate matrix exists, but no standalone documented matrix construction contract was located that permits recomputation from pair/lag membership alone."
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,matrix_recomputation_executed,false
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,spectral_measurement_executed,false
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,random_partition_controls_executed,false
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,physical_claim_release,blocked_no_physics_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,mechanism_claim_release,blocked_no_mechanism_claim
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,mechanism_search_status,mathematical_sufficiency_execution_no_physics_claim

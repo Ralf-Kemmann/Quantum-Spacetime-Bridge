@@ -1,0 +1,4 @@
+handoff_id,question,status,future_run,claim_boundary
+POH-001,"Does structure depend on pair -> lag -> kernel -> spectrum order?",handoff_not_executed,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,no physical non-commutativity claim
+POH-002,"Would lag -> pair -> kernel -> spectrum alter target structure?",handoff_not_executed,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,no mechanism claim
+POH-003,"Can pair -> kernel -> lag-readout -> spectrum be compared without changing documented construction?",handoff_not_executed,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,design only

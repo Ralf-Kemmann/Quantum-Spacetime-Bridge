@@ -1,0 +1,6 @@
+manifest_field,planned_value,executed_value,status,detail
+base_seed,20260709,not_used,defined_not_executed,Preflight blocked before randomization.
+n_equal_cardinality_partitions,1000,0,not_executed_blocked_preflight,No Arm C execution.
+n_different_cardinality_partitions,1000,0,not_executed_blocked_preflight,No Arm D execution.
+n_membership_destruction_trials,1000,0,not_executed_blocked_preflight,No Arm F execution.
+execution_status,blocked_missing_matrix_construction_contract,blocked_missing_matrix_construction_contract,blocked,Missing matrix construction contract.

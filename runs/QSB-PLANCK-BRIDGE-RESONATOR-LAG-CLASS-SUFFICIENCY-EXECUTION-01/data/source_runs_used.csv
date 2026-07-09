@@ -1,0 +1,10 @@
+source_id,source_path,detected,use_scope,limitation
+S01,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01/,true,required design input,Used to define protocol and stop rules.
+S02,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01/,true,closed gate boundary,No candidate path reopened.
+S03,runs/QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01/,true,claim boundary and formal vocabulary,Used only as formal vocabulary.
+S04,runs/QSB-PBR-MECHANISTIC-BRAINSTORMING-PLURALISTIC-LITERATURE-02/,true,prior brainstorming boundary,Used only as context.
+S05,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-MECHANISM-EXECUTION-01/,true,prior K_candidate diagnostic context,Documents K_candidate source and pair_id parser but not sufficient as standalone construction contract.
+S06,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-01/,true,earlier admissibility context,Detected by file listing; not used for computation.
+S07,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-RESULT-REVIEW-01/,true,result-review context,Used only for boundaries.
+S08,runs/QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01/,true,repair closure context,No repair reopened.
+S09,runs/QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01/,true,metadata repair closure context,No metadata repair reopened.

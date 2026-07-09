@@ -1,0 +1,6 @@
+comparison_id,comparison_status,effect_size,detail
+B_vs_A,not_computable_from_available_artifacts,,Arm B and Arm A metrics not computed.
+B_vs_C_equal_cardinality,not_computable_from_available_artifacts,,Random partition controls not executed.
+B_vs_D_different_cardinality,not_computable_from_available_artifacts,,Different-cardinality controls not executed.
+G_matrix_rule_tautology,not_computable_from_available_artifacts,,Matrix construction rule contract missing.
+H_projector_alignment,not_computable_from_available_artifacts,,Projector algebra diagnostic not executed.

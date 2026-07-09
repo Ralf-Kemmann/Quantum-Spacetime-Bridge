@@ -1,0 +1,5 @@
+metric_name,metric_status,value,detail
+arm_status,not_executed_blocked_preflight,,Arm F blocked before membership destruction.
+planned_trials,defined_not_executed,1000,base_seed=20260709
+executed_trials,not_executed,0,Preflight failed.
+membership_destruction_effect,not_computable_from_available_artifacts,,No destroyed-membership controls generated.

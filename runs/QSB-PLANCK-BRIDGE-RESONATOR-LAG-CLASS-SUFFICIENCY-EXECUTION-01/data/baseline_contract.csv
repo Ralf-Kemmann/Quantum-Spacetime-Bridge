@@ -1,0 +1,10 @@
+contract_field,status,value_or_detail
+baseline_mode,blocked_not_loaded_or_recomputed,Preflight stopped before metric computation because matrix construction contract is missing.
+baseline_matrix_artifact,available,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv
+baseline_matrix_rows_including_header,available,1765
+matrix_construction_rule,missing,"No documented rule located that reconstructs K_candidate from pair/lag membership alone."
+pair_policy,partially_available,"Directed pair IDs visible in matrix; separate policy contract not isolated."
+diagonal_policy,partially_available,"Self-cells row_pair_id=column_pair_id visible; separate diagonal policy contract not isolated."
+lag_policy,partially_available,"Lag class derivable from pair_id parser in prior script; separate membership artifact not isolated."
+metric_threshold_policy,missing,Design states requires_prior_baseline_calibration.
+execution_status,blocked_missing_matrix_construction_contract,No Arms A-H computation executed.
