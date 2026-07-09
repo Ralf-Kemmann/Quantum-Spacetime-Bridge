@@ -1,0 +1,7 @@
+test_id,test_name,command,status,notes
+T-01,python_compile,"python -m py_compile scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py",pass,"Syntax/import compile check passed."
+T-02,dry_run_command,"python scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py --mode dry-run ...",pass,"Dry-run emitted explicit would-read/would-write manifest."
+T-03,contract_export_command,"python scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py --mode export ...",pass,"Export created contract, lag, control, dry-run, and validation artifacts."
+T-04,validation_command,"python scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py --mode validate ...",pass,"Validation reported 11 checks and 0 blocking failures."
+T-05,csv_parse_contract_export,"python -m csv generated_contract/contract_field_export.csv",pass,"CSV parse passed."
+T-06,git_diff_check,git diff --check,pass,"Whitespace check passed."

@@ -1,0 +1,9 @@
+field,value,status,validation_rule,blocking_if_unset,notes
+random_seed_policy,requires_human_value,requires_human_value,seed field present and immutable,true,Declaration point only; no randomization or controls are executed.
+trial_count_policy,requires_human_value,requires_human_value,trial count positive integer or control disabled,true,Declaration point only; no randomization or controls are executed.
+equal_cardinality_partition_eligibility,requires_human_value,requires_human_value,eligibility field in allowed vocabulary,true,Declaration point only; no randomization or controls are executed.
+class_count_control_eligibility,requires_human_value,requires_human_value,eligibility field in allowed vocabulary,true,Declaration point only; no randomization or controls are executed.
+membership_destruction_eligibility,requires_human_value,requires_human_value,marginal rule validates or disabled,true,Declaration point only; no randomization or controls are executed.
+label_relabeling_eligibility,requires_human_value,requires_human_value,label invariance condition present,true,Declaration point only; no randomization or controls are executed.
+matrix_rule_tautology_screen_eligibility,requires_human_value,requires_human_value,tautology screen schema validates,true,Declaration point only; no randomization or controls are executed.
+randomization_manifest_schema,requires_human_value,requires_human_value,CSV schema check,true,Declaration point only; no randomization or controls are executed.

@@ -1,0 +1,9 @@
+field,value,status,validation_rule,blocking_if_unset,notes
+lag_value_column,requires_human_value,requires_human_value,lag_value column present and reproducible,true,No lag values are inferred by this implementation.
+lag_class_column,requires_human_value,requires_human_value,lag_class column keyed by canonical_pair_id,true,Required before Execution 01A.
+lag_class_definition,requires_human_value,requires_human_value,definition field non-empty and matches export,true,Signed/absolute/other lag class must be reviewed.
+lag_class_sort_order,requires_human_value,requires_human_value,class order hash recorded,true,Sort order declaration point.
+lag_class_cardinality_export,requires_human_value,requires_human_value,sum cardinalities equals pair count,true,Cardinality export declaration point.
+lag_preserving_shuffle_definition,requires_human_value,requires_human_value,shuffle dry-run validates preserved class counts,true,Controls declaration point.
+lag_alias_exclusion_rule,requires_human_value,requires_human_value,alias exclusion list present,true,Leakage guard declaration point.
+lag_handoff_validation,one row per canonical_pair_id; no missing lag class once declared,documented_existing_evidence,validation command checks schema and placeholders,false,Infrastructure validation only.

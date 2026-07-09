@@ -1,0 +1,13 @@
+preflight_item,value,status,notes
+git_status_checked,true,pass,"git status --short --untracked-files=all returned no non-ignored changes before patching."
+source_patch_design_review_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-REVIEW-01 present."
+source_patch_design_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01 present."
+human_review_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01 present."
+contract_design_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01 present."
+source_alignment_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01 present."
+blocked_execution_context_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01 present."
+sufficiency_design_context_detected,true,pass,"runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01 present."
+design_review_status,approved_with_nonblocking_notes,pass,"Implementation authorization decision permits source-patch implementation only."
+implementation_scope,infrastructure_only,pass,"No Execution 01A authorization."
+source_targets_concrete,true,pass,"New scoped wrapper module under scripts/qsb_pbr_matrix_contract/ preferred over historical runner mutation."
+preflight_passed,true,pass,"Code changes may proceed within authorized scope."

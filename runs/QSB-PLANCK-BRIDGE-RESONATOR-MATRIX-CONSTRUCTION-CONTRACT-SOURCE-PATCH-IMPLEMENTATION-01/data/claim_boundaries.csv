@@ -1,0 +1,6 @@
+boundary_id,claim_type,status,statement
+CB-01,physical_claim_release,blocked_no_physics_claim,"No physical emergence, spacetime, gravity, Lorentz, dynamics, uniqueness, or rarity claim is made."
+CB-02,mechanism_claim_release,blocked_no_mechanism_claim,"No mechanism sufficiency or causal mechanism claim is made."
+CB-03,execution_01a_authorized,false,"Execution 01A is not authorized by this implementation."
+CB-04,execution_scope,infrastructure_only,"No Lag-Class Sufficiency, nullmodel, spectral interpretation, DWH write, literature import, candidate repair, or candidate upgrade was performed."
+CB-05,K_candidate_reconstruction,not_performed,"Validation used existing K export hash only; no K reconstruction was performed."

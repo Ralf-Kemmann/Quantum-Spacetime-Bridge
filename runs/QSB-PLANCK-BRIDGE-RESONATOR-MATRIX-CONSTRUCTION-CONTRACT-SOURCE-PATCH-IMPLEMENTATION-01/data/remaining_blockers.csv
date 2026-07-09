@@ -1,0 +1,7 @@
+blocker_id,blocker,status,blocks_execution_01a,next_required_action
+RB-01,lag_class_column_and_definition,remaining_requires_human_value,yes,"Declare reviewed lag handoff before Execution 01A."
+RB-02,duplicate_missing_pair_policy,remaining_requires_human_value,yes,"Declare duplicate/missing policy before Execution 01A."
+RB-03,missing_value_policy,remaining_requires_human_value,yes,"Declare missing/nonfinite behavior before Execution 01A."
+RB-04,rank_and_eigen_threshold_policy,remaining_requires_human_value,yes,"Declare rank/eigen thresholds or not_required status before Execution 01A."
+RB-05,random_seed_and_trial_count_policy,remaining_requires_human_value,yes,"Declare control policy before any controls."
+RB-06,implementation_review,remaining_review_gate,yes,"Run source patch implementation review before contract re-review."

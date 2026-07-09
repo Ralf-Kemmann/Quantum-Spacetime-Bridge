@@ -1,0 +1,27 @@
+{
+  "claim_boundary": "blocked_no_physics_claim;blocked_no_mechanism_claim;execution_01a_authorized=false",
+  "execution_01a_authorized": false,
+  "explicit_inputs": [
+    [
+      "expected_k_sha256",
+      "e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d"
+    ],
+    [
+      "k_candidate",
+      "runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv"
+    ],
+    [
+      "output_dir",
+      "runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01/generated_contract"
+    ],
+    [
+      "pair_basis",
+      "runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv"
+    ],
+    [
+      "source_db",
+      "runs/QSB-INTERFACE01F3/authorized_delta_phi_export_staging_preflight/09_delta_phi_staging_preflight.sqlite"
+    ]
+  ],
+  "hidden_state_policy": "no implicit notebook, environment, DWH, or session state"
+}

@@ -1,0 +1,4 @@
+action_id,priority,recommended_action,reason,allowed_scope
+RNA-01,1,Run QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-REVIEW-01,"New wrapper/export/validation infrastructure needs review.",review_only
+RNA-02,2,Run contract human review 01A after implementation review,"Contract declarations remain explicit placeholders.",review_only
+RNA-03,3,Do not run Execution 01A until remaining blockers are resolved,"execution_01a_authorized=false.",no_execution

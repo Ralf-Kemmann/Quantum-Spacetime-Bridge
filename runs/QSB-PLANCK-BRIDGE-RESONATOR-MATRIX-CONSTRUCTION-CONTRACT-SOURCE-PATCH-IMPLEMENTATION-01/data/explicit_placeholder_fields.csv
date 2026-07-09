@@ -1,0 +1,13 @@
+field,placeholder_status,blocking_if_unset,reason
+lag_class_column,requires_human_value,true,"Execution 01A needs declared lag handoff; value not invented."
+duplicate_pair_policy,requires_human_value,true,"Policy must be declared before execution."
+missing_pair_policy,requires_human_value,true,"Policy must be declared before execution."
+lag_class_definition,requires_human_value,true,"Lag-class semantics must be reviewed."
+lag_sort_order,requires_human_value,true,"Controls and joins need deterministic reviewed order."
+missing_value_policy,requires_human_value,true,"Missing/nonfinite behavior must be declared."
+rank_check_rule,requires_human_value,true,"Rank policy must be declared or explicitly not_required."
+eigenvalue_threshold_policy,requires_human_value,true,"Full eigen threshold policy remains declaration point."
+numerical_rank_threshold,requires_human_value,true,"Threshold required if rank check is active."
+equal_cardinality_partition_eligibility,requires_human_value,true,"Controls eligibility remains declaration point."
+random_seed_policy,requires_human_value,true,"Seed values are not invented."
+trial_count_policy,requires_human_value,true,"Trial counts are not invented."

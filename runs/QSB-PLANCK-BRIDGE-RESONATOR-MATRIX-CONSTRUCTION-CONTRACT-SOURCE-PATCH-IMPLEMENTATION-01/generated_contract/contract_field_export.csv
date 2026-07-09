@@ -1,0 +1,39 @@
+field,value,status,evidence,blocking_if_unset,notes
+source_code_artifact_path,scripts/qsb_extract03a_r1/run_authorized_execution_with_s1_addendum.py,documented_existing_evidence,source alignment hash inventory,false,Historical reference runner; read-only.
+source_code_artifact_sha256,283aa9295d76c1243398550e0da4447072628989c21f3d987c4b5e8ca1649c06,documented_existing_evidence,source alignment hash inventory,false,Historical reference runner hash.
+K_candidate_export_path,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv,documented_existing_evidence,source alignment K export inventory,false,Existing export only; not recomputed by this command.
+K_candidate_export_sha256,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,documented_existing_evidence,source patch design expected hash,false,Baseline hash gate.
+input_pair_table_path,runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv,documented_existing_evidence,source patch design pair basis,false,Pair basis artifact supplied explicitly.
+pair_identifier_columns,canonical_pair_id,documented_existing_evidence,pair basis review,false,canonical_pair_id is pair_i|pair_j.
+endpoint_columns,pair_i;pair_j,documented_existing_evidence,pair basis review,false,Endpoint columns are declared.
+lag_class_column,requires_human_value,requires_human_value,source patch design,true,Must be declared before Execution 01A.
+pair_policy,ordered non-diagonal pairs sorted numeric ascending pair_i then pair_j,documented_existing_evidence,pair basis review,false,Pair policy is documented.
+pair_symmetry_policy,K symmetrized after dot product,documented_existing_evidence,EXTRACT03A-R1 code trace,false,Restated as contract field.
+diagonal_policy,K diagonal filled with 1.0,documented_existing_evidence,EXTRACT03A-R1 code trace,false,Restated as contract field.
+zero_diagonal_policy,not_applicable_with_reason: K diagonal policy is 1.0; zero diagonal applies outside K,not_applicable_with_reason,source patch design,false,K-only contract does not use zero diagonal.
+duplicate_pair_policy,requires_human_value,requires_human_value,source patch design,true,Implementation exposes declaration point; value not invented.
+missing_pair_policy,requires_human_value,requires_human_value,source patch design,true,Implementation exposes declaration point; value not invented.
+lag_class_definition,requires_human_value,requires_human_value,source patch design,true,Must be declared before Execution 01A.
+lag_sort_order,requires_human_value,requires_human_value,source patch design,true,Must be declared before controls.
+matrix_shape_rule,42x42 over canonical ordered non-diagonal pair basis,documented_existing_evidence,EXTRACT03A-R1 validation,false,Shape rule is documented.
+matrix_index_order_rule,numeric ascending pair_i then pair_j,documented_existing_evidence,pair basis review,false,Order rule is documented.
+matrix_entry_formula_or_callable,dot product of L2-normalized wrapped_delta_phi vectors,documented_existing_evidence,runtime mapping,false,Formula field only; this command does not recompute K in validation-only mode.
+weighting_rule,uniform over x_index for first scope,documented_existing_evidence,human freeze decision,false,Weighting rule is documented.
+normalization_rule,L2-normalize each phase-response vector; reject zero-norm vectors,documented_existing_evidence,human freeze decision,false,Normalization rule is documented.
+aggregation_rule,normalized @ normalized.T,documented_existing_evidence,EXTRACT03A-R1 code trace,false,Restated as contract field.
+symmetrization_rule,(K + K.T) / 2,documented_existing_evidence,EXTRACT03A-R1 code trace,false,Restated as contract field.
+missing_value_policy,requires_human_value,requires_human_value,source patch design,true,Must be declared before Execution 01A.
+PSD_check_rule,minimum eigenvalue >= -1e-10,documented_existing_evidence,EXTRACT03A-R1 K validation,false,PSD lower tolerance is documented.
+rank_check_rule,requires_human_value,requires_human_value,source patch design,true,Must be declared or explicitly not_required.
+eigenvalue_threshold_policy,requires_human_value,requires_human_value,source patch design,true,Full threshold policy is a declaration point.
+numerical_rank_threshold,requires_human_value,requires_human_value,source patch design,true,Must be declared if rank check is required.
+baseline_validation_rule,finite;shape;symmetry;diagonal;PSD;range;hash,documented_existing_evidence,EXTRACT03A-R1 validation and source patch design,false,Baseline validation field.
+expected_output_hash_or_similarity_rule,exact_sha256:e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,documented_existing_evidence,source patch design,false,Exact hash gate unless future review approves similarity.
+equal_cardinality_partition_eligibility,requires_human_value,requires_human_value,source patch design,true,Controls remain declaration points.
+random_seed_policy,requires_human_value,requires_human_value,source patch design,true,Seed values are not invented.
+trial_count_policy,requires_human_value,requires_human_value,source patch design,true,Trial counts are not invented.
+reconstruction_script_or_function,scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py,documented_existing_evidence,this implementation,false,Scoped contract infrastructure callable.
+required_arguments,--mode;--source-db;--pair-basis;--k-candidate;--expected-k-sha256;--output-dir;--contract-manifest,documented_existing_evidence,this implementation,false,Explicit CLI arguments.
+expected_outputs,contract_field_export.csv;lag_class_handoff.csv;control_policy_export.csv;validation_summary.csv;dry_run_manifest.json,documented_existing_evidence,this implementation,false,Outputs are explicit.
+validation_command,python scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py --mode validate ...,documented_existing_evidence,this implementation,false,Validation command is explicit.
+claim_boundary,blocked_no_physics_claim;blocked_no_mechanism_claim;execution_01a_authorized=false,documented_existing_evidence,this implementation,false,Execution 01A remains unauthorized.
