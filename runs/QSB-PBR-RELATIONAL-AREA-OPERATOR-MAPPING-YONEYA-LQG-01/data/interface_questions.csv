@@ -1,0 +1,8 @@
+question_id,question,why_it_matters,which_mapping_level_it_tests,possible_future_run,claim_risk
+Q01,Can pair-lag cells be represented as incidence/projector structures?,"Defines whether c_ij and P_l are mathematically coherent design objects.","L1;L2;L4",QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,medium
+Q02,Does sum_l w_l P_l reproduce or approximate the documented PBR matrix construction?,"Separates useful abstraction from mismatched notation.","L4;L5",QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,medium
+Q03,Are rank/PSD properties driven by projector algebra, class cardinality, lag geometry, or matrix-rule tautology?,"Prevents spectral overinterpretation and tautology.","L5;L8",QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,high
+Q04,Does the operator spectrum change under equal-cardinality non-lag partitions?,"Tests partition-cardinality artifact risk.","L5;L6;L8",QSB-PLANCK-BRIDGE-RESONATOR-OPERATOR-SYMMETRY-ANALYSIS-DESIGN-01,medium
+Q05,Does the construction depend on the order pair -> lag -> kernel -> spectrum?,"Targets index-order leakage and structure-birth questions.","L6;L8",QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,medium
+Q06,Is there any meaningful 2-form / incidence / boundary operator representation?,"Tests whether area-like language can be formal without physical area claims.","L2;L3;L4",QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,high
+Q07,Can the mapping remain useful without using the word area in claims?,"Protects against area-language overclaim.","L0;L9",QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,low

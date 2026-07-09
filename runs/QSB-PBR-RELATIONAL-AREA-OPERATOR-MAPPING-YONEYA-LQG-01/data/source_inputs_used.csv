@@ -1,0 +1,8 @@
+input_id,input_path_or_source,input_status,use_scope,limitation
+I01,runs/QSB-PBR-MECHANISTIC-BRAINSTORMING-PLURALISTIC-LITERATURE-02/,detected,"pluralistic mechanism bubbles and claim-risk sorting","Used as prior brainstorming context only."
+I02,runs/QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01/,detected,"DWH literature axes for LQG/string/QFT context","Literature is not internal QSB/PBR evidence."
+I03,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01/,detected,"closed gate boundary","No candidate is reopened."
+I04,runs/QSB-DWH-PLANCK-BRIDGE-LITNOTE01-IMPORT-01/,detected,"prior Planck Bridge literature note context","Used only through existing artifacts."
+I05,runs/QSB-PLANCK-BRIDGE-SCALE-MAPPING-NOTE-01/,detected,"scale gate context","Scale mapping is not proof."
+I06,runs/QSB-PLANCK-BRIDGE-LITERATURE-ADDENDUM-ASHREUROV-2014-01/,detected,"Ashtekar/Reuter/Rovelli dynamic-geometry context","Used as motivational literature context only."
+I07,Yoneya / Schild / Worldsheet prompt source group,prompt_context,"green String/QG formal vocabulary","No local source text import or new literature search was performed."

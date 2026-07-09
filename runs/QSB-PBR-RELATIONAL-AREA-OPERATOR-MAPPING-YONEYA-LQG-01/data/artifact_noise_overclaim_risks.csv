@@ -1,0 +1,11 @@
+risk_id,risk_name,description,mitigation,claim_boundary,severity
+R01,false_equivalence_string_lqg,"Treating Yoneya/Schild and LQG as the same theory.","Use Not an equivalence map section in all summaries.","No equivalence claim.",high
+R02,area_language_overclaim,"Interpreting area-like as physical area.","Prefer Relational Area-Like Operator in risky contexts.","No physical area quantization claim.",high
+R03,geometry_quanta_overclaim,"Calling QSB/PBR pairs geometry quanta.","Keep geometry-quanta as external LQG motif only.","No QSB/PBR geometry-quanta claim.",high
+R04,matrix_operator_tautology,"K_area_like merely restates matrix construction.","Require future comparison against documented PBR matrix construction.","No mechanism claim from notation.",medium
+R05,class_projector_triviality,"Projectors only encode class membership without nontrivial structure.","Test against equal-cardinality non-lag partitions in future design.","No sufficiency claim before controls.",medium
+R06,partition_cardinality_artifact,"Rank/PSD effects driven by partition sizes.","Design cardinality-matched controls.","No spectral interpretation without partition controls.",medium
+R07,index_order_leakage,"Construction order leaks into apparent operator structure.","Run structure-birth/order audit before claims.","No physical noncommutativity claim.",medium
+R08,spectral_overinterpretation,"Rank/PSD/eigenvalues treated as physical geometry.","Separate formal diagnostics from physical interpretation.","No physical geometry spectrum claim.",high
+R09,emergence_storytelling,"Narrative of spacetime emergence exceeds data.","Quarantine emergence language.","No spacetime emergence claim.",high
+R10,post_hoc_mapping,"Mapping is fitted after seeing QSB/PBR artifacts.","Require prospective design and stop rules.","No retroactive validation claim.",medium

@@ -1,0 +1,6 @@
+boundary_id,boundary_statement,reason,claim_boundary
+NE01,String worldsheet area is not LQG area.,"Different frameworks and meanings; mapping is formal vocabulary only.","Do not infer equivalence."
+NE02,Schild action is not the LQG area operator.,"Action formulation and geometric operator language are not identified.","Do not equate formal roles."
+NE03,Spin-network geometry quanta are not QSB/PBR pairs.,"QSB/PBR pair-lag cells are internal formal artifacts.","Do not call pairs geometry quanta."
+NE04,QSB/PBR K_candidate is not a verified physical geometry operator.,"No mechanism test or physical validation is executed here.","Do not release physical geometry claims."
+NE05,This mapping is a formal analogy and design vocabulary only.,"The run is mapping design only.","mechanism_search_status=mapping_design_only_no_mechanism_claim."

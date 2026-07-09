@@ -1,0 +1,15 @@
+run_id,boundary_field,boundary_value
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,mechanism_search_status,mapping_design_only_no_mechanism_claim
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,physical_claim_release,blocked_no_physics_claim
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,string_lqg_equivalence_claim,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,qsb_pbr_realizes_string_theory_claim,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,qsb_pbr_realizes_lqg_claim,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,literature_used_as_internal_evidence,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,candidate_search_executed,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,candidate_repair_executed,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,candidate_upgrade_count,0
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,admissibility_checks_rerun,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,mechanism_tests_executed,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,nullmodels_executed,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,dwh_modified,false
+QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01,new_literature_imported,false

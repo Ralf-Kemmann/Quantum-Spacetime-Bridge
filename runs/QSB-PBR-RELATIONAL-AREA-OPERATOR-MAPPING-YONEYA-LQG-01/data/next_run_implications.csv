@@ -1,0 +1,5 @@
+implication_id,recommended_or_followup_run,role,what_this_mapping_contributes,do_not_execute_here
+N01,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,recommended_next_run,"Provides lag-class projector and spectral-diagnostic vocabulary.",true
+N02,QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,scoped_followup,"Can formalize c_ij, P_l, K_area_like, weights, and class-coherence before tests.",true
+N03,QSB-PLANCK-BRIDGE-RESONATOR-OPERATOR-SYMMETRY-ANALYSIS-DESIGN-01,scoped_followup,"Can test invariance/reparametrization/operator questions in a claim-safe design.",true
+N04,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,scoped_followup,"Can audit whether structure is born during pair->lag->kernel->spectrum construction.",true
