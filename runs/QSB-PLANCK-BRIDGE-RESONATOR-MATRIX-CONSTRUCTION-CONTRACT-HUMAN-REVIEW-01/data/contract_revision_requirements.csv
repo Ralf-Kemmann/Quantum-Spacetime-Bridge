@@ -1,0 +1,4 @@
+revision_id,topic,review_decision,reason,minimum_revision
+CRR-01,eigenvalue_threshold_policy,requires_contract_revision,"Design has minimum eigenvalue tolerance but not a full eigenvalue threshold policy.","State exactly which eigenvalue thresholds are required or explicitly non-required."
+CRR-02,equal_cardinality_partition_eligibility,requires_contract_revision,"Control eligibility depends on missing lag class source and cardinality source.","Revise controls after lag handoff and source patch are documented."
+

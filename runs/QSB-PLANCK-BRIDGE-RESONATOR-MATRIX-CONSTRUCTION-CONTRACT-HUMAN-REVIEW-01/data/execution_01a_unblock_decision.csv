@@ -1,0 +1,3 @@
+decision_id,contract_review_status,execution_01a_readiness,unblock_execution_01A,recommended_next_run,decision_reason
+DEC-01,blocked_requires_source_patch,blocked_requires_source_patch,false,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01,"Essential execution fields remain requires_source_patch or requires_contract_revision; Execution 01A is not approved."
+

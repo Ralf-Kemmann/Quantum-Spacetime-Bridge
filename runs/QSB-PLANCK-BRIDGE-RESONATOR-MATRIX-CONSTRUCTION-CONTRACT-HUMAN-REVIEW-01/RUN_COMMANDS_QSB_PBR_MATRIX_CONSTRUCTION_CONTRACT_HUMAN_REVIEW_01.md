@@ -1,0 +1,18 @@
+# Run Commands
+
+Commands run for this human-review package:
+
+```bash
+sed -n '1,340p' /home/ralf-kemmann/Downloads/CODEX_PROMPT_QSB_PLANCK_BRIDGE_RESONATOR_MATRIX_CONSTRUCTION_CONTRACT_HUMAN_REVIEW_01.md
+sed -n '341,760p' /home/ralf-kemmann/Downloads/CODEX_PROMPT_QSB_PLANCK_BRIDGE_RESONATOR_MATRIX_CONSTRUCTION_CONTRACT_HUMAN_REVIEW_01.md
+git status --short --untracked-files=all
+git log --oneline -12
+find runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01 -type f
+sed -n '1,120p' runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01/data/contract_design_summary.csv
+sed -n '1,160p' runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01/data/human_review_checklist.csv
+sed -n '1,120p' runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01/data/source_patch_requirements.csv
+mkdir -p runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01/data runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01/docs runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01/validation
+```
+
+Validation commands are listed in `validation/validation_results.csv`.
+

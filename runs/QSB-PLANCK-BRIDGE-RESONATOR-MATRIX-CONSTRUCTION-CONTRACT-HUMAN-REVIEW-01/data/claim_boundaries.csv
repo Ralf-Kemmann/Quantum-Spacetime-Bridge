@@ -1,0 +1,7 @@
+boundary_id,claim_type,status,statement
+CB-01,physical_claim_release,blocked_no_physics_claim,"No physical emergence, spacetime, gravity, Lorentz, dynamics, uniqueness, or rarity claim is made."
+CB-02,mechanism_claim_release,blocked_no_mechanism_claim,"No mechanism sufficiency or causal mechanism claim is made."
+CB-03,execution_scope,review_only,"No K reconstruction, spectral measurement, nullmodel, or Lag-Class Sufficiency execution was performed."
+CB-04,candidate_boundary,no_upgrade,"No candidate is repaired, upgraded, or reopened."
+CB-05,review_decision,bounded,"The bounded decision is blocked_requires_source_patch."
+

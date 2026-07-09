@@ -1,0 +1,8 @@
+patch_id,source_requirement,review_decision,evidence_confidence,minimum_acceptance,blocks_execution_01A
+SPR-01,Create K-only reconstruction callable contract,requires_source_patch,none,"Callable path, arguments, inputs, outputs, dry-run, validation command documented.",yes
+SPR-02,Export or pin direct input pair/source table,requires_source_patch,medium,"Direct input identity path/hash and row count documented.",yes
+SPR-03,Add duplicate/missing row and pair policies,requires_source_patch,none,"Explicit reject/canonicalize/fail policy documented.",yes
+SPR-04,Add lag-class derivation and join policy,requires_source_patch,none,"Lag value/class columns, source, sort, cardinality, and alias exclusions documented.",yes
+SPR-05,Add numerical rank and metric policy,requires_source_patch,none,"Rank threshold and metric definitions specified or explicitly excluded.",yes
+SPR-06,Add randomization/control eligibility policy,requires_source_patch,none,"Seed, trial count, partition constraints, and leakage exclusions documented.",yes
+

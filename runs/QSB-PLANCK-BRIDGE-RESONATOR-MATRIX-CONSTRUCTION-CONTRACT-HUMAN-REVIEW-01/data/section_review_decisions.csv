@@ -1,0 +1,12 @@
+section_id,section_name,section_review_decision,evidence_confidence,blocking_issue_count,nonblocking_issue_count,requires_source_patch_count,review_summary
+C0,contract_metadata,accepted_with_note,high,0,1,0,"Draft metadata is reviewable; final approval still requires downstream patch gate."
+C1,source_and_lineage,accepted_with_note,high,0,1,0,"Historical source code path, hash, and K export hash are accepted as source lineage."
+C2,input_tables_and_identity,requires_source_patch,medium,2,1,2,"Pair identity is partly evidenced but direct input identity and duplicate/missing row policies need patching."
+C3,pair_and_diagonal_policy,requires_source_patch,medium,2,1,2,"Pair and diagonal behavior is partly evidenced; duplicate/missing pair policies remain blocking."
+C4,lag_policy,requires_source_patch,none,7,0,7,"Lag-class handoff is not documented and blocks Execution 01A."
+C5,matrix_construction_rule,requires_source_patch,medium,2,1,2,"Core formula is accepted, but missing value and zero-fill policies need patching."
+C6,numerical_and_validation_policy,requires_source_patch,medium,3,1,2,"PSD validation is accepted; rank and metric thresholds are missing."
+C7,randomization_and_controls_eligibility,requires_source_patch,low,4,1,3,"Controls cannot be approved without seed, trial count, and lag/control eligibility rules."
+C8,reconstruction_command_or_callable,requires_source_patch,none,4,0,4,"No K-only callable, required arguments, or validation command exists."
+C9,human_review_checklist,accepted_with_note,high,0,1,0,"Checklist is accepted as the review basis; it does not unblock execution."
+

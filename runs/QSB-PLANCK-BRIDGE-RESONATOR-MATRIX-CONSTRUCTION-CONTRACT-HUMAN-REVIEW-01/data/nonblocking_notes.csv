@@ -1,0 +1,8 @@
+note_id,contract_section,field_or_topic,note,execution_01A_impact
+NN-01,C0_contract_metadata,contract_id,"Draft ID is acceptable for review but may need final versioning after source patch.",nonblocking
+NN-02,C1_source_and_lineage,lineage_status,"Lineage evidence is high confidence but distributed across code and outputs.",nonblocking_after_patch
+NN-03,C2_input_tables_and_identity,input_pair_table_path,"Pair basis review can serve as interim evidence; direct input identity should be pinned in patch.",nonblocking_after_patch
+NN-04,C3_pair_and_diagonal_policy,symmetry_and_diagonal,"Code-trace rules are acceptable if restated in final callable documentation.",nonblocking_after_patch
+NN-05,C6_numerical_and_validation_policy,expected_output_hash,"Exact K hash is a good candidate validation gate but must be confirmed by K-only callable.",nonblocking_after_patch
+NN-06,C9_human_review_checklist,checklist,"Checklist is useful and should be preserved in the next run.",nonblocking
+

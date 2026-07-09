@@ -1,0 +1,5 @@
+action_id,priority,recommended_action,reason,allowed_scope
+RNA-01,1,Run QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01,"Essential fields require source patch or exported/pinned callable documentation.",design_only
+RNA-02,2,After patch design create K-only reconstruction contract validation run,"Execution 01A cannot proceed until K-only callable and validation command exist.",future_validation_only
+RNA-03,3,Re-run human review after patch artifacts exist,"Current review blocks Execution 01A.",review_only
+

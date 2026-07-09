@@ -1,0 +1,14 @@
+issue_id,contract_section,field_or_topic,review_decision,evidence_confidence,blocking_reason,required_action,next_run_owner
+BI-01,C2_input_tables_and_identity,duplicate_row_policy,requires_source_patch,none,"Policy is essential and missing.",define_duplicate_row_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-02,C2_input_tables_and_identity,missing_row_policy,requires_source_patch,none,"Policy is essential and missing.",define_missing_row_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-03,C3_pair_and_diagonal_policy,duplicate_pair_policy,requires_source_patch,none,"Policy is essential and missing.",define_duplicate_pair_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-04,C3_pair_and_diagonal_policy,missing_pair_policy,requires_source_patch,none,"Policy is essential and missing.",define_missing_pair_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-05,C4_lag_policy,lag_class_column,requires_source_patch,none,"Lag-class handoff is missing.",define_lag_class_column_and_source,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-06,C4_lag_policy,lag_class_definition,requires_source_patch,none,"Lag-class definition is missing.",define_lag_class_definition,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-07,C4_lag_policy,lag_sort_order,requires_source_patch,none,"Lag sort order is missing.",define_lag_sort_order,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-08,C5_matrix_construction_rule,missing_value_policy,requires_source_patch,none,"Missing value policy is missing.",define_missing_value_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-09,C6_numerical_and_validation_policy,rank_check_rule,requires_source_patch,none,"Rank check rule is missing.",define_rank_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-10,C7_randomization_and_controls_eligibility,random_seed_policy,requires_source_patch,none,"Random seed policy is missing.",define_seed_policy,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-11,C8_reconstruction_command_or_callable,reconstruction_script_or_function,requires_source_patch,none,"K-only callable is missing.",create_k_only_callable_contract,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+BI-12,C8_reconstruction_command_or_callable,validation_command,requires_source_patch,none,"Validation command is missing.",define_validation_command,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01
+
