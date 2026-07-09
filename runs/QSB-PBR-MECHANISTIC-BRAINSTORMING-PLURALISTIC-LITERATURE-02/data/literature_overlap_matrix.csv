@@ -1,0 +1,13 @@
+overlap_id,bubble_a,bubble_b,overlap_basis,recurring_motif,claim_safe_interpretation,next_action
+O01,B01,B13,"DWH minimal-length and Planck-regime records","scale boundary / cutoff","Use as formal scale-gate vocabulary only.",formalize lag-class sufficiency scale assumptions
+O02,B01,B14,"Scale-mapping note plus minimal-length records","Compton-Schwarzschild threshold language","Treat beta_B/Xi_CS as gate parameters, not observables.",carry into lag-class sufficiency design as boundary variables
+O03,B02,B03,"String worldsheet and matrix/operator green context","area-like carrier versus operator encoding","Audit whether current artifacts preserve relation classes under operator view.",operator/symmetry design
+O04,B03,B07,"Matrix/operator context and spectral DWH records","spectral/operator diagnostics","Rank/PSD/lag-class may be tested as operator diagnostics, not mechanism proof.",lag-class sufficiency design
+O05,B03,B06,"Matrix and order-sensitive construction language","noncommuting construction or order dependence","Test construction-order sensitivity without invoking physics.",structure-birth audit
+O06,B04,B06,"Nambu/higher relation and order language","multi-relation constraints","Keep as heuristic until formal relation algebra is specified.",operator/symmetry design
+O07,B05,B11,"Holography and emergence records","boundary/bulk and collective-variable language","Use as warning that invariance may matter more than single variable.",operator/symmetry design
+O08,B07,B10,"QFT curved spacetime and mode language","mode/background dependence","Treat spectra as basis-sensitive diagnostics.",operator/symmetry design
+O09,B08,B02,"Spin-network and area/worldsheet motifs","geometry quanta / area carriers","Use only as external analogy for graph/area audits.",structure-birth audit
+O10,B09,B13,"Asymptotic safety and Planck boundary records","scale flow / coarse graining","Design controlled scale-transform checks.",lag-class sufficiency design
+O11,B11,B12,"Emergence and horizon thermodynamics records","collective variables and boundary thermodynamics","Quarantine physics wording; retain only formal boundary-variable question.",claim boundary review before use
+O12,B05,B06,"Duality/invariance and operation order","gauge/reparametrization versus order artifact","Separate invariance from replay/index artifacts.",structure-birth audit

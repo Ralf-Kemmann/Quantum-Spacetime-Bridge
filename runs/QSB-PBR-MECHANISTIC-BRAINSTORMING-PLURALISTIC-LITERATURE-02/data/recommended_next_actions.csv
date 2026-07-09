@@ -1,0 +1,6 @@
+action_id,priority,recommended_run,scope,reason,do_not_execute_here
+A01,default,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,formal_design,"Closed independent-variable gate redirects mechanism access toward lag-class sufficiency.",true
+A02,scoped_followup,QSB-PLANCK-BRIDGE-RESONATOR-OPERATOR-SYMMETRY-ANALYSIS-DESIGN-01,formal_design,"Matrix/operator/invariance motifs recur across green String/QG and DWH literature.",true
+A03,scoped_followup,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,formal_design,"Order, replay, area-carrier, and construction-birth questions need controlled audit.",true
+A04,conditional_future,QSB-PBR-PROSPECTIVE-PRE-PAIR-SOURCE-DESIGN-01,source_design,"Only a separately authorized pre-pair source discovery path could reopen source evidence.",true
+A05,optional_later,QSB-PBR-PLURALISTIC-LITERATURE-ADDENDUM-DWH-INTEGRATION-01,literature_metadata,"Could integrate future vetted literature addenda without changing current claims.",true

@@ -1,0 +1,7 @@
+input_id,input_path_or_source,input_status,use_scope,limitation
+I01,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01/,detected,"closed gate boundary","Used to preserve no-admissible-candidates boundary."
+I02,runs/QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01/,detected,"DWH literature records and crosswalk","15 records used as external literature context only."
+I03,runs/QSB-DWH-PLANCK-BRIDGE-LITNOTE01-IMPORT-01/,detected,"prior literature note context","Used through DWH scout and available run metadata."
+I04,runs/QSB-PLANCK-BRIDGE-SCALE-MAPPING-NOTE-01/,detected,"scale mapping context","Used only as gate-marker context, not proof."
+I05,runs/QSB-PLANCK-BRIDGE-LITERATURE-ADDENDUM-ASHREUROV-2014-01/,detected,"Ashtekar/Reuter/Rovelli addendum context","Used as DWH literature context."
+I06,green String/QG source list from prompt,reconstructed_from_prompt,"green String/QG axis","No local green-screening file was identified in this run; prompt source list used conservatively."
