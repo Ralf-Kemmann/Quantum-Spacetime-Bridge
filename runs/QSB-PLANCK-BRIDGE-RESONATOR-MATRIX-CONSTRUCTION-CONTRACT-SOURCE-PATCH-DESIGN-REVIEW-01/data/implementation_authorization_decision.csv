@@ -1,0 +1,3 @@
+decision_id,source_patch_design_review_status,implementation_readiness,authorize_implementation,recommended_next_run,decision_reason
+DEC-01,approved_with_nonblocking_notes,ready_after_nonblocking_notes,true,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,"All essential implementation items are approved or approved_with_note; no blocking issues remain."
+

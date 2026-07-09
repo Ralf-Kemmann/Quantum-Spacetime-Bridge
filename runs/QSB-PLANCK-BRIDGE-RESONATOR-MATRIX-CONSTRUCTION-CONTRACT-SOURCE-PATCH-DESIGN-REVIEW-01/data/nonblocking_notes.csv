@@ -1,0 +1,7 @@
+note_id,review_dimension,note,required_action
+NN-01,D0_scope_minimality,"Combined patch is justified but must stay wrapper/export/harness-only.",preserve_scope_guard
+NN-02,D1_source_artifact_specificity,"New scoped module path is proposed, not existing.",create_only_after_implementation_authorization
+NN-03,D5_lag_class_handoff_design,"Lag values/classes remain declaration points and must not be inferred silently.",fail_if_unset
+NN-04,D6_matrix_rule_numerical_policy_design,"Rank and metric policy must be declared or explicitly marked not_required before validation passes.",fail_if_unset
+NN-05,D7_randomization_control_policy_design,"Seed and trial count values are declaration points, not values supplied by this review.",fail_if_unset
+

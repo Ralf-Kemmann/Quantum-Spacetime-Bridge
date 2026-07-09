@@ -1,0 +1,3 @@
+issue_id,review_dimension,issue_status,blocking_reason,required_action
+BI-00,all,none,"No blocking issue found for implementation authorization.","Proceed to implementation with nonblocking notes preserved."
+

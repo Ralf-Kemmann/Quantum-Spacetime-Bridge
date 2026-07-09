@@ -1,0 +1,12 @@
+requirement_id,requirement,blocking_for_prompt
+IPR-01,Use QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-01 and this review as required inputs,yes
+IPR-02,Create a scoped K-only callable or wrapper with explicit arguments,yes
+IPR-03,Do not mutate historical EXTRACT03A-R1 runner unless a reviewed reason is recorded,yes
+IPR-04,Export contract_field_export.csv lag_class_handoff.csv and control_policy_export.csv,yes
+IPR-05,Fail validation if required human declaration fields are unset,yes
+IPR-06,Implement dry-run no-hidden-state manifest,yes
+IPR-07,Implement K hash or reviewed similarity validation,yes
+IPR-08,Implement duplicate/missing pair negative tests,yes
+IPR-09,Preserve blocked physics and mechanism claim releases,yes
+IPR-10,Do not run Lag-Class Sufficiency nullmodels DWH writes literature imports or physical interpretation,yes
+

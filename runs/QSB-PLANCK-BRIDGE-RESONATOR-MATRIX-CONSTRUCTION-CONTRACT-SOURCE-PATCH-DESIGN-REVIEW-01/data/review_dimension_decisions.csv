@@ -1,0 +1,14 @@
+dimension_id,dimension_name,review_decision,evidence_confidence,blocking_issue_count,nonblocking_issue_count,required_action,review_summary
+D0,scope_minimality,approved_with_note,high,0,1,"Preserve wrapper/export/harness-only scope.","Combined patch is larger than one file but justified by blockers."
+D1,source_artifact_specificity,approved_with_note,high,0,1,"Use proposed new scoped module and read-only historical artifacts.","Targets are identified; exact file list may be finalized in implementation."
+D2,k_only_callable_design,approved,high,0,0,"Implement callable exactly within documented interface.","Inputs, outputs, side effects, determinism, dry-run, validation, and failures are defined."
+D3,contract_field_export_design,approved,high,0,0,"Implement schema and required field export.","Contract fields and declaration points are explicit."
+D4,pair_duplicate_missing_policy_design,approved,high,0,0,"Implement policy export and negative tests.","Duplicate/missing pair and row policies have declaration points and validation."
+D5,lag_class_handoff_design,approved_with_note,medium,0,1,"Implement declaration/export without inventing lag values.","Handoff schema and validation are defined; human values must be explicitly supplied or declared."
+D6,matrix_rule_numerical_policy_design,approved_with_note,medium,0,1,"Implement rank/metric declaration points with no tuning.","Core K rule is concrete; rank and metrics require declared values or explicit not_required."
+D7,randomization_control_policy_design,approved_with_note,medium,0,1,"Implement declaration points, not guessed seed/trial values.","Seed/trial/control eligibility fields and validations are defined."
+D8,validation_harness_design,approved,high,0,0,"Implement all validation gates.","Baseline hash, no hidden state, schemas, PSD/rank, and claim boundaries are covered."
+D9,acceptance_tests,approved,high,0,0,"Implement tests as blocking acceptance criteria.","Tests are explicit enough to fail incomplete implementations."
+D10,claim_boundary_integrity,approved,high,0,0,"Preserve blocked releases.","Claim boundary checks are included."
+D11,future_implementation_prompt_safety,approved_with_note,high,0,1,"Implementation prompt must forbid sufficiency execution and physical interpretation.","Skeleton is safe; must remain design-scoped until implementation."
+

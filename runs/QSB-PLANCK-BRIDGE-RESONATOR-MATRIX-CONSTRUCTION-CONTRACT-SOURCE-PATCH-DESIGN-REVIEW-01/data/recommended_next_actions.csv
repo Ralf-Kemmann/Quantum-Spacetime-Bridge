@@ -1,0 +1,5 @@
+action_id,priority,recommended_action,reason,allowed_scope
+RNA-01,1,Run QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,"Patch design is approved with nonblocking notes.",implementation_only
+RNA-02,2,After implementation run source patch implementation review,"Implemented artifacts must be checked before contract re-review.",review_only
+RNA-03,3,After implementation review rerun contract human review,"Execution 01A remains separate and not authorized here.",review_only
+
