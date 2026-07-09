@@ -1,0 +1,12 @@
+test_id,test_name,test_type,expected_result,blocks_next_gate
+AT-01,Patch creates no DWH writes,guard,pass,yes
+AT-02,K-only callable dry-run emits would-read and would-write manifest,dry_run,pass,yes
+AT-03,Contract field export contains all essential execution fields,schema,pass,yes
+AT-04,Duplicate pair injection fails according to declared policy,negative_test,pass,yes
+AT-05,Missing pair removal fails according to declared policy,negative_test,pass,yes
+AT-06,Lag handoff has exactly one row per canonical_pair_id,schema,pass,yes
+AT-07,Rank policy is explicit or explicitly not required,schema,pass,yes
+AT-08,Random seed and trial count policies are explicit,schema,pass,yes
+AT-09,Validation command checks K hash or reviewed similarity,validation,pass,yes
+AT-10,Claim boundary check preserves blocked releases,guard,pass,yes
+

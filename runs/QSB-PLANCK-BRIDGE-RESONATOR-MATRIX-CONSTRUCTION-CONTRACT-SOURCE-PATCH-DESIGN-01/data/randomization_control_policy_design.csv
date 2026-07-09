@@ -1,0 +1,10 @@
+policy_field,designed_export_location,required_status,design_value_or_declaration_rule,validation_check
+random_seed_policy,control_policy_export.csv,requires_human_value,"Declare seed namespace and deterministic generator before controls","seed field present and immutable"
+trial_count_policy,control_policy_export.csv,requires_human_value,"Declare trial count per control before execution","trial count positive integer or control disabled"
+equal_cardinality_partition_eligibility,control_policy_export.csv,requires_human_value,"Declare eligibility after lag class cardinalities exist","eligibility field in allowed vocabulary"
+class_count_control_eligibility,control_policy_export.csv,requires_human_value,"Declare class-count control eligibility","eligibility field in allowed vocabulary"
+membership_destruction_eligibility,control_policy_export.csv,requires_human_value,"Declare marginal preservation rule or disable","marginal rule validates or disabled"
+label_relabeling_eligibility,control_policy_export.csv,requires_human_value,"Declare whether numeric lag labels affect construction","label invariance condition present"
+matrix_rule_tautology_screen_eligibility,control_policy_export.csv,requires_human_value,"Declare synthetic/degenerate controls or disable","tautology screen schema validates"
+randomization_manifest_schema,control_policy_export.csv,requires_human_value,"Define manifest columns for seeds, trials, partitions, and stop reasons","CSV schema check"
+

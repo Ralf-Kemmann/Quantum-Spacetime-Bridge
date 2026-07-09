@@ -1,0 +1,5 @@
+action_id,priority,recommended_action,reason,allowed_scope
+RNA-01,1,Run QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-REVIEW-01,"Patch design should be reviewed before implementation.",review_only
+RNA-02,2,After review run source patch implementation,"Implement wrapper/export/validation artifacts only after approval.",implementation_only
+RNA-03,3,After implementation run contract human review again,"Execution 01A remains blocked until implemented fields pass review.",review_only
+

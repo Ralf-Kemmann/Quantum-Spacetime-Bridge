@@ -1,0 +1,11 @@
+policy_field,designed_export_location,required_status,design_value_or_declaration_rule,validation_check
+pair_policy,contract_field_export.csv,document_existing,"ordered non-diagonal pairs sorted numeric ascending pair_i then pair_j","pair_count=42 and order hash check"
+pair_symmetry_policy,contract_field_export.csv,document_code_trace,"K matrix symmetrized after dot product","K symmetry max error <= declared tolerance"
+directed_or_undirected_policy,contract_field_export.csv,requires_human_value,"Declare ordered pair IDs retained while K is symmetric or revise wording","field must be non-empty"
+diagonal_policy,contract_field_export.csv,document_code_trace,"K diagonal filled with 1.0","diagonal max error <= declared tolerance"
+zero_diagonal_policy,contract_field_export.csv,not_applicable_for_K,"K does not use zero diagonal","field explicitly states not_applicable_for_K"
+duplicate_pair_policy,contract_field_export.csv,requires_human_value,"Declare fail_on_duplicate_pair or exact canonicalization rule","inject duplicate test must fail or canonicalize as declared"
+missing_pair_policy,contract_field_export.csv,requires_human_value,"Declare fail_on_missing_pair against expected pair basis","remove pair test must fail"
+self_pair_policy,contract_field_export.csv,document_existing,"pair_i != pair_j","self-pair count equals zero"
+missing_value_policy,contract_field_export.csv,requires_human_value,"Declare fail_on_missing_or_nonfinite_value before vector normalization","nonfinite/missing check must fail"
+

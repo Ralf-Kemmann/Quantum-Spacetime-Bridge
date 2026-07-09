@@ -1,0 +1,8 @@
+skeleton_id,target_run,section,instruction
+SKEL-01,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,scope,"Implement only the reviewed source/export patch; do not execute Lag-Class Sufficiency."
+SKEL-02,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,inputs,"Use this source-patch design and its design-review approval as required inputs."
+SKEL-03,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,code_patch,"Create a K-only callable or wrapper with explicit input arguments and no hidden state."
+SKEL-04,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,exports,"Create contract_field_export.csv, lag_class_handoff.csv, control_policy_export.csv, and validation outputs."
+SKEL-05,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,validation,"Run dry-run, schema, pair, lag, hash/similarity, PSD, rank, and claim-boundary checks."
+SKEL-06,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,forbidden,"Do not run sufficiency, nullmodels, literature import, DWH mutation, candidate repair, or physical interpretation."
+

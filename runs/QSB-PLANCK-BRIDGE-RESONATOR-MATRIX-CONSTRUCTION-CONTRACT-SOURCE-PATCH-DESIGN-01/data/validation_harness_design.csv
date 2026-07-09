@@ -1,0 +1,12 @@
+validation_id,validation_check,designed_command_or_location,required_inputs,pass_condition,blocking_if_fail
+VAL-01,contract_fields_exported_check,validate_contract_fields,"contract_field_export.csv; lag_class_handoff.csv; control_policy_export.csv","all required fields present with allowed status",yes
+VAL-02,K_candidate_reproduction_check,validate_or_reconstruct_k,"source DB; pair basis; callable; expected hash","hash equals expected or approved similarity passes",yes
+VAL-03,baseline_similarity_or_hash_check,validate_hash,"K output; expected sha256","exact sha256 match unless review approves similarity",yes
+VAL-04,pair_table_identity_check,validate_pair_basis,"pair basis; source query","42 ordered non-diagonal pairs and expected pair order hash",yes
+VAL-05,lag_class_identity_check,validate_lag_handoff,"lag_class_handoff.csv; pair basis","one lag row per canonical_pair_id and cardinalities sum to 42",yes
+VAL-06,PSD_check,validate_k_numeric,"K matrix","minimum eigenvalue >= declared tolerance",yes
+VAL-07,rank_check,validate_rank,"K matrix; rank policy","rank satisfies declared policy or policy says not_required",yes
+VAL-08,CSV_schema_check,validate_schemas,"all exports","required columns present and parseable",yes
+VAL-09,no_hidden_state_check,dry_run_mode,"callable arguments; environment report","no implicit input outside declared paths",yes
+VAL-10,claim_boundary_check,validate_claim_boundary,"claim boundary export","blocked_no_physics_claim and blocked_no_mechanism_claim preserved",yes
+

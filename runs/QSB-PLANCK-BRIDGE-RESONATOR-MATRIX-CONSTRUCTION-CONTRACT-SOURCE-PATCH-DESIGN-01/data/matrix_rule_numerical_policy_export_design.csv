@@ -1,0 +1,16 @@
+policy_field,designed_export_location,required_status,design_value_or_declaration_rule,validation_check
+matrix_shape_rule,contract_field_export.csv,document_existing,"42x42 over canonical ordered non-diagonal pair basis","shape equals declared rule"
+matrix_index_order_rule,contract_field_export.csv,document_existing,"numeric ascending pair_i then pair_j","row/column order hash check"
+matrix_entry_formula_or_callable,contract_field_export.csv,document_existing,"dot product of L2-normalized wrapped_delta_phi vectors","formula string and callable version recorded"
+weighting_rule,contract_field_export.csv,document_existing,"uniform over x_index for first scope","x_index weights sum and count check"
+normalization_rule,contract_field_export.csv,document_existing,"L2 normalize each vector; reject zero-norm vectors","zero-norm check"
+aggregation_rule,contract_field_export.csv,document_code_trace,"normalized @ normalized.T","sample row computation validation"
+symmetrization_rule,contract_field_export.csv,document_code_trace,"(K + K.T) / 2","symmetry validation"
+sign_policy,contract_field_export.csv,document_code_trace,"K dot-product sign retained","signed value range check"
+PSD_check_rule,validation_command,document_existing,"minimum eigenvalue >= -1e-10","PSD lower tolerance check"
+rank_check_rule,contract_field_export.csv,requires_human_value,"Declare numerical rank method or explicit not_required_for_contract","rank field present"
+eigenvalue_threshold_policy,contract_field_export.csv,requires_human_value,"Declare all eigen thresholds or explicit scope limit","threshold fields present"
+numerical_rank_threshold,contract_field_export.csv,requires_human_value,"Declare threshold if rank is required","threshold present or rank not_required"
+metric_definitions,contract_field_export.csv,requires_human_value,"Declare metric set for later sufficiency only, not in K reconstruction","metrics schema validates"
+floating_point_precision,contract_field_export.csv,requires_human_value,"Declare dtype and tolerance policy","dtype/tolerance fields present"
+

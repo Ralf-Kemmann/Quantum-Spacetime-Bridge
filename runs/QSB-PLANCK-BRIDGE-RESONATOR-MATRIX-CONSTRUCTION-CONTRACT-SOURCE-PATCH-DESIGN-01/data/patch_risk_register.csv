@@ -1,0 +1,8 @@
+risk_id,risk,severity,mitigation,claim_boundary
+RISK-01,Mutating historical EXTRACT03A-R1 runner may obscure lineage,medium,"Prefer wrapper/new module that reads historical sources without changing them.",no_physics_claim
+RISK-02,Inferring lag class values without review would invent contract values,high,"Require human-declared lag class handoff before implementation.",no_mechanism_claim
+RISK-03,Hash reproduction may depend on floating point/library details,medium,"Declare dtype, precision, package versions, and exact output formatting.",no_physics_claim
+RISK-04,Randomization controls may leak true lag labels or candidate variables,high,"Require alias exclusion and manifest schema before controls.",no_mechanism_claim
+RISK-05,K-only callable could read hidden state,high,"Dry-run no-hidden-state check must enumerate all inputs.",no_physics_claim
+RISK-06,Rank policy could be tuned after seeing outcomes,high,"Declare rank policy before reconstruction or sufficiency execution.",no_mechanism_claim
+

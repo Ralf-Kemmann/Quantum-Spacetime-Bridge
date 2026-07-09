@@ -1,0 +1,10 @@
+lag_field,designed_export_location,required_status,design_value_or_declaration_rule,validation_check
+lag_value_column,lag_class_handoff.csv,requires_human_value,"Declare exact lag value derivation, for example from endpoint difference only if approved","lag_value column present and reproducible"
+lag_class_column,lag_class_handoff.csv,requires_human_value,"Declare lag_class column keyed by canonical_pair_id","no missing lag_class for pair basis"
+lag_class_definition,contract_field_export.csv,requires_human_value,"Define whether class is signed lag, absolute lag, or other reviewed class","definition field non-empty and matches export"
+lag_class_sort_order,contract_field_export.csv,requires_human_value,"Declare deterministic ordering of lag classes","class order hash recorded"
+lag_class_cardinality_export,lag_class_handoff.csv,requires_human_value,"Export class counts and source hash","sum cardinalities equals pair count"
+lag_preserving_shuffle_definition,contract_field_export.csv,requires_human_value,"Declare shuffle unit, fixed marginals, and forbidden leakage","shuffle dry-run validates preserved class counts"
+lag_alias_exclusion_rule,contract_field_export.csv,requires_human_value,"Declare exclusions preventing candidate-variable leakage","alias exclusion list present"
+lag_handoff_validation,validation_command,requires_human_value,"Validate one row per canonical_pair_id and consistent class cardinalities","validation passes before Execution 01A"
+
