@@ -1,0 +1,3 @@
+\copy (SELECT table_schema, table_name, table_type FROM information_schema.tables WHERE table_type='BASE TABLE' AND table_schema NOT IN ('pg_catalog','information_schema') ORDER BY table_schema, table_name) TO 'runs/QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01/data/dwh_schema_literature_tables.csv' WITH CSV HEADER
+
+\copy (SELECT table_schema, table_name, column_name, data_type FROM information_schema.columns WHERE lower(column_name) SIMILAR TO '%(title|author|year|doi|arxiv|bibtex|source|literature|paper|url|abstract|topic|keyword|claim|note|lineage)%' ORDER BY table_schema, table_name, ordinal_position) TO 'runs/QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01/data/dwh_schema_literature_columns.csv' WITH CSV HEADER

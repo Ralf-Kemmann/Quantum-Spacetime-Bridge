@@ -1,0 +1,13 @@
+run_id,check_name,status,detail
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,dwh_modified,PASS,dwh_modified=false
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,new_literature_imported,PASS,new_literature_imported=false
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,literature_records_extracted_count,PASS,literature_records_extracted_count=15
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,schema_tables_scanned_count,PASS,schema_tables_scanned_count=235
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,mechanism_axes_created,PASS,mechanism_axes_created=true
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,crosswalk_created,PASS,crosswalk_created=true
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,claim_boundary_created,PASS,claim_boundary_created=true
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,physical_claim_release,PASS,physical_claim_release=blocked_no_physics_claim
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,literature_used_as_internal_evidence,PASS,literature_used_as_internal_evidence=false
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,candidate_upgrade_count,PASS,candidate_upgrade_count=0
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,mechanism_test_executed,PASS,mechanism_test_executed=false
+QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01,nullmodel_executed,PASS,nullmodel_executed=false
