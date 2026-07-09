@@ -1,0 +1,10 @@
+field,value,evidence_status,source_evidence,review_note
+pair_policy,"ordered non-diagonal pairs sorted numeric ascending pair_i then pair_j",documented_existing_evidence,source_alignment/contract_component_status.csv,"Found in pair basis review."
+pair_symmetry_policy,"K symmetrized after dot product by (K + K.T) / 2",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Code behavior; review before approving as contract."
+directed_or_undirected_policy,"directed pair identifiers are retained as ordered pairs; matrix itself is symmetrized",partial_evidence_requires_review,source_alignment plus code trace,"Needs explicit human review because pair direction and matrix symmetry are distinct."
+diagonal_policy,"K diagonal filled with 1.0",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Code behavior."
+zero_diagonal_policy,not_applicable,not_applicable,source_alignment/contract_component_status.csv,"K diagonal is 1.0; zero diagonal applies to later cost matrices, not K."
+duplicate_pair_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required for execution gating."
+missing_pair_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required for execution gating."
+self_pair_policy,"source query excludes pair_i=pair_j",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Needs review as contract wording."
+

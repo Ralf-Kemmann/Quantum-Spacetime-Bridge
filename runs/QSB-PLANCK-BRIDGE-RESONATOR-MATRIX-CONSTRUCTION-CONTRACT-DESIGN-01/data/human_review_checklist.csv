@@ -1,0 +1,13 @@
+review_item,evidence_status,review_question,pass_condition,fail_condition,blocking_severity
+HR-01,requires_human_review,"Approve contract ID and version?","ID and version accepted for final contract.","ID/version rejected or ambiguous.",blocking
+HR-02,documented_existing_evidence,"Does the source lineage adequately identify the historical K construction?","Reviewer accepts listed code and hashes.","Reviewer requires additional provenance.",blocking
+HR-03,partial_evidence_requires_review,"Can the pair basis review serve as the input pair table contract?","Reviewer accepts pair basis path/hash and SQLite source relation.","Reviewer requires a new exported input table.",blocking
+HR-04,missing_not_documented,"What is the duplicate row and duplicate pair policy?","Policy is explicitly written and testable.","Policy remains unspecified.",blocking
+HR-05,missing_not_documented,"What is the missing row and missing pair policy?","Policy is explicitly written and testable.","Policy remains unspecified.",blocking
+HR-06,missing_not_documented,"What lag value/class derivation is allowed for sufficiency reuse?","Lag derivation and join keys are specified.","Lag source remains absent.",blocking
+HR-07,requires_human_review,"Should the K exact output hash be a mandatory reconstruction gate?","Exact hash or explicit similarity criterion approved.","No output validation criterion approved.",blocking
+HR-08,missing_not_documented,"Is a rank check required for this contract?","Rank threshold is specified or explicitly marked not required.","Rank status remains ambiguous.",blocking
+HR-09,missing_not_documented,"What K-only reconstruction callable must be created?","Callable, dry-run, and validation command specified.","Only historical runner remains available.",blocking
+HR-10,requires_human_review,"Are randomization/control eligibility rules sufficient?","Eligibility and exclusions approved before any controls.","Controls would require implicit assumptions.",blocking
+HR-11,documented_existing_evidence,"Are claim boundaries preserved?","Reviewer confirms blocked physical and mechanism claims.","Any physical or mechanism claim is introduced.",blocking
+

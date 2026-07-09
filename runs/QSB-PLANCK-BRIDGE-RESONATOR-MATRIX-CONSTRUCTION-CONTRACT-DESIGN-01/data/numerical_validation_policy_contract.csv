@@ -1,0 +1,11 @@
+field,value,evidence_status,source_evidence,review_note
+PSD_check_rule,"eigvalsh(K) minimum must be >= -1e-10",documented_existing_evidence,EXTRACT03A-R1 K validation,"PSD lower tolerance found."
+rank_check_rule,missing_not_documented,missing_not_documented,source_alignment/contract_component_status.csv,"Rank requirement absent."
+eigenvalue_threshold_policy,"minimum eigenvalue tolerance only",partial_evidence_requires_review,EXTRACT03A-R1 K validation,"No full eigen spectrum policy."
+minimum_eigenvalue_tolerance,-1e-10,documented_existing_evidence,EXTRACT03A-R1 K validation,"Validation check expected >= -1e-10."
+numerical_rank_threshold,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required if rank is a target metric."
+floating_point_precision,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Historical numpy float behavior is not a standalone precision contract."
+baseline_validation_rule,"finite values; 42x42 shape; symmetry <=1e-12; diagonal <=1e-12; PSD lower tolerance; range sanity <=1e-12",documented_existing_evidence,EXTRACT03A-R1 K validation,"Should be reviewed as baseline validation."
+expected_output_hash_or_similarity_rule,"K export sha256 e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d",partial_evidence_requires_review,source_alignment/k_candidate_export_inventory.csv,"Exact hash can be used for reproduction check if final contract adopts it."
+metric_definitions,missing_not_documented,missing_not_documented,source_alignment/future_unblock_criteria.csv,"Sufficiency metrics remain outside this contract."
+

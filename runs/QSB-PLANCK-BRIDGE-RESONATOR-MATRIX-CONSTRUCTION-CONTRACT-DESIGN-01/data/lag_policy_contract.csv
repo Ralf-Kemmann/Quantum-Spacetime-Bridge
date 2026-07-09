@@ -1,0 +1,10 @@
+field,value,evidence_status,source_evidence,review_note
+lag_value_column,missing_not_documented,missing_not_documented,source_alignment/contract_component_status.csv,"K construction source uses pair_i,pair_j; lag value is not a K input contract field yet."
+lag_class_column,missing_not_documented,missing_not_documented,source_alignment/contract_component_status.csv,"Required for Lag-Class Sufficiency reuse."
+lag_class_definition,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Must define derivation from pair identifiers before sufficiency execution."
+lag_class_count,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Do not infer from later analyses in this contract draft."
+lag_class_cardinality_source,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Needs explicit source table or derivation."
+lag_sort_order,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required if numeric lag labels are used."
+lag_preserving_shuffle_definition,missing_not_documented,missing_not_documented,source_alignment/future_unblock_criteria.csv,"Required for controls eligibility."
+lag_alias_exclusion_rule,missing_not_documented,missing_not_documented,source_alignment/future_unblock_criteria.csv,"Required to prevent candidate-variable leakage."
+

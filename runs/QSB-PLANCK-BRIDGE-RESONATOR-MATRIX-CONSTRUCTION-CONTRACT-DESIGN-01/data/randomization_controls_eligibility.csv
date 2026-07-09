@@ -1,0 +1,9 @@
+control_id,control,eligibility_status,evidence_status,condition_for_human_review
+RC-01,equal_cardinality_partition_eligibility,requires_human_review,partial_evidence_requires_review,"Allowed only after lag class source and cardinalities are documented."
+RC-02,class_count_control_eligibility,requires_human_review,partial_evidence_requires_review,"Allowed only after class count source is documented."
+RC-03,membership_destruction_eligibility,requires_human_review,missing_not_documented,"Requires explicit marginal preservation rule."
+RC-04,label_relabeling_eligibility,requires_human_review,partial_evidence_requires_review,"Allowed only if final construction does not use numeric lag label values as weights."
+RC-05,matrix_rule_tautology_screen_eligibility,requires_human_review,partial_evidence_requires_review,"Requires isolated K rule and synthetic/degenerated controls definition."
+RC-06,random_seed_policy,missing_not_documented,missing_not_documented,"Must specify deterministic seeds and random generator."
+RC-07,trial_count_policy,missing_not_documented,missing_not_documented,"Must specify trial count before any controls."
+

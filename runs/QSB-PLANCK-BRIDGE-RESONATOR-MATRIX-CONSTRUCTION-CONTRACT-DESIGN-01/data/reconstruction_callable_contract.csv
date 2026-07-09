@@ -1,0 +1,9 @@
+field,value,evidence_status,source_evidence,review_note
+reconstruction_script_or_function,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Historical EXTRACT03A-R1 runner exists but no K-only callable contract exists."
+required_arguments,missing_not_documented,missing_not_documented,source_alignment/future_unblock_criteria.csv,"Must include source DB, pair basis, output path, validation mode."
+expected_inputs,"F3 SQLite source; pair basis; human freeze K mode; runtime mapping",partial_evidence_requires_review,source_alignment/reconstruction_preconditions.csv,"Inputs are evidenced but not packaged as callable arguments."
+expected_outputs,"K_candidate CSV; validation report; lineage audit",partial_evidence_requires_review,source_alignment/k_candidate_export_inventory.csv,"Expected outputs need final contract approval."
+dry_run_command,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required for future execution gating."
+validation_command,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required for future execution gating."
+limitations,"Design only; no physical claim; no mechanism claim; no sufficiency execution",documented_existing_evidence,source_alignment/claim_boundaries.csv,"Preserved in this design."
+

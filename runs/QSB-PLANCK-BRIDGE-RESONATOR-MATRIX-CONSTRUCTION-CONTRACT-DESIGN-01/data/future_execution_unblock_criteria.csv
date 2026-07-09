@@ -1,0 +1,12 @@
+criterion_id,criterion,required_status
+FUC-01,Human review approves or revises this draft contract,required_pass
+FUC-02,Standalone K-only reconstruction callable exists,required_pass
+FUC-03,Input identity and pair table/source hashes are pinned,required_pass
+FUC-04,Duplicate and missing row/pair policies are explicit,required_pass
+FUC-05,Lag-class derivation and join policy are explicit,required_pass
+FUC-06,Numerical validation and rank policy are explicit,required_pass
+FUC-07,Expected K output hash or similarity rule is approved,required_pass
+FUC-08,Randomization/control eligibility is approved before controls,required_pass
+FUC-09,Claim boundaries remain blocked for physics and mechanism,required_pass
+FUC-10,No matrix reconstruction or sufficiency execution occurs until all required_pass items are met,required_pass
+

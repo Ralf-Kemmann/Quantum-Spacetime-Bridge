@@ -1,0 +1,8 @@
+patch_id,requirement,evidence_status,why_needed,minimum_acceptance
+SPR-01,Create K-only reconstruction callable contract,missing_not_documented,"Historical runner is broader than the matrix contract.","Callable path, arguments, inputs, outputs, dry-run, validation command documented."
+SPR-02,Export or pin direct input pair/source table,partial_evidence_requires_review,"Current pair identity is split between SQLite query and S1 pair basis review.","Direct input identity path/hash and row count documented."
+SPR-03,Add duplicate/missing row and pair policies,missing_not_documented,"Execution gating cannot rely on incidental code behavior.","Explicit reject/canonicalize/fail policy documented."
+SPR-04,Add lag-class derivation and join policy,missing_not_documented,"Lag-Class Sufficiency needs clean handoff from K rows to lag variables.","Lag value/class columns, source, sort, cardinality, and alias exclusions documented."
+SPR-05,Add numerical rank and metric policy,missing_not_documented,"Sufficiency design names rank/spectrum metrics.","Rank threshold and metric definitions specified or explicitly excluded."
+SPR-06,Add randomization/control eligibility policy,missing_not_documented,"Future controls need predeclared rules.","Seed, trial count, partition constraints, and leakage exclusions documented."
+

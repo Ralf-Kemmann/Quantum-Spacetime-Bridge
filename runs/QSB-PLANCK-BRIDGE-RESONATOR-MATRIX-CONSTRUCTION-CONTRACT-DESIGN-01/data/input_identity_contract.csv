@@ -1,0 +1,10 @@
+field,value,evidence_status,source_evidence,review_note
+input_pair_table_path,runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv,partial_evidence_requires_review,source_alignment/contract_component_status.csv,"Pair basis review exists; direct source rows are queried from SQLite in historical code."
+input_pair_table_sha256,02621f1f8c1e23355aaa7af8379c8891f6851540cc9395ebef5c0b36e0af967d,documented_existing_evidence,source_alignment/source_artifact_hashes.csv,"Hash recorded."
+pair_identifier_columns,canonical_pair_id,documented_existing_evidence,source_alignment/contract_component_status.csv,"Definition pair_i|pair_j."
+endpoint_columns,"pair_i;pair_j",documented_existing_evidence,source_alignment/contract_component_status.csv,"Endpoint fields from source rows."
+index_columns,x_index,documented_existing_evidence,EXTRACT03A-R1 runtime mapping,"Phase-response vector index."
+row_identity_rule,"pair_i|pair_j over x_index from stg_delta_phi_spatial with pair_mask=1 and pair_i<>pair_j",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Needs human confirmation as contract wording."
+duplicate_row_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Must be specified before execution gating."
+missing_row_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Must be specified before execution gating."
+

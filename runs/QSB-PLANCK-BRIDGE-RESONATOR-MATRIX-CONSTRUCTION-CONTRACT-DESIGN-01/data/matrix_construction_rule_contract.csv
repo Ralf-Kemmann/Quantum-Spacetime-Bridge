@@ -1,0 +1,12 @@
+field,value,evidence_status,source_evidence,review_note
+matrix_shape_rule,"42x42 over canonical ordered non-diagonal pair basis",documented_existing_evidence,source_alignment/contract_component_status.csv,"Shape validated in EXTRACT03A-R1."
+matrix_index_order_rule,"numeric ascending pair_i then pair_j",documented_existing_evidence,S1 pair basis review,"Needs to be copied into final contract."
+matrix_entry_formula,"K_candidate[a,b] = dot(normalized_wrapped_delta_phi_vector_a, normalized_wrapped_delta_phi_vector_b)",documented_existing_evidence,EXTRACT03A-R1 runtime mapping,"Formula documented in runtime mapping."
+kernel_or_weighting_rule,"uniform over x_index for first scope",documented_existing_evidence,human_freeze_decisions.json,"Weights documented in human freeze."
+normalization_rule,"L2-normalize each phase-response vector before Gram construction; reject zero-norm vectors",documented_existing_evidence,human_freeze_decisions.json,"Zero-norm rejection is documented."
+aggregation_rule,"matrix multiplication normalized @ normalized.T",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Code trace; review as contract wording."
+symmetrization_rule,"K = (K + K.T) / 2",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Code trace; review as contract wording."
+sign_policy,"raw dot product sign retained before later absolute-value cost transform",derived_from_existing_code_trace,EXTRACT03A-R1 runner,"Only K construction is in scope; later d uses abs(K)."
+zero_fill_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"No K zero-fill policy found."
+missing_value_policy,missing_not_documented,missing_not_documented,source_alignment/contract_gap_analysis.csv,"Required for K-only reconstruction."
+

@@ -1,0 +1,9 @@
+field,value,evidence_status,source_evidence,notes
+contract_id,QSB-PBR-K-CANDIDATE-MATRIX-CONSTRUCTION-CONTRACT-DRAFT-01,requires_human_review,design_run_generated,"Draft ID for review only; not an approved execution contract."
+contract_version,0.1-draft,requires_human_review,design_run_generated,"Draft version."
+contract_status,draft_contract_ready_for_human_review,requires_human_review,design_run_classification,"Structured draft exists; execution remains blocked."
+originating_alignment_run,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01,documented_existing_evidence,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01/data/alignment_summary.csv,"Primary evidence source."
+related_execution_block,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,documented_existing_evidence,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01/data/execution_summary.csv,"Blocked because standalone contract was missing."
+human_review_required,true,requires_human_review,design_run_generated,"Human review is required before execution use."
+claim_boundary,no physics or mechanism claim; design only,documented_existing_evidence,source alignment claim boundaries,"Preserves blocked releases."
+
