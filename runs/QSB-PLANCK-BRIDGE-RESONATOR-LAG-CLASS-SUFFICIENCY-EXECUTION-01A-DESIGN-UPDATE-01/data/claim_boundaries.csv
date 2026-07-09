@@ -1,0 +1,8 @@
+boundary_id,boundary_name,value,status,notes
+CB001,physical_claim_release,blocked_no_physics_claim,preserved,"No physical interpretation or emergence claim."
+CB002,mechanism_claim_release,blocked_no_mechanism_claim,preserved,"No mechanism claim."
+CB003,execution_01a_authorized,false,preserved,"Design update only."
+CB004,matrix_recomputation_executed,false,preserved,"No K_candidate recomputation as scientific result."
+CB005,spectral_measurement_executed,false,preserved,"No spectra computed."
+CB006,lag_class_sufficiency_executed,false,preserved,"No sufficiency execution."
+CB007,nullmodel_executed,false,preserved,"No nullmodel or random trials."

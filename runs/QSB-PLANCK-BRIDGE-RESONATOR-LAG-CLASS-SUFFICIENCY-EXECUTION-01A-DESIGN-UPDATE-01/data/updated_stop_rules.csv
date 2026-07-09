@@ -1,0 +1,10 @@
+stop_rule_id,condition,failure_action,applies_to,notes
+SR001,contract validation fails,stop_preflight,preflight,"Do not continue to execution design or execution."
+SR002,essential placeholder unresolved,stop_preflight_or_stop_affected_arm,preflight,"Affects lag and randomization arms."
+SR003,execution_01a_authorized not false during design/preflight,stop_all,design_and_preflight,"Authorization drift is invalid."
+SR004,claim boundary missing,stop_all,design_and_preflight,"No claim-safe run without boundaries."
+SR005,K hash mismatch,stop_preflight,preflight,"No recomputation substitute."
+SR006,pair basis mismatch,stop_preflight,preflight,"No pair-order inference."
+SR007,lag handoff schema missing,stop_lag_arms,preflight,"Lag arms B E H cannot proceed."
+SR008,randomization controls undeclared,stop_random_control_arms,preflight,"Arms C D F and eligible controls stop."
+SR009,hidden-state fallback detected,stop_all,preflight,"No implicit session state."

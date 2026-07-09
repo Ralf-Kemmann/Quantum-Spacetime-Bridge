@@ -1,0 +1,8 @@
+requirement_id,category,requirement
+EREQ001,required_preflight_status,"Preflight must pass with all blocking checks resolved or explicitly disabled with reason."
+EREQ002,required_contract_values,"Lag class fields, missing/duplicate policies, random seed, trial count, threshold policy, rank policy, and control eligibility must be explicit."
+EREQ003,allowed_execution_arms,"Only arms whose preflight gates pass may be run; A-I remain forbidden in this design update."
+EREQ004,randomization_trial_policy,"Randomization controls require immutable seed policy, trial count policy, and manifest schema before any trials."
+EREQ005,output_artifacts,"Execution outputs must separate baseline, arm results, control manifests, validation, decision cases, risks, and claim boundaries."
+EREQ006,claim_boundaries,"No physics or mechanism claims; execution may only report mathematical sufficiency-control outcomes within stated limits."
+EREQ007,stop_rules,"Stop on validation failure, hash mismatch, pair mismatch, hidden state, unresolved placeholder, or claim boundary drift."

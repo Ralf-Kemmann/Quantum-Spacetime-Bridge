@@ -1,0 +1,9 @@
+risk_id,risk_name,risk_status,mitigation,claim_boundary_note
+R001,placeholder_leakage,open,Use explicit placeholder gate and stop rules,"No inferred values."
+R002,hidden_state_regression,open,Require dry_run_manifest hidden-state guard and explicit inputs,"No implicit notebook or DWH state."
+R003,K_hash_mismatch,open,Require exact existing K export hash gate,"No substitute recomputation."
+R004,lag_alias_leakage,open,Require lag alias exclusion rule before lag arms,"No lag-class overclaim."
+R005,randomization_underdefinition,open,Require seed trial count and manifest schema before controls,"No random trials in design update."
+R006,trial_count_overreach,open,Require trial count policy and stop random controls if absent,"No uncontrolled nullmodel."
+R007,claim_boundary_drift,open,Require blocked claim releases in every output,"No physics or mechanism claim."
+R008,implementation_artifact_mutation,open,Preflight should read generated artifacts without modifying them,"Preserve audit trail."

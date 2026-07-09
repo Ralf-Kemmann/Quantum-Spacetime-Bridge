@@ -1,0 +1,4 @@
+action_id,priority,next_run_or_action,rationale
+ACT001,1,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-PREFLIGHT-01,"Run a preflight-only gate against the new contract infrastructure."
+ACT002,2,"Resolve or explicitly disable blocking preflight placeholders in preflight outputs","Preflight cannot proceed to execution prompt with unresolved essential values."
+ACT003,3,"Keep Execution 01A unauthorized until a separate execution authorization gate exists","This design update is not execution authorization."

@@ -1,0 +1,9 @@
+requirement_id,category,requirement
+PREQ001,required_input_runs,"post-patch human review; implementation review; implementation run; prior sufficiency design; prior blocked execution; independent lag closure review"
+PREQ002,required_artifacts,"contract_field_export.csv;lag_class_handoff.csv;control_policy_export.csv;validation_summary.csv;dry_run_manifest.json;reconstruct_k_candidate.py;implementation docs"
+PREQ003,allowed_commands,"read-only inspection; CSV schema checks; hash check of existing K export; CLI --help or dry-run; no execution arms"
+PREQ004,forbidden_commands,"Lag-Class Sufficiency execution; random partition trials; nullmodels; spectra; DWH writes; candidate search; generated contract mutation"
+PREQ005,preflight_outputs,"preflight_status.csv;placeholder_gate_results.csv;arm_gate_status.csv;hash_check_result.csv;claim_boundaries.csv"
+PREQ006,validation_requirements,"all required artifacts detected; blocking validation checks pass; placeholders classified; claim boundaries preserved"
+PREQ007,status_values,"ready_for_execution_01a_execution_prompt;blocked_requires_contract_value_review;blocked_requires_implementation_fix;blocked_requires_design_revision"
+PREQ008,recommended_next_statuses,"execution_prompt_ready_only_after preflight passes and Execution 01A remains separately unauthorized until explicit authorization"

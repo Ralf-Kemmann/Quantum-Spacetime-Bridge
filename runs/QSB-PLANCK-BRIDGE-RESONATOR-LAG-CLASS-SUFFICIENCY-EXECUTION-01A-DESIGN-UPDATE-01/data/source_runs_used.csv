@@ -1,0 +1,11 @@
+source_run_id,path,detected,role_in_design_update,summary
+post_patch_human_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-POST-PATCH-HUMAN-REVIEW-01,true,primary_gate_input,"Reported approved_with_nonblocking_notes and ready_after_nonblocking_notes."
+implementation_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-REVIEW-01,true,implementation_gate_input,"Approved implemented infrastructure with nonblocking notes."
+implementation,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,true,contract_artifact_input,"Provides contract_field_export, lag_class_handoff, control_policy_export, validation_summary, and dry_run_manifest."
+source_patch_design_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-DESIGN-REVIEW-01,true,design_review_input,"Confirmed implementation readiness."
+contract_human_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-HUMAN-REVIEW-01,true,prior_blocker_input,"Earlier review required source patch."
+contract_design,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-DESIGN-01,true,contract_design_input,"Drafted contract fields."
+source_alignment,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-ALIGNMENT-01,true,source_alignment_input,"Aligned matrix construction source evidence."
+previous_sufficiency_execution,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,true,blocked_execution_input,"Previously blocked for missing matrix construction contract."
+previous_sufficiency_design,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,true,previous_design_input,"Defined arms A-I without execution."
+independent_lag_closure,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01,true,boundary_input,"Closure gate remains closed; no candidate repair or upgrade."

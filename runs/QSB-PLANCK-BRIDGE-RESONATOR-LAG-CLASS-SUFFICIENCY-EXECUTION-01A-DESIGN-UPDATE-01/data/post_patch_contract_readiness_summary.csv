@@ -1,0 +1,2 @@
+section_id,post_patch_human_review_status,execution_01a_design_readiness,remaining_nonblocking_notes,remaining_blockers_if_any,explicit_placeholder_status,recommended_next_run_confirmed
+U1,approved_with_nonblocking_notes,ready_after_nonblocking_notes,"Placeholders must remain explicit gates; validation_summary line-ending state should be handled deliberately.","No blocker for preflight design; unresolved values block execution.",listed_as_design_acceptable_but_preflight_or_execution_blocking,true
