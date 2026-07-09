@@ -1,0 +1,9 @@
+stop_rule_id,trigger,required_action,affected_arms,claim_boundary
+SR01,documented_matrix_construction_rule_missing,"Stop execution design handoff and request source-alignment run.",All,"No reconstruction without rule."
+SR02,baseline_artifact_lineage_missing,"Stop before Arm A execution.",A,"No hidden lineage."
+SR03,true_lag_membership_ambiguous,"Stop Arm B/E/F/H execution.",B;E;F;H,"No inferred lag memberships."
+SR04,equal_cardinality_controls_cannot_respect_pair_constraints,"Stop Arm C and document limitation.",C,"No invalid controls."
+SR05,thresholds_not_predeclared,"Stop metric computation.",All metric arms,"No arbitrary thresholds."
+SR06,random_seed_plan_missing,"Stop random partition arms.",C;D;F;G,"No hidden randomness."
+SR07,projector_definition_ambiguous,"Stop Arm H.",H,"No projector claims without definition."
+SR08,physical_claim_language_appears,"Quarantine wording and revise report.",All,"physical_claim_release=blocked_no_physics_claim"

@@ -1,0 +1,9 @@
+source_id,source_path,detected,use_scope,limitation
+S01,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01/,true,"closed gate boundary","Used to preserve no-admissible-candidates state."
+S02,runs/QSB-PBR-MECHANISTIC-BRAINSTORMING-PLURALISTIC-LITERATURE-02/,true,"design vocabulary and artifact-risk framing","Used as vocabulary only, not evidence."
+S03,runs/QSB-PBR-RELATIONAL-AREA-OPERATOR-MAPPING-YONEYA-LQG-01/,true,"relational area-like operator alignment","Used as formal design language only."
+S04,runs/QSB-PBR-LITERATURE-DWH-SCOUT-FOR-MECHANISTIC-BRAINSTORMING-01/,true,"DWH literature boundary context","Literature is not internal evidence."
+S05,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION/,false,"earlier execution context","Directory not present in this inspection; do not invent contents."
+S06,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-EXECUTION-RESULT-REVIEW-01/,true,"earlier result-review context","Used only for boundary/background if needed."
+S07,runs/QSB-PLANCK-BRIDGE-RESONATOR-LINEAGE-REPAIR-EXECUTION-RESULT-REVIEW-01/,true,"closed repair context","No repair is reopened."
+S08,runs/QSB-PLANCK-BRIDGE-RESONATOR-METADATA-REPAIR-TRIAGE-01/,true,"metadata repair closure context","No metadata repair is reopened."

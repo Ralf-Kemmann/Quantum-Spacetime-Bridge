@@ -1,0 +1,5 @@
+action_id,recommended_run,role,reason,do_not_execute_here
+N01,QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,recommended_next_run,"Execute the designed protocol only after source artifacts, construction rule, metrics, thresholds, seed plan, and stop rules are fixed.",true
+N02,QSB-PLANCK-BRIDGE-RESONATOR-OPERATOR-SYMMETRY-ANALYSIS-DESIGN-01,followup_design,"Needed if projector/operator representation or invariance questions remain central.",true
+N03,QSB-PLANCK-BRIDGE-RESONATOR-STRUCTURE-BIRTH-AUDIT-DESIGN-01,followup_design,"Needed if pipeline-order or construction-birth dependency is central.",true
+N04,QSB-PBR-RELATIONAL-AREA-LIKE-OPERATOR-FORMALIZATION-01,optional_formalization,"Needed if K_area_like and P_l require formal mathematical definition before execution.",true

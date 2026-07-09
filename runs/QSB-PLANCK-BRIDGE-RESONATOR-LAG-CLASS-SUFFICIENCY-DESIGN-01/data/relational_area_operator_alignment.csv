@@ -1,0 +1,6 @@
+alignment_id,statement,status,claim_boundary
+RA01,The Sufficiency Design uses the mapping only as formal vocabulary.,preserved,"Literature/mapping is not evidence."
+RA02,It does not assert that PBR pairs are physical area quanta.,preserved,"No geometry-quanta claim."
+RA03,It does not assert that K_candidate is a physical geometry operator.,preserved,"No physical geometry operator claim."
+RA04,It does not equate Yoneya/Schild worldsheet area with LQG area operators.,preserved,"Not an equivalence map."
+RA05,It uses P_l / sum_l w_l P_l only as schematic design language until aligned with documented PBR matrix construction.,preserved,"No execution or operator claim here."

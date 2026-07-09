@@ -1,0 +1,13 @@
+metric_id,metric_name,definition_for_future_execution,threshold_status,comparison_policy,claim_boundary
+M01,rank,"Rank of reconstructed or control matrix under documented numerical policy.",requires_prior_baseline_calibration,"Compare Arm B/C/D/G/H against Arm A baseline.","formal diagnostic only"
+M02,numerical_rank_threshold_policy,"Rule for numerical rank threshold.",requires_prior_baseline_calibration,"Use documented prior threshold if present; otherwise calibrate before execution.","no arbitrary threshold here"
+M03,PSD_status,"Positive semidefinite status under documented tolerance.",requires_prior_baseline_calibration,"Compare pass/fail and minimum eigenvalue behavior across arms.","no physical PSD claim"
+M04,minimum_eigenvalue_tolerance_policy,"Tolerance for minimum eigenvalue in PSD assessment.",requires_prior_baseline_calibration,"Must be fixed before future execution.","no arbitrary tolerance here"
+M05,eigenvalue_spectrum_similarity,"Similarity of eigenvalue spectrum to baseline.",requires_prior_baseline_calibration,"Use predeclared distance/similarity statistic in future run.","no physical spectrum claim"
+M06,nullspace_dimension,"Dimension of nullspace under documented rank policy.",requires_prior_baseline_calibration,"Compare across baseline and controls.","formal diagnostic only"
+M07,lag_class_coherence,"Future metric for whether true lag memberships preserve target structure.",requires_prior_baseline_calibration,"Must be defined before execution.","no mechanism claim"
+M08,block_or_toeplitz_similarity,"Similarity to documented block or Toeplitz-like pattern if documented.",requires_prior_baseline_calibration,"Only compute if baseline pattern is explicitly defined.","no overclaim"
+M09,projector_rank_contribution,"Contribution of each P_l or class-incidence operator to rank/readout.",requires_prior_baseline_calibration,"Use only after P_l definition is fixed.","projector language formal only"
+M10,class_cardinality_sensitivity,"Sensitivity of metrics to class cardinality distribution.",requires_prior_baseline_calibration,"Compare Arm C and Arm D.","artifact control only"
+M11,random_seed_stability,"Stability across random partitions/seeds.",requires_prior_baseline_calibration,"Predeclare seed plan and repetition count in execution run.","no post-hoc seed selection"
+M12,effect_size_against_equal_cardinality_partitions,"Effect size for Arm B relative to Arm C distribution.",requires_prior_baseline_calibration,"Use predeclared statistic and confidence/interval policy.","mathematical specificity only"

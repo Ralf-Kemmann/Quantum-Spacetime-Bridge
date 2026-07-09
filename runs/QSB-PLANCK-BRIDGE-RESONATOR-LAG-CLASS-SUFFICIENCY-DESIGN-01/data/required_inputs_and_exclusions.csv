@@ -1,0 +1,13 @@
+category,item,required_or_excluded,applies_to,reason
+required,documented PBR source artifact paths,required,Arm A,"Baseline must be traceable."
+required,matrix construction rule,required,All arms,"No sufficiency design can execute without exact construction rule."
+required,pair identifiers,required,Arms B-F,"Pair universe must be fixed."
+required,true lag-class membership,required,Arms B/E/F/H,"Core treatment."
+required,pair counts per lag class,required,Arms B/C/D,"Controls need class counts/cardinalities."
+required,diagonal policy,required,All matrix arms,"Diagonal handling can create artifacts."
+required,pair symmetry constraints,required,Arms C/D,"Controls must respect valid pair constraints."
+excluded,non-lag candidate variables,excluded,Arms B-H,"Avoid reopening independent-variable gate."
+excluded,repaired candidate fields,excluded,Arms B-H,"Repair paths are closed."
+excluded,physical proxy fields,excluded,Arms B-H,"No physics proxy mechanism claim."
+excluded,source-level speculative fields,excluded,Arms B-H,"No speculative evidence import."
+excluded,new literature records,excluded,All arms,"No literature import."
