@@ -1,0 +1,7 @@
+patch_item,status,implementation,notes,claim_boundary
+two_db_cli,implemented,"Added --data-db and --metadata-db.","Requires both arguments for two-DB dry-run.",literature_context_only_no_internal_evidence_no_mechanism_claim
+dry_run_temp_copy,implemented,"Copies real DB targets to /tmp and writes only to copies.","Original SHA256 and mtime checked before/after.",literature_context_only_no_internal_evidence_no_mechanism_claim
+data_db_tables,implemented,"Creates qsb_literature_* tables in temp data DB copy.","No real DWH write occurred.",literature_context_only_no_internal_evidence_no_mechanism_claim
+metadata_registration_plan,implemented_as_plan,"Creates qsb_literature_metadata_registration_plan_dryrun in temp metadata DB copy.","Exact meta_* inserts are deferred to schema mapping review.",literature_context_only_no_internal_evidence_no_mechanism_claim
+single_db_compatibility,implemented_deprecated,"--db PATH --mode dry-run remains available.","Prints single_db_mode_deprecated_for_two_db_architecture.",literature_context_only_no_internal_evidence_no_mechanism_claim
+execute_mode,blocked,"--mode execute returns execution_import_authorized=false.","Separate authorization required before any real import.",literature_context_only_no_internal_evidence_no_mechanism_claim

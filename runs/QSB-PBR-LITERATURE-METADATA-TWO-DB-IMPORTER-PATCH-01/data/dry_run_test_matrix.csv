@@ -1,0 +1,6 @@
+test_id,test_name,command_or_check,expected_result,actual_result,status,claim_boundary
+T01,two_db_required_dry_run,"python ... --data-db DWH --metadata-db META02 --seed ... --mode dry-run","PASS and real targets unchanged","PASS: two-DB dry-run validation passed; real DB targets unchanged",pass,literature_context_only_no_internal_evidence_no_mechanism_claim
+T02,single_db_deprecated_dry_run,"python ... --db /tmp/qsb_pbr_literature_compat_dryrun.sqlite --seed ... --mode dry-run","single_db_mode_deprecated_for_two_db_architecture","single_db_mode_deprecated_for_two_db_architecture",pass,literature_context_only_no_internal_evidence_no_mechanism_claim
+T03,two_db_execute_blocked,"python ... --data-db DWH --metadata-db META02 --seed ... --mode execute","execution_import_authorized=false","execution_import_authorized=false",pass,literature_context_only_no_internal_evidence_no_mechanism_claim
+T04,real_db_integrity,"Compare SHA256 and mtime before/after dry-run","unchanged","unchanged",pass,literature_context_only_no_internal_evidence_no_mechanism_claim
+T05,metadata_registration_policy,"Metadata registration in dry-run metadata copy","plan table only; no invented meta_* inserts","qsb_literature_metadata_registration_plan_dryrun",pass,literature_context_only_no_internal_evidence_no_mechanism_claim

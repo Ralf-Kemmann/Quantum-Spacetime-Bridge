@@ -1,0 +1,7 @@
+decision_key,value,notes,claim_boundary
+final_status,two_db_importer_patch_dry_run_passed,"Two-DB importer patch dry-run passed using temp DB copies only.",literature_context_only_no_internal_evidence_no_mechanism_claim
+literature_data_db,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_dwh_target_workcopy_dwh03.db,"Approved architecture data target; not written by this run.",literature_context_only_no_internal_evidence_no_mechanism_claim
+metadata_registration_db,runs/QSB-META02/metadata_catalog_update/qsb_metadata_catalog_meta02.sqlite,"Approved architecture metadata target; not written by this run.",literature_context_only_no_internal_evidence_no_mechanism_claim
+physical_claim_release,blocked_no_physics_claim,"Literature remains context metadata only.",literature_context_only_no_internal_evidence_no_mechanism_claim
+mechanism_claim_release,blocked_no_mechanism_claim,"No QSB/PBR mechanism claim is authorized.",literature_context_only_no_internal_evidence_no_mechanism_claim
+execution_import_authorized,false,"Execute mode remains blocked for this patch run.",literature_context_only_no_internal_evidence_no_mechanism_claim

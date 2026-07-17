@@ -1,25 +1,60 @@
 #!/usr/bin/env python3
 """Dry-run or execute a SQLite import for prepared literature metadata.
 
-Default mode is dry-run. The script never writes unless --mode execute is used.
-It is intentionally conservative because this run has no approved DB target.
+Default mode is dry-run. For the approved two-DB architecture, dry-run copies
+the real data and metadata DBs to /tmp and writes only to those copies.
+Execute mode remains blocked for this patch run.
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
+import shutil
 import sqlite3
+import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 
 RUN_DIR = Path("runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01")
+PATCH_RUN_DIR = Path("runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01")
 CLAIM_BOUNDARY = "literature_context_only_no_internal_evidence_no_mechanism_claim"
+DEPRECATED_SINGLE_DB_STATUS = "single_db_mode_deprecated_for_two_db_architecture"
+METADATA_PLAN_STATUS = "metadata_registration_planned_requires_schema_mapping_review"
+EXECUTE_BLOCKED_STATUS = "execution_import_authorized=false"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
+
+
+def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, object]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def copy_for_dry_run(source: Path, label: str) -> Path:
+    if not source.exists():
+        raise FileNotFoundError(f"DB target does not exist: {source}")
+    tmp_dir = Path(tempfile.gettempdir())
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    target = tmp_dir / f"qsb_pbr_literature_two_db_dryrun_{label}_{timestamp}.sqlite"
+    shutil.copy2(source, target)
+    return target
 
 
 def create_tables(conn: sqlite3.Connection) -> None:
@@ -95,6 +130,38 @@ def insert_rows(conn: sqlite3.Connection, table: str, rows: list[dict[str, str]]
     conn.executemany(sql, [[row[column] for column in columns] for row in rows])
 
 
+def create_metadata_plan_table(conn: sqlite3.Connection) -> None:
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS qsb_literature_metadata_registration_plan_dryrun (
+          table_name TEXT NOT NULL,
+          field_name TEXT NOT NULL,
+          canonical_name TEXT NOT NULL,
+          de_label TEXT,
+          en_label TEXT,
+          description_de TEXT,
+          description_en TEXT,
+          data_type TEXT,
+          allowed_values TEXT,
+          lineage_note TEXT,
+          claim_boundary_note TEXT,
+          registration_status TEXT NOT NULL,
+          claim_boundary TEXT NOT NULL
+        )
+        """
+    )
+
+
+def insert_metadata_plan(conn: sqlite3.Connection, rows: list[dict[str, str]]) -> None:
+    planned_rows = []
+    for row in rows:
+        planned = dict(row)
+        planned["registration_status"] = METADATA_PLAN_STATUS
+        planned["claim_boundary"] = CLAIM_BOUNDARY
+        planned_rows.append(planned)
+    insert_rows(conn, "qsb_literature_metadata_registration_plan_dryrun", planned_rows)
+
+
 def validate(conn: sqlite3.Connection) -> list[str]:
     failures: list[str] = []
     checks = [
@@ -122,28 +189,68 @@ def validate(conn: sqlite3.Connection) -> list[str]:
     ).fetchone()[0]
     if missing_tags != 0:
         failures.append(f"sources_without_tags: expected 0, observed {missing_tags}")
+    forbidden_phrases = [
+        "supports QSB",
+        "proves QSB",
+        "confirms mechanism",
+        "evidence for QSB",
+        "physical discovery",
+    ]
+    claim_text = conn.execute(
+        """
+        SELECT lower(group_concat(allowed_use || ' ' || forbidden_use || ' ' || claim_boundary, ' '))
+        FROM qsb_literature_claim_boundary
+        """
+    ).fetchone()[0] or ""
+    for phrase in forbidden_phrases:
+        if phrase.lower() in claim_text:
+            failures.append(f"forbidden_phrase_present: {phrase}")
     return failures
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--db", required=True)
-    parser.add_argument("--seed", default=str(RUN_DIR / "data" / "literature_source_seed.csv"))
-    parser.add_argument("--mode", choices=["dry-run", "execute"], default="dry-run")
-    args = parser.parse_args()
+def validate_metadata_plan(conn: sqlite3.Connection) -> list[str]:
+    failures: list[str] = []
+    row_count = conn.execute(
+        "SELECT COUNT(*) FROM qsb_literature_metadata_registration_plan_dryrun"
+    ).fetchone()[0]
+    missing_canonical = conn.execute(
+        """
+        SELECT COUNT(*)
+        FROM qsb_literature_metadata_registration_plan_dryrun
+        WHERE canonical_name IS NULL OR canonical_name = ''
+        """
+    ).fetchone()[0]
+    wrong_boundary = conn.execute(
+        """
+        SELECT COUNT(*)
+        FROM qsb_literature_metadata_registration_plan_dryrun
+        WHERE claim_boundary <> ?
+        """,
+        (CLAIM_BOUNDARY,),
+    ).fetchone()[0]
+    if row_count == 0:
+        failures.append("metadata_registration_plan_empty")
+    if missing_canonical != 0:
+        failures.append(f"metadata_plan_missing_canonical_name: {missing_canonical}")
+    if wrong_boundary != 0:
+        failures.append(f"metadata_plan_wrong_claim_boundary: {wrong_boundary}")
+    return failures
 
-    db_path = Path(args.db)
-    data_dir = Path(args.seed).parent
-    sources = read_csv(Path(args.seed))
-    tags = read_csv(data_dir / "literature_mechanism_tags.csv")
-    boundaries = read_csv(data_dir / "literature_claim_boundaries.csv")
-    manifest = read_csv(data_dir / "literature_import_manifest.csv")
 
-    if args.mode == "dry-run":
-        conn = sqlite3.connect(":memory:")
-    else:
-        conn = sqlite3.connect(db_path)
+def load_seed_bundle(seed_path: Path) -> tuple[list[dict[str, str]], ...]:
+    data_dir = seed_path.parent
+    return (
+        read_csv(seed_path),
+        read_csv(data_dir / "literature_mechanism_tags.csv"),
+        read_csv(data_dir / "literature_claim_boundaries.csv"),
+        read_csv(data_dir / "literature_import_manifest.csv"),
+        read_csv(data_dir / "metadata_server_registration_plan.csv"),
+    )
 
+
+def run_single_db_dry_run(seed_path: Path) -> int:
+    sources, tags, boundaries, manifest, _metadata_plan = load_seed_bundle(seed_path)
+    conn = sqlite3.connect(":memory:")
     try:
         conn.execute("BEGIN")
         create_tables(conn)
@@ -152,23 +259,150 @@ def main() -> int:
         insert_rows(conn, "qsb_literature_claim_boundary", boundaries)
         insert_rows(conn, "qsb_literature_import_manifest", manifest)
         failures = validate(conn)
+        conn.rollback()
         if failures:
-            conn.rollback()
             for failure in failures:
                 print(f"FAIL: {failure}")
             return 1
-        if args.mode == "execute":
-            conn.commit()
-            print(f"PASS: executed and validated import into {db_path}")
-        else:
-            conn.rollback()
-            print("PASS: dry-run validation passed; transaction rolled back")
+        print(DEPRECATED_SINGLE_DB_STATUS)
+        print("PASS: compatibility dry-run validation passed; transaction rolled back")
         return 0
-    except Exception:
-        conn.rollback()
-        raise
     finally:
         conn.close()
+
+
+def run_two_db_dry_run(data_db: Path, metadata_db: Path, seed_path: Path) -> int:
+    sources, tags, boundaries, manifest, metadata_plan = load_seed_bundle(seed_path)
+    data_before = sha256_file(data_db)
+    metadata_before = sha256_file(metadata_db)
+    data_mtime_before = data_db.stat().st_mtime_ns
+    metadata_mtime_before = metadata_db.stat().st_mtime_ns
+    data_copy = copy_for_dry_run(data_db, "data")
+    metadata_copy = copy_for_dry_run(metadata_db, "metadata")
+
+    data_failures: list[str] = []
+    metadata_failures: list[str] = []
+    with sqlite3.connect(data_copy) as data_conn:
+        data_conn.execute("BEGIN")
+        create_tables(data_conn)
+        insert_rows(data_conn, "qsb_literature_source", sources)
+        insert_rows(data_conn, "qsb_literature_mechanism_tag", tags)
+        insert_rows(data_conn, "qsb_literature_claim_boundary", boundaries)
+        insert_rows(data_conn, "qsb_literature_import_manifest", manifest)
+        data_failures = validate(data_conn)
+        if data_failures:
+            data_conn.rollback()
+        else:
+            data_conn.commit()
+
+    with sqlite3.connect(metadata_copy) as metadata_conn:
+        metadata_conn.execute("BEGIN")
+        create_metadata_plan_table(metadata_conn)
+        insert_metadata_plan(metadata_conn, metadata_plan)
+        metadata_failures = validate_metadata_plan(metadata_conn)
+        if metadata_failures:
+            metadata_conn.rollback()
+        else:
+            metadata_conn.commit()
+
+    data_after = sha256_file(data_db)
+    metadata_after = sha256_file(metadata_db)
+    data_mtime_after = data_db.stat().st_mtime_ns
+    metadata_mtime_after = metadata_db.stat().st_mtime_ns
+    unchanged = (
+        data_before == data_after
+        and metadata_before == metadata_after
+        and data_mtime_before == data_mtime_after
+        and metadata_mtime_before == metadata_mtime_after
+    )
+
+    summary_rows = [
+        {
+            "target_role": "literature_data_db",
+            "real_db_path": data_db.as_posix(),
+            "dryrun_db_path": data_copy.as_posix(),
+            "sha256_before": data_before,
+            "sha256_after": data_after,
+            "mtime_ns_before": data_mtime_before,
+            "mtime_ns_after": data_mtime_after,
+            "real_target_unchanged": str(data_before == data_after and data_mtime_before == data_mtime_after).lower(),
+            "dry_run_status": "pass" if not data_failures else "fail",
+        },
+        {
+            "target_role": "metadata_registration_db",
+            "real_db_path": metadata_db.as_posix(),
+            "dryrun_db_path": metadata_copy.as_posix(),
+            "sha256_before": metadata_before,
+            "sha256_after": metadata_after,
+            "mtime_ns_before": metadata_mtime_before,
+            "mtime_ns_after": metadata_mtime_after,
+            "real_target_unchanged": str(metadata_before == metadata_after and metadata_mtime_before == metadata_mtime_after).lower(),
+            "dry_run_status": "pass" if not metadata_failures else "fail",
+        },
+    ]
+    write_csv(
+        PATCH_RUN_DIR / "data" / "two_db_dry_run_target_integrity.csv",
+        [
+            "target_role",
+            "real_db_path",
+            "dryrun_db_path",
+            "sha256_before",
+            "sha256_after",
+            "mtime_ns_before",
+            "mtime_ns_after",
+            "real_target_unchanged",
+            "dry_run_status",
+        ],
+        summary_rows,
+    )
+
+    if data_failures or metadata_failures or not unchanged:
+        for failure in data_failures + metadata_failures:
+            print(f"FAIL: {failure}")
+        if not unchanged:
+            print("FAIL: real DB target hash or mtime changed")
+        return 1
+
+    print("two_db_dry_run_strategy=temp_copy_to_/tmp")
+    print(f"data_dryrun_copy={data_copy}")
+    print(f"metadata_dryrun_copy={metadata_copy}")
+    print(METADATA_PLAN_STATUS)
+    print("PASS: two-DB dry-run validation passed; real DB targets unchanged")
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--db")
+    parser.add_argument("--data-db")
+    parser.add_argument("--metadata-db")
+    parser.add_argument("--seed", default=str(RUN_DIR / "data" / "literature_source_seed.csv"))
+    parser.add_argument("--mode", choices=["dry-run", "execute"], default="dry-run")
+    args = parser.parse_args()
+
+    seed_path = Path(args.seed)
+    if args.data_db or args.metadata_db:
+        if not args.data_db or not args.metadata_db:
+            print("FAIL: two-DB mode requires both --data-db and --metadata-db")
+            return 2
+        if args.db:
+            print("FAIL: do not combine deprecated --db with --data-db/--metadata-db")
+            return 2
+        if args.mode == "execute":
+            print(EXECUTE_BLOCKED_STATUS)
+            print("FAIL: execute mode requires a separate authorized execution run")
+            return 2
+        return run_two_db_dry_run(Path(args.data_db), Path(args.metadata_db), seed_path)
+
+    if args.db:
+        if args.mode == "execute":
+            print(DEPRECATED_SINGLE_DB_STATUS)
+            print("FAIL: execute mode is not allowed with deprecated single-DB architecture")
+            return 2
+        return run_single_db_dry_run(seed_path)
+
+    parser.error("provide either --data-db and --metadata-db, or deprecated --db for dry-run compatibility")
+    return 2
 
 
 if __name__ == "__main__":

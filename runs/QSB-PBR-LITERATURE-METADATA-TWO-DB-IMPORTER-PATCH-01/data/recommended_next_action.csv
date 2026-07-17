@@ -1,0 +1,5 @@
+step_order,action,exact_command,notes,claim_boundary
+1,review_patch_diff,"git diff -- runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01/scripts/import_literature_metadata.py","Review importer patch before any future execution work.",literature_context_only_no_internal_evidence_no_mechanism_claim
+2,review_validation,"sed -n '1,120p' runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/validation/validation_results.csv","Review dry-run validation results.",literature_context_only_no_internal_evidence_no_mechanism_claim
+3,authorize_future_mapping_review,"none","If desired, authorize a separate metadata schema mapping review for real meta_* inserts.",literature_context_only_no_internal_evidence_no_mechanism_claim
+4,stage_after_review,"git add -f runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01 && git add runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01/scripts/import_literature_metadata.py","Only after human review; do not push automatically.",literature_context_only_no_internal_evidence_no_mechanism_claim

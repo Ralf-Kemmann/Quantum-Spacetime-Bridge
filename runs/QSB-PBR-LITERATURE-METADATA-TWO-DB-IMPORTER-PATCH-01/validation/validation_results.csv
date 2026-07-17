@@ -1,0 +1,9 @@
+check_id,check_name,expected,actual,status,notes
+V01,two_db_cli_contract_present,true,true,pass,"Importer source contains --data-db, --metadata-db, --seed, and --mode."
+V02,single_db_deprecation_present,true,true,pass,Deprecated single-DB dry-run warning is present.
+V03,real_db_targets_unchanged,true,true,pass,Integrity CSV shows identical SHA256 and mtime values before/after dry-run.
+V04,data_dryrun_tables_and_claim_boundary,tables_present;source_count=23;missing_tags=0;bad_flags=0;forbidden=0,missing_tables=;source_count=23;missing_tags=0;bad_flags=0;forbidden=0,pass,Checked dry-run data DB copy read-only.
+V05,metadata_dryrun_registration_plan,plan_table_present;plan_rows>0;wrong_boundary=0,plan_exists=true;plan_rows=17;wrong_boundary=0,pass,Metadata registration is planned in temp metadata DB copy only; no meta_* inserts invented.
+V06,execute_mode_blocked_for_patch_run,true,true,pass,Execute mode requires a separate authorized execution run.
+V07,final_status_allowed,allowed_status,two_db_importer_patch_dry_run_passed,pass,Final status selected from prompt allowed statuses.
+V08,claim_boundary_preserved,literature_context_only_no_internal_evidence_no_mechanism_claim,literature_context_only_no_internal_evidence_no_mechanism_claim,pass,No physics or mechanism claim is made.

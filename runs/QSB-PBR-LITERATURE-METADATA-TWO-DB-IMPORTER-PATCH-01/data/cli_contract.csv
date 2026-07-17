@@ -1,0 +1,5 @@
+cli_mode,required_args,allowed_mode,behavior,status,claim_boundary
+two_db_dry_run,"--data-db PATH --metadata-db PATH --seed PATH --mode dry-run",dry-run,"Copy both targets to /tmp; write and validate copies only.",implemented,literature_context_only_no_internal_evidence_no_mechanism_claim
+two_db_execute,"--data-db PATH --metadata-db PATH --seed PATH --mode execute",execute,"Blocked in this patch run with execution_import_authorized=false.",blocked_pending_separate_authorization,literature_context_only_no_internal_evidence_no_mechanism_claim
+single_db_compat_dry_run,"--db PATH --seed PATH --mode dry-run",dry-run,"Deprecated compatibility dry-run using in-memory DB only.",implemented_deprecated,literature_context_only_no_internal_evidence_no_mechanism_claim
+single_db_execute,"--db PATH --seed PATH --mode execute",execute,"Blocked; single-DB architecture is deprecated for this import.",blocked,literature_context_only_no_internal_evidence_no_mechanism_claim
