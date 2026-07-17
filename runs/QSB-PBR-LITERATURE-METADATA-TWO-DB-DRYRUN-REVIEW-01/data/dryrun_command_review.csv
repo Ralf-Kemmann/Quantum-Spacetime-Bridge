@@ -1,0 +1,4 @@
+check_name,expected,actual,status,notes
+required_dry_run_command,--data-db;--metadata-db;--seed;--mode dry-run,fresh dry-run was run before review; see patch integrity CSV for copied DB paths,pass,No execute command was run.
+dryrun_temp_data_copy_exists,true,true,pass,/tmp/qsb_pbr_literature_two_db_dryrun_data_20260717T174755Z.sqlite
+dryrun_temp_metadata_copy_exists,true,true,pass,/tmp/qsb_pbr_literature_two_db_dryrun_metadata_20260717T174755Z.sqlite

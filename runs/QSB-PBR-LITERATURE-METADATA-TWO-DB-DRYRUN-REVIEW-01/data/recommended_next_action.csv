@@ -1,0 +1,3 @@
+step_order,action,exact_command,notes,claim_boundary
+1,review_seed_alignment_blocker,"sed -n '1,120p' runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-DRYRUN-REVIEW-01/data/claim_boundary_review.csv",Review the seed CSV column shift and enum validation blocker.,literature_context_only_no_internal_evidence_no_mechanism_claim
+2,authorize_minimal_repair_if_desired,none,Next package recommendation: QSB-PBR-LITERATURE-METADATA-SEED-CSV-REPAIR-VALIDATION-01.,literature_context_only_no_internal_evidence_no_mechanism_claim

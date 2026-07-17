@@ -1,0 +1,4 @@
+review_item,expected,actual,status,notes
+two_db_execute_block,execution_import_authorized=false,execution_import_authorized=false,pass,--mode execute requires separate authorized execution run.
+single_db_execute_block,single_db execute blocked,single_db execute blocked,pass,No path for deprecated single-DB execute.
+deprecated_single_db_notice,single_db_mode_deprecated_for_two_db_architecture,present,pass,Single-target mode is dry-run compatibility only.

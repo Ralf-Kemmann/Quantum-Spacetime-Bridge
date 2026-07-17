@@ -1,0 +1,6 @@
+table_name,exists,expected_count,actual_count,classification,status,notes
+qsb_literature_source,true,23,23,,pass,Dry-run data DB copy reviewed read-only.
+qsb_literature_mechanism_tag,true,50,50,,pass,Dry-run data DB copy reviewed read-only.
+qsb_literature_claim_boundary,true,23,23,,pass,Dry-run data DB copy reviewed read-only.
+qsb_literature_qsb_mapping,true,0,0,nonblocking_if_documented_as_future_cube_mapping,pass,Dry-run data DB copy reviewed read-only.
+qsb_literature_import_manifest,true,1,1,,pass,Dry-run data DB copy reviewed read-only.

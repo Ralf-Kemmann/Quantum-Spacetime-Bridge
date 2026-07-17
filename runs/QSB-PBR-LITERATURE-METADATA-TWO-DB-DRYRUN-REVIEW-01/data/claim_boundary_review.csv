@@ -1,0 +1,5 @@
+review_item,expected,actual,status,notes
+claim_boundary_flags,bad_claim_rows=0,bad_claim_rows=0,pass,literature_context_only_no_internal_evidence_no_mechanism_claim
+forbidden_claim_phrases,forbidden_rows=0,forbidden_rows=0,pass,Includes expanded phrase list from dry-run review prompt.
+source_seed_completeness,sources=23;missing_tags=0;source_class_missing=0;author_missing=0;theory_missing=0,sources=23;missing_tags=0;source_class_missing=0;author_missing=0;theory_missing=0,pass,Seed remains context/search-space metadata only.
+seed_column_alignment_and_enums,invalid_source_type=0;invalid_source_class=0;invalid_author_cluster=0;invalid_theory_cluster=0;nonempty_citation_fields=0;malformed_notes=0,invalid_source_type=23;invalid_source_class=23;invalid_author_cluster=23;invalid_theory_cluster=23;nonempty_citation_fields=23;malformed_notes=23,fail,Failure indicates CSV column shift; source_url contains source_type-like values and classification fields are displaced.

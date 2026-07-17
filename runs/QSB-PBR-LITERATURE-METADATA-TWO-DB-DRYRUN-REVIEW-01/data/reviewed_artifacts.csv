@@ -1,0 +1,7 @@
+artifact_path,exists,artifact_role,notes
+runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/data/two_db_dry_run_target_integrity.csv,true,patch_review_input,Required review input.
+runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/data/validation_results.csv,true,patch_review_input,Required review input.
+runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/data/cli_contract.csv,true,patch_review_input,Required review input.
+runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/data/dry_run_test_matrix.csv,true,patch_review_input,Required review input.
+runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01/data/recommended_next_action.csv,true,patch_review_input,Required review input.
+runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01/scripts/import_literature_metadata.py,true,patched_importer,Required review input.

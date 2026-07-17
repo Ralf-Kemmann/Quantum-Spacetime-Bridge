@@ -1,0 +1,7 @@
+check_id,check_name,expected,actual,status,notes
+V01,real_target_integrity,all_pass,all_pass,pass,SHA256/mtime unchanged and no sidecars detected.
+V02,data_db_tables,all_pass,all_pass,pass,Expected dry-run literature tables and counts reviewed.
+V03,metadata_registration_plan,metadata_registration_plan_only,metadata_registration_plan_only_requires_schema_mapping_review,pass,Plan-only registration requires schema mapping review before execution design.
+V04,claim_boundary,all_pass,failed,fail,literature_context_only_no_internal_evidence_no_mechanism_claim
+V05,execute_block,all_pass,all_pass,pass,No execute authorization path accepted by this review.
+V06,final_status_allowed,allowed_status,two_db_dryrun_review_blocked_validation_failed,pass,Status selected from prompt allowed list.

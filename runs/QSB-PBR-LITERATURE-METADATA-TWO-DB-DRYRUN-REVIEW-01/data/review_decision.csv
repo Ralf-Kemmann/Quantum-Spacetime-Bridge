@@ -1,0 +1,4 @@
+decision_key,value,notes,claim_boundary
+final_status,two_db_dryrun_review_blocked_validation_failed,"Dry-run mechanics are safe, but review found a blocking literature_source_seed.csv column-alignment/enumeration failure.",literature_context_only_no_internal_evidence_no_mechanism_claim
+execution_import_authorized,false,Review does not authorize execute import.,literature_context_only_no_internal_evidence_no_mechanism_claim
+recommended_next_package,QSB-PBR-LITERATURE-METADATA-SEED-CSV-REPAIR-VALIDATION-01,Repair seed CSV column alignment before metadata schema mapping or execution design.,literature_context_only_no_internal_evidence_no_mechanism_claim

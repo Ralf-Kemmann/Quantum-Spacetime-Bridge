@@ -1,0 +1,12 @@
+review_item,expected,actual,row_count,status,notes
+registration_mode,metadata_registration_plan_only,metadata_registration_plan_only,17,pass_with_schema_mapping_review_required,Native meta_* inserts are not implemented; this is acceptable for dry-run review only and requires schema mapping review before execution design.
+required_columns,canonical_name;de_label;claim_boundary_note,allowed_values;canonical_name;claim_boundary;claim_boundary_note;data_type;de_label;description_de;description_en;en_label;field_name;lineage_note;registration_status;table_name,17,pass,Plan table column coverage.
+table_coverage:qsb_literature_source,>=1,9,17,pass,Registration plan coverage by literature table.
+table_coverage:qsb_literature_mechanism_tag,>=1,1,17,pass,Registration plan coverage by literature table.
+table_coverage:qsb_literature_claim_boundary,>=1,6,17,pass,Registration plan coverage by literature table.
+table_coverage:qsb_literature_qsb_mapping,>=1,1,17,pass,Registration plan coverage by literature table.
+table_coverage:qsb_literature_import_manifest,>=1,0,17,pass,Registration plan coverage by literature table.
+key_field_coverage:literature_id,>=1,1,17,pass,Registration plan coverage by key field.
+key_field_coverage:source_key,>=1,1,17,pass,Registration plan coverage by key field.
+key_field_coverage:mechanism_tag,>=1,1,17,pass,Registration plan coverage by key field.
+key_field_coverage:claim_boundary,>=1,1,17,pass,Registration plan coverage by key field.
