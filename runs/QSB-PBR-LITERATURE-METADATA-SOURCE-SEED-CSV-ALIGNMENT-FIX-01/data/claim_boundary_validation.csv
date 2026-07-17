@@ -1,0 +1,6 @@
+check_name,expected,actual,status
+claim_boundary_count,23,23,pass
+mechanism_tag_count,50,50,pass
+claim_flags_zero,0,0,pass
+forbidden_phrases_absent,0,,pass
+claim_boundary,literature_context_only_no_internal_evidence_no_mechanism_claim,literature_context_only_no_internal_evidence_no_mechanism_claim,pass

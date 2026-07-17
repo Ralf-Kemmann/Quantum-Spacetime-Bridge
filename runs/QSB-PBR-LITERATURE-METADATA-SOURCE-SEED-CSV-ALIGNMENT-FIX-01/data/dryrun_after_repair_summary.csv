@@ -1,0 +1,7 @@
+check_name,expected,actual,status
+real_data_db_unchanged,true,true,pass
+real_metadata_db_unchanged,true,true,pass
+dryrun_source_count,23,23,pass
+dryrun_tag_count,50,50,pass
+dryrun_claim_boundary_count,23,23,pass
+metadata_plan_rows,17,17,pass
