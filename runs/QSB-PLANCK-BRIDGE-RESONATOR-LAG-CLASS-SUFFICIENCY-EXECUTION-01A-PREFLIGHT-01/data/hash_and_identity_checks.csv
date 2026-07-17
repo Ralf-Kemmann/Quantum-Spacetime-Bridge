@@ -1,0 +1,6 @@
+check_id,artifact,required_condition,observed_condition,decision,notes
+HI001,K_candidate_hash,runs/QSB-EXTRACT03A-R1/authorized_execution_with_s1_addendum/11_K_candidate_matrix.csv sha256 equals expected,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,pass,"Hash equality only; no scientific recomputation."
+HI002,K_candidate_expected_hash,contract_field_export.csv expected hash present,e1acdf0acf31e2faf68f8a517cbdbccb2f9af9e28fe974eeb01c0a7f0928754d,pass,"Expected hash available."
+HI003,pair_basis_path,contract_field_export.csv pair basis path present,runs/QSB-EXTRACT03-S1/split_seed_freeze_addendum/06_canonical_pair_basis_review.csv,pass,"File identity check possible."
+HI004,pair_identifier,contract_field_export.csv canonical_pair_id declared,canonical_pair_id,pass,"No content-level reinterpretation."
+HI005,source_db_path,validation_summary.csv source DB exists per validation,VAL-01 pass,pass,"Existing validation summary reviewed."

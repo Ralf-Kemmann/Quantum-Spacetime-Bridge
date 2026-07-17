@@ -1,0 +1,6 @@
+issue_id,gate_id,blocking_issue,required_action
+BI001,G16,"Lag-class required values remain requires_human_value.",contract_value_review
+BI002,G17,"Random seed policy remains requires_human_value.",contract_value_review
+BI003,G18,"Trial count policy remains requires_human_value.",contract_value_review
+BI004,G19,"Randomization control policies remain requires_human_value.",contract_value_review
+BI005,G14,"Design-update placeholder gate classifies multiple fields as blocking_for_preflight.",contract_value_review

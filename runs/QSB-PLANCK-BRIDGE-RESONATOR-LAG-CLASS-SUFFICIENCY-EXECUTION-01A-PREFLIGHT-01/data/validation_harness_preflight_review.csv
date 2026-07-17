@@ -1,0 +1,5 @@
+review_id,artifact,observed,decision,notes
+VH001,reconstruct_k_candidate.py,py_compile passed,pass,"Syntax/import preflight only."
+VH002,reconstruct_k_candidate.py --help,CLI exposes dry-run export validate and says no Execution 01A authorization,pass,"Help text inspected."
+VH003,validation_summary.csv,VAL-01..VAL-11 pass with 0 blocking failures in existing summary,pass_with_note,"Existing artifact reviewed; validate mode not rerun against tracked output to avoid mutation."
+VH004,dry-run stdout,explicit inputs and claim boundary printed,pass,"Dry-run only produced stdout."

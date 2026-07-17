@@ -1,0 +1,2 @@
+decision_id,preflight_status,recommended_next_run,authorization_review_allowed,execution_01a_authorized,execution_01a_executed,rationale
+DEC-01,no_go_requires_contract_value_review,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-VALUE-REVIEW-01,false,false,false,"Preflight-critical placeholders remain unresolved; no later authorization review should be drafted before contract value review."

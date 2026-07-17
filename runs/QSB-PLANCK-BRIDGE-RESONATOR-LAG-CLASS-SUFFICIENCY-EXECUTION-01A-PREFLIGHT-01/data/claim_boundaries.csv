@@ -1,0 +1,9 @@
+boundary_id,boundary_name,value,status,notes
+CB001,execution_01a_executed,false,preserved,"No experiment arms executed."
+CB002,execution_01a_authorized,false,preserved,"No authorization in this preflight."
+CB003,physical_claim_release,blocked_no_physics_claim,preserved,"No physical claim."
+CB004,mechanism_claim_release,blocked_no_mechanism_claim,preserved,"No mechanism claim."
+CB005,matrix_recomputation_executed,false,preserved,"No K recomputation as scientific result."
+CB006,spectral_measurement_executed,false,preserved,"No spectra/eigenvalues computed for interpretation."
+CB007,random_trials_executed,false,preserved,"No random partition trials."
+CB008,nullmodel_executed,false,preserved,"No nullmodels."

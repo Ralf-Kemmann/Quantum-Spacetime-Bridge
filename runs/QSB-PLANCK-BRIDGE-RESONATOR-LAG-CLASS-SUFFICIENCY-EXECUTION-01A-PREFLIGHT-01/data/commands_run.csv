@@ -1,0 +1,11 @@
+command_id,command,classification,result
+CMD001,git status --short --untracked-files=all,inspection,pass
+CMD002,git log --oneline -16,inspection,pass
+CMD003,sed prompt chunks,inspection,pass
+CMD004,find design update run files,inspection,pass
+CMD005,sed design update placeholder/preflight/arm/validation artifacts,inspection,pass
+CMD006,python -m py_compile scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py,check,pass
+CMD007,python scripts/qsb_pbr_matrix_contract/reconstruct_k_candidate.py --help,check,pass
+CMD008,python -m csv generated contract CSVs,check,pass
+CMD009,sha256sum K candidate export,identity_check,pass
+CMD010,python reconstruct_k_candidate.py --mode dry-run ...,dry_run,pass

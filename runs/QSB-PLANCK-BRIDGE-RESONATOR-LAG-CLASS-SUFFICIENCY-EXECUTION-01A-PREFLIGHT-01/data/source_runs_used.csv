@@ -1,0 +1,8 @@
+source_run_id,path,detected,role_in_preflight,summary
+design_update,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-DESIGN-UPDATE-01,true,primary_input,"Reported ready_after_nonblocking_notes and defined placeholder gates."
+post_patch_human_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-POST-PATCH-HUMAN-REVIEW-01,true,review_input,"Reported post-patch readiness for design with notes."
+implementation_review,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-REVIEW-01,true,implementation_gate_input,"Approved infrastructure with nonblocking notes."
+implementation,runs/QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-SOURCE-PATCH-IMPLEMENTATION-01,true,artifact_input,"Provides generated contract artifacts."
+previous_sufficiency_design,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-DESIGN-01,true,arm_design_input,"Original arms A-I."
+previous_sufficiency_execution,runs/QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01,true,blocked_execution_input,"Previously blocked due missing matrix construction contract."
+independent_lag_closure,runs/QSB-PLANCK-BRIDGE-RESONATOR-INDEPENDENT-LAG-VARIABLE-ADMISSIBILITY-CLOSURE-REVIEW-01,true,boundary_input,"Candidate repair/search remains closed."

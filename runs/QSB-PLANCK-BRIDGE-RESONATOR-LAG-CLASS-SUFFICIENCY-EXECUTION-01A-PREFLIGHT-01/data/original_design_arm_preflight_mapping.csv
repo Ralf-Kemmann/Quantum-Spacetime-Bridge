@@ -1,0 +1,10 @@
+arm_id,arm_name,preflight_dependency,preflight_decision,blocking_reason_if_any,execution_allowed_in_this_run,notes
+A_baseline_reconstruction,Documented baseline reconstruction,K hash and contract field export,pass,none,false,"No recomputation."
+B_true_lag_class_minimal_model,Lag-class minimal model,lag_class_column and lag_class_definition,fail,lag values unresolved,false,"Requires contract value review."
+C_equal_cardinality_non_lag_partitions,Equal-cardinality non-lag partitions,random seed trial count cardinality export,fail,randomization controls unresolved,false,"Requires contract value review."
+D_equal_class_count_different_cardinality_partitions,Different-cardinality partitions,control eligibility and trial count,fail,control values unresolved,false,"Requires contract value review."
+E_label_relabeling_invariance,Label relabeling invariance,lag alias and relabeling eligibility,fail,control eligibility unresolved,false,"Requires contract value review."
+F_membership_destruction_with_marginal_preservation,Membership destruction with marginal preservation,randomization manifest and marginal rule,fail,manifest/control values unresolved,false,"Requires contract value review."
+G_matrix_rule_tautology_screen,Matrix-rule tautology screen,matrix rule tautology eligibility,fail,eligibility unresolved,false,"Requires contract value review."
+H_projector_algebra_check,Projector algebra check,rank and threshold policies,fail,rank/threshold placeholders unresolved,false,"Requires contract value review."
+I_pipeline_order_noncommutativity_handoff,Pipeline-order handoff,hidden-state guard and docs,pass_with_note,none,false,"Handoff only; no execution."

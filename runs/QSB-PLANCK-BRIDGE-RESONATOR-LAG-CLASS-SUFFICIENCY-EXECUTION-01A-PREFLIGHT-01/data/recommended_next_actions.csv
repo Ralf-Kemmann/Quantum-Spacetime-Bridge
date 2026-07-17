@@ -1,0 +1,4 @@
+action_id,priority,next_run_or_action,rationale
+ACT001,1,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-VALUE-REVIEW-01,"Resolve preflight-blocking requires_human_value fields before authorization review."
+ACT002,2,"After value review, rerun Execution 01A Preflight","A new preflight should verify resolved values without inference."
+ACT003,3,"Do not draft Authorization Review yet","Current preflight status is no-go."

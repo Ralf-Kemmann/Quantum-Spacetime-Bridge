@@ -1,0 +1,2 @@
+run_id,preflight_status,recommended_next_run,execution_01a_authorized,execution_01a_executed,physical_claim_release,mechanism_claim_release,summary
+QSB-PLANCK-BRIDGE-RESONATOR-LAG-CLASS-SUFFICIENCY-EXECUTION-01A-PREFLIGHT-01,no_go_requires_contract_value_review,QSB-PLANCK-BRIDGE-RESONATOR-MATRIX-CONSTRUCTION-CONTRACT-VALUE-REVIEW-01,false,false,blocked_no_physics_claim,blocked_no_mechanism_claim,"Infrastructure gates pass or pass_with_note, but explicit requires_human_value fields remain blocking for preflight and execution-critical values."

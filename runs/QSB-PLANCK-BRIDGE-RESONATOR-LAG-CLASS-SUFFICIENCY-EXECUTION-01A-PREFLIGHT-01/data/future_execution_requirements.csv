@@ -1,0 +1,8 @@
+requirement_id,requirement,required_before,status_after_preflight
+REQ001,Resolve lag_class_column lag_value_column lag_class_definition and lag_sort_order,authorization_review,unresolved_blocking
+REQ002,Resolve duplicate_pair_policy missing_pair_policy and missing_value_policy,authorization_review,unresolved_blocking
+REQ003,Resolve equal-cardinality eligibility random_seed_policy trial_count_policy and randomization manifest schema,authorization_review,unresolved_blocking
+REQ004,Resolve or explicitly disable rank and eigenvalue threshold policies,before_execution_results,unresolved_execution_blocking
+REQ005,Preserve exact K candidate hash gate,authorization_review,satisfied
+REQ006,Preserve execution_01a_authorized=false until separate authorization,always,satisfied
+REQ007,Preserve physical and mechanism claim blocks,always,satisfied

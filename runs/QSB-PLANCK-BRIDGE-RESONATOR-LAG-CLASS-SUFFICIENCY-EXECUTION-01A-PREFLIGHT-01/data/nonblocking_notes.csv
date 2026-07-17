@@ -1,0 +1,5 @@
+note_id,note,required_action
+NB001,"K candidate hash matches expected hash.",preserve
+NB002,"Generated contract schemas parse successfully.",preserve
+NB003,"Validation harness is available; validate mode was not rerun against tracked outputs to avoid mutation.",preserve
+NB004,"Pair basis identity check is possible from documented path and canonical_pair_id, but content-level replay is not performed in this preflight.",future_review_if_needed
