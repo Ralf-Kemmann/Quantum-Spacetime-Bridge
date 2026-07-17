@@ -1,0 +1,7 @@
+check_id,check_name,expected,actual,status,notes
+V01,no_db_write_occurred,true,true,pass,Inspector opens SQLite files with mode=ro and writes only CSV artifacts.
+V02,all_sqlite_opened_read_only,read_only_uri_mode_ro,opened_count=6,pass,"Connections use sqlite3.connect(file:path?mode=ro, uri=True)."
+V03,no_write_sql_executed,no CREATE INSERT UPDATE DELETE ALTER DROP REPLACE VACUUM,select_and_pragma_only,pass,Script contains write keyword guard list for validation documentation; DB queries are SELECT and PRAGMA only.
+V04,candidate_dbs_classified,6,6,pass,All configured candidates received an assessment row.
+V05,final_status_allowed,allowed_status,db_target_review_recommends_two_db_architecture,pass,Selected status is from prompt allowed list.
+V06,claim_boundary_preserved,literature_context_only_no_internal_evidence_no_mechanism_claim,literature_context_only_no_internal_evidence_no_mechanism_claim,pass,Review makes no physics or mechanism claim.

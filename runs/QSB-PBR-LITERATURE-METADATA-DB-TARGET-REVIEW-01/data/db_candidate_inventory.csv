@@ -1,0 +1,7 @@
+candidate_id,path,required,exists,size_bytes,mtime_utc,opened_mode
+dwh03_workcopy,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_dwh_target_workcopy_dwh03.db,true,true,578412544,2026-06-05T08:18:29.034144+00:00,read_only_uri_mode_ro
+meta02_catalog,runs/QSB-META02/metadata_catalog_update/qsb_metadata_catalog_meta02.sqlite,true,true,864256,2026-06-18T22:27:12.479871+00:00,read_only_uri_mode_ro
+corrcore01_catalog,runs/QSB-CORRCORE01/metadata_catalog_update/qsb_metadata_catalog_corrcore01.sqlite,true,true,745472,2026-06-18T10:04:14.298175+00:00,read_only_uri_mode_ro
+current_dwh_erd,runs/QSB-DB/CURRENT_QSB_RESEARCH_DWH/qsb_research_dwh_current_for_erd.db,false,true,317394944,2026-06-03T12:31:45.692015+00:00,read_only_uri_mode_ro
+db25_consolidated_snapshot,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_consolidated_snapshot.db,false,true,317440000,2026-06-03T19:35:19.369063+00:00,read_only_uri_mode_ro
+db13_metadata_seed,runs/QSB-DB/QSB_DB13_METADATA_SEED/qsb_research_metadata_seed.db,false,true,610304,2026-06-01T22:18:00.474960+00:00,read_only_uri_mode_ro

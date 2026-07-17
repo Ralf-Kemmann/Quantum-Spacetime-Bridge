@@ -1,0 +1,7 @@
+candidate_id,path,classification,literature_data_target_eligibility,metadata_registration_target_eligibility,safe_for_dry_run,safe_for_execute,rationale
+dwh03_workcopy,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_dwh_target_workcopy_dwh03.db,active_dwh_workcopy_candidate,requires_human_approval,no,yes,requires_human_approval,Likely DWH/workcopy target for literature data after dry-run review; not the metadata-server catalog.
+meta02_catalog,runs/QSB-META02/metadata_catalog_update/qsb_metadata_catalog_meta02.sqlite,metadata_catalog_candidate,no,requires_human_approval,yes,requires_human_approval,Likely metadata registration target; not appropriate as primary literature data storage without architecture change.
+corrcore01_catalog,runs/QSB-CORRCORE01/metadata_catalog_update/qsb_metadata_catalog_corrcore01.sqlite,metadata_catalog_candidate,no,requires_human_approval,yes,requires_human_approval,Likely metadata registration target; not appropriate as primary literature data storage without architecture change.
+current_dwh_erd,runs/QSB-DB/CURRENT_QSB_RESEARCH_DWH/qsb_research_dwh_current_for_erd.db,erd_or_readout_copy_not_target,no,no,yes,no,ERD/readout copy only.
+db25_consolidated_snapshot,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_consolidated_snapshot.db,stale_snapshot_requires_review,no,no,yes,no,Snapshot comparison only; do not execute into this target.
+db13_metadata_seed,runs/QSB-DB/QSB_DB13_METADATA_SEED/qsb_research_metadata_seed.db,seed_or_template_not_target,no,no,yes,no,Seed/template database only.

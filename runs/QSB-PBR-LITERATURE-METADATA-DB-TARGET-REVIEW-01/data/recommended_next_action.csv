@@ -1,0 +1,4 @@
+step_order,action,exact_command,notes
+1,human_architecture_approval,none,Human confirms two-DB architecture and selects metadata catalog target.
+2,future_importer_patch,none,Patch importer only after explicit instruction to support --data-db and --metadata-db.
+3,future_dry_run_only,python runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01/scripts/import_literature_metadata.py --db PATH_TO_APPROVED_DB --seed runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01/data/literature_source_seed.csv --mode dry-run,Current single-db dry-run command remains available but does not solve metadata registration split.

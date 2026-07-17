@@ -1,0 +1,6 @@
+decision_item,value,notes
+recommended_architecture,two_db_architecture,Use DWH/workcopy for literature data after human approval and metadata catalog for metadata-server registration after human approval.
+literature_data_db,runs/QSB-DB/QSB_DB25_CONSOLIDATED_RESEARCH_SNAPSHOT/qsb_research_dwh_target_workcopy_dwh03.db,Classified as active_dwh_workcopy_candidate; execute still requires human approval.
+metadata_registration_db,runs/QSB-META02/metadata_catalog_update/qsb_metadata_catalog_meta02.sqlite,Preferred metadata catalog candidate because it is the explicit META02 catalog; CORRCORE01 is also metadata catalog but appears domain-run-specific.
+importer_change_required,true,"Prepared importer currently accepts one --db argument, which is too coarse for two-target architecture."
+required_importer_change,--data-db PATH_TO_DWH --metadata-db PATH_TO_METADATA_CATALOG --mode dry-run|execute,Do not implement until explicitly instructed.
