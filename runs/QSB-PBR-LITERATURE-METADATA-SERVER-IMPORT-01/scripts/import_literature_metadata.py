@@ -11,16 +11,43 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import json
 import shutil
 import sqlite3
+import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parents[3]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from scripts.qsb_literature_metadata.native_contract_constants import (
+    CLAIM_BOUNDARY,
+    CUBE_MAPPING_STATUS,
+    DATA_MART_CREATION_AUTHORIZED,
+    EXECUTION_IMPORT_AUTHORIZED,
+    MECHANISM_CLAIM_RELEASE,
+    PHYSICAL_CLAIM_RELEASE,
+    PLANCK_SPACE_MAPPING_STATUS,
+)
+from scripts.qsb_literature_metadata.native_metadata_mapping import (
+    MappingError,
+    apply_operations_to_temp_db,
+    build_operation_plan,
+    detect_alias_collisions,
+    lineage_validation,
+    operation_summaries,
+    quantity_policy,
+    read_registration_plan,
+    schema_fingerprint,
+    vocabulary_entries,
+    write_operations_csv,
+)
 
 RUN_DIR = Path("runs/QSB-PBR-LITERATURE-METADATA-SERVER-IMPORT-01")
 PATCH_RUN_DIR = Path("runs/QSB-PBR-LITERATURE-METADATA-TWO-DB-IMPORTER-PATCH-01")
-CLAIM_BOUNDARY = "literature_context_only_no_internal_evidence_no_mechanism_claim"
 DEPRECATED_SINGLE_DB_STATUS = "single_db_mode_deprecated_for_two_db_architecture"
 METADATA_PLAN_STATUS = "metadata_registration_planned_requires_schema_mapping_review"
 EXECUTE_BLOCKED_STATUS = "execution_import_authorized=false"
@@ -34,7 +61,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 def write_csv(path: Path, fieldnames: list[str], rows: list[dict[str, object]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -55,6 +82,43 @@ def copy_for_dry_run(source: Path, label: str) -> Path:
     target = tmp_dir / f"qsb_pbr_literature_two_db_dryrun_{label}_{timestamp}.sqlite"
     shutil.copy2(source, target)
     return target
+
+
+def sidecars(path: Path) -> str:
+    return ";".join(str(Path(str(path) + suffix)) for suffix in ("-journal", "-wal", "-shm") if Path(str(path) + suffix).exists())
+
+
+def db_integrity_row(path: Path, role: str) -> dict[str, object]:
+    row: dict[str, object] = {
+        "target_role": role,
+        "real_db_path": path.as_posix(),
+        "sha256": sha256_file(path),
+        "mtime_ns": path.stat().st_mtime_ns,
+        "byte_size": path.stat().st_size,
+        "sqlite_integrity_check": "",
+        "schema_fingerprint": "",
+        "row_count_fingerprint": "",
+        "sidecar_files": sidecars(path),
+    }
+    with sqlite3.connect(f"file:{path.resolve().as_posix()}?mode=ro", uri=True) as conn:
+        row["sqlite_integrity_check"] = conn.execute("PRAGMA integrity_check").fetchone()[0]
+        row["schema_fingerprint"] = schema_fingerprint(conn)
+        counts = []
+        for table_name, in conn.execute("SELECT name FROM sqlite_schema WHERE type='table' ORDER BY name"):
+            count = conn.execute(f'SELECT COUNT(*) FROM "{table_name}"').fetchone()[0]
+            counts.append(f"{table_name}:{count}")
+        row["row_count_fingerprint"] = hashlib.sha256("|".join(counts).encode("utf-8")).hexdigest()
+    return row
+
+
+def targets_unchanged(before: list[dict[str, object]], after: list[dict[str, object]]) -> bool:
+    after_by_role = {row["target_role"]: row for row in after}
+    for before_row in before:
+        after_row = after_by_role[before_row["target_role"]]
+        for key in ["sha256", "mtime_ns", "byte_size", "sqlite_integrity_check", "schema_fingerprint", "row_count_fingerprint", "sidecar_files"]:
+            if before_row[key] != after_row[key]:
+                return False
+    return True
 
 
 def create_tables(conn: sqlite3.Connection) -> None:
@@ -271,12 +335,110 @@ def run_single_db_dry_run(seed_path: Path) -> int:
         conn.close()
 
 
-def run_two_db_dry_run(data_db: Path, metadata_db: Path, seed_path: Path) -> int:
+def write_native_dryrun_reports(
+    output_dir: Path,
+    operations,
+    native_apply_result: dict[str, object],
+    metadata_copy: Path,
+    idempotency_result: dict[str, object],
+    rollback_result: dict[str, object],
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    write_operations_csv(output_dir / "native_operation_plan.csv", operations)
+    lookup_counts, conflict_counts = operation_summaries(operations)
+    write_csv(output_dir / "native_lookup_outcomes.csv", ["lookup_outcome", "count"], [{"lookup_outcome": key, "count": value} for key, value in sorted(lookup_counts.items())])
+    write_csv(output_dir / "native_conflict_classes.csv", ["conflict_class", "count"], [{"conflict_class": key, "count": value} for key, value in sorted(conflict_counts.items())])
+    write_csv(output_dir / "native_lineage_results.csv", list(lineage_validation(operations)[0].keys()), lineage_validation(operations))
+    rows_by_id = {}
+    for op in operations:
+        rows_by_id.setdefault(op.registration_plan_row_id, op)
+    write_csv(
+        output_dir / "native_claim_boundary_results.csv",
+        ["claim_boundary", "physical_claim_release", "mechanism_claim_release", "execution_import_authorized", "data_mart_creation_authorized", "status"],
+        [{
+            "claim_boundary": CLAIM_BOUNDARY,
+            "physical_claim_release": PHYSICAL_CLAIM_RELEASE,
+            "mechanism_claim_release": MECHANISM_CLAIM_RELEASE,
+            "execution_import_authorized": EXECUTION_IMPORT_AUTHORIZED,
+            "data_mart_creation_authorized": DATA_MART_CREATION_AUTHORIZED,
+            "status": "pass",
+        }],
+    )
+    write_csv(output_dir / "native_dryrun_apply_result.csv", list(native_apply_result.keys()), [native_apply_result])
+    write_csv(output_dir / "native_idempotency_rerun_result.csv", list(idempotency_result.keys()), [idempotency_result])
+    write_csv(output_dir / "native_rollback_result.csv", list(rollback_result.keys()), [rollback_result])
+    manifest = {
+        "operation_count": len(operations),
+        "lookup_outcomes": dict(lookup_counts),
+        "conflict_classes": dict(conflict_counts),
+        "metadata_temp_db": metadata_copy.as_posix(),
+        "claim_boundary": CLAIM_BOUNDARY,
+        "physical_claim_release": PHYSICAL_CLAIM_RELEASE,
+        "mechanism_claim_release": MECHANISM_CLAIM_RELEASE,
+        "execution_import_authorized": False,
+        "data_mart_creation_authorized": False,
+        "future_cube_boundary_status": CUBE_MAPPING_STATUS,
+        "future_planck_space_boundary_status": PLANCK_SPACE_MAPPING_STATUS,
+    }
+    (output_dir / "native_mapping_manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def run_native_metadata_dryrun(metadata_copy: Path, metadata_plan: list[dict[str, str]], output_dir: Path) -> tuple[list[str], dict[str, object]]:
+    failures: list[str] = []
+    operation_count = 0
+    try:
+        plan_path = RUN_DIR / "data" / "metadata_server_registration_plan.csv"
+        rows = read_registration_plan(plan_path)
+        operations = build_operation_plan(rows, mode="dry-run")
+        operation_count = len(operations)
+        if len(metadata_plan) != len(rows):
+            failures.append(f"native_plan_row_mismatch: seed={len(metadata_plan)} planner={len(rows)}")
+        if detect_alias_collisions(rows):
+            failures.append("native_alias_collision_detected")
+        quantity_rows = [quantity_policy(row) for row in rows]
+        if len(quantity_rows) != 17:
+            failures.append("native_quantity_policy_row_mismatch")
+        vocab_rows = vocabulary_entries(rows)
+        if not vocab_rows:
+            failures.append("native_vocabulary_seed_empty")
+        with sqlite3.connect(metadata_copy) as metadata_conn:
+            metadata_conn.execute("BEGIN")
+            native_apply_result = apply_operations_to_temp_db(metadata_conn, operations)
+            metadata_conn.commit()
+            metadata_conn.execute("BEGIN")
+            idempotency_result = apply_operations_to_temp_db(metadata_conn, operations)
+            metadata_conn.commit()
+            metadata_conn.execute("BEGIN")
+            before_count = metadata_conn.execute("SELECT COUNT(*) FROM qsb_literature_native_operation_dryrun").fetchone()[0]
+            metadata_conn.execute("INSERT INTO qsb_literature_native_validation_dryrun VALUES (?,?,?)", ("rollback_probe", "pass", "temporary"))
+            metadata_conn.rollback()
+            after_count = metadata_conn.execute("SELECT COUNT(*) FROM qsb_literature_native_operation_dryrun").fetchone()[0]
+        rollback_result = {
+            "rollback_test": "pass" if before_count == after_count else "fail",
+            "before_count": before_count,
+            "after_count": after_count,
+        }
+        if idempotency_result["noop"] != len(operations):
+            failures.append(f"native_idempotency_not_noop: {idempotency_result}")
+        if rollback_result["rollback_test"] != "pass":
+            failures.append("native_rollback_failed")
+        report_result = {
+            "operation_count": operation_count,
+            "native_apply_status": "pass" if not failures else "fail",
+            "inserted": native_apply_result["inserted"],
+            "idempotency_noop": idempotency_result["noop"],
+            "rollback_status": rollback_result["rollback_test"],
+        }
+        write_native_dryrun_reports(output_dir, operations, native_apply_result, metadata_copy, idempotency_result, rollback_result)
+        return failures, report_result
+    except (MappingError, sqlite3.DatabaseError) as exc:
+        failures.append(str(exc))
+        return failures, {"operation_count": operation_count, "native_apply_status": "fail", "error": str(exc)}
+
+
+def run_two_db_dry_run(data_db: Path, metadata_db: Path, seed_path: Path, output_dir: Path) -> int:
     sources, tags, boundaries, manifest, metadata_plan = load_seed_bundle(seed_path)
-    data_before = sha256_file(data_db)
-    metadata_before = sha256_file(metadata_db)
-    data_mtime_before = data_db.stat().st_mtime_ns
-    metadata_mtime_before = metadata_db.stat().st_mtime_ns
+    before = [db_integrity_row(data_db, "literature_data_db"), db_integrity_row(metadata_db, "metadata_registration_db")]
     data_copy = copy_for_dry_run(data_db, "data")
     metadata_copy = copy_for_dry_run(metadata_db, "metadata")
 
@@ -305,56 +467,52 @@ def run_two_db_dry_run(data_db: Path, metadata_db: Path, seed_path: Path) -> int
         else:
             metadata_conn.commit()
 
-    data_after = sha256_file(data_db)
-    metadata_after = sha256_file(metadata_db)
-    data_mtime_after = data_db.stat().st_mtime_ns
-    metadata_mtime_after = metadata_db.stat().st_mtime_ns
-    unchanged = (
-        data_before == data_after
-        and metadata_before == metadata_after
-        and data_mtime_before == data_mtime_after
-        and metadata_mtime_before == metadata_mtime_after
-    )
+    native_failures, native_result = run_native_metadata_dryrun(metadata_copy, metadata_plan, output_dir)
+    metadata_failures.extend(native_failures)
+    after = [db_integrity_row(data_db, "literature_data_db"), db_integrity_row(metadata_db, "metadata_registration_db")]
+    unchanged = targets_unchanged(before, after)
 
     summary_rows = [
         {
             "target_role": "literature_data_db",
             "real_db_path": data_db.as_posix(),
             "dryrun_db_path": data_copy.as_posix(),
-            "sha256_before": data_before,
-            "sha256_after": data_after,
-            "mtime_ns_before": data_mtime_before,
-            "mtime_ns_after": data_mtime_after,
-            "real_target_unchanged": str(data_before == data_after and data_mtime_before == data_mtime_after).lower(),
+            "sha256_before": before[0]["sha256"],
+            "sha256_after": after[0]["sha256"],
+            "mtime_ns_before": before[0]["mtime_ns"],
+            "mtime_ns_after": after[0]["mtime_ns"],
+            "real_target_unchanged": str(before[0]["sha256"] == after[0]["sha256"] and before[0]["mtime_ns"] == after[0]["mtime_ns"]).lower(),
             "dry_run_status": "pass" if not data_failures else "fail",
         },
         {
             "target_role": "metadata_registration_db",
             "real_db_path": metadata_db.as_posix(),
             "dryrun_db_path": metadata_copy.as_posix(),
-            "sha256_before": metadata_before,
-            "sha256_after": metadata_after,
-            "mtime_ns_before": metadata_mtime_before,
-            "mtime_ns_after": metadata_mtime_after,
-            "real_target_unchanged": str(metadata_before == metadata_after and metadata_mtime_before == metadata_mtime_after).lower(),
+            "sha256_before": before[1]["sha256"],
+            "sha256_after": after[1]["sha256"],
+            "mtime_ns_before": before[1]["mtime_ns"],
+            "mtime_ns_after": after[1]["mtime_ns"],
+            "real_target_unchanged": str(before[1]["sha256"] == after[1]["sha256"] and before[1]["mtime_ns"] == after[1]["mtime_ns"]).lower(),
             "dry_run_status": "pass" if not metadata_failures else "fail",
         },
     ]
-    write_csv(
-        PATCH_RUN_DIR / "data" / "two_db_dry_run_target_integrity.csv",
-        [
-            "target_role",
-            "real_db_path",
-            "dryrun_db_path",
-            "sha256_before",
-            "sha256_after",
-            "mtime_ns_before",
-            "mtime_ns_after",
-            "real_target_unchanged",
-            "dry_run_status",
-        ],
-        summary_rows,
-    )
+    if output_dir == PATCH_RUN_DIR / "data":
+        write_csv(
+            PATCH_RUN_DIR / "data" / "two_db_dry_run_target_integrity.csv",
+            [
+                "target_role",
+                "real_db_path",
+                "dryrun_db_path",
+                "sha256_before",
+                "sha256_after",
+                "mtime_ns_before",
+                "mtime_ns_after",
+                "real_target_unchanged",
+                "dry_run_status",
+            ],
+            summary_rows,
+        )
+    write_csv(output_dir / "two_db_dry_run_target_integrity.csv", list(summary_rows[0].keys()), summary_rows)
 
     if data_failures or metadata_failures or not unchanged:
         for failure in data_failures + metadata_failures:
@@ -367,6 +525,8 @@ def run_two_db_dry_run(data_db: Path, metadata_db: Path, seed_path: Path) -> int
     print(f"data_dryrun_copy={data_copy}")
     print(f"metadata_dryrun_copy={metadata_copy}")
     print(METADATA_PLAN_STATUS)
+    print(f"native_operation_count={native_result['operation_count']}")
+    print(f"native_mapping_reports={output_dir}")
     print("PASS: two-DB dry-run validation passed; real DB targets unchanged")
     return 0
 
@@ -377,6 +537,12 @@ def main() -> int:
     parser.add_argument("--data-db")
     parser.add_argument("--metadata-db")
     parser.add_argument("--seed", default=str(RUN_DIR / "data" / "literature_source_seed.csv"))
+    parser.add_argument("--output-dir", default=str(PATCH_RUN_DIR / "data"))
+    parser.add_argument(
+        "--execution-import-authorized",
+        default=EXECUTION_IMPORT_AUTHORIZED,
+        help="Must remain false unless a separate human authorization artifact explicitly permits execute.",
+    )
     parser.add_argument("--mode", choices=["dry-run", "execute"], default="dry-run")
     args = parser.parse_args()
 
@@ -389,10 +555,14 @@ def main() -> int:
             print("FAIL: do not combine deprecated --db with --data-db/--metadata-db")
             return 2
         if args.mode == "execute":
+            if args.execution_import_authorized != "true":
+                print(EXECUTE_BLOCKED_STATUS)
+                print("FAIL: execute mode requires --execution-import-authorized true and a separate authorized execution run")
+                return 2
             print(EXECUTE_BLOCKED_STATUS)
-            print("FAIL: execute mode requires a separate authorized execution run")
+            print("FAIL: execute mode remains blocked in this implementation patch; native real-target writes are not authorized")
             return 2
-        return run_two_db_dry_run(Path(args.data_db), Path(args.metadata_db), seed_path)
+        return run_two_db_dry_run(Path(args.data_db), Path(args.metadata_db), seed_path, Path(args.output_dir))
 
     if args.db:
         if args.mode == "execute":

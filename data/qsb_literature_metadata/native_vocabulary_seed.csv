@@ -1,0 +1,15 @@
+vocabulary_name,canonical_code,english_label,german_alias,definition,entry_status,human_review_status
+claim_boundary_status,literature_context_only_no_internal_evidence_no_mechanism_claim,Literature context only,Nur Literaturkontext,"Boundary forbids internal evidence, mechanism, and physics claims.",active,reviewed
+claim_boundary_status,blocked_no_physics_claim,Blocked physical claim,Physikclaim blockiert,"Physical claim release remains blocked.",active,reviewed
+claim_boundary_status,blocked_no_mechanism_claim,Blocked mechanism claim,Mechanismusclaim blockiert,"Mechanism claim release remains blocked.",active,reviewed
+mapping_status,accepted,Accepted,Akzeptiert,"Source-supported accepted status for future analysis dimensions only.",active,reviewed
+mapping_status,rejected,Rejected,Abgelehnt,"Source-supported rejected status preserved as a first-class state.",active,reviewed
+mapping_status,neutral,Neutral,Neutral,"Neutral status preserved without positive-only filtering.",active,reviewed
+mapping_status,ambiguous,Ambiguous,Mehrdeutig,"Ambiguous status preserved distinctly.",active,reviewed
+mapping_status,unmapped,Unmapped,Nicht gemappt,"Unmapped status preserved distinctly.",active,reviewed
+mapping_status,not_tested,Not tested,Nicht getestet,"Not-tested status preserved distinctly.",active,reviewed
+metadata_completeness,missing,Missing,Fehlend,"Missing source value; distinct from unknown and not applicable.",active,reviewed
+metadata_completeness,unknown,Unknown,Unbekannt,"Unknown source value; distinct from missing and not applicable.",active,reviewed
+metadata_completeness,not_applicable,Not applicable,Nicht anwendbar,"Not applicable state for categorical or bibliographic metadata.",active,reviewed
+cube_dimension_role,future_cube_role,Future cube role,Kuenftige Cube-Rolle,"Future compatibility role only; no Data Mart or cube is created.",active,reviewed
+planck_mapping_role,future_contract_only_not_populated,Future Planck hook,Kuenftiger Planck-Hook,"Future mapping hook only; no coordinates are computed or populated.",active,reviewed
