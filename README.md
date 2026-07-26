@@ -107,6 +107,14 @@ The aim is not to hide the collaboration behind polished prose. The aim is to ma
 
 [Human–AI method note](docs/public/HUMAN_AI_METHOD_NOTE.md)
 
+## Current release
+
+The first publication-oriented repository baseline is:
+
+- [`v0.2.0 — Public research surface and metadata infrastructure`](https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge/releases/tag/v0.2.0)
+- [Release notes](docs/public/RELEASE_NOTES_v0.2.0.md)
+- [Changelog](CHANGELOG.md)
+
 ## Citation, identity, and licence
 
 - Author: **Ralf Kemmann**, Independent Researcher

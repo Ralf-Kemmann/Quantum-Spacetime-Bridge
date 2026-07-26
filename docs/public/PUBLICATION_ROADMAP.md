@@ -2,24 +2,29 @@
 
 ## Principle
 
-The public repository is prepared first. Later publications should point back to a transparent, versioned, and citable technical basis.
+The public repository is prepared first. Later publications point back to a transparent, versioned, and citable technical basis.
 
 The scientific evidence remains the same across platforms. Language, depth, visual pacing, and submission format may differ.
 
-## 1. GitHub public research surface
+## 1. GitHub public research surface — completed
 
-Purpose:
+The repository now provides:
 
-- explain the project in two minutes;
-- provide current status and claim boundaries;
-- make the research instrument visible;
-- guide readers into the audit trail;
-- prepare a citable release;
-- keep code, data, figures, and methods connected.
+- current project orientation;
+- claim boundaries;
+- research-infrastructure documentation;
+- public navigation;
+- citation metadata;
+- human–AI disclosure;
+- platform-specific publication planning.
 
-This is the active step.
+## 2. Citable repository release — completed
 
-## 2. Formal physics manuscript
+Release `v0.2.0` freezes the first publication-oriented repository baseline.
+
+The next archival step is to mint and record a repository DOI through a suitable archive service.
+
+## 3. Formal physics manuscript — next active task
 
 Planned venue profile: a conventional theoretical/computational physics journal.
 
@@ -40,7 +45,7 @@ Scientific focus:
 - time evolution and numerical adequacy;
 - explicit physical limitations.
 
-## 3. Academia presentation
+## 4. Academia presentation
 
 Purpose:
 
@@ -55,7 +60,7 @@ Visual profile:
 - dark backgrounds, blue/cyan structure, warm gold accents, and clear typographic hierarchy;
 - no sensational claim inflation.
 
-## 4. ESA Open Space Innovation Platform (OSIP)
+## 5. ESA Open Space Innovation Platform (OSIP)
 
 Purpose:
 
@@ -65,7 +70,7 @@ Purpose:
 
 OSIP material is not merely a shortened journal paper.
 
-## 5. Hypercube and computational-physics methods paper
+## 6. Hypercube and computational-physics methods paper
 
 Central contribution:
 
@@ -80,18 +85,8 @@ Candidate fields include computational physics, scientific data engineering, res
 
 Novelty wording remains conservative until the dedicated literature review is complete.
 
-## 6. Releases and DOI records
+## 7. DOI and cross-platform records
 
-A repository release should be frozen before formal submission.
+The GitHub release, repository archive DOI, journal DOI, Academia record, and OSIP identifier are separate objects and must not be conflated.
 
-The release process should include:
-
-- version tag;
-- release notes;
-- citation metadata;
-- licence review;
-- manuscript and figure mapping;
-- reproducibility instructions;
-- archived release record and DOI where applicable.
-
-Publication DOI, repository-release DOI, Academia record, and OSIP identifiers are separate objects and must not be conflated.
+Each identifier will be added only after the corresponding public record exists.

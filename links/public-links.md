@@ -7,6 +7,7 @@ This file is the central outward-facing link index for the **Quantum–Spacetime
 ### Repository
 
 - GitHub: https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge
+- Current release: https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge/releases/tag/v0.2.0
 
 ### Research identity
 
@@ -16,11 +17,11 @@ This file is the central outward-facing link index for the **Quantum–Spacetime
 
 The following routes are in preparation. Exact URLs and identifiers will be added only when the corresponding public records exist.
 
+- repository archive and DOI record;
 - formal physics manuscript;
 - Academia research presentation;
 - ESA Open Space Innovation Platform (OSIP);
-- computational-physics / scientific-hypercube methods paper;
-- versioned repository archive and DOI record.
+- computational-physics / scientific-hypercube methods paper.
 
 ## Maintenance rule
 

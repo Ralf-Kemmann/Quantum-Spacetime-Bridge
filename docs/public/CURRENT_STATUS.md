@@ -1,8 +1,15 @@
 # Current Project Status
 
 **Status date:** 26 July 2026
+**Current repository release:** `v0.2.0`
 
 This note is the current public orientation layer for the Quantum–Spacetime Bridge repository. It does not replace the detailed run records.
+
+## Public repository state
+
+The publication-oriented GitHub surface is installed and the repository is frozen as release `v0.2.0`.
+
+The next publication task is the formal integration of the coupled matter–edge-field manuscript.
 
 ## Active publication track
 
@@ -62,11 +69,11 @@ The repository also contains extensive earlier work on pair-based H3 diagnostics
 
 ## Publication sequence
 
-1. Make the public GitHub surface current and navigable.
-2. Freeze a citable repository release.
-3. Complete the formal physics manuscript.
-4. Prepare the readable Academia presentation.
-5. Prepare the ESA OSIP route.
-6. Develop the hypercube / computational-physics methods paper.
+1. Public GitHub surface — **completed**
+2. Citable repository release — **completed as `v0.2.0`**
+3. Formal physics manuscript — **next active task**
+4. Readable Academia presentation
+5. ESA OSIP route
+6. Hypercube / computational-physics methods paper
 
 No new physical run is required merely to perform the present editorial and publication work.
