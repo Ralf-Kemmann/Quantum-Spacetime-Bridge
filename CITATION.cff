@@ -1,12 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite it as an active research repository at an intermediate methodological stage."
+message: "Please cite the specific repository release or associated publication used in your work. Until a release DOI is available, cite this active research repository and include the accessed commit or version."
 title: "Quantum–Spacetime Bridge"
 abstract: >-
-  A cautious, wave-based research framework exploring whether weighted
-  relational structure can provide a bounded methodological bridge between
-  quantum organization and spacetime-related effective structure. The current
-  repository documents an intermediate research stage and should not be read as
-  a completed theory claim.
+  An independent exploratory computational-physics research repository
+  investigating finite relational and graph-based models, including coupled
+  matter and edge-field dynamics. The repository also develops a
+  provenance-controlled PostgreSQL research data warehouse, metadata-governed
+  Data Marts, and multidimensional scientific analytics. It preserves source
+  lineage, validation outcomes, controls, rejected candidates, repair states,
+  and claim boundaries. Current results are model-internal and do not
+  constitute a validated physical theory of spacetime or gravitation.
 type: software
 authors:
   - family-names: "Kemmann"
@@ -15,13 +18,14 @@ authors:
     affiliation: "Independent Researcher"
 repository-code: "https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge"
 url: "https://github.com/Ralf-Kemmann/Quantum-Spacetime-Bridge"
-license: "NOASSERTION"
+license: "MIT"
 keywords:
-  - "quantum spacetime"
-  - "wave-based framework"
-  - "relational structure"
-  - "pair-based H3"
-  - "methodological evidence"
-  - "theoretical physics"
-version: "0.1.0"
-date-released: "2026-04-19"
+  - "computational physics"
+  - "finite graph dynamics"
+  - "matter-edge coupling"
+  - "scientific data warehouse"
+  - "research provenance"
+  - "multidimensional analytics"
+  - "scientific hypercube"
+  - "metadata governance"
+  - "reproducibility"

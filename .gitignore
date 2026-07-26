@@ -22,8 +22,9 @@ __pycache__/
 *.synctex.gz
 *.toc
 
-# Local exports
+# Local archives and generated exports
 *.zip
+exports/
 
 # generated cleanup/check outputs
 docs/numerics_inventory/
@@ -61,6 +62,7 @@ data/QSB-ST-SHAPIROINFO/manual_evidence/ell1_geometric_phase_mapping/pint_1_1_5_
 *.sqlite-shm
 *.bak.db
 *.backup.db
+
 # Local-only oversized generated PostgreSQL replay/audit SQL artifacts.
 runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-METADATA-SERVER-01/36_legacy_ingest_upsert.sql
 runs/QSB-DWH-POSTGRES-LEGACY-MIGRATION-ARTIFACT-STAGING-PATCH-01/36_legacy_ingest_upsert.sql
