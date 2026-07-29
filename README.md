@@ -124,3 +124,23 @@ The first publication-oriented repository baseline is:
 - Repository licence: [MIT](LICENSE)
 
 Formal publication references and DOI records will be added when the corresponding releases exist.
+
+<!-- QSB:BMC12E_CONSISTENCY_RESULT:START -->
+## Matter–Edge/BMC-12e consistency result
+
+The frozen Matter–Edge mapping did **not** reproduce the BMC-12e
+localization pattern out of sample.
+
+```text
+decision=no_structural_consistency_detected
+scientific_result_class=closed_negative_structural_consistency_result
+```
+
+This closes the tested mapping only. It is not a physical falsification
+and not a general rejection of Matter–Edge models.
+
+See
+[`docs/public/matter-edge-bmc12e-consistency-result.md`](docs/public/matter-edge-bmc12e-consistency-result.md)
+for the reviewed result, null-model context, repair disclosure, and
+human–AI methods note.
+<!-- QSB:BMC12E_CONSISTENCY_RESULT:END -->

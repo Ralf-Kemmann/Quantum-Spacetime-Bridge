@@ -1,0 +1,51 @@
+{
+  "publication_surface_id": "QSB-MATTER-EDGE-BMC12E-PUBLICATION-SURFACE-UPDATE-01",
+  "decision": "no_structural_consistency_detected",
+  "scientific_result_class": "closed_negative_structural_consistency_result",
+  "lambda_star": 1e-06,
+  "observed_spearman_rho": -0.0034192790202217677,
+  "observed_macro_f1": 0.22093481989708405,
+  "association_null_summary": {
+    "permutation_count": 10000,
+    "spearman_rho_q50": 0.024963516749261363,
+    "spearman_rho_q95": 0.22186395008447096,
+    "spearman_rho_q99": 0.30182976676088863,
+    "spearman_rho_p_upper": 0.5923407659234077,
+    "macro_f1_q50": 0.20036020583190395,
+    "macro_f1_q95": 0.27593481989708407,
+    "macro_f1_q99": 0.3080960548885077,
+    "macro_f1_p_upper": 0.32696730326967305
+  },
+  "node_state_null_summary": {
+    "permutation_count": 10000,
+    "spearman_rho_q50": 0.31753264795776603,
+    "spearman_rho_q95": 0.5569880522367324,
+    "spearman_rho_q99": 0.6394609613781608,
+    "spearman_rho_p_upper": 0.9637036296370363,
+    "macro_f1_q50": 0.28305852785088664,
+    "macro_f1_q95": 0.40011767251711783,
+    "macro_f1_q99": 0.44771884226884234,
+    "macro_f1_p_upper": 0.8401159884011599
+  },
+  "null_permutation_rows": 20000,
+  "seed_audit_rows": 240000,
+  "batch_manifest_rows": 200,
+  "physical_claim_release": "blocked_no_physics_claim",
+  "mechanism_claim_release": "blocked_no_mechanism_claim",
+  "manuscript_integration_authorized": false,
+  "full_stage_authorized": false,
+  "claim_scope": "Closed negative structural-consistency result for the frozen tested mapping only; not a physical falsification, not a general rejection of Matter–Edge models, and not an anti-mechanism claim.",
+  "source_runs": {
+    "null_execution": "QSB-MATTER-EDGE-BMC12E-CONSISTENCY-EXECUTION-NULL-MODELS-EXECUTION-01",
+    "finalize": "QSB-MATTER-EDGE-BMC12E-CONSISTENCY-EXECUTION-FINALIZE-01",
+    "dwh_ingest": "QSB-MATTER-EDGE-BMC12E-CONSISTENCY-EXECUTION-DWH-INGEST-01",
+    "dwh_review": "QSB-MATTER-EDGE-BMC12E-CONSISTENCY-EXECUTION-DWH-INGEST-REVIEW-01"
+  },
+  "reviewed_artifact_hashes": {
+    "null_execution_final_status_sha256": "0d0aa50748c0de15c635389d9605b46ce22fd360f9559452b873f931a763b979",
+    "finalize_summary_sha256": "33a072d058010956e501977b1c73137e27b937a5acfa0b14b56c3c4998b2cf90",
+    "dwh_ingest_final_status_sha256": "c28985f27824870510479fba3301a7881b2f7a35d0e9a01a6256980390525514",
+    "dwh_review_final_status_sha256": "8e80ea903060f2516e8683f5fac5e52fa4baeb0c024c8db1dd69cadb15573bf0"
+  },
+  "generated_at_utc": "2026-07-29T16:33:48.263375+00:00"
+}
